@@ -35,7 +35,7 @@ void initlogVec(vector<double>& v, double vMin, double vMax, int N)
 {
 	v.resize(N, 0.0);
 	for (int i = 0; i < N; ++i)
-		v[i] = vMin * pow(vMax/vMin, double(i)/double(N+1));
+		v[i] = vMin * pow(vMax/vMin, double(i) / double(N+1));
 }
 
 void initLinearVec(vector<double>& v, double vMin, double vMax, int N)
