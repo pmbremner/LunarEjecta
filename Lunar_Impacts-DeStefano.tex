@@ -442,7 +442,8 @@ Using Eqs.\ \ref{eq:a_of_v} and \ref{eq:e_of_v}, we can write
 \end{equation}
 so Eq.\ \ref{eq:tan_beta} becomes \citep[c.f., Eq.\ (1) of][]{vickery1986size}
 \begin{equation}\label{eq:ejecta_distance}
-\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v^2}{v_{esc}^2}\sin\gamma\cos\gamma}{1-2\frac{v^2}{v_{esc}^2}\sin^2\gamma} = \frac{\frac{v^2}{v_{esc}^2}\sin(2\gamma)}{\frac{v^2}{v_{esc}^2}[\cos(2\gamma)-1]+1}.
+\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v^2}{v_{esc}^2}\sin\gamma\cos\gamma}{1-2\frac{v^2}{v_{esc}^2}\sin^2\gamma} = \frac{\frac{v^2}{v_{esc}^2}\sin(2\gamma)}{\frac{v^2}{v_{esc}^2}[\cos(2\gamma)-1]+1}
+=\frac{2\frac{v^2}{v_{esc}^2}\tan\gamma}{1+(1-2\frac{v^2}{v_{esc}^2})\tan^2\gamma}.
 \end{equation}
 
 
@@ -472,7 +473,8 @@ Solving for $v$ we have
 %\frac{v^2}{v_{esc}^2} = \left[1-\cos(2\gamma)+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)\right]^{-1}
 %\end{equation}
 \begin{equation}
-\frac{v}{v_{esc}} = \frac{+1}{\sqrt{\sin(2\gamma)\left(\cot\left(\frac{D}{2r_m}\right)+\tan\gamma\right)}}.
+\frac{v}{v_{esc}} = \frac{+1}{\sqrt{\sin(2\gamma)\left(\cot\left(\frac{D}{2r_m}\right)+\tan\gamma\right)}}
+= \frac{+1}{\sqrt{1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)-\cos(2\gamma)}}.
 \end{equation}
 We can also solve for the zenith angle $\gamma$, given by
 \begin{equation}\label{eq:gammaVs_V_D}
