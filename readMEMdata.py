@@ -3,18 +3,20 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+# https://matplotlib.org/gallery/images_contours_and_fields/contourf_log.html#sphx-glr-gallery-images-contours-and-fields-contourf-log-py
+from matplotlib import ticker, cm
 
 N_phi   = 36
 N_theta = 72 
-N_v     = 40 #40
+N_v     = 80 #40
 
 d_phi   = 5
 d_theta = 5
-d_v     = 2 #2
+d_v     = 1 #2
 
 phi_min   = -90
 theta_min = 0
-v_min     = 1 #1
+v_min     = 0 #1
 
 filename = sys.argv[1] # '/LatRunData/lat-90/HiDensity/flux_avg.txt'
 print(filename)
@@ -23,6 +25,7 @@ print(filename)
 data = np.loadtxt(filename, unpack=True) # Equator South45 SouthPole
 
 v = np.linspace(v_min, v_min + d_v * (N_v-1), N_v)
+phi = np.linspace(0, phi_min + d_phi * (N_phi-1), N_phi/2)
 #print(v)
 # data2 = np.reshape(data[:,int(N_phi*N_theta/2):], (N_v+2, N_theta, int(N_phi/2)))
 # print(np.shape(data2))
@@ -37,9 +40,23 @@ v = np.linspace(v_min, v_min + d_v * (N_v-1), N_v)
 # plt.plot(v, data2[2:,1,0])
 # plt.show()
 
+data2d = np.zeros((int(N_phi/2), N_v))
+#print(np.shape(data2d))
+
 for i in range(int(N_phi/2), N_phi):
-	plt.plot(v[1:], np.sum(data[3:,int(i*N_theta):int((i+1)*N_theta)], axis=1), label=str(data[0, int(i*N_theta)]))
+	##plt.plot(v, np.sum(data[2:,int(i*N_theta):int((i+1)*N_theta)], axis=1), label=str(data[0, int(i*N_theta)]))
+	#print(np.shape(np.sum(data[2:,int(i*N_theta):int((i+1)*N_theta)], axis=1)))
+	#print(np.shape(data2d[i-int(N_phi/2),:]))
+	data2d[i-int(N_phi/2)] = np.sum(data[2:,int(i*N_theta):int((i+1)*N_theta)], axis=1)
 
 #plt.yscale('log')
-plt.legend()
+##plt.legend()
+##plt.show()
+#print(np.shape(v), np.shape(phi), np.shape(data2d))
+plt.contourf(v, phi, data2d/(data2d.max()), 20)
+plt.colorbar(label='Max flux [#/m^2/year] = ' + str("{0:.3E}".format(data2d.max())))
+plt.xlabel('Impact Speed [km/s]')
+plt.ylabel('Impact Angle from Horizon [degrees]')
+plt.title(filename)
+#plt.ylim(bottom=1e-5)
 plt.show()
