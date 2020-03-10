@@ -30,13 +30,13 @@ C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData\MEM_inp
 mo
 ec
 a
-0
+10001
 -6
 y high fidelity
-C:\Users\adestefa\Documents\MEM3_Windows\Runs
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData
 lat-90
 mo
-ec
+bo
 5
 1
 n intermediate files

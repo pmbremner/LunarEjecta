@@ -1,5 +1,5 @@
 Meteoroid Engineering Model (MEM) version 3.0.1
-Run started at 15:57:11 PM 03/06/20
+Run started at 15:20:19 PM 03/09/20
 
 ================================================================================
 INPUT FILES AND CHOICES
@@ -31,3 +31,8 @@ AN UNDERESTIMATE OF VEHICLE RISK.
 
  - cube_avg.txt:  reports average flux and speeds for all state vectors used.
 
+--------------------------------------------------------------------------------
+IGLOO FILES: These files are essentially equivalent to the flux files, but the
+directionality is divided into bins of approximately equal area.
+
+ - igloo_avg.txt: reports the average flux for all state vectors used.

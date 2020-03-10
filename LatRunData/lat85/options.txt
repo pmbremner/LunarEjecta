@@ -33,10 +33,10 @@ a
 0
 -6
 y high fidelity
-C:\Users\adestefa\Documents\MEM3_Windows\Runs
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData
 lat85
 mo
-ec
+bo
 5
 1
 n intermediate files

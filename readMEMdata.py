@@ -1,19 +1,26 @@
+#!/usr/bin/python
+
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
 N_phi   = 36
 N_theta = 72 
-N_v     = 40
+N_v     = 40 #40
 
 d_phi   = 5
 d_theta = 5
-d_v     = 2
+d_v     = 2 #2
 
 phi_min   = -90
 theta_min = 0
-v_min     = 1
+v_min     = 1 #1
 
-data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
+filename = sys.argv[1] # '/LatRunData/lat-90/HiDensity/flux_avg.txt'
+print(filename)
+
+#data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
+data = np.loadtxt(filename, unpack=True) # Equator South45 SouthPole
 
 v = np.linspace(v_min, v_min + d_v * (N_v-1), N_v)
 #print(v)
@@ -31,7 +38,7 @@ v = np.linspace(v_min, v_min + d_v * (N_v-1), N_v)
 # plt.show()
 
 for i in range(int(N_phi/2), N_phi):
-	plt.plot(v, np.sum(data[2:,int(i*N_theta):int((i+1)*N_theta)], axis=1), label=str(data[0, int(i*N_theta)]))
+	plt.plot(v[1:], np.sum(data[3:,int(i*N_theta):int((i+1)*N_theta)], axis=1), label=str(data[0, int(i*N_theta)]))
 
 #plt.yscale('log')
 plt.legend()
