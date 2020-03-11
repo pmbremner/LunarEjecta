@@ -12,7 +12,7 @@ import glob
 offset = 58 # size of header
 cycle = 4   # number of rows for a set of data (same JD timestamp)
 
-for filepath in glob.iglob('LunarSurfaceEphemerisData/Horizons*.txt'):
+for filepath in glob.iglob('Horizons*.txt'):
     print(filepath)
     with open(filepath) as fp:
         with open('MEM_input_' + filepath, 'w') as out_file:
