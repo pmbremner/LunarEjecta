@@ -23,7 +23,7 @@ lat_min   = -90
 
 #filename = sys.argv[1] # '/LatRunData/lat-90/HiDensity/flux_avg.txt'
 preDirectory     = sys.argv[1] # LatRunData
-densityDirectory = sys.argv[2] # HiDensity
+densityDirectory = sys.argv[2] # HiDensity LoDensity
 
 
 for ilat in range(0, N_lat):
