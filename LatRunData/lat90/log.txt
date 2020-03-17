@@ -1,5 +1,7 @@
 Meteoroid Engineering Model (MEM) version 3.0.1
-Run started at 15:19:32 PM 03/09/20
+Run started at 17:49:59 PM 03/16/20
 
+Warning for line 9 of options.txt:
+    C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData\lat90 exists, some files may be overwritten
 
 Execution terminated successfully

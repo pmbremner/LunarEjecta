@@ -34,7 +34,7 @@ for ilat in range(0, N_lat):
 	data = np.loadtxt(filename, unpack=True) # Equator South45 SouthPole
 
 	v = np.linspace(v_min, v_min + d_v * (N_v-1), N_v)
-	phi = np.linspace(0, phi_min + d_phi * (N_phi-1), N_phi/2)
+	phi = np.linspace(0, phi_min + d_phi * (N_phi-1), int(N_phi/2))
 	#print(v)
 	# data2 = np.reshape(data[:,int(N_phi*N_theta/2):], (N_v+2, N_theta, int(N_phi/2)))
 	# print(np.shape(data2))
@@ -68,5 +68,6 @@ for ilat in range(0, N_lat):
 	plt.ylabel('Impact Angle from Horizon [degrees]')
 	plt.title(filename)
 	#plt.ylim(bottom=1e-5)
+	print(figfilename)
 	plt.savefig(figfilename)
 	plt.clf()
