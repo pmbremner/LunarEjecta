@@ -7,17 +7,25 @@
 
 using namespace std;
 
+
 class vector2d
 {
 public:
-	vector2d(int rows, int cols);
+	vector2d();
 	~vector2d();
-
-private:
-	template<typename T>
-	vector<vector<T>> vec2d;
-
+	
 };
+
+
+
+typedef vector<vector<double> > vec2d;
+
+
+void init_vec2d(vec2d v2, int rows, int cols);
+
+
+void print_vec2d(vec2d v2, int rows, int cols);
+
 
 
 #endif 

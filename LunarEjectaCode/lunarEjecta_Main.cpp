@@ -14,5 +14,6 @@ int main(int argc, char const *argv[])
 
 	MEM_iglooAvg igloo_data("../LatRunData/lat0/HiDensity");
 
+
 	return 0;
 }
