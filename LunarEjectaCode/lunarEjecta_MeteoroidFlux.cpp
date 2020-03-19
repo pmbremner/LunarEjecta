@@ -16,6 +16,10 @@ MEM_data::MEM_data(string fn) {
 MEM_data::~MEM_data() {}
 
 
+
+void MEM_data::H_setHeaderLength(int h) { headerLength = h; }
+
+
 void MEM_data::H_getRowCol_FromFile() {
 	ifstream file;
 	file.open(fileName);
@@ -23,14 +27,14 @@ void MEM_data::H_getRowCol_FromFile() {
 	cout << fileName << endl;
 
 	// read # of rows
-	H_readInt_FromFile(file, rows);
+	H_readInt_FromFile(file, Nrows);
 
-	cout << rows << endl;
+	cout << Nrows << endl;
 
 	// read # of cols
-	H_readInt_FromFile(file, cols);
+	H_readInt_FromFile(file, Ncols);
 
-	cout << cols << endl;
+	cout << Ncols << endl;
 
 
 }
@@ -48,7 +52,42 @@ void MEM_data::H_readInt_FromFile(ifstream& file, int& firstInt) {
 
 /////////////////////////////////////////////////////////////
 
-MEM_CubeAvg::MEM_CubeAvg(string dn)  : MEM_data(dn + "/cube_avg.txt")
-{}
+MEM_cubeAvg::MEM_cubeAvg(string dn)  : MEM_data(dn + "/cube_avg.txt")
+{
+	this->H_readFile();
+}
 
-MEM_CubeAvg::~MEM_CubeAvg() {}
+MEM_cubeAvg::~MEM_cubeAvg() {}
+
+void MEM_cubeAvg::H_readFile(void)
+{
+
+}
+
+/////////////////////////////////////////////////////////////
+
+MEM_fluxAvg::MEM_fluxAvg(string dn)  : MEM_data(dn + "/flux_avg.txt")
+{
+	this->H_readFile();
+}
+
+MEM_fluxAvg::~MEM_fluxAvg() {}
+
+void MEM_fluxAvg::H_readFile(void)
+{
+
+}
+
+/////////////////////////////////////////////////////////////
+
+MEM_iglooAvg::MEM_iglooAvg(string dn)  : MEM_data(dn + "/igloo_avg.txt")
+{
+	this->H_readFile();
+}
+
+MEM_iglooAvg::~MEM_iglooAvg() {}
+
+void MEM_iglooAvg::H_readFile(void)
+{
+
+}
