@@ -7,6 +7,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 #include <vector>
 #include "vector2d.h"
 
@@ -22,6 +23,12 @@ public:
 	inline double getFlux(int row, int col);
 	inline double getRVar(int row, int col);
 	inline double getCVar(int row, int col);
+
+	inline double getNrows();
+	inline double getNcols();
+	inline double getNrowVars();
+	inline double getNcolVars();
+
 	
 protected:
 	virtual void H_readFile(void) = 0;
@@ -31,10 +38,14 @@ protected:
 	inline int H_idxFlux(int row, int col);
 	inline int H_idxRVar(int row, int col);
 	inline int H_idxCVar(int row, int col);
-	inline void H_storeFlux(int row, int col, double flux); // use only after init
-	inline void H_pushBackFlux(double flux); // use only for init
-	inline void H_pushBackRVar(double RVar); // use only for init
-	inline void H_pushBackCVar(double CVar); // use only for init
+	inline void H_storeFlux(int row, int col, double flux);
+	inline void H_storeRVar(int row, int col, double RVar);
+	inline void H_storeCVar(int row, int col, double RCar);
+
+	// don't use these now
+	inline void H_pushBackFlux(double flux); 
+	inline void H_pushBackRVar(double RVar);
+	inline void H_pushBackCVar(double CVar); 
 
 	string fileName;
 	int headerLength;
@@ -83,6 +94,105 @@ public:
 private:
 	void H_readFile();
 
+};
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+class MEM_HiDensityCubeAvg : public MEM_cubeAvg
+{
+public:
+	MEM_HiDensityCubeAvg(string dn);
+	~MEM_HiDensityCubeAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+class MEM_HiDensityFluxAvg : public MEM_fluxAvg
+{
+public:
+	MEM_HiDensityFluxAvg(string dn);
+	~MEM_HiDensityFluxAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+class MEM_HiDensityIglooAvg : public MEM_iglooAvg
+{
+public:
+	MEM_HiDensityIglooAvg(string dn);
+	~MEM_HiDensityIglooAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+class MEM_LoDensityCubeAvg : public MEM_cubeAvg
+{
+public:
+	MEM_LoDensityCubeAvg(string dn);
+	~MEM_LoDensityCubeAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+class MEM_LoDensityFluxAvg : public MEM_fluxAvg
+{
+public:
+	MEM_LoDensityFluxAvg(string dn);
+	~MEM_LoDensityFluxAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+class MEM_LoDensityIglooAvg : public MEM_iglooAvg
+{
+public:
+	MEM_LoDensityIglooAvg(string dn);
+	~MEM_LoDensityIglooAvg();
+	
+};
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+// Note: a template class must be definied in the header file
+template <class genMEMdata> 
+class MEM_LatData 
+{
+public:
+	MEM_LatData(string dn, double lMin, double lMax, int NL) // string dn, double lMin, double lMax, int NL
+	{
+		directoryName = dn;
+		latMin        = lMin;
+		latMax        = lMax;
+		NLat          = NL;
+		cout << "template class init \n";
+
+		dataSet.resize(NL);
+		string latDirectoryName;
+
+		for (int i = 0; i < NLat; ++i)
+		{
+			latDirectoryName = "/lat" + to_string(int(latMin + (latMax-latMin)*i/(NL-1.0)));
+			//cout << latDirectoryName << endl;
+			dataSet[i] = new genMEMdata(dn + latDirectoryName);
+		}
+	}
+
+	~MEM_LatData()
+	{
+		for (int i = 0; i < NLat; ++i)
+		{
+			delete dataSet[i];
+			//cout << "delete " << i << endl;
+		}
+	}
+
+	//void print();
+
+private:
+	string directoryName;
+	vector<genMEMdata*> dataSet;
+
+	double latMin;
+	double latMax;
+	int NLat;
+	
 };
 
 

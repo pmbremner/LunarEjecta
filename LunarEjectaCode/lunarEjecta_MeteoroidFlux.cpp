@@ -30,6 +30,11 @@ inline double MEM_data::getCVar(int r, int c)
 	return colVars[H_idxCVar(r,c)];
 }
 
+inline double MEM_data::getNrows() {return Nrows;}
+inline double MEM_data::getNcols() {return Ncols;}
+inline double MEM_data::getNrowVars() {return NrowVars;}
+inline double MEM_data::getNcolVars() {return NcolVars;}
+
 void MEM_data::H_setHeaderLength(int h) { headerLength = h; }
 
 
@@ -75,13 +80,23 @@ inline int MEM_data::H_idxRVar(int r, int c)
 
 inline int MEM_data::H_idxCVar(int r, int c)
 {
-	return r + c * NcolVars;
+	return r * NcolVars + c;
 }
 
 // assumes fluxData has already been initialized
 inline void MEM_data::H_storeFlux(int r, int c, double flux)
 {
 	fluxData[H_idxFlux(r,c)] = flux;
+}
+
+inline void MEM_data::H_storeRVar(int r, int c, double RVar)
+{
+	rowVars[H_idxRVar(r,c)] = RVar;
+}
+
+inline void MEM_data::H_storeCVar(int r, int c, double CVar)
+{
+	colVars[H_idxCVar(r,c)] = CVar;
 }
 
 inline void MEM_data::H_pushBackFlux(double flux)
@@ -120,6 +135,12 @@ void MEM_cubeAvg::H_readFile(void)
 	ifstream file;
 	file.open(fileName);
 
+	// set colVars
+	colVars.resize(NcolVars);
+	for (i = 0; i < NcolVars; ++i)
+		this->H_storeCVar(0, i, double(i));
+
+
 	// retrieve the column names
 	for (i = 0; i < 5; ++i)
 		file.ignore(256, '\n');
@@ -128,37 +149,38 @@ void MEM_cubeAvg::H_readFile(void)
 	{
 		file.get(C_unitName, 14, '\n');
 		colVarsUnits.push_back(string(C_unitName));
-		cout << colVarsUnits[i] << endl;
+		//cout << colVarsUnits[i] << endl;
 	}
 
 	// retrieve the row name
-
 	file.ignore(256, '\n');
 	file.ignore(256, '\n');
 	file.ignore(256, '\n');
 	file.ignore(2, ' ');
 	file.get(C_unitName, 16);
 	rowVarsUnits.push_back(C_unitName);
-	cout << rowVarsUnits[0] << endl;
+	//cout << rowVarsUnits[0] << endl;
 	file.ignore(256, '\n');
 
 	// start reading data...
 	fluxData.resize(Nrows * Ncols);
+	rowVars.resize(Nrows * NrowVars);
 	for (j = 0; j < Nrows; ++j)
 	{
 		file >> D_temp;
-		this->H_pushBackRVar(D_temp);
+		this->H_storeRVar(j, 0, D_temp);
 		//cout << this->getRVar(j, 0) << ' ';
 		for (i = 0; i < Ncols; ++i)
 		{
 			file >> D_temp;
-			this->H_pushBackFlux(D_temp);
+			this->H_storeFlux(j, i, D_temp);
 			// if(i < 2)
 			// 	cout << this->getFlux(j, i) << ' ';
 		}
 		//cout << endl;
 	}
-
+	cout << fluxData.size() << endl;
+	file.close();
 }
 
 /////////////////////////////////////////////////////////////
@@ -172,7 +194,72 @@ MEM_fluxAvg::~MEM_fluxAvg() {}
 
 void MEM_fluxAvg::H_readFile(void)
 {
+	int i, j;
+	char C_unitName[16];
+	stringstream SS_double;
+	double D_temp;
+	NrowVars = 2;
+	NcolVars = 1;
 
+	ifstream file;
+	file.open(fileName);
+
+	// retrieve the column units
+	colVarsUnits.push_back(string("speed (km/s)"));
+	//cout << colVarsUnits[0] << endl;
+
+	for (i = 0; i < 7; ++i)
+		file.ignore(256, '\n');
+
+	// retrieve the row units
+	file.ignore(1);
+	file.get(C_unitName, 6);
+	rowVarsUnits.push_back(string(C_unitName) + " (degrees)");
+	//cout << rowVarsUnits[0] << endl;
+
+	file.get(C_unitName, 8);
+	rowVarsUnits.push_back(string(C_unitName) + " (degrees)");
+	//cout << rowVarsUnits[1] << endl;
+
+	// retrieve colVars
+	colVars.resize(Ncols * NcolVars);
+	for (i = 0; i < Ncols; ++i)
+	{
+		file >> D_temp;
+		//cout << "D " << D_temp << endl; 
+		this->H_storeCVar(0, i, D_temp);
+		//cout << this->getCVar(0, i) << ' ' ;
+	}
+	//cout << endl;
+	file.ignore(256, '\n');
+	
+	// start reading data...
+	fluxData.resize(Nrows * Ncols);
+	rowVars.resize(Nrows * NrowVars);
+	for (j = 0; j < Nrows; ++j)
+	{
+		file >> D_temp;
+		this->H_storeRVar(j, 0, D_temp);
+		// if(j < 10)
+		// 	cout << this->getRVar(j, 0) << ' ';
+
+		file >> D_temp;
+		this->H_storeRVar(j, 1, D_temp);
+		// if(j < 10)
+		// 	cout << this->getRVar(j, 1) << ' ';
+
+		for (i = 0; i < Ncols; ++i)
+		{
+			file >> D_temp;
+			this->H_storeFlux(j, i, D_temp);
+			// if(i < 2 && j < 10)
+			// 	cout << this->getFlux(j, i) << ' ';
+		}
+		// if(j < 10)
+		// 	cout << endl;
+	}
+	cout << fluxData.size() << endl;
+	file.close();
 }
 
 /////////////////////////////////////////////////////////////
@@ -186,5 +273,111 @@ MEM_iglooAvg::~MEM_iglooAvg() {}
 
 void MEM_iglooAvg::H_readFile(void)
 {
+	int i, j;
+	char C_unitName[16];
+	stringstream SS_double;
+	double D_temp;
+	string S_temp;
+	NrowVars = 9;
+	NcolVars = 1;
 
+	ifstream file;
+	file.open(fileName);
+
+	// retrieve the column units
+	colVarsUnits.push_back(string("speed (km/s)"));
+	//cout << colVarsUnits[0] << endl;
+
+	for (i = 0; i < 7; ++i)
+		file.ignore(256, '\n');
+
+	// retrieve the row units
+	file.ignore(1);
+	for (i = 0; i < NrowVars; ++i)
+	{
+		file >> S_temp;
+		if(i < 3)
+			rowVarsUnits.push_back(S_temp);
+		else
+			rowVarsUnits.push_back(S_temp + " (degrees)");
+		//cout << rowVarsUnits[i] << endl;
+	}
+	
+	// retrieve colVars
+	colVars.resize(Ncols * NcolVars);
+	for (i = 0; i < Ncols; ++i)
+	{
+		file >> D_temp;
+		//cout << "D " << D_temp << endl; 
+		this->H_storeCVar(0, i, D_temp);
+		//cout << this->getCVar(0, i) << ' ' ;
+	}
+	//cout << endl;
+	file.ignore(256, '\n');
+	
+	// start reading data...
+	fluxData.resize(Nrows * Ncols);
+	rowVars.resize(Nrows * NrowVars);
+	for (j = 0; j < Nrows; ++j)
+	{
+		for (i = 0; i < NrowVars; ++i)
+		{
+			file >> D_temp;
+			this->H_storeRVar(j, i, D_temp);
+			// if(j < 10)
+			// 	cout << this->getRVar(j, i) << ' ';
+		}
+		
+
+		for (i = 0; i < Ncols; ++i)
+		{
+			file >> D_temp;
+			this->H_storeFlux(j, i, D_temp);
+			// if(i < 2 && j < 10)
+			// 	cout << this->getFlux(j, i) << ' ';
+		}
+		// if(j < 10)
+		// 	cout << endl;
+	}
+	cout << fluxData.size() << endl;
+	file.close();
 }
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+MEM_HiDensityCubeAvg::MEM_HiDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/HiDensity") {}
+
+MEM_HiDensityCubeAvg::~MEM_HiDensityCubeAvg() {}
+
+/////////////////////////////////////////////////////////////
+
+MEM_HiDensityFluxAvg::MEM_HiDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/HiDensity") {}
+
+MEM_HiDensityFluxAvg::~MEM_HiDensityFluxAvg() {}
+
+/////////////////////////////////////////////////////////////
+
+MEM_HiDensityIglooAvg::MEM_HiDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/HiDensity") {}
+
+MEM_HiDensityIglooAvg::~MEM_HiDensityIglooAvg() {}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+MEM_LoDensityCubeAvg::MEM_LoDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/LoDensity") {}
+
+MEM_LoDensityCubeAvg::~MEM_LoDensityCubeAvg() {}
+
+/////////////////////////////////////////////////////////////
+
+MEM_LoDensityFluxAvg::MEM_LoDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/LoDensity") {}
+
+MEM_LoDensityFluxAvg::~MEM_LoDensityFluxAvg() {}
+
+/////////////////////////////////////////////////////////////
+
+MEM_LoDensityIglooAvg::MEM_LoDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/LoDensity") {}
+
+MEM_LoDensityIglooAvg::~MEM_LoDensityIglooAvg() {}
