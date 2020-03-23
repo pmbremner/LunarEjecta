@@ -1,0 +1,29 @@
+\BOOKMARK [1][-]{section.1}{Executive Summary}{}% 1
+\BOOKMARK [1][-]{section.2}{Characteristics of the 17 March 2013 Event}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{LRO Observations: Robinson et al. 2015}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Crater Morphology}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Impact Event Parameters}{subsection.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.2}{MEO Observations: Moser et al. 2014, ACM}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Correlation with Meteor Activity}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Impact Event Parameters}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Luminous Efficiency}{subsection.2.2}% 9
+\BOOKMARK [1][-]{section.3}{Lunar Regolith Properties}{}% 10
+\BOOKMARK [1][-]{section.4}{Spheral Benchmark of 17 March 2013 Event}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Getting Started and Running on Computer Clusters}{section.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Installing on MEO Cluster}{subsection.4.1}% 13
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Running on MEO Cluster}{subsection.4.1}% 14
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Running on LLNL Cluster}{subsection.4.1}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Porosity 0 Study}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Max Strength Ym Study}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Spheral Based Lunar Ejecta Modeling}{}% 18
+\BOOKMARK [1][-]{section.6}{MEM3 Based Lunar Ejecta Modeling}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Algorithm}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.2}{Regolith Size Distribution}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Ejected Mass from an Impactor}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.4}{Meteoroid Projectile Mass Distribution}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.5}{Meteoroid Projectile Density Distribution}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.6}{Meteoroid Projectile Speed and Angle Distribution}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.7}{Secondary Ejecta Distance, Speed, \046 Angle}{section.6}% 26
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Coriolis Force}{subsection.6.7}% 27
+\BOOKMARK [1][-]{section.7}{NASA SP-8013 Meteoroid Environment Model - 1969}{}% 28
+\BOOKMARK [1][-]{section*.11}{References}{}% 29

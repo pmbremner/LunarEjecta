@@ -1,0 +1,785 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  23 MAR 2020 13:14
+entering extended mode
+**./Lunar_Impacts-DeStefano.tex
+(Lunar_Impacts-DeStefano.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-03> (hitec.cls
+Document Class: hitec 2001/08/22 v0.0(beta) Hi-tec style document class
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo
+"
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\leftmarginwidth=\dimen134
+\fullwidth=\dimen135
+\emptyfoottopmargin=\dimen136
+\emptyheadtopmargin=\dimen137
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphi
+cx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval
+.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphi
+cs.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.s
+ty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\gr
+aphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pd
+ftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\lscape
+.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable
+.sty"
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip49
+\LTright=\skip50
+\LTpre=\skip51
+\LTpost=\skip52
+\LTchunksize=\count175
+\LTcapwidth=\dimen141
+\LT@head=\box45
+\LT@firsthead=\box46
+\LT@foot=\box47
+\LT@lastfoot=\box48
+\LT@cols=\count176
+\LT@rows=\count177
+\c@LT@tables=\count178
+\c@LT@chunks=\count179
+\LT@p@ftn=\toks16
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\subcapt
+ion.sty"
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption
+.sty"
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption
+3.sty"
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen142
+\captionmargin@=\dimen143
+\captionwidth=\dimen144
+\caption@tempdima=\dimen145
+\caption@indent=\dimen146
+\caption@parindent=\dimen147
+\caption@hangindent=\dimen148
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count180
+\c@continuedfloat=\count181
+Package caption Info: longtable package is loaded.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\ltcapti
+on.sty"
+Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
+))
+\c@subfigure=\count182
+\c@subtable=\count183
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grffile\grffile
+.sty"
+Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
+y)
+Package grffile Info: This package is an empty stub for compatibility on input 
+line 40.
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pdfpag
+es.sty"
+Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty
+"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count184
+\calc@Bcount=\count185
+\calc@Adimen=\dimen149
+\calc@Bdimen=\dimen150
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count186
+\calc@Cskip=\skip55
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic
+.sty"
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/atbegshi\atbe
+gshi.sty"
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\inf
+warerr.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcm
+ds.sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.s
+ty"
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+))
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor.s
+ty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\co
+lor.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+\AM@pagewidth=\dimen151
+\AM@pageheight=\dimen152
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pppdft
+ex.def"
+File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box49
+\AM@global@opts=\toks17
+\AM@pagecnt=\count187
+\AM@toc@title=\toks18
+\c@AM@survey=\count188
+\AM@templatesizebox=\box50
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listin
+gs.sty"
+\lst@mode=\count189
+\lst@gtempboxa=\box51
+\lst@token=\toks19
+\lst@length=\count190
+\lst@currlwidth=\dimen153
+\lst@column=\count191
+\lst@pos=\count192
+\lst@lostspace=\dimen154
+\lst@width=\dimen155
+\lst@newlines=\count193
+\lst@lineno=\count194
+\lst@maxwidth=\dimen156
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmis
+c.sty"
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+\c@lstnumber=\count195
+\lst@skipnumbers=\count196
+\lst@framebox=\box52
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listin
+gs.cfg"
+File: listings.cfg 2019/09/10 1.8c listings configuration
+))
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath
+.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip56
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext
+.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.
+sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen157
+))
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.
+sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen158
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.
+sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count197
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count198
+\leftroot@=\count199
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count266
+\DOTSCASE@=\count267
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+\big@size=\dimen159
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count268
+\c@MaxMatrixCols=\count269
+\dotsspace@=\muskip16
+\c@parentequation=\count270
+\dspbrk@lvl=\count271
+\tag@help=\toks21
+\row@=\count272
+\column@=\count273
+\maxfields@=\count274
+\andhelp@=\toks22
+\eqnshift@=\dimen160
+\alignsep@=\dimen161
+\tagshift@=\dimen162
+\tagwidth@=\dimen163
+\totwidth@=\dimen164
+\lineht@=\dimen165
+\@envbody=\toks23
+\multlinegap=\skip57
+\multlinetaggap=\skip58
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titles
+ec.sty"
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
+\ttl@box=\box55
+\beforetitleunit=\skip59
+\aftertitleunit=\skip60
+\ttl@plus=\dimen166
+\ttl@minus=\dimen167
+\ttl@toksa=\toks25
+\titlewidth=\dimen168
+\titlewidthlast=\dimen169
+\titlewidthfirst=\dimen170
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperr
+ef.sty"
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdft
+excmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvs
+etkeys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\
+kvdefinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pdfescape\pdf
+escape.sty"
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hycolor\hycolor
+.sty"
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/letltxmacro\let
+ltxmacro.sty"
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/auxhook\auxhook
+.sty"
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvopt
+ions.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen171
+\Hy@linkcounter=\count275
+\Hy@pagecounter=\count276
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc
+.def"
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/intcalc\intca
+lc.sty"
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/etexcmds\etex
+cmds.sty"
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count277
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count278
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen172
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bitset\bitset
+.sty"
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bigintcalc\bi
+gintcalc.sty"
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count279
+\Field@Width=\dimen173
+\Fld@charsize=\dimen174
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+\Hy@abspage=\count280
+\c@Item=\count281
+\c@Hfootnote=\count282
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdfte
+x.def"
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/atveryend\atver
+yend.sty"
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count283
+\c@bookmark@seq@number=\count284
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/rerunfilecheck\
+rerunfilecheck.sty"
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/uniquecounter
+\uniquecounter.sty"
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip61
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/natbib\natbib.s
+ty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip62
+\bibsep=\skip63
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count285
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
+\c@subsubsubsection=\count286
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3bac
+kend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count287
+\l__pdf_internal_box=\box56
+) (Lunar_Impacts-DeStefano.aux)
+\openout1 = `Lunar_Impacts-DeStefano.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
+3.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.f
+d"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 21.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 24.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 27.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 47.
+
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\sup
+p-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count288
+\scratchdimen=\dimen175
+\scratchbox=\box57
+\nofMPsegments=\count289
+\nofMParguments=\count290
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count291
+\MPscratchDim=\dimen176
+\MPnumerator=\count292
+\makeMPintoPDFobject=\count293
+\everyMPtoPDFconversion=\toks27
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box58
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdflscape\pdfls
+cape.sty"
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+\c@lstlisting=\count294
+Package hyperref Info: Link coloring ON on input line 63.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\namere
+f.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/refcount\refcou
+nt.sty"
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/gettitlestrin
+g\gettitlestring.sty"
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count295
+)
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
+ (Lunar_Impacts-DeStefano.out)
+(Lunar_Impacts-DeStefano.out)
+\@outlinefile=\write3
+\openout3 = `Lunar_Impacts-DeStefano.out'.
+
+ (Lunar_Impacts-DeStefano.toc [1
+
+{C:/Users/adestefa/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+\tf@toc=\write4
+\openout4 = `Lunar_Impacts-DeStefano.toc'.
+
+
+(Lunar_Impacts-DeStefano.lof
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 2.
+)
+\tf@lof=\write5
+\openout5 = `Lunar_Impacts-DeStefano.lof'.
+
+ (Lunar_Impacts-DeStefano.lot)
+\tf@lot=\write6
+\openout6 = `Lunar_Impacts-DeStefano.lot'.
+
+ [2]
+<simpleExcavationCrater-Holsapple.jpg, id=229, 780.9175pt x 284.06125pt>
+File: simpleExcavationCrater-Holsapple.jpg Graphic file (type jpg)
+<use simpleExcavationCrater-Holsapple.jpg>
+Package pdftex.def Info: simpleExcavationCrater-Holsapple.jpg  used on input li
+ne 98.
+(pdftex.def)             Requested size: 312.36147pt x 113.62247pt.
+
+Overfull \hbox (3.59554pt too wide) in paragraph at lines 109--110
+[][]\OT1/phv/m/sl/10 Moser et al.[][] \OT1/phv/m/n/10 [[][]2014[][]] found cor-
+re-la-tion with the Vir-ginid me-teor shower com-plex (EVI/NVI)
+ []
+
+[1
+
+ <./simpleExcavationCrater-Holsapple.jpg>]
+(README-HowToCompileSpheralLocally.txt [2]
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
+5.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1phv.f
+d"
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 17.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 20.
+
+
+LaTeX Warning: Font shape declaration has incorrect series value `mc'.
+               It should not contain an `m'! Please correct it.
+               Found on input line 34.
+
+)
+LaTeX Font Info:    Trying to load font information for OML+phv on input line 3
+5.
+
+("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlphv.f
+d"
+File: omlphv.fd 
+)
+LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 35.
+) [3]
+Overfull \hbox (1.91994pt too wide) in paragraph at lines 171--172
+[]\OT1/cmss/m/n/10 srun -n $\OML/cmm/m/it/10 <$\OT1/cmss/m/n/10 # of CPUs, max 
+36 per node$\OML/cmm/m/it/10 >$ \OT1/cmss/m/n/10 -p pde-bug python -i $\OML/cmm
+/m/it/10 <$\OT1/cmss/m/n/10 python[]script.py$\OML/cmm/m/it/10 >$ 
+ []
+
+
+Overfull \hbox (21.72765pt too wide) in paragraph at lines 172--173
+[]\OT1/phv/m/n/10 Add any vari-able def-i-ni-tions af-ter the \OT1/cmss/m/n/10 
+python[]script.py\OT1/phv/m/n/10 , such as \OT1/cmss/m/n/10 - -impactAngle=56\O
+T1/phv/m/n/10 ,
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\phi' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 195.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 195.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 195.
+
+[4] [5]
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=343, 889.07156pt x 624.081
+56pt>
+File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
+<use Carrier2003_Fig1_particle-size-distribution.PNG>
+Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
+on input line 248.
+(pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
+ [6 <./Carrier2003_Fig1_particle-size-distribution.PNG>]
+<Fit-to-CDF.PNG, id=359, 357.58594pt x 159.59625pt>
+File: Fit-to-CDF.PNG Graphic file (type png)
+<use Fit-to-CDF.PNG>
+Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 260.
+(pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
+<Fit-to-x3PDF.png, id=367, 433.62pt x 278.54062pt>
+File: Fit-to-x3PDF.png Graphic file (type png)
+<use Fit-to-x3PDF.png>
+Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 278.
+(pdftex.def)             Requested size: 303.53192pt x 194.9771pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>]
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=394, 428.35031pt x 321.45094pt
+>
+File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
+nput line 331.
+(pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
+ [9 <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
+<Fit-to-D_Grun.PNG, id=410, 326.72063pt x 167.87718pt>
+File: Fit-to-D_Grun.PNG Graphic file (type png)
+<use Fit-to-D_Grun.PNG>
+Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 348.
+(pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
+ [10 <./Fit-to-D_Grun.PNG>]
+<MEM_UG_Fig2.5_density-distribution.PNG, id=432, 694.84593pt x 472.76625pt>
+File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.5_density-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
+line 379.
+(pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
+<Fit-to-MEM_low_dens.PNG, id=437, 432.86719pt x 157.33781pt>
+File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
+<use Fit-to-MEM_low_dens.PNG>
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 387.
+(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Fit-to-MEM_high_dens.PNG, id=442, 432.11438pt x 155.83218pt>
+File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
+<use Fit-to-MEM_high_dens.PNG>
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 393.
+(pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./MEM_UG_Fig2.5_density-distribution.PNG>] [12 <./Fit-to-MEM_low_dens.PNG>
+ <./Fit-to-MEM_high_dens.PNG>] [13] [14]
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=511, 658.71094pt x 851.43094
+pt>
+File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
+<use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
+Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
+ input line 526.
+(pdftex.def)             Requested size: 395.2296pt x 510.8625pt.
+
+Overfull \hbox (20.2296pt too wide) in paragraph at lines 526--527
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16] [17 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
+(Lunar_Impacts-DeStefano.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 543.
+ [18
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 543.
+ (Lunar_Impacts-DeStefano.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 543.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 543.
+Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
+.
+(rerunfilecheck)             Checksum: A9274B4B519FDD9C88CD80FE96166446;2266.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 543.
+ ) 
+Here is how much of TeX's memory you used:
+ 10956 strings out of 481292
+ 168348 string characters out of 2906380
+ 499015 words of memory out of 3000000
+ 26091 multiletter control sequences out of 15000+200000
+ 555718 words of font info for 64 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 48i,12n,70p,962b,1803s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.
+enc}<C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/adestefa/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/adestefa/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ad
+estefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/adestefa/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/adestefa
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
+Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmss10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmss8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/adestefa/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/adestefa/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Us
+ers/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/
+helvetic/uhvb8a.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/urw/helvetic/uhvr8a.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Lunar_Impacts-DeStefano.pdf (20 pages, 822269 bytes).
+PDF statistics:
+ 639 PDF objects out of 1000 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
+
