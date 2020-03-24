@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -275,7 +277,7 @@ MEM_fluxAvg::~MEM_fluxAvg() {}
 // no interpolation at this time
 double MEM_fluxAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
-	int row_idx = Ntheta * int((alt + 90) / dAngle) + int(azm / dAngle);
+	int row_idx = Ntheta * int((alt + 89.9999) / dAngle) + int(azm / dAngle);
 	int col_idx = vel / dVel;
 
 	if(row_idx >= 0 && row_idx < Nrows && col_idx >= 0 && col_idx < Ncols)
@@ -368,9 +370,78 @@ MEM_iglooAvg::MEM_iglooAvg(string dn)  : MEM_data(dn + "/igloo_avg.txt")
 
 MEM_iglooAvg::~MEM_iglooAvg() {}
 
+
 double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
-	return 0.0;
+	// find index for correct phi (alt)
+	int idx_min = 0, idx_max = Nrows, idx_mid = (idx_max - idx_min)/2;
+	int row_idx, col_idx, Nazm;
+	double dAzm;
+
+	while (this->getRVar(idx_min, PHI1) != this->getRVar(idx_mid, PHI1)) // idx_max - idx_min > 1
+	{
+		// cout << " atl = " << alt << " | "
+		// 	<< this->getRVar(idx_min, PHI1) << ' '
+		// 	<< this->getRVar(idx_mid, PHI1) << ' ' 
+		// 	<< this->getRVar(idx_max, PHI1) 
+		// 	<< " | idx_min = " << idx_min
+		// 	<< " | idx_mid = " << idx_mid
+		// 	<< " | idx_max = " << idx_max << endl;
+		if (alt < this->getRVar(idx_mid, PHI1))
+		{
+			idx_max = idx_mid;
+		} else
+		{
+			idx_min = idx_mid;
+		}
+		idx_mid = (idx_max + idx_min)/2;
+		//cout << this->getRVar(idx_mid, PHI1) << endl;
+	}
+	//cout << " J = " << this->getRVar(idx_min, J) << endl;
+
+	row_idx = idx_min - this->getRVar(idx_min, J) + 1;
+
+	// cout << " J = " << this->getRVar(row_idx, J) << " | " << row_idx
+	// 	<< " | ID = " << this->getRVar(row_idx, ID) << endl;
+
+	// correct index for correct theta (azm)
+	dAzm = this->getRVar(row_idx, THETA2);
+	Nazm = round(360.0 / dAzm);
+
+	row_idx += int(azm / dAzm);
+
+	// cout << " dAzm = " << dAzm << " | Nazm = " << Nazm << endl;
+	// cout << " ID = " << this->getRVar(row_idx, ID)
+	// 	<< " | PHI1 = " << this->getRVar(row_idx, PHI1)
+	// 	<< " | THETA1 = " << this->getRVar(row_idx, THETA1) << endl;
+	
+	// find index for vel and return the flux
+	if (vel < 0.0)
+	{
+		cerr << "ERROR: MEM_iglooAvg::getFlux_atAngleVel: vel = " << vel << " < 0\n";
+		return 0.0;
+	}
+	else if (vel < dVel/2.0)
+	{
+		return this->getFlux(row_idx, 0);
+	}
+	else if (vel < vMax - dVel/2.0) // linear interp
+	{
+		col_idx = int(vel/dVel + 0.5);
+		return this->getFlux(row_idx, col_idx);
+	}
+	else if (vel <= vMax)
+	{
+		return this->getFlux(row_idx, Ncols-1);
+	} else if (vel > vMax)
+	{
+		cerr << "ERROR: MEM_iglooAvg::getFlux_atAngleVel: vel " << vel  << " > " << vMax << endl;
+		return 0.0;
+	} else
+	{
+		cerr << "ERROR: MEM_iglooAvg::getFlux_atAngleVel: vel " << vel << " invalid\n";
+		return 0.0;
+	}
 }
 
 void MEM_iglooAvg::H_readFile(void)

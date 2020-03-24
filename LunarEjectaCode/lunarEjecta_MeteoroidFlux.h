@@ -9,7 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "vector2d.h"
+//#include "vector2d.h"
 
 using namespace std;
 
@@ -17,6 +17,8 @@ const double PI = 3.14159265358979323846;
 inline double sqr(double x) {return x*x;}
 
 enum cubeDirection {p_xRam, m_xWake, p_yPort, m_yStarboard, p_zZenith, m_zNadir};
+
+enum iglooRowVars {ID, I, J, PHI1, PHI2, THETA1, THETA2, PHIavg, THETAavg};
 
 // This is an abstract base class and cannot be used directly
 class MEM_data
