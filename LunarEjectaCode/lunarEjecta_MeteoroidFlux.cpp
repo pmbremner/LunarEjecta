@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -126,16 +127,18 @@ inline void MEM_data::H_pushBackCVar(double CVar)
 MEM_cubeAvg::MEM_cubeAvg(string dn)  : MEM_data(dn + "/cube_avg.txt")
 {
 	this->H_readFile();
-	dVel = (vMax - Vmin) / double(Nrows);
+	dVel = (vMax - vMin) / double(Nrows);
 }
 
 MEM_cubeAvg::~MEM_cubeAvg() {}
 
-
+// assumes alt and azm are in degrees
 double MEM_cubeAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
 	double x, y, z;
 	int row;
+	alt *= PI / 180.0;
+	azm *= PI / 180.0;
 
 	x = cos(azm)*cos(alt);
 	y = sin(azm)*cos(alt);
@@ -143,35 +146,41 @@ double MEM_cubeAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 
 	if (vel < 0.0)
 	{
-		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel = " << vel << " < 0\n"
+		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel = " << vel << " < 0\n";
 		return 0.0;
 	}
 	else if (vel < dVel/2.0)
 	{
 		return H_cubeFluxAvg_atRow(x, y, z, 0);
 	}
-	else if (vel < vMax - dVel/2.0)
+	else if (vel < vMax - dVel/2.0) // linear interp
 	{
 		row = int(vel/dVel + 0.5);
-
-		return (rowVars[row+1] - vel)/dVel*H_cubeFluxAvg_atRow(x, y, z, row)
-			 + (vel - rowVars[row]  )/dVel*H_cubeFluxAvg_atRow(x, y, z, row+1);
+		return (rowVars[row] - vel)/dVel*H_cubeFluxAvg_atRow(x, y, z, row-1)
+			 + (vel - rowVars[row-1]  )/dVel*H_cubeFluxAvg_atRow(x, y, z, row);
 	}
 	else if (vel <= vMax)
 	{
 		return H_cubeFluxAvg_atRow(x, y, z, Nrows-1);
-	} else
+	} else if (vel > vMax)
 	{
 		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel " << vel  << " > " << vMax << endl;
 		return 0.0;
+	} else
+	{
+		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel " << vel << " invalid\n";
+		return 0.0;
 	}
-
 }
 
 
 double MEM_cubeAvg::H_cubeFluxAvg_atRow(double x, double y, double z, int row)
-{
-
+{ // ignores any nadir fluxes, assumes we are on the surface
+	return (x > 0.0 ? this->getFlux(row, p_xRam)       * sqr(x) : 0.0)
+		 + (x < 0.0 ? this->getFlux(row, m_xWake)      * sqr(x) : 0.0)
+		 + (y > 0.0 ? this->getFlux(row, p_yPort)      * sqr(y) : 0.0)
+		 + (y < 0.0 ? this->getFlux(row, m_yStarboard) * sqr(y) : 0.0)
+		 + (z > 0.0 ? this->getFlux(row, p_zZenith)    * sqr(z) : 0.0);
 }
 
 
@@ -246,7 +255,7 @@ MEM_fluxAvg::~MEM_fluxAvg() {}
 
 double MEM_fluxAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
-	
+	return 0.0;
 }
 
 void MEM_fluxAvg::H_readFile(void)
@@ -330,7 +339,7 @@ MEM_iglooAvg::~MEM_iglooAvg() {}
 
 double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
-	
+	return 0.0;
 }
 
 void MEM_iglooAvg::H_readFile(void)

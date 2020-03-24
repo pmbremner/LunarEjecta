@@ -13,6 +13,11 @@
 
 using namespace std;
 
+const double PI = 3.14159265358979323846;
+inline double sqr(double x) {return x*x;}
+
+enum cubeDirection {p_xRam, m_xWake, p_yPort, m_yStarboard, p_zZenith, m_zNadir};
+
 // This is an abstract base class and cannot be used directly
 class MEM_data
 {
