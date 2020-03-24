@@ -55,14 +55,34 @@ void MEM_data::H_getRowCol_FromFile() {
 	// read # of rows
 	H_readInt_FromFile(file, Nrows);
 
-	cout << Nrows << endl;
+	cout << " rows = " << Nrows << endl;
 
 	// read # of cols
 	H_readInt_FromFile(file, Ncols);
 
-	cout << Ncols << endl;
+	cout << " cols = " << Ncols << endl;
 
+	file.close();
+}
 
+// pulls from the options.txt file
+void MEM_data::H_getVelAngleResolution(string fn) {
+	ifstream file;
+	file.open(fn);
+	cout << fn << endl;
+	char C_int[64];
+
+	for (int i = 0; i < 39; ++i)
+		file.ignore(256, '\n');
+
+	file >> dAngle >> dVel;
+	Nvel = (vMax - vMin) / dVel;
+	Ntheta = 360/dAngle;
+	Nphi = 180/dAngle;
+
+	cout << " angle res: " << dAngle << " | vel res: " << dVel << endl;
+	cout << " Nvel = " << Nvel << " | Ntheta = " << Ntheta << " | Nphi = " << Nphi << endl;
+	file.close();
 }
 
 
@@ -127,7 +147,6 @@ inline void MEM_data::H_pushBackCVar(double CVar)
 MEM_cubeAvg::MEM_cubeAvg(string dn)  : MEM_data(dn + "/cube_avg.txt")
 {
 	this->H_readFile();
-	dVel = (vMax - vMin) / double(Nrows);
 }
 
 MEM_cubeAvg::~MEM_cubeAvg() {}
@@ -253,9 +272,21 @@ MEM_fluxAvg::MEM_fluxAvg(string dn)  : MEM_data(dn + "/flux_avg.txt")
 
 MEM_fluxAvg::~MEM_fluxAvg() {}
 
+// no interpolation at this time
 double MEM_fluxAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
-	return 0.0;
+	int row_idx = Ntheta * int((alt + 90) / dAngle) + int(azm / dAngle);
+	int col_idx = vel / dVel;
+
+	if(row_idx >= 0 && row_idx < Nrows && col_idx >= 0 && col_idx < Ncols)
+	{
+		return this->getFlux(row_idx, col_idx);
+	}
+	else // out of bounds
+	{
+		cerr << "MEM_fluxAvg::getFlux_atAngleVel: index out of bounds " << row_idx << ' ' << col_idx << " invalid\n";
+		return 0.0;
+	}
 }
 
 void MEM_fluxAvg::H_readFile(void)
@@ -417,19 +448,28 @@ void MEM_iglooAvg::H_readFile(void)
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
-MEM_HiDensityCubeAvg::MEM_HiDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/HiDensity") {}
+MEM_HiDensityCubeAvg::MEM_HiDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/HiDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_HiDensityCubeAvg::~MEM_HiDensityCubeAvg() {}
 
 /////////////////////////////////////////////////////////////
 
-MEM_HiDensityFluxAvg::MEM_HiDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/HiDensity") {}
+MEM_HiDensityFluxAvg::MEM_HiDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/HiDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_HiDensityFluxAvg::~MEM_HiDensityFluxAvg() {}
 
 /////////////////////////////////////////////////////////////
 
-MEM_HiDensityIglooAvg::MEM_HiDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/HiDensity") {}
+MEM_HiDensityIglooAvg::MEM_HiDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/HiDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_HiDensityIglooAvg::~MEM_HiDensityIglooAvg() {}
 
@@ -437,18 +477,27 @@ MEM_HiDensityIglooAvg::~MEM_HiDensityIglooAvg() {}
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
-MEM_LoDensityCubeAvg::MEM_LoDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/LoDensity") {}
+MEM_LoDensityCubeAvg::MEM_LoDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/LoDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_LoDensityCubeAvg::~MEM_LoDensityCubeAvg() {}
 
 /////////////////////////////////////////////////////////////
 
-MEM_LoDensityFluxAvg::MEM_LoDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/LoDensity") {}
+MEM_LoDensityFluxAvg::MEM_LoDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/LoDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_LoDensityFluxAvg::~MEM_LoDensityFluxAvg() {}
 
 /////////////////////////////////////////////////////////////
 
-MEM_LoDensityIglooAvg::MEM_LoDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/LoDensity") {}
+MEM_LoDensityIglooAvg::MEM_LoDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/LoDensity")
+{
+	this->H_getVelAngleResolution(dn + "/options.txt");
+}
 
 MEM_LoDensityIglooAvg::~MEM_LoDensityIglooAvg() {}

@@ -44,6 +44,7 @@ protected:
 	virtual void H_readFile(void) = 0;
 	void H_setHeaderLength(int h);
 	void H_getRowCol_FromFile();
+	void H_getVelAngleResolution(string fn); // used two levels up
 	void H_readInt_FromFile(ifstream& file, int& firstInt);
 	inline int H_idxFlux(int row, int col);
 	inline int H_idxRVar(int row, int col);
@@ -63,12 +64,16 @@ protected:
 
 	double vMin;
 	double vMax;
-	double dVel; // "virtual" in MEM_data
+	int dVel;   // = 1, 2
+	int dAngle; // = 1, 2, 3, 4, 5
 
 	int Nrows; // of data only
 	int Ncols; // of data only
 	int NrowVars;
 	int NcolVars;
+	int Nvel;
+	int Ntheta; // azm
+	int Nphi;   // alt
 
 	vector<double> fluxData; // total size = Nrows * Ncols
 	vector<double> rowVars;  // total size = Nrows * NrowVars
@@ -102,7 +107,6 @@ public:
 
 private:
 	void H_readFile();
-
 };
 /////////////////////////////////////////////////////////////
 class MEM_iglooAvg : public MEM_data
@@ -114,7 +118,6 @@ public:
 
 private:
 	void H_readFile();
-
 };
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
