@@ -9,6 +9,9 @@ using namespace std;
 
 MEM_data::MEM_data(string fn) {
 	fileName = fn;
+	iotype = 1; // input
+	vMin = 0.0;  // km/s
+	vMax = 80.0; // km/s
 
 	this->H_getRowCol_FromFile();
 }
@@ -29,6 +32,10 @@ inline double MEM_data::getCVar(int r, int c)
 {
 	return colVars[H_idxCVar(r,c)];
 }
+
+inline double MEM_data::getvMin() {return vMin;}
+inline double MEM_data::getvMax() {return vMax;}
+
 
 inline double MEM_data::getNrows() {return Nrows;}
 inline double MEM_data::getNcols() {return Ncols;}
@@ -119,9 +126,54 @@ inline void MEM_data::H_pushBackCVar(double CVar)
 MEM_cubeAvg::MEM_cubeAvg(string dn)  : MEM_data(dn + "/cube_avg.txt")
 {
 	this->H_readFile();
+	dVel = (vMax - Vmin) / double(Nrows);
 }
 
 MEM_cubeAvg::~MEM_cubeAvg() {}
+
+
+double MEM_cubeAvg::getFlux_atAngleVel(double alt, double azm, double vel)
+{
+	double x, y, z;
+	int row;
+
+	x = cos(azm)*cos(alt);
+	y = sin(azm)*cos(alt);
+	z = sin(alt);
+
+	if (vel < 0.0)
+	{
+		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel = " << vel << " < 0\n"
+		return 0.0;
+	}
+	else if (vel < dVel/2.0)
+	{
+		return H_cubeFluxAvg_atRow(x, y, z, 0);
+	}
+	else if (vel < vMax - dVel/2.0)
+	{
+		row = int(vel/dVel + 0.5);
+
+		return (rowVars[row+1] - vel)/dVel*H_cubeFluxAvg_atRow(x, y, z, row)
+			 + (vel - rowVars[row]  )/dVel*H_cubeFluxAvg_atRow(x, y, z, row+1);
+	}
+	else if (vel <= vMax)
+	{
+		return H_cubeFluxAvg_atRow(x, y, z, Nrows-1);
+	} else
+	{
+		cerr << "ERROR: MEM_cubeAvg::getFlux_atAngleVel: vel " << vel  << " > " << vMax << endl;
+		return 0.0;
+	}
+
+}
+
+
+double MEM_cubeAvg::H_cubeFluxAvg_atRow(double x, double y, double z, int row)
+{
+
+}
+
 
 void MEM_cubeAvg::H_readFile(void)
 {
@@ -191,6 +243,11 @@ MEM_fluxAvg::MEM_fluxAvg(string dn)  : MEM_data(dn + "/flux_avg.txt")
 }
 
 MEM_fluxAvg::~MEM_fluxAvg() {}
+
+double MEM_fluxAvg::getFlux_atAngleVel(double alt, double azm, double vel)
+{
+	
+}
 
 void MEM_fluxAvg::H_readFile(void)
 {
@@ -270,6 +327,11 @@ MEM_iglooAvg::MEM_iglooAvg(string dn)  : MEM_data(dn + "/igloo_avg.txt")
 }
 
 MEM_iglooAvg::~MEM_iglooAvg() {}
+
+double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
+{
+	
+}
 
 void MEM_iglooAvg::H_readFile(void)
 {

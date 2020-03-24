@@ -515,6 +515,36 @@ R_o = \frac{A}{fv},
 where $A = 1.63$ m/s$^{2,}$\footnote{Curiously, this is basically the acceleration due to gravity on the Moon.}, $f = 5.328\times 10^{-6}$ rad/s, and $v$ is in units of m/s. In order to have $R_o\sim 1$ (small $R_o$ means the Coriolis forces cannot be ignored), we would need $v > 306$ km/s, which far exceeds the escape speed. The smallest $R_o$ can ever be is $R_o \sim 128$ when taking $v\to v_{esc}$. Therefore, we feel confident in our omission of the Coriolis force.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distance and Bearing}
+% see https://www.movable-type.co.uk/scripts/latlong.html
+
+Given two latitude-longitude points on a sphere, $(\phi_1, \theta_1)$ and $(\phi_2, \theta_2)$, we can compute the distance and bearing following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
+
+The distance D is given by the equation
+\begin{equation}\label{eq:shortdistance-between-latlon-points}
+\tan\left(\frac{D}{2R_m}\right) = \sqrt{\frac{a}{1-a}},
+\end{equation}
+where $a$ is given by
+\begin{equation}
+a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
+\end{equation}
+for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
+\begin{equation}
+\tan\left(\pi-\frac{D}{2R_m}\right) = \sqrt{\frac{a}{1-a}}.
+\end{equation}
+
+The initial bearing $\theta$ (from due East) is given by the following equation (assuming the short-distance):
+\begin{equation}\label{eq:initial-bearing-shortdist}
+\tan\theta_{i(1,2)} = \frac{\sin\Delta\lambda\cos\phi_2}{\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda}.
+\end{equation}
+To find the final bearing (assuming the short-distance), swap $\phi_1\longleftrightarrow\phi_2$ and $\lambda_1\longleftrightarrow\lambda_2$ and reverse the angle such that
+\begin{equation}\label{eq:final-bearing-shortdist}
+\theta_{f(1,2)} = (\theta_{i(2,1)} + \pi)\mod 2\pi.
+\end{equation}
+
+In order to compute the initial and final bearing for the long-distance trajectory, add $\pi$ and then mod by $2\pi$ to Eqs.\ \eqref{eq:initial-bearing-shortdist} and \eqref{eq:final-bearing-shortdist}. In other words, swap initial and final bearings $\theta_{i(1,2)}\longleftrightarrow\theta_{f(1,2)}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{NASA SP-8013 Meteoroid Environment Model - 1969}
 
 The NASA SP-8013 Meteoroid Environment Model \citep{cour1969meteoroid}, is a document published in 1969 that describes the meteoroid and lunar ejecta environment of cometary origin with masses between $10^{-12}$ g and $1$ g. The flux-mass models and the associated density and velocity characteristics are for engineering applications in the design of space vehicles for near-Earth orbit, cis-lunar, lunar orbit, and lunar surface missions.

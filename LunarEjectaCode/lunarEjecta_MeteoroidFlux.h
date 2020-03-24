@@ -20,9 +20,14 @@ public:
 	MEM_data(string fn);
 	~MEM_data();
 
+	virtual double getFlux_atAngleVel(double alt, double azm, double vel) = 0;
+
 	inline double getFlux(int row, int col);
 	inline double getRVar(int row, int col);
 	inline double getCVar(int row, int col);
+
+	inline double getvMin();
+	inline double getvMax();
 
 	inline double getNrows();
 	inline double getNcols();
@@ -47,8 +52,13 @@ protected:
 	inline void H_pushBackRVar(double RVar);
 	inline void H_pushBackCVar(double CVar); 
 
+	bool iotype; // 1 = input, 0 = output
 	string fileName;
 	int headerLength;
+
+	double vMin;
+	double vMax;
+	double dVel; // "virtual" in MEM_data
 
 	int Nrows; // of data only
 	int Ncols; // of data only
@@ -70,9 +80,11 @@ class MEM_cubeAvg : public MEM_data
 public:
 	MEM_cubeAvg(string dn); // dn = directory name
 	~MEM_cubeAvg();
-private:
-	void H_readFile();
+	double getFlux_atAngleVel(double alt, double azm, double vel);
 
+private:
+	double H_cubeFluxAvg_atRow(double x, double y, double z, int row);
+	void H_readFile();
 
 };
 /////////////////////////////////////////////////////////////
@@ -81,6 +93,8 @@ class MEM_fluxAvg : public MEM_data
 public:
 	MEM_fluxAvg(string dn);
 	~MEM_fluxAvg();
+	double getFlux_atAngleVel(double alt, double azm, double vel);
+
 private:
 	void H_readFile();
 
@@ -91,6 +105,8 @@ class MEM_iglooAvg : public MEM_data
 public:
 	MEM_iglooAvg(string dn);
 	~MEM_iglooAvg();
+	double getFlux_atAngleVel(double alt, double azm, double vel);
+
 private:
 	void H_readFile();
 
