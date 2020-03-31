@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  23 MAR 2020 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  31 MAR 2020 17:00
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -562,7 +562,7 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 \openout6 = `Lunar_Impacts-DeStefano.lot'.
 
  [2]
-<simpleExcavationCrater-Holsapple.jpg, id=234, 780.9175pt x 284.06125pt>
+<simpleExcavationCrater-Holsapple.jpg, id=241, 780.9175pt x 284.06125pt>
 File: simpleExcavationCrater-Holsapple.jpg Graphic file (type jpg)
 <use simpleExcavationCrater-Holsapple.jpg>
 Package pdftex.def Info: simpleExcavationCrater-Holsapple.jpg  used on input li
@@ -653,7 +653,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 195.
 
 [4] [5]
-<Carrier2003_Fig1_particle-size-distribution.PNG, id=348, 889.07156pt x 624.081
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=355, 889.07156pt x 624.081
 56pt>
 File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
 <use Carrier2003_Fig1_particle-size-distribution.PNG>
@@ -661,12 +661,12 @@ Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used
 on input line 248.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
  [6 <./Carrier2003_Fig1_particle-size-distribution.PNG>]
-<Fit-to-CDF.PNG, id=364, 357.58594pt x 159.59625pt>
+<Fit-to-CDF.PNG, id=371, 357.58594pt x 159.59625pt>
 File: Fit-to-CDF.PNG Graphic file (type png)
 <use Fit-to-CDF.PNG>
 Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 260.
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
-<Fit-to-x3PDF.png, id=372, 433.62pt x 278.54062pt>
+<Fit-to-x3PDF.png, id=379, 433.62pt x 278.54062pt>
 File: Fit-to-x3PDF.png Graphic file (type png)
 <use Fit-to-x3PDF.png>
 Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 278.
@@ -675,81 +675,102 @@ Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 278.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=399, 428.35031pt x 321.45094pt
+[7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>] [9]
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=421, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
-nput line 331.
+nput line 349.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
- [9 <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
-<Fit-to-D_Grun.PNG, id=415, 326.72063pt x 167.87718pt>
+<Fit-to-D_Grun.PNG, id=428, 326.72063pt x 167.87718pt>
 File: Fit-to-D_Grun.PNG Graphic file (type png)
 <use Fit-to-D_Grun.PNG>
-Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 348.
+Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 366.
 (pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
- [10 <./Fit-to-D_Grun.PNG>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=437, 694.84593pt x 472.76625pt>
-File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
-<use MEM_UG_Fig2.5_density-distribution.PNG>
-Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
-line 379.
-(pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-<Fit-to-MEM_low_dens.PNG, id=442, 432.86719pt x 157.33781pt>
-File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
-<use Fit-to-MEM_low_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 387.
-(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_high_dens.PNG, id=447, 432.11438pt x 155.83218pt>
+[10 <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
+<MEM_UG_Fig2.5_density-distribution.PNG, id=450, 694.84593pt x 472.76625pt>
+File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.5_density-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
+line 397.
+(pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Fit-to-MEM_low_dens.PNG, id=455, 432.86719pt x 157.33781pt>
+File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
+<use Fit-to-MEM_low_dens.PNG>
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 405.
+(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Fit-to-MEM_high_dens.PNG, id=460, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 393.
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 411.
 (pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./MEM_UG_Fig2.5_density-distribution.PNG>] [12 <./Fit-to-MEM_low_dens.PNG>
- <./Fit-to-MEM_high_dens.PNG>] [13] [14] [15]
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=534, 658.71094pt x 851.43094
-pt>
-File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
-<use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
-Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
- input line 556.
-(pdftex.def)             Requested size: 395.2296pt x 510.8625pt.
+[11 <./Fit-to-D_Grun.PNG>] [12 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fi
+t-to-MEM_low_dens.PNG>] [13 <./Fit-to-MEM_high_dens.PNG>]
+<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=498, 462.528pt x 346.896pt>
+File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
+<use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
+Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
+nput line 481.
+(pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
-Overfull \hbox (20.2296pt too wide) in paragraph at lines 556--557
+Overfull \hbox (18.15065pt too wide) in paragraph at lines 481--482
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16] [17 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
+[14] [15 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [16]
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=554, 658.71094pt x 851.43094
+pt>
+File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
+<use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
+Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
+ input line 583.
+(pdftex.def)             Requested size: 395.2296pt x 510.8625pt.
+
+Overfull \hbox (20.2296pt too wide) in paragraph at lines 583--584
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17] [18 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
 (Lunar_Impacts-DeStefano.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
- [18
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 600.
+ [19
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 600.
  (Lunar_Impacts-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 573.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 600.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 600.
 Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 .
-(rerunfilecheck)             Checksum: 8FFF85611AA328C3C673CFD65BA59036;2336.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
+(rerunfilecheck)             Checksum: 8EF9E15AAAE23AEFE11519EB0D74A7A7;2429.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
  ) 
 Here is how much of TeX's memory you used:
- 10969 strings out of 481292
- 168571 string characters out of 2906380
- 499162 words of memory out of 3000000
- 26096 multiletter control sequences out of 15000+200000
+ 10984 strings out of 481292
+ 169023 string characters out of 2906380
+ 499254 words of memory out of 3000000
+ 26104 multiletter control sequences out of 15000+200000
  555886 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,12n,70p,962b,1803s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -778,9 +799,9 @@ ic/amsfonts/cm/cmtt8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/adestefa/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/adestefa/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (20 pages, 834338 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (21 pages, 1074021 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 177 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 682 PDF objects out of 1000 (max. 8388607)
+ 183 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

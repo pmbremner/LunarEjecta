@@ -378,6 +378,7 @@ double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 	int row_idx, col_idx, Nazm;
 	double dAzm;
 
+	// simple binary search algorithm
 	while (this->getRVar(idx_min, PHI1) != this->getRVar(idx_mid, PHI1)) // idx_max - idx_min > 1
 	{
 		// cout << " atl = " << alt << " | "

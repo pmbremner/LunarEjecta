@@ -317,6 +317,24 @@ where the constants $k$, $C_1$, $\nu$, and $\mu$ depend on the specific material
 \end{cases}
 \end{equation}
 
+\subsubsection{Ejecta Mass Distribution Function}
+
+The mass ejected from the crater, $M(>v)$, from Eq.\ \eqref{eq:HH11_mass-ejected1}, is the total mass ejected from an impact at velocities greater than $v$. However, we would like to know how this ejecta is distributed in speed and solid angle so we can map the ejecta to a particular surface location on the Moon. We can then set Eq.\ \eqref{eq:HH11_mass-ejected1} in terms of the integral over the distribution functions of speed and solid angle as
+\begin{equation}
+M(>v) = \int_{v}^{\infty}\int_{0}^{2\pi}\int_{0}^{\pi/2}\sin\alpha d\alpha d\beta dv' F(\alpha)G(\beta)H(v'),
+\end{equation} 
+where $\alpha$ is the zenith angle, $\beta$ is the azimuth angle, and $v$ is the ejecta speed. Just to note, at the secondary impact location, the zenith angle will be the same as the ejected zenith angle. However, the azimuth angle (or bearing) will be modified due to travel across the spherical surface, see Section \ref{ssec:Distance_and_Bearing}.
+
+The speed distribution $H(v')$ is defined as
+\begin{equation}
+\int_{v}^{\infty}dv'H(v') = v^{-3\mu},
+\end{equation}
+which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can then solve the speed distribution explicitly as
+\begin{equation}
+H(v) = 3\mu v^{-(3\mu+1)}.
+\end{equation}
+For the angular dependent terms $F(\alpha)G(\beta)$, they technically should depend on speed as well as particle size. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Meteoroid Projectile Mass Distribution}
 
@@ -457,6 +475,15 @@ so Eq.\ \ref{eq:tan_beta} becomes \citep[c.f., Eq.\ (1) of][]{vickery1986size}
 %\begin{equation}
 %\frac{v^2}{v_{esc}^2} = \frac{1}{2}\frac{\sin^2\left(\frac{D}{2r_m}\right)}{\cos^2\left(\frac{D}{2r_m}\right) - \sin^2\gamma}\left[\cot\left(\frac{D}{2r_m}\right)\cot\gamma - 1\right].
 %\end{equation}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.85]{Distance_vs_EjectaSpeed_and_ZenithAngle.png}
+	\caption{blah}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
+\end{figure}
+
+
+
 For $D \ll 2r_m$, the optimum angle that gives the smallest velocity needed is $45^\circ$. In other words, for a given velocity, the greatest distance is found by taking $\gamma = 45^\circ$. However, if the distance $D$ is roughly the same order as the diameter of the Moon $2r_m$, ($D > 0.01\times 2r_m$), then the optimal angle from zenith is greater than $45^\circ$, i.e.\ a shallower angle to the horizon. This is because at large velocities, the curvature of the Moon comes into play. For larger velocities, there are also angles $\gamma$ that cannot reach a distance $D$. Allowable angles (in radians) that can travel a distance $D$ are defined by
 \begin{equation}
 \gamma > \frac{D}{4r_m}.
@@ -515,7 +542,7 @@ R_o = \frac{A}{fv},
 where $A = 1.63$ m/s$^{2,}$\footnote{Curiously, this is basically the acceleration due to gravity on the Moon.}, $f = 5.328\times 10^{-6}$ rad/s, and $v$ is in units of m/s. In order to have $R_o\sim 1$ (small $R_o$ means the Coriolis forces cannot be ignored), we would need $v > 306$ km/s, which far exceeds the escape speed. The smallest $R_o$ can ever be is $R_o \sim 128$ when taking $v\to v_{esc}$. Therefore, we feel confident in our omission of the Coriolis force.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Distance and Bearing}
+\subsection{Distance and Bearing}\label{ssec:Distance_and_Bearing}
 % see https://www.movable-type.co.uk/scripts/latlong.html
 
 Given two latitude-longitude points on a sphere, $(\phi_1, \theta_1)$ and $(\phi_2, \theta_2)$, we can compute the distance and bearing following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
