@@ -333,7 +333,7 @@ which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can 
 \begin{equation}
 H(v) = 3\mu v^{-(3\mu+1)}.
 \end{equation}
-For the angular dependent terms $F(\alpha)G(\beta)$, they technically should depend on speed as well as particle size. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
+For the angular dependent terms $F(\alpha)$ and $G(\beta)$, they technically should depend on speed as well as particle size. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Meteoroid Projectile Mass Distribution}
@@ -479,7 +479,7 @@ so Eq.\ \ref{eq:tan_beta} becomes \citep[c.f., Eq.\ (1) of][]{vickery1986size}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.85]{../Distance_vs_EjectaSpeed_and_ZenithAngle.png}
-	\caption{blah}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
+	\caption{The color gradient shows the distance a projectile goes that has a given ejected speed and zenith angle. The cyan dashed line gives the optimal angle for a given speed to reach the furthest distance, i.e., Eq.\ \eqref{eq:opt_angle}. The red dashed line shows for which pairs of speeds and zenith angles are required to hit the antipodal point. As an example, all ejecta with speed and angle pairs between the two black curves will reach a location between 0.05 and 0.06 lunar circumference units away, using Eq.~\eqref{eq:speed_asof_distance_angle}.}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
 \end{figure}
 
 
@@ -492,14 +492,14 @@ In other words, the maximum distance the ejecta can reach for a given angle is
 \begin{equation}
 D = 4\gamma r_m.
 \end{equation}
-For example, from this equation we can conclude that for $\gamma < 45^\circ$, the ejecta will not reach the antipodal point.
+For example, from this equation we can conclude that for $\gamma < 45^\circ$, the ejecta will not reach the antipodal point, see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}.
 
 
 Solving for $v$ we have
 %\begin{equation}
 %\frac{v^2}{v_{esc}^2} = \left[1-\cos(2\gamma)+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)\right]^{-1}
 %\end{equation}
-\begin{equation}
+\begin{equation}\label{eq:speed_asof_distance_angle}
 \frac{v}{v_{esc}} = \frac{+1}{\sqrt{\sin(2\gamma)\left(\cot\left(\frac{D}{2r_m}\right)+\tan\gamma\right)}}
 = \frac{+1}{\sqrt{1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)-\cos(2\gamma)}}.
 \end{equation}
@@ -512,7 +512,7 @@ where $x = v/v_{esc}$. Solving for the discriminant, the minimum $x$ can be for 
 x_{min}^2 = \tan^2\left(\frac{D}{2r_m}\right)\left[\csc\left(\frac{D}{2r_m}\right)-1\right].
 \end{equation}
 Plugging into Equation \ref{eq:gammaVs_V_D}, the optimal angle from zenith is given by
-\begin{equation}
+\begin{equation}\label{eq:opt_angle}
 \cot\gamma_{opt} = \sec\left(\frac{D}{2r_m}\right) - \tan\left(\frac{D}{2r_m}\right).
 \end{equation}
 In terms of $x$, we have
