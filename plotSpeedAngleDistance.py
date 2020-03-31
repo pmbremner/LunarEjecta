@@ -34,7 +34,7 @@ plt.contourf(gamma*180.0/np.pi, v, D_grid, 50, cmap='plasma') #inferno
 plt.xlabel('Ejecta Zenith Angle [Degrees]')
 plt.ylabel('Ejecta Speed [Escape Speed]')
 cbar = plt.colorbar()
-cbar.set_label('Distance from Impact [Diameter of Moon]')
+cbar.set_label('Distance from Impact [Lunar Circumference]')
 plt.ylim(0, 1)
 
 # optimal angle for a given velocity line

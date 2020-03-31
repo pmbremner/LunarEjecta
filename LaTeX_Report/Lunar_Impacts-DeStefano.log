@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  31 MAR 2020 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  31 MAR 2020 17:10
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -721,11 +721,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [11 <./Fit-to-D_Grun.PNG>] [12 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fi
 t-to-MEM_low_dens.PNG>] [13 <./Fit-to-MEM_high_dens.PNG>]
-<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=498, 462.528pt x 346.896pt>
-File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
-<use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
-Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
-nput line 481.
+<../Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=498, 462.528pt x 346.896pt>
+
+File: ../Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
+<use ../Distance_vs_EjectaSpeed_and_ZenithAngle.png>
+Package pdftex.def Info: ../Distance_vs_EjectaSpeed_and_ZenithAngle.png  used o
+n input line 481.
 (pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
 Overfull \hbox (18.15065pt too wide) in paragraph at lines 481--482
@@ -735,7 +736,7 @@ Overfull \hbox (18.15065pt too wide) in paragraph at lines 481--482
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] [15 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [16]
+[14] [15 <../Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [16]
 <NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=554, 658.71094pt x 851.43094
 pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
@@ -767,8 +768,8 @@ Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
  ) 
 Here is how much of TeX's memory you used:
- 10984 strings out of 481292
- 169023 string characters out of 2906380
+ 10985 strings out of 481292
+ 169041 string characters out of 2906380
  499254 words of memory out of 3000000
  26104 multiletter control sequences out of 15000+200000
  555886 words of font info for 65 fonts, out of 3000000 for 9000
@@ -799,7 +800,7 @@ ic/amsfonts/cm/cmtt8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/adestefa/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/adestefa/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (21 pages, 1074021 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (21 pages, 1074732 bytes).
 PDF statistics:
  682 PDF objects out of 1000 (max. 8388607)
  183 named destinations out of 1000 (max. 500000)
