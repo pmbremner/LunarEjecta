@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -48,6 +48,10 @@ Holsapple, K., The scaling of impact processes in planetary sciences,
 Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
   \textit{Icarus}, \textit{211}(1), 856--875, 2011.
 
+\bibitem[{\textit{Miller}(2017)}]{ESABASE2_DebrisRelease10.0}
+Miller, A., Esabase2 debris release 10.0 technical description, \textit{Tech.
+  Rep. 1.7}, ESA, 2017.
+
 \bibitem[{\textit{Moorhead et~al.}(2019)\textit{Moorhead, Kingery, and
   Ehlert}}]{moorhead2019nasa}
 Moorhead, A.~V., A.~Kingery, and S.~Ehlert, Nasa’s meteoroid engineering
@@ -71,6 +75,10 @@ Moser, D., R.~Suggs, and R.~Suggs, Large meteoroid impact on the moon on 17
 Neukum, G., B.~A. Ivanov, and W.~K. Hartmann, Cratering records in the inner
   solar system in relation to the lunar reference system, in \textit{Chronology
   and evolution of Mars}, pp. 55--86, Springer, 2001.
+
+\bibitem[{\textit{Rival and Mandeville}(1999)}]{rival1999modeling}
+Rival, M., and J.~Mandeville, Modeling of ejecta produced upon hypervelocity
+  impacts, \textit{Space debris}, \textit{1}(1), 45--57, 1999.
 
 \bibitem[{\textit{Robinson et~al.}(2015)}]{robinson2015new}
 Robinson, M.~S., et~al., New crater on the moon and a swarm of secondaries,

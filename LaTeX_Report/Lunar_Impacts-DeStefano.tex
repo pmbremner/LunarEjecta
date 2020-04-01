@@ -12,6 +12,7 @@
 
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
 
 \usepackage{natbib}
 
@@ -317,7 +318,7 @@ where the constants $k$, $C_1$, $\nu$, and $\mu$ depend on the specific material
 \end{cases}
 \end{equation}
 
-\subsubsection{Ejecta Mass Distribution Function}
+\subsection{Ejecta Mass Distribution Function}
 
 The mass ejected from the crater, $M(>v)$, from Eq.\ \eqref{eq:HH11_mass-ejected1}, is the total mass ejected from an impact at velocities greater than $v$. However, we would like to know how this ejecta is distributed in speed and solid angle so we can map the ejecta to a particular surface location on the Moon. We can then set Eq.\ \eqref{eq:HH11_mass-ejected1} in terms of the integral over the distribution functions of speed and solid angle as
 \begin{equation}
@@ -333,7 +334,110 @@ which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can 
 \begin{equation}
 H(v) = 3\mu v^{-(3\mu+1)}.
 \end{equation}
-For the angular dependent terms $F(\alpha)$ and $G(\beta)$, they technically should depend on speed as well as particle size. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
+For the angular dependent terms $F(\alpha)$ and $G(\beta)$, they technically should depend on speed as well as particle size \citep[e.g.,][]{rival1999modeling}. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
+
+Adopting the zenith and azimuth distributions from \cite{rival1999modeling}, we have the following equations:
+The zenith distribution is given by
+\begin{equation}\label{eq:Rival_zenith-dist}
+F(\alpha) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{(\alpha-\alpha_{max})^2}{2\sigma^2}\right],
+\end{equation}
+where $\alpha_{max}$ is defined as
+\begin{equation}
+\alpha_{max} = 
+\begin{cases}
+\frac{\alpha_{max60}-\alpha_{max0}}{\pi/3}\alpha_i + \alpha_{max0}\text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\alpha_{max60}\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+for $\alpha_i$ the impact zenith angle, and \citep[see][]{ESABASE2_DebrisRelease10.0}
+\begin{align}
+\alpha_{max0} &= \frac{\pi}{6} = 30^\circ,\\
+\alpha_{max60} &= \frac{4\pi}{9} = 80^\circ,\\
+\sigma &= \frac{\pi}{60} = 3^\circ,
+\end{align}
+where the peak ejecta angle is shifted from $30^\circ$ of zenith for a normal impact to $80^\circ$ of zenith for oblique impacts ($>60^\circ$).
+
+The azimuth distribution is given by \citep{rival1999modeling}
+\begin{equation}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'}\right]
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+\sigma' = \frac{\pi}{36} = 5^\circ, 
+\end{equation}
+for $\beta_i$ the impact azimuth angle + $\pi$.\\
+
+\subsubsection{Zenith Distribution Function}
+
+
+To complete the integral over the zenith distribution, namely
+\begin{equation}\label{eq:zenith_integral}
+\int_{\alpha_0(v)}^{\alpha_1(v)}d\alpha\sin\alpha F(\alpha),
+\end{equation}
+we need to choose a distribution function for $F(\alpha)$ to allow for analytic solutions. We will therefore look for an alternate distribution from Eq.\ \eqref{eq:Rival_zenith-dist}, given by the form
+\begin{equation}
+F(\alpha) = (1-\cos\alpha)^{1/a}\cos^a\alpha,
+\end{equation}
+where the exponent $a$ can be defined in terms of the peak angle $\alpha_{max}$ as
+\begin{equation}
+a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}},
+\end{equation}
+such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$. We then can do a variable substitution (chosen so the domain goes from $\alpha\in [0,\pi/2]$ to $x\in [0,1]$)
+\begin{align}
+1-x &= \cos\alpha,\\
+dx &= \sin\alpha d\alpha,
+\end{align}
+so that Eq.\ \eqref{eq:zenith_integral} becomes
+\begin{equation}\label{eq:zenith_integral2}
+\int_{x_0(v)}^{x_1(v)}dx x^{1/a}(1-x)^a,
+\end{equation}
+where the equations $x_0(v)$ and $x_1(v)$ are a linear function of $v$ and an implicit function of the distances $D_0$ and $D_1$, respectively. The integral in Eq.\ \eqref{eq:zenith_integral2} is the incomplete beta function
+\begin{equation}\label{eq:zenith_integral3}
+\int_{x_0(v)}^{x_1(v)}dx x^{1/a}(1-x)^a
+= \beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1).
+\end{equation}
+
+For small differences in $D_0$ and $D_1$, we can roughly assume small differences in $x_0(v)$ and $x_1(v)$ so that we can write Eq.\ \eqref{eq:zenith_integral3} in terms of a derivative, where we evaluate the derivative at the midpoint
+\begin{align}
+&\beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)\nonumber\\
+= &\frac{\beta(x_0(v) +\Delta x; 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)}{\Delta x}\Delta x\nonumber\\
+\approx & \Delta x\frac{d}{d(x_0(v))}\beta(x_0(v); 1/a+1, a+1)\Bigr|_{x_0(v)\to x_0(v) +\Delta x/2}\nonumber\\
+=& \Delta x\left[1-x_0(v)\right]^a x_0^{1/a}(v)\Bigr|_{x_0(v)\to x_0(v) +\Delta x/2}\nonumber\\
+=&\Delta x(v)\left[1-\frac{x_0(v)+x_1(v)}{2}\right]^a \left[\frac{x_0(v)+x_1(v)}{2}\right]^{1/a},
+\end{align}
+where $\Delta x(v) = x_1(v) - x_0(v)$, and (note, the $v$'s are normalized by $v_{esc}$, emitted for clarity)
+\begin{align}
+x_0(v) &= m_0 v + b_0,\\
+x_1(v) &= m_1 v + b_1,\\
+\Delta x(v) &= (m_1-m_0)v + b_1 - b_0.
+\end{align}
+The coefficients $m_0, m_1$ and $b_0, b_1$ are implicit functions of the distances $D_0, D_1$. For the $j-$th distance $D_j$ and the $i-$th speed $v_i$, the $m$ and $b$ coefficients can be written as
+\begin{align}
+m_{j,i}^{\pm} &= \frac{v_{i+1}-v_i}{x_{j,i+1}^{\pm}-x_{j,i}^{\pm}},\\
+b_{j,i}^{\pm} &= v_i - m_{j,i}^{\pm}\cdot x_{j,i}^{\pm},
+\end{align}
+where
+\begin{align}
+x_{j,i}^{\pm} &= 1 - \cos\alpha_{j,i}^{\pm}, \\
+\cos\alpha_{j,i}^{\pm} &= \frac{\cot\alpha_{j,i}^{\pm}}{\sqrt{1+ \cot^2\alpha_{j,i}^{\pm}}},
+\end{align}
+for (using Eq.\ \eqref{eq:gammaVs_V_D})
+\begin{equation}
+\cot\alpha_{j,i}^{\pm} = v_i^2\cot\left(\frac{D_j}{2r_m}\right) \pm \sqrt{v_i^4\cot^2\left(\frac{D_j}{2r_m}\right) +2v_i^2-1 }.
+\end{equation}
+There are three regions of the zenith angle-space, and hence the $x$-space, where we have:
+\begin{enumerate}[label=Region \Roman*:]
+	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and $D_{j+1} \ge \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$
+\end{enumerate}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Meteoroid Projectile Mass Distribution}
