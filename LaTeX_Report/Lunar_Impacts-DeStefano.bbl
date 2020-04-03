@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -33,6 +33,11 @@ Cour-Palais, B.~G., Meteoroid environment model 1969 (near earth to lunar
 
 \bibitem[{\textit{Gault}(1974)}]{gault1974impact}
 Gault, D.~E., Impact cratering, in \textit{A primer in lunar geology}, 1974.
+
+\bibitem[{\textit{Gault and Wedekind}(1978)}]{gault1978experimental}
+Gault, D.~E., and J.~A. Wedekind, Experimental studies of oblique impact, in
+  \textit{Lunar and Planetary Science Conference Proceedings}, vol.~9, pp.
+  3843--3875, 1978.
 
 \bibitem[{\textit{Gr{\"u}n et~al.}(1985)\textit{Gr{\"u}n, Zook, Fechtig, and
   Giese}}]{grun1985collisional}

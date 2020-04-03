@@ -14,6 +14,8 @@
 \usepackage{hyperref}
 \usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
 
+\usepackage{pgfplots} % https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf
+
 \usepackage{natbib}
 
 \usepackage{xcolor}
@@ -326,6 +328,8 @@ M(>v) = \int_{v}^{\infty}\int_{0}^{2\pi}\int_{0}^{\pi/2}\sin\alpha d\alpha d\bet
 \end{equation} 
 where $\alpha$ is the zenith angle, $\beta$ is the azimuth angle, and $v$ is the ejecta speed. Just to note, at the secondary impact location, the zenith angle will be the same as the ejected zenith angle. However, the azimuth angle (or bearing) will be modified due to travel across the spherical surface, see Section \ref{ssec:Distance_and_Bearing}.
 
+\subsubsection{Speed Distribution Function}
+
 The speed distribution $H(v')$ is defined as
 \begin{equation}
 \int_{v}^{\infty}dv'H(v') = v^{-3\mu},
@@ -334,6 +338,12 @@ which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can 
 \begin{equation}
 H(v) = 3\mu v^{-(3\mu+1)}.
 \end{equation}
+
+
+\subsubsection{Zenith Distribution Function}
+
+
+
 For the angular dependent terms $F(\alpha)$ and $G(\beta)$, they technically should depend on speed as well as particle size \citep[e.g.,][]{rival1999modeling}. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
 
 Adopting the zenith and azimuth distributions from \cite{rival1999modeling}, we have the following equations:
@@ -357,24 +367,7 @@ for $\alpha_i$ the impact zenith angle, and \citep[see][]{ESABASE2_DebrisRelease
 \end{align}
 where the peak ejecta angle is shifted from $30^\circ$ of zenith for a normal impact to $80^\circ$ of zenith for oblique impacts ($>60^\circ$).
 
-The azimuth distribution is given by \citep{rival1999modeling}
-\begin{equation}
-G(\beta) =
-\begin{cases}
-\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
-\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'}\right]
-\text{  for $\alpha_i > \pi/3 = 60^\circ$}
-\end{cases},
-\end{equation}
-where
-\begin{equation}
-\sigma' = \frac{\pi}{36} = 5^\circ, 
-\end{equation}
-for $\beta_i$ the impact azimuth angle + $\pi$.\\
-
-\subsubsection{Zenith Distribution Function}
-
-
+\paragraph{Alternative Zenith Distribution:}
 To complete the integral over the zenith distribution, namely
 \begin{equation}\label{eq:zenith_integral}
 \int_{\alpha_0(v)}^{\alpha_1(v)}d\alpha\sin\alpha F(\alpha),
@@ -387,7 +380,49 @@ where the exponent $a$ can be defined in terms of the peak angle $\alpha_{max}$ 
 \begin{equation}
 a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}},
 \end{equation}
-such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$. We then can do a variable substitution (chosen so the domain goes from $\alpha\in [0,\pi/2]$ to $x\in [0,1]$)
+such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$.
+
+In order to compare with experiments for the peak angle $\alpha_{max}$, we can use Figure 18 of \cite{gault1978experimental} as a proxy to our model of $\alpha_{max}$, as a function of the azimuth angle. Using a third order polynomial for both fits to the upstream and downstream angles given in Table \ref{tab:upstream_downstream_angles}, we arrive at
+\begin{align}
+\alpha_{max}(\beta - \beta_i = \pi) &= 0.0003\alpha_i^3 - 0.036\alpha_i^2 + 1.5206\alpha_i + 20,\\
+\alpha_{max}(\beta - \beta_i = 0) &= -0.00042\alpha_i^3 + 0.0236\alpha_i^2 + 0.129\alpha_i + 20,
+\end{align}
+in units of degrees, where $\beta_i$ is the impact azimuth angle, $\beta$ is the ejecta azimuth angle, and $\alpha_i$ is the impact zenith angle. For other values of $\beta - \beta_i$, we can write a complete function as
+\begin{equation}
+\alpha_{max}(\beta) = \alpha_{max}(\beta - \beta_i = \pi)\cdot \sin^2\left(\frac{\beta - \beta_i}{2}\right)
++ \alpha_{max}(\beta - \beta_i = 0)\cdot \cos^2\left(\frac{\beta - \beta_i}{2}\right)
+\end{equation}
+
+\begin{table}[h]\centering
+	\caption{Cone angles of upstream and downstream of impact derived from Figure 18 of \cite{gault1978experimental}.}\label{tab:upstream_downstream_angles}
+	\begin{tabular}{|c | c | c |}\hline
+		Impact Zenith Angle & Upstream Zenith Angle & Downstream Zenith Angle\\\hline
+		0	&20	&20\\\hline
+		15	&24	&35\\\hline
+		30	&35	&45\\\hline
+		45	&28	&40\\\hline
+		60	&13	&54\\\hline
+		75	&-35	&66\\\hline		
+	\end{tabular}
+\end{table}
+Using Table \ref{tab:upstream_downstream_angles} as a fit for the peak angle $\alpha_{max}$ is an approximation since the tabular data is only for a specific snapshot of the ejecta at a side view, $90^\circ$ from the impact direction. The zenith distribution should also be a function of the ejecta speed, but we do not make this assumption for the sake of simplicity. According to this model, starting at $60^\circ - 70^\circ$, there is a region of exclusion for a part of the zenith distribution upstream of the impact.
+
+\begin{tikzpicture}\centering
+\begin{axis}[
+	xlabel = Impact Zenith Angle,
+	ylabel = Exlusion Azimuth Range at Peak Ejecta Angle
+]
+\addplot coordinates {
+	( 338.1, 266.45 )
+	( 169.1, 143.43 )
+	( 84.5, 64.80 )
+	( 42.3, 34.19 )
+	( 21.1, 9.47 )
+};
+\end{axis}
+\end{tikzpicture}
+
+Next, we can do a variable substitution (chosen so the domain of the zenith angle to the new variable goes from $\alpha\in [0,\pi/2]$ to $x\in [0,1]$)
 \begin{align}
 1-x &= \cos\alpha,\\
 dx &= \sin\alpha d\alpha,
@@ -436,6 +471,27 @@ There are three regions of the zenith angle-space, and hence the $x$-space, wher
 	\item For $D_j < \pi r_m$ and $D_{j+1} \ge \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
 	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$
 \end{enumerate}
+
+
+
+\subsubsection{Azimuth Distribution Function}
+
+
+The azimuth distribution shown below is given by \citep{rival1999modeling}
+\begin{equation}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'}\right]
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+\sigma' = \frac{\pi}{36} = 5^\circ, 
+\end{equation}
+for $\beta_i$ the impact azimuth angle + $\pi$.\\
+
 
 
 

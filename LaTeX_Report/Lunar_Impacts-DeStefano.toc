@@ -21,12 +21,15 @@
 \contentsline {subsection}{\numberline {6.2}Regolith Size Distribution}{6}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Ejected Mass from an Impactor}{8}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Ejecta Mass Distribution Function}{9}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Zenith Distribution Function}{10}{subsubsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.5}Meteoroid Projectile Mass Distribution}{12}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Density Distribution}{13}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{14}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{15}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{18}{subsubsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.9}Distance and Bearing}{19}{subsection.6.9}%
-\contentsline {section}{\numberline {7}NASA SP-8013 Meteoroid Environment Model - 1969}{20}{section.7}%
-\contentsline {section}{References}{22}{section*.12}%
+\contentsline {subsubsection}{\numberline {6.4.1}Speed Distribution Function}{9}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Zenith Distribution Function}{9}{subsubsection.6.4.2}%
+\contentsline {paragraph}{Alternative Zenith Distribution:}{10}{section*.5}%
+\contentsline {subsubsection}{\numberline {6.4.3}Azimuth Distribution Function}{13}{subsubsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.5}Meteoroid Projectile Mass Distribution}{13}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Density Distribution}{15}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{15}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{17}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{20}{subsubsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.9}Distance and Bearing}{20}{subsection.6.9}%
+\contentsline {section}{\numberline {7}NASA SP-8013 Meteoroid Environment Model - 1969}{21}{section.7}%
+\contentsline {section}{References}{23}{section*.14}%
