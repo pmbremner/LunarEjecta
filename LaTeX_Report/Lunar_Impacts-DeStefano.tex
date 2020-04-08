@@ -330,7 +330,7 @@ where $\alpha$ is the zenith angle, $\beta$ is the azimuth angle, and $v$ is the
 
 \subsubsection{Speed Distribution Function}
 
-The speed distribution $H(v')$ is defined as
+The speed distribution $H(v')$ is defined by
 \begin{equation}
 \int_{v}^{\infty}dv'H(v') = v^{-3\mu},
 \end{equation}
@@ -382,7 +382,7 @@ a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}},
 \end{equation}
 such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$.
 
-In order to compare with experiments for the peak angle $\alpha_{max}$, we can use Figure 18 of \cite{gault1978experimental} as a proxy to our model of $\alpha_{max}$, as a function of the azimuth angle. Using a third order polynomial for both fits to the upstream and downstream angles given in Table \ref{tab:upstream_downstream_angles}, we arrive at
+In order to compare with experiments for the peak angle $\alpha_{max}$, we can use Figure~18 of \cite{gault1978experimental} as a proxy to our model of $\alpha_{max}$, as a function of the azimuth angle. Using a third order polynomial for both fits to the upstream and downstream angles given in Table \ref{tab:upstream_downstream_angles}, we arrive at
 \begin{align}
 \alpha_{max}(\beta - \beta_i = \pi) &= 0.0003\alpha_i^3 - 0.036\alpha_i^2 + 1.5206\alpha_i + 20,\\
 \alpha_{max}(\beta - \beta_i = 0) &= -0.00042\alpha_i^3 + 0.0236\alpha_i^2 + 0.129\alpha_i + 20,
@@ -405,22 +405,30 @@ in units of degrees, where $\beta_i$ is the impact azimuth angle, $\beta$ is the
 		75	&-35	&66\\\hline		
 	\end{tabular}
 \end{table}
-Using Table \ref{tab:upstream_downstream_angles} as a fit for the peak angle $\alpha_{max}$ is an approximation since the tabular data is only for a specific snapshot of the ejecta at a side view, $90^\circ$ from the impact direction. The zenith distribution should also be a function of the ejecta speed, but we do not make this assumption for the sake of simplicity. According to this model, starting at $60^\circ - 70^\circ$, there is a region of exclusion for a part of the zenith distribution upstream of the impact.
+Using Table \ref{tab:upstream_downstream_angles} as a fit for the peak angle $\alpha_{max}$ is an approximation since the tabular data is only for a specific snapshot of the ejecta at a side view, $90^\circ$ from the impact direction. The zenith distribution should also be a function of the ejecta speed, but we do not make this assumption for the sake of simplicity. According to this model, starting around $60^\circ - 70^\circ$, there is a region of exclusion for a part of the zenith distribution upstream of the impact, see Figure \ref{fig:ExlusionRange_vs_ImpactAngle}.
 
-\begin{tikzpicture}\centering
-\begin{axis}[
-	xlabel = Impact Zenith Angle,
-	ylabel = Exlusion Azimuth Range at Peak Ejecta Angle
-]
-\addplot coordinates {
-	( 338.1, 266.45 )
-	( 169.1, 143.43 )
-	( 84.5, 64.80 )
-	( 42.3, 34.19 )
-	( 21.1, 9.47 )
-};
-\end{axis}
-\end{tikzpicture}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.65]{ExlusionRange_vs_ImpactAngle.png}
+	\caption{For larger impact angles that are more grazing to the surface, the zenith and azimuth ejecta distributions become asymmetric. Starting at $70^\circ$, the peak ejecta angle $\alpha_{max}$ becomes negative in an exclusion range, as shown in the figure. This means that the $-\alpha_{max}\to\alpha_{max}$ and $\beta-\beta_i\to \beta-\beta_i +\pi$. In this model, for impact angles near $90^\circ$, most of the ejecta is concentrated in the downstream direction.}\label{fig:ExlusionRange_vs_ImpactAngle}
+\end{figure}
+
+%
+%\begin{tikzpicture}\centering
+%\begin{axis}[
+%	xlabel = Impact Zenith Angle,
+%	ylabel = Exlusion Azimuth Range at Peak Ejecta Angle
+%]
+%\addplot coordinates {
+%	( 338.1, 266.45 )
+%	( 169.1, 143.43 )
+%	( 84.5, 64.80 )
+%	( 42.3, 34.19 )
+%	( 21.1, 9.47 )
+%};
+%\end{axis}
+%\end{tikzpicture}
 
 Next, we can do a variable substitution (chosen so the domain of the zenith angle to the new variable goes from $\alpha\in [0,\pi/2]$ to $x\in [0,1]$)
 \begin{align}
@@ -436,6 +444,12 @@ where the equations $x_0(v)$ and $x_1(v)$ are a linear function of $v$ and an im
 \int_{x_0(v)}^{x_1(v)}dx x^{1/a}(1-x)^a
 = \beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1).
 \end{equation}
+Note that the normalization term for $\alpha\in [0, \pi/2]$ is given by
+\begin{equation}
+\int_{\alpha_0(v)}^{\alpha_1(v)}d\alpha\sin\alpha F(\alpha) = 
+\beta(1/a+1, a+1) = \frac{\Gamma(1/a+1)\Gamma(a+1)}{\Gamma(a+1/a+2)},
+\end{equation}
+which includes ejecta at speeds greater than the escape speed.
 
 For small differences in $D_0$ and $D_1$, we can roughly assume small differences in $x_0(v)$ and $x_1(v)$ so that we can write Eq.\ \eqref{eq:zenith_integral3} in terms of a derivative, where we evaluate the derivative at the midpoint
 \begin{align}
@@ -482,7 +496,7 @@ The azimuth distribution shown below is given by \citep{rival1999modeling}
 G(\beta) =
 \begin{cases}
 \frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
-\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'}\right]
+\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'^2}\right]
 \text{  for $\alpha_i > \pi/3 = 60^\circ$}
 \end{cases},
 \end{equation}
@@ -635,11 +649,11 @@ so Eq.\ \ref{eq:tan_beta} becomes \citep[c.f., Eq.\ (1) of][]{vickery1986size}
 %\begin{equation}
 %\frac{v^2}{v_{esc}^2} = \frac{1}{2}\frac{\sin^2\left(\frac{D}{2r_m}\right)}{\cos^2\left(\frac{D}{2r_m}\right) - \sin^2\gamma}\left[\cot\left(\frac{D}{2r_m}\right)\cot\gamma - 1\right].
 %\end{equation}
-
+% Run plotSpeedAngleDistance.py
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.85]{../Distance_vs_EjectaSpeed_and_ZenithAngle.png}
-	\caption{The color gradient shows the distance a projectile goes that has a given ejected speed and zenith angle. The cyan dashed line gives the optimal angle for a given speed to reach the furthest distance, i.e., Eq.\ \eqref{eq:opt_angle}. The red dashed line shows for which pairs of speeds and zenith angles are required to hit the antipodal point. As an example, all ejecta with speed and angle pairs between the two black curves will reach a location between 0.05 and 0.06 lunar circumference units away, using Eq.~\eqref{eq:speed_asof_distance_angle}.}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
+	\caption{The color gradient shows the distance a projectile goes with a given ejected speed and zenith angle. The cyan dashed line gives the optimal angle for a given speed to reach the furthest distance, i.e., Eq.\ \eqref{eq:opt_angle}. The red dashed line shows for which pairs of speeds and zenith angles are required to hit the antipodal point. As an example, all ejecta with speed and angle pairs between the two black curves will reach a location between 0.05 and 0.06 lunar circumference units away, using Eq.~\eqref{eq:speed_asof_distance_angle}.}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
 \end{figure}
 
 
@@ -709,7 +723,7 @@ Given two latitude-longitude points on a sphere, $(\phi_1, \theta_1)$ and $(\phi
 
 The distance D is given by the equation
 \begin{equation}\label{eq:shortdistance-between-latlon-points}
-\tan\left(\frac{D}{2R_m}\right) = \sqrt{\frac{a}{1-a}},
+\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}},
 \end{equation}
 where $a$ is given by
 \begin{equation}
@@ -717,7 +731,7 @@ a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
 \end{equation}
 for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
 \begin{equation}
-\tan\left(\pi-\frac{D}{2R_m}\right) = \sqrt{\frac{a}{1-a}}.
+\tan\left(\pi-\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}}.
 \end{equation}
 
 The initial bearing $\theta$ (from due East) is given by the following equation (assuming the short-distance):
