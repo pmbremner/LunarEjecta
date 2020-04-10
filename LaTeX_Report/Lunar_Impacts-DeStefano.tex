@@ -471,14 +471,50 @@ m_{j,i}^{\pm} &= \frac{v_{i+1}-v_i}{x_{j,i+1}^{\pm}-x_{j,i}^{\pm}},\\
 b_{j,i}^{\pm} &= v_i - m_{j,i}^{\pm}\cdot x_{j,i}^{\pm},
 \end{align}
 where
-\begin{align}
-x_{j,i}^{\pm} &= 1 - \cos\alpha_{j,i}^{\pm}, \\
-\cos\alpha_{j,i}^{\pm} &= \frac{\cot\alpha_{j,i}^{\pm}}{\sqrt{1+ \cot^2\alpha_{j,i}^{\pm}}},
-\end{align}
-for (using Eq.\ \eqref{eq:gammaVs_V_D})
+%\begin{align}
+%x_{j,i}^{\pm} &= 1 - \cos\alpha_{j,i}^{\pm}, \\
+%\cos\alpha_{j,i}^{\pm} &= \frac{\cot\alpha_{j,i}^{\pm}}{\sqrt{1+ \cot^2\alpha_{j,i}^{\pm}}},
+%\end{align}
+%for (using Eq.\ \eqref{eq:gammaVs_V_D})
+%\begin{equation}
+%\cot\alpha_{j,i}^{\pm} = v_i^2\cot\left(\frac{D_j}{2r_m}\right) \pm \sqrt{v_i^4\cot^2\left(\frac{D_j}{2r_m}\right) +2v_i^2-1 }.
+%\end{equation}
+
 \begin{equation}
-\cot\alpha_{j,i}^{\pm} = v_i^2\cot\left(\frac{D_j}{2r_m}\right) \pm \sqrt{v_i^4\cot^2\left(\frac{D_j}{2r_m}\right) +2v_i^2-1 }.
+x_{j,i}^{\pm} = 1 - \cos\alpha_{j,i}^{\pm},
 \end{equation}
+for
+\begin{equation}
+\cos^2\alpha_{j,i}^{\pm} = \frac{v_i^2+\tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1) \pm \sqrt{v_i^4 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1)}}{2v_i^2\left(1 + \tan^2\left(\frac{D_j}{2r_m}\right)\right) },
+\end{equation}
+taking the positive root, $\cos\alpha_{j,i}^{\pm} = +\sqrt{\cos^2\alpha_{j,i}^{\pm}}$, since $\alpha\in [0, \pi/2]$. Other useful transformed equations are
+\begin{equation}
+\tan\left(\frac{D_j}{2r_m}\right) = \frac{2v_i^2(1-x_{j,i}^{\pm})\sqrt{x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}}{1-2v_i^2x_{j,i}^{\pm}(2-x_{j,i}^{\pm})},
+\end{equation}
+from Eq.\ \eqref{eq:ejecta_distance}, and
+\begin{equation}
+v_i = \frac{1}{\sqrt{2(1-x_{j,i}^{\pm})\sqrt{x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}\cot\left(\frac{D_j}{2r_m}\right) + 2x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}},
+\end{equation}
+from Eq.\ \eqref{eq:speed_asof_distance_angle}. Solving for $x_{j,i}^{\pm}$ in either equation, we obtain
+\begin{equation}
+x_{j,i}^{\pm} = 1 - \sqrt{\frac{v_i^2 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1) \pm \sqrt{v_i^4 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1)}}{2v_i^2\left[1+\tan^2\left(\frac{D_j}{2r_m}\right)\right]}}.
+\end{equation}
+
+For a given distance, the domain of $x$ is given by
+\begin{equation}\label{eq:x_domain} %\sqrt{\frac{1+\cos\left(\frac{D_j}{2r_m}\right)}{2}}
+x_{j,i}^{\pm} \in \left(1 - \cos\left(\frac{D_j}{4r_m}\right),
+1 \right),
+\end{equation}
+and the domain of $v$ is given by
+\begin{equation}\label{eq:v_domain}
+v_i \in
+\begin{cases}
+\left(1-\sqrt{\frac{1-\sin\left(\frac{D_j}{2r_m}\right)}{2}}, 1\right) \text{  for $D_j < \pi r_m$}\\
+\left(\frac{\sqrt{2}}{2}, 1\right) \text{  for $D_j \ge \pi r_m$}
+\end{cases}.
+\end{equation}
+The two domains in Eqs.\ \eqref{eq:x_domain} and \eqref{eq:v_domain} define the region of interest, and allow for the integration to begin at the correct outermost boundary lines.
+
 There are three regions of the zenith angle-space, and hence the $x$-space, where we have:
 \begin{enumerate}[label=Region \Roman*:]
 	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$

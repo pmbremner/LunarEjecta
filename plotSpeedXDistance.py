@@ -5,18 +5,19 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 
 def norm_distance_x(v, x):
-	return np.arctan2(2. * v**2 * x*(1.-x)*np.sqrt(2.-x), 1. - 2. * (v*x)**2 *(2.-x)) / np.pi
+	return np.arctan2(2. * v**2 * (1.-x)*np.sqrt(x*(2.-x)), 1. - 2. * v**2 *x*(2.-x)) / np.pi
 
 def norm_speed_x(D, x):
-	return ((2.*x) * ((1.-x)*np.sqrt(2.-x)/np.tan(D*np.pi) + 2. -x))**-0.5
+	return (2.*(1.-x)*np.sqrt(x*(2.-x))/np.tan(D*np.pi) + 2.*x*(2.-x))**-0.5
 
-def cot_angle_p(v, D):
-	b2 = v**2 / np.tan(D*np.pi)
-	return b2 + np.sqrt(b2**2 + 2.0*v**2 - 1.0)
+# def cot_angle_p(v, D):
+# 	b2 = v**2 / np.tan(D*np.pi)
+# 	return b2 + np.sqrt(b2**2 + 2.0*v**2 - 1.0)
 
 def norm_X_p(v, D):
-	cot_alpha = cot_angle_p(v, D)
-	return 1.0 - cot_alpha / np.sqrt(1.0 + cot_alpha**2)
+	tan2 = (np.tan(D*np.pi))**2
+	return 1. - np.sqrt( (v**2 + tan2*(2.*v**2 - 1.) + np.sqrt(v**4 + tan2*(2.*v**2-1.)))
+		/ (2.*v**2*(1.+tan2)) )
 
 # units of escape speed
 vmin = 0.
@@ -59,7 +60,9 @@ plt.plot(x, v_d0, 'k')
 plt.plot(x, v_d1, 'k')
 
 #####
-plt.plot(norm_X_p(y_lines[7], D0), y_lines[7], 'ko')
+plt.plot(norm_X_p(y_lines, D1), y_lines, 'ko')
 
+
+#print(norm_X_p(y_lines, D0))
 
 plt.show()
