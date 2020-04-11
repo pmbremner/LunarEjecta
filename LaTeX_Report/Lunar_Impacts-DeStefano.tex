@@ -451,7 +451,7 @@ Note that the normalization term for $\alpha\in [0, \pi/2]$ is given by
 \end{equation}
 which includes ejecta at speeds greater than the escape speed.
 
-For small differences in $D_0$ and $D_1$, we can roughly assume small differences in $x_0(v)$ and $x_1(v)$ so that we can write Eq.\ \eqref{eq:zenith_integral3} in terms of a derivative, where we evaluate the derivative at the midpoint
+For small differences in $D_0$ and $D_1$, we can roughly assume small differences\footnote{If $\Delta x$ is not small, then we can partition the $x$ range into smaller pieces so that $\Delta x$ is small, which will be the case in almost all circumstances.} in $x_0(v)$ and $x_1(v)$ so that we can write Eq.\ \eqref{eq:zenith_integral3} in terms of a derivative, where we evaluate the derivative at the midpoint
 \begin{align}
 &\beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)\nonumber\\
 = &\frac{\beta(x_0(v) +\Delta x; 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)}{\Delta x}\Delta x\nonumber\\
@@ -495,12 +495,12 @@ from Eq.\ \eqref{eq:ejecta_distance}, and
 \begin{equation}
 v_i = \frac{1}{\sqrt{2(1-x_{j,i}^{\pm})\sqrt{x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}\cot\left(\frac{D_j}{2r_m}\right) + 2x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}},
 \end{equation}
-from Eq.\ \eqref{eq:speed_asof_distance_angle}. Solving for $x_{j,i}^{\pm}$ in either equation, we obtain
+from Eq.\ \eqref{eq:speed_asof_distance_angle}. Solving for $x_{j,i}^{\pm}$ in either equation, we can now write $x$ explicitly in terms of the distance $D$ and ejecta speed $v$ as
 \begin{equation}
 x_{j,i}^{\pm} = 1 - \sqrt{\frac{v_i^2 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1) \pm \sqrt{v_i^4 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1)}}{2v_i^2\left[1+\tan^2\left(\frac{D_j}{2r_m}\right)\right]}}.
 \end{equation}
 
-For a given distance, the domain of $x$ is given by
+For a given distance, the domain of $x$ is given by (for $v$ up to 1)
 \begin{equation}\label{eq:x_domain} %\sqrt{\frac{1+\cos\left(\frac{D_j}{2r_m}\right)}{2}}
 x_{j,i}^{\pm} \in \left(1 - \cos\left(\frac{D_j}{4r_m}\right),
 1 \right),
@@ -509,9 +509,13 @@ and the domain of $v$ is given by
 \begin{equation}\label{eq:v_domain}
 v_i \in
 \begin{cases}
-\left(1-\sqrt{\frac{1-\sin\left(\frac{D_j}{2r_m}\right)}{2}}, 1\right) \text{  for $D_j < \pi r_m$}\\
+\left(\left[1 + \left|\cos\left(\frac{D_j}{2r_m}\right)\right|\cot\left(\frac{D_j}{2r_m}\right) + \sin\left(\frac{D_j}{2r_m}\right) \right]^{-1/2}, 1\right) \text{  for $D_j < \pi r_m$}\\
 \left(\frac{\sqrt{2}}{2}, 1\right) \text{  for $D_j \ge \pi r_m$}
-\end{cases}.
+\end{cases}
+\end{equation}
+where the value of $x_{j,i}^{\pm}$ at the minimum of $v_i$ is
+\begin{equation}
+x_{j,i}^{\pm} = 1-\sqrt{\frac{1-\sin\left(\frac{D_j}{2r_m}\right)}{2}}
 \end{equation}
 The two domains in Eqs.\ \eqref{eq:x_domain} and \eqref{eq:v_domain} define the region of interest, and allow for the integration to begin at the correct outermost boundary lines.
 
