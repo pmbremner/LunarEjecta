@@ -31,5 +31,10 @@
 \contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{18}{subsection.6.8}%
 \contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{21}{subsubsection.6.8.1}%
 \contentsline {subsection}{\numberline {6.9}Distance and Bearing}{21}{subsection.6.9}%
-\contentsline {section}{\numberline {7}NASA SP-8013 Meteoroid Environment Model - 1969}{22}{section.7}%
-\contentsline {section}{References}{24}{section*.15}%
+\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{22}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{22}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{22}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>E_{crit}$)}{22}{subsection.7.4}%
+\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{22}{section.8}%
+\contentsline {section}{References}{25}{section*.15}%
