@@ -1,3 +1,47 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: Lunar_Impacts-DeStefano.aux
+This is BibTeX, Version 0.99d (MiKTeX 2.9.7380 64-bit)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Lunar_Impacts-DeStefano.aux
 The style file: agu.bst
 Database file #1: report.bib
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+You've used 18 entries,
+            3075 wiz_defined-function locations,
+            1176 strings with 12586 characters,
+and the built_in function-call counts, 15723 in all, are:
+= -- 1697
+> -- 531
+< -- 16
++ -- 286
+- -- 129
+* -- 955
+:= -- 1454
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 95
+chr.to.int$ -- 18
+cite$ -- 54
+duplicate$ -- 1673
+empty$ -- 933
+format.name$ -- 179
+if$ -- 3186
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 176
+newline$ -- 61
+num.names$ -- 72
+pop$ -- 741
+preamble$ -- 1
+purify$ -- 77
+quote$ -- 0
+skip$ -- 962
+stack$ -- 0
+substring$ -- 604
+swap$ -- 1323
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 162
+warning$ -- 0
+while$ -- 93
+width$ -- 0
+write$ -- 201

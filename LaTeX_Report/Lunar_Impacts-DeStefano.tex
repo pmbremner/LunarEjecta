@@ -296,7 +296,7 @@ where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regoli
 \subsection{Ejected Mass from an Impactor}
 From \cite{housen2011ejecta}, we can compute the mass ejected faster than $v$ in terms of impactor properties, given by
 \begin{eqnarray}\label{eq:HH11_mass-ejected1}
-M(v; \rho; m, \delta, U, \alpha) = C_4 m\left[\frac{v}{U\Theta(\alpha)}\left(\frac{\rho}{\delta}\right)^{\frac{3\nu-1}{3\mu}}\right]^{-3\mu},
+M(v; \rho; m, \delta, U, \alpha) = M(>v) = C_4 m\left[\frac{v}{U\Theta(\alpha)}\left(\frac{\rho}{\delta}\right)^{\frac{3\nu-1}{3\mu}}\right]^{-3\mu},
 \end{eqnarray}
 where
 \begin{itemize}
@@ -318,6 +318,11 @@ where the constants $k$, $C_1$, $\nu$, and $\mu$ depend on the specific material
 \sin\alpha\\
 \sin(\sqrt{\alpha_0^2 + \alpha^2}),\text{  } \alpha_0 \sim 5^\circ-15^\circ.
 \end{cases}
+\end{equation}
+
+For the ejected mass that is in a given velocity range, we can define $\Delta M(v_2, v_1)$ as
+\begin{equation}\label{eq:delta_M}
+\Delta M(v_2, v_1) = M(>v_2) - M(>v_1).
 \end{equation}
 
 \subsection{Ejecta Mass Distribution Function}
@@ -789,25 +794,34 @@ In order to compute the initial and final bearing for the long-distance trajecto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Meteoroid Ejecta Environment Output}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integral Flux ($>m$) vs.\ Particle Ejecta Mass}
+The goal of this chapter is to outline various outputs for the lunar meteoroid ejecta environment. For each section we will provide the techniques needed to evaluate the necessary integrals. Sections \ref{ssec:IntFlux_m_m} and \ref{ssec:IntFlux_Ec_Ec} will be for verification purposes, Section \ref{ssec:IntFlux_d_d} will be for illustration, and Section \ref{ssec:IglooIntFlux_m} will be the engineering environment for the revision~H of DSNE, planed for the summer of 2020. The primary customer of the engineering environment will be the Appendix H contractors of the HLS (Human Landing System) Program.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integral Flux ($>E_{crit}$) vs.\ Critical Energy}
+\subsection{Integral Flux ($>m$) vs.\ Particle Ejecta Mass}\label{ssec:IntFlux_m_m}
+
+The integral flux of ejecta particles greater than mass $m$ as a function of particle ejecta mass $m$ for different ejecta speed ranges $v_{i}-v_{i+1}$ will aid in verifying against the NASA SP-8013 environment (Section \ref{sec:NASA SP-8013 Meteoroid Environment Model}) in addition to the work of Caleb Fassett (ref) and \cite{bjorkman2019astronaut}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integral Flux ($>d$) vs.\ Particle Ejecta Size}
+\subsection{Integral Flux ($>E_{crit}$) vs.\ Critical Energy}\label{ssec:IntFlux_Ec_Ec}
+
+The integral flux of ejecta particles great than critical energy $E_c$ as a function of critical energy $E_c$ for different speed ranges $v_{i}-v_{i+1}$ will be used to compare against \cite{bjorkman2019astronaut}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Igloo Distribution of Integral Flux ($>E_{crit}$)}
+\subsection{Integral Flux ($>d$) vs.\ Particle Ejecta Size}\label{ssec:IntFlux_d_d}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{NASA SP-8013 Meteoroid Environment Model - 1969}
+\subsection{Igloo Distribution of Integral Flux ($>m$)}\label{ssec:IglooIntFlux_m}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{NASA SP-8013 Meteoroid Environment Model - 1969}\label{sec:NASA SP-8013 Meteoroid Environment Model}
 
 The NASA SP-8013 Meteoroid Environment Model \citep{cour1969meteoroid}, is a document published in 1969 that describes the meteoroid and lunar ejecta environment of cometary origin with masses between $10^{-12}$ g and $1$ g. The flux-mass models and the associated density and velocity characteristics are for engineering applications in the design of space vehicles for near-Earth orbit, cis-lunar, lunar orbit, and lunar surface missions.
 
