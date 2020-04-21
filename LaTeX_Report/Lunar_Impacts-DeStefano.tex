@@ -524,7 +524,7 @@ There are three regions of the zenith angle-space, and hence the $x$-space, wher
 
 
 \subsubsection{Azimuth Distribution Function}
-
+\label{sssec:AzimuthDistributionFunction}
 
 The azimuth distribution shown below is given by \citep{rival1999modeling}
 \begin{equation}\label{eq:azm_rival_mandeville}
@@ -586,6 +586,7 @@ For $\alpha_i\le \pi/3 = 60^\circ$, integrating over a small range $\Delta\beta 
 =& \frac{1}{2\pi}\left[\Delta\beta + \frac{3\alpha_i}{2\pi-3\alpha_i}\left[\sin(\beta_1-\beta_i) - \sin(\beta_0-\beta_i)\right]\right].
 \end{align}
 
+
 \subsubsection{Speed Distribution Function}
 
 The speed distribution $H(v')$ is defined by
@@ -601,7 +602,8 @@ To integrate over the velocity distribution, we must take the results from Secti
 
 \begin{align}
 &3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}\Delta x(v)\left[1-\frac{x_0(v)+x_1(v)}{2}\right]^a \left[\frac{x_0(v)+x_1(v)}{2}\right]^{1/a}\\
-=& 3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}(\Delta m v + \Delta b)(1-m_{avg}v-b_{avg})^a(m_{avg}v + b_{avg})^{1/a}, 
+=& 3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}(\Delta m v + \Delta b)(1-m_{avg}v-b_{avg})^a(m_{avg}v + b_{avg})^{1/a}\\
+=& \int_{v_0}^{v_1}dv H_2(v),\label{eq:def_H2}
 \end{align}
 where
 \begin{align}
@@ -611,8 +613,21 @@ m_{avg} &= \frac{m_0+m_1}{2},\\
 b_{avg} &= \frac{b_0+b_1}{2}.
 \end{align}
 
-This integral is related to the Appell F1 multivariate hypergeometric function and cannot be simplified to single variable hypergeometric functions for generalized values of the exponent $a$. At this time, we will defer to integrate this equation numerically, preferably using the Romberg integration method.
+This integral is related to the Appell F1 multivariate hypergeometric function and cannot be simplified to a finite number of single variable hypergeometric functions for generalized values of the exponent $a$. At this time, we will defer to integrate this equation numerically, preferably using the Romberg integration method.
 
+Alternatively, we can attempt to generate an approximation similar to what we did in Sections \ref{sssec:ZenithDistributionFunction} and \ref{sssec:AzimuthDistributionFunction}. Taking the Taylor expansion of Equation \eqref{eq:def_H2} about $v_{avg}$ out to the first term, we have (note, the first term drops out of the integral during integration, so the error is of order $\Delta v^3$)
+\begin{align}
+\int_{v_0}^{v_1}dv H_2(v) &\sim \int_{v_0}^{v_1}dv[H_2(v_{avg}) + H_2'(v_{avg})(v-v_{avg})+\dots],\\
+&= \Delta v H_2(v_{avg}),\nonumber
+\end{align}
+\begin{equation}
+=3\mu\Delta v v_{avg}^{-(3\mu+1)}(\Delta m v_{avg} + \Delta b)(1-m_{avg}v_{avg}-b_{avg})^a(m_{avg}v_{avg} + b_{avg})^{1/a},
+\end{equation}
+where
+\begin{align}
+\Delta v &= v_1-v_0,\\
+v_{avg} &= \frac{v_0 + v_1}{2}.
+\end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

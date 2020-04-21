@@ -28,9 +28,9 @@
 \contentsline {subsubsection}{\numberline {6.4.3}Speed Distribution Function}{15}{subsubsection.6.4.3}%
 \contentsline {subsection}{\numberline {6.5}Meteoroid Projectile Mass Distribution}{16}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Density Distribution}{17}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{19}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{20}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{22}{subsubsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{18}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{19}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{23}{subsubsection.6.8.1}%
 \contentsline {subsection}{\numberline {6.9}Distance and Bearing}{23}{subsection.6.9}%
 \contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{24}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{24}{subsection.7.1}%
