@@ -21,20 +21,21 @@
 \contentsline {subsection}{\numberline {6.2}Regolith Size Distribution}{6}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Ejected Mass from an Impactor}{8}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Ejecta Mass Distribution Function}{9}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Speed Distribution Function}{9}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Zenith Distribution Function}{9}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.1}Zenith Distribution Function}{9}{subsubsection.6.4.1}%
 \contentsline {paragraph}{Alternative Zenith Distribution:}{10}{section*.5}%
-\contentsline {subsubsection}{\numberline {6.4.3}Azimuth Distribution Function}{14}{subsubsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.5}Meteoroid Projectile Mass Distribution}{14}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Density Distribution}{16}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{16}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{18}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{21}{subsubsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.9}Distance and Bearing}{21}{subsection.6.9}%
-\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{22}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{22}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{22}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{23}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{23}{subsection.7.4}%
-\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{23}{section.8}%
-\contentsline {section}{References}{25}{section*.15}%
+\contentsline {subsubsection}{\numberline {6.4.2}Azimuth Distribution Function}{14}{subsubsection.6.4.2}%
+\contentsline {paragraph}{Alternative Azimuth Distribution:}{14}{section*.8}%
+\contentsline {subsubsection}{\numberline {6.4.3}Speed Distribution Function}{15}{subsubsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.5}Meteoroid Projectile Mass Distribution}{16}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Density Distribution}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Speed and Angle Distribution}{19}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Secondary Ejecta Distance, Speed, \& Angle}{20}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Coriolis Force}{22}{subsubsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.9}Distance and Bearing}{23}{subsection.6.9}%
+\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{24}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{24}{subsection.7.4}%
+\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{24}{section.8}%
+\contentsline {section}{References}{27}{section*.16}%

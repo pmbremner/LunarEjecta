@@ -333,20 +333,10 @@ M(>v) = \int_{v}^{\infty}\int_{0}^{2\pi}\int_{0}^{\pi/2}\sin\alpha d\alpha d\bet
 \end{equation} 
 where $\alpha$ is the zenith angle, $\beta$ is the azimuth angle, and $v$ is the ejecta speed. Just to note, at the secondary impact location, the zenith angle will be the same as the ejected zenith angle. However, the azimuth angle (or bearing) will be modified due to travel across the spherical surface, see Section \ref{ssec:Distance_and_Bearing}.
 
-\subsubsection{Speed Distribution Function}
-
-The speed distribution $H(v')$ is defined by
-\begin{equation}
-\int_{v}^{\infty}dv'H(v') = v^{-3\mu},
-\end{equation}
-which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can then solve the speed distribution explicitly as
-\begin{equation}
-H(v) = 3\mu v^{-(3\mu+1)}.
-\end{equation}
 
 
 \subsubsection{Zenith Distribution Function}
-
+\label{sssec:ZenithDistributionFunction}
 
 
 For the angular dependent terms $F(\alpha)$ and $G(\beta)$, they technically should depend on speed as well as particle size \citep[e.g.,][]{rival1999modeling}. For simplicity, we will assume the angular distribution is independent of speed and particle size but will be dependent on impact zenith and azimuth angle with respect to the bearing.
@@ -451,7 +441,7 @@ where the equations $x_0(v)$ and $x_1(v)$ are a linear function of $v$ and an im
 \end{equation}
 Note that the normalization term for $\alpha\in [0, \pi/2]$ is given by
 \begin{equation}
-\int_{\alpha_0(v)}^{\alpha_1(v)}d\alpha\sin\alpha F(\alpha) = 
+\int_{0}^{\pi/2}d\alpha\sin\alpha F(\alpha) = 
 \beta(1/a+1, a+1) = \frac{\Gamma(1/a+1)\Gamma(a+1)}{\Gamma(a+1/a+2)},
 \end{equation}
 which includes ejecta at speeds greater than the escape speed.
@@ -537,7 +527,7 @@ There are three regions of the zenith angle-space, and hence the $x$-space, wher
 
 
 The azimuth distribution shown below is given by \citep{rival1999modeling}
-\begin{equation}
+\begin{equation}\label{eq:azm_rival_mandeville}
 G(\beta) =
 \begin{cases}
 \frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
@@ -551,6 +541,77 @@ where
 \end{equation}
 for $\beta_i$ the impact azimuth angle + $\pi$.\\
 
+\paragraph{Alternative Azimuth Distribution:}
+The piece-wise function defined in Equation \eqref{eq:azm_rival_mandeville} for the azimuth distribution is correctly normalized for impact zenith angles $\alpha_i \le 60^\circ$, however for angles greater than $60^\circ$, the function is not continuous across the boundary $\beta = 2\pi \to 0$. We would also like a continuous function across the piece-wise boundary as well.
+
+Our proposed azimuth distribution is as follow. We will use the $\alpha_i \le 60^\circ$ functional form in Equation \eqref{eq:azm_rival_mandeville}, but we will have a different large-angle expression. The new azimuth distribution is defined as
+\begin{equation}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+b = 1 + \left[20\left(\frac{3\alpha_i}{\pi}-1\right)\right]^2.
+\end{equation}
+Notice we already have normalized both piece-wise expressions.
+
+For $\alpha_i > \pi/3 = 60^\circ$, in order to integrate over a small azimuth range $\beta\in(\beta_0, \beta_1)$
+\begin{equation}
+\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b},
+\end{equation}
+we can take the Taylor expansion of the integrand around the midpoint $\beta = \beta_{avg} = \frac{\beta_0+\beta_1}{2}$, such that
+\begin{align}
+&\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+\sim &\int_{\beta_0}^{\beta_1}d\beta \left[G(\beta_{avg}) + G'(\beta_{avg})(\beta-\beta_{avg}) + G''(\beta_{avg})(\beta-\beta_{avg})^2 + \dots\right].
+\end{align}
+We notice that all odd powers of $(\beta-\beta_{avg})$ integrate to zero, so if we keep the second order expansion term $G''$, then our error will be of order\footnote{We gain an extra order from the integration range itself.} $\Delta\beta^5 = (\beta_1-\beta_0)^5$. Therefore, the integral becomes
+\begin{align}
+&A\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+\sim & A\Delta\beta
+\left[\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)\right]^{b}
+\left[1 + \frac{b}{12}\Delta\beta^2\left[\frac{b\sin^2\left(\frac{\beta_{avg}-\beta_i}{2}\right) - \frac{1}{2}}{\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)}\right]\right],
+\end{align}
+where $A$ is the normalization factor we had before
+\begin{equation}
+A = \frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}.
+\end{equation}\\
+
+For $\alpha_i\le \pi/3 = 60^\circ$, integrating over a small range $\Delta\beta = \beta_1-\beta_0$, the integral is given by
+\begin{align}
+&\frac{1}{2\pi}\int_{\beta_0}^{\beta_1}d\beta \left[\frac{3\alpha_i}{2\pi-3\alpha_i}\cos(\beta-\beta_i)+1\right]\nonumber\\
+=& \frac{1}{2\pi}\left[\Delta\beta + \frac{3\alpha_i}{2\pi-3\alpha_i}\left[\sin(\beta_1-\beta_i) - \sin(\beta_0-\beta_i)\right]\right].
+\end{align}
+
+\subsubsection{Speed Distribution Function}
+
+The speed distribution $H(v')$ is defined by
+\begin{equation}
+\int_{v}^{\infty}dv'H(v') = v^{-3\mu},
+\end{equation}
+which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can then solve the speed distribution explicitly as
+\begin{equation}
+H(v) = 3\mu v^{-(3\mu+1)}.
+\end{equation}
+
+To integrate over the velocity distribution, we must take the results from Section~\ref{sssec:ZenithDistributionFunction} on the zenith distribution function and combine them with the above integral, giving
+
+\begin{align}
+&3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}\Delta x(v)\left[1-\frac{x_0(v)+x_1(v)}{2}\right]^a \left[\frac{x_0(v)+x_1(v)}{2}\right]^{1/a}\\
+=& 3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}(\Delta m v + \Delta b)(1-m_{avg}v-b_{avg})^a(m_{avg}v + b_{avg})^{1/a}, 
+\end{align}
+where
+\begin{align}
+\Delta m & = m_1 - m_0,\\
+\Delta b &= b_1 - b_0,\\
+m_{avg} &= \frac{m_0+m_1}{2},\\
+b_{avg} &= \frac{b_0+b_1}{2}.
+\end{align}
+
+This integral is related to the Appell F1 multivariate hypergeometric function and cannot be simplified to single variable hypergeometric functions for generalized values of the exponent $a$. At this time, we will defer to integrate this equation numerically, preferably using the Romberg integration method.
 
 
 
