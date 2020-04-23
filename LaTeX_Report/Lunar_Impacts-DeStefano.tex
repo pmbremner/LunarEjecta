@@ -629,6 +629,27 @@ where
 v_{avg} &= \frac{v_0 + v_1}{2}.
 \end{align}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algorithm to Integrate Speed-Zenith Space}
+For the three different possible regions as defined in Section \ref{sssec:ZenithDistributionFunction}, shown here again for convenience
+
+\begin{enumerate}[label=Region \Roman*:]
+	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and all $D_{j+1}$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$,
+\end{enumerate}
+
+there will be a fixed combination of ways the speed-zenith curves will intersect a given speed-zenith bin. For each region, we can assume the following about the slopes of the curves (and hence, the sign of their derivatives):
+\begin{enumerate}[label=Region \Roman*:]
+	\item Negative,
+	\item Zero,
+	\item Positive.
+\end{enumerate}
+Our analysis of Region I will be a mirror image of Region III. Region II is trivial in that there is only one case. We will outline the all the cases below for each region.
+
+\subsubsection{Region I}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Meteoroid Projectile Mass Distribution}
