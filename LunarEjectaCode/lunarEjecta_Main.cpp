@@ -43,6 +43,11 @@ int main(int argc, char const *argv[])
 	//MEM_LatData<MEM_HiDensityFluxAvg> lat_data("../LatRunData", -90.0, 90.0, 37); //"../LatRunData", -90.0, 90.0, 37
 	//lat_data().print();
 
+	latLon MN_ll(45.5679, -93.593);
+	latLon AL_ll(34.937286,  -86.828090);
+
+	cout << "\nDistance = " << AL_ll.getNormDistTo(MN_ll) << endl;
+
 
 	return 0;
 }

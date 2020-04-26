@@ -13,6 +13,9 @@ def norm_speed(D, gamma):
 def opt_angle(D):
 	return np.arctan2(np.cos(D*np.pi), 1.0 - np.sin(D*np.pi) )
 
+def min_vel(D):
+	return np.sqrt(np.tan(D*np.pi)**2 * (1./np.sin(D*np.pi) - 1.))
+
 # units of escape speed
 vmin = 0
 vmax = 1
@@ -36,26 +39,44 @@ plt.ylabel('Ejecta Speed [Escape Speed]')
 cbar = plt.colorbar()
 cbar.set_label('Distance from Impact [Lunar Circumference]')
 plt.ylim(0, 1)
-
+plt.xlim(0, 90)
 # optimal angle for a given velocity line
 
-D_opt = np.linspace(0.0, 0.4999, Nv)
+#D_opt = np.linspace(0.0, 0.4999, Nv)
+#gamma_opt = opt_angle(D_opt)
+
+#plt.plot(gamma_opt*180.0/np.pi, norm_speed(D_opt, gamma_opt), '--c')
+#ax.annotate('Optimal Angle', xytext=(50, 0.05), xy=(50, 0.05), color='cyan')
+D0 = 0.1
+D1 = D0*1.5
+
+
+D_opt = np.linspace(D0, D1, 2)
 gamma_opt = opt_angle(D_opt)
 
-plt.plot(gamma_opt*180.0/np.pi, norm_speed(D_opt, gamma_opt), '--c')
-ax.annotate('Optimal Angle', xytext=(50, 0.05), xy=(50, 0.05), color='cyan')
+x0 = np.array((gamma_opt[0], gamma_opt[0]))*180.0/np.pi
+x1 = np.array((gamma_opt[1], gamma_opt[1]))*180.0/np.pi
+x2 = np.array((D_opt[0]*np.pi/2., D_opt[0]*np.pi/2.))*180.0/np.pi
+y = np.array((0,1))
 
-# dashed line showing the antipodal point
-v_antpodal = norm_speed(0.5, gamma)
+plt.plot(x0, y)
+plt.plot(x1, y)
+plt.plot(x2, y)
 
-plt.plot(gamma*180.0/np.pi, v_antpodal, '--r')
-# plt.plot(gamma*180.0/np.pi, norm_speed(0.25, gamma), '--g')
+##################
+x = np.array((0,90))
+y0 = np.array((min_vel(D0), min_vel(D0)))
+y1 = np.array((min_vel(D1), min_vel(D1)))
+y2 = np.array((1./np.sqrt(2), 1./np.sqrt(2)))
 
-ax.annotate('Antipodal Point', xytext=(50, 0.95), xy=(50, 0.95), color='red')
+plt.plot(x, y0)
+plt.plot(x, y1)
+plt.plot(x, y2)
+
 
 # Example showing range of speeds and angles between two distances
-v_d0 = norm_speed(0.005, gamma)
-v_d1 = norm_speed(0.007, gamma)
+v_d0 = norm_speed(D0, gamma)
+v_d1 = norm_speed(D1, gamma)
 
 plt.plot(gamma*180.0/np.pi, v_d0, 'k')
 plt.plot(gamma*180.0/np.pi, v_d1, 'k')

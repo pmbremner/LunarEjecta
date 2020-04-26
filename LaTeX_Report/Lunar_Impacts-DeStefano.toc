@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{25}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{25}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{25}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{25}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{25}{subsection.7.4}%
-\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{25}{section.8}%
+\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{26}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{26}{subsection.7.4}%
+\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{26}{section.8}%
 \contentsline {section}{References}{28}{section*.17}%

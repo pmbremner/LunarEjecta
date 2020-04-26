@@ -649,6 +649,9 @@ Our analysis of Region I will be a mirror image of Region III. Region II is triv
 
 \subsubsection{Region I}
 
+
+
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.65]{integration_bounds_cases.png}
@@ -877,9 +880,14 @@ where $a$ is given by
 \begin{equation}
 a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
 \end{equation}
-for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
+for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Solving for the distance and simplifying, we have
 \begin{equation}
-\tan\left(\pi-\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}}.
+D = 2r_m\arcsin(\sqrt{a}).
+\end{equation}
+
+Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
+\begin{equation}
+\tan\left(\pi-\frac{D}{2r_m}\right) = -\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}}.
 \end{equation}
 
 The initial bearing $\theta$ (from due East) is given by the following equation (assuming the short-distance):
