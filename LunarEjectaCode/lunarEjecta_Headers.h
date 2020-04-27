@@ -8,6 +8,7 @@
 #include <fstream>
 #include <sstream>
 
+#include "lunarEjecta_GeneralExpressions.h"
 #include "lunarEjecta_MeteoroidFlux.h"
 #include "lunarEjecta_SecondaryFlux.h"
 //#include "vector2d.h"

@@ -47,6 +47,7 @@ int main(int argc, char const *argv[])
 	latLon AL_ll(34.937286,  -86.828090);
 
 	cout << "\nDistance = " << AL_ll.getNormDistTo(MN_ll) << endl;
+	cout << "Bearing = " << AL_ll.getBearingTo(MN_ll)/DtoR << endl;
 
 
 	return 0;

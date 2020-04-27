@@ -13,15 +13,18 @@ public:
 	latLon(double new_lat, double new_lon); // input in degrees
 	~latLon();
 
-	double getLat();
-	double getLon();
+	double getLatRad();
+	double getLonRad();
+
+	double getLatDeg();
+	double getLonDeg();
 
 	void dispLatLon();
 
 	double getNormDistTo(latLon& toLocation);
 	double getTanDistTo(latLon& toLocation);
-	//double getBearingTo(latLon& toLocation);
-	//double getBearingFrom(latLon& fromLocation);
+	double getBearingTo(latLon& toLocation);
+	double getBearingFrom(latLon& fromLocation);
 	
 private:
 	double lat; // radians

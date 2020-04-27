@@ -16,28 +16,41 @@ latLon::latLon(double new_lat, double new_lon) {
 
 latLon::~latLon() {}
 
-double latLon::getLat() {return lat/DtoR;}
-double latLon::getLon() {return lon/DtoR;}
+double latLon::getLatRad() {return lat;}
+double latLon::getLonRad() {return lon;}
+
+double latLon::getLatDeg() {return lat/DtoR;}
+double latLon::getLonDeg() {return lon/DtoR;}
 
 // in units of radius
-double latLon::getNormDistTo(latLon& toLocation) {
-	double a = sqr(sin((toLocation.getLat() - lat)/2.))
-		+ cos(lat) * cos(toLocation.getLat())
-		* sqr(sin((toLocation.getLon() - lon)/2.));
+double latLon::getNormDistTo(latLon& pos) {
+	double a = sqr(sin((pos.getLatRad() - lat)/2.))
+		+ cos(lat) * cos(pos.getLatRad())
+		* sqr(sin((pos.getLonRad() - lon)/2.));
 
 	return 2. * asin(sqrt(a));
 }
 
 // returns tan(D/(2*rm))
-double latLon::getTanDistTo(latLon& toLocation) {
-	double a = sqr(sin((toLocation.getLat() - lat)/2.))
-		+ cos(lon) * cos(toLocation.getLon())
-		* sqr(sin((toLocation.getLon() - lon)/2.));
+double latLon::getTanDistTo(latLon& pos) {
+	double a = sqr(sin((pos.getLatRad() - lat)/2.))
+		+ cos(lon) * cos(pos.getLonRad())
+		* sqr(sin((pos.getLonRad() - lon)/2.));
 
 	return sqrt(a / (1.-a));
 }
 
+double latLon::getBearingTo(latLon& pos) { //broken
+	return atan2(sin((pos.getLonRad() - lon)/2.)*cos(pos.getLatRad()),
+		cos(lat)*sin(pos.getLatRad()) - sin(lat)*cos(pos.getLatRad())
+		*cos((pos.getLonRad() - lon)/2.) );
+}
 
+double latLon::getBearingFrom(latLon& pos) { //broken
+	return atan2(sin((lon - pos.getLonRad())/2.)*cos(lat),
+		cos(pos.getLatRad())*sin(lat) - sin(pos.getLatRad())*cos(lat)
+		*cos((lon - pos.getLonRad())/2.) );
+}
 
 ///////////////////////////////
 
