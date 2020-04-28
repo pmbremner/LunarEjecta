@@ -46,8 +46,20 @@ int main(int argc, char const *argv[])
 	latLon MN_ll(45.5679, -93.593);
 	latLon AL_ll(34.937286,  -86.828090);
 
-	cout << "\nDistance = " << AL_ll.getNormDistTo(MN_ll) << endl;
-	cout << "Bearing = " << AL_ll.getBearingTo(MN_ll)/DtoR << endl;
+	MN_ll.dispLatLon();
+	AL_ll.dispLatLon();
+
+	MN_ll.dispNormDistTo(AL_ll);
+
+	MN_ll.dispBearingInitial(AL_ll);
+	MN_ll.dispBearingFinal(AL_ll);
+	MN_ll.dispAzmInitial(AL_ll);
+	MN_ll.dispAzmFinal(AL_ll);
+
+	AL_ll.dispBearingInitial(MN_ll);
+	AL_ll.dispBearingFinal(MN_ll);
+	AL_ll.dispAzmInitial(MN_ll);
+	AL_ll.dispAzmFinal(MN_ll);
 
 
 	return 0;

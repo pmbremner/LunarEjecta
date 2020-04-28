@@ -882,8 +882,19 @@ a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
 \end{equation}
 for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Solving for the distance and simplifying, we have
 \begin{equation}
-D = 2r_m\arcsin(\sqrt{a}).
+D = 2r_m\arcsin(\sqrt{a}),
 \end{equation}
+or
+\begin{equation}
+D = 2r_m\arccos(\sqrt{1-a}).
+\end{equation}
+
+Other useful expressions involving trigonometric functions of $D/r_m$ are
+\begin{align}
+\sin(D/r_m) &= 2\sqrt{a(1-a)},\\
+\cos(D/r_m) &= 1-2a,\\
+\tan(D/r_m) &= \frac{2\sqrt{a(1-a)}}{1-2a}.
+\end{align}
 
 Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
 \begin{equation}
