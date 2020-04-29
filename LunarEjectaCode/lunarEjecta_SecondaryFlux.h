@@ -76,22 +76,24 @@ public:
 	~ImpactSites_and_ROI();
 	
 private:
+	inline int H_idx(int i_azm, int j_dist);
+
 	int ND;
 	int Nazm;
 	int Ntot;
 
-	double radius; // units of km
+	double radius; // units of m
 	
 	latLon ROI;              // region of interest location
 	vector<latLon> siteLoc;   // lat-lon of impact sites, size Ntot
 	
 	vector<double> D;       // distances to impact sites, size ND, units of radii
-	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Ntot
+	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Ntot (defines the centers)
 	vector<double> ROIAzm;  // azimuth angle of incoming direction at ROI from impact location, size Nazm
 	
 	double ROI_SA;           // surface area of ROI
 	double ROI_radius;       // radius of ROI (assuming a circular region), *will be equal to half the first site distance
-	vector<double> site_SA;  // surface area of sites, size Ntot
+	vector<double> site_SA;  // surface area of sites, size ND
 };
 
 #endif 

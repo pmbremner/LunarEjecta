@@ -158,7 +158,9 @@ void latLon::getLatLonFromDistanceBearing(double D, double theta, latLon& pos2) 
 	pos2.setLonRad(lon + atan2(sin(theta)*sin(D)*cos(lat), cos(D) - sin(lat)*sinLat2) );
 }
 
-
+inline int ImpactSites_and_ROI::H_idx(int i_azm, int j_dist) {
+	return i_azm + Nazm*j_dist;
+}
 
 ///////////////////////////////
 
@@ -169,8 +171,9 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 	                  latLon& new_ROI)
 {
 	int i_azm, j_dist, idx;
-	double temp_bearing, temp_dist;
+	double temp_bearing, temp_dist, d_bearing, d_lat;
 	double temp_lat, temp_lon;
+	double SA_check = 0.0;
 
 	ND     = new_ND;
 	Nazm   = new_Nazm;
@@ -183,28 +186,36 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 	ROI.dispLatLon();
 	cout << endl;
 
-
 	// allocate more space in vectors
 	siteLoc.resize(Ntot);
 	D.resize(ND);
 	siteAzm.resize(Ntot);
 	ROIAzm.resize(Nazm);
-	site_SA.resize(Ntot);
+	site_SA.resize(ND);
 
 	// generate list of impact sites distributed over the globe
+	d_bearing = 2.*PI/ double(Nazm);
+	d_lat = PI / double(ND + 1.);
+
 	for (j_dist = 0; j_dist < ND; ++j_dist) {
-		D[j_dist] = (j_dist + 1.) / double(ND + 1.0) *PI; // units of radii
-		cout << j_dist << " D = " << D[j_dist] << endl;
+		D[j_dist] = (j_dist + 1.) * d_lat; // units of radii
+		//cout << j_dist << " D = " << D[j_dist] << endl;
+
+		// compute site surface areas
+		site_SA[j_dist] = sqr(radius) * d_bearing
+			* fabs(cos((0.5+j_dist)*d_lat) - cos((1.5+j_dist)*d_lat));
+
+		SA_check += site_SA[j_dist] * Nazm;
+
 		for (i_azm = 0; i_azm < Nazm; ++i_azm) {
-			idx = i_azm + Nazm*j_dist;
+			idx = this->H_idx(i_azm, j_dist);
 			// will assume intial bearing first, then translate to azm
 			//  this bearing is ROI to siteLoc
-			temp_bearing = double(i_azm) / double(Nazm) * 2.*PI;
+			temp_bearing = double(i_azm) * d_bearing;
 
 			if(j_dist == 0){
 				// takes init bearing point 1-2, converts to azm, then gets final azm point 2-1
 				ROIAzm[i_azm] = siteLoc[idx].init2Final(siteLoc[idx].bearing2Azm(temp_bearing));
-				//cout << ROIAzm[i_azm]/DtoR << endl;
 			}
 
 			// compute lat lon of new site
@@ -213,22 +224,18 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 			// outgoing azimuth from siteLoc to ROI
 			siteAzm[idx] = siteLoc[idx].getAzmInitial(ROI);
 
-			siteLoc[idx].dispLatLon();
+			//siteLoc[idx].dispLatLon();
 		}
 	}
+	// compute ROI surface area
+	ROI_radius = 2. * radius * sin(0.5*d_lat/2.0);
+	ROI_SA = PI * sqr(ROI_radius);
+
+	SA_check += 2.*ROI_SA;
+
+	// cout << " ROI radius = " << ROI_radius << " m" << endl;
+	// cout << " ROI SA = " << ROI_SA << " m^2" << endl;
+	cout << " Total surface area = " << SA_check << " m^2" << endl;
 }
 
-ImpactSites_and_ROI::~ImpactSites_and_ROI() {
-	// int i,j;
-	// ROI->deleteLatLon();
-	// ROI = NULL;
-	// for (j = 0; j < ND; ++j) {
-	// 	delete D[j];
-	// 	for (i = 0; i < Nazm; ++i) {
-	// 		if(j == 0)
-	// 			delete siteAzm[i];
-	// 		siteLoc[i+Nazm*j]->deleteLatLon();
-	// 		siteLoc[i+Nazm*j] = NULL;
-	// 	}
-	// }
-}
+ImpactSites_and_ROI::~ImpactSites_and_ROI() {}
