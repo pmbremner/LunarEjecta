@@ -9,6 +9,11 @@ using namespace std;
 #include <vector>
 #include <cmath>
 
+latLon::latLon() {
+	lat = 0.0;
+	lon = 0.0;
+}
+
 latLon::latLon(double new_lat, double new_lon) {
 	this->setLatDeg(new_lat);
 	this->setLonDeg(new_lon);
@@ -36,11 +41,33 @@ inline double latLon::H_a(latLon& pos) {
 		* sqr(sin((pos.getLonRad() - lon)/2.));
 }
 
+void latLon::copyLatLon(latLon& pos) { // shallow copy only
+	lat = pos.getLatRad();
+	lon = pos.getLonRad();
+}
+
+void latLon::newLatLon(latLon* pos) {
+	pos = new latLon(lat, lon);
+}
+
+
+void latLon::deleteLatLon() {
+	delete this;
+}
+
 double latLon::getLatRad() {return lat;}
 double latLon::getLonRad() {return lon;}
 
 double latLon::getLatDeg() {return lat/DtoR;}
 double latLon::getLonDeg() {return lon/DtoR;}
+
+inline double latLon::azm2Bearing(double azm){
+	return fmod(2.5*PI - azm, 2.*PI);
+}
+
+inline double latLon::bearing2Azm(double bearing) {
+	return fmod(2.5*PI - bearing, 2.*PI);
+}
 
 void latLon::dispLatLon() {
 	cout << " Latitude = " << lat/DtoR << " degrees, ";
@@ -103,16 +130,64 @@ double latLon::getBearingFinal(latLon& pos) {
 }
 
 double latLon::getAzmInitial(latLon& pos) {
-	return fmod(2.5*PI - this->getBearingInitial(pos), 2.*PI);
+	return bearing2Azm(this->getBearingInitial(pos));
 }
 
 double latLon::getAzmFinal(latLon& pos) {
-	return fmod(2.5*PI - this->getBearingFinal(pos), 2.*PI);
+	return bearing2Azm(this->getBearingFinal(pos));
 }
 
 
 
 ///////////////////////////////
 
-ImpactSites_and_ROI::ImpactSites_and_ROI() {}
-ImpactSites_and_ROI::~ImpactSites_and_ROI() {}
+ImpactSites_and_ROI::ImpactSites_and_ROI
+	                 (double new_ND,
+	                  double new_Nazm,
+	                  double new_radius,
+	                  latLon& new_ROI)
+{
+	int i_azm, j_dist;
+	double temp_bearing, temp_dist;
+	double temp_lat, temp_lon;
+	latLon temp_pos;
+	ND     = new_ND;
+	Nazm   = new_Nazm;
+	Ntot   = ND * Nazm;
+	radius = new_radius; 
+
+	new_ROI.newLatLon(ROI);
+
+	// generate list of impact sites distributed over the globe
+	siteLoc.resize(Ntot);
+	D.resize(ND);
+	for (j_dist = 0; j_dist < ND; ++j_dist) {
+		D[j_dist] = new double(5.0);
+		cout << D[j_dist] << endl;
+		temp_dist = (j_dist + 1.) / double(ND + 1.0) * 2.*PI; // units of radii
+		
+		for (i_azm = 0; i_azm < Nazm; ++i_azm) {
+			if(j_dist == 0){
+				siteAzm[i_azm] = new double;
+			}
+
+			temp_bearing = double(i_azm) / double(Nazm) * 2.*PI;
+			temp_pos.newLatLon(siteLoc[i_azm + Nazm*j_dist]);
+		}
+	}
+}
+
+ImpactSites_and_ROI::~ImpactSites_and_ROI() {
+	// int i,j;
+	// ROI->deleteLatLon();
+	// ROI = NULL;
+	// for (j = 0; j < ND; ++j) {
+	// 	delete D[j];
+	// 	for (i = 0; i < Nazm; ++i) {
+	// 		if(j == 0)
+	// 			delete siteAzm[i];
+	// 		siteLoc[i+Nazm*j]->deleteLatLon();
+	// 		siteLoc[i+Nazm*j] = NULL;
+	// 	}
+	// }
+}

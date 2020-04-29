@@ -62,5 +62,7 @@ int main(int argc, char const *argv[])
 	AL_ll.dispAzmFinal(MN_ll);
 
 
+	ImpactSites_and_ROI siteList(10, 5, 1000., MN_ll);
+
 	return 0;
 }
