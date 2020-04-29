@@ -20,6 +20,7 @@ public:
 	inline void setLonDeg(double new_lon);
 
 	void copyLatLon(latLon& pos); // from "param" to "this"
+	void copyLatLon(double new_lat, double new_lon); // from "param" to "this"
 	void newLatLon(latLon* pos); // from "this" to "param"
 	void deleteLatLon();
 

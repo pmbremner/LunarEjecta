@@ -46,6 +46,11 @@ void latLon::copyLatLon(latLon& pos) { // shallow copy only
 	lon = pos.getLonRad();
 }
 
+void latLon::copyLatLon(double new_lat, double new_lon) {
+	lat = new_lat;
+	lon = new_lon;
+}
+
 void latLon::newLatLon(latLon* pos) {
 	pos = new latLon(lat, lon);
 }
@@ -147,32 +152,31 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 	                  double new_radius,
 	                  latLon& new_ROI)
 {
-	int i_azm, j_dist;
+	int i_azm, j_dist, idx;
 	double temp_bearing, temp_dist;
 	double temp_lat, temp_lon;
-	latLon temp_pos;
+
 	ND     = new_ND;
 	Nazm   = new_Nazm;
 	Ntot   = ND * Nazm;
 	radius = new_radius; 
 
-	new_ROI.newLatLon(ROI);
+	ROI.copyLatLon(new_ROI);
 
 	// generate list of impact sites distributed over the globe
 	siteLoc.resize(Ntot);
 	D.resize(ND);
 	for (j_dist = 0; j_dist < ND; ++j_dist) {
-		D[j_dist] = new double(5.0);
-		cout << D[j_dist] << endl;
-		temp_dist = (j_dist + 1.) / double(ND + 1.0) * 2.*PI; // units of radii
+		D[j_dist] = (j_dist + 1.) / double(ND + 1.0) * 2.*PI; // units of radii
 		
 		for (i_azm = 0; i_azm < Nazm; ++i_azm) {
-			if(j_dist == 0){
-				siteAzm[i_azm] = new double;
-			}
-
+			idx = i_azm + Nazm*j_dist;
 			temp_bearing = double(i_azm) / double(Nazm) * 2.*PI;
-			temp_pos.newLatLon(siteLoc[i_azm + Nazm*j_dist]);
+			if(j_dist == 0){
+				siteAzm[i_azm] = siteLoc[idx].bearing2Azm(temp_bearing);
+			}
+			siteLoc[idx].copyLatLon(1.,2.);
+			
 		}
 	}
 }
