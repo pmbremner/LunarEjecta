@@ -74,6 +74,14 @@ inline double latLon::bearing2Azm(double bearing) {
 	return fmod(2.5*PI - bearing, 2.*PI);
 }
 
+inline double latLon::init2Final(double angle) {
+	return fmod(angle + PI, 2.*PI);
+}
+
+inline double latLon::final2Init(double angle) {
+	return fmod(angle + PI, 2.*PI);
+}
+
 void latLon::dispLatLon() {
 	cout << " Latitude = " << lat/DtoR << " degrees, ";
 	cout << "Longitude = " << lon/DtoR << " degrees\n";
@@ -118,28 +126,36 @@ double latLon::getCosDistTo(latLon& pos) {
 	return 1. - 2.*this->H_a(pos);
 }
 
-double latLon::getBearingInitial(latLon& pos) { 
+double latLon::getBearingInitial(latLon& pos2) { 
 	return fmod(
-		atan2(sin((pos.getLonRad() - lon))*cos(pos.getLatRad()),
-		cos(lat)*sin(pos.getLatRad()) - sin(lat)*cos(pos.getLatRad())
-		*cos((pos.getLonRad() - lon)) ) + 2.*PI
+		atan2(sin((pos2.getLonRad() - lon))*cos(pos2.getLatRad()),
+		cos(lat)*sin(pos2.getLatRad()) - sin(lat)*cos(pos2.getLatRad())
+		*cos((pos2.getLonRad() - lon)) ) + 2.*PI
 		, 2.*PI);
 }
 
-double latLon::getBearingFinal(latLon& pos) { 
+double latLon::getBearingFinal(latLon& pos1) { 
 	return fmod(
-		atan2(sin((lon - pos.getLonRad()))*cos(lat),
-		cos(pos.getLatRad())*sin(lat) - sin(pos.getLatRad())*cos(lat)
-		*cos((lon - pos.getLonRad())) ) + PI
+		atan2(sin((lon - pos1.getLonRad()))*cos(lat),
+		cos(pos1.getLatRad())*sin(lat) - sin(pos1.getLatRad())*cos(lat)
+		*cos((lon - pos1.getLonRad())) ) + PI
 		, 2.*PI);
 }
 
-double latLon::getAzmInitial(latLon& pos) {
-	return bearing2Azm(this->getBearingInitial(pos));
+double latLon::getAzmInitial(latLon& pos2) {
+	return bearing2Azm(this->getBearingInitial(pos2));
 }
 
-double latLon::getAzmFinal(latLon& pos) {
-	return bearing2Azm(this->getBearingFinal(pos));
+double latLon::getAzmFinal(latLon& pos1) {
+	return bearing2Azm(this->getBearingFinal(pos1));
+}
+
+// D is in units of radii
+void latLon::getLatLonFromDistanceBearing(double D, double theta, latLon& pos2) {
+	double sinLat2 = sin(lat)*cos(D) + cos(lat)*sin(D)*cos(theta);
+
+	pos2.setLatRad(asin(sinLat2));
+	pos2.setLonRad(lon + atan2(sin(theta)*sin(D)*cos(lat), cos(D) - sin(lat)*sinLat2) );
 }
 
 
@@ -163,20 +179,41 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 	ROI.copyLatLon(new_ROI);
 
-	// generate list of impact sites distributed over the globe
+	cout << "ROI latlon:\n";
+	ROI.dispLatLon();
+	cout << endl;
+
+
+	// allocate more space in vectors
 	siteLoc.resize(Ntot);
 	D.resize(ND);
+	siteAzm.resize(Ntot);
+	ROIAzm.resize(Nazm);
+	site_SA.resize(Ntot);
+
+	// generate list of impact sites distributed over the globe
 	for (j_dist = 0; j_dist < ND; ++j_dist) {
-		D[j_dist] = (j_dist + 1.) / double(ND + 1.0) * 2.*PI; // units of radii
-		
+		D[j_dist] = (j_dist + 1.) / double(ND + 1.0) *PI; // units of radii
+		cout << j_dist << " D = " << D[j_dist] << endl;
 		for (i_azm = 0; i_azm < Nazm; ++i_azm) {
 			idx = i_azm + Nazm*j_dist;
+			// will assume intial bearing first, then translate to azm
+			//  this bearing is ROI to siteLoc
 			temp_bearing = double(i_azm) / double(Nazm) * 2.*PI;
+
 			if(j_dist == 0){
-				siteAzm[i_azm] = siteLoc[idx].bearing2Azm(temp_bearing);
+				// takes init bearing point 1-2, converts to azm, then gets final azm point 2-1
+				ROIAzm[i_azm] = siteLoc[idx].init2Final(siteLoc[idx].bearing2Azm(temp_bearing));
+				//cout << ROIAzm[i_azm]/DtoR << endl;
 			}
-			siteLoc[idx].copyLatLon(1.,2.);
-			
+
+			// compute lat lon of new site
+			ROI.getLatLonFromDistanceBearing(D[j_dist], temp_bearing, siteLoc[idx]);
+
+			// outgoing azimuth from siteLoc to ROI
+			siteAzm[idx] = siteLoc[idx].getAzmInitial(ROI);
+
+			siteLoc[idx].dispLatLon();
 		}
 	}
 }

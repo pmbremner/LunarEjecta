@@ -31,7 +31,9 @@ public:
 	double getLonDeg();
 
 	inline double azm2Bearing(double azm);
-	inline double bearing2Azm(double bearing); 
+	inline double bearing2Azm(double bearing);
+	inline double init2Final(double angle); // init angle from 1 to 2, to final from 2 to 1
+	inline double final2Init(double angle);
 
 	// all angle outputs in degrees for readability, even though lat & lon are in radians
 	void dispLatLon();
@@ -47,12 +49,14 @@ public:
 	double getCosDistTo(latLon& pos);
 
 	// outputs in N CW angle
-	double getBearingInitial(latLon& pos);
-	double getBearingFinal(latLon& pos);
+	double getBearingInitial(latLon& pos2);
+	double getBearingFinal(latLon& pos1);
 
 	// outputs in E CCW angle
-	double getAzmInitial(latLon& pos);
-	double getAzmFinal(latLon& pos);
+	double getAzmInitial(latLon& pos2);
+	double getAzmFinal(latLon& pos1);
+
+	void getLatLonFromDistanceBearing(double D, double theta, latLon& pos2); // returns new lat lon into pos2
 	
 private:
 	inline double H_a(latLon& pos);
@@ -82,8 +86,8 @@ private:
 	vector<latLon> siteLoc;   // lat-lon of impact sites, size Ntot
 	
 	vector<double> D;       // distances to impact sites, size ND, units of radii
-	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Nazm
-	vector<double> ROIAzm;  // azimuth angle of incoming direction at ROI from impact location, size Ntot
+	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Ntot
+	vector<double> ROIAzm;  // azimuth angle of incoming direction at ROI from impact location, size Nazm
 	
 	double ROI_SA;           // surface area of ROI
 	double ROI_radius;       // radius of ROI (assuming a circular region), *will be equal to half the first site distance
