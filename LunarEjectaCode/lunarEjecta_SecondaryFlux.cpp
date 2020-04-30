@@ -259,10 +259,11 @@ GeneralIntegralFluxOutput::GeneralIntegralFluxOutput
 	Nx         = new_Nx;
 	xScale     = new_xScale;
 	NSetsXY    = new_NSetsXY;
-	if(NSetsXY > 0) {
-		setMin     = new_setMin;
-		setMax     = new_setMax;
-	}
+	setMin = new_setMin;
+	setMax = new_setMax;
+
+	this->dispOutputType();
+	this->dispXScaleType();
 }
 
 GeneralIntegralFluxOutput::~GeneralIntegralFluxOutput() {}
@@ -271,12 +272,21 @@ void GeneralIntegralFluxOutput::dispOutputType() {
 	cout << "Output type = " << outputType << endl;
 }
 
+void GeneralIntegralFluxOutput::dispXScaleType() {
+	cout << "xScale type = ";
+	if(xScale == linearScale) {
+		cout << "linearScale\n";
+	} else if (xScale == log10Scale){
+		cout << "log10Scale\n";
+	}
+}
+
 //////////////////////////////////////
 //////////////////////////////////////
 
 MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
- (string oType, double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
- : GeneralIntegralFluxOutput(oType, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
+ (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ : GeneralIntegralFluxOutput("MassLimitedIntegralFluxVsMass", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
 {}
 
 MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
@@ -294,4 +304,48 @@ void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
 void MassLimitedIntegralFluxVsMass::H_updateFlux(double flux, double alt, double azm, double speed) {}
 
 
+//////////////////////////////////////
+//////////////////////////////////////
+
+SizeLimitedIntegralFluxVsSpeed::SizeLimitedIntegralFluxVsSpeed
+ (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ : GeneralIntegralFluxOutput("SizeLimitedIntegralFluxVsSpeed", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
+{}
+
+SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
+
+
+void SizeLimitedIntegralFluxVsSpeed::computeSecondaryFlux
+                                    (double D0,   double D1,
+		                             double azm0, double azm1)
+{}
+
+
+void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn) {}
+
+
+void SizeLimitedIntegralFluxVsSpeed::H_updateFlux(double flux, double alt, double azm, double speed) {}
+
+
+//////////////////////////////////////
+//////////////////////////////////////
+
+MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
+ (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ : GeneralIntegralFluxOutput("MassLimitedIglooIntegratedFlux", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
+{}
+
+MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
+
+
+void MassLimitedIglooIntegratedFlux::computeSecondaryFlux
+                                    (double D0,   double D1,
+		                             double azm0, double azm1)
+{}
+
+
+void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
+
+
+void MassLimitedIglooIntegratedFlux::H_updateFlux(double flux, double alt, double azm, double speed) {}
 

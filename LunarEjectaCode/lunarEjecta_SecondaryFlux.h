@@ -128,6 +128,7 @@ public:
 		                              double azm0, double azm1) = 0;
 	virtual void saveFluxToFile(string fn) = 0;
 	void dispOutputType();
+	void dispXScaleType();
 
 protected:
 	virtual void H_updateFlux(double flux, double alt, double azm, double speed) = 0;
@@ -147,8 +148,7 @@ protected:
 class MassLimitedIntegralFluxVsMass : public GeneralIntegralFluxOutput
 {
 public:
-	MassLimitedIntegralFluxVsMass(string oType,
-							  	  double new_xMin,
+	MassLimitedIntegralFluxVsMass(double new_xMin,
 							 	  double new_xMax,
 								  int new_Nx,
 								  int new_xScale,
@@ -165,37 +165,49 @@ private:
 	
 };
 
+//////////////////////////////////////
+
+class SizeLimitedIntegralFluxVsSpeed : public GeneralIntegralFluxOutput
+{
+public:
+	SizeLimitedIntegralFluxVsSpeed(double new_xMin,
+							 	   double new_xMax,
+								   int new_Nx,
+								   int new_xScale,
+								   int new_NSetsXY,
+								   vector<double> new_setMin,
+								   vector<double> new_setMax);
+	~SizeLimitedIntegralFluxVsSpeed();
+
+	void computeSecondaryFlux(double D0,   double D1,
+		                      double azm0, double azm1);
+	void saveFluxToFile(string fn);
+private:
+	void H_updateFlux(double flux, double alt, double azm, double speed);
+
+};
+
 // //////////////////////////////////////
 
-// class SizeLimitedIntegralFluxVsSpeed : public GeneralIntegralFluxOutput
-// {
-// public:
-// 	SizeLimitedIntegralFluxVsSpeed();
-// 	~SizeLimitedIntegralFluxVsSpeed();
+class MassLimitedIglooIntegratedFlux : public GeneralIntegralFluxOutput
+{
+public:
+	MassLimitedIglooIntegratedFlux(double new_xMin,
+							 	   double new_xMax,
+								   int new_Nx,
+								   int new_xScale,
+								   int new_NSetsXY,
+								   vector<double> new_setMin,
+								   vector<double> new_setMax);
+	~MassLimitedIglooIntegratedFlux();
 
-// 	void computeSecondaryFlux(double D0,   double D1,
-// 		                           double azm0, double azm1);
-// 	void saveFluxToFile(string fn);
-// private:
-// 	void H_updateFlux(double flux, double alt, double azm, double speed);
+	void computeSecondaryFlux(double D0,   double D1,
+		                           double azm0, double azm1);
+	void saveFluxToFile(string fn);
+private:
+	void H_updateFlux(double flux, double alt, double azm, double speed);
 
-// };
-
-// //////////////////////////////////////
-
-// class MassLimitedIglooIntegratedFlux : public GeneralIntegralFluxOutput
-// {
-// public:
-// 	MassLimitedIglooIntegratedFlux();
-// 	~MassLimitedIglooIntegratedFlux();
-
-// 	void computeSecondaryFlux(double D0,   double D1,
-// 		                           double azm0, double azm1);
-// 	void saveFluxToFile(string fn);
-// private:
-// 	void H_updateFlux(double flux, double alt, double azm, double speed);
-
-// };
+};
 
 
 // //////////////////////////////////////

@@ -62,9 +62,11 @@ int main(int argc, char const *argv[])
 	AL_ll.dispAzmFinal(MN_ll);
 
 	cout << endl << endl;
-	ImpactSites_and_ROI siteList(100, 10, 1737.1E3, MN_ll);
+	ImpactSites_and_ROI siteList(3, 3, 1737.1E3, MN_ll);
 
-	
-
+	vector<double> emptyVector;
+	MassLimitedIntegralFluxVsMass fluxM(8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
+	SizeLimitedIntegralFluxVsSpeed fluxD(1.E-6, 1.E-2, 36, log10Scale, 0, emptyVector, emptyVector);
+	MassLimitedIglooIntegratedFlux fluxIgloo(1.E-2, 2.5, 36, linearScale, 0, emptyVector, emptyVector);
 	return 0;
 }
