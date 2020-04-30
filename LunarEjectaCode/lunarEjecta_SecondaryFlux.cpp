@@ -8,6 +8,7 @@ using namespace std;
 
 #include <vector>
 #include <cmath>
+#include <string>
 
 latLon::latLon() {
 	lat = 0.0;
@@ -239,3 +240,58 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 }
 
 ImpactSites_and_ROI::~ImpactSites_and_ROI() {}
+
+//////////////////////////////////////
+//////////////////////////////////////
+
+GeneralIntegralFluxOutput::GeneralIntegralFluxOutput
+                             (string oType,
+							  double new_xMin,
+							  double new_xMax,
+							  int new_Nx,
+							  int new_xScale,
+							  int new_NSetsXY,
+							  vector<double> new_setMin,
+							  vector<double> new_setMax) {
+	outputType = oType;
+	xMin       = new_xMin;
+	xMax       = new_xMax;
+	Nx         = new_Nx;
+	xScale     = new_xScale;
+	NSetsXY    = new_NSetsXY;
+	if(NSetsXY > 0) {
+		setMin     = new_setMin;
+		setMax     = new_setMax;
+	}
+}
+
+GeneralIntegralFluxOutput::~GeneralIntegralFluxOutput() {}
+
+void GeneralIntegralFluxOutput::dispOutputType() {
+	cout << "Output type = " << outputType << endl;
+}
+
+//////////////////////////////////////
+//////////////////////////////////////
+
+MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
+ (string oType, double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ : GeneralIntegralFluxOutput(oType, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
+{}
+
+MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
+
+
+void MassLimitedIntegralFluxVsMass::computeSecondaryFlux
+                                    (double D0,   double D1,
+		                             double azm0, double azm1)
+{}
+
+
+void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
+
+
+void MassLimitedIntegralFluxVsMass::H_updateFlux(double flux, double alt, double azm, double speed) {}
+
+
+

@@ -216,10 +216,7 @@ private:
 	double latMin;
 	double latMax;
 	int NLat;
-	
 };
-
-
 
 
 #endif 
