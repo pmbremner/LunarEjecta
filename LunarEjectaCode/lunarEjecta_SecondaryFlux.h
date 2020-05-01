@@ -202,7 +202,7 @@ public:
 	~MassLimitedIglooIntegratedFlux();
 
 	void computeSecondaryFlux(double D0,   double D1,
-		                           double azm0, double azm1);
+		                      double azm0, double azm1);
 	void saveFluxToFile(string fn);
 private:
 	void H_updateFlux(double flux, double alt, double azm, double speed);
@@ -213,22 +213,30 @@ private:
 // //////////////////////////////////////
 
 
-// // Note: a template class must be definied in the header file
-// template <class genOutput> 
-// class SecondaryFlux
-// {
-// public:
-// 	SecondaryFlux(double new_xMin, // min of x-axis of integral flux
-// 				  double new_xMax, // max of x-axis of integral flux
-// 				  int Nx,          // number of spacings on x-axis
-// 				  int xScale,      // xScaleType = linear or log10
-// 				  int NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
-// 				  vector<double> setMin, // minimum of set range i
-// 				  vector<double> setMax) // maximum of set range i
-// 	~SecondaryFlux();
-// private:
-// 	string directoryName;
-// 	vector<genOutput*> fluxData;
-// };
+// Note: a template class must be definied in the header file
+template <class genOutput> 
+class SecondaryFlux
+{
+public:
+	SecondaryFlux(string fn, // file name
+				  double new_xMin, // min of x-axis of integral flux
+				  double new_xMax, // max of x-axis of integral flux
+				  int new_Nx,          // number of spacings on x-axis
+				  int new_xScale,      // xScaleType = linear or log10
+				  int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
+				  vector<double> new_setMin, // minimum of set range i
+				  vector<double> new_setMax) // maximum of set range i
+	{
+		filename = fn;
+		fluxData.resize(1);
+		fluxData[0] = new genOutput(new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
+	}
+	~SecondaryFlux() {
+		delete fluxData[0];
+	}
+private:
+	string filename;
+	vector<genOutput*> fluxData;
+};
 
 #endif 

@@ -68,5 +68,9 @@ int main(int argc, char const *argv[])
 	MassLimitedIntegralFluxVsMass fluxM(8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
 	SizeLimitedIntegralFluxVsSpeed fluxD(1.E-6, 1.E-2, 36, log10Scale, 0, emptyVector, emptyVector);
 	MassLimitedIglooIntegratedFlux fluxIgloo(1.E-2, 2.5, 36, linearScale, 0, emptyVector, emptyVector);
+	
+	SecondaryFlux<MassLimitedIntegralFluxVsMass> fluxSecM("run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
+
+
 	return 0;
 }
