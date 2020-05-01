@@ -124,6 +124,8 @@ public:
 
 	~GeneralIntegralFluxOutput();
 
+	// each output type will define their own seconday flux function
+	//  which will depend on what the output type is
 	virtual void computeSecondaryFlux(double D0,   double D1,
 		                              double azm0, double azm1) = 0;
 	virtual void saveFluxToFile(string fn) = 0;
@@ -131,7 +133,9 @@ public:
 	void dispXScaleType();
 
 protected:
+	// Used for all flux output types, and is the basis for igloo output
 	virtual void H_updateFlux(double flux, double alt, double azm, double speed) = 0;
+	
 	string outputType; // higher gens will store their type here
 
 	double xMin; // min of x-axis of integral flux
@@ -233,6 +237,10 @@ public:
 	}
 	~SecondaryFlux() {
 		delete fluxData[0];
+	}
+
+	void getOutputFilename() {
+		cout << " Output filename = " << filename << endl;
 	}
 private:
 	string filename;
