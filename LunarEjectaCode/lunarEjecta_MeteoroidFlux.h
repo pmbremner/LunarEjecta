@@ -185,7 +185,7 @@ public:
 		latMin        = lMin;
 		latMax        = lMax;
 		NLat          = NL;
-		cout << "template class init \n";
+		cout << "MEM_LatData template class init \n";
 
 		dataSet.resize(NL);
 		string latDirectoryName;

@@ -1,8 +1,6 @@
 #include "lunarEjecta_GeneralExpressions.h"
-#include "lunarEjecta_SecondaryFlux.h"
+#include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
-
-
 
 using namespace std;
 
@@ -292,16 +290,10 @@ MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
 MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
 
 
-void MassLimitedIntegralFluxVsMass::computeSecondaryFlux
-                                    (double D0,   double D1,
-		                             double azm0, double azm1)
-{}
-
-
 void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
 
 
-void MassLimitedIntegralFluxVsMass::H_updateFlux(double flux, double alt, double azm, double speed) {}
+void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double azm, double speed) {}
 
 
 //////////////////////////////////////
@@ -315,16 +307,11 @@ SizeLimitedIntegralFluxVsSpeed::SizeLimitedIntegralFluxVsSpeed
 SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
 
 
-void SizeLimitedIntegralFluxVsSpeed::computeSecondaryFlux
-                                    (double D0,   double D1,
-		                             double azm0, double azm1)
-{}
-
 
 void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn) {}
 
 
-void SizeLimitedIntegralFluxVsSpeed::H_updateFlux(double flux, double alt, double azm, double speed) {}
+void SizeLimitedIntegralFluxVsSpeed::updateFlux(double flux, double alt, double azm, double speed) {}
 
 
 //////////////////////////////////////
@@ -338,14 +325,9 @@ MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
 MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 
 
-void MassLimitedIglooIntegratedFlux::computeSecondaryFlux
-                                    (double D0,   double D1,
-		                             double azm0, double azm1)
-{}
-
 
 void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
 
 
-void MassLimitedIglooIntegratedFlux::H_updateFlux(double flux, double alt, double azm, double speed) {}
+void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double speed) {}
 

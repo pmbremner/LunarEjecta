@@ -69,8 +69,14 @@ int main(int argc, char const *argv[])
 	SizeLimitedIntegralFluxVsSpeed fluxD(1.E-6, 1.E-2, 36, log10Scale, 0, emptyVector, emptyVector);
 	MassLimitedIglooIntegratedFlux fluxIgloo(1.E-2, 2.5, 36, linearScale, 0, emptyVector, emptyVector);
 	
-	SecondaryFlux<MassLimitedIntegralFluxVsMass> fluxSecM("run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
+	SecondaryFluxData<MassLimitedIntegralFluxVsMass> fluxSecM("run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
 
+	cout << endl << endl;
+	lunarEjecta_Assembly<MEM_HiDensityIglooAvg,
+						 MEM_LoDensityIglooAvg,
+						 MassLimitedIglooIntegratedFlux>
+		lunarEjecta("../LatRunData", -90.0, 90.0, 37,
+					"run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
 
 	return 0;
 }

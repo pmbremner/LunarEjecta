@@ -1,5 +1,5 @@
-#ifndef LUNAREJECTA_SECONDARYFLUX_H
-#define LUNAREJECTA_SECONDARYFLUX_H
+#ifndef LUNAREJECTA_SECONDARYFLUXDATA_H
+#define LUNAREJECTA_SECONDARYFLUXDATA_H
 
 #include <iostream>
 #include <vector>
@@ -124,18 +124,14 @@ public:
 
 	~GeneralIntegralFluxOutput();
 
-	// each output type will define their own seconday flux function
-	//  which will depend on what the output type is
-	virtual void computeSecondaryFlux(double D0,   double D1,
-		                              double azm0, double azm1) = 0;
+	// Used for all flux output types, and is the basis for igloo output
+	virtual void updateFlux(double flux, double alt, double azm, double speed) = 0;
+	
 	virtual void saveFluxToFile(string fn) = 0;
 	void dispOutputType();
 	void dispXScaleType();
 
 protected:
-	// Used for all flux output types, and is the basis for igloo output
-	virtual void H_updateFlux(double flux, double alt, double azm, double speed) = 0;
-	
 	string outputType; // higher gens will store their type here
 
 	double xMin; // min of x-axis of integral flux
@@ -161,11 +157,9 @@ public:
 								  vector<double> new_setMax);
 	~MassLimitedIntegralFluxVsMass();
 
-	void computeSecondaryFlux(double D0,   double D1,
-		                      double azm0, double azm1);
+	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-	void H_updateFlux(double flux, double alt, double azm, double speed);
 	
 };
 
@@ -183,11 +177,9 @@ public:
 								   vector<double> new_setMax);
 	~SizeLimitedIntegralFluxVsSpeed();
 
-	void computeSecondaryFlux(double D0,   double D1,
-		                      double azm0, double azm1);
+	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-	void H_updateFlux(double flux, double alt, double azm, double speed);
 
 };
 
@@ -205,11 +197,10 @@ public:
 								   vector<double> new_setMax);
 	~MassLimitedIglooIntegratedFlux();
 
-	void computeSecondaryFlux(double D0,   double D1,
-		                      double azm0, double azm1);
+	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-	void H_updateFlux(double flux, double alt, double azm, double speed);
+	
 
 };
 
@@ -219,10 +210,10 @@ private:
 
 // Note: a template class must be definied in the header file
 template <class genOutput> 
-class SecondaryFlux
+class SecondaryFluxData
 {
 public:
-	SecondaryFlux(string fn, // file name
+	SecondaryFluxData(string fn, // file name
 				  double new_xMin, // min of x-axis of integral flux
 				  double new_xMax, // max of x-axis of integral flux
 				  int new_Nx,          // number of spacings on x-axis
@@ -235,7 +226,7 @@ public:
 		fluxData.resize(1);
 		fluxData[0] = new genOutput(new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
 	}
-	~SecondaryFlux() {
+	~SecondaryFluxData() {
 		delete fluxData[0];
 	}
 
