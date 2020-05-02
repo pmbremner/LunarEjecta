@@ -260,6 +260,14 @@ GeneralIntegralFluxOutput::GeneralIntegralFluxOutput
 	setMin = new_setMin;
 	setMax = new_setMax;
 
+	int NXY = (NSetsXY < 2 ? 1 : NSetsXY);
+
+	xData.resize(NXY);
+	for (int i = 0; i < NXY; ++i){
+		xData[i].resize(Nx);
+		fill(xData[i].begin(), xData[i].end(), 0.0);
+	}
+
 	this->dispOutputType();
 	this->dispXScaleType();
 }
@@ -285,7 +293,11 @@ void GeneralIntegralFluxOutput::dispXScaleType() {
 MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
  (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
  : GeneralIntegralFluxOutput("MassLimitedIntegralFluxVsMass", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
-{}
+{
+	// compute normalization constant, fraction greater than m
+	fraction_GT_m.resize(Nx);
+	fill(fraction_GT_m.begin(), fraction_GT_m.end(), 0.0); // REPLACE!
+}
 
 MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
 
@@ -293,7 +305,23 @@ MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
 void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
 
 
-void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double azm, double speed) {}
+void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double azm, double speed) {
+	// Find which speed range to dump it into, assuming they don't overlap
+	int i_vRange, n;
+	for (n = 0; n < NSetsXY; ++n)
+	{
+		if (speed >= setMin[n] && speed <= setMax[n])
+		{
+			i_vRange = n;
+			n = NSetsXY; // to break out of for-loop
+		}
+	}
+	
+	// update flux (can probably factor this out to be more efficient...)
+	for (n = 0; n < Nx; ++n)
+		xData[i_vRange][n] += flux * fraction_GT_m[n];
+
+}
 
 
 //////////////////////////////////////

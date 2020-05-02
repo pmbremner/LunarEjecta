@@ -136,11 +136,13 @@ protected:
 
 	double xMin; // min of x-axis of integral flux
   	double xMax; // max of x-axis of integral flux
-  	int Nx;       // number of spacings on x-axis
+  	int Nx;       // number of spacings on x-axis (for igloo, will have to flatten alt-azm into x)
   	int xScale;      // xScaleType = linear or log10
   	int NSetsXY;           // number of sets of x-y data, if 0 will ignore setMin and setMax
-  	vector<double> setMin; // minimum of set range i
+  	vector<double> setMin; // minimum of set range i, edges can touch, but do not overlap!
   	vector<double> setMax; // maximum of set range i
+
+  	vector<vector<double>> xData; // xData[j] = j-th setXY for all Nx
 };
 
 //////////////////////////////////////
@@ -160,7 +162,7 @@ public:
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-	
+	vector<double> fraction_GT_m; // size Nx (set up during init)
 };
 
 //////////////////////////////////////
