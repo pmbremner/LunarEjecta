@@ -1,12 +1,13 @@
-#include "lunarEjecta_GeneralExpressions.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
+#include "lunarEjecta_GeneralExpressions.h"
 
 using namespace std;
 
 #include <vector>
 #include <cmath>
 #include <string>
+#include <iomanip>
 
 latLon::latLon() {
 	lat = 0.0;
@@ -249,16 +250,18 @@ GeneralIntegralFluxOutput::GeneralIntegralFluxOutput
 							  int new_Nx,
 							  int new_xScale,
 							  int new_NSetsXY,
-							  vector<double> new_setMin,
-							  vector<double> new_setMax) {
+							  vector<double>& new_setMin,
+							  vector<double>& new_setMax) {
 	outputType = oType;
 	xMin       = new_xMin;
 	xMax       = new_xMax;
 	Nx         = new_Nx;
 	xScale     = new_xScale;
 	NSetsXY    = new_NSetsXY;
-	setMin = new_setMin;
-	setMax = new_setMax;
+	copyVector(new_setMin, setMin, NSetsXY);
+	copyVector(new_setMax, setMax, NSetsXY);
+	// setMin = new_setMin;
+	// setMax = new_setMax;
 
 	int NXY = (NSetsXY < 2 ? 1 : NSetsXY);
 
@@ -270,6 +273,7 @@ GeneralIntegralFluxOutput::GeneralIntegralFluxOutput
 
 	this->dispOutputType();
 	this->dispXScaleType();
+	this->dispSetMinMax();
 }
 
 GeneralIntegralFluxOutput::~GeneralIntegralFluxOutput() {}
@@ -287,11 +291,21 @@ void GeneralIntegralFluxOutput::dispXScaleType() {
 	}
 }
 
+void GeneralIntegralFluxOutput::dispSetMinMax() {
+	cout << " NSetsXY = " << NSetsXY << endl;
+	if(NSetsXY > 0) {
+		for (int i = 0; i < NSetsXY; ++i)
+			cout << fixed << setprecision(5) << setMin[i] << '\t' << setMax[i] << endl;
+	} else {
+		cout  << "   No set min-max to display\n\n";
+	}
+}
+
 //////////////////////////////////////
 //////////////////////////////////////
 
 MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
- (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double>& new_setMin, vector<double>& new_setMax)
  : GeneralIntegralFluxOutput("MassLimitedIntegralFluxVsMass", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
 {
 	// compute normalization constant, fraction greater than m
@@ -328,7 +342,7 @@ void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double a
 //////////////////////////////////////
 
 SizeLimitedIntegralFluxVsSpeed::SizeLimitedIntegralFluxVsSpeed
- (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double>& new_setMin, vector<double>& new_setMax)
  : GeneralIntegralFluxOutput("SizeLimitedIntegralFluxVsSpeed", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
 {// compute normalization constant, fraction greater than m
 	fraction_GT_d.resize(new_NSetsXY);
@@ -355,7 +369,7 @@ void SizeLimitedIntegralFluxVsSpeed::updateFlux(double flux, double alt, double 
 //////////////////////////////////////
 
 MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
- (double new_xMin, double new_xMax, int new_angleRes, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ (double new_xMin, double new_xMax, int new_angleRes, int new_xScale, int new_NSetsXY, vector<double>& new_setMin, vector<double>& new_setMax)
  : GeneralIntegralFluxOutput("MassLimitedIglooIntegratedFlux", new_xMin, new_xMax, H_getIglooNx(new_angleRes), new_xScale, new_NSetsXY, new_setMin, new_setMax)
 {
 	angleRes = new_angleRes;
@@ -396,6 +410,9 @@ MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
 			cur_ID++;	
 		}
 	}
+
+	// this->updateFlux(1.0, 23., 12., 0.55);// test
+	// this->updateFlux(2.0, 86., 245., 1.2);// test
 }
 
 MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
@@ -406,8 +423,54 @@ void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
 
 
 // same as MEM_iglooAvg::getFlux_atAngleVel
-void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double speed) {
-	
+void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double vel) {
+	// find index for correct phi (alt)
+	int idx_min = 0, idx_max = Nx-1, idx_mid = (idx_max - idx_min)/2;
+	int row_idx, col_idx, Nazm;
+	double dAzm;
+
+	// simple binary search algorithm
+	while (igloo_PHI1[idx_min] != igloo_PHI1[idx_mid])
+	{
+
+		if (alt < igloo_PHI1[idx_mid])
+		{
+			idx_max = idx_mid;
+		} else
+		{
+			idx_min = idx_mid;
+		}
+		idx_mid = (idx_max + idx_min)/2;
+
+		// cout << idx_min << ' ' << idx_mid << ' ' << idx_max << "   ";
+		// cout << igloo_PHI1[idx_min] << ' ' << igloo_PHI1[idx_mid] << ' ' << igloo_PHI1[idx_max] << ' ' << alt << endl;
+	}
+
+	row_idx = idx_min - igloo_J[idx_min] + 1;
+	//cout << "row_idx = " << row_idx << endl;
+
+
+	// correct index for correct theta (azm)
+	dAzm = igloo_THETA2[row_idx];
+	Nazm = round(360.0 / dAzm);
+
+	row_idx += int(azm / dAzm);
+	// cout << "row_idx = " << row_idx << endl;
+	// cout << " NSetsXY = " << NSetsXY << endl;
+	// find index for vel and return the flux
+	col_idx = 0;
+	while (col_idx < NSetsXY && !(vel >= setMin[col_idx] && vel <= setMax[col_idx])) {
+		//cout << col_idx << " | " << setMin[col_idx] << ' ' << setMax[col_idx] << endl;
+		col_idx++;
+	}
+
+	if(col_idx < NSetsXY) {
+		// store flux
+		xData[col_idx][row_idx] += flux;
+	} // else, don't store flux since the speed is out-of-bounds
+
+	// cout << "xData[col_idx][row_idx] = " << xData[col_idx][row_idx] << endl;
+	// cout << "col = " << col_idx << " |  row = " << row_idx << endl;
 }
 
 

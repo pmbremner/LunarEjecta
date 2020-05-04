@@ -67,16 +67,21 @@ int main(int argc, char const *argv[])
 	vector<double> emptyVector;
 	MassLimitedIntegralFluxVsMass fluxM(8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
 	SizeLimitedIntegralFluxVsSpeed fluxD(1.E-6, 1.E-2, 36, log10Scale, 0, emptyVector, emptyVector);
-	MassLimitedIglooIntegratedFlux fluxIgloo(1.E-2, 2.5, 36, linearScale, 0, emptyVector, emptyVector);
+	//MassLimitedIglooIntegratedFlux fluxIgloo(1.E-2, 2.5, 36, linearScale, 0, emptyVector, emptyVector);
 	
 	SecondaryFluxData<MassLimitedIntegralFluxVsMass> fluxSecM("run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
 
 	cout << endl << endl;
+
+	int Nv = 11;
+	vector<double> vMin, vMax;
+	logspaceBinEdges(vMin, vMax, 0.1, 2.4, Nv);
+
 	lunarEjecta_Assembly<MEM_HiDensityIglooAvg,
 						 MEM_LoDensityIglooAvg,
 						 MassLimitedIglooIntegratedFlux>
 		lunarEjecta("../LatRunData", -90.0, 90.0, 2, // 37
-					"run0", 8.E-13, 0.8, 5, log10Scale, 0, emptyVector, emptyVector);
+					"run0", 8.E-13, 0.8, 5, log10Scale, Nv, vMin, vMax);
 
 	return 0;
 }

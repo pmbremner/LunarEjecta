@@ -119,8 +119,8 @@ public:
 							  int new_Nx,
 							  int new_xScale,
 							  int new_NSetsXY,
-							  vector<double> new_setMin,
-							  vector<double> new_setMax);
+							  vector<double>& new_setMin,
+							  vector<double>& new_setMax);
 
 	~GeneralIntegralFluxOutput();
 
@@ -130,6 +130,7 @@ public:
 	virtual void saveFluxToFile(string fn) = 0;
 	void dispOutputType();
 	void dispXScaleType();
+	void dispSetMinMax();
 
 protected:
 	string outputType; // higher gens will store their type here
@@ -155,8 +156,8 @@ public:
 								  int new_Nx,
 								  int new_xScale,
 								  int new_NSetsXY,
-								  vector<double> new_setMin,
-								  vector<double> new_setMax);
+								  vector<double>& new_setMin,
+								  vector<double>& new_setMax);
 	~MassLimitedIntegralFluxVsMass();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
@@ -175,8 +176,8 @@ public:
 								   int new_Nx,
 								   int new_xScale,
 								   int new_NSetsXY,
-								   vector<double> new_setMin,
-								   vector<double> new_setMax);
+								   vector<double>& new_setMin,
+								   vector<double>& new_setMax);
 	~SizeLimitedIntegralFluxVsSpeed();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
@@ -195,8 +196,8 @@ public:
 								   int new_angleRes, // angular (degrees) resolution of theta and phi
 								   int new_xScale,
 								   int new_NSetsXY,
-								   vector<double> new_setMin,
-								   vector<double> new_setMax);
+								   vector<double>& new_setMin,
+								   vector<double>& new_setMax);
 	~MassLimitedIglooIntegratedFlux();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
@@ -234,8 +235,8 @@ public:
 				  int new_Nx,          // number of spacings on x-axis
 				  int new_xScale,      // xScaleType = linear or log10
 				  int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
-				  vector<double> new_setMin, // minimum of set range i
-				  vector<double> new_setMax) // maximum of set range i
+				  vector<double>& new_setMin, // minimum of set range i
+				  vector<double>& new_setMax) // maximum of set range i
 	{
 		filename = fn;
 		fluxData.resize(1);
