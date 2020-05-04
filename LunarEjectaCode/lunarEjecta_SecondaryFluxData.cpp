@@ -361,6 +361,41 @@ MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
 	angleRes = new_angleRes;
 	cout << " Angle Resolution = " << angleRes << endl;
 	cout << " Nx = " << Nx << endl;
+
+	int cur_ID = 1, i, j, jN;
+	igloo_ID.resize(Nx);
+	igloo_I.resize(Nx);
+	igloo_J.resize(Nx);
+	igloo_PHI1.resize(Nx);
+	igloo_PHI2.resize(Nx);
+	igloo_THETA1.resize(Nx);
+	igloo_THETA2.resize(Nx);
+	igloo_PHIavg.resize(Nx);
+	igloo_THETAavg.resize(Nx);
+
+	for (i = 1; i <= 180/angleRes; ++i)
+	{
+		jN = H_getIglooJN(angleRes, (i-1)*angleRes,  i*angleRes);
+		for (j = 1; j <= jN; ++j)
+		{
+			igloo_ID[cur_ID-1]       = cur_ID;
+			igloo_I[cur_ID-1]        = i;
+			igloo_J[cur_ID-1]        = j;
+			igloo_PHI1[cur_ID-1]     = -90. + (i-1)*angleRes;
+			igloo_PHI2[cur_ID-1]     = -90. + i*angleRes;
+			igloo_THETA1[cur_ID-1]   = 360. * double(j-1.) / double(jN);
+			igloo_THETA2[cur_ID-1]   = 360. * double(j) / double(jN);
+			igloo_PHIavg[cur_ID-1]   = asin(0.5*(sin(igloo_PHI1[cur_ID-1] * DtoR) + sin(igloo_PHI2[cur_ID-1] * DtoR))) / DtoR;
+			igloo_THETAavg[cur_ID-1] = 0.5* (igloo_THETA1[cur_ID-1] + igloo_THETA2[cur_ID-1]);
+	
+			// cout << igloo_ID[cur_ID-1] << ' ' << igloo_I[cur_ID-1] << ' ' << igloo_J[cur_ID-1]
+			// 	 << ' ' << igloo_PHI1[cur_ID-1] << ' ' << igloo_PHI2[cur_ID-1] << ' '
+			// 	 << igloo_THETA1[cur_ID-1] << ' ' << igloo_THETA2[cur_ID-1] << ' '
+			// 	 << igloo_PHIavg[cur_ID-1] << ' ' << igloo_THETAavg[cur_ID-1] << endl;
+
+			cur_ID++;	
+		}
+	}
 }
 
 MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
@@ -370,7 +405,10 @@ MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
 
 
-void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double speed) {}
+// same as MEM_iglooAvg::getFlux_atAngleVel
+void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double speed) {
+	
+}
 
 
 int MassLimitedIglooIntegratedFlux::H_getIglooNx(int aRes) {// input in units of degrees
@@ -384,7 +422,7 @@ int MassLimitedIglooIntegratedFlux::H_getIglooNx(int aRes) {// input in units of
 	return sum;
 }
 
-int MassLimitedIglooIntegratedFlux::H_getIglooJN(int aRes, double azm1, double azm2) {// input in units of degrees
+inline int MassLimitedIglooIntegratedFlux::H_getIglooJN(int aRes, double azm1, double azm2) {// input in units of degrees
 	//cout << "azm1 = " << azm1 << " | azm2 = " << azm2 << endl;
 	//cout << "   " << 180. * (azm2 - azm1) * (sin(azm1*DtoR) + sin(azm2*DtoR)) << endl;
 	return round(fabs(180. * (azm2 - azm1) * (sin(azm1*DtoR) + sin(azm2*DtoR)) / sqr(double(aRes)) ) );

@@ -203,11 +203,11 @@ public:
 	void saveFluxToFile(string fn);
 private:
 	int H_getIglooNx(int aRes); // input in units of degrees
-	int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees
+	inline int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees
 
 	// new_angleRes = angular resolution of Ntheta and Nphi
 	int angleRes; // should be 1, 2, 3, 4, or 5
-	// columns for the igloo file
+	// columns for the igloo file, all size Nx
 	vector<int> igloo_ID;
 	vector<int> igloo_I;
 	vector<int> igloo_J;
@@ -217,8 +217,6 @@ private:
 	vector<double> igloo_THETA2;
 	vector<double> igloo_PHIavg;
 	vector<double> igloo_THETAavg;
-
-
 };
 
 
