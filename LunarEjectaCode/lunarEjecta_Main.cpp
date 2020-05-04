@@ -76,7 +76,7 @@ int main(int argc, char const *argv[])
 						 MEM_LoDensityIglooAvg,
 						 MassLimitedIglooIntegratedFlux>
 		lunarEjecta("../LatRunData", -90.0, 90.0, 2, // 37
-					"run0", 8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
+					"run0", 8.E-13, 0.8, 5, log10Scale, 0, emptyVector, emptyVector);
 
 	return 0;
 }

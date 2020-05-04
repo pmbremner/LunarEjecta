@@ -182,7 +182,7 @@ public:
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-
+	vector<double> fraction_GT_d; // size new_NSetsXY (set up during init)
 };
 
 // //////////////////////////////////////
@@ -192,7 +192,7 @@ class MassLimitedIglooIntegratedFlux : public GeneralIntegralFluxOutput
 public:
 	MassLimitedIglooIntegratedFlux(double new_xMin,
 							 	   double new_xMax,
-								   int new_Nx,
+								   int new_angleRes, // angular (degrees) resolution of theta and phi
 								   int new_xScale,
 								   int new_NSetsXY,
 								   vector<double> new_setMin,
@@ -202,7 +202,22 @@ public:
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
 private:
-	
+	int H_getIglooNx(int aRes); // input in units of degrees
+	int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees
+
+	// new_angleRes = angular resolution of Ntheta and Nphi
+	int angleRes; // should be 1, 2, 3, 4, or 5
+	// columns for the igloo file
+	vector<int> igloo_ID;
+	vector<int> igloo_I;
+	vector<int> igloo_J;
+	vector<double> igloo_PHI1;
+	vector<double> igloo_PHI2;
+	vector<double> igloo_THETA1;
+	vector<double> igloo_THETA2;
+	vector<double> igloo_PHIavg;
+	vector<double> igloo_THETAavg;
+
 
 };
 

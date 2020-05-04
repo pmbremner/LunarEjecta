@@ -330,7 +330,10 @@ void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double a
 SizeLimitedIntegralFluxVsSpeed::SizeLimitedIntegralFluxVsSpeed
  (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
  : GeneralIntegralFluxOutput("SizeLimitedIntegralFluxVsSpeed", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
-{}
+{// compute normalization constant, fraction greater than m
+	fraction_GT_d.resize(new_NSetsXY);
+	fill(fraction_GT_d.begin(), fraction_GT_d.end(), 0.0); // REPLACE!
+}
 
 SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
 
@@ -339,16 +342,26 @@ SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
 void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn) {}
 
 
-void SizeLimitedIntegralFluxVsSpeed::updateFlux(double flux, double alt, double azm, double speed) {}
+void SizeLimitedIntegralFluxVsSpeed::updateFlux(double flux, double alt, double azm, double speed) {
+	// update flux (can probably factor this out to be more efficient...)
+	int n, m;
+	for (m = 0; m < NSetsXY; ++m)
+		for (n = 0; n < Nx; ++n)
+			xData[m][n] += flux * fraction_GT_d[m];
+}
 
 
 //////////////////////////////////////
 //////////////////////////////////////
 
 MassLimitedIglooIntegratedFlux::MassLimitedIglooIntegratedFlux
- (double new_xMin, double new_xMax, int new_Nx, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
- : GeneralIntegralFluxOutput("MassLimitedIglooIntegratedFlux", new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax)
-{}
+ (double new_xMin, double new_xMax, int new_angleRes, int new_xScale, int new_NSetsXY, vector<double> new_setMin, vector<double> new_setMax)
+ : GeneralIntegralFluxOutput("MassLimitedIglooIntegratedFlux", new_xMin, new_xMax, H_getIglooNx(new_angleRes), new_xScale, new_NSetsXY, new_setMin, new_setMax)
+{
+	angleRes = new_angleRes;
+	cout << " Angle Resolution = " << angleRes << endl;
+	cout << " Nx = " << Nx << endl;
+}
 
 MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 
@@ -359,3 +372,20 @@ void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
 
 void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double speed) {}
 
+
+int MassLimitedIglooIntegratedFlux::H_getIglooNx(int aRes) {// input in units of degrees
+	int i, sum = 0;
+	for (i = 1; i <= 180/aRes; ++i) // alt
+	{
+		//cout << i << " | " << H_getIglooJN(aRes, (i-1)*aRes,  i*aRes) << endl;
+		sum += H_getIglooJN(aRes, (i-1)*aRes, i*aRes);
+	}
+
+	return sum;
+}
+
+int MassLimitedIglooIntegratedFlux::H_getIglooJN(int aRes, double azm1, double azm2) {// input in units of degrees
+	//cout << "azm1 = " << azm1 << " | azm2 = " << azm2 << endl;
+	//cout << "   " << 180. * (azm2 - azm1) * (sin(azm1*DtoR) + sin(azm2*DtoR)) << endl;
+	return round(fabs(180. * (azm2 - azm1) * (sin(azm1*DtoR) + sin(azm2*DtoR)) / sqr(double(aRes)) ) );
+}
