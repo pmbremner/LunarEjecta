@@ -9,7 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-//#include "vector2d.h"
+#include <cmath>
 
 using namespace std;
 
@@ -205,6 +205,10 @@ public:
 			delete dataSet[i];
 			//cout << "delete " << i << endl;
 		}
+	}
+
+	inline int getLatIdx(double cur_lat) {
+		return int(round((cur_lat - latMin)/(latMax-latMin) * NLat));
 	}
 
 	//void print();

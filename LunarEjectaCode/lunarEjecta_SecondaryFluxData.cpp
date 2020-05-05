@@ -240,6 +240,16 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 ImpactSites_and_ROI::~ImpactSites_and_ROI() {}
 
+inline int ImpactSites_and_ROI::getND() {
+	return ND;
+}
+inline int ImpactSites_and_ROI::getNazm() {
+	return Nazm;
+}
+inline int ImpactSites_and_ROI::getNtot() {
+	return Ntot;
+}
+
 //////////////////////////////////////
 //////////////////////////////////////
 

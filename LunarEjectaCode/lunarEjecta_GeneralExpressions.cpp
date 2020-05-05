@@ -22,7 +22,7 @@ void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int i
 	x.resize(im-i0);
 	for (int i = i0; i < im; ++i) {
 		x[i-i0] = xmin * pow(xmax/xmin, double(i)/double(Nx-1.));
-		cout << x[i-i0] << endl;
+		//cout << x[i-i0] << endl;
 	}
 }
 

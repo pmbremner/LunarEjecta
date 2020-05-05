@@ -80,8 +80,9 @@ int main(int argc, char const *argv[])
 	lunarEjecta_Assembly<MEM_HiDensityIglooAvg,
 						 MEM_LoDensityIglooAvg,
 						 MassLimitedIglooIntegratedFlux>
-		lunarEjecta("../LatRunData", -90.0, 90.0, 2, // 37
-					"run0", 8.E-13, 0.8, 5, log10Scale, Nv, vMin, vMax);
+		lunarEjecta(50, 72, 1737.1E3, MN_ll,
+		            "../LatRunData", -90.0, 90.0, 2, // 37
+					"run0", 0., 1., 5, log10Scale, Nv, vMin, vMax);
 
 	return 0;
-}
+} //new_ND, new_Nazm, new_radius, new_ROI);

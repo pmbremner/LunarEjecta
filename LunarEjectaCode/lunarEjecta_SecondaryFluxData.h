@@ -70,12 +70,17 @@ private:
 class ImpactSites_and_ROI
 {
 public:
-	ImpactSites_and_ROI(double new_ND,
-		                double new_Nazm,
-		                double new_radius,
-		                latLon& new_ROI);
+	ImpactSites_and_ROI(double new_ND,     // total number of distance increments
+		                double new_Nazm,   // total number of azimuth increments
+		                double new_radius, // radius of Moon
+		                latLon& new_ROI);  // lat-lon location of Region-Of-Interest
 	~ImpactSites_and_ROI();
 	
+	inline int getND();
+	inline int getNazm();
+	inline int getNtot();
+
+
 private:
 	inline int H_idx(int i_azm, int j_dist);
 
@@ -191,8 +196,8 @@ private:
 class MassLimitedIglooIntegratedFlux : public GeneralIntegralFluxOutput
 {
 public:
-	MassLimitedIglooIntegratedFlux(double new_xMin,
-							 	   double new_xMax,
+	MassLimitedIglooIntegratedFlux(double new_xMin, // not used here
+							 	   double new_xMax, // not used here
 								   int new_angleRes, // angular (degrees) resolution of theta and phi
 								   int new_xScale,
 								   int new_NSetsXY,
@@ -207,7 +212,7 @@ private:
 	inline int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees
 
 	// new_angleRes = angular resolution of Ntheta and Nphi
-	int angleRes; // should be 1, 2, 3, 4, or 5
+	int angleRes; // should be 1, 2, 3, 4, or 5 (also 6, 9, 10, 12, 15, 18, 20, 30, 45, 60, 90)
 	// columns for the igloo file, all size Nx
 	vector<int> igloo_ID;
 	vector<int> igloo_I;
