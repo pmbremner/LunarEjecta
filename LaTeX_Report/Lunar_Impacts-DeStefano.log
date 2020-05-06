@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  29 APR 2020 17:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  5 MAY 2020 08:56
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -1125,179 +1125,173 @@ Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 281.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>] [9]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<ExlusionRange_vs_ImpactAngle.png, id=516, 462.528pt x 346.896pt>
+[7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>] [9] [10]
+<ExlusionRange_vs_ImpactAngle.png, id=534, 462.528pt x 346.896pt>
 File: ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ExlusionRange_vs_ImpactAngle.png  used on input line 4
-08.
+24.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] [11 <./ExlusionRange_vs_ImpactAngle.png>] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 541--543
+[11] [12 <./ExlusionRange_vs_ImpactAngle.png>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 557--559
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
-[15]
-<integration_bounds_cases.png, id=613, 615.7404pt x 456.7464pt>
+[15] [16]
+<integration_bounds_cases.png, id=628, 615.7404pt x 456.7464pt>
 File: integration_bounds_cases.png Graphic file (type png)
 <use integration_bounds_cases.png>
-Package pdftex.def Info: integration_bounds_cases.png  used on input line 657.
+Package pdftex.def Info: integration_bounds_cases.png  used on input line 673.
 (pdftex.def)             Requested size: 400.22652pt x 296.88164pt.
 
-Overfull \hbox (25.22652pt too wide) in paragraph at lines 657--658
+Overfull \hbox (25.22652pt too wide) in paragraph at lines 673--674
  [][] 
  []
-
-[16]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=637, 428.35031pt x 321.45094pt
->
-File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
-<use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
-Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
-nput line 674.
-(pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17 <./integration_bounds_cases.png>]
-<Fit-to-D_Grun.PNG, id=651, 326.72063pt x 167.87718pt>
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=633, 428.35031pt x 321.45094pt
+>
+File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
+nput line 690.
+(pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17]
+<Fit-to-D_Grun.PNG, id=655, 326.72063pt x 167.87718pt>
 File: Fit-to-D_Grun.PNG Graphic file (type png)
 <use Fit-to-D_Grun.PNG>
-Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 691.
+Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 707.
 (pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18 <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=673, 694.84593pt x 472.76625pt>
+[18 <./integration_bounds_cases.png>] [19 <./MEM_UG_Fig2.1_partile-mass-distrib
+ution.PNG> <./Fit-to-D_Grun.PNG>]
+<MEM_UG_Fig2.5_density-distribution.PNG, id=682, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
-line 722.
+line 738.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Fit-to-MEM_low_dens.PNG, id=678, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=687, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 730.
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 746.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_high_dens.PNG, id=683, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=692, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 736.
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 752.
 (pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19 <./Fit-to-D_Grun.PNG>] [20 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fi
-t-to-MEM_low_dens.PNG>] [21 <./Fit-to-MEM_high_dens.PNG>]
-<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=721, 462.528pt x 346.896pt>
+[20 <./MEM_UG_Fig2.5_density-distribution.PNG>] [21 <./Fit-to-MEM_low_dens.PNG>
+ <./Fit-to-MEM_high_dens.PNG>] [22]
+<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=733, 462.528pt x 346.896pt>
 File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
 <use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
-nput line 806.
+nput line 822.
 (pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
-Overfull \hbox (18.15065pt too wide) in paragraph at lines 806--807
+Overfull \hbox (18.15065pt too wide) in paragraph at lines 822--823
  [][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[22] [23 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+[23 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 930.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 930.
-
-[25]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 936.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 936.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 936.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 942.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 942.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 946.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 946.
 
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=801, 658.71094pt x 851.43094
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 952.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 952.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 952.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 958.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 958.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 962.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 962.
+
+[26]
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=810, 658.71094pt x 851.43094
 pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
 Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
- input line 961.
+ input line 977.
 (pdftex.def)             Requested size: 395.2296pt x 510.8625pt.
 
-Overfull \hbox (20.2296pt too wide) in paragraph at lines 961--962
+Overfull \hbox (20.2296pt too wide) in paragraph at lines 977--978
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26] [27 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
-(Lunar_Impacts-DeStefano.bbl [28
+[27] [28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
+(Lunar_Impacts-DeStefano.bbl [29
 
-]) [29]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 978.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 978.
+]) [30]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 994.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 994.
  (Lunar_Impacts-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 978.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 978.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 994.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 994.
 Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 .
 (rerunfilecheck)             Checksum: 6CE9749E9CDBA71B6D12066DED763D81;3290.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 978.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 994.
  ) 
 Here is how much of TeX's memory you used:
- 31082 strings out of 481292
- 729466 string characters out of 2906380
+ 31087 strings out of 481292
+ 729529 string characters out of 2906380
  1178056 words of memory out of 3000000
  45755 multiletter control sequences out of 15000+200000
  555886 words of font info for 65 fonts, out of 3000000 for 9000
@@ -1328,9 +1322,9 @@ ic/amsfonts/cm/cmtt8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/adestefa/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/adestefa/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (32 pages, 1362511 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (33 pages, 1364525 bytes).
 PDF statistics:
- 951 PDF objects out of 1000 (max. 8388607)
- 281 named destinations out of 1000 (max. 500000)
+ 960 PDF objects out of 1000 (max. 8388607)
+ 286 named destinations out of 1000 (max. 500000)
  406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

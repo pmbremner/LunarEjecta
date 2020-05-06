@@ -385,7 +385,23 @@ In order to compare with experiments for the peak angle $\alpha_{max}$, we can u
 in units of degrees, where $\beta_i$ is the impact azimuth angle, $\beta$ is the ejecta azimuth angle, and $\alpha_i$ is the impact zenith angle. For other values of $\beta - \beta_i$, we can write a complete function as
 \begin{equation}
 \alpha_{max}(\beta) = \alpha_{max}(\beta - \beta_i = \pi)\cdot \sin^2\left(\frac{\beta - \beta_i}{2}\right)
-+ \alpha_{max}(\beta - \beta_i = 0)\cdot \cos^2\left(\frac{\beta - \beta_i}{2}\right)
++ \alpha_{max}(\beta - \beta_i = 0)\cdot \cos^2\left(\frac{\beta - \beta_i}{2}\right),
+\end{equation}
+or rewriting we have
+\begin{equation}
+\alpha_{max}(\beta) = \frac{\alpha_{max,0}+\alpha_{max,\pi}}{2} - \frac{\alpha_{max,\pi}-\alpha_{max,0}}{2}\cos(\beta-\beta_i),
+\end{equation}
+and solving for $\beta-\beta_i$
+\begin{equation}
+\arccos\left(\frac{\alpha_{max,0}+\alpha_{max,\pi}}{\alpha_{max,\pi}-\alpha_{max,0}}\right) = \beta-\beta_i.
+\end{equation}
+As a simplification, we can approximate the $\cos(\beta-\beta_i)$ term as
+\begin{equation}
+\cos(\beta-\beta_i) \sim 1 - \frac{\beta-\beta_i}{\pi/2},
+\end{equation}
+for $0 \le \beta-\beta_i \le \pi$ such that $\cos\alpha_{max}$ becomes
+\begin{equation}
+\cos\alpha_{max} \sim \cos\left[\alpha_{max,0}+\frac{\alpha_{max,\pi}-\alpha_{max,0}}{\pi}(\beta-\beta_i)\right]
 \end{equation}
 
 \begin{table}[h]\centering
