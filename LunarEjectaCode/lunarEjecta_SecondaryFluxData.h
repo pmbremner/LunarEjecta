@@ -114,7 +114,7 @@ private:
 
 enum xScaleType {linearScale, log10Scale};
 
-
+// virtual class
 class GeneralIntegralFluxOutput
 {
 public:

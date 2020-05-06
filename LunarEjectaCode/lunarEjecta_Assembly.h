@@ -1,6 +1,7 @@
 #ifndef LUNAREJECTA_ASSEMBLY_H
 #define LUNAREJECTA_ASSEMBLY_H
 
+#include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
 
@@ -19,7 +20,11 @@ class lunarEjecta_Assembly
 public:
 	lunarEjecta_Assembly(
 		/*  For lunarEjecta_Regolith */
-		
+		int HH11_targetMaterial,
+		int regolithDensType,
+		double new_lowDensity,
+		double new_highDensity,
+
 		/*  For ImpactSites_and_ROI */
 		double new_ND,     // total number of distance increments
         double new_Nazm,   // total number of azimuth increments
@@ -46,6 +51,9 @@ public:
 		cout << "lunarEjecta_Assembly template class init \n";
 		cout << "----------------------------------------\n";
 
+		// init regolith
+		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_highDensity);
+
 		// init site and ROI locations
 		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI);
 
@@ -58,6 +66,7 @@ public:
 	}
 
 	~lunarEjecta_Assembly() {
+		delete RegolithProperties;
 		delete ImpactSitesROILoc;
 		delete MEMLatDataHi;
 		delete MEMLatDataLo;
@@ -73,12 +82,6 @@ public:
 			// all distance dependent only terms should be computed here
 
 
-			// Separately, we need to integrate over a finer azm grid in order to 
-			//  figure out the normalization for the small azm wedge,
-			//  since the exponent 'a' depends on the azm direction
-			// Will have to integrate the whole speed-x(angle) between the curves
-			//  for each azm wedge
-
 			for (j_siteAzm = 0; j_siteAzm < ImpactSitesROILoc->getNazm(); ++j_siteAzm)
 			{
 				
@@ -87,14 +90,45 @@ public:
 	}
 
 private:
-	double H_compH11HiDensFactor() {
 
+	double H_compH11RegDensFactor(int lowHigh){
+		double dens = 0.0;
+		switch(lowHigh){
+			case 0: // low
+				dens = RegolithProperties->getlowDensity();
+				break;
+			case 1: // high
+				dens = RegolithProperties->gethighDensity();
+				break;
+			default:
+				cerr << "ERROR: H_compH11RegDensFactor invalid density type selection\n";
+		}
+		return pow(dens, -(3.*RegolithProperties->getHH11_nu()-1.));
+	}
+
+	double H_compH11HiDensFactor() {
+		double mass_sum = 0.0, cur_dens;
+
+		for (int i = 0; i < MEMLatDataHi->getNdens(); ++i)
+		{
+			cur_dens = (MEMLatDataHi->getdensLEdge(i) + MEMLatDataHi->getdensREdge(i)) / 2.0; // kg/m^3
+			mass_sum += MEMLatDataHi->getdensFraction * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) * 50.; // bins are always 50 per kg/m^3 large
+		}
+		return mass_sum;
 	}
 
 	double H_compH11LiDensFactor() {
+		double mass_sum = 0.0, cur_dens;
 
+		for (int i = 0; i < MEMLatDataLo->getNdens(); ++i)
+		{
+			cur_dens = (MEMLatDataLo->getdensLEdge(i) + MEMLatDataLo->getdensREdge(i)) / 2.0; // kg/m^3
+			mass_sum += MEMLatDataLo->getdensFraction * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) * 50.; // bins are always 50 per kg/m^3 large
+		}
+		return mass_sum;
 	}
 
+	lunarEjecta_Regolith*         RegolithProperties;
 	ImpactSites_and_ROI*          ImpactSitesROILoc;
 	MEM_LatData<genMEMdataHi>*    MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*    MEMLatDataLo;
