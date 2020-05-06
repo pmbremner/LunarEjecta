@@ -46,6 +46,11 @@ inline double MEM_data::getNcols() {return Ncols;}
 inline double MEM_data::getNrowVars() {return NrowVars;}
 inline double MEM_data::getNcolVars() {return NcolVars;}
 
+inline double MEM_data::getNdens() {return Ndens;}
+inline double MEM_data::getdensLEdge(int idx) {return densLEdge[idx];}
+inline double MEM_data::getdensREdge(int idx) {return densREdge[idx];}
+inline double MEM_data::getdensFraction(int idx) {return densFraction[idx];}
+
 void MEM_data::H_setHeaderLength(int h) { headerLength = h; }
 
 
@@ -88,6 +93,33 @@ void MEM_data::H_getVelAngleResolution(string fn) {
 	file.close();
 }
 
+void MEM_data::H_readDensityFile(string fn){ // used two levels up
+	int count = 0;
+	char C_densLine[64];
+	double tdouble1, tdouble2, tdouble3;
+
+	ifstream file;
+	file.open(fn);
+	cout << fn << endl;
+
+	file.ignore(256, '\n');
+	file.ignore(256, '\n');
+	while(file.getline(C_densLine, 64, '\n')) {
+		//cout << C_densLine << " | ";
+		string tstr(C_densLine);
+		stringstream SS_double(tstr);
+		SS_double >> tdouble1 >> tdouble2 >> tdouble3;
+		densLEdge.push_back(tdouble1);
+		densREdge.push_back(tdouble2);
+		densFraction.push_back(tdouble3);
+		count++;
+		//cout << count << ' ' << tdouble1 << '\t' << tdouble2 << '\t' << tdouble3 << endl;
+	}
+	Ndens = count;
+	//cout << " dens rows = " << count << endl;
+
+	file.close();
+}	
 
 void MEM_data::H_readInt_FromFile(ifstream& file, int& firstInt) {
 	char C_int[8];
@@ -524,6 +556,7 @@ void MEM_iglooAvg::H_readFile(void)
 MEM_HiDensityCubeAvg::MEM_HiDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/HiDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/hidensity.txt");
 }
 
 MEM_HiDensityCubeAvg::~MEM_HiDensityCubeAvg() {}
@@ -533,6 +566,7 @@ MEM_HiDensityCubeAvg::~MEM_HiDensityCubeAvg() {}
 MEM_HiDensityFluxAvg::MEM_HiDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/HiDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/hidensity.txt");
 }
 
 MEM_HiDensityFluxAvg::~MEM_HiDensityFluxAvg() {}
@@ -542,6 +576,7 @@ MEM_HiDensityFluxAvg::~MEM_HiDensityFluxAvg() {}
 MEM_HiDensityIglooAvg::MEM_HiDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/HiDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/hidensity.txt");
 }
 
 MEM_HiDensityIglooAvg::~MEM_HiDensityIglooAvg() {}
@@ -553,6 +588,7 @@ MEM_HiDensityIglooAvg::~MEM_HiDensityIglooAvg() {}
 MEM_LoDensityCubeAvg::MEM_LoDensityCubeAvg(string dn) : MEM_cubeAvg(dn + "/LoDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/lodensity.txt");
 }
 
 MEM_LoDensityCubeAvg::~MEM_LoDensityCubeAvg() {}
@@ -562,6 +598,7 @@ MEM_LoDensityCubeAvg::~MEM_LoDensityCubeAvg() {}
 MEM_LoDensityFluxAvg::MEM_LoDensityFluxAvg(string dn) : MEM_fluxAvg(dn + "/LoDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/lodensity.txt");
 }
 
 MEM_LoDensityFluxAvg::~MEM_LoDensityFluxAvg() {}
@@ -571,6 +608,7 @@ MEM_LoDensityFluxAvg::~MEM_LoDensityFluxAvg() {}
 MEM_LoDensityIglooAvg::MEM_LoDensityIglooAvg(string dn) : MEM_iglooAvg(dn + "/LoDensity")
 {
 	this->H_getVelAngleResolution(dn + "/options.txt");
+	this->H_readDensityFile(dn + "/lodensity.txt");
 }
 
 MEM_LoDensityIglooAvg::~MEM_LoDensityIglooAvg() {}

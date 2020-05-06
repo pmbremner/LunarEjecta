@@ -39,12 +39,17 @@ public:
 	inline double getNrowVars();
 	inline double getNcolVars();
 
-	
+	inline double getNdens();
+	inline double getdensLEdge(int idx);
+	inline double getdensREdge(int idx);
+	inline double getdensFraction(int idx);
+
 protected:
 	virtual void H_readFile(void) = 0;
 	void H_setHeaderLength(int h);
 	void H_getRowCol_FromFile();
 	void H_getVelAngleResolution(string fn); // used two levels up
+	void H_readDensityFile(string fn); // used two levels up
 	void H_readInt_FromFile(ifstream& file, int& firstInt);
 	inline int H_idxFlux(int row, int col);
 	inline int H_idxRVar(int row, int col);
@@ -81,7 +86,14 @@ protected:
 
 	string fluxUnits;            
 	vector<string> rowVarsUnits; 
-	vector<string> colVarsUnits; 
+	vector<string> colVarsUnits;
+
+	// density data (not init here, but in 2 gens down)
+	//  init in H_readDensityFile
+	int Ndens;
+	vector<double> densLEdge; // kg/m^3
+	vector<double> densREdge; // kg/m^3
+	vector<double> densFraction; // units of per 50 kg/m^3
 };
 
 /////////////////////////////////////////////////////////////

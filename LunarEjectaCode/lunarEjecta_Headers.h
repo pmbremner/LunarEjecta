@@ -11,10 +11,9 @@
 
 #include "lunarEjecta_MeteoroidFlux.h"
 #include "lunarEjecta_SecondaryFluxData.h"
+#include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_Assembly.h"
 #include "lunarEjecta_GeneralExpressions.h"
-//#include "vector2d.h"
-//#include "lunarEjecta_Regolith.h"
 
 
 

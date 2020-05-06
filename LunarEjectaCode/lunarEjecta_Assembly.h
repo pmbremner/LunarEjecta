@@ -18,6 +18,8 @@ class lunarEjecta_Assembly
 {
 public:
 	lunarEjecta_Assembly(
+		/*  For lunarEjecta_Regolith */
+		
 		/*  For ImpactSites_and_ROI */
 		double new_ND,     // total number of distance increments
         double new_Nazm,   // total number of azimuth increments
@@ -85,6 +87,14 @@ public:
 	}
 
 private:
+	double H_compH11HiDensFactor() {
+
+	}
+
+	double H_compH11LiDensFactor() {
+
+	}
+
 	ImpactSites_and_ROI*          ImpactSitesROILoc;
 	MEM_LatData<genMEMdataHi>*    MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*    MEMLatDataLo;
