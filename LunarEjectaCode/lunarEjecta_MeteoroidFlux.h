@@ -44,11 +44,14 @@ public:
 	inline double getdensREdge(int idx);
 	inline double getdensFraction(int idx);
 
+	inline double getGrunMinMass();
+
 protected:
 	virtual void H_readFile(void) = 0;
 	void H_setHeaderLength(int h);
 	void H_getRowCol_FromFile();
 	void H_getVelAngleResolution(string fn); // used two levels up
+	void H_getGrunMinMass(string fn);  // used two levels up
 	void H_readDensityFile(string fn); // used two levels up
 	void H_readInt_FromFile(ifstream& file, int& firstInt);
 	inline int H_idxFlux(int row, int col);
@@ -71,6 +74,7 @@ protected:
 	double vMax;
 	int dVel;   // = 1, 2
 	int dAngle; // = 1, 2, 3, 4, 5
+	double log10GrunMinMass; // between [-6, 1]
 
 	int Nrows; // of data only
 	int Ncols; // of data only
@@ -221,6 +225,10 @@ public:
 
 	inline int getLatIdx(double cur_lat) {
 		return int(round((cur_lat - latMin)/(latMax-latMin) * NLat));
+	}
+
+	inline double getGrunMinMass(int i = 0) {
+		return dataSet[i].getGrunMinMass();
 	}
 
 	//void print();

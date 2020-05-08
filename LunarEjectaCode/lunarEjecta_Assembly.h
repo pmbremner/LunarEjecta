@@ -90,14 +90,57 @@ public:
 	}
 
 private:
+	inline double HH_DGrunM(double m) { // m = units of g, output in units of 1/(m^2*yr)
+		return pow(2.2E3 * pow(m, 0.306) + 15., -4.38)
+		     + 1.3E-9 * pow(m + 1.E11 * pow(m, 2.) + 1.E27 * pow(m, 4.), -0.36)
+		     + 1.3E-16 * pow(m + 1.E6 * pow(m, 2.), -0.85); //## NEED TO MAKE DG, not G
+	}
+
+	double H_compH11GrunMassFactor(int lowHigh, int N = 14) {
+		int i;
+		double GrunNormalization, massMin, massMax = 10.;
+		double Ai, Bi, sum = 0.;
+		vector<double> m;
+		vector<double> f;
+		f.resize(N);
+
+		switch(lowHigh){
+			case 0: // low density MEM pop
+				massMin = MEMLatDataLo->getGrunMinMass();
+				GrunNormalization = HH_DGrunM(massMin);
+				break;
+			case 1: // high density MEM pop
+				massMin = MEMLatDataHi->getGrunMinMass();
+				GrunNormalization = HH_DGrunM(massMin);
+				break;
+			default:
+				cerr << "ERROR: H_compH11GrunMassFactor invalid density type selection\n";
+		}
+
+		// prepare x and y vectors for power law fits
+		logspace(m, massMin, massMax, N, 0, N);
+		for (i = 0; i < N; ++i)
+			f[i] = HH_DGrunM(m[i]) / GrunNormalization;
+
+		// compute integral by breaking up in log spacings and approx by power law
+		for (i = N-2; i >= 0; i--) // start at low end of mass to sum smaller #'s first
+		{
+			Bi = log10(f[i+1] / f[i]) / log10(m[i+1] / m[i]); 
+			Ai = (f[i] + f[i+1]) / (pow(m[i], Bi) + pow(m[i+1], Bi));
+
+			sum += Ai/(Bi+1.) * (pow(m[i+1], Bi+1) - pow(m[i], Bi+1));
+		}
+		return sum;
+		
+	}
 
 	double H_compH11RegDensFactor(int lowHigh){
 		double dens = 0.0;
 		switch(lowHigh){
-			case 0: // low
+			case 0: // low density regolith
 				dens = RegolithProperties->getlowDensity();
 				break;
-			case 1: // high
+			case 1: // high density regolith
 				dens = RegolithProperties->gethighDensity();
 				break;
 			default:
@@ -117,7 +160,7 @@ private:
 		return mass_sum;
 	}
 
-	double H_compH11LiDensFactor() {
+	double H_compH11LoDensFactor() {
 		double mass_sum = 0.0, cur_dens;
 
 		for (int i = 0; i < MEMLatDataLo->getNdens(); ++i)
