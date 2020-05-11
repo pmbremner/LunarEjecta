@@ -1,6 +1,7 @@
 #ifndef LUNAREJECTA_ASSEMBLY_H
 #define LUNAREJECTA_ASSEMBLY_H
 
+#include "lunarEjecta_GeneralExpressions.h"
 #include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
@@ -63,6 +64,10 @@ public:
 
 		// establish secondary flux data
 		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
+	
+		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6" << endl;
+		cout << "H_compH11HiDensFactor = \n" << this->H_compH11HiDensFactor() << endl;
+		cout << "H_compH11LoDensFactor = \n" << this->H_compH11LoDensFactor() << endl;
 	}
 
 	~lunarEjecta_Assembly() {
@@ -90,48 +95,56 @@ public:
 	}
 
 private:
-	inline double HH_DGrunM(double m) { // m = units of g, output in units of 1/(m^2*yr)
-		return pow(2.2E3 * pow(m, 0.306) + 15., -4.38)
-		     + 1.3E-9 * pow(m + 1.E11 * pow(m, 2.) + 1.E27 * pow(m, 4.), -0.36)
-		     + 1.3E-16 * pow(m + 1.E6 * pow(m, 2.), -0.85); //## NEED TO MAKE DG, not G
+
+	// eta defaults to 0 (to match HH11), but really should be 1
+	double H_compH11ProjSpeedFactor(double speed, double alt, double eta = 0) {
+		double sin_term;
+		if(eta < 0.01) {
+			sin_term = 1.;
+		} else {
+			sin_term = pow(sin(alt), eta); 
+		}
+
+		return pow(speed * sin_term, 3.*RegolithProperties->getHH11_mu());
 	}
 
-	double H_compH11GrunMassFactor(int lowHigh, int N = 14) {
+	inline double HH_Grun(double m) { // m = units of g, output in units of 1/(m^2*yr)
+		return pow(2.2E3 * pow(m, 0.306) + 15., -4.38)
+		     + 1.3E-9 * pow(m + 1.E11 * pow(m, 2.) + 1.E27 * pow(m, 4.), -0.36)
+		     + 1.3E-16 * pow(m + 1.E6 * pow(m, 2.), -0.85); 
+	}
+
+	// fit made in SciDAVis, already normalized to 10^-6 g
+	inline double HH_MDGrun(double m) {
+		return 1. / (1.587E7 * pow(m, 2.3235-1.) + 7.056E4 * pow(m, 1.8189-1.));
+	}
+
+
+	double H_compH11GrunMassFactor(int N = 14) { // N ~100 is usually sufficient
 		int i;
-		double GrunNormalization, massMin, massMax = 10.;
+		double massMin, massMax = 10.; // mass limit in MEM is 10 g
 		double Ai, Bi, sum = 0.;
 		vector<double> m;
 		vector<double> f;
 		f.resize(N);
 
-		switch(lowHigh){
-			case 0: // low density MEM pop
-				massMin = MEMLatDataLo->getGrunMinMass();
-				GrunNormalization = HH_DGrunM(massMin);
-				break;
-			case 1: // high density MEM pop
-				massMin = MEMLatDataHi->getGrunMinMass();
-				GrunNormalization = HH_DGrunM(massMin);
-				break;
-			default:
-				cerr << "ERROR: H_compH11GrunMassFactor invalid density type selection\n";
-		}
+		massMin = MEMLatDataLo->getGrunMinMass(); // should be the same as Hi
 
 		// prepare x and y vectors for power law fits
 		logspace(m, massMin, massMax, N, 0, N);
 		for (i = 0; i < N; ++i)
-			f[i] = HH_DGrunM(m[i]) / GrunNormalization;
+			f[i] = HH_MDGrun(m[i]) * (HH_Grun(massMin) / HH_Grun(1.E-6));
 
 		// compute integral by breaking up in log spacings and approx by power law
-		for (i = N-2; i >= 0; i--) // start at low end of mass to sum smaller #'s first
+		for (i = N-2; i >= 0; i--) // start at low end of mass to sum smaller #'s first (less floating-point error)
 		{
 			Bi = log10(f[i+1] / f[i]) / log10(m[i+1] / m[i]); 
 			Ai = (f[i] + f[i+1]) / (pow(m[i], Bi) + pow(m[i+1], Bi));
 
 			sum += Ai/(Bi+1.) * (pow(m[i+1], Bi+1) - pow(m[i], Bi+1));
+			//cout << i << ' ' << Bi << endl;
 		}
-		return sum;
-		
+		return sum;	
 	}
 
 	double H_compH11RegDensFactor(int lowHigh){
@@ -149,13 +162,14 @@ private:
 		return pow(dens, -(3.*RegolithProperties->getHH11_nu()-1.));
 	}
 
+	// Note: checked against integrating in Mathematica, found out don't need the factor of 50 to make work.
 	double H_compH11HiDensFactor() {
 		double mass_sum = 0.0, cur_dens;
 
 		for (int i = 0; i < MEMLatDataHi->getNdens(); ++i)
 		{
 			cur_dens = (MEMLatDataHi->getdensLEdge(i) + MEMLatDataHi->getdensREdge(i)) / 2.0; // kg/m^3
-			mass_sum += MEMLatDataHi->getdensFraction * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) * 50.; // bins are always 50 per kg/m^3 large
+			mass_sum += MEMLatDataHi->getdensFraction(i) * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) ; // bins are always 50 per kg/m^3 large
 		}
 		return mass_sum;
 	}
@@ -166,7 +180,7 @@ private:
 		for (int i = 0; i < MEMLatDataLo->getNdens(); ++i)
 		{
 			cur_dens = (MEMLatDataLo->getdensLEdge(i) + MEMLatDataLo->getdensREdge(i)) / 2.0; // kg/m^3
-			mass_sum += MEMLatDataLo->getdensFraction * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) * 50.; // bins are always 50 per kg/m^3 large
+			mass_sum += MEMLatDataLo->getdensFraction(i) * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) ; // bins are always 50 per kg/m^3 large
 		}
 		return mass_sum;
 	}

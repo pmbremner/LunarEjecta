@@ -46,12 +46,12 @@ inline double MEM_data::getNcols() {return Ncols;}
 inline double MEM_data::getNrowVars() {return NrowVars;}
 inline double MEM_data::getNcolVars() {return NcolVars;}
 
-inline double MEM_data::getNdens() {return Ndens;}
-inline double MEM_data::getdensLEdge(int idx) {return densLEdge[idx];}
-inline double MEM_data::getdensREdge(int idx) {return densREdge[idx];}
-inline double MEM_data::getdensFraction(int idx) {return densFraction[idx];}
+double MEM_data::getNdens() {return Ndens;}
+double MEM_data::getdensLEdge(int idx) {return densLEdge[idx];}
+double MEM_data::getdensREdge(int idx) {return densREdge[idx];}
+double MEM_data::getdensFraction(int idx) {return densFraction[idx];}
 
-inline double MEM_data::getGrunMinMass() {return pow(10., log10GrunMinMass);}
+double MEM_data::getGrunMinMass() {return pow(10., log10GrunMinMass);}
 
 void MEM_data::H_setHeaderLength(int h) { headerLength = h; }
 

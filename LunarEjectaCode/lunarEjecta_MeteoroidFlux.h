@@ -39,12 +39,12 @@ public:
 	inline double getNrowVars();
 	inline double getNcolVars();
 
-	inline double getNdens();
-	inline double getdensLEdge(int idx);
-	inline double getdensREdge(int idx);
-	inline double getdensFraction(int idx);
+	double getNdens();
+	double getdensLEdge(int idx);
+	double getdensREdge(int idx);
+	double getdensFraction(int idx);
 
-	inline double getGrunMinMass();
+	double getGrunMinMass();
 
 protected:
 	virtual void H_readFile(void) = 0;
@@ -228,7 +228,22 @@ public:
 	}
 
 	inline double getGrunMinMass(int i = 0) {
-		return dataSet[i].getGrunMinMass();
+		return dataSet[i]->getGrunMinMass();
+	}
+
+	double getNdens(int i = 0) {
+		return dataSet[i]->getNdens();
+	}
+
+	double getdensLEdge(int idx, int i = 0) {
+		return dataSet[i]->getdensLEdge(idx);
+	}
+
+	double getdensREdge(int idx, int i = 0) {
+		return dataSet[i]->getdensREdge(idx);
+	}
+	double getdensFraction(int idx, int i = 0) {
+		return dataSet[i]->getdensFraction(idx);
 	}
 
 	//void print();
