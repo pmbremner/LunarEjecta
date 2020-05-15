@@ -66,8 +66,26 @@ public:
 		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
 	
 		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6" << endl;
+
 		cout << "H_compH11HiDensFactor = \n" << this->H_compH11HiDensFactor() << endl;
-		cout << "H_compH11LoDensFactor = \n" << this->H_compH11LoDensFactor() << endl;
+		cout << "H_compH11LoDensFactor = \n" << this->H_compH11LoDensFactor() << endl << endl;
+
+		cout << "H_C03RegolithParticleDiameterCDF = (> 1 cm) \n" << this->H_C03RegolithParticleDiameterCDF(1.E-2) << endl;
+		cout << "H_C03RegolithParticleDiameterCDF = (> 0.1 mm) \n" << this->H_C03RegolithParticleDiameterCDF(1.E-4) << endl;
+		cout << "H_C03RegolithParticleDiameterCDF = (> 0.1 um) \n" << this->H_C03RegolithParticleDiameterCDF(1.E-7) << endl << endl;
+
+
+		cout << "H_C03RegolithParticleMassCDF = (> 10 g, low dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-2, 0) << endl;
+		cout << "H_C03RegolithParticleMassCDF = (> 10 g, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-2, 1) << endl << endl;
+
+		cout << "H_C03RegolithParticleMassCDF = (> 1 ug, low dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-9, 0) << endl;
+		cout << "H_C03RegolithParticleMassCDF = (> 1 ug, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-9, 1) << endl << endl;
+
+		cout << "H_C03RegolithParticleMassCDF = (> 1 ng, low dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-12, 0) << endl;
+		cout << "H_C03RegolithParticleMassCDF = (> 1 ng, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-12, 1) << endl << endl;
+	
+		cout << "H_C03RegolithParticleMassCDF = (> 1 pg, low dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-15, 0) << endl;
+		cout << "H_C03RegolithParticleMassCDF = (> 1 pg, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-15, 1) << endl << endl;
 	}
 
 	~lunarEjecta_Assembly() {
@@ -95,6 +113,37 @@ public:
 	}
 
 private:
+
+	// Modeled fit to mean of Fig. 1 of Carrier 2003 using bi-exponential function, useful range 0.001 mm to 10 mm
+	// For size-limiting of secondary ejecta
+	double H_C03RegolithParticleDiameterCDF(double d_min) { // units m, outputs % greater than d_min
+		const double a =  0.05480447;
+		const double b = -1.01472478;
+		const double c =  0.33749929;
+		const double d = -0.25180816;
+		d_min *= 1000.; // convert from m to mm
+
+		return exp(-1. / (a*pow(d_min, b) + c*pow(d_min, d)));
+	}
+
+	// For mass-limiting of secondary ejecta, based on Carrier 2003 regolith size distribution
+	double H_C03RegolithParticleMassCDF(double m_min, int lowHighDens) { // units of kg
+		double dens = 0.0, d_min;
+		switch(lowHighDens){
+			case 0: // low density regolith
+				dens = RegolithProperties->getlowDensity();
+				break;
+			case 1: // high density regolith
+				dens = RegolithProperties->gethighDensity();
+				break;
+			default:
+				cerr << "ERROR: H_C03RegolithParticleMassCDF invalid density type selection\n";
+		}
+
+		d_min = 2. * pow(3.*m_min / (4.*PI*dens), 1./3.);
+
+		return H_C03RegolithParticleDiameterCDF(d_min);
+	}
 
 	// eta defaults to 0 (to match HH11), but really should be 1
 	double H_compH11ProjSpeedFactor(double speed, double alt, double eta = 0) {
@@ -147,9 +196,9 @@ private:
 		return sum;	
 	}
 
-	double H_compH11RegDensFactor(int lowHigh){
+	double H_compH11RegDensFactor(int lowHighDens){
 		double dens = 0.0;
-		switch(lowHigh){
+		switch(lowHighDens){
 			case 0: // low density regolith
 				dens = RegolithProperties->getlowDensity();
 				break;

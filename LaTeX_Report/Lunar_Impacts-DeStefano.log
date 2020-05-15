@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  11 MAY 2020 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  15 MAY 2020 16:23
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -1111,12 +1111,12 @@ Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used
 on input line 251.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
  [6 <./Carrier2003_Fig1_particle-size-distribution.PNG>]
-<Fit-to-CDF.PNG, id=455, 357.58594pt x 159.59625pt>
+<Fit-to-CDF.PNG, id=456, 357.58594pt x 159.59625pt>
 File: Fit-to-CDF.PNG Graphic file (type png)
 <use Fit-to-CDF.PNG>
 Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 263.
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
-<Fit-to-x3PDF.png, id=463, 433.62pt x 278.54062pt>
+<Fit-to-x3PDF.png, id=464, 433.62pt x 278.54062pt>
 File: Fit-to-x3PDF.png Graphic file (type png)
 <use Fit-to-x3PDF.png>
 Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 281.
@@ -1126,7 +1126,7 @@ Package pdftex.def Info: Fit-to-x3PDF.png  used on input line 281.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7 <./Fit-to-CDF.PNG>] [8 <./Fit-to-x3PDF.png>] [9] [10]
-<ExlusionRange_vs_ImpactAngle.png, id=534, 462.528pt x 346.896pt>
+<ExlusionRange_vs_ImpactAngle.png, id=535, 462.528pt x 346.896pt>
 File: ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ExlusionRange_vs_ImpactAngle.png  used on input line 4
@@ -1147,7 +1147,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 597--598
  []
 
 [15] [16]
-<integration_bounds_cases.png, id=628, 615.7404pt x 456.7464pt>
+<integration_bounds_cases.png, id=629, 615.7404pt x 456.7464pt>
 File: integration_bounds_cases.png Graphic file (type png)
 <use integration_bounds_cases.png>
 Package pdftex.def Info: integration_bounds_cases.png  used on input line 673.
@@ -1160,7 +1160,7 @@ Overfull \hbox (25.22652pt too wide) in paragraph at lines 673--674
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=633, 428.35031pt x 321.45094pt
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=634, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
@@ -1171,7 +1171,7 @@ nput line 690.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [17]
-<Fit-to-D_Grun.PNG, id=655, 326.72063pt x 167.87718pt>
+<Fit-to-D_Grun.PNG, id=656, 326.72063pt x 167.87718pt>
 File: Fit-to-D_Grun.PNG Graphic file (type png)
 <use Fit-to-D_Grun.PNG>
 Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 707.
@@ -1182,13 +1182,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [18 <./integration_bounds_cases.png>] [19 <./MEM_UG_Fig2.1_partile-mass-distrib
 ution.PNG> <./Fit-to-D_Grun.PNG>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=682, 694.84593pt x 472.76625pt>
+<MEM_UG_Fig2.5_density-distribution.PNG, id=683, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
 line 738.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-<Fit-to-MEM_low_dens.PNG, id=687, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=688, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 746.
@@ -1197,7 +1197,7 @@ Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 746.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_high_dens.PNG, id=692, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=693, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 752.
@@ -1207,7 +1207,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20 <./MEM_UG_Fig2.5_density-distribution.PNG>] [21 <./Fit-to-MEM_low_dens.PNG>
  <./Fit-to-MEM_high_dens.PNG>] [22]
-<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=733, 462.528pt x 346.896pt>
+<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=734, 462.528pt x 346.896pt>
 File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
 <use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
@@ -1260,7 +1260,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 962.
 
 [26]
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=810, 658.71094pt x 851.43094
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=811, 658.71094pt x 851.43094
 pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
@@ -1322,9 +1322,9 @@ ic/amsfonts/cm/cmtt8.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/adestefa/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/adestefa/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (33 pages, 1364596 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (33 pages, 1364800 bytes).
 PDF statistics:
- 960 PDF objects out of 1000 (max. 8388607)
+ 961 PDF objects out of 1000 (max. 8388607)
  286 named destinations out of 1000 (max. 500000)
  406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

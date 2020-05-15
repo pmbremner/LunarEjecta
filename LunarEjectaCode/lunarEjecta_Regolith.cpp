@@ -105,8 +105,8 @@ inline double lunarEjecta_Regolith::getHH11_C1()       {return HH11_C1;}
 inline double lunarEjecta_Regolith::getHH11_k()        {return HH11_k;}
 inline double lunarEjecta_Regolith::getHH11_C4()       {return HH11_C4;}
        double lunarEjecta_Regolith::getHH11_nu()       {return HH11_nu;}
-inline double lunarEjecta_Regolith::getlowDensity()    {return lowDensity;}
-inline double lunarEjecta_Regolith::gethighDensity()   {return highDensity;}
+	   double lunarEjecta_Regolith::getlowDensity()    {return lowDensity;}
+	   double lunarEjecta_Regolith::gethighDensity()   {return highDensity;}
 
 inline double lunarEjecta_Regolith::H_calcHH11_C4() {
 	return 3.*HH11_k / (4.*PI) * pow(HH11_C1, 3.*HH11_mu);

@@ -25,8 +25,8 @@ public:
 	inline double getHH11_k();
 	inline double getHH11_C4();
 	double getHH11_nu();
-	inline double getlowDensity();
-	inline double gethighDensity();
+	double getlowDensity();
+	double gethighDensity();
 
 private:
 	inline double H_calcHH11_C4();
