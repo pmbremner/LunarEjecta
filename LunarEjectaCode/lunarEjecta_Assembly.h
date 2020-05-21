@@ -24,6 +24,7 @@ public:
 		int HH11_targetMaterial,
 		int regolithDensType,
 		double new_lowDensity,
+		double new_avgDensity,
 		double new_highDensity,
 
 		/*  For ImpactSites_and_ROI */
@@ -53,7 +54,7 @@ public:
 		cout << "----------------------------------------\n";
 
 		// init regolith
-		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_highDensity);
+		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity);
 
 		// init site and ROI locations
 		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI);
@@ -136,6 +137,9 @@ private:
 			case 1: // high density regolith
 				dens = RegolithProperties->gethighDensity();
 				break;
+			case 2: // average density regolith
+				dens = RegolithProperties->getavgDensity();
+				break;
 			default:
 				cerr << "ERROR: H_C03RegolithParticleMassCDF invalid density type selection\n";
 		}
@@ -204,6 +208,9 @@ private:
 				break;
 			case 1: // high density regolith
 				dens = RegolithProperties->gethighDensity();
+				break;
+			case 2: // average density regolith
+				dens = RegolithProperties->getavgDensity();
 				break;
 			default:
 				cerr << "ERROR: H_compH11RegDensFactor invalid density type selection\n";

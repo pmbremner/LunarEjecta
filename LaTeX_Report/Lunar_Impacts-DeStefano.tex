@@ -395,13 +395,13 @@ and solving for $\beta-\beta_i$, after setting $\alpha_{max}(\beta)$ to zero,
 \begin{equation}
 \arccos\left(\frac{\alpha_{max,0}+\alpha_{max,\pi}}{\alpha_{max,\pi}-\alpha_{max,0}}\right) = \beta-\beta_i.
 \end{equation}
-As a simplification, we can approximate the $\cos(\beta-\beta_i)$ term as
+As a simplification, we can approximate the $\cos(\beta-\beta_i)$ term as (note, this is not a Taylor series)
 \begin{equation}
-\cos(\beta-\beta_i) \sim 1 - \frac{\beta-\beta_i}{\pi/2},
+\cos(\beta-\beta_i) \sim 1 - \left|\frac{\beta-\beta_i}{\pi/2}\right|,
 \end{equation}
-for $0 \le \beta-\beta_i \le \pi$ such that $\cos\alpha_{max}$ becomes
+for $-\pi \le \beta-\beta_i \le \pi$ such that $\cos\alpha_{max}$ becomes
 \begin{equation}
-\cos\alpha_{max} \sim \cos\left[\alpha_{max,0}+\frac{\alpha_{max,\pi}-\alpha_{max,0}}{\pi}(\beta-\beta_i)\right]
+\cos\alpha_{max} \sim \cos\left[\alpha_{max,0}+\frac{\alpha_{max,\pi}-\alpha_{max,0}}{\pi}|\beta-\beta_i|\right]
 \end{equation}
 
 \begin{table}[h]\centering

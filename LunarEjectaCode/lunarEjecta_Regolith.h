@@ -16,6 +16,7 @@ public:
 	lunarEjecta_Regolith(int HH11_targetMaterial,
 						 int regolithDensType,
 						 double new_lowDensity,
+					     double new_avgDensity,
 						 double new_highDensity);
 	~lunarEjecta_Regolith();
 	
@@ -26,6 +27,7 @@ public:
 	inline double getHH11_C4();
 	double getHH11_nu();
 	double getlowDensity();
+	double getavgDensity();
 	double gethighDensity();
 
 private:
@@ -39,6 +41,7 @@ private:
 	double HH11_nu;
 
 	double lowDensity;  // kg/m^3
+	double avgDensity;  // kg/m^3
 	double highDensity; // kg/m^3
 };
 #endif 

@@ -11,6 +11,7 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
                       (int HH11_targetMaterial,
 					   int regolithDensType,
 					   double new_lowDensity,
+					   double new_avgDensity,
 					   double new_highDensity) {
 	cout << " Regolith Cratering Properties: ";
 
@@ -73,21 +74,28 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
 
 	switch(regolithDensType){
 		case DSNE:
+			// Note, low and high dens taken from Table 3.4.2.3-1 with Table 3.4.2.3.4-1
 			// density valid for regolith down to 30 cm
-			lowDensity = 1580.; // kg/m^3, DSNE vals
+			lowDensity = (1580. - 50.) / (1. - (0.49 - 0.02)); // kg/m^3, DSNE vals
+
+			// Average density for regolith due to Carrier et al 1991, DSNE 3.4.2.3.3
+			avgDensity = 3100.;
 
 			// density valid for regolith between 30 - 60 cm
-			highDensity = 1740.; // kg/m^3, DSNE vals
+			highDensity = (1740. - 50.) / (1. - (0.44 + 0.02)); // kg/m^3, DSNE vals
 			cout << " Regolith Density Model: DSNE\n";
 			cout << "  lowDensity = " << lowDensity << " kg/m^3" << endl;
+			cout << "  avgDensity = " << avgDensity << " kg/m^3" << endl;
 			cout << "  highDensity = " << highDensity << " kg/m^3" << endl;
-
 			break;
+
 		case UserDefRegDens:
 			lowDensity  = new_lowDensity;
+			avgDensity  = new_avgDensity;
 			highDensity = new_highDensity;
 			cout << " Regolith Density Model: UserDefRegDens\n";
 			cout << "  lowDensity = " << lowDensity << " kg/m^3" << endl;
+			cout << "  avgDensity = " << avgDensity << " kg/m^3" << endl;
 			cout << "  highDensity = " << highDensity << " kg/m^3" << endl;
 			break;
 		default:
@@ -106,6 +114,7 @@ inline double lunarEjecta_Regolith::getHH11_k()        {return HH11_k;}
 inline double lunarEjecta_Regolith::getHH11_C4()       {return HH11_C4;}
        double lunarEjecta_Regolith::getHH11_nu()       {return HH11_nu;}
 	   double lunarEjecta_Regolith::getlowDensity()    {return lowDensity;}
+	   double lunarEjecta_Regolith::getavgDensity()    {return avgDensity;}
 	   double lunarEjecta_Regolith::gethighDensity()   {return highDensity;}
 
 inline double lunarEjecta_Regolith::H_calcHH11_C4() {
