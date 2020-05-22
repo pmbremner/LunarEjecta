@@ -39,6 +39,10 @@ public:
 	inline double getNrowVars();
 	inline double getNcolVars();
 
+	inline double getNvel();
+	inline double getNtheta();
+	inline double getNphi();
+
 	double getNdens();
 	double getdensLEdge(int idx);
 	double getdensREdge(int idx);

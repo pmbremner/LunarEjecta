@@ -257,11 +257,6 @@ public:
 private:
 	string filename;
 	vector<genOutput*> fluxData;
-
-	// A function of impact angle and impact speed, after integrating out impactor density and mass
-	//  for each low and high density populations in MEM
-	vector<double> normalizationMassHiDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
-	vector<double> normalizationMassLoDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
 };
 
 #endif 

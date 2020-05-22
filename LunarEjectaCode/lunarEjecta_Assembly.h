@@ -241,11 +241,65 @@ private:
 		return mass_sum;
 	}
 
+	// beta - beta_i = pi
+	inline double HH_zenithUpstream(double impactZenith) { // input and output in degrees
+		return 20. + impactZenith * (1.5206 + impactZenith * (-0.036 + impactZenith * 0.0003));
+	}
+
+	// beta - beta_i = 0
+	inline double HH_zenithDownstream(double impactZenith) { // input and output in degrees
+		return 20. + impactZenith * (0.129 + impactZenith * (0.0236 + impactZenith * -0.00042));
+	}
+
+	// x = beta - beta_i
+	// Note: beta_i is the impact azimuth (direction seen from impact point), which is defined to be due East (direction or Moon's rotation)
+	//       
+	//   beta is the secondary ejecta direction leaving the impact point (not direction seen from secondary impact point, ie ROI)
+	//
+	// impactZenith in degrees, x in radians, output in radians
+	inline double HH_zenithGeneral(double impactZenith, double x) {
+		return (HH_zenithDownstream(impactZenith)
+			+ (HH_zenithUpstream(impactZenith) - HH_zenithDownstream(impactZenith)) / PI * fabs(x)) * DtoR;
+	}
+
+	// a = cos(a_max) / (1 - cos(amax)), converted to half sin to avoid subtraction of possible close #'s
+	double a_power(double impactZenith, double x) {
+		double alpha_max = HH_zenithGeneral(impactZenith, x); // in units of radians
+		return cos(alpha_max) / (2. * sqr(sin(alpha_max / 2.)));
+	}
+
+	// exlusion zone around upstream direction wrt to beta_i (impact azm, ie East), in radians
+	//  used in integration bounds of d(beta-beta_i) integral
+	double exclusion_zone(double impactZenith) {
+		double A = HH_zenithDownstream(impactZenith); // A and B are in degrees, but they cancel out their units
+		double B = HH_zenithUpstream(impactZenith);
+
+		if (B >= 0.)
+		{
+			return 0.;
+		} else {
+			return -PI * B / (A - B);
+		} 
+	}
+
+	void H_init_normalizationMass() {
+		// assuming all MEM data has the same vel and angle resolution, separately
+		/// First, we need to compute the integral term for each impact angle
+		///  The impact angle implicitly controls the "exclusion zone", \Delta\beta
+	}
+
+
+
 	lunarEjecta_Regolith*         RegolithProperties;
 	ImpactSites_and_ROI*          ImpactSitesROILoc;
 	MEM_LatData<genMEMdataHi>*    MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*    MEMLatDataLo;
 	SecondaryFluxData<genOutput>* SecFluxOutputData;
+
+	// A function of impact angle and impact speed, after integrating out impactor density and mass
+	//  for each low and high density populations in MEM
+	vector<double> normalizationMassHiDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
+	vector<double> normalizationMassLoDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
 };
 
 

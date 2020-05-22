@@ -46,6 +46,10 @@ inline double MEM_data::getNcols() {return Ncols;}
 inline double MEM_data::getNrowVars() {return NrowVars;}
 inline double MEM_data::getNcolVars() {return NcolVars;}
 
+inline double MEM_data::getNvel() {return Nvel;}
+inline double MEM_data::getNtheta() {return Ntheta;}
+inline double MEM_data::getNphi() {return Nphi;}
+
 double MEM_data::getNdens() {return Ndens;}
 double MEM_data::getdensLEdge(int idx) {return densLEdge[idx];}
 double MEM_data::getdensREdge(int idx) {return densREdge[idx];}
