@@ -372,7 +372,7 @@ we need to choose a distribution function for $F(\alpha)$ to allow for analytic 
 F(\alpha) = (1-\cos\alpha)^{1/a}\cos^a\alpha,
 \end{equation}
 where the exponent $a$ can be defined in terms of the peak angle $\alpha_{max}$ as
-\begin{equation}
+\begin{equation}\label{eq:a_exponent}
 a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}} = \frac{\cos\alpha_{max}}{2\sin^2(\alpha_{max}/2)},
 \end{equation}
 such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$.
@@ -400,7 +400,7 @@ As a simplification, we can approximate the $\cos(\beta-\beta_i)$ term as (note,
 \cos(\beta-\beta_i) \sim 1 - \left|\frac{\beta-\beta_i}{\pi/2}\right|,
 \end{equation}
 for $-\pi \le \beta-\beta_i \le \pi$ such that $\cos\alpha_{max}$ becomes
-\begin{equation}
+\begin{equation}\label{eq:cos_a_max_approx}
 \cos\alpha_{max} \sim \cos\left[\alpha_{max,0}+\frac{\alpha_{max,\pi}-\alpha_{max,0}}{\pi}|\beta-\beta_i|\right]
 \end{equation}
 
@@ -561,40 +561,73 @@ for $\beta_i$ the impact azimuth angle + $\pi$.\\
 The piece-wise function defined in Equation \eqref{eq:azm_rival_mandeville} for the azimuth distribution is correctly normalized for impact zenith angles $\alpha_i \le 60^\circ$, however for angles greater than $60^\circ$, the function is not continuous across the boundary $\beta = 2\pi \to 0$. We would also like a continuous function across the piece-wise boundary as well.
 
 Our proposed azimuth distribution is as follow. We will use the $\alpha_i \le 60^\circ$ functional form in Equation \eqref{eq:azm_rival_mandeville}, but we will have a different large-angle expression. The new azimuth distribution is defined as
-\begin{equation}
+%\begin{equation}
+%G(\beta) =
+%\begin{cases}
+%\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+%\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}
+%\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+%\end{cases},
+%\end{equation}
+%where
+%\begin{equation}
+%b = 1 + \left[20\left(\frac{3\alpha_i}{\pi}-1\right)\right]^2.
+%\end{equation}
+\begin{equation}\label{eq:alt-azm-dist}
 G(\beta) =
 \begin{cases}
 \frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
-\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}
-\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\frac{1}{A}\left[\exp\left[-\frac{(\beta-\beta_i - 2(\alpha_i-\alpha_{i,0}))}{\pi b}\right] + \exp\left[-\frac{(\beta-\beta_i + 2(\alpha_i-\alpha_{i,0}))}{\pi b}\right]\right] \text{  for $\alpha_i > \pi/3$}
 \end{cases},
 \end{equation}
 where
 \begin{equation}
-b = 1 + \left[20\left(\frac{3\alpha_i}{\pi}-1\right)\right]^2.
+b = \frac{0.05-1}{\pi/2-\pi/3}(\alpha_i-\alpha_{i,0}) + 1 = \frac{3}{10\pi}(\alpha_i-\alpha_{i,0}) + 1,
 \end{equation}
-Notice we already have normalized both piece-wise expressions.
+and
+\begin{equation}
+\alpha_{i,0} = \pi/3.
+\end{equation}
+For the second case, we empirically include information about the \textit{butterfly pattern} that is seen for highly oblique impact angles \citep[e.g.,][]{shuvalov2011ejecta}. The size of the impactor will affect the spread of the butterfly pattern, but we assume a certain spread profile for all impactor sizes.
+
+The normalization\footnote{Please note that this is not the exact normalization. This is assuming that the altitude distribution does not depend on the azimuth, which is not the case. We only include this here to \textit{help} the overall normalization once we calculate it, which will have to be done by a numerical integral.} constant for the $\alpha_i > \pi/3$ case is
+\begin{equation}
+A = \sqrt{b}\pi\left[ \text{erf}\left(\frac{\pi + 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) + \text{erf}\left(\frac{\pi - 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) \right],
+\end{equation}
+when integrating $\beta-\beta_i$ from $-\pi$ to $\pi$. However, when integrating
+the outgoing secondary azimuth angle $\beta$ with respect to the impact azimuth angle $\beta_i$ when there is an exclusion zone defined by $\pm\Delta\beta_{ez}$, the normalization constant is
+\begin{equation}
+A = \sqrt{b}\pi\left[ \text{erf}\left(\frac{\pi - \Delta\beta_{ez} + 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) + \text{erf}\left(\frac{\pi - \Delta\beta_{ez} - 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) \right],
+\end{equation}
+which is appropriate for any $\alpha_i > \pi/3$ for an exclusion zone $\Delta\beta_{ez}$ given by (using Eq.~\eqref{eq:cos_a_max_approx} = $\pi/2$)
+\begin{equation}\label{eq:delta_beta_ez}
+\Delta\beta_{ez} =
+\begin{cases}
+\pi\frac{-\alpha_{max,\pi}}{\alpha_{max,0}-\alpha_{max,\pi}} \text{, for $\alpha_{max,\pi} < 0$}\\
+0 \text{, otherwise} 
+\end{cases}
+\end{equation}
 
 For $\alpha_i > \pi/3 = 60^\circ$, in order to integrate over a small azimuth range $\beta\in(\beta_0, \beta_1)$
-\begin{equation}
-\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b},
-\end{equation}
-we can take the Taylor expansion of the integrand around the midpoint $\beta = \beta_{avg} = \frac{\beta_0+\beta_1}{2}$, such that
-\begin{align}
-&\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
-\sim &\int_{\beta_0}^{\beta_1}d\beta \left[G(\beta_{avg}) + G'(\beta_{avg})(\beta-\beta_{avg}) + G''(\beta_{avg})(\beta-\beta_{avg})^2 + \dots\right].
-\end{align}
-We notice that all odd powers of $(\beta-\beta_{avg})$ integrate to zero, so if we keep the second order expansion term $G''$, then our error will be of order\footnote{We gain an extra order from the integration range itself.} $\Delta\beta^5 = (\beta_1-\beta_0)^5$. Therefore, the integral becomes
-\begin{align}
-&A\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
-\sim & A\Delta\beta
-\left[\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)\right]^{b}
-\left[1 + \frac{b}{12}\Delta\beta^2\left[\frac{b\sin^2\left(\frac{\beta_{avg}-\beta_i}{2}\right) - \frac{1}{2}}{\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)}\right]\right],
-\end{align}
-where $A$ is the normalization factor we had before
-\begin{equation}
-A = \frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}.
-\end{equation}\\
+%\begin{equation}
+%\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b},
+%\end{equation}
+%we can take the Taylor expansion of the integrand around the midpoint $\beta = \beta_{avg} = \frac{\beta_0+\beta_1}{2}$, such that
+%\begin{align}
+%&\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+%\sim &\int_{\beta_0}^{\beta_1}d\beta \left[G(\beta_{avg}) + G'(\beta_{avg})(\beta-\beta_{avg}) + G''(\beta_{avg})(\beta-\beta_{avg})^2 + \dots\right].
+%\end{align}
+%We notice that all odd powers of $(\beta-\beta_{avg})$ integrate to zero, so if we keep the second order expansion term $G''$, then our error will be of order\footnote{We gain an extra order from the integration range itself.} $\Delta\beta^5 = (\beta_1-\beta_0)^5$. Therefore, the integral becomes
+%\begin{align}
+%&A\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+%\sim & A\Delta\beta
+%\left[\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)\right]^{b}
+%\left[1 + \frac{b}{12}\Delta\beta^2\left[\frac{b\sin^2\left(\frac{\beta_{avg}-\beta_i}{2}\right) - \frac{1}{2}}{\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)}\right]\right],
+%\end{align}
+%where $A$ is the normalization factor we had before
+%\begin{equation}
+%A = \frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}.
+%\end{equation}\\
 
 For $\alpha_i\le \pi/3 = 60^\circ$, integrating over a small range $\Delta\beta = \beta_1-\beta_0$, the integral is given by
 \begin{align}
@@ -645,6 +678,35 @@ where
 v_{avg} &= \frac{v_0 + v_1}{2}.
 \end{align}
 
+
+
+\subsubsection{Normalization Term}
+
+In order to relate to the secondary mass ejected faster than $v$, we need the normalization term $\mathcal{M}$ such that
+\begin{equation}
+M(>v) = \mathcal{M}(\alpha_i, U_i)\int_{v}^{\infty}\int_{0}^{2\pi}\int_{0}^{\pi/2}\sin\alpha d\alpha d\beta dv' F(\alpha)G(\beta)H(v').
+\end{equation}
+
+Solving for $\mathcal{M}$ and performing the integral over speed $v'$, we have
+\begin{equation}\label{eq:M_norm_term_1}
+\mathcal{M}(\alpha_i, U_i) = \frac{C_4 m [U_i\Theta(\alpha_i)]^{3\mu}\left(\frac{\delta}{\rho}\right)^{3\nu-1}}{\mathcal{G}(\alpha_i)},
+\end{equation}
+where $\mathcal{G}$ is given by ($x = \beta-\beta_i$)
+\begin{align}
+\mathcal{G}(\alpha_i) &= \int_{-(\pi-\Delta\beta_{ez})}^{\pi-\Delta\beta_{ez}}dx G(x+\beta_i)\frac{\Gamma(1/a+1)\Gamma(a+1)}{\Gamma(a+1/a+2)},\\
+&=2\int_{0}^{\pi-\Delta\beta_{ez}}dx G(x+\beta_i)\frac{\Gamma(1/a+1)\Gamma(a+1)}{\Gamma(a+1/a+2)},
+\end{align}
+where $\Delta\beta_{ez}$ and $a$ are given in Eq.\ \eqref{eq:delta_beta_ez} and Eq.\ \eqref{eq:a_exponent}, respectively. Recall, that $a$ is given by
+\begin{equation}
+a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}} = \frac{\cos\alpha_{max}}{2\sin^2(\alpha_{max}/2)},
+\end{equation}
+and where $\alpha_{max}$ is given by
+\begin{equation}
+\alpha_{max} = \alpha_{max,0} + \frac{\alpha_{max,\pi} - \alpha_{max,0}}{\pi}|x|.
+\end{equation}
+
+The $\mathcal{G}$ pre-normalization term can be computed using your favorite numerical integration method, such as Romberg integration.
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algorithm to Integrate Speed-Zenith Space}
 For the three different possible regions as defined in Section \ref{sssec:ZenithDistributionFunction}, shown here again for convenience
