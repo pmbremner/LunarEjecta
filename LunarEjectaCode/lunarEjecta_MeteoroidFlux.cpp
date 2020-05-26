@@ -37,8 +37,8 @@ inline double MEM_data::getCVar(int r, int c)
 	return colVars[H_idxCVar(r,c)];
 }
 
-inline double MEM_data::getvMin() {return vMin;}
-inline double MEM_data::getvMax() {return vMax;}
+double MEM_data::getvMin() {return vMin;}
+double MEM_data::getvMax() {return vMax;}
 
 
 inline double MEM_data::getNrows() {return Nrows;}
@@ -46,9 +46,9 @@ inline double MEM_data::getNcols() {return Ncols;}
 inline double MEM_data::getNrowVars() {return NrowVars;}
 inline double MEM_data::getNcolVars() {return NcolVars;}
 
-inline double MEM_data::getNvel() {return Nvel;}
-inline double MEM_data::getNtheta() {return Ntheta;}
-inline double MEM_data::getNphi() {return Nphi;}
+double MEM_data::getNvel() {return Nvel;}
+double MEM_data::getNtheta() {return Ntheta;}
+double MEM_data::getNphi() {return Nphi;}
 
 double MEM_data::getNdens() {return Ndens;}
 double MEM_data::getdensLEdge(int idx) {return densLEdge[idx];}

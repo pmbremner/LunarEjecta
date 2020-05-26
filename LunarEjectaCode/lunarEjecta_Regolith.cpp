@@ -108,10 +108,10 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
 lunarEjecta_Regolith::~lunarEjecta_Regolith() {}
 
 inline double lunarEjecta_Regolith::getHH11_porosity() {return HH11_porosity;}
-inline double lunarEjecta_Regolith::getHH11_mu()       {return HH11_mu;}
+       double lunarEjecta_Regolith::getHH11_mu()       {return HH11_mu;}
 inline double lunarEjecta_Regolith::getHH11_C1()       {return HH11_C1;}
 inline double lunarEjecta_Regolith::getHH11_k()        {return HH11_k;}
-inline double lunarEjecta_Regolith::getHH11_C4()       {return HH11_C4;}
+	   double lunarEjecta_Regolith::getHH11_C4()       {return HH11_C4;}
        double lunarEjecta_Regolith::getHH11_nu()       {return HH11_nu;}
 	   double lunarEjecta_Regolith::getlowDensity()    {return lowDensity;}
 	   double lunarEjecta_Regolith::getavgDensity()    {return avgDensity;}

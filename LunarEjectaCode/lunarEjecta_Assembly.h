@@ -87,6 +87,8 @@ public:
 	
 		cout << "H_C03RegolithParticleMassCDF = (> 1 pg, low dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-15, 0) << endl;
 		cout << "H_C03RegolithParticleMassCDF = (> 1 pg, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-15, 1) << endl << endl;
+	
+		this->H_init_normalization();
 	}
 
 	~lunarEjecta_Assembly() {
@@ -150,6 +152,7 @@ private:
 	}
 
 	// eta defaults to 0 (to match HH11), but really should be 1
+	// speed in units of km/s, alt in units rad
 	double H_compH11ProjSpeedFactor(double speed, double alt, double eta = 0) {
 		double sin_term;
 		if(eta < 0.01) {
@@ -200,6 +203,11 @@ private:
 		return sum;	
 	}
 
+	// NEED TO CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	double H_compH11NEAMassFactor() {
+		return 1.;
+	}
+
 	double H_compH11RegDensFactor(int lowHighDens){
 		double dens = 0.0;
 		switch(lowHighDens){
@@ -239,6 +247,11 @@ private:
 			mass_sum += MEMLatDataLo->getdensFraction(i) * pow(cur_dens, 3.*RegolithProperties->getHH11_nu()-1.) ; // bins are always 50 per kg/m^3 large
 		}
 		return mass_sum;
+	}
+
+	// NEED TO CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	double H_compH11NEADensFactor() {
+		return 1.;
 	}
 
 	// beta - beta_i = pi
@@ -282,10 +295,71 @@ private:
 		} 
 	}
 
-	void H_init_normalizationMass() {
+	void H_init_normalization() {
 		// assuming all MEM data has the same vel and angle resolution, separately
 		/// First, we need to compute the integral term for each impact angle
 		///  The impact angle implicitly controls the "exclusion zone", \Delta\beta
+		cout << " Initializing normalization terms...\n";
+
+		int i, j, idx;
+		int Nalt = MEMLatDataHi->getNphi()/2; // ignoring below the horizon angles
+		int Nvel = MEMLatDataHi->getNvel();
+
+		double vMin = MEMLatDataHi->getvMin();
+		double vMax = MEMLatDataHi->getvMax();
+
+		cout << "Nalt = " << Nalt << " | Nvel = " << Nvel << endl;
+		cout << "vMin = " << vMin << " | vMax = " << vMax << endl;
+
+		double Gint_alt_i, vel, alt;
+		double denseMEMLo, densMEMHi, densNEA;
+		double massMEM, massNEA;
+		double densRegolith, speedTerm, C4;
+
+		normalizationHiDens.resize(Nalt * Nvel);
+		normalizationLoDens.resize(Nalt * Nvel);
+		normalizationNEA.resize(Nalt * Nvel);
+
+		// compute density terms
+		//// compute regolith dens term (currently assuming the same over whole Moon)
+		densRegolith = H_compH11RegDensFactor(2/* Average */);
+		denseMEMLo   = H_compH11LoDensFactor();
+		densMEMHi    = H_compH11HiDensFactor();
+		densNEA      = H_compH11NEADensFactor(); // NEED TO FINISH FUNCTION!
+
+		// compute mass term, not dependent on speed or impact angle
+		massMEM = H_compH11GrunMassFactor(200); // units of kg
+		massNEA = H_compH11NEAMassFactor(); // NEED TO FINISH FUNCTION!
+
+		C4 = RegolithProperties->getHH11_C4();
+
+		for (i = 0; i < Nalt; ++i)
+		{
+			alt = PI/2. * double(i) / double(Nalt-1.);
+			// compute integral G term
+			Gint_alt_i = HH_compGint(alt);
+
+			for (j = 0; j < Nvel; ++j) 
+			{
+				idx = j + i * Nvel;
+				vel = vMin + (vMax - vMin) * double(j + 0.5) / double(Nvel);
+
+				speedTerm = H_compH11ProjSpeedFactor(vel, alt, 1);
+
+				// build norm terms
+				normalizationHiDens[idx] = C4 * massMEM * speedTerm * densRegolith * densMEMHi  / Gint_alt_i;
+				normalizationLoDens[idx] = C4 * massMEM * speedTerm * densRegolith * denseMEMLo / Gint_alt_i;
+				normalizationNEA[idx]    = C4 * massNEA * speedTerm * densRegolith * densNEA    / Gint_alt_i; // place holder #'s for now, need to finish the functions~~!'
+
+				cout << "alt = " << alt << " | vel = " << vel << " | Hi, Lo, NEA: ";
+				cout << scientific << normalizationHiDens[idx] << ' ' << normalizationLoDens[idx] << ' ';
+				cout << scientific << normalizationNEA[idx] << endl;
+			}
+		}
+	}
+
+	double HH_compGint(double alt) {
+		return 1.;
 	}
 
 
@@ -298,8 +372,9 @@ private:
 
 	// A function of impact angle and impact speed, after integrating out impactor density and mass
 	//  for each low and high density populations in MEM
-	vector<double> normalizationMassHiDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
-	vector<double> normalizationMassLoDens; // will be size Ntheta[azm] * (Nphi[alt,ignoring below horizon]/2), from meteoriodFlux
+	vector<double> normalizationHiDens; // will be size Nphi[alt]/2 * (Nvel), from meteoriodFlux
+	vector<double> normalizationLoDens; // will be size Nphi[alt]/2 * (Nvel), from meteoriodFlux
+	vector<double> normalizationNEA;    // will be size Nphi[alt]/2 * (Nvel), from meteoriodFlux
 };
 
 

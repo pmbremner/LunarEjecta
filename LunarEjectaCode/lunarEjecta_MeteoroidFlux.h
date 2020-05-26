@@ -31,17 +31,17 @@ public:
 	inline double getRVar(int row, int col);
 	inline double getCVar(int row, int col);
 
-	inline double getvMin();
-	inline double getvMax();
+	double getvMin();
+	double getvMax();
 
 	inline double getNrows();
 	inline double getNcols();
 	inline double getNrowVars();
 	inline double getNcolVars();
 
-	inline double getNvel();
-	inline double getNtheta();
-	inline double getNphi();
+	double getNvel();
+	double getNtheta();
+	double getNphi();
 
 	double getNdens();
 	double getdensLEdge(int idx);
@@ -249,6 +249,23 @@ public:
 	double getdensFraction(int idx, int i = 0) {
 		return dataSet[i]->getdensFraction(idx);
 	}
+
+	inline double getvMin(int i = 0) {
+		return dataSet[i]->getvMin();
+	}
+	inline double getvMax(int i = 0) {
+		return dataSet[i]->getvMax();
+	}
+	inline double getNvel(int i = 0) {
+		return dataSet[i]->getNvel();
+	}
+	inline double getNtheta(int i = 0) {
+		return dataSet[i]->getNtheta();
+	}
+	inline double getNphi(int i = 0) {
+		return dataSet[i]->getNphi();
+	}
+
 
 	//void print();
 

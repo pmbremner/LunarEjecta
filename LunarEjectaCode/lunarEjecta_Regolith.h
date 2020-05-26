@@ -21,10 +21,10 @@ public:
 	~lunarEjecta_Regolith();
 	
 	inline double getHH11_porosity();
-	inline double getHH11_mu();
+	double getHH11_mu();
 	inline double getHH11_C1();
 	inline double getHH11_k();
-	inline double getHH11_C4();
+	double getHH11_C4();
 	double getHH11_nu();
 	double getlowDensity();
 	double getavgDensity();
