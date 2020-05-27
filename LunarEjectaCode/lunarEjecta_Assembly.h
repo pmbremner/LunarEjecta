@@ -257,12 +257,12 @@ private:
 	}
 
 	// beta - beta_i = pi
-	inline double HH_zenithUpstream(double impactZenith) { // input and output in degrees
+	inline double HH_zenithDownstream(double impactZenith) { // input and output in degrees
 		return 20. + impactZenith * (1.5206 + impactZenith * (-0.036 + impactZenith * 0.0003));
 	}
 
 	// beta - beta_i = 0
-	inline double HH_zenithDownstream(double impactZenith) { // input and output in degrees
+	inline double HH_zenithUpstream(double impactZenith) { // input and output in degrees
 		return 20. + impactZenith * (0.129 + impactZenith * (0.0236 + impactZenith * -0.00042));
 	}
 
@@ -284,10 +284,12 @@ private:
 	}
 
 	// exlusion zone around upstream direction wrt to beta_i (impact azm, ie East), in radians
-	//  used in integration bounds of d(beta-beta_i) integral
+	//  used in integration bounds of d(beta-beta_i) integral, impactZenith from rad to Degrees
 	double exclusion_zone(double impactZenith) {
 		double A = HH_zenithDownstream(impactZenith); // A and B are in degrees, but they cancel out their units
 		double B = HH_zenithUpstream(impactZenith);
+
+		//cout << A << ' ' << B << endl;
 
 		if (B >= 0.)
 		{
@@ -324,7 +326,7 @@ private:
 
 		// compute density terms
 		//// compute regolith dens term (currently assuming the same over whole Moon)
-		densRegolith = H_compH11RegDensFactor(2/* Average */);
+		densRegolith = H_compH11RegDensFactor(2/* Average Density */);
 		denseMEMLo   = H_compH11LoDensFactor();
 		densMEMHi    = H_compH11HiDensFactor();
 		densNEA      = H_compH11NEADensFactor(); // NEED TO FINISH FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -360,14 +362,14 @@ private:
 
 				speedTerm = H_compH11ProjSpeedFactor(vel, alt, 1);
 
-				// build norm terms
+				// build norm terms (the velocity term cancles out from the HH11 scaling laws, by definition)
 				normalizationHiDens[idx] = C4 * massMEM * speedTerm * densRegolith * densMEMHi  / Gint_alt_i;
 				normalizationLoDens[idx] = C4 * massMEM * speedTerm * densRegolith * denseMEMLo / Gint_alt_i;
 				normalizationNEA[idx]    = C4 * massNEA * speedTerm * densRegolith * densNEA    / Gint_alt_i; // place holder #'s for now, need to finish the functions~~!'
 
-				cout << "alt = " << alt << " | vel = " << vel << " | Hi, Lo, NEA: ";
-				cout << scientific << normalizationHiDens[idx] << ' ' << normalizationLoDens[idx] << ' ';
-				cout << scientific << normalizationNEA[idx] << endl;
+				// cout << "alt = " << alt << " | vel = " << vel << " | Hi, Lo, NEA: ";
+				// cout << scientific << normalizationHiDens[idx] << ' ' << normalizationLoDens[idx] << ' ';
+				// cout << scientific << normalizationNEA[idx] << endl;
 			}
 		}
 	}
@@ -430,7 +432,8 @@ private:
 	// using Romber integration, see Appendix C of my dissertation
 	double HH_compGint(double alt) {
 
-		double delta_beta = exclusion_zone(PI/2. - alt);
+		double delta_beta = exclusion_zone((PI/2. - alt)/DtoR /* zenith angle in deg */); // units of rad
+		//cout << (PI/2. - alt)/DtoR << ' ' << delta_beta/DtoR << endl;
 		double a = 0.; // left integration bounds
 		double b = PI - delta_beta; // right integration bounds
 		double eps = 1.E-3; // epsilon error in numerical integration
