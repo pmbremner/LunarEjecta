@@ -36,3 +36,46 @@ void logspaceBinEdges(vector<double>& xl, vector<double>& xr, double xmin, doubl
 	logspace(xl, xmin, xmax, Nbin+1, 0, Nbin);
 	logspace(xr, xmin, xmax, Nbin+1, 1, Nbin+1);
 }
+
+
+double romb_int(double a, double b, double eps, double* vv, double (*f)(double*, double)) {
+
+	double pow4m, hn, err = 10.*eps, fsum;
+	int n = 1, m, k;
+	vector<double> R;
+
+	// base case, R(0,0), trapezoid rule
+	hn = (b-a) / 2.;
+	R.push_back(hn * (f(vv, a) + f(vv, b)));
+
+	while(n < 5 || err > eps) { // do at least 2^4=16 function evals
+
+		R.push_back(0.); // extend R array
+		fsum = 0.;
+
+		// fill in func eval gaps for next level
+		for (k = 1; k <= (1 << (n-1)); k++)
+			fsum += f(vv, a + (2.*k - 1.)*hn);
+
+		R[tri_idx(n,0)] = R[tri_idx(n-1,0)] / 2. + hn * fsum;
+
+		pow4m = 1.;
+
+		// compute n-th row of m's
+		for (m = 1; m <= n; m++)
+		{
+			R.push_back(0.); // extend R array
+			pow4m *= 4.;
+			R[tri_idx(n,m)] = R[tri_idx(n,m-1)]
+			                + (R[tri_idx(n,m-1)] - R[tri_idx(n-1,m-1)])
+			                / (pow4m - 1.);
+
+		}
+
+		// compute relative error
+		err = fabs((R[tri_idx(n,n)] - R[tri_idx(n-1,n-1)]) / R[tri_idx(n,n)]);
+		n++;
+		hn /= 2.;
+	}
+	return R[tri_idx(n-1, n-1)];
+}

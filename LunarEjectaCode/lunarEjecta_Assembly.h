@@ -115,6 +115,8 @@ public:
 		}
 	}
 
+
+
 private:
 
 	// Modeled fit to mean of Fig. 1 of Carrier 2003 using bi-exponential function, useful range 0.001 mm to 10 mm
@@ -325,19 +327,31 @@ private:
 		densRegolith = H_compH11RegDensFactor(2/* Average */);
 		denseMEMLo   = H_compH11LoDensFactor();
 		densMEMHi    = H_compH11HiDensFactor();
-		densNEA      = H_compH11NEADensFactor(); // NEED TO FINISH FUNCTION!
+		densNEA      = H_compH11NEADensFactor(); // NEED TO FINISH FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+		cout << " densRegolith = " << densRegolith << endl;
+		cout << " denseMEMLo   = " << denseMEMLo << endl;
+		cout << " densMEMHi    = " << densMEMHi << endl;
+		cout << " densNEA      = " << densNEA << endl;
 
 		// compute mass term, not dependent on speed or impact angle
 		massMEM = H_compH11GrunMassFactor(200); // units of kg
-		massNEA = H_compH11NEAMassFactor(); // NEED TO FINISH FUNCTION!
+		massNEA = H_compH11NEAMassFactor(); // NEED TO FINISH FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+		cout << " massMEM = " << massMEM << endl;
+		cout << " massNEA = " << massNEA << endl;
 
 		C4 = RegolithProperties->getHH11_C4();
 
+		cout << " C4 = " << C4 << endl;
+
 		for (i = 0; i < Nalt; ++i)
 		{
-			alt = PI/2. * double(i) / double(Nalt-1.);
+			alt = PI/2. * double(i) / double(Nalt-1.); // rad
 			// compute integral G term
 			Gint_alt_i = HH_compGint(alt);
+			//cout << " i = " << i << " | Gint_alt_i = " << Gint_alt_i << endl;
+			cout << alt << ' ' << Gint_alt_i << endl;
 
 			for (j = 0; j < Nvel; ++j) 
 			{
@@ -358,8 +372,107 @@ private:
 		}
 	}
 
+	// derived in Mathematica, checked with plotting
+	double HHH_BetaApproxLarge(double a) {
+	/* order 1/a^1 */ return (1.
+	/* order 1/a^2 */ - (1. + EulerGamma - log(a) 
+	/* order 1/a^3 */ + (-6. + 6.*EulerGamma*(2. + EulerGamma) + sqr(PI) + 6.*log(a)*(2. + 2.*EulerGamma + log(a)) ) / (12.*a)) / a) / a;
+	}
+
+	double HHH_beta(double a) {
+		// helps to avoid overflow errors doing it this way
+		return exp(lgamma(1./a + 1.) + lgamma(a + 1.) - lgamma(a + 1./a + 2.));
+	}
+
+	// altitude distribution integral
+	// x = \beta - \beta_i
+	double HH_AltInt(double zenith, double x) {
+
+		double a = a_power(zenith, x);
+
+		if(a > 15) // large 'a', worst 0.46% error
+		{
+			return HHH_BetaApproxLarge(a);
+
+		} else if(a < 1./15.) { // small 'a' worst 0.46% error
+
+			return HHH_BetaApproxLarge(1./a);
+
+		} else { // intermediate 'a'
+
+			return HHH_beta(a);
+		}
+	}
+
+	// zenith in units of rad, x = \beta - \beta_i
+	double HH_AzmDist(double zenith, double x) {
+
+
+		if(zenith < PI/3.)
+		{
+			return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
+
+		} else { // zenith > PI/3
+
+			double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
+
+			return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+		}
+	}
+
+
+	// Integrand of cal(G), here, x = \beta - \beta_i
+	double HH_GInt(double alt, double x) {
+		// both functions need zenith angle and not altitude
+		return HH_AzmDist(PI/2. - alt, x) * HH_AltInt(PI/2. - alt, x);
+	}
+
+	// using Romber integration, see Appendix C of my dissertation
 	double HH_compGint(double alt) {
-		return 1.;
+
+		double delta_beta = exclusion_zone(PI/2. - alt);
+		double a = 0.; // left integration bounds
+		double b = PI - delta_beta; // right integration bounds
+		double eps = 1.E-3; // epsilon error in numerical integration
+
+		double pow4m, hn, err = 10.*eps, fsum;
+		int n = 1, m, k;
+		vector<double> R;
+
+		// base case, R(0,0), trapezoid rule
+		hn = (b-a) / 2.;
+		R.push_back(hn * (HH_GInt(alt, a) + HH_GInt(alt, b)));
+
+		while(n < 5 || err > eps) { // do at least 2^4=16 function evals
+
+			R.push_back(0.); // extend R array
+			fsum = 0.;
+
+			// fill in func eval gaps for next level
+			for (k = 1; k <= (1 << (n-1)); k++)
+				fsum += HH_GInt(alt, a + (2.*k - 1.)*hn);
+
+			R[tri_idx(n,0)] = R[tri_idx(n-1,0)] / 2. + hn * fsum;
+
+			pow4m = 1.;
+
+			// compute n-th row of m's
+			for (m = 1; m <= n; m++)
+			{
+				R.push_back(0.); // extend R array
+				pow4m *= 4.;
+				R[tri_idx(n,m)] = R[tri_idx(n,m-1)]
+				                + (R[tri_idx(n,m-1)] - R[tri_idx(n-1,m-1)])
+				                / (pow4m - 1.);
+
+			}
+
+			// compute relative error
+			err = fabs((R[tri_idx(n,n)] - R[tri_idx(n-1,n-1)]) / R[tri_idx(n,n)]);
+			n++;
+			hn /= 2.;
+		}
+		return 2. * R[tri_idx(n-1, n-1)]; // multiply by 2 since we cut the domain in half at zero (even function)
 	}
 
 
