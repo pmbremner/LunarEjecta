@@ -12,8 +12,16 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
 					   int regolithDensType,
 					   double new_lowDensity,
 					   double new_avgDensity,
-					   double new_highDensity) {
-	cout << " Regolith Cratering Properties: ";
+					   double new_highDensity,
+					   double new_radius,
+					   double new_escapeSpeed) {
+	cout << " Regolith Cratering Properties: \n";
+
+	lunarRadius = new_radius;
+	lunarEscapeSpeed = new_escapeSpeed;
+
+	cout << "lunarRadius = " << lunarRadius << " m\n";
+	cout << "lunarEscapeSpeed = " << lunarEscapeSpeed << " m/s\n";
 
 	HH11_nu = 0.4; // see footnote 5 of Housen Holsapple 2011
 

@@ -17,7 +17,9 @@ public:
 						 int regolithDensType,
 						 double new_lowDensity,
 					     double new_avgDensity,
-						 double new_highDensity);
+						 double new_highDensity,
+						 double new_radius,
+						 double new_escapeSpeed);
 	~lunarEjecta_Regolith();
 	
 	inline double getHH11_porosity();
@@ -43,5 +45,8 @@ private:
 	double lowDensity;  // kg/m^3
 	double avgDensity;  // kg/m^3
 	double highDensity; // kg/m^3
+
+	double lunarRadius; // km
+	double lunarEscapeSpeed; // km/s
 };
 #endif 

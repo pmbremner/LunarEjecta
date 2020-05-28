@@ -26,6 +26,7 @@ public:
 		double new_lowDensity,
 		double new_avgDensity,
 		double new_highDensity,
+	    double new_escapeSpeed,
 
 		/*  For ImpactSites_and_ROI */
 		double new_ND,     // total number of distance increments
@@ -54,7 +55,7 @@ public:
 		cout << "----------------------------------------\n";
 
 		// init regolith
-		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity);
+		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity, new_radius, new_escapeSpeed);
 
 		// init site and ROI locations
 		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI);
