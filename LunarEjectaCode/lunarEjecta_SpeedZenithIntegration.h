@@ -22,23 +22,16 @@ struct set
 	vector<coord> P1;
 };
 
-struct nodes
-{
-	vector<set> node;
-};
-
-struct vEdges
-{
-	vector<set> vEdge;
-};
-
-struct hEdges
-{
-	vector<set> hEdge;
-};
 
 enum cellEdgeType {EL, ER, EU, ED};
 enum cellNodeType {NUL, NUR, NDL, NDR};
+
+struct grid
+{
+	vector<set> node;
+	vector<set> vEdge;
+	vector<set> hEdge;
+};
 
 struct cells
 {
@@ -48,17 +41,54 @@ struct cells
 };
 
 
+enum regionType {region_I, region_II, region_III};
+
 class lunarEjecta_SpeedZenithIntegration
 {
 public:
-	lunarEjecta_SpeedZenithIntegration();
+	lunarEjecta_SpeedZenithIntegration(double new_D0, // input units of km
+		                               double new_D1, // input units of km
+		                               double new_radius,
+		                               double new_Vesc,
+		                               int new_Nx,
+		                               int new_Nv);
 	~lunarEjecta_SpeedZenithIntegration();
 
+	inline int cIdx(int ix, int jv);
+	inline int gIdx(int ix, int jv);
 
 private:
+
+	double H_calcVMin(double D);
+	double H_calcX_at_vMin(double D);
+	double H_calcDist(double x, double v);
+
+	void initGrid(grid* g,
+		          int Nx,
+		          int Nv,
+		          double xMin,
+		          double xMax,
+		          double vMin,
+		          double vMax);
+
+	void initSet(set* s, double x, double v);
+
+	void deleteGrid(grid* g);
+
 	vector<cells> region1Cells;
-	vector<cells> region2Cells; // will always be only 1
+	vector<cells> region2Cells;
 	vector<cells> region3Cells;
+
+	grid region1Grid;
+	grid region2Grid;
+	grid region3Grid;
+
+	// number of x divisions in each region
+	int Nx_R1;
+	int Nx_R2; // will always be 1
+	int Nx_R3;
+
+	int Nv;
 
 	// 3 cases:
 	//  Case 1: D0 and D1 < 0.5, all three regions valid
@@ -70,8 +100,8 @@ private:
 	double circumference; // km
 	double escapeSpeed;   // km/s
 
-	double D0; // distance 0
-	double D1; // distance 1
+	double D0; // distance 0, units of circumference
+	double D1; // distance 1, units of circumference
 
 	double xMin; // always the limiting angle at v = v_esc for D0
 	double xMax; // always 1

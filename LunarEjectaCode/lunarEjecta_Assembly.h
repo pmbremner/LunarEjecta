@@ -5,6 +5,7 @@
 #include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
+#include "lunarEjecta_SpeedZenithIntegration.h"
 
 #include <iostream>
 #include <vector>
@@ -90,6 +91,9 @@ public:
 		cout << "H_C03RegolithParticleMassCDF = (> 1 pg, high dens) \n" << this->H_C03RegolithParticleMassCDF(1.E-15, 1) << endl << endl;
 	
 		this->H_init_normalization();
+
+		// this is a test
+		SpeedZenithIntegration = new lunarEjecta_SpeedZenithIntegration(1100.E3 , 1200.E3, new_radius, new_escapeSpeed, 10, 10);
 	}
 
 	~lunarEjecta_Assembly() {
@@ -98,6 +102,7 @@ public:
 		delete MEMLatDataHi;
 		delete MEMLatDataLo;
 		delete SecFluxOutputData;
+		delete SpeedZenithIntegration;
 	}
 
 	void computeSecondaryFlux() { // All the magic happens here!
@@ -481,11 +486,12 @@ private:
 
 
 
-	lunarEjecta_Regolith*         RegolithProperties;
-	ImpactSites_and_ROI*          ImpactSitesROILoc;
-	MEM_LatData<genMEMdataHi>*    MEMLatDataHi;
-	MEM_LatData<genMEMdataLo>*    MEMLatDataLo;
-	SecondaryFluxData<genOutput>* SecFluxOutputData;
+	lunarEjecta_Regolith*               RegolithProperties;
+	ImpactSites_and_ROI*                ImpactSitesROILoc;
+	MEM_LatData<genMEMdataHi>*          MEMLatDataHi;
+	MEM_LatData<genMEMdataLo>*          MEMLatDataLo;
+	SecondaryFluxData<genOutput>*       SecFluxOutputData;
+	lunarEjecta_SpeedZenithIntegration* SpeedZenithIntegration;
 
 	// A function of impact angle and impact speed, after integrating out impactor density and mass
 	//  for each low and high density populations in MEM
