@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  29 MAY 2020 00:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  29 MAY 2020 13:28
 entering extended mode
 **./Lunar_Impacts-Brief-DeStefano.tex
 (Lunar_Impacts-Brief-DeStefano.tex
@@ -382,7 +382,136 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count285
 \enitdp@description=\count286
 )
-("C:\Program Files\MiKTeX 2.9\tex/latex/pgfplots\pgfplots.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/mathabx\mathabx.sty
+Package: mathabx 2003/07/29 v0.0 Non-standard LaTeX package mathabx
+\symmatha=\mathgroup4
+\symmathb=\mathgroup5
+\symmathx=\mathgroup6
+
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/mathabx\mathabx.dcl
+LaTeX Font Info:    Redeclaring math symbol \cdotp on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \times on input line 33.
+LaTeX Font Info:    Redeclaring math symbol \div on input line 34.
+LaTeX Font Info:    Redeclaring math symbol \cdot on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \circ on input line 36.
+LaTeX Font Info:    Redeclaring math symbol \ast on input line 38.
+LaTeX Font Info:    Redeclaring math symbol \pm on input line 41.
+LaTeX Font Info:    Redeclaring math symbol \mp on input line 42.
+LaTeX Font Info:    Redeclaring math symbol \diamond on input line 45.
+LaTeX Font Info:    Redeclaring math symbol \bullet on input line 46.
+LaTeX Font Info:    Redeclaring math symbol \star on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \amalg on input line 51.
+LaTeX Font Info:    Redeclaring math symbol \equiv on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \sim on input line 84.
+LaTeX Font Info:    Redeclaring math symbol \approx on input line 85.
+LaTeX Font Info:    Redeclaring math symbol \simeq on input line 86.
+LaTeX Font Info:    Redeclaring math symbol \asymp on input line 89.
+LaTeX Font Info:    Redeclaring math symbol \neg on input line 134.
+LaTeX Font Info:    Redeclaring math symbol \ll on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \gg on input line 137.
+LaTeX Font Info:    Redeclaring math symbol \vdash on input line 139.
+LaTeX Font Info:    Redeclaring math symbol \dashv on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \flat on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \natural on input line 159.
+LaTeX Font Info:    Redeclaring math symbol \sharp on input line 160.
+LaTeX Font Info:    Redeclaring math symbol \infty on input line 161.
+LaTeX Font Info:    Redeclaring math symbol \propto on input line 162.
+LaTeX Font Info:    Redeclaring math symbol \dagger on input line 163.
+LaTeX Font Info:    Redeclaring math symbol \ddagger on input line 164.
+LaTeX Font Info:    Redeclaring math symbol \smile on input line 171.
+LaTeX Font Info:    Redeclaring math symbol \frown on input line 172.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 193.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 195.
+LaTeX Font Info:    Redeclaring math symbol \setminus on input line 218.
+LaTeX Font Info:    Redeclaring math symbol \mid on input line 222.
+LaTeX Font Info:    Redeclaring math symbol \forall on input line 279.
+LaTeX Font Info:    Redeclaring math symbol \partial on input line 281.
+LaTeX Font Info:    Redeclaring math symbol \exists on input line 284.
+LaTeX Font Info:    Redeclaring math symbol \emptyset on input line 288.
+LaTeX Font Info:    Redeclaring math symbol \top on input line 290.
+LaTeX Font Info:    Redeclaring math symbol \bot on input line 291.
+LaTeX Font Info:    Redeclaring math symbol \perp on input line 292.
+LaTeX Font Info:    Redeclaring math symbol \in on input line 299.
+LaTeX Font Info:    Redeclaring math symbol \owns on input line 300.
+LaTeX Font Info:    Redeclaring math symbol \cap on input line 312.
+LaTeX Font Info:    Redeclaring math symbol \cup on input line 313.
+LaTeX Font Info:    Redeclaring math symbol \uplus on input line 314.
+LaTeX Font Info:    Redeclaring math symbol \sqcap on input line 315.
+LaTeX Font Info:    Redeclaring math symbol \sqcup on input line 316.
+LaTeX Font Info:    Redeclaring math symbol \wedge on input line 318.
+LaTeX Font Info:    Redeclaring math symbol \vee on input line 320.
+LaTeX Font Info:    Redeclaring math symbol \subset on input line 344.
+LaTeX Font Info:    Redeclaring math symbol \supset on input line 345.
+LaTeX Font Info:    Redeclaring math symbol \subseteq on input line 348.
+LaTeX Font Info:    Redeclaring math symbol \supseteq on input line 349.
+LaTeX Font Info:    Redeclaring math symbol \sqsubseteq on input line 380.
+LaTeX Font Info:    Redeclaring math symbol \sqsupseteq on input line 381.
+LaTeX Font Info:    Redeclaring math symbol \triangleleft on input line 407.
+LaTeX Font Info:    Redeclaring math symbol \triangleright on input line 409.
+LaTeX Font Info:    Redeclaring math symbol \leq on input line 439.
+LaTeX Font Info:    Redeclaring math symbol \geq on input line 441.
+LaTeX Font Info:    Redeclaring math symbol \prec on input line 498.
+LaTeX Font Info:    Redeclaring math symbol \succ on input line 499.
+LaTeX Font Info:    Redeclaring math symbol \preceq on input line 506.
+LaTeX Font Info:    Redeclaring math symbol \succeq on input line 507.
+LaTeX Font Info:    Redeclaring math symbol \leftarrow on input line 540.
+LaTeX Font Info:    Redeclaring math symbol \rightarrow on input line 542.
+LaTeX Font Info:    Redeclaring math symbol \nwarrow on input line 546.
+LaTeX Font Info:    Redeclaring math symbol \nearrow on input line 547.
+LaTeX Font Info:    Redeclaring math symbol \swarrow on input line 548.
+LaTeX Font Info:    Redeclaring math symbol \searrow on input line 549.
+LaTeX Font Info:    Redeclaring math symbol \leftrightarrow on input line 550.
+LaTeX Font Info:    Redeclaring math symbol \mapstochar on input line 557.
+LaTeX Font Info:    Redeclaring math symbol \leftharpoonup on input line 560.
+LaTeX Font Info:    Redeclaring math symbol \rightharpoonup on input line 561.
+LaTeX Font Info:    Redeclaring math symbol \leftharpoondown on input line 562.
+
+LaTeX Font Info:    Redeclaring math symbol \rightharpoondown on input line 563
+.
+LaTeX Font Info:    Redeclaring math symbol \Leftarrow on input line 575.
+LaTeX Font Info:    Redeclaring math symbol \Rightarrow on input line 576.
+LaTeX Font Info:    Redeclaring math symbol \Leftrightarrow on input line 579.
+LaTeX Font Info:    Redeclaring math symbol \rhook on input line 612.
+LaTeX Font Info:    Redeclaring math symbol \lhook on input line 613.
+LaTeX Font Info:    Redeclaring math symbol \oplus on input line 658.
+LaTeX Font Info:    Redeclaring math symbol \ominus on input line 659.
+LaTeX Font Info:    Redeclaring math symbol \otimes on input line 661.
+LaTeX Font Info:    Redeclaring math symbol \odot on input line 663.
+LaTeX Font Info:    Redeclaring math symbol \oslash on input line 675.
+\mayacnter=\count287
+\mayacnta=\count288
+\mayacntb=\count289
+\mayacntc=\count290
+\mayawidth=\dimen176
+LaTeX Font Info:    Redeclaring math symbol \intop on input line 753.
+LaTeX Font Info:    Redeclaring math symbol \ointop on input line 760.
+LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 842.
+LaTeX Info: Redefining \{ on input line 846.
+LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 848.
+LaTeX Info: Redefining \} on input line 852.
+LaTeX Font Info:    Redeclaring math delimiter \langle on input line 858.
+LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 859.
+LaTeX Font Info:    Redeclaring math delimiter \vert on input line 863.
+LaTeX Font Info:    Redeclaring math delimiter \Vert on input line 865.
+LaTeX Font Info:    Redeclaring math delimiter \uparrow on input line 868.
+LaTeX Font Info:    Redeclaring math delimiter \downarrow on input line 869.
+LaTeX Font Info:    Redeclaring math delimiter \updownarrow on input line 870.
+LaTeX Font Info:    Redeclaring math delimiter \Uparrow on input line 871.
+LaTeX Font Info:    Redeclaring math delimiter \Downarrow on input line 872.
+LaTeX Font Info:    Redeclaring math delimiter \Updownarrow on input line 873.
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 880.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 881.
+LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 882.
+LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 883.
+LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 884.
+LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 885.
+LaTeX Font Info:    Redeclaring math symbol \braceld on input line 903.
+LaTeX Font Info:    Redeclaring math symbol \bracerd on input line 905.
+LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 907.
+LaTeX Font Info:    Redeclaring math symbol \braceru on input line 909.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 944.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
+)) ("C:\Program Files\MiKTeX 2.9\tex/latex/pgfplots\pgfplots.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.revision.tex")
 Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 
@@ -391,8 +520,8 @@ Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrcs.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common.tex"
 \pgfutil@everybye=\toks27
-\pgfutil@tempdima=\dimen176
-\pgfutil@tempdimb=\dimen177
+\pgfutil@tempdima=\dimen177
+\pgfutil@tempdimb=\dimen178
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common-lists.te
 x")) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-latex.def"
@@ -419,26 +548,26 @@ Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 x"
 \pgfkeys@tmptoks=\toks30
 ))
-\pgf@x=\dimen178
-\pgf@y=\dimen179
-\pgf@xa=\dimen180
-\pgf@ya=\dimen181
-\pgf@xb=\dimen182
-\pgf@yb=\dimen183
-\pgf@xc=\dimen184
-\pgf@yc=\dimen185
-\pgf@xd=\dimen186
-\pgf@yd=\dimen187
+\pgf@x=\dimen179
+\pgf@y=\dimen180
+\pgf@xa=\dimen181
+\pgf@ya=\dimen182
+\pgf@xb=\dimen183
+\pgf@yb=\dimen184
+\pgf@xc=\dimen185
+\pgf@yc=\dimen186
+\pgf@xd=\dimen187
+\pgf@yd=\dimen188
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count287
-\c@pgf@countb=\count288
-\c@pgf@countc=\count289
-\c@pgf@countd=\count290
+\c@pgf@counta=\count291
+\c@pgf@countb=\count292
+\c@pgf@countc=\count293
+\c@pgf@countd=\count294
 \t@pgf@toka=\toks31
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
-\pgf@sys@id@count=\count291
+\pgf@sys@id@count=\count295
  ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgf.cfg"
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
@@ -454,8 +583,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.t
 ex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count292
-\pgfsyssoftpath@bigbuffer@items=\count293
+\pgfsyssoftpath@smallbuffer@items=\count296
+\pgfsyssoftpath@bigbuffer@items=\count297
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsysprotocol.code.t
 ex"
@@ -466,8 +595,8 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathcalc.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathutil.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathparser.code.tex"
-\pgfmath@dimen=\dimen188
-\pgfmath@count=\count294
+\pgfmath@dimen=\dimen189
+\pgfmath@count=\count298
 \pgfmath@box=\box58
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
@@ -491,38 +620,38 @@ ex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.integerarit
 hmetics.code.tex")))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count295
+\c@pgfmathroundto@lastzeros=\count299
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfint.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 "
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen189
-\pgf@picmaxx=\dimen190
-\pgf@picminy=\dimen191
-\pgf@picmaxy=\dimen192
-\pgf@pathminx=\dimen193
-\pgf@pathmaxx=\dimen194
-\pgf@pathminy=\dimen195
-\pgf@pathmaxy=\dimen196
-\pgf@xx=\dimen197
-\pgf@xy=\dimen198
-\pgf@yx=\dimen199
-\pgf@yy=\dimen256
-\pgf@zx=\dimen257
-\pgf@zy=\dimen258
+\pgf@picminx=\dimen190
+\pgf@picmaxx=\dimen191
+\pgf@picminy=\dimen192
+\pgf@picmaxy=\dimen193
+\pgf@pathminx=\dimen194
+\pgf@pathmaxx=\dimen195
+\pgf@pathminy=\dimen196
+\pgf@pathmaxy=\dimen197
+\pgf@xx=\dimen198
+\pgf@xy=\dimen199
+\pgf@yx=\dimen256
+\pgf@yy=\dimen257
+\pgf@zx=\dimen258
+\pgf@zy=\dimen259
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepathconstruct.c
 ode.tex"
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen259
-\pgf@path@lasty=\dimen260
+\pgf@path@lastx=\dimen260
+\pgf@path@lasty=\dimen261
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepathusage.code.
 tex"
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen261
-\pgf@shorten@start@additional=\dimen262
+\pgf@shorten@end@additional=\dimen262
+\pgf@shorten@start@additional=\dimen263
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 "
@@ -530,19 +659,19 @@ File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count296
+\pgf@picture@serial@count=\count300
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoregraphicstate.co
 de.tex"
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen263
+\pgflinewidth=\dimen264
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoretransformations
 .code.tex"
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen264
-\pgf@pt@y=\dimen265
-\pgf@pt@temp=\dimen266
+\pgf@pt@x=\dimen265
+\pgf@pt@y=\dimen266
+\pgf@pt@temp=\dimen267
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorequick.code.tex"
 File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -558,13 +687,13 @@ File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 "
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen267
+\pgfarrowsep=\dimen268
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen268
-\pgf@sys@shading@range@num=\count297
-\pgf@shadingcount=\count298
+\pgf@max=\dimen269
+\pgf@sys@shading@range@num=\count301
+\pgf@shadingcount=\count302
 ) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreimage.code.te
 x"
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -598,8 +727,8 @@ File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-0-65.
 sty"
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen269
-\pgf@nodesepend=\dimen270
+\pgf@nodesepstart=\dimen270
+\pgf@nodesepend=\dimen271
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-1-18.
 sty"
@@ -613,8 +742,8 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex")
-\pgffor@iter=\dimen271
-\pgffor@skip=\dimen272
+\pgffor@iter=\dimen272
+\pgffor@skip=\dimen273
 \pgffor@stack=\toks37
 \pgffor@toks=\toks38
 ))
@@ -624,33 +753,33 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryplothandlers.
 code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count299
-\pgfplotmarksize=\dimen273
+\pgf@plot@mark@count=\count303
+\pgfplotmarksize=\dimen274
 )
-\tikz@lastx=\dimen274
-\tikz@lasty=\dimen275
-\tikz@lastxsaved=\dimen276
-\tikz@lastysaved=\dimen277
-\tikz@lastmovetox=\dimen278
-\tikz@lastmovetoy=\dimen279
-\tikzleveldistance=\dimen280
-\tikzsiblingdistance=\dimen281
+\tikz@lastx=\dimen275
+\tikz@lasty=\dimen276
+\tikz@lastxsaved=\dimen277
+\tikz@lastysaved=\dimen278
+\tikz@lastmovetox=\dimen279
+\tikz@lastmovetoy=\dimen280
+\tikzleveldistance=\dimen281
+\tikzsiblingdistance=\dimen282
 \tikz@figbox=\box64
 \tikz@figbox@bg=\box65
 \tikz@tempbox=\box66
 \tikz@tempbox@bg=\box67
-\tikztreelevel=\count300
-\tikznumberofchildren=\count301
-\tikznumberofcurrentchild=\count302
-\tikz@fig@count=\count303
+\tikztreelevel=\count304
+\tikznumberofchildren=\count305
+\tikznumberofcurrentchild=\count306
+\tikz@fig@count=\count307
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count304
-\pgfmatrixcurrentcolumn=\count305
-\pgf@matrix@numberofcolumns=\count306
+\pgfmatrixcurrentrow=\count308
+\pgfmatrixcurrentcolumn=\count309
+\pgf@matrix@numberofcolumns=\count310
 )
-\tikz@expandcount=\count307
+\tikz@expandcount=\count311
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
 librarytopaths.code.tex"
@@ -661,9 +790,9 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \t@pgfplots@toka=\toks39
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
-\pgfplots@tmpa=\dimen282
-\c@pgfplots@coordindex=\count308
-\c@pgfplots@scanlineindex=\count309
+\pgfplots@tmpa=\dimen283
+\c@pgfplots@coordindex=\count312
+\c@pgfplots@scanlineindex=\count313
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.
 tex"))
@@ -680,13 +809,13 @@ ructure.code.tex")
 ructureext.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsarray.
 code.tex"
-\c@pgfplotsarray@tmp=\count310
+\c@pgfplotsarray@tmp=\count314
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsmatrix
 .code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/numtable\pgfplotstableshared
 .code.tex"
-\c@pgfplotstable@counta=\count311
+\c@pgfplotstable@counta=\count315
 \t@pgfplotstable@a=\toks42
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsdeque.
@@ -699,7 +828,7 @@ e.tex"))
 tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/libs\pgflibrarypgfplots.surf
 shading.code.tex"
-\c@pgfplotslibrarysurf@no=\count312
+\c@pgfplotslibrarysurf@no=\count316
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfs
 hading.pgfsys-pdftex.def")))
@@ -726,14 +855,14 @@ ex")))
 librarydecorations.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduledecorations.code
 .tex"
-\pgfdecoratedcompleteddistance=\dimen283
-\pgfdecoratedremainingdistance=\dimen284
-\pgfdecoratedinputsegmentcompleteddistance=\dimen285
-\pgfdecoratedinputsegmentremainingdistance=\dimen286
-\pgf@decorate@distancetomove=\dimen287
-\pgf@decorate@repeatstate=\count313
-\pgfdecorationsegmentamplitude=\dimen288
-\pgfdecorationsegmentlength=\dimen289
+\pgfdecoratedcompleteddistance=\dimen284
+\pgfdecoratedremainingdistance=\dimen285
+\pgfdecoratedinputsegmentcompleteddistance=\dimen286
+\pgfdecoratedinputsegmentremainingdistance=\dimen287
+\pgf@decorate@distancetomove=\dimen288
+\pgf@decorate@repeatstate=\count317
+\pgfdecorationsegmentamplitude=\dimen289
+\pgfdecorationsegmentlength=\dimen290
 )
 \tikz@lib@dec@box=\box68
 )
@@ -745,13 +874,13 @@ ecorations.pathmorphing.code.tex"))
 librarydecorations.pathreplacing.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries/decorations\pgflibraryd
 ecorations.pathreplacing.code.tex"))
-\pgfplots@numplots=\count314
-\pgfplots@xmin@reg=\dimen290
-\pgfplots@xmax@reg=\dimen291
-\pgfplots@ymin@reg=\dimen292
-\pgfplots@ymax@reg=\dimen293
-\pgfplots@zmin@reg=\dimen294
-\pgfplots@zmax@reg=\dimen295
+\pgfplots@numplots=\count318
+\pgfplots@xmin@reg=\dimen291
+\pgfplots@xmax@reg=\dimen292
+\pgfplots@ymin@reg=\dimen293
+\pgfplots@ymax@reg=\dimen294
+\pgfplots@zmin@reg=\dimen295
+\pgfplots@zmax@reg=\dimen296
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
 libraryplotmarks.code.tex"
@@ -766,53 +895,53 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip63
 \bibsep=\skip64
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count315
+\c@NAT@ctr=\count319
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 27.
-\c@subsubsubsection=\count316
+Package hyperref Info: Option `colorlinks' set `true' on input line 30.
+\c@subsubsubsection=\count320
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count317
+\l__kernel_color_stack_int=\count321
 \l__pdf_internal_box=\box69
 )
 (Lunar_Impacts-Brief-DeStefano.aux)
 \openout1 = `Lunar_Impacts-Brief-DeStefano.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
-6.
+9.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
-\scratchdimen=\dimen296
+\scratchcounter=\count322
+\scratchdimen=\dimen297
 \scratchbox=\box70
-\nofMPsegments=\count319
-\nofMParguments=\count320
+\nofMPsegments=\count323
+\nofMParguments=\count324
 \everyMPshowfont=\toks43
-\MPscratchCnt=\count321
-\MPscratchDim=\dimen297
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen298
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks44
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -829,8 +958,8 @@ Package caption Info: End \AtBeginDocument code.
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count324
-Package hyperref Info: Link coloring ON on input line 66.
+\c@lstlisting=\count328
+Package hyperref Info: Link coloring ON on input line 69.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -841,11 +970,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count325
+\c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 66.
-LaTeX Info: Redefining \pageref on input line 66.
-LaTeX Info: Redefining \nameref on input line 66.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
  (Lunar_Impacts-Brief-DeStefano.out)
 (Lunar_Impacts-Brief-DeStefano.out)
 \@outlinefile=\write4
@@ -856,18 +985,17 @@ LaTeX Info: Redefining \nameref on input line 66.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 66.
+ on input line 69.
 
-(Lunar_Impacts-Brief-DeStefano.toc)
+(Lunar_Impacts-Brief-DeStefano.toc [1
+
+{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
 \tf@toc=\write5
 \openout5 = `Lunar_Impacts-Brief-DeStefano.toc'.
 
- [1
-
-{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Lunar_I
-mpacts-Brief-DeStefano.lof
+ (Lunar_Impacts-Brief-DeStefano.lof
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 2.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 1.
 )
 \tf@lof=\write6
 \openout6 = `Lunar_Impacts-Brief-DeStefano.lof'.
@@ -877,119 +1005,182 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 \tf@lot=\write7
 \openout7 = `Lunar_Impacts-Brief-DeStefano.lot'.
 
- [2]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-47.
+ [2] [3]
+<../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG, id=231, 694.84593pt x 
+472.76625pt>
+File: ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type
+ png)
+<use ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG>
+Package pdftex.def Info: ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG
+  used on input line 132.
+(pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../LaTeX_Report/Fit-to-MEM_low_dens.PNG, id=237, 432.86719pt x 157.33781pt>
+File: ../LaTeX_Report/Fit-to-MEM_low_dens.PNG Graphic file (type png)
+<use ../LaTeX_Report/Fit-to-MEM_low_dens.PNG>
+Package pdftex.def Info: ../LaTeX_Report/Fit-to-MEM_low_dens.PNG  used on input
+ line 140.
+(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../LaTeX_Report/Fit-to-MEM_high_dens.PNG, id=242, 432.11438pt x 155.83218pt>
+File: ../LaTeX_Report/Fit-to-MEM_high_dens.PNG Graphic file (type png)
+<use ../LaTeX_Report/Fit-to-MEM_high_dens.PNG>
+Package pdftex.def Info: ../LaTeX_Report/Fit-to-MEM_high_dens.PNG  used on inpu
+t line 146.
+(pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1
+
+]
+<../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=263, 428.35031
+pt x 321.45094pt>
+File: ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file 
+(type png)
+<use ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG>
+Package pdftex.def Info: ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distributio
+n.PNG  used on input line 162.
+(pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2 <../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG> <../LaTeX_Report/Fi
+t-to-MEM_low_dens.PNG>] [3 <../LaTeX_Report/Fit-to-MEM_high_dens.PNG> <../LaTeX
+_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
+<../LaTeX_Report/Fit-to-D_Grun.PNG, id=284, 326.72063pt x 167.87718pt>
+File: ../LaTeX_Report/Fit-to-D_Grun.PNG Graphic file (type png)
+<use ../LaTeX_Report/Fit-to-D_Grun.PNG>
+Package pdftex.def Info: ../LaTeX_Report/Fit-to-D_Grun.PNG  used on input line 
+179.
+(pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
+ [4 <../LaTeX_Report/Fit-to-D_Grun.PNG>]
+<../NEA_Brown/vmass.png, id=310, 587.5551pt x 441.5697pt>
+File: ../NEA_Brown/vmass.png Graphic file (type png)
+<use ../NEA_Brown/vmass.png>
+Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 237.
+(pdftex.def)             Requested size: 305.53041pt x 229.61755pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
+63.
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-[1
-
-] [2] [3] [4] [5]
-<../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png, id=270, 462.528pt x 346.896p
+[5] [6 <../NEA_Brown/vmass.png>] [7] [8] [9] [10]
+<../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png, id=402, 462.528pt x 346.896p
 t>
 File: ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png  used
- on input line 330.
+ on input line 446.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7 <../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 465--467
+[11] [12 <../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 581--583
 
  []
 
-[9]
+[14]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 502.
- [10]
-<../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG, id=354, 889.0
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 618.
+ [15]
+<../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG, id=485, 889.0
 7156pt x 624.08156pt>
 File: ../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG Graphic f
 ile (type png)
 <use ../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG>
 Package pdftex.def Info: ../LaTeX_Report/Carrier2003_Fig1_particle-size-distrib
-ution.PNG  used on input line 563.
+ution.PNG  used on input line 679.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../LaTeX_Report/Fit-to-CDF.PNG, id=361, 357.58594pt x 159.59625pt>
+<../LaTeX_Report/Fit-to-CDF.PNG, id=492, 357.58594pt x 159.59625pt>
 File: ../LaTeX_Report/Fit-to-CDF.PNG Graphic file (type png)
 <use ../LaTeX_Report/Fit-to-CDF.PNG>
-Package pdftex.def Info: ../LaTeX_Report/Fit-to-CDF.PNG  used on input line 575
+Package pdftex.def Info: ../LaTeX_Report/Fit-to-CDF.PNG  used on input line 691
 .
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11] [12 <../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG> <../
-LaTeX_Report/Fit-to-CDF.PNG>] [13]
-<../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=400, 462.528pt
+[16] [17 <../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG> <../
+LaTeX_Report/Fit-to-CDF.PNG>] [18]
+<../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=531, 462.528pt
  x 346.896pt>
 File: ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file 
 (type png)
 <use ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngl
-e.png  used on input line 671.
+e.png  used on input line 787.
 (pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
-Overfull \hbox (18.15065pt too wide) in paragraph at lines 671--672
+Overfull \hbox (18.15065pt too wide) in paragraph at lines 787--788
  [][] 
  []
 
-[14 <../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
+[19 <../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 876--877
 
  []
 
-[16] (Lunar_Impacts-Brief-DeStefano.bbl) [17
+[21] (Lunar_Impacts-Brief-DeStefano.bbl) [22
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 777.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 777.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 893.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 893.
 
 (Lunar_Impacts-Brief-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 777.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 777.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 893.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 893.
 Package rerunfilecheck Info: File `Lunar_Impacts-Brief-DeStefano.out' has not c
 hanged.
-(rerunfilecheck)             Checksum: 2FB5FC4234BAE3FE3F15BA2155EEB58A;1851.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 777.
+(rerunfilecheck)             Checksum: A440D6A5AEF5F8E6273B59FE4F376487;1941.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 893.
  ) 
 Here is how much of TeX's memory you used:
- 30535 strings out of 480799
- 714053 string characters out of 2905519
- 1120584 words of memory out of 3000000
- 45847 multiletter control sequences out of 15000+200000
- 553380 words of font info for 58 fonts, out of 3000000 for 9000
+ 31576 strings out of 480799
+ 726348 string characters out of 2905519
+ 1122423 words of memory out of 3000000
+ 46834 multiletter control sequences out of 15000+200000
+ 558612 words of font info for 73 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,98p,923b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helv
-etic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/h
-elvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/ur
-w/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-Brief-DeStefano.pdf (19 pages, 863876 bytes).
+ 68i,12n,98p,925b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
+pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
+blic/mathabx/dpi600\mathb7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\
+MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/P
+rogram Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKT
+eX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/M
+iKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roamin
+g/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Lunar_Impacts-Brief-DeStefano.pdf (25 pages, 973245 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 157 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 740 PDF objects out of 1000 (max. 8388607)
+ 185 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

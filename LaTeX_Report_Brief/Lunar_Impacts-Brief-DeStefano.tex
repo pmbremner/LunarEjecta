@@ -14,6 +14,9 @@
 \usepackage{hyperref}
 \usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
 
+%\usepackage{wasysym}
+\usepackage{mathabx}
+
 \usepackage{pgfplots} % https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf
 
 \usepackage{natbib}
@@ -58,7 +61,7 @@
 \setcounter{tocdepth}{4}
 
 
-\title{Lunar Impact Ejecta Model and Environment\\A Brief Overview}
+\title{Lunar Impact Ejecta Model and Environment\\A Brief Overview V 0.1}
 \author{Anthony M. DeStefano}
 \company{NASA, MSFC, EV44}
 \confidential{\textbf{-- For internal NASA and partners use only --}}
@@ -103,25 +106,138 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Latitudinal Dependence of Primary Flux}
 
+The primary flux of sporadic meteoroids onto the surface of the Moon changes depending on the latitudinal location on the Moon. Because of this effect, we generated ephemeris data for different latitudes on the Moon in 5 degree increments from pole to pole along the meridian. We chose a time frame of 19 years, or a Metonic cycle, which takes into account many different Sun-Earth-Moon geometries in order to provide an average primary flux environment.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Density Distribution Function}
 
+
+The meteoroid density has two components, a low and a high density contribution, as shown in Figure \ref{fig:MEM_UG_Fig2.5_density-distribution}. To take into account this particular distribution in computing the particle flux mass spectrum, we should integrate Figure \ref{fig:MEM_UG_Fig2.5_density-distribution} against Eq.\ \ref{eq:HH11_mass-ejected1}. Since the meteoroid density components can be written in terms of log-normal distributions
+\begin{equation}\label{eq:log-normal_distribution}
+F_\delta(x) = \frac{A}{\sigma\sqrt{2\pi}x}\exp\left[-\frac{(\ln x-\mu_\delta)^2}{2\sigma^2}\right],
+\end{equation}
+the integration entails computing the moments of a log-normal distribution. The $\alpha$-~moment is given by
+\begin{equation}
+F^\alpha_\delta(A,\mu_\delta,\sigma) = A\exp\left(\alpha\mu_\delta+\frac{1}{2}\alpha^2\sigma^2\right).
+\end{equation}
+Inserting these results into Eq.\ \ref{eq:HH11_mass-ejected1}, the functional form of the projectile density contribution can be written as
+\begin{equation}
+F_\delta = F^{3\nu-1}_\delta(A_{low}, \mu_{low},\sigma_{low}) + F^{3\nu-1}_\delta(A_{high}, \mu_{high},\sigma_{high}),
+\end{equation}
+where the fit parameters for the low and high density components are shown in Figures~\ref{fig:Fit-to-MEM_low_dens} and \ref{fig:Fit-to-MEM_high_dens}. The MEM User Guide also gives these values, but assumes log-base 10 instead of log-based $e$ as we did here. %Since the meteoroid density is given in units of \textit{fraction per 50 kg m$^{-3}$}, we need to divide the $A$ constants by 50 in order to give correct units.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG}
+	\caption{Meteoroid density distribution according to the MEM3 User Guide. The apex and toroidal meteoroid sources constitute the low-density population, while the helion/antihelion source constitutes the high-density population. Each set of densities follows a log-normal distribution \citep[c.f. Figure 11,][]{moorhead2019nasa}.}\label{fig:MEM_UG_Fig2.5_density-distribution}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.85]{../LaTeX_Report/Fit-to-MEM_low_dens.PNG}
+	\caption{Non-linear fit of the low density profile in Figure \ref{fig:MEM_UG_Fig2.5_density-distribution} with Eq.\ \ref{eq:log-normal_distribution} in \textsf{SciDAVis}, giving the constants for $a\rightarrow A$, $s\rightarrow \sigma$, and $m\rightarrow \mu_\delta$.}\label{fig:Fit-to-MEM_low_dens}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.85]{../LaTeX_Report/Fit-to-MEM_high_dens.PNG}
+	\caption{Non-linear fit of the high density profile in Figure \ref{fig:MEM_UG_Fig2.5_density-distribution} with Eq.\ \ref{eq:log-normal_distribution} in \textsf{SciDAVis}, giving the constants for $a\rightarrow A$, $s\rightarrow \sigma$, and $m\rightarrow \mu_\delta$.}\label{fig:Fit-to-MEM_high_dens}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mass Spectrum}
 
+From the MEM3 User Guide , we get the $g(m)$ flux of meteoroids larger than a limiting mass $m$, originally from \cite{grun1985collisional}. The Gr{\"u}n interplanetary flux equation is given by
+\begin{equation}\label{eq:Grun_flux}
+g(m) = (c_4m^{\gamma_4}+c_5)^{\gamma_5} + c_6(m + c_7m^{\gamma_6} + c_8m^{\gamma_7})^{\gamma_8} + c_9(m + c_{10}m^{\gamma_9})^{\gamma_{10}},
+\end{equation}
+where the constants are $c_4 = 2.2\times 10^3$, $c_5 = 15$, $c_6 = 1.3 \times 10^{-9}$, $c_7=10^{11}$, $c_8=10^{27}$, $c_9 = 1.3\times 10^{-16}$, $c_{10} = 10^6$; and the exponents are $\gamma_4 = 0.306$, $\gamma_5 = -4.38$, $\gamma_6 = 2$, $\gamma_7 = 4$, $\gamma_8 = -0.36$, and $\gamma_{10} = -0.85$. Eq.\ \ref{eq:Grun_flux} is applied to MEM's mass range and is shown in Figure \ref{fig:MEM_UG_Fig2.1_partile-mass-distribution}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.65]{../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG}
+	\caption{The Gr{\"u}n interplanetary meteoroid flux as a function of limiting particle mass \citep[Figure 1]{moorhead2019nasa}.}\label{fig:MEM_UG_Fig2.1_partile-mass-distribution}
+\end{figure}
+
+The mass flux $dg(m)/dm$ and Eq.\ \ref{eq:HH11_mass-ejected1} should be integrated over the mass range $m_{min} = 10^{-6}$ g to $m_{max} = 10^1$~g in order to account for all impactor mass sizes, which we call $G_m$ given as
+\begin{equation}\label{eq:Gm_integral}
+G_m = \int_{m_{min}}^{m_{max}}dm\frac{-dg(m)}{dm}m.
+\end{equation}
+
+The mass flux $dg(m)/dm$ can be fit to a double power law
+\begin{equation}\label{eq:Grun_mass_flux}
+\frac{dg(x)}{dx} = \frac{1}{ax^b+cx^d},
+\end{equation}
+where the fit parameters are shown in Figure \ref{fig:Fit-to-D_Grun}, using a log-log scale to capture the small and large masses correctly.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{../LaTeX_Report/Fit-to-D_Grun.PNG}
+	\caption{Non-linear fit of Figure \ref{fig:MEM_UG_Fig2.1_partile-mass-distribution} with Eq.\ \ref{eq:Grun_mass_flux} in \textsf{SciDAVis}, giving the constants for $a$, $b$, $c$, and $d$.}\label{fig:Fit-to-D_Grun}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Near-Earth Asteroid Environment}
+\subsection{Near-Earth Object Environment}
+
+The near-Earth object (NEO) environment introduces mass sizes of impactors beyond 10 g, outside of MEM's size range. Unlike MEM, the NEO's consist of small asteroids and comets between 0.1 and 1000 m in diameter. The work outlined in this section originates from analysis done by Althea Moorhead (see Memo OSMA/MEO/Lunar-001). The goal of the this analysis converts energy-limited fluxes of NEO's at the Earth to mass-limited fluxes at the Moon using \cite{brown2002flux} as a starting point.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Kinetic-Energy-Limited Flux}
+
+\cite{brown2002flux} use a combination of bright bolide data, infrared and acoustic data, satellite observations, and telescopic observations of small asteroids to construct a power law describing the cumulative flux of large objects onto Earth, given by
+\begin{equation}
+\log_{10}N = a-b\log_{10}\text{KE},
+\end{equation}
+where KE is the kinetic energy of the impactor in kilotons TNT equivalent ($4.184\times 10^{12}$ J), N is the number of objects impacting the Earth per year with a given kinetic energy or greater, and the constants are $a = 0.5677$ and $b=0.9$.
+
+We convert this flux to MKS units by assuming the Earth has an effective radius of 6471 km (including 100 km of atmosphere capable of ablating meteoroids). The resulting kinetic-energy-limited flux per square meter per year is given by
+\begin{equation}\label{eq:NEO_KE_flux}
+f_\Earth(\text{KE}) = 7.023\times 10^{-15} \text{KE}^{-0.9}.
+\end{equation}
+To obtain Equation \eqref{eq:NEO_KE_flux}, we have divided by the surface are of the Earth. Thus, $f_\Earth$ reports the flux per unit surface area. One can convert Equation \eqref{eq:NEO_KE_flux} to a flux per cross-sectional are, if desired, by multiplying by 4. Note that the bulk density is assumed to be 3000 kg m$^{-3}$ \citep{brown2002flux}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mass-Limited Flux}
+
+The mass-limited flux at the lunar surface can be shown to be
+\begin{equation}\label{eq:NEO_mass_factor_int}
+g_\leftmoon (m) = 2.89\times 10^{-11} \text{m}^{-2}\text{yr}^{-1}\cdot m^{-0.9},
+\end{equation}
+where $m$ is the mass of the impactor in kg.
+
+When converting the NEO flux into secondary flux using Equation \eqref{eq:HH11_mass-ejected1}, we must integrate the flux per mass with $m$
+\begin{equation}
+G_{\leftmoon m} = \int_{m_{min}}^{m_{max}}dm\frac{-d g_\leftmoon(m)}{dm}m,
+\end{equation}
+where 
+\begin{equation}
+\frac{d g_\leftmoon(m)}{dm} = -2.601 \times 10^{-11} \text{m}^{-2}\text{yr}^{-1}\cdot m^{-1.9}.
+\end{equation}
+
+Therefore, using $m_{min} = 10 $ g (extrapolating down to the upper-limit of MEM) and $m_{max} = 1.57 \times 10^{15}$ g (mass of a sphere taking 1000 m as the diameter and 3000 kg m$^{-3}$ as the density), Equation \eqref{eq:NEO_mass_factor_int} becomes
+\begin{equation}
+G_{\leftmoon m} = 4.148 \times 10^{-9} \text{m}^{-2}\text{yr}^{-1} \cdot \text{kg},
+\end{equation}
+which represents the mass flux in the given range above.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Speed Distribution}
+The speed distribution of NEO's is shown in Figure \ref{fig:vmass}. The values (fraction of flux per bin) in each bin are midpoint values, where the bins have a size of 2 km s$^{-1}$. Note also that because the flux is a power law, this speed distribution is independent of limiting mass.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Mass Spectrum}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.52]{../NEA_Brown/vmass.png}
+	\caption{Mass-limited speed distribution at the lunar surface.}\label{fig:vmass}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -772,6 +888,6 @@ We can also get the final latitude and longitude if we are given the distance $D
 \phantomsection
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{agu}
-\bibliography{report}
+\bibliography{../LaTeX_Report/report}
 
 \end{document}

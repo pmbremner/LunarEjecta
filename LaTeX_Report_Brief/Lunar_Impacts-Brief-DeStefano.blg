@@ -3,47 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Lunar_Impacts-Brief-DeStefano.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 The style file: agu.bst
-Reallocating 'name_of_file' (item size: 1) to 7 items.
-Database file #1: report.bib
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+Database file #1: ../LaTeX_Report/report.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 7 entries,
+You've used 10 entries,
             3075 wiz_defined-function locations,
-            1113 strings with 10265 characters,
-and the built_in function-call counts, 6733 in all, are:
-= -- 820
-> -- 119
-< -- 10
-+ -- 84
-- -- 30
-* -- 360
-:= -- 554
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 31
-chr.to.int$ -- 7
-cite$ -- 21
-duplicate$ -- 782
-empty$ -- 387
-format.name$ -- 49
-if$ -- 1352
+            1134 strings with 10864 characters,
+and the built_in function-call counts, 9919 in all, are:
+= -- 1156
+> -- 272
+< -- 11
++ -- 162
+- -- 66
+* -- 571
+:= -- 846
+add.period$ -- 10
+call.type$ -- 10
+change.case$ -- 52
+chr.to.int$ -- 10
+cite$ -- 30
+duplicate$ -- 1097
+empty$ -- 553
+format.name$ -- 94
+if$ -- 2001
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 66
-newline$ -- 28
-num.names$ -- 28
-pop$ -- 322
+missing$ -- 101
+newline$ -- 37
+num.names$ -- 40
+pop$ -- 470
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 42
 quote$ -- 0
-skip$ -- 430
+skip$ -- 630
 stack$ -- 0
-substring$ -- 336
-swap$ -- 687
-text.length$ -- 3
+substring$ -- 446
+swap$ -- 941
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 63
+type$ -- 90
 warning$ -- 0
-while$ -- 40
+while$ -- 58
 width$ -- 0
-write$ -- 83
+write$ -- 116
