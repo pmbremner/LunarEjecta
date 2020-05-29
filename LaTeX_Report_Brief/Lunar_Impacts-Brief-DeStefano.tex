@@ -162,8 +162,12 @@ There are several assumptions and simplications made in our model in order to pr
 	\end{itemize}
 	\item The Moon is a perfect sphere with a mono-polar gravity well (i.e., we ignore irregularities in the lunar surface and gravity).
 	\begin{itemize}
-		\item We expect landing locations to not be deep in craters, which can be hazardous to con-ops. Local terrain can have a shadowing effect, so our calculations could be seen as a worst-case in this sense.
+		\item We expect landing locations to not be deep in craters, which can be hazardous to con-ops. Local terrain can have a shadowing effect, so our calculations could be seen as a worst-case in this sense since we ignore these.
 		\item Most of the ejecta will have relatively short transit times and therefore will only be slightly perturbed by the irregular gravity well of the Moon. We also ignore Coriolis forces, which can be shown to be insignificant on the Moon for all relevant ejecta speeds.
+	\end{itemize}
+	\item The angular distribution of NEA's on the lunar surface are modeled after the high density population provided by MEM.
+	\begin{itemize}
+		\item Roughly speaking, the NEA's we consider are in the ecliptic plane, as is the high density population of sporadic meteors in MEM. The speed distributions do differ so we re-scale the angular distribution from MEM using the NEA speed distribution.
 	\end{itemize}
 \end{enumerate}
 
