@@ -1,0 +1,773 @@
+\documentclass{hitec}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{subcaption} 
+\usepackage[space]{grffile}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{amsmath}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\lstset{  breaklines=true, numbers=left, numberstyle=\tiny\color{mygray}, keepspaces=true }
+
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
+
+\usepackage{pgfplots} % https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf
+
+\usepackage{natbib}
+
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={blue!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+\title{Lunar Impact Ejecta Model and Environment\\A Brief Overview}
+\author{Anthony M. DeStefano}
+\company{NASA, MSFC, EV44}
+\confidential{\textbf{-- For internal NASA and partners use only --}}
+\usepackage{hyperref} 
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+
+
+%\section*{Contributing Author List}
+%\addcontentsline{toc}{section}{Contributing Author List}
+
+
+
+\cleardoublepage
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Executive Summary}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Input Environments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sporadic Meteoroid Environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Latitudinal Dependence of Primary Flux}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Density Distribution Function}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mass Spectrum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Near-Earth Asteroid Environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Speed Distribution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mass Spectrum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Output Environment Format}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mass Limited Speed-Solid Angle Flux Distribution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Secondary Ejecta Model}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Assumptions and Simplifications}
+
+There are several assumptions and simplications made in our model in order to provide traceable engineering solutions. We provide a list below with the most important assumptions in no particular order and provide comments on each.
+\begin{enumerate}
+	\item The ejecta particle distribution is the same as the virgin regolith particle distribution.
+	\begin{itemize}
+		\item Crater sizes that are less than $\sim50$ m will mostly sample the top-most layer of regolith. For impactors that generate larger craters, such as those found in the NEA population, this assumption breaks down. We expect the very large craters ($> 100$ m) to introduce larger bolder sizes not present in the virgin regolith particle distribution. We believe these large bolders to be in the far tail of the distribution function and are very unlikely. Ignoring the large particle population will inflate the smaller particle sizes, which may help to offset the error in the risk, but this offset is not for certain.
+	\end{itemize}
+	\item The scaling law provided by \cite{housen2011ejecta} is valid for all impactors simulated in our model.
+	\begin{itemize}
+		\item Both authors are experts in the field of high-velocity impacts and have done much work to develop scaling laws that are valid for several orders of magnitude of impact sizes. For extremely small size impacts, such as impactor masses near $10^{-6}$ g, the scaling laws might not be valid since this is roughly the 50-percentile size of the regolith particle size distribution. For simplification, we ignore this issue for now. 
+	\end{itemize}
+	\item The azimuth and zenith angle distribution functions are given empirically and do not depend on the size of impact or speed of impact, only the angle of impact.
+	\begin{itemize}
+		\item The azimuth distribution function follows published work done by ESA contract work \citep{ESABASE2_DebrisRelease10.0}. We modified the azimuth distribution function at highly oblique angles to include information about ejecta patterns that exhibit the so called butterfly patter \citep{shuvalov2011ejecta}. Depending on the latitude of the impact location, there can be a substantial component of the flux that can come into play.
+		\item The zenith angle distribution does have an azimuthal and impact angle dependence that follows fits from \cite{gault1978experimental}. When the outgoing zenith angle tips over (when it goes negative), we ignore this component as an exclusion zone and implicitly include the fluxes in the downstream direction. This avoids having to deal with multi-valued functions which would require special cases to handle.
+		\item Since the integration is complicated enough, we do not want to complicate things by introducing a velocity dependence in the angle distributions. We know this to be the case in reality, but we ignore this dependence for simplicity.
+	\end{itemize}
+	\item The regolith density is constant over the whole Moon and for all depths.
+	\begin{itemize}
+		\item The regolith density differs from highlands to mare in addition to depth. However, building a density map of the Moon is beyond the scope of this engineering model. We also note that the density dependence is raised to a small power ($\sim 0.2$), so this will have a minor effect on total mass ejected from the crater. On the other hand, density can have a great impact on ballistic equations and bumper computations.
+	\end{itemize}
+	\item The Moon is a perfect sphere with a mono-polar gravity well (i.e., we ignore irregularities in the lunar surface and gravity).
+	\begin{itemize}
+		\item We expect landing locations to not be deep in craters, which can be hazardous to con-ops. Local terrain can have a shadowing effect, so our calculations could be seen as a worst-case in this sense.
+		\item Most of the ejecta will have relatively short transit times and therefore will only be slightly perturbed by the irregular gravity well of the Moon. We also ignore Coriolis forces, which can be shown to be insignificant on the Moon for all relevant ejecta speeds.
+	\end{itemize}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conversion from Primary to Secondary Flux}
+
+The total mass flux of secondary ejecta can be found from properties of the primary impactor. From \cite{housen2011ejecta}, we can compute the mass ejected faster than $v$ in terms of impactor properties, given by
+\begin{eqnarray}\label{eq:HH11_mass-ejected1}
+M(v; \rho; m, \delta, U, \alpha) = M(>v) = C_4 m\left[\frac{v}{U\Theta(\alpha)}\left(\frac{\rho}{\delta}\right)^{\frac{3\nu-1}{3\mu}}\right]^{-3\mu},
+\end{eqnarray}
+where
+\begin{itemize}
+	\item $v$: secondary ejecta speed,
+	\item $\rho$: target density,
+	\item $m$: projectile mass,
+	\item $\delta$: projectile density,
+	\item $U$: projectile speed,
+	\item $\alpha$: projectile impact angle (from horizon),
+\end{itemize}
+and
+\begin{eqnarray}
+C_4 = \frac{3k}{4\pi}C_1^{3\mu},
+\end{eqnarray}
+where the constants $k$, $C_1$, $\nu$, and $\mu$ depend on the specific material properties, see Table 3 of \cite{housen2011ejecta}. The impact angle modification equation $\Theta(\alpha)$ can be chosen to be
+\begin{equation}
+\Theta(\alpha) = \begin{cases}
+1\\
+\sin\alpha\\
+\sin^\eta\alpha
+\end{cases},
+\end{equation}
+where typical values of $\eta$ lie between 1 and 2. For the ejected mass that is in a given velocity range, we can define $\Delta M(v_2, v_1)$ as
+\begin{equation}\label{eq:delta_M}
+\Delta M(v_2, v_1) = M(>v_2) - M(>v_1).
+\end{equation}
+
+Equation \eqref{eq:HH11_mass-ejected1} only gives us the total mass ejecta from the impact. We need to know what portion of that total mass reaches a particular region of interest. In essence, this is the major effort of the model outlined in this report. In the following section, we will show how to compute the portion of total mass.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Secondary Ejecta Distribution Function}
+
+
+The mass ejected from the crater, $M(>v)$, from Eq.\ \eqref{eq:HH11_mass-ejected1}, is the total mass ejected from an impact at velocities greater than $v$. However, we would like to know how this ejecta is distributed in speed and solid angle so we can map the ejecta to a particular surface location on the Moon. We can then set Eq.\ \eqref{eq:HH11_mass-ejected1} in terms of the integral over the distribution functions of speed and solid angle as
+\begin{equation}
+M(>v) = \int_{v}^{\infty}\int_{0}^{2\pi}\int_{0}^{\pi/2}\sin\alpha d\alpha d\beta dv' F(\alpha)G(\beta)H(v'),
+\end{equation} 
+where $\alpha$ is the zenith angle, $\beta$ is the azimuth angle, and $v$ is the ejecta speed. Just to note, at the secondary impact location, the zenith angle will be the same as the ejected zenith angle. However, the azimuth angle (or bearing) will be modified due to travel across a spherical surface, see Section \ref{ssec:Distance_and_Bearing}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Speed Distribution Function}
+
+
+The speed distribution $H(v')$ is defined by
+\begin{equation}
+\int_{v}^{\infty}dv'H(v') = v^{-3\mu},
+\end{equation}
+which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can then solve the speed distribution explicitly as
+\begin{equation}
+H(v) = 3\mu v^{-(3\mu+1)}.
+\end{equation}
+
+To integrate over the velocity distribution, we must take the results from Section~\ref{sssec:ZenithDistributionFunction} on the zenith distribution function and combine them with the above integral, giving
+
+\begin{align}
+&3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}\Delta x(v)\left[1-\frac{x_0(v)+x_1(v)}{2}\right]^a \left[\frac{x_0(v)+x_1(v)}{2}\right]^{1/a}\\
+=& 3\mu\int_{v_0}^{v_1}dv v^{-(3\mu+1)}(\Delta m v + \Delta b)(1-m_{avg}v-b_{avg})^a(m_{avg}v + b_{avg})^{1/a}\\
+=& \int_{v_0}^{v_1}dv H_2(v),\label{eq:def_H2}
+\end{align}
+where
+\begin{align}
+\Delta m & = m_1 - m_0,\\
+\Delta b &= b_1 - b_0,\\
+m_{avg} &= \frac{m_0+m_1}{2},\\
+b_{avg} &= \frac{b_0+b_1}{2}.
+\end{align}
+
+This integral is related to the Appell F1 multivariate hypergeometric function and cannot be simplified to a finite number of single variable hypergeometric functions for generalized values of the exponent $a$. At this time, we will defer to integrate this equation numerically, preferably using the Romberg integration method.
+
+Alternatively, we can attempt to generate an approximation. Taking the Taylor expansion of Equation \eqref{eq:def_H2} about $v_{avg}$ out to the first term, we have (note, the first term drops out of the integral during integration, so the error is of order $\Delta v^3$)
+\begin{align}
+\int_{v_0}^{v_1}dv H_2(v) &\sim \int_{v_0}^{v_1}dv[H_2(v_{avg}) + H_2'(v_{avg})(v-v_{avg})+\dots],\\
+&= \Delta v H_2(v_{avg}),\nonumber
+\end{align}
+\begin{equation}
+=3\mu\Delta v v_{avg}^{-(3\mu+1)}(\Delta m v_{avg} + \Delta b)(1-m_{avg}v_{avg}-b_{avg})^a(m_{avg}v_{avg} + b_{avg})^{1/a},
+\end{equation}
+where
+\begin{align}
+\Delta v &= v_1-v_0,\\
+v_{avg} &= \frac{v_0 + v_1}{2}.
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Zenith Angle Distribution Function}\label{sssec:ZenithDistributionFunction}
+
+To complete the integral over the zenith distribution, namely
+\begin{equation}\label{eq:zenith_integral}
+\int_{\alpha_0(v)}^{\alpha_1(v)}d\alpha\sin\alpha F(\alpha),
+\end{equation}
+we need to choose a distribution function for $F(\alpha)$ to allow for analytic solutions. We will therefore look for an alternate distribution given by the form
+\begin{equation}
+F(\alpha) = (1-\cos\alpha)^{1/a}\cos^a\alpha,
+\end{equation}
+where the exponent $a$ can be defined in terms of the peak angle $\alpha_{max}$ as
+\begin{equation}\label{eq:a_exponent}
+a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}} = \frac{\cos\alpha_{max}}{2\sin^2(\alpha_{max}/2)},
+\end{equation}
+such that $F'(\alpha_{max}) = 0$ and $F''(\alpha_{max}) < 0$.
+
+In order to compare with experiments for the peak angle $\alpha_{max}$, we can use Figure~18 of \cite{gault1978experimental} as a proxy to our model of $\alpha_{max}$, as a function of the azimuth angle. Using a third order polynomial for both fits to the downstream and upstream angles given in Table \ref{tab:upstream_downstream_angles}, we arrive at
+\begin{align}
+\alpha_{max}(\beta - \beta_i = \pi) &= 0.0003\alpha_i^3 - 0.036\alpha_i^2 + 1.5206\alpha_i + 20, \text{ downstream}\\
+\alpha_{max}(\beta - \beta_i = 0) &= -0.00042\alpha_i^3 + 0.0236\alpha_i^2 + 0.129\alpha_i + 20, \text{ upstream}
+\end{align}
+in units of degrees, where $\beta_i$ is the impact azimuth angle, $\beta$ is the ejecta azimuth angle, and $\alpha_i$ is the impact zenith angle. For other values of $\beta - \beta_i$, we can write a complete function as
+\begin{equation}
+\alpha_{max}(\beta) = \alpha_{max}(\beta - \beta_i = \pi)\cdot \sin^2\left(\frac{\beta - \beta_i}{2}\right)
++ \alpha_{max}(\beta - \beta_i = 0)\cdot \cos^2\left(\frac{\beta - \beta_i}{2}\right),
+\end{equation}
+or rewriting we have
+\begin{equation}
+\alpha_{max}(\beta) = \frac{\alpha_{max,0}+\alpha_{max,\pi}}{2} - \frac{\alpha_{max,\pi}-\alpha_{max,0}}{2}\cos(\beta-\beta_i),
+\end{equation}
+and solving for $\beta-\beta_i$, after setting $\alpha_{max}(\beta)$ to zero,
+\begin{equation}
+\arccos\left(\frac{\alpha_{max,0}+\alpha_{max,\pi}}{\alpha_{max,\pi}-\alpha_{max,0}}\right) = \beta-\beta_i.
+\end{equation}
+As a simplification, we can approximate the $\cos(\beta-\beta_i)$ term as (note, this is not a Taylor series)
+\begin{equation}
+\cos(\beta-\beta_i) \sim 1 - \left|\frac{\beta-\beta_i}{\pi/2}\right|,
+\end{equation}
+for $-\pi \le \beta-\beta_i \le \pi$ such that $\cos\alpha_{max}$ becomes
+\begin{equation}\label{eq:cos_a_max_approx}
+\cos\alpha_{max} \sim \cos\left[\alpha_{max,0}+\frac{\alpha_{max,\pi}-\alpha_{max,0}}{\pi}|\beta-\beta_i|\right]
+\end{equation}
+
+\begin{table}[h]\centering
+	\caption{Cone angles of upstream and downstream of impact derived from Figure 18 of \cite{gault1978experimental}.}\label{tab:upstream_downstream_angles}
+	\begin{tabular}{|c | c | c |}\hline
+		Impact Zenith Angle & Upstream Zenith Angle & Downstream Zenith Angle\\\hline
+		0	&20	&20\\\hline
+		15	&24	&35\\\hline
+		30	&35	&45\\\hline
+		45	&28	&40\\\hline
+		60	&13	&54\\\hline
+		75	&-35	&66\\\hline		
+	\end{tabular}
+\end{table}
+Using Table \ref{tab:upstream_downstream_angles} as a fit for the peak angle $\alpha_{max}$ is an approximation since the tabular data is only for a specific snapshot of the ejecta at a side view, $90^\circ$ from the impact direction. The zenith distribution should also be a function of the ejecta speed, but we do not make this assumption for the sake of simplicity. According to this model, starting around $60^\circ - 70^\circ$, there is a region of exclusion for a part of the zenith distribution upstream of the impact, see Figure \ref{fig:ExlusionRange_vs_ImpactAngle}.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.65]{../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png}
+	\caption{For larger impact angles that are more grazing to the surface, the zenith and azimuth ejecta distributions become asymmetric. Starting at $70^\circ$, the peak ejecta angle $\alpha_{max}$ becomes negative in an exclusion range, as shown in the figure. This means that the $-\alpha_{max}\to\alpha_{max}$ and $\beta-\beta_i\to \beta-\beta_i +\pi$. In this model, for impact angles near $90^\circ$, most of the ejecta is concentrated in the downstream direction.}\label{fig:ExlusionRange_vs_ImpactAngle}
+\end{figure}
+
+%
+%\begin{tikzpicture}\centering
+%\begin{axis}[
+%	xlabel = Impact Zenith Angle,
+%	ylabel = Exlusion Azimuth Range at Peak Ejecta Angle
+%]
+%\addplot coordinates {
+%	( 338.1, 266.45 )
+%	( 169.1, 143.43 )
+%	( 84.5, 64.80 )
+%	( 42.3, 34.19 )
+%	( 21.1, 9.47 )
+%};
+%\end{axis}
+%\end{tikzpicture}
+
+Next, we can do a variable substitution (chosen so the domain of the zenith angle to the new variable goes from $\alpha\in [0,\pi/2]$ to $x\in [0,1]$)
+\begin{align}
+1-x &= \cos\alpha,\\
+dx &= \sin\alpha d\alpha,
+\end{align}
+so that Eq.\ \eqref{eq:zenith_integral} becomes
+\begin{equation}\label{eq:zenith_integral2}
+\int_{x_0(v)}^{x_1(v)}dx x^{1/a}(1-x)^a,
+\end{equation}
+where the equations $x_0(v)$ and $x_1(v)$ are a linear function of $v$ and an implicit function of the distances $D_0$ and $D_1$, respectively. The integral in Eq.\ \eqref{eq:zenith_integral2} is the incomplete beta function
+\begin{equation}\label{eq:zenith_integral3}
+\int_{x_0(v)}^{x_1(v)}dx x^{1/a}(1-x)^a
+= \beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1).
+\end{equation}
+Note that the normalization term for $\alpha\in [0, \pi/2]$ is given by
+\begin{equation}
+\int_{0}^{\pi/2}d\alpha\sin\alpha F(\alpha) = 
+\beta(1/a+1, a+1) = \frac{\Gamma(1/a+1)\Gamma(a+1)}{\Gamma(a+1/a+2)},
+\end{equation}
+which includes ejecta at speeds greater than the escape speed.
+
+For small differences in $D_0$ and $D_1$, we can roughly assume small differences\footnote{If $\Delta x$ is not small, then we can partition the $x$ range into smaller pieces so that $\Delta x$ is small, which will be the case in almost all circumstances.} in $x_0(v)$ and $x_1(v)$ so that we can write Eq.\ \eqref{eq:zenith_integral3} in terms of a derivative, where we evaluate the derivative at the midpoint
+\begin{align}
+&\beta(x_1(v); 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)\nonumber\\
+= &\frac{\beta(x_0(v) +\Delta x; 1/a+1, a+1) - \beta(x_0(v); 1/a+1, a+1)}{\Delta x}\Delta x\nonumber\\
+\approx & \Delta x\frac{d}{d(x_0(v))}\beta(x_0(v); 1/a+1, a+1)\Bigr|_{x_0(v)\to x_0(v) +\Delta x/2}\nonumber\\
+=& \Delta x\left[1-x_0(v)\right]^a x_0^{1/a}(v)\Bigr|_{x_0(v)\to x_0(v) +\Delta x/2}\nonumber\\
+=&\Delta x(v)\left[1-\frac{x_0(v)+x_1(v)}{2}\right]^a \left[\frac{x_0(v)+x_1(v)}{2}\right]^{1/a},
+\end{align}
+where $\Delta x(v) = x_1(v) - x_0(v)$, and (note, the $v$'s are normalized by $v_{esc}$, emitted for clarity)
+\begin{align}
+x_0(v) &= m_0 v + b_0,\\
+x_1(v) &= m_1 v + b_1,\\
+\Delta x(v) &= (m_1-m_0)v + b_1 - b_0.
+\end{align}
+The coefficients $m_0, m_1$ and $b_0, b_1$ are implicit functions of the distances $D_0, D_1$. For the $j-$th distance $D_j$ and the $i-$th speed $v_i$, the $m$ and $b$ coefficients can be written as
+\begin{align}
+m_{j,i}^{\pm} &= \frac{v_{i+1}-v_i}{x_{j,i+1}^{\pm}-x_{j,i}^{\pm}},\\
+b_{j,i}^{\pm} &= v_i - m_{j,i}^{\pm}\cdot x_{j,i}^{\pm},
+\end{align}
+where
+%\begin{align}
+%x_{j,i}^{\pm} &= 1 - \cos\alpha_{j,i}^{\pm}, \\
+%\cos\alpha_{j,i}^{\pm} &= \frac{\cot\alpha_{j,i}^{\pm}}{\sqrt{1+ \cot^2\alpha_{j,i}^{\pm}}},
+%\end{align}
+%for (using Eq.\ \eqref{eq:gammaVs_V_D})
+%\begin{equation}
+%\cot\alpha_{j,i}^{\pm} = v_i^2\cot\left(\frac{D_j}{2r_m}\right) \pm \sqrt{v_i^4\cot^2\left(\frac{D_j}{2r_m}\right) +2v_i^2-1 }.
+%\end{equation}
+
+\begin{equation}
+x_{j,i}^{\pm} = 1 - \cos\alpha_{j,i}^{\pm},
+\end{equation}
+for
+\begin{equation}
+\cos^2\alpha_{j,i}^{\pm} = \frac{v_i^2+\tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1) \pm \sqrt{v_i^4 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1)}}{2v_i^2\left(1 + \tan^2\left(\frac{D_j}{2r_m}\right)\right) },
+\end{equation}
+taking the positive root, $\cos\alpha_{j,i}^{\pm} = +\sqrt{\cos^2\alpha_{j,i}^{\pm}}$, since $\alpha\in [0, \pi/2]$. Other useful transformed equations are
+\begin{equation}
+\tan\left(\frac{D_j}{2r_m}\right) = \frac{2v_i^2(1-x_{j,i}^{\pm})\sqrt{x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}}{1-2v_i^2x_{j,i}^{\pm}(2-x_{j,i}^{\pm})},
+\end{equation}
+from Eq.\ \eqref{eq:ejecta_distance}, and
+\begin{equation}
+v_i = \frac{1}{\sqrt{2(1-x_{j,i}^{\pm})\sqrt{x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}\cot\left(\frac{D_j}{2r_m}\right) + 2x_{j,i}^{\pm}(2-x_{j,i}^{\pm})}},
+\end{equation}
+from Eq.\ \eqref{eq:speed_asof_distance_angle}. Solving for $x_{j,i}^{\pm}$ in either equation, we can now write $x$ explicitly in terms of the distance $D$ and ejecta speed $v$ as
+\begin{equation}
+x_{j,i}^{\pm} = 1 - \sqrt{\frac{v_i^2 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1) \pm \sqrt{v_i^4 + \tan^2\left(\frac{D_j}{2r_m}\right)(2v_i^2-1)}}{2v_i^2\left[1+\tan^2\left(\frac{D_j}{2r_m}\right)\right]}}.
+\end{equation}
+
+For a given distance, the domain of $x$ is given by (for $v$ up to 1)
+\begin{equation}\label{eq:x_domain} %\sqrt{\frac{1+\cos\left(\frac{D_j}{2r_m}\right)}{2}}
+x_{j,i}^{\pm} \in \left(1 - \cos\left(\frac{D_j}{4r_m}\right),
+1 \right),
+\end{equation}
+and the domain of $v$ is given by
+\begin{equation}\label{eq:v_domain}
+v_i \in
+\begin{cases}
+\left(\left[1 + \left|\cos\left(\frac{D_j}{2r_m}\right)\right|\cot\left(\frac{D_j}{2r_m}\right) + \sin\left(\frac{D_j}{2r_m}\right) \right]^{-1/2}, 1\right) \text{  for $D_j < \pi r_m$}\\
+\left(\frac{\sqrt{2}}{2}, 1\right) \text{  for $D_j \ge \pi r_m$}
+\end{cases}
+\end{equation}
+where the value of $x_{j,i}^{\pm}$ at the minimum of $v_i$ is
+\begin{equation}
+x_{j,i}^{\pm} = 1-\sqrt{\frac{1-\sin\left(\frac{D_j}{2r_m}\right)}{2}}
+\end{equation}
+The two domains in Eqs.\ \eqref{eq:x_domain} and \eqref{eq:v_domain} define the region of interest, and allow for the integration to begin at the correct outermost boundary lines.
+
+There are three regions of the zenith angle-space, and hence the $x$-space, where we have:
+\begin{enumerate}[label=Region \Roman*:]
+	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and all $D_{j+1}$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Azimuth Angle Distribution Function}
+\label{sssec:AzimuthDistributionFunction}
+
+The azimuth distribution shown below is given by \citep{rival1999modeling}
+\begin{equation}\label{eq:azm_rival_mandeville}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'^2}\right]
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+\sigma' = \frac{\pi}{36} = 5^\circ, 
+\end{equation}
+for $\beta_i$ the impact azimuth angle + $\pi$.\\
+
+\paragraph{Alternative Azimuth Distribution:}
+The piece-wise function defined in Equation \eqref{eq:azm_rival_mandeville} for the azimuth distribution is correctly normalized for impact zenith angles $\alpha_i \le 60^\circ$, however for angles greater than $60^\circ$, the function is not continuous across the boundary $\beta = 2\pi \to 0$. We would also like a continuous function across the piece-wise boundary as well.
+
+
+Our proposed azimuth distribution is as follow. We will use the $\alpha_i \le 60^\circ$ functional form in Equation \eqref{eq:azm_rival_mandeville}, but we will have a different large-angle expression. The new azimuth distribution is defined as
+%\begin{equation}
+%G(\beta) =
+%\begin{cases}
+%\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+%\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}
+%\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+%\end{cases},
+%\end{equation}
+%where
+%\begin{equation}
+%b = 1 + \left[20\left(\frac{3\alpha_i}{\pi}-1\right)\right]^2.
+%\end{equation}
+\begin{equation}\label{eq:alt-azm-dist}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1}{A}\left[\exp\left[-\frac{(\beta-\beta_i - 2(\alpha_i-\alpha_{i,0}))}{\pi b}\right] + \exp\left[-\frac{(\beta-\beta_i + 2(\alpha_i-\alpha_{i,0}))}{\pi b}\right]\right] \text{  for $\alpha_i > \pi/3$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+b = \frac{0.05-1}{\pi/2-\pi/3}(\alpha_i-\alpha_{i,0}) + 1 = \frac{3}{10\pi}(\alpha_i-\alpha_{i,0}) + 1,
+\end{equation}
+and
+\begin{equation}
+\alpha_{i,0} = \pi/3.
+\end{equation}
+For the second case, we empirically include information about the \textit{butterfly pattern} that is seen for highly oblique impact angles \citep[e.g.,][]{shuvalov2011ejecta}. The size of the impactor will affect the spread of the butterfly pattern, but we assume a certain spread profile for all impactor sizes.
+
+The normalization\footnote{Please note that this is not the exact normalization. This is assuming that the altitude distribution does not depend on the azimuth, which is not the case. We only include this here to \textit{help} the overall normalization once we calculate it, which will have to be done by a numerical integral.} constant for the $\alpha_i > \pi/3$ case is
+\begin{equation}
+A = \sqrt{b}\pi\left[ \text{erf}\left(\frac{\pi + 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) + \text{erf}\left(\frac{\pi - 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) \right],
+\end{equation}
+when integrating $\beta-\beta_i$ from $-\pi$ to $\pi$. However, when integrating
+the outgoing secondary azimuth angle $\beta$ with respect to the impact azimuth angle $\beta_i$ when there is an exclusion zone defined by $\pm\Delta\beta_{ez}$, the normalization constant is
+\begin{equation}
+A = \sqrt{b}\pi\left[ \text{erf}\left(\frac{\pi - \Delta\beta_{ez} + 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) + \text{erf}\left(\frac{\pi - \Delta\beta_{ez} - 2(\alpha_i-\alpha_{i,0})}{\sqrt{\pi b}}\right) \right],
+\end{equation}
+which is appropriate for any $\alpha_i > \pi/3$ for an exclusion zone $\Delta\beta_{ez}$ given by (using Eq.~\eqref{eq:cos_a_max_approx} = $\pi/2$)
+\begin{equation}\label{eq:delta_beta_ez}
+\Delta\beta_{ez} =
+\begin{cases}
+\pi\frac{-\alpha_{max,\pi}}{\alpha_{max,0}-\alpha_{max,\pi}} \text{, for $\alpha_{max,\pi} < 0$}\\
+0 \text{, otherwise} 
+\end{cases}
+\end{equation}
+
+For $\alpha_i > \pi/3 = 60^\circ$, in order to integrate over a small azimuth range $\beta\in(\beta_0, \beta_1)$
+%\begin{equation}
+%\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b},
+%\end{equation}
+%we can take the Taylor expansion of the integrand around the midpoint $\beta = \beta_{avg} = \frac{\beta_0+\beta_1}{2}$, such that
+%\begin{align}
+%&\frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+%\sim &\int_{\beta_0}^{\beta_1}d\beta \left[G(\beta_{avg}) + G'(\beta_{avg})(\beta-\beta_{avg}) + G''(\beta_{avg})(\beta-\beta_{avg})^2 + \dots\right].
+%\end{align}
+%We notice that all odd powers of $(\beta-\beta_{avg})$ integrate to zero, so if we keep the second order expansion term $G''$, then our error will be of order\footnote{We gain an extra order from the integration range itself.} $\Delta\beta^5 = (\beta_1-\beta_0)^5$. Therefore, the integral becomes
+%\begin{align}
+%&A\int_{\beta_0}^{\beta_1}d\beta \left[\cos^2\left(\frac{\beta-\beta_i}{2}\right)\right]^{b}\nonumber\\
+%\sim & A\Delta\beta
+%\left[\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)\right]^{b}
+%\left[1 + \frac{b}{12}\Delta\beta^2\left[\frac{b\sin^2\left(\frac{\beta_{avg}-\beta_i}{2}\right) - \frac{1}{2}}{\cos^2\left(\frac{\beta_{avg}-\beta_i}{2}\right)}\right]\right],
+%\end{align}
+%where $A$ is the normalization factor we had before
+%\begin{equation}
+%A = \frac{\Gamma(b+1)}{2\sqrt{\pi}\Gamma(b+1/2)}.
+%\end{equation}\\
+
+For $\alpha_i\le \pi/3 = 60^\circ$, integrating over a small range $\Delta\beta = \beta_1-\beta_0$, the integral is given by
+\begin{align}
+&\frac{1}{2\pi}\int_{\beta_0}^{\beta_1}d\beta \left[\frac{3\alpha_i}{2\pi-3\alpha_i}\cos(\beta-\beta_i)+1\right]\nonumber\\
+=& \frac{1}{2\pi}\left[\Delta\beta + \frac{3\alpha_i}{2\pi-3\alpha_i}\left[\sin(\beta_1-\beta_i) - \sin(\beta_0-\beta_i)\right]\right].
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lunar Regolith Properties}
+
+All of the lunar regolith properties are derived from tables that were generated in Section 3.4.2 of SLS-SPEC-159 (DSNE). Specifically, Table 3.4.2.3-1 contains a summary of the bulk regolith properties. Note that a specific gravity of 3.1 is synonymous to a density of 3100 kg m$^{-3}$, which is used in our model as the average regolith particle density. We assume the regolith density to be the same all over the lunar surface.
+
+For the scaling law given in Equation \eqref{eq:HH11_mass-ejected1}, we model the regolith as sand fly ash \citep{housen2011ejecta} since a porosity of 45 matches the closest to DSNE Table 3.4.2.3-1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Secondary Particle Size Distribution Function}
+
+For relatively small impact sizes (craters $<30-50$ m), we can generally assume the secondary ejecta follows that of the original regolith. The cumulative distribution function (CDF) of the particle sizes can be fit to many observations, as shown in Figure~\ref{fig:Carrier2003_Fig1_particle-size-distribution}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG}
+	\caption{Geotechnical particle size distribution: middle curve showing the average distribution; left-hand and right-hand curves showing $\pm$1 standard deviation \citep{carrier2003particle}.}\label{fig:Carrier2003_Fig1_particle-size-distribution}
+\end{figure}
+
+In order to parameterize the CDF from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, we make a fit to the model equation
+\begin{equation}\label{eq:particle-CDF}
+C_{moon} = 1 - \exp\left(\frac{-1}{ax^b+cx^d}\right),
+\end{equation}
+which is an exponential distribution with two scales defined by $a$ and $c$, with $x$ in units of mm. In \textsf{SciDAVis}, we make the fit with the x-axis on a logarithmic scale to give equal weight to both small and large scaled particles. The results for the curve fit are shown in Figure \ref{fig:Fit-to-CDF}. We found that a simple exponential distribution with a single scale was insufficient, hence the reason we opted for a two-scaled exponential distribution.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{../LaTeX_Report/Fit-to-CDF.PNG}
+	\caption{Non-linear fit of Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution} (the average distribution) with Eq.\ \ref{eq:particle-CDF} in \textsf{SciDAVis}, giving the constants for $a$, $b$, $c$, and $d$.}\label{fig:Fit-to-CDF}
+\end{figure}
+
+To compute the probability distribution function (PDF), we can simply take the derivative of the CDF with respect to $x$, which results in the following equation:
+\begin{equation}
+P_{moon} = -A\frac{abx^{b-1}+cdx^{d-1}}{(ax^b+cx^d)^2}\exp\left(\frac{-1}{ax^b+cx^d}\right),
+\end{equation}
+where $A$ is the normalization constant. In theory, this should be equal to 1, but since we are not taking our particle size from 0 to infinity, we need to compute the value of $A$. If we assume the particle size can range from $0.001$ mm to $10$ mm, then $A = 1.02218$.
+%
+%Since our goal is to compute the particle flux mass spectrum, we need to \textit{count} the number of particles from the PDF that make up the mass of $M$ from Eq.\ \ref{eq:HH11_mass-ejected1}. We first need to know the total volume per complete PDF, which is given by
+%\begin{equation}\label{eq:VPmoon}
+%V_{P_{moon}}(x_{min}) = \frac{4}{3}\pi \int_{x_{min}}^{x_{max}}dx x^3 P_{moon}(x),
+%\end{equation}
+%where $x_{min} = 0.001$ mm and $x_{max} = 10$ mm. An exact analytic solution of Eq.\ \ref{eq:VPmoon} is quite difficult, but we notice that the integrand $x^3 P_{moon}(x)$ very closely resembles a linear equation within the desired range, see Figure \ref{fig:Fit-to-x3PDF}.
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.7]{../LaTeX_Report/Fit-to-x3PDF.png}
+%	\caption{Linear fit to the integrand $x^3 P_{moon}(x)$.}\label{fig:Fit-to-x3PDF}
+%\end{figure}
+%
+%Therefore, we make the approximation
+%\begin{equation}
+%x^3 P_{moon}(x) \sim p_0 x + p_1,
+%\end{equation}
+%where $p_0 = 1/11.48$ and $p_1 = 1/232.6$. The total volume of particles with mass greater than $m_{0} = \frac{4}{3}\pi\rho x_{0}^3$ is given by
+%\begin{equation}\label{eq:VPmoon2}
+%V_{P_{moon}}(x_{0}) = \frac{4}{3}\pi \left[\frac{1}{22.96}\left(x_{max}^2 - x_{0}^2\right) - \frac{1}{232.6}\left(x_{max} - x_{0}\right)\right],
+%\end{equation}
+%where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regolith $\rho$, we can then compute the total mass of the particles from the PDF.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ejecta Distance, Speed, and Angle Relations}
+
+
+We would like to relate the distance from the meteorite impact to the secondary ejecta impact site by the secondary ejecta speed $v$ and angle $\gamma$ from zenith. If we assume the Moon is a perfect sphere with no atmosphere, we can calculate this distance by following the elliptical path the ejecta makes. The semi-major axis and eccentricity of the elliptical orbit are given by\footnote{See Eqs.\ 4.30 and 4.32 from http://www.braeunig.us/space/orbmech.htm.}
+\begin{equation}\label{eq:a_of_v}
+\frac{a}{r_m} = \frac{1}{2\left(1-\frac{v^2}{v_{esc}^2}\right)},
+\end{equation}
+where $r_m = 1737.1$ km is the radius of the Moon and $v_{esc} = 2.38$ km/s is the Moon's escape velocity, and
+\begin{equation}\label{eq:e_of_v}
+e = \sqrt{\left(\frac{2v^2}{v_{esc}^2}-1\right)^2\sin^2\gamma + \cos^2\gamma},
+\end{equation}
+where we employed the fact that the gravity of the Moon is $g = GM/r_m^2$ and the escape velocity is related by $v_{esc} = \sqrt{2gr_m}$. The third equation we need gives the location in the elliptical orbit by the angle $\beta$ from the perilune, the semi-major axis $a$, and the eccentricity $e$ by
+\begin{equation}\label{eq:r_elliptical_orbit}
+r = \frac{a(1-e^2)}{1+e\cos\beta}.
+\end{equation}
+Solving for $\cos\beta$ in Eq.\ \ref{eq:r_elliptical_orbit}, we have
+\begin{equation}\label{eq:cos_elliptical_orbit}
+\cos\beta = \frac{1}{e}\left(\frac{a(1-e^2)}{r}-1\right).
+\end{equation}
+In addition, we also need the equation for $\sin\beta$, which is given by (using a right triangle)
+\begin{equation}
+\sin\beta = \frac{1}{e}\sqrt{e^2-\left[\frac{a(1-e^2)}{r}-1\right]^2},
+\end{equation}
+so that $\tan\beta$ is
+\begin{equation}\label{eq:tan_beta}
+\tan\beta = \frac{\sqrt{e^2-\left[\frac{a(1-e^2)}{r}-1\right]^2}}{\frac{a(1-e^2)}{r}-1}.
+\end{equation}
+
+We found that the distance the secondary ejecta travels is given by the arc length of Moon the orbit travels greater than the radius of the Moon:
+\begin{equation}\label{eq:D}
+D = 2(\pi-\beta)r_m,
+\end{equation}
+or solving for the angle $\beta$,
+\begin{equation}
+\beta = \pi - \frac{D}{2r_m}.
+\end{equation}
+Using Eqs.\ \ref{eq:a_of_v} and \ref{eq:e_of_v}, we can write
+\begin{equation}
+\frac{a}{r_m}(1-e^2) = 2\frac{v^2}{v_{esc}^2}\sin^2\gamma,
+\end{equation}
+so Eq.\ \ref{eq:tan_beta} becomes \citep[c.f., Eq.\ (1) of][]{vickery1986size}
+\begin{equation}\label{eq:ejecta_distance}
+\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v^2}{v_{esc}^2}\sin\gamma\cos\gamma}{1-2\frac{v^2}{v_{esc}^2}\sin^2\gamma} = \frac{\frac{v^2}{v_{esc}^2}\sin(2\gamma)}{\frac{v^2}{v_{esc}^2}[\cos(2\gamma)-1]+1}
+=\frac{2\frac{v^2}{v_{esc}^2}\tan\gamma}{1+(1-2\frac{v^2}{v_{esc}^2})\tan^2\gamma}.
+\end{equation}
+
+
+
+
+%Therefore, we insert Eqs.\ \ref{eq:a_of_v}, \ref{eq:e_of_v}, and \ref{eq:D} into Eq.\ \ref{eq:cos_elliptical_orbit}, so that we now have the distance as a function of ejecta speed and angle from the zenith
+%\begin{equation}\label{eq:ejecta_distance}
+%\cos\left(\frac{D}{2r_m}\right) = \frac{1 - \frac{2v^2}{v_{esc}^2}\sin^2\gamma}{\sqrt{\left(1-\frac{2v^2}{v_{esc}^2}\right)^2\sin^2\gamma + \cos^2\gamma}}.
+%\end{equation}
+%Solving for the ejecta speed $v$, we can rewrite Eq.\ \ref{eq:ejecta_distance} in terms of the ejecta distance $D$ and zenith angle $\gamma$
+%\begin{equation}
+%\frac{v^2}{v_{esc}^2} = \frac{1}{2}\frac{\sin^2\left(\frac{D}{2r_m}\right)}{\cos^2\left(\frac{D}{2r_m}\right) - \sin^2\gamma}\left[\cot\left(\frac{D}{2r_m}\right)\cot\gamma - 1\right].
+%\end{equation}
+% Run plotSpeedAngleDistance.py
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.85]{../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png}
+	\caption{The color gradient shows the distance a projectile goes with a given ejected speed and zenith angle. The cyan dashed line gives the optimal angle for a given speed to reach the furthest distance, i.e., Eq.\ \eqref{eq:opt_angle}. The red dashed line shows for which pairs of speeds and zenith angles are required to hit the antipodal point. As an example, all ejecta with speed and angle pairs between the two black curves will reach a location between 0.05 and 0.06 lunar circumference units away, using Eq.~\eqref{eq:speed_asof_distance_angle}.}\label{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}
+\end{figure}
+
+
+
+For $D \ll 2r_m$, the optimum angle that gives the smallest velocity needed is $45^\circ$. In other words, for a given velocity, the greatest distance is found by taking $\gamma = 45^\circ$. However, if the distance $D$ is roughly the same order as the diameter of the Moon $2r_m$, ($D > 0.01\times 2r_m$), then the optimal angle from zenith is greater than $45^\circ$, i.e.\ a shallower angle to the horizon. This is because at large velocities, the curvature of the Moon comes into play. For larger velocities, there are also angles $\gamma$ that cannot reach a distance $D$. Allowable angles (in radians) that can travel a distance $D$ are defined by
+\begin{equation}
+\gamma > \frac{D}{4r_m}.
+\end{equation}
+In other words, the maximum distance the ejecta can reach for a given angle is
+\begin{equation}
+D = 4\gamma r_m.
+\end{equation}
+For example, from this equation we can conclude that for $\gamma < 45^\circ$, the ejecta will not reach the antipodal point, see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}.
+
+
+Solving for $v$ we have
+%\begin{equation}
+%\frac{v^2}{v_{esc}^2} = \left[1-\cos(2\gamma)+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)\right]^{-1}
+%\end{equation}
+\begin{equation}\label{eq:speed_asof_distance_angle}
+\frac{v}{v_{esc}} = \frac{+1}{\sqrt{\sin(2\gamma)\left(\cot\left(\frac{D}{2r_m}\right)+\tan\gamma\right)}}
+= \frac{+1}{\sqrt{1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)-\cos(2\gamma)}}.
+\end{equation}
+We can also solve for the zenith angle $\gamma$, given by
+\begin{equation}\label{eq:gammaVs_V_D}
+\cot\gamma = x^2\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{x^4\cot^2\left(\frac{D}{2r_m}\right) + (2x^2-1)},
+\end{equation}
+where $x = v/v_{esc}$. Solving for the discriminant, the minimum $x$ can be for a given distance $D$ is
+\begin{equation}
+x_{min}^2 = \tan^2\left(\frac{D}{2r_m}\right)\left[\csc\left(\frac{D}{2r_m}\right)-1\right].
+\end{equation}
+Plugging into Equation \ref{eq:gammaVs_V_D}, the optimal angle from zenith is given by
+\begin{equation}\label{eq:opt_angle}
+\cot\gamma_{opt} = \sec\left(\frac{D}{2r_m}\right) - \tan\left(\frac{D}{2r_m}\right).
+\end{equation}
+In terms of $x$, we have
+\begin{equation}
+\cos(2\gamma_{opt}) = \frac{x^2}{x^2-1}.
+\end{equation}
+Once $D > \pi r_m$, the optimal angle is $\gamma = 90^\circ$, i.e., parallel to the horizon. For small distances $D \ll 2r_m$, the optimal angle is $\gamma = 45^\circ$, as mentioned above.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Distance and Bearing}\label{ssec:Distance_and_Bearing}
+% see https://www.movable-type.co.uk/scripts/latlong.html
+
+Given two latitude-longitude points on a sphere, $(\phi_1, \theta_1)$ and $(\phi_2, \theta_2)$, we can compute the distance and bearing following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
+
+The distance D is given by the equation
+\begin{equation}\label{eq:shortdistance-between-latlon-points}
+\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}},
+\end{equation}
+where $a$ is given by
+\begin{equation}
+a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
+\end{equation}
+for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Solving for the distance and simplifying, we have
+\begin{equation}
+D = 2r_m\arcsin(\sqrt{a}),
+\end{equation}
+or
+\begin{equation}
+D = 2r_m\arccos(\sqrt{1-a}).
+\end{equation}
+
+Other useful expressions involving trigonometric functions of $D/r_m$ are
+\begin{align}
+\sin(D/r_m) &= 2\sqrt{a(1-a)},\\
+\cos(D/r_m) &= 1-2a,\\
+\tan(D/r_m) &= \frac{2\sqrt{a(1-a)}}{1-2a}.
+\end{align}
+
+Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
+\begin{equation}
+\tan\left(\pi-\frac{D}{2r_m}\right) = -\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}}.
+\end{equation}
+
+The initial bearing $\theta$ (from due East) is given by the following equation (assuming the short-distance):
+\begin{equation}\label{eq:initial-bearing-shortdist}
+\tan\theta_{i(1,2)} = \frac{\sin\Delta\lambda\cos\phi_2}{\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda}.
+\end{equation}
+To find the final bearing (assuming the short-distance), swap $\phi_1\longleftrightarrow\phi_2$ and $\lambda_1\longleftrightarrow\lambda_2$ and reverse the angle such that
+\begin{equation}\label{eq:final-bearing-shortdist}
+\theta_{f(1,2)} = (\theta_{i(2,1)} + \pi)\mod 2\pi.
+\end{equation}
+
+In order to compute the initial and final bearing for the long-distance trajectory, add $\pi$ and then mod by $2\pi$ to Eqs.\ \eqref{eq:initial-bearing-shortdist} and \eqref{eq:final-bearing-shortdist}. In other words, swap initial and final bearings $\theta_{i(1,2)}\longleftrightarrow\theta_{f(1,2)}$.\\
+
+We can also get the final latitude and longitude if we are given the distance $D$ and bearing $\theta$ from the starting location. The latitude and longitude are given by
+\begin{align}
+\phi_2 &= \arcsin\left[\sin\phi_1\cos(D/r_m) + \cos\phi_1\sin(D/r_m)\cos\theta\right], \\
+\lambda_2 &= \lambda_1 + \arctan\left[\frac{\sin\theta\sin(D/r_m)\cos\phi_1}{\cos(D/r_m) - \sin\phi_1\sin\phi_2}\right].
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{References}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{agu}
+\bibliography{report}
+
+\end{document}
