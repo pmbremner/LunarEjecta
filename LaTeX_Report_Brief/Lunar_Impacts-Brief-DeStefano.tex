@@ -332,7 +332,7 @@ There are several assumptions and simplications made in our model in order to pr
 \begin{enumerate}
 	\item The ejecta particle distribution is the same as the virgin regolith particle distribution.
 	\begin{itemize}
-		\item Crater sizes that are less than $\sim50$ m will mostly sample the top-most layer of regolith. For impactors that generate larger craters, such as those found in the NEA population, this assumption breaks down. We expect the very large craters ($> 100$ m) to introduce larger bolder sizes not present in the virgin regolith particle distribution. We believe these large bolders to be in the far tail of the distribution function and are very unlikely. Ignoring the large particle population will inflate the smaller particle sizes, which may help to offset the error in the risk, but this offset is not for certain.
+		\item Crater sizes that are less than $\sim50$ m will mostly sample the top-most layer of regolith. For impactors that generate larger craters, such as those found in the NEO population, this assumption breaks down. We expect the very large craters ($> 100$ m) to introduce larger bolder sizes not present in the virgin regolith particle distribution. We believe these large bolders to be in the far tail of the distribution function and are very unlikely. Ignoring the large particle population will inflate the smaller particle sizes, which may help to offset the error in the risk, but this offset is not for certain.
 	\end{itemize}
 	\item The scaling law provided by \cite{housen2011ejecta} is valid for all impactors simulated in our model.
 	\begin{itemize}
@@ -340,7 +340,7 @@ There are several assumptions and simplications made in our model in order to pr
 	\end{itemize}
 	\item The azimuth and zenith angle distribution functions are given empirically and do not depend on the size of impact or speed of impact, only the angle of impact.
 	\begin{itemize}
-		\item The azimuth distribution function follows published work done by ESA contract work \citep{ESABASE2_DebrisRelease10.0}. We modified the azimuth distribution function at highly oblique angles to include information about ejecta patterns that exhibit the so called butterfly patter \citep{shuvalov2011ejecta}. Depending on the latitude of the impact location, there can be a substantial component of the flux that can come into play.
+		\item The azimuth distribution function follows published work done by ESA contract work \citep{ESABASE2_DebrisRelease10.0}. We modified the azimuth distribution function at highly oblique angles to include information about ejecta patterns that exhibit the so called butterfly pattern \citep{shuvalov2011ejecta}. Depending on the latitude of the impact location, there can be a substantial component of the flux that can come into play.
 		\item The zenith angle distribution does have an azimuthal and impact angle dependence that follows fits from \cite{gault1978experimental}. When the outgoing zenith angle tips over (when it goes negative), we ignore this component as an exclusion zone and implicitly include the fluxes in the downstream direction. This avoids having to deal with multi-valued functions which would require special cases to handle.
 		\item Since the integration is complicated enough, we do not want to complicate things by introducing a velocity dependence in the angle distributions. We know this to be the case in reality, but we ignore this dependence for simplicity.
 	\end{itemize}
@@ -657,7 +657,7 @@ for $\beta_i$ the impact azimuth angle + $\pi$.\\
 The piece-wise function defined in Equation \eqref{eq:azm_rival_mandeville} for the azimuth distribution is correctly normalized for impact zenith angles $\alpha_i \le 60^\circ$, however for angles greater than $60^\circ$, the function is not continuous across the boundary $\beta = 2\pi \to 0$. We would also like a continuous function across the piece-wise boundary as well.
 
 
-Our proposed azimuth distribution is as follow. We will use the $\alpha_i \le 60^\circ$ functional form in Equation \eqref{eq:azm_rival_mandeville}, but we will have a different large-angle expression. The new azimuth distribution is defined as
+Our proposed azimuth distribution is as follows. We will use the $\alpha_i \le 60^\circ$ functional form in Equation \eqref{eq:azm_rival_mandeville}, but we will have a different large-angle expression. The new azimuth distribution is defined as
 %\begin{equation}
 %G(\beta) =
 %\begin{cases}
