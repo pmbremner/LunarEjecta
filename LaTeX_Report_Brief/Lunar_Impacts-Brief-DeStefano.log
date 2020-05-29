@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  29 MAY 2020 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  29 MAY 2020 15:45
 entering extended mode
 **./Lunar_Impacts-Brief-DeStefano.tex
 (Lunar_Impacts-Brief-DeStefano.tex
@@ -897,7 +897,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count319
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 30.
+Package hyperref Info: Option `colorlinks' set `true' on input line 34.
 \c@subsubsubsection=\count320
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
@@ -908,24 +908,24 @@ File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 (Lunar_Impacts-Brief-DeStefano.aux)
 \openout1 = `Lunar_Impacts-Brief-DeStefano.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
+3.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -959,7 +959,7 @@ Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count328
-Package hyperref Info: Link coloring ON on input line 69.
+Package hyperref Info: Link coloring ON on input line 73.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -972,9 +972,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
-LaTeX Info: Redefining \nameref on input line 69.
+LaTeX Info: Redefining \ref on input line 73.
+LaTeX Info: Redefining \pageref on input line 73.
+LaTeX Info: Redefining \nameref on input line 73.
  (Lunar_Impacts-Brief-DeStefano.out)
 (Lunar_Impacts-Brief-DeStefano.out)
 \@outlinefile=\write4
@@ -985,17 +985,18 @@ LaTeX Info: Redefining \nameref on input line 69.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 69.
+ on input line 73.
 
-(Lunar_Impacts-Brief-DeStefano.toc [1
-
-{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+(Lunar_Impacts-Brief-DeStefano.toc)
 \tf@toc=\write5
 \openout5 = `Lunar_Impacts-Brief-DeStefano.toc'.
 
- (Lunar_Impacts-Brief-DeStefano.lof
+ [1
+
+{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Lunar_I
+mpacts-Brief-DeStefano.lof
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 1.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 2.
 )
 \tf@lof=\write6
 \openout6 = `Lunar_Impacts-Brief-DeStefano.lof'.
@@ -1006,181 +1007,230 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 \openout7 = `Lunar_Impacts-Brief-DeStefano.lot'.
 
  [2] [3]
-<../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG, id=231, 694.84593pt x 
+Overfull \hbox (0.70547pt too wide) in paragraph at lines 126--127
+\OT1/phv/m/n/10 NASA. The MEM com-putes angular-velocity flux dis-tri-bu-tions 
+for a pro-vided ephemeris
+ []
+
+[1
+
+]
+<../LoDensity018_lat0.png, id=249, 462.528pt x 346.896pt>
+File: ../LoDensity018_lat0.png Graphic file (type png)
+<use ../LoDensity018_lat0.png>
+Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 138.
+(pdftex.def)             Requested size: 149.81396pt x 112.35875pt.
+<../LoDensity036_lat90.png, id=251, 462.528pt x 346.896pt>
+File: ../LoDensity036_lat90.png Graphic file (type png)
+<use ../LoDensity036_lat90.png>
+Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 145.
+(pdftex.def)             Requested size: 149.81396pt x 112.35875pt.
+<../HiDensity018_lat0.png, id=252, 462.528pt x 346.896pt>
+File: ../HiDensity018_lat0.png Graphic file (type png)
+<use ../HiDensity018_lat0.png>
+Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 153.
+(pdftex.def)             Requested size: 149.81396pt x 112.35875pt.
+<../HiDensity036_lat90.png, id=253, 462.528pt x 346.896pt>
+File: ../HiDensity036_lat90.png Graphic file (type png)
+<use ../HiDensity036_lat90.png>
+Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 160.
+(pdftex.def)             Requested size: 149.81396pt x 112.35875pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2]
+<../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG, id=271, 694.84593pt x 
 472.76625pt>
 File: ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type
  png)
 <use ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: ../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG
-  used on input line 132.
+  used on input line 191.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../LaTeX_Report/Fit-to-MEM_low_dens.PNG, id=237, 432.86719pt x 157.33781pt>
+<../LaTeX_Report/Fit-to-MEM_low_dens.PNG, id=276, 432.86719pt x 157.33781pt>
 File: ../LaTeX_Report/Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use ../LaTeX_Report/Fit-to-MEM_low_dens.PNG>
 Package pdftex.def Info: ../LaTeX_Report/Fit-to-MEM_low_dens.PNG  used on input
- line 140.
-(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+ line 198.
+(pdftex.def)             Requested size: 346.2942pt x 125.8704pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../LaTeX_Report/Fit-to-MEM_high_dens.PNG, id=242, 432.11438pt x 155.83218pt>
+<../LaTeX_Report/Fit-to-MEM_high_dens.PNG, id=281, 432.11438pt x 155.83218pt>
 File: ../LaTeX_Report/Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use ../LaTeX_Report/Fit-to-MEM_high_dens.PNG>
 Package pdftex.def Info: ../LaTeX_Report/Fit-to-MEM_high_dens.PNG  used on inpu
-t line 146.
-(pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
+t line 204.
+(pdftex.def)             Requested size: 345.69196pt x 124.66591pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[1
-
-]
-<../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=263, 428.35031
+[3 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity018_lat0
+.png> <../HiDensity036_lat90.png>]
+<../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=302, 428.35031
 pt x 321.45094pt>
 File: ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file 
 (type png)
 <use ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: ../LaTeX_Report/MEM_UG_Fig2.1_partile-mass-distributio
-n.PNG  used on input line 162.
+n.PNG  used on input line 220.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2 <../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG> <../LaTeX_Report/Fi
-t-to-MEM_low_dens.PNG>] [3 <../LaTeX_Report/Fit-to-MEM_high_dens.PNG> <../LaTeX
-_Report/MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
-<../LaTeX_Report/Fit-to-D_Grun.PNG, id=284, 326.72063pt x 167.87718pt>
+[4 <../LaTeX_Report/MEM_UG_Fig2.5_density-distribution.PNG> <../LaTeX_Report/Fi
+t-to-MEM_low_dens.PNG>]
+<../LaTeX_Report/Fit-to-D_Grun.PNG, id=316, 326.72063pt x 167.87718pt>
 File: ../LaTeX_Report/Fit-to-D_Grun.PNG Graphic file (type png)
 <use ../LaTeX_Report/Fit-to-D_Grun.PNG>
 Package pdftex.def Info: ../LaTeX_Report/Fit-to-D_Grun.PNG  used on input line 
-179.
+237.
 (pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
- [4 <../LaTeX_Report/Fit-to-D_Grun.PNG>]
-<../NEA_Brown/vmass.png, id=310, 587.5551pt x 441.5697pt>
-File: ../NEA_Brown/vmass.png Graphic file (type png)
-<use ../NEA_Brown/vmass.png>
-Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 237.
-(pdftex.def)             Requested size: 305.53041pt x 229.61755pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-63.
+[5 <../LaTeX_Report/Fit-to-MEM_high_dens.PNG> <../LaTeX_Report/MEM_UG_Fig2.1_pa
+rtile-mass-distribution.PNG>] [6 <../LaTeX_Report/Fit-to-D_Grun.PNG>]
+<../NEA_Brown/vmass.png, id=348, 587.5551pt x 441.5697pt>
+File: ../NEA_Brown/vmass.png Graphic file (type png)
+<use ../NEA_Brown/vmass.png>
+Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 295.
+(pdftex.def)             Requested size: 293.77682pt x 220.7843pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../LaTeX_Report/example_igloo.png, id=350, 677.53125pt x 244.5135pt>
+File: ../LaTeX_Report/example_igloo.png Graphic file (type png)
+<use ../LaTeX_Report/example_igloo.png>
+Package pdftex.def Info: ../LaTeX_Report/example_igloo.png  used on input line 
+308.
+(pdftex.def)             Requested size: 338.76479pt x 122.25644pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7] [8 <../NEA_Brown/vmass.png> <../LaTeX_Report/example_igloo.png>]
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
+35.
+
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-[5] [6 <../NEA_Brown/vmass.png>] [7] [8] [9] [10]
-<../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png, id=402, 462.528pt x 346.896p
+[9] [10] [11] [12]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13]
+<../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png, id=456, 462.528pt x 346.896p
 t>
 File: ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png  used
- on input line 446.
+ on input line 518.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11] [12 <../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 581--583
+ [14 <../LaTeX_Report/ExlusionRange_vs_ImpactAngle.png>] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 653--655
 
  []
 
-[14]
+[17]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 618.
- [15]
-<../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG, id=485, 889.0
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 690.
+ [18]
+<../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG, id=537, 889.0
 7156pt x 624.08156pt>
 File: ../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG Graphic f
 ile (type png)
 <use ../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG>
 Package pdftex.def Info: ../LaTeX_Report/Carrier2003_Fig1_particle-size-distrib
-ution.PNG  used on input line 679.
+ution.PNG  used on input line 751.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../LaTeX_Report/Fit-to-CDF.PNG, id=492, 357.58594pt x 159.59625pt>
+<../LaTeX_Report/Fit-to-CDF.PNG, id=544, 357.58594pt x 159.59625pt>
 File: ../LaTeX_Report/Fit-to-CDF.PNG Graphic file (type png)
 <use ../LaTeX_Report/Fit-to-CDF.PNG>
-Package pdftex.def Info: ../LaTeX_Report/Fit-to-CDF.PNG  used on input line 691
+Package pdftex.def Info: ../LaTeX_Report/Fit-to-CDF.PNG  used on input line 763
 .
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16] [17 <../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG> <../
-LaTeX_Report/Fit-to-CDF.PNG>] [18]
-<../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=531, 462.528pt
+[19 <../LaTeX_Report/Carrier2003_Fig1_particle-size-distribution.PNG>] [20 <../
+LaTeX_Report/Fit-to-CDF.PNG>]
+<../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=572, 462.528pt
  x 346.896pt>
 File: ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file 
 (type png)
 <use ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: ../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngl
-e.png  used on input line 787.
+e.png  used on input line 859.
 (pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
-Overfull \hbox (18.15065pt too wide) in paragraph at lines 787--788
+Overfull \hbox (18.15065pt too wide) in paragraph at lines 859--860
  [][] 
  []
 
-[19 <../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 876--877
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21] [22 <../LaTeX_Report/Distance_vs_EjectaSpeed_and_ZenithAngle.png>]
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 948--949
 
  []
 
-[21] (Lunar_Impacts-Brief-DeStefano.bbl) [22
+[24] (Lunar_Impacts-Brief-DeStefano.bbl) [25
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 893.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 893.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 965.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 965.
 
 (Lunar_Impacts-Brief-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 893.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 893.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 965.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 965.
 Package rerunfilecheck Info: File `Lunar_Impacts-Brief-DeStefano.out' has not c
 hanged.
-(rerunfilecheck)             Checksum: A440D6A5AEF5F8E6273B59FE4F376487;1941.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 893.
+(rerunfilecheck)             Checksum: 045BB0AFF981DDDB5E6A11A78F8F021F;1888.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 965.
  ) 
 Here is how much of TeX's memory you used:
- 31576 strings out of 480799
- 726348 string characters out of 2905519
- 1122423 words of memory out of 3000000
- 46834 multiletter control sequences out of 15000+200000
- 558612 words of font info for 73 fonts, out of 3000000 for 9000
+ 31642 strings out of 480799
+ 727879 string characters out of 2905519
+ 1121378 words of memory out of 3000000
+ 46884 multiletter control sequences out of 15000+200000
+ 560372 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,12n,98p,925b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
 pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
 blic/mathabx/dpi600\mathb7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
-s/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\
-MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/P
-rogram Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKT
-eX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/M
-iKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roamin
-g/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-Brief-DeStefano.pdf (25 pages, 973245 bytes).
+s/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\AMD-Y500\AppData\Local\M
+iKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha7.pk> <C:\U
+sers\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\ma
+tha10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppDat
+a/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/App
+Data/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/
+AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Lunar_Impacts-Brief-DeStefano.pdf (28 pages, 1128060 bytes).
 PDF statistics:
- 740 PDF objects out of 1000 (max. 8388607)
- 185 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 797 PDF objects out of 1000 (max. 8388607)
+ 194 named destinations out of 1000 (max. 500000)
+ 280 words of extra memory for PDF output out of 10000 (max. 10000000)
 

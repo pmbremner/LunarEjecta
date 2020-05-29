@@ -6,44 +6,44 @@ The style file: agu.bst
 Reallocating 'name_of_file' (item size: 1) to 23 items.
 Database file #1: ../LaTeX_Report/report.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 10 entries,
+You've used 11 entries,
             3075 wiz_defined-function locations,
-            1134 strings with 10864 characters,
-and the built_in function-call counts, 9919 in all, are:
-= -- 1156
-> -- 272
-< -- 11
-+ -- 162
-- -- 66
-* -- 571
-:= -- 846
-add.period$ -- 10
-call.type$ -- 10
-change.case$ -- 52
-chr.to.int$ -- 10
-cite$ -- 30
-duplicate$ -- 1097
-empty$ -- 553
-format.name$ -- 94
-if$ -- 2001
+            1139 strings with 11040 characters,
+and the built_in function-call counts, 10269 in all, are:
+= -- 1177
+> -- 283
+< -- 12
++ -- 166
+- -- 69
+* -- 595
+:= -- 894
+add.period$ -- 11
+call.type$ -- 11
+change.case$ -- 56
+chr.to.int$ -- 11
+cite$ -- 33
+duplicate$ -- 1134
+empty$ -- 587
+format.name$ -- 98
+if$ -- 2069
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 101
-newline$ -- 37
-num.names$ -- 40
-pop$ -- 470
+missing$ -- 108
+newline$ -- 40
+num.names$ -- 44
+pop$ -- 487
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 45
 quote$ -- 0
-skip$ -- 630
+skip$ -- 643
 stack$ -- 0
-substring$ -- 446
-swap$ -- 941
+substring$ -- 449
+swap$ -- 954
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
+type$ -- 99
 warning$ -- 0
-while$ -- 58
+while$ -- 61
 width$ -- 0
-write$ -- 116
+write$ -- 126

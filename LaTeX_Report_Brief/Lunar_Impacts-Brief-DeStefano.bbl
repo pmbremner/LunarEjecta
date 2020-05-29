@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -15,6 +15,11 @@ Brown, P., R.~Spalding, D.~O. ReVelle, E.~Tagliaferri, and S.~Worden, The flux
 Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal
   of Geotechnical and Geoenvironmental Engineering}, \textit{129}(10),
   956--959, 2003.
+
+\bibitem[{\textit{Cour-Palais}(1969)}]{cour1969meteoroid}
+Cour-Palais, B.~G., Meteoroid environment model 1969 (near earth to lunar
+  surface), nasa sp-8013, \textit{National Aeronautics and Space
+  Administration, Washington, DC}, 1969.
 
 \bibitem[{\textit{Gault and Wedekind}(1978)}]{gault1978experimental}
 Gault, D.~E., and J.~A. Wedekind, Experimental studies of oblique impact, in
