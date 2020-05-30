@@ -93,7 +93,7 @@ public:
 		this->H_init_normalization();
 
 		// this is a test
-		SpeedZenithIntegration = new lunarEjecta_SpeedZenithIntegration(1100.E3 , 1200.E3, new_radius, new_escapeSpeed, 10, 10);
+		SpeedZenithIntegration = new lunarEjecta_SpeedZenithIntegration(1100.E3, 1200.E3, new_radius, new_escapeSpeed, 10, 10);
 	}
 
 	~lunarEjecta_Assembly() {

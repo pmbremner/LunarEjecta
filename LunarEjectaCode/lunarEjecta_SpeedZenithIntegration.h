@@ -22,8 +22,16 @@ struct set
 	vector<coord> P1;
 };
 
-
+// EL = Edge Left
+// ER = Edge Right
+// EU = Edge Up
+// ED = Edge Down
 enum cellEdgeType {EL, ER, EU, ED};
+
+// NUL = Node Up Left
+// NUR = Node Up Right
+// NDL = Node Down Left
+// NDR = Node Down Right
 enum cellNodeType {NUL, NUR, NDL, NDR};
 
 struct grid
@@ -35,9 +43,9 @@ struct grid
 
 struct cells
 {
-	set* cEdges[4];
-	set* cNodes[4];
-
+	vector<set> cell;
+	vector<vector<set*>> cEdges;
+	vector<vector<set*>> cNodes;
 };
 
 
@@ -54,8 +62,8 @@ public:
 		                               int new_Nv);
 	~lunarEjecta_SpeedZenithIntegration();
 
-	inline int cIdx(int ix, int jv);
-	inline int gIdx(int ix, int jv);
+	inline int cIdx(int ix, int jv); // Nv-1, j inner loop, for cell and VE
+	inline int gIdx(int ix, int jv); // Nv, j inner loop, for HE, NN
 
 private:
 
@@ -71,13 +79,20 @@ private:
 		          double vMin,
 		          double vMax);
 
+	void initCell(cells* c,
+		          grid* g,
+		          int Nx,
+		          int Nv);
+
 	void initSet(set* s, double x, double v);
+
+	void printSetLoc(set* s);
 
 	void deleteGrid(grid* g);
 
-	vector<cells> region1Cells;
-	vector<cells> region2Cells;
-	vector<cells> region3Cells;
+	cells region1Cells;
+	cells region2Cells;
+	cells region3Cells;
 
 	grid region1Grid;
 	grid region2Grid;

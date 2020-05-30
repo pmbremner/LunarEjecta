@@ -47,7 +47,7 @@ plt.xlim(0, 90)
 
 #plt.plot(gamma_opt*180.0/np.pi, norm_speed(D_opt, gamma_opt), '--c')
 #ax.annotate('Optimal Angle', xytext=(50, 0.05), xy=(50, 0.05), color='cyan')
-D0 = 0.1
+D0 = 0.01
 D1 = D0*1.5
 
 
@@ -84,5 +84,6 @@ plt.plot(gamma*180.0/np.pi, v_d1, 'k')
 #ax.annotate('D = 0.05', xytext=(33, 0.32), xy=(33, 0.32))
 #ax.annotate('D = 0.06', xytext=(33, 0.46), xy=(33, 0.46))
 
-plt.savefig('Distance_vs_EjectaSpeed_and_ZenithAngle.png', dpi=400)
+#plt.savefig('Distance_vs_EjectaSpeed_and_ZenithAngle.png', dpi=400)
+plt.savefig('Distance_vs_EjectaSpeed_and_ZenithAngle1.png', dpi=400)
 plt.show()

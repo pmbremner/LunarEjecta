@@ -95,29 +95,60 @@ lunarEjecta_SpeedZenithIntegration::lunarEjecta_SpeedZenithIntegration
 		cout << "   D1 = " << D1 << endl; 
 		initGrid(&region1Grid, Nx_R1, Nv, xMin, x_at_vMinD0, vMinD0, vMax);
 
+		cout << " Init cells in Region 1: \n";
+		initCell(&region1Cells, &region1Grid, Nx_R1, Nv);
+
 		cout << " Init grid in Region 2: \n";
 		cout << "   D0 = " << D0 << endl; 
 		cout << "   D1 = " << D1 << endl; 
 		initGrid(&region2Grid, Nx_R2, Nv, x_at_vMinD0, x_at_vMinD1, vMinD0, vMax);
 
+		cout << " Init cells in Region 2: \n";
+		initCell(&region2Cells, &region2Grid, Nx_R2, Nv);
+
 		cout << " Init grid in Region 3: \n";
 		cout << "   D0 = " << D0 << endl; 
 		cout << "   D1 = " << D1 << endl; 
 		initGrid(&region3Grid, Nx_R3, Nv, x_at_vMinD1, xMax, vMinD1, vMax);
+
+		cout << " Init cells in Region 3: \n";
+		initCell(&region3Cells, &region3Grid, Nx_R3, Nv);
 	}
 	else if (regionCase == region_II)
 	{
+		cout << " Init grid in Region 1: \n";
+		cout << "   D0 = " << D0 << endl; 
+		cout << "   D1 = " << D1 << endl; 
+		initGrid(&region1Grid, Nx_R1, Nv, xMin, x_at_vMinD0, vMinD0, vMax);
+
+		cout << " Init cells in Region 1: \n";
+		initCell(&region1Cells, &region1Grid, Nx_R1, Nv);
+
+		cout << " Init grid in Region 2: \n";
+		cout << "   D0 = " << D0 << endl; 
+		cout << "   D1 = " << D1 << endl; 
+		initGrid(&region2Grid, Nx_R2, Nv, x_at_vMinD0, x_at_vMinD1, vMinD0, vMax);
+
+		cout << " Init cells in Region 2: \n";
+		initCell(&region2Cells, &region2Grid, Nx_R2, Nv);
 
 	}
 	else if (regionCase == region_III)
 	{
+		cout << " Init grid in Region 1: \n";
+		cout << "   D0 = " << D0 << endl; 
+		cout << "   D1 = " << D1 << endl; 
+		initGrid(&region1Grid, Nx_R1, Nv, xMin, x_at_vMinD0, vMinD0, vMax);
 
+		cout << " Init cells in Region 1: \n";
+		initCell(&region1Cells, &region1Grid, Nx_R1, Nv);
 	}
 
  	// init cells for each region
-	region1Cells.resize((Nx_R1 - 1) * (Nv - 1));
-	region2Cells.resize((Nx_R2 - 1) * (Nv - 1));
-	region3Cells.resize((Nx_R3 - 1) * (Nv - 1));
+
+	// region1Cells.resize((Nx_R1 - 1) * (Nv - 1));
+	// region2Cells.resize((Nx_R2 - 1) * (Nv - 1));
+	// region3Cells.resize((Nx_R3 - 1) * (Nv - 1));
 
 
 }
@@ -168,6 +199,7 @@ void lunarEjecta_SpeedZenithIntegration::initGrid
 
 	// loop through grid nodes
 	cout << "...init nodes...\n";
+	cout << " Nx by Nv = " << Nx << ' ' << Nv << endl;
 	for (i = 0; i < Nx; ++i)
 	{
 		x = xMin + (xMax - xMin) * i / double(Nx - 1);
@@ -176,10 +208,104 @@ void lunarEjecta_SpeedZenithIntegration::initGrid
 		{
 			v = vMin + (vMax - vMin) * j / double(Nv - 1);
 
-			this->initSet(&(g->node[this->gIdx(i, j)]), x, v);
+			// set the node position (x, v) and corresponding distance
+			initSet(&(g->node[gIdx(i, j)]), x, v);
 		}
 	}
 
+	// loop through grid verticle edges
+	cout << "...init verticle edges...\n";
+	cout << " Nx by Nv = " << Nx << ' ' << Nv-1 << endl;
+	for (i = 0; i < Nx; ++i)
+	{
+		x = xMin + (xMax - xMin) * i / double(Nx - 1);
+
+		for (j = 0; j < Nv - 1; ++j)
+		{   //  the v is the center of the edge
+			v = vMin + (vMax - vMin) * (j + 0.5) / double(Nv - 1);
+
+			// set the vert edges position (x, v) and corresponding distance
+			initSet(&(g->vEdge[cIdx(i, j)]), x, v);
+		}
+	}
+
+	// loop through grid horizonal edges
+	cout << "...init horizontal edges...\n";
+	cout << " Nx by Nv = " << Nx-1 << ' ' << Nv << endl;
+	for (i = 0; i < Nx - 1; ++i)
+	{//  the x is the center of the edge
+		x = xMin + (xMax - xMin) * (i + 0.5) / double(Nx - 1);
+
+		for (j = 0; j < Nv; ++j)
+		{   
+			v = vMin + (vMax - vMin) * j / double(Nv - 1);
+
+			// set the horz edges position (x, v) and corresponding distance
+			initSet(&(g->hEdge[gIdx(i, j)]), x, v);
+		}
+	}
+}
+
+
+
+void lunarEjecta_SpeedZenithIntegration::initCell
+			(cells* c,
+		     grid* g,
+		     int Nx, // # of nodes
+		     int Nv) // # of nodes
+{
+	double x, v;
+	int i, j;
+	// cell set data and edge and node pointers
+	c->cell.resize(  (Nx - 1) * (Nv - 1));
+	c->cEdges.resize((Nx - 1) * (Nv - 1));
+	c->cNodes.resize((Nx - 1) * (Nv - 1));
+
+	// loop through cells, linking the pointers for nodes and edges in each cell
+	cout << "...init cells...\n";
+	cout << " Nx by Nv = " << Nx-1 << ' ' << Nv-1 << endl;
+	for (i = 0; i < Nx - 1; ++i)
+	{
+		x = g->hEdge[gIdx(i, 0)].loc.x;
+
+		for (j = 0; j < Nv - 1; ++j)
+		{   //  the v is the center of the edge
+			v = g->vEdge[cIdx(0, j)].loc.y;
+
+			// set the cell position (x, v) and corresponding distance
+			initSet(&(c->cell[cIdx(i, j)]), x, v);
+
+			// init the 4 pointers for each the nodes and edges
+			c->cNodes[cIdx(i, j)].resize(4);
+			c->cEdges[cIdx(i, j)].resize(4);
+
+			// link nodes
+			c->cNodes[cIdx(i, j)][NUL] = &(g->node[gIdx(i  , j+1)]);
+			c->cNodes[cIdx(i, j)][NUR] = &(g->node[gIdx(i+1, j+1)]);
+			c->cNodes[cIdx(i, j)][NDL] = &(g->node[gIdx(i  , j  )]);
+			c->cNodes[cIdx(i, j)][NDR] = &(g->node[gIdx(i+1, j  )]);
+
+			// // check locations
+			// cout << "...checking linked node locations...\n";
+			// printSetLoc(c->cNodes[cIdx(i, j)][NUL]);
+			// printSetLoc(c->cNodes[cIdx(i, j)][NUR]);
+			// printSetLoc(c->cNodes[cIdx(i, j)][NDL]);
+			// printSetLoc(c->cNodes[cIdx(i, j)][NDR]);
+
+			// link edges
+			c->cEdges[cIdx(i, j)][EL] = &(g->vEdge[cIdx(i  , j  )]);
+			c->cEdges[cIdx(i, j)][ER] = &(g->vEdge[cIdx(i+1, j  )]);
+			c->cEdges[cIdx(i, j)][EU] = &(g->hEdge[gIdx(i  , j+1)]);
+			c->cEdges[cIdx(i, j)][ED] = &(g->hEdge[gIdx(i  , j  )]);
+
+			// // check locations
+			// cout << "...checking linked edge locations...\n";
+			// printSetLoc(c->cEdges[cIdx(i, j)][EL]);
+			// printSetLoc(c->cEdges[cIdx(i, j)][ER]);
+			// printSetLoc(c->cEdges[cIdx(i, j)][EU]);
+			// printSetLoc(c->cEdges[cIdx(i, j)][ED]);
+		}
+	}
 }
 
 
@@ -187,9 +313,13 @@ void lunarEjecta_SpeedZenithIntegration::initSet(set* s, double x, double v) {
 	s->loc.x = x;
 	s->loc.y = v;
 
-	s->dist = this->H_calcDist(x, v);
+	s->dist = H_calcDist(x, v);
 
-	cout << " x, v, D | " << x << ' ' << v << ' ' << s->dist << endl;
+	//cout << " x, v, D | " << x << ' ' << v << ' ' << s->dist << endl;
+}
+
+void lunarEjecta_SpeedZenithIntegration::printSetLoc(set* s) {
+	cout << " x = " << s->loc.x << '\t' << s->loc.y << endl;
 }
 
 void lunarEjecta_SpeedZenithIntegration::deleteGrid(grid* g) {
