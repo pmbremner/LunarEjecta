@@ -40,18 +40,26 @@ public:
 	// the complete integrand is defined in here, to avoid weird function pointer stuff with classes
 	double integrand(double x, // location of center
 		             double y, //  of eval
-		             double dx, // width of eval in x
-		             double dy, // width of eval in y
-		             double<vector>& vv); // other params needed (should pack beforehand)
+		             double Dx, // width of eval in x
+		             double Dy, // width of eval in y
+		             vector<double>& vv); // other params needed (should pack beforehand)
 
+	void printQuarryPoints();
+
+	void printQuarryPointsIfEval();
 
 private:
 
 	void h_increaseLevel(); // from levelCur -> levelCur++
-	void h_evalLevel(int lev);
+	void h_evalLevel_reduce(int lev);
+	double h_renormReduce(int lev, double dx, double dy);
+	//double h_allReduce();
 
-	void h_initSet(set* s);
-	int hh_getNumQuarryPoints(int lev);
+	void hh_initSet(set* s, double x, double y);
+	int hh_getNumQuarryPointsTotal(int lev);
+	int hh_getNumQuarryPointsAtLevel(int lev);
+	void hh_printSetPoint(set* s);
+	double HH_calcDist(double x, double v);
 
 	// normalized units
 	double xMin;
