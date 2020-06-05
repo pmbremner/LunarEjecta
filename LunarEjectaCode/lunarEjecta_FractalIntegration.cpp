@@ -12,12 +12,17 @@ lunarEjecta_FractalIntegration::lunarEjecta_FractalIntegration
 		 double new_xMax,
 		 double new_yMin,
 		 double new_yMax,
+		 double new_D0,
+		 double new_D1,
 		 double new_epsError)
 {
 	xMin = new_xMin;
 	xMax = new_xMax;
 	yMin = new_yMin;
 	yMax = new_yMax;
+
+	D0 = new_D0;
+	D1 = new_D1;
 
 	epsError = new_epsError;
 
@@ -34,22 +39,6 @@ lunarEjecta_FractalIntegration::lunarEjecta_FractalIntegration
 	h_evalLevel_reduce(levelCur);
 
 	evalIntegral();
-
-	//h_evalLevel_reduce(levelCur);
-
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	// h_increaseLevel();
-	//h_increaseLevel();
-	//h_increaseLevel();
 }
 
 
@@ -57,12 +46,19 @@ lunarEjecta_FractalIntegration::~lunarEjecta_FractalIntegration() {}
 
 // Note, we can probably apply Richardson extrapolation here,
 //  but I'm not sure how the error goes... so maybe later
-double lunarEjecta_FractalIntegration::evalIntegral()
+double lunarEjecta_FractalIntegration::evalIntegral(int new_levMax)
 {
 	double curError = 10.*epsError;
+	//double richarsonSum;
+	
+	if (new_levMax >= 0)
+	{
+		levelMin = (new_levMax < levelMin ? new_levMax : levelMin);
+		levelMax = new_levMax;
+	}
 
 
-	while(levelCur <= levelMin || (curError > epsError && levelCur <= levelMax))
+	while(levelCur <= levelMin || (curError > epsError && levelCur < levelMax))
 	{
 		// increase level and eval the points
 		h_increaseLevel();
@@ -71,11 +67,19 @@ double lunarEjecta_FractalIntegration::evalIntegral()
 		// compute relative error
 		curError = fabs((reducedSum[levelCur] - reducedSum[levelCur-1]) / reducedSum[levelCur]);
 	
-		cout << "***level = " << levelCur << endl;
-		cout << "   sum = " << reducedSum[levelCur] << endl;
-		cout << "   relative error = " << curError << " | " << epsError << endl;
-		cout << "   true error = " << abs((reducedSum[levelCur] - PI/4.)/(PI/4.)) << endl;
+		// richarsonSum = reducedSum[levelCur] + (reducedSum[levelCur] - reducedSum[levelCur-1])
+		// 	         / ( pow(sqrt((pow(4., levelCur+1)-1.)/(pow(4., levelCur)-1.)), 2.) - 1.);
+
+		// cout << "***level = " << levelCur << endl;
+		// cout << "   sum = " << reducedSum[levelCur] << endl;
+		// //cout << "   richarsonSum = " << richarsonSum << endl;
+		// cout << "   relative error = " << curError << " | " << epsError << endl;
+		// //cout << "   true error = " << abs((reducedSum[levelCur] - sin(1.))/(sin(1.))) << endl;
+		// cout << "   true error = " << abs((reducedSum[levelCur] - PI/4.)/(PI/4.)) << endl;
 	}
+
+	cout << " - - - evalIntegral: level = " << levelCur << endl;
+	cout << " - - - relative error " << curError << " | " << epsError << endl;
 
 	return reducedSum[levelCur];
 }
@@ -126,23 +130,23 @@ void lunarEjecta_FractalIntegration::h_increaseLevel()
 	}
 
 	levelCur++;
-	cout << "---level increased to: " << levelCur << endl;
+	//cout << "---level increased to: " << levelCur << endl;
 
 	int Npoints = hh_getNumQuarryPointsAtLevel(levelCur);
 	int NpointsPrev;
-	double dx = (xMax + xMin) / double(2 << levelCur);
-	double dy = (yMax + yMin) / double(2 << levelCur);
+	double dx = (xMax - xMin) / double(2 << levelCur);
+	double dy = (yMax - yMin) / double(2 << levelCur);
 	double x, y;
-	cout << "   dx | dy = " << dx << ' ' << dy << endl;
-	cout << "   Point in level = " << Npoints << endl;
-	cout << "   Point total = " << hh_getNumQuarryPointsTotal(levelCur) << endl;
+	// cout << "   dx | dy = " << dx << ' ' << dy << endl;
+	// cout << "   Point in level = " << Npoints << endl;
+	// cout << "   Point total = " << hh_getNumQuarryPointsTotal(levelCur) << endl;
 
 	quarrySet[levelCur].resize(Npoints);
 
 	if (levelCur == 0) // base case
 	{
-		x = dx;
-		y = dy;
+		x = xMin + dx;
+		y = yMin + dy;
 
 		hh_initSet(&quarrySet[0][0], x, y);
 	}
@@ -192,7 +196,15 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 
 		// Check if we need to evaluate function
 		// this in temporary
-		if(y > sqrt(1.-sqr(x)) && y < cos(x)) {
+		//if(y > sqrt(1.-sqr(x)) && y < cos(x)) {
+		//if( y < cos(x)) {
+		// if(!(quarrySet[levelCur][i].dist >= D0 && quarrySet[levelCur][i].dist <= D1)){
+		// 	cout << " D0, D1 " << D0 << ' ' << D1 << ' ' << (quarrySet[levelCur][i].dist >= D0 && quarrySet[levelCur][i].dist <= D1) << endl;
+		// 	cout << quarrySet[levelCur][i].dist << endl;
+		// }
+		// if(1)
+		if (quarrySet[levelCur][i].dist >= D0 && quarrySet[levelCur][i].dist <= D1)
+		{
 			quarrySet[levelCur][i].isEval = 1;
 			reducedSum[levelCur] += quarrySet[levelCur][i].evalVal;
 		}
@@ -225,7 +237,9 @@ void lunarEjecta_FractalIntegration::hh_initSet(set* s, double x, double y)
 	s->isEval = 0;
 	s->evalVal = 0.0;
 
-	s->dist = y; // this is just for a test
+	s->dist = HH_calcDist(x, y);
+
+	//s->dist = y; // this is just for a test
 	//hh_printSetPoint(s);
 	//HH_calcDist(x, v);
 }

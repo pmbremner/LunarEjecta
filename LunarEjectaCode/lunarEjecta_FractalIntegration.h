@@ -31,11 +31,13 @@ public:
 								   double new_xMax,
 								   double new_yMin,
 								   double new_yMax,
+								   double new_D0,
+								   double new_D1,
 								   double new_epsError);
 	~lunarEjecta_FractalIntegration();
 
 
-	double evalIntegral();
+	double evalIntegral(int new_levMax = -1);
 
 	// the complete integrand is defined in here, to avoid weird function pointer stuff with classes
 	double integrand(double x, // location of center
@@ -66,6 +68,10 @@ private:
 	double xMax;
 	double yMin;
 	double yMax;
+
+	// normalized units
+	double D0;
+	double D1;
 
 	double epsError;
 

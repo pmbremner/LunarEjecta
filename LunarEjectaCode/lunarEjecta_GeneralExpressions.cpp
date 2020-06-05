@@ -12,6 +12,7 @@ void copyVector(vector<double>& xFrom, vector<double>& xTo, int Nx) {
 		xTo[i] = xFrom[i];
 }
 
+
 void linspace(vector<double>& x, double xmin, double xmax, int Nx) {
 	x.resize(Nx);
 	for (int i = 0; i < Nx; ++i)

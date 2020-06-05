@@ -492,6 +492,24 @@ void lunarEjecta_SpeedZenithIntegration::H_getIntersectionType(cells* c, int i, 
 	cout << " EU | " << i << ' ' << j << ' ' << t_EU[0]->P[iD].size() << endl;
 	cout << " ED | " << i << ' ' << j << ' ' << t_ED[0]->P[iD].size() << endl;
 
+	cout << " NUL pos = " << t_NUL[0]->loc.x << ' ' << t_NUL[0]->loc.y << endl;
+	cout << " NUR pos = " << t_NUR[0]->loc.x << ' ' << t_NUR[0]->loc.y << endl;
+	cout << " NDL pos = " << t_NDL[0]->loc.x << ' ' << t_NDL[0]->loc.y << endl;
+	cout << " NDR pos = " << t_NDR[0]->loc.x << ' ' << t_NDR[0]->loc.y << endl;
+
+	if( t_EL[0]->P[iD].size() > 0 ) {
+		cout << "  Intersection Point = " << t_EL[0]->P[iD][0].x << ' ' << t_EL[0]->P[iD][0].y << endl;
+	}
+	if( t_ER[0]->P[iD].size() > 0 ) {
+		cout << "  Intersection Point = " << t_ER[0]->P[iD][0].x << ' ' << t_ER[0]->P[iD][0].y << endl;
+	}
+	if( t_EU[0]->P[iD].size() > 0 ) {
+		cout << "  Intersection Point = " << t_EU[0]->P[iD][0].x << ' ' << t_EU[0]->P[iD][0].y << endl;
+	}
+	if( t_ED[0]->P[iD].size() > 0 ) {
+		cout << "  Intersection Point = " << t_ED[0]->P[iD][0].x << ' ' << t_ED[0]->P[iD][0].y << endl;
+	}
+
 	// if (t_EU[0]->dist == t_NUR[0]->dist)
 	// {
 	// 	/* code */
