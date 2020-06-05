@@ -14,7 +14,8 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 		(vector<double>& new_x,
 		 vector<double>& new_y,
 		 vector<vector<double>>& new_z, // z[Nx][Ny]
-		 int new_iterMax) 
+		 int new_iterMax,
+		 int new_levelMax) 
 {
 	x = &new_x;
 	y = &new_y;
@@ -26,6 +27,14 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 	// }
 
 	iterMax = new_iterMax;
+	levelMax = new_levelMax;
+
+	evalCount_skipped = 0;
+	evalCount_easy = 0;
+	evalCount_hard = 0;
+
+	funcCount_skipped = 0;
+	funcCount = 0;
 }
 
 lunarEjecta_AdaptiveMesh::~lunarEjecta_AdaptiveMesh() {}
@@ -86,6 +95,43 @@ void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
 }
 
 
+double lunarEjecta_AdaptiveMesh::getReducedIntegral()
+{
+	int Nx = (*x).size();
+	int Ny = (*y).size();
+	int i, j;
+	double sum = 0.;
+
+	for (i = 0; i < Nx-1; ++i)
+	{
+		for (j = 0; j < Ny-1; ++j)
+		{
+			sum += (*z)[i][j];
+		}
+	}
+	return sum;
+}
+
+void lunarEjecta_AdaptiveMesh::printEvalCounts()
+{
+	cout << "---lunarEjecta_AdaptiveMesh---\n";
+	cout << "Fractal calls skipped:\n";
+	cout << "---> " << evalCount_skipped << endl;
+	cout << "Fractal calls with 0 max depth:\n";
+	cout << "---> " << evalCount_easy << endl;
+	cout << "Fractal calls with " << levelMax << " max depth:\n";
+	cout << "---> " << evalCount_hard << endl;
+
+	cout << "---lunarEjecta_FractalIntegration---\n";
+	cout << "Function eval counts skipped:\n";
+	cout << "---> " << funcCount_skipped << endl;
+	cout << "Function eval counts total:\n";
+	cout << "---> " << funcCount << endl;
+
+}
+
+
+
 double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		(double xMin,
 		 double xMax,
@@ -100,6 +146,7 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 	vector<bool>   maskD1_node(4);
 
 	double binSum = 0.;
+	double intEval = 0.;
 
 	iter++;
 
@@ -135,11 +182,15 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		// if all nodes below D1 and above D0 (completely inside)
 		if (AND(maskD0_node) ^ AND(maskD1_node))
 		{
-			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.1);
-			return scheme.evalIntegral(0); // max steps = 0, so we can eval the domain right away
+			evalCount_easy++;
+			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.1, 0);
+			intEval = scheme.evalIntegral(); // max steps = 0, so we can eval the domain right away
+			scheme.incEvalCounts(funcCount, funcCount_skipped);
+			return intEval;
 		}
 		else // else, completely outside
 		{
+			evalCount_skipped++;
 			return 0.;
 		}
 	} 
@@ -158,8 +209,11 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		}
 		else // we still have a crossing, so eval integral with max step size at most 10 (maybe lower)
 		{
-			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.01);
-			return scheme.evalIntegral(10);
+			evalCount_hard++;
+			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.01, levelMax);
+			intEval =  scheme.evalIntegral();
+			scheme.incEvalCounts(funcCount, funcCount_skipped);
+			return intEval;
 		}
 	}
 

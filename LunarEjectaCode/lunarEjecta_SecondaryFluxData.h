@@ -133,9 +133,15 @@ public:
 	virtual void updateFlux(double flux, double alt, double azm, double speed) = 0;
 	
 	virtual void saveFluxToFile(string fn) = 0;
+
+	virtual int getNalt() = 0;
+	virtual int getNazm() = 0;
+	virtual int getNvel() = 0;
+
 	void dispOutputType();
 	void dispXScaleType();
 	void dispSetMinMax();
+	void get_xDataPointer(vector<vector<double>>* p_xData);
 
 protected:
 	string outputType; // higher gens will store their type here
@@ -167,6 +173,11 @@ public:
 
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
+
+	int getNalt();
+	int getNazm();
+	int getNvel();
+
 private:
 	vector<double> fraction_GT_m; // size Nx (set up during init)
 };
@@ -187,6 +198,11 @@ public:
 
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
+
+	int getNalt();
+	int getNazm();
+	int getNvel();
+
 private:
 	vector<double> fraction_GT_d; // size new_NSetsXY (set up during init)
 };
@@ -207,6 +223,11 @@ public:
 
 	void updateFlux(double flux, double alt, double azm, double speed);
 	void saveFluxToFile(string fn);
+
+	int getNalt();
+	int getNazm();
+	int getNvel();
+	
 private:
 	int H_getIglooNx(int aRes); // input in units of degrees
 	inline int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees

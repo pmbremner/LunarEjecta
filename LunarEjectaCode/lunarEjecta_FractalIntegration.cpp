@@ -14,7 +14,8 @@ lunarEjecta_FractalIntegration::lunarEjecta_FractalIntegration
 		 double new_yMax,
 		 double new_D0,
 		 double new_D1,
-		 double new_epsError)
+		 double new_epsError,
+		 double new_levelMax)
 {
 	xMin = new_xMin;
 	xMax = new_xMax;
@@ -26,8 +27,11 @@ lunarEjecta_FractalIntegration::lunarEjecta_FractalIntegration
 
 	epsError = new_epsError;
 
-	levelMin = 4;
-	levelMax = 10;
+	evalCount_skipped = 0;
+	evalCount = 0;
+
+	levelMin = 0;
+	levelMax = new_levelMax;
 	levelCur = -1;
 
 	// init size of quarry set and reduced sum, including the last level
@@ -46,19 +50,20 @@ lunarEjecta_FractalIntegration::~lunarEjecta_FractalIntegration() {}
 
 // Note, we can probably apply Richardson extrapolation here,
 //  but I'm not sure how the error goes... so maybe later
-double lunarEjecta_FractalIntegration::evalIntegral(int new_levMax)
+double lunarEjecta_FractalIntegration::evalIntegral()
 {
 	double curError = 10.*epsError;
 	//double richarsonSum;
 	
-	if (new_levMax >= 0)
-	{
-		levelMin = (new_levMax < levelMin ? new_levMax : levelMin);
-		levelMax = new_levMax;
-	}
+	// if (new_levMax >= 0)
+	// {
+	// 	levelMin = (new_levMax < levelMin ? new_levMax : levelMin);
+	// 	levelMax = new_levMax;
+	// }
 
 
-	while(levelCur <= levelMin || (curError > epsError && levelCur < levelMax))
+	//while(levelCur <= levelMin || (levelCur < levelMax && curError > epsError))
+	while(levelCur < levelMax && (levelCur <= levelMin || curError > epsError))
 	{
 		// increase level and eval the points
 		h_increaseLevel();
@@ -78,7 +83,7 @@ double lunarEjecta_FractalIntegration::evalIntegral(int new_levMax)
 		// cout << "   true error = " << abs((reducedSum[levelCur] - PI/4.)/(PI/4.)) << endl;
 	}
 
-	cout << " - - - evalIntegral: level = " << levelCur << endl;
+	cout << " - - - evalIntegral: level = " << levelCur << " | " << levelMax << endl;
 	cout << " - - - relative error " << curError << " | " << epsError << endl;
 
 	return reducedSum[levelCur];
@@ -118,6 +123,20 @@ void lunarEjecta_FractalIntegration::printQuarryPointsIfEval() {
 }
 
 
+void lunarEjecta_FractalIntegration::printEvalCounts()
+{
+	cout << "---lunarEjecta_FractalIntegration---\n";
+	cout << "Eval counts skipped:\n";
+	cout << "---> " << evalCount_skipped << endl;
+	cout << "Eval counts total:\n";
+	cout << "---> " << evalCount << endl;
+}
+
+void lunarEjecta_FractalIntegration::incEvalCounts(int& c, int& sc)
+{
+	c += evalCount;
+	sc += evalCount_skipped;
+}
 
 
 
@@ -140,6 +159,10 @@ void lunarEjecta_FractalIntegration::h_increaseLevel()
 	// cout << "   dx | dy = " << dx << ' ' << dy << endl;
 	// cout << "   Point in level = " << Npoints << endl;
 	// cout << "   Point total = " << hh_getNumQuarryPointsTotal(levelCur) << endl;
+
+//////////////////
+	//fractIntCount += Npoints;
+//////////////////
 
 	quarrySet[levelCur].resize(Npoints);
 
@@ -186,13 +209,13 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 	// init sum to zero
 	reducedSum[levelCur] = 0.0;
 
+	cout << " Npoints = " << Npoints << endl;
+
 	// loop through points at current level
 	for (i = 0; i < Npoints; ++i)
 	{
 		x = quarrySet[levelCur][i].loc.x;
 		y = quarrySet[levelCur][i].loc.y;
-
-		quarrySet[levelCur][i].evalVal = integrand(x, y, dx, dy, v);
 
 		// Check if we need to evaluate function
 		// this in temporary
@@ -205,11 +228,15 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 		// if(1)
 		if (quarrySet[levelCur][i].dist >= D0 && quarrySet[levelCur][i].dist <= D1)
 		{
+			evalCount++;
+			quarrySet[levelCur][i].evalVal = integrand(x, y, dx, dy, v);
 			quarrySet[levelCur][i].isEval = 1;
 			reducedSum[levelCur] += quarrySet[levelCur][i].evalVal;
 		}
 		else
 		{
+			evalCount_skipped++;
+			quarrySet[levelCur][i].evalVal = 0.;
 			quarrySet[levelCur][i].isEval = 0;
 		}
 	}

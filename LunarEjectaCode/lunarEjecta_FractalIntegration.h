@@ -33,11 +33,12 @@ public:
 								   double new_yMax,
 								   double new_D0,
 								   double new_D1,
-								   double new_epsError);
+								   double new_epsError,
+								   double new_levelMax);
 	~lunarEjecta_FractalIntegration();
 
 
-	double evalIntegral(int new_levMax = -1);
+	double evalIntegral();
 
 	// the complete integrand is defined in here, to avoid weird function pointer stuff with classes
 	double integrand(double x, // location of center
@@ -49,6 +50,10 @@ public:
 	void printQuarryPoints();
 
 	void printQuarryPointsIfEval();
+
+	void printEvalCounts();
+
+	void incEvalCounts(int& c, int& sc);
 
 private:
 
@@ -91,6 +96,9 @@ private:
 	int levelMin;
 	int levelMax;
 	int levelCur;
+
+	int evalCount_skipped;
+	int evalCount;
 
 	vector<vector<set>> quarrySet;
 	vector<double> reducedSum; // the sum of all evaluated points

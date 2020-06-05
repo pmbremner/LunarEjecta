@@ -311,6 +311,11 @@ void GeneralIntegralFluxOutput::dispSetMinMax() {
 	}
 }
 
+void GeneralIntegralFluxOutput::get_xDataPointer(vector<vector<double>>* p_xData)
+{
+	p_xData = &xData;
+}
+
 //////////////////////////////////////
 //////////////////////////////////////
 
@@ -327,6 +332,26 @@ MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
 
 
 void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
+
+// since we integrate out the altitude and azimuth,
+//  we just need a reasonable value here
+int MassLimitedIntegralFluxVsMass::getNalt()
+{
+	return 30; // aka, a resolution of 3 degree increments over 0 to 90 degrees
+}
+
+// Again, since we're integrating this out,
+//  we just need a reasonable value
+int MassLimitedIntegralFluxVsMass::getNazm()
+{
+	return 36; // aka, a resolution of 10 degree increments over 0 to 360 degrees
+}
+
+// This is also integrated out
+int MassLimitedIntegralFluxVsMass::getNvel()
+{
+	return 40; 
+}
 
 
 void MassLimitedIntegralFluxVsMass::updateFlux(double flux, double alt, double azm, double speed) {
@@ -364,6 +389,26 @@ SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
 
 
 void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn) {}
+
+// since we integrate out the altitude and azimuth,
+//  we just need a reasonable value here
+int SizeLimitedIntegralFluxVsSpeed::getNalt()
+{
+	return 30; // aka, a resolution of 3 degree increments over 0 to 90 degrees
+}
+
+// Again, since we're integrating this out,
+//  we just need a reasonable value
+int SizeLimitedIntegralFluxVsSpeed::getNazm()
+{
+	return 36; // aka, a resolution of 10 degree increments over 0 to 360 degrees
+}
+
+// This is also integrated out
+int SizeLimitedIntegralFluxVsSpeed::getNvel()
+{
+	return Nx; 
+}
 
 
 void SizeLimitedIntegralFluxVsSpeed::updateFlux(double flux, double alt, double azm, double speed) {
@@ -431,6 +476,23 @@ MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 
 void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
 
+
+int MassLimitedIglooIntegratedFlux::getNalt()
+{
+	return 90/angleRes;
+}
+
+// We shouldn't use this, need to FIX!
+int SizeLimitedIntegralFluxVsSpeed::getNazm()
+{
+	return 0;
+}
+
+// This is also integrated out
+int SizeLimitedIntegralFluxVsSpeed::getNvel()
+{
+	return NSetsXY; 
+}
 
 // same as MEM_iglooAvg::getFlux_atAngleVel
 void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double vel) {

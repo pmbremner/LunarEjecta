@@ -15,13 +15,18 @@ public:
 	lunarEjecta_AdaptiveMesh(vector<double>& new_x,
 		                     vector<double>& new_y,
 		                     vector<vector<double>>& new_z, // z[Nx][Ny]
-							 int new_iterMax);
+							 int new_iterMax,
+							 int new_levelMax);
 	~lunarEjecta_AdaptiveMesh();
 
 	void evalBin(double D0,
 	             double D1);
 
 	void printDataToFile(string fn);
+
+	double getReducedIntegral();
+
+	void printEvalCounts();
 
 private:
 
@@ -45,6 +50,14 @@ private:
 	vector<vector<double>>* z;
 
 	int iterMax;
+	int levelMax;
+	
+	int evalCount_skipped;
+	int evalCount_easy;
+	int evalCount_hard;
+
+	int funcCount_skipped;
+	int funcCount;
 
 };
 

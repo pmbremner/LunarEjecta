@@ -6,6 +6,7 @@ using namespace std;
 #include <cmath>
 #include <iostream>
 
+
 void copyVector(vector<double>& xFrom, vector<double>& xTo, int Nx) {
 	xTo.resize(Nx);
 	for (int i = 0; i < Nx; ++i)
