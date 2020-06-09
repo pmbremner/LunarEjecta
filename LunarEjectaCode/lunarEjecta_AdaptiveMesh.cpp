@@ -11,23 +11,30 @@ using namespace std;
 #include <fstream>
 
 lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
-		(vector<double>& new_x,
-		 vector<double>& new_y,
-		 vector<vector<double>>& new_z, // z[Nx][Ny]
+		(int new_Nx,       // number of cell edges
+		 int new_Ny,       // number of cell edges
 		 int new_iterMax,
 		 int new_levelMax) 
 {
-	x = &new_x;
-	y = &new_y;
-	z = &new_z;
+	cout << " Adaptive Mesh Properties: \n";
 
-	// for (int i = 0; i < x->size(); ++i)
-	// {
-	// 	cout << (*x)[i] << endl;
-	// }
+	Nx = new_Nx;
+	Ny = new_Ny;
 
 	iterMax = new_iterMax;
 	levelMax = new_levelMax;
+
+	cout << "  Nx, Ny = " << Nx << ", " << Ny << endl;
+	cout << "  iterMax, levelMax = " << iterMax << ", " << levelMax << endl;
+
+	// init the grid (cell boundary) arrays (x & y) and eval array (cell centers) (z)
+	x.resize(Nx);
+	y.resize(Ny);
+	z.resize(Nx-1);
+
+	for (int i = 0; i < Nx-1; ++i)
+		z[i].resize(Ny-1);
+
 
 	evalCount_skipped = 0;
 	evalCount_easy = 0;
@@ -43,29 +50,27 @@ lunarEjecta_AdaptiveMesh::~lunarEjecta_AdaptiveMesh() {}
 void lunarEjecta_AdaptiveMesh::evalBin(double D0, double D1)
 {
 	int i, j;
-	int Nx = (*x).size();
-	int Ny = (*y).size();
 
 	double xMin, xMax, yMin, yMax;
 
 	// break up each bin if needed
 	for (i = 0; i < Nx-1; ++i)
 	{
-		xMin = (*x)[i];
-		xMax = (*x)[i+1];
+		xMin = x[i];
+		xMax = x[i+1];
 
 		for (j = 0; j < Ny-1; ++j)
 		{
-			yMin = (*y)[j];
-			yMax = (*y)[j+1];
+			yMin = y[j];
+			yMax = y[j+1];
 
-			(*z)[i][j] = H_r_evalBin(xMin, xMax, yMin, yMax, D0, D1, 0);
+			z[i][j] = H_r_evalBin(xMin, xMax, yMin, yMax, D0, D1, 0);
 
 			cout << i << ' ' << j;
 			cout << "  x-range | y-range | integral = ";
 			cout << xMin << ' ' << xMax << " | ";
 			cout << yMin << ' ' << yMax << " | ";
-			cout << (*z)[i][j] << endl;
+			cout << z[i][j] << endl;
 
 		}
 	}
@@ -77,9 +82,6 @@ void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
 	file.open(fn);
 
 	cout << fn << endl;
-
-	int Nx = (*x).size();
-	int Ny = (*y).size();
 	int i, j;
 
 
@@ -87,7 +89,7 @@ void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
 	{
 		for (j = 0; j < Ny-1; ++j)
 		{
-			file << (*z)[i][j] << ' ';
+			file << z[i][j] << ' ';
 		}
 		file << endl;
 	}
@@ -97,8 +99,6 @@ void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
 
 double lunarEjecta_AdaptiveMesh::getReducedIntegral()
 {
-	int Nx = (*x).size();
-	int Ny = (*y).size();
 	int i, j;
 	double sum = 0.;
 
@@ -106,7 +106,7 @@ double lunarEjecta_AdaptiveMesh::getReducedIntegral()
 	{
 		for (j = 0; j < Ny-1; ++j)
 		{
-			sum += (*z)[i][j];
+			sum += z[i][j];
 		}
 	}
 	return sum;

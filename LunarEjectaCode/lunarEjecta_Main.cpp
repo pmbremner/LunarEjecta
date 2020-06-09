@@ -83,7 +83,8 @@ int main(int argc, char const *argv[])
 		lunarEjecta(sandFlyAsh, DSNE, 0.0, 0.0, 0.0, 2375.89,
 			        50, 72, 1737.1E3, MN_ll,
 		            "../LatRunData", -90.0, 90.0, 2, // 37
-					"run0", 0., 1., 5, linearScale, Nv, vMin, vMax);
+					"run0", 0., 1., 5, linearScale, Nv, vMin, vMax,
+					/*51, 51,*/ 3, 1);
 
 	return 0;
 } 

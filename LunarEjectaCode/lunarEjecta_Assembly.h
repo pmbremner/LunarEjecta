@@ -1,11 +1,13 @@
 #ifndef LUNAREJECTA_ASSEMBLY_H
 #define LUNAREJECTA_ASSEMBLY_H
 
+#include "lunarEjecta_FractalIntegration.h"
+#include "lunarEjecta_AdaptiveMesh.h"
 #include "lunarEjecta_GeneralExpressions.h"
 #include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
-#include "lunarEjecta_FractalIntegration.h"
+
 //#include "lunarEjecta_SpeedZenithIntegration.h"
 
 #include <iostream>
@@ -50,7 +52,13 @@ public:
 		int new_xScale,      // xScaleType = linear or log10
 		int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 		vector<double> new_setMin, // minimum of set range i
-		vector<double> new_setMax) // maximum of set range i
+		vector<double> new_setMax, // maximum of set range i
+
+		/* For lunarEjecta_AdaptiveMesh */
+		//int new_Nx_mesh,  // number of x cell edges
+		//int new_Ny_mesh,  // number of y cell edges
+		int new_maxLevelMesh,    // the division level of the integration mesh
+		int new_maxLevelFractal) // the division level of the integrand-domain probing
 	{
 		cout << "----------------------------------------\n";
 		cout << "lunarEjecta_Assembly template class init \n";
@@ -95,12 +103,11 @@ public:
 
 		///////
 		// init the x bin edges for integration
-		this->H_init_integrationGrid(SecFluxOutputData->getNalt(),
-			                         SecFluxOutputData->getNvel());
+		// this->H_init_integrationGrid(,
+		// 	                         );
 
-
-		SpeedZenithIntegration = new lunarEjecta_AdaptiveMesh(x, y, z, maxLevelMesh, maxLevelFractal);
-		//SpeedZenithIntegration = new lunarEjecta_SpeedZenithIntegration(2.*PI*new_radius * 0.01, 2.*PI*new_radius * 0.015, new_radius, new_escapeSpeed, 15, 15);
+		AdaptiveMesh = new lunarEjecta_AdaptiveMesh(SecFluxOutputData->getNalt(), SecFluxOutputData->getNvel(), new_maxLevelMesh, new_maxLevelFractal);
+		
 	}
 
 	~lunarEjecta_Assembly() {
@@ -109,8 +116,7 @@ public:
 		delete MEMLatDataHi;
 		delete MEMLatDataLo;
 		delete SecFluxOutputData;
-		delete SpeedZenithIntegration;
-		//delete SpeedZenithIntegration;
+		delete AdaptiveMesh;
 	}
 
 	void computeSecondaryFlux() { // All the magic happens here!
@@ -129,6 +135,13 @@ public:
 		}
 	}
 
+
+
+// once these are initialized, they shouldn't need to change since we will always have
+	//  the same resolution throughout the simulation
+	vector<double> x; // x = 1 - cos(zenith), for integration
+	vector<double> y; // y = v/v_esc, for integration
+	vector<vector<double>> z; // z[Nx][Ny]
 
 
 private:
@@ -509,14 +522,9 @@ private:
 	MEM_LatData<genMEMdataHi>*          MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*          MEMLatDataLo;
 	SecondaryFluxData<genOutput>*       SecFluxOutputData;
-	lunarEjecta_AdaptiveMesh*           SpeedZenithIntegration;
+	lunarEjecta_AdaptiveMesh*           AdaptiveMesh;
 	//lunarEjecta_SpeedZenithIntegration* SpeedZenithIntegration;
 
-	// once these are initialized, they shouldn't need to change since we will always have
-	//  the same resolution throughout the simulation
-	vector<double> x; // x = 1 - cos(zenith), for integration
-	vector<double> y; // y = v/v_esc, for integration
-	vector<vector<double>> z; // z[Nx][Ny]
 
 	// A function of impact angle and impact speed, after integrating out impactor density and mass
 	//  for each low and high density populations in MEM

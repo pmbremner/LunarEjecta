@@ -12,9 +12,8 @@ class lunarEjecta_AdaptiveMesh
 {
 public:
 	// new_x and new_y are bin edges
-	lunarEjecta_AdaptiveMesh(vector<double>& new_x,
-		                     vector<double>& new_y,
-		                     vector<vector<double>>& new_z, // z[Nx][Ny]
+	lunarEjecta_AdaptiveMesh(int new_Nx,
+							 int new_Ny,
 							 int new_iterMax,
 							 int new_levelMax);
 	~lunarEjecta_AdaptiveMesh();
@@ -45,9 +44,12 @@ private:
 	bool AND(vector<bool>& m);
 	bool ANDnot(vector<bool>& m);
 
-	vector<double>* x;
-	vector<double>* y;
-	vector<vector<double>>* z;
+	vector<double> x;
+	vector<double> y;
+	vector<vector<double>> z; // z[Nx][Ny]
+
+	int Nx;
+	int Ny;
 
 	int iterMax;
 	int levelMax;

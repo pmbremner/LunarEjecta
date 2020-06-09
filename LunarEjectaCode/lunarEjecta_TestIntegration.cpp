@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 	// lunarEjecta_FractalIntegration integrationTest(0., 1., 0., 1., 0.01, 0.02, 0.0001);
 	// integrationTest.printQuarryPointsIfEval();
 
-	lunarEjecta_AdaptiveMesh integrationScheme(x, y, z, maxLevelMesh, maxLevelFractal);
+	lunarEjecta_AdaptiveMesh integrationScheme(Nx, Ny, maxLevelMesh, maxLevelFractal);
 
 	integrationScheme.evalBin(D0, D1);
 

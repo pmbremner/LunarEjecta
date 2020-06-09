@@ -227,7 +227,7 @@ public:
 	int getNalt();
 	int getNazm();
 	int getNvel();
-	
+
 private:
 	int H_getIglooNx(int aRes); // input in units of degrees
 	inline int H_getIglooJN(int aRes, double azm1, double azm2);// input in units of degrees
@@ -275,6 +275,12 @@ public:
 	void getOutputFilename() {
 		cout << " Output filename = " << filename << endl;
 	}
+
+	int getNalt() { return fluxData[0]->getNalt(); }
+	int getNazm() { return fluxData[0]->getNazm(); }
+	int getNvel() { return fluxData[0]->getNvel(); }
+
+
 private:
 	string filename;
 	vector<genOutput*> fluxData;

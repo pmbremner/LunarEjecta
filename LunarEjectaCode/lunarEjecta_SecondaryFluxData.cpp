@@ -483,13 +483,13 @@ int MassLimitedIglooIntegratedFlux::getNalt()
 }
 
 // We shouldn't use this, need to FIX!
-int SizeLimitedIntegralFluxVsSpeed::getNazm()
+int MassLimitedIglooIntegratedFlux::getNazm()
 {
 	return 0;
 }
 
 // This is also integrated out
-int SizeLimitedIntegralFluxVsSpeed::getNvel()
+int MassLimitedIglooIntegratedFlux::getNvel()
 {
 	return NSetsXY; 
 }
