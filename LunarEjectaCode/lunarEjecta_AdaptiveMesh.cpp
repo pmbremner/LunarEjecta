@@ -11,15 +11,17 @@ using namespace std;
 #include <fstream>
 
 lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
-		(int new_Nx,       // number of cell edges
-		 int new_Ny,       // number of cell edges
+		(int new_Nx,       // number of cell centers
+		 int new_Ny,       // number of cell cetners
 		 int new_iterMax,
 		 int new_levelMax) 
 {
+	int i,j;
 	cout << " Adaptive Mesh Properties: \n";
 
-	Nx = new_Nx;
-	Ny = new_Ny;
+	// note, we are adding 1 here since Nx and Ny represent edges, not cells
+	Nx = new_Nx + 1;
+	Ny = new_Ny + 1;
 
 	iterMax = new_iterMax;
 	levelMax = new_levelMax;
@@ -32,8 +34,25 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 	y.resize(Ny);
 	z.resize(Nx-1);
 
-	for (int i = 0; i < Nx-1; ++i)
+	for (i = 0; i < Nx-1; ++i)
 		z[i].resize(Ny-1);
+
+	// init x (boundaries of x grid)
+	// change of variables, linear in zenith angle
+	for (i = 0; i < Nx; ++i)
+	{
+		x[i] = 2. * sqr(sin(PI/4. * double(i)/double(Nx-1.))); // = 1 - cos(alpha)
+		cout << i << " | x = " << x[i] << endl;
+	}
+
+	// init y (boundaries of y = v/v_esc grid)
+	for (i = 0; i < Ny; ++i)
+		y[i] = double(i) / double(Ny-1.);
+
+	// init z (cell centered, for integral eval data)
+	for (i = 0; i < Nx-1; ++i)
+		for (j = 0; j < Ny-1; ++j)
+			z[i][j] = 0.;
 
 
 	evalCount_skipped = 0;
