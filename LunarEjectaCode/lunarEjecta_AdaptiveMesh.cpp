@@ -66,11 +66,19 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 lunarEjecta_AdaptiveMesh::~lunarEjecta_AdaptiveMesh() {}
 
 
-void lunarEjecta_AdaptiveMesh::evalBin(double D0, double D1)
+void lunarEjecta_AdaptiveMesh::evalBin(double D0,
+	             					   double D1,
+	             					   double new_x_azm,
+	             				       double new_Dbeta,
+	             					   double new_mu)
 {
 	int i, j;
 
 	double xMin, xMax, yMin, yMax;
+
+		x_azm = new_x_azm;
+		Dbeta = new_Dbeta;
+		mu = new_mu;
 
 	// break up each bin if needed
 	for (i = 0; i < Nx-1; ++i)
@@ -203,7 +211,7 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		{
 			evalCount_easy++;
 			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.1, 0);
-			intEval = scheme.evalIntegral(); // max steps = 0, so we can eval the domain right away
+			intEval = scheme.evalIntegral(x_azm, Dbeta, mu); // max steps = 0, so we can eval the domain right away
 			scheme.incEvalCounts(funcCount, funcCount_skipped);
 			return intEval;
 		}
@@ -230,7 +238,7 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		{
 			evalCount_hard++;
 			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.01, levelMax);
-			intEval =  scheme.evalIntegral();
+			intEval =  scheme.evalIntegral(x_azm, Dbeta, mu);
 			scheme.incEvalCounts(funcCount, funcCount_skipped);
 			return intEval;
 		}

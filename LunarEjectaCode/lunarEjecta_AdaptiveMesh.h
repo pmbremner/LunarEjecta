@@ -19,7 +19,11 @@ public:
 	~lunarEjecta_AdaptiveMesh();
 
 	void evalBin(double D0,
-	             double D1);
+	             double D1,
+	             double new_x_azm,
+	             double new_Dbeta,
+	             double new_mu);
+
 
 	void printDataToFile(string fn);
 
@@ -47,6 +51,11 @@ private:
 	vector<double> x;
 	vector<double> y;
 	vector<vector<double>> z; // z[Nx][Ny]
+
+	// for integrand, initialized when evalIntegral is called
+	double x_azm; // = beta - beta_i, units of rads
+	double Dbeta; // units of rads
+	double mu;
 
 	int Nx;
 	int Ny;

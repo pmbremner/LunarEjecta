@@ -38,14 +38,14 @@ public:
 	~lunarEjecta_FractalIntegration();
 
 
-	double evalIntegral();
+	double evalIntegral(double new_x_azm, double new_Dbeta, double new_mu);
 
 	// the complete integrand is defined in here, to avoid weird function pointer stuff with classes
-	double integrand(double x, // location of center
-		             double y, //  of eval
-		             double Dx, // width of eval in x
-		             double Dy, // width of eval in y
-		             vector<double>& vv); // other params needed (should pack beforehand)
+	double integrand
+                (double x_zenith, // location of center, x_zenith = 1 - cos(zenith)
+		         double y, //  of eval, y = v/v_esc
+		         double Dx, // width of eval in x_zenith
+		         double Dy); // width of eval in y
 
 	void printQuarryPoints();
 
@@ -68,6 +68,16 @@ private:
 	void hh_printSetPoint(set* s);
 	double HH_calcDist(double x, double v);
 
+	// zenith in units of rad, x = \beta - \beta_i
+	double HH_AzmDist(double zenith, double x);
+	double HH_AltDist(double zenith, double x);
+	double HH_vDist(double v, double mu);
+
+	inline double HH_zenithDownstream(double impactZenith);
+	inline double HH_zenithUpstream(double impactZenith);
+	inline double HH_zenithGeneral(double impactZenith, double x);
+	double a_power(double impactZenith, double x);
+
 	// normalized units
 	double xMin;
 	double xMax;
@@ -77,6 +87,11 @@ private:
 	// normalized units
 	double D0;
 	double D1;
+
+	// for integrand, initialized when evalIntegral is called
+	double x_azm; // = beta - beta_i, units of rads
+	double Dbeta; // units of rads
+	double mu;
 
 	double epsError;
 

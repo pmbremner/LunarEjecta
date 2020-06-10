@@ -38,11 +38,13 @@ lunarEjecta_FractalIntegration::lunarEjecta_FractalIntegration
 	quarrySet.resize(levelMax+1);
 	reducedSum.resize(levelMax+1, 0.0);
 	
-	// to level 0
-	h_increaseLevel();
-	h_evalLevel_reduce(levelCur);
 
-	evalIntegral();
+	///// Note, we won't init level zero here, but when we call evalIntegral in the adaptive mesh class
+	// to level 0
+	// h_increaseLevel();
+	// h_evalLevel_reduce(levelCur);
+
+	// //evalIntegral();
 }
 
 
@@ -50,17 +52,20 @@ lunarEjecta_FractalIntegration::~lunarEjecta_FractalIntegration() {}
 
 // Note, we can probably apply Richardson extrapolation here,
 //  but I'm not sure how the error goes... so maybe later
-double lunarEjecta_FractalIntegration::evalIntegral()
+double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new_Dbeta, double new_mu)
 {
 	double curError = 10.*epsError;
-	//double richarsonSum;
-	
-	// if (new_levMax >= 0)
-	// {
-	// 	levelMin = (new_levMax < levelMin ? new_levMax : levelMin);
-	// 	levelMax = new_levMax;
-	// }
 
+	x_azm = new_x_azm;
+	Dbeta = new_Dbeta;
+	mu = new_mu;
+
+	// moved from init function
+	if(levelCur < 0)
+	{
+		h_increaseLevel();
+		h_evalLevel_reduce(levelCur);
+	}
 
 	//while(levelCur <= levelMin || (levelCur < levelMax && curError > epsError))
 	while(levelCur < levelMax && (levelCur <= levelMin || curError > epsError))
@@ -71,16 +76,6 @@ double lunarEjecta_FractalIntegration::evalIntegral()
 
 		// compute relative error
 		curError = fabs((reducedSum[levelCur] - reducedSum[levelCur-1]) / reducedSum[levelCur]);
-	
-		// richarsonSum = reducedSum[levelCur] + (reducedSum[levelCur] - reducedSum[levelCur-1])
-		// 	         / ( pow(sqrt((pow(4., levelCur+1)-1.)/(pow(4., levelCur)-1.)), 2.) - 1.);
-
-		// cout << "***level = " << levelCur << endl;
-		// cout << "   sum = " << reducedSum[levelCur] << endl;
-		// //cout << "   richarsonSum = " << richarsonSum << endl;
-		// cout << "   relative error = " << curError << " | " << epsError << endl;
-		// //cout << "   true error = " << abs((reducedSum[levelCur] - sin(1.))/(sin(1.))) << endl;
-		// cout << "   true error = " << abs((reducedSum[levelCur] - PI/4.)/(PI/4.)) << endl;
 	}
 
 	cout << " - - - evalIntegral: level = " << levelCur << " | " << levelMax << endl;
@@ -200,7 +195,6 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 	int i;
 	int Npoints = hh_getNumQuarryPointsAtLevel(levelCur);
 	int NpTotal = hh_getNumQuarryPointsTotal(levelCur);
-	vector<double> v;
 
 	double x, y;
 	double dx = (xMax - xMin) / sqrt(double(NpTotal));
@@ -229,7 +223,7 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 		if (quarrySet[levelCur][i].dist >= D0 && quarrySet[levelCur][i].dist <= D1)
 		{
 			evalCount++;
-			quarrySet[levelCur][i].evalVal = integrand(x, y, dx, dy, v);
+			quarrySet[levelCur][i].evalVal = integrand(x, y, dx, dy);
 			quarrySet[levelCur][i].isEval = 1;
 			reducedSum[levelCur] += quarrySet[levelCur][i].evalVal;
 		}
@@ -272,11 +266,10 @@ void lunarEjecta_FractalIntegration::hh_initSet(set* s, double x, double y)
 }
 
 double lunarEjecta_FractalIntegration::integrand
-                (double x, // location of center
-		         double y, //  of eval
-		         double Dx, // width of eval in x
-		         double Dy, // width of eval in y
-		         vector<double>& vv) // other params needed (should pack beforehand)
+                (double x_zenith, // location of center, x_zenith = 1 - cos(zenith)
+		         double y, //  of eval, y = v/v_esc
+		         double Dx, // width of eval in x_zenith
+		         double Dy) // width of eval in y
 {
 	return Dx * Dy;
 }
@@ -300,4 +293,64 @@ void lunarEjecta_FractalIntegration::hh_printSetPoint(set* s)
 
 double lunarEjecta_FractalIntegration::HH_calcDist(double x, double v) {
 	return 1./PI * atan2(2.*sqr(v) * (1.-x) * sqrt(x*(2.-x)) , 1. - 2.*sqr(v) * x*(2.-x));
+}
+
+
+//// Same as in lunarEjecta_Assembly
+// zenith in units of rad, x = \beta - \beta_i
+double lunarEjecta_FractalIntegration::HH_AzmDist(double zenith, double x) {
+	if(zenith < PI/3.)
+	{
+		return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
+
+	} else { // zenith > PI/3
+
+		double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
+
+		return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+	}
+}
+
+// zenith in units of rad, x = \beta - \beta_i
+// x_angle = 1 - cos(zenith)
+double lunarEjecta_FractalIntegration::HH_AltDist(double zenith, double x)
+{
+	double x_angle = 1. - cos(zenith);
+	double a = a_power(zenith, x);
+	
+	return pow(x_angle, 1./a) * pow(1. - x_angle, a);
+}
+
+double lunarEjecta_FractalIntegration::HH_vDist(double v, double mu)
+{
+	return 3.*mu * pow(v, -(3.*mu+1.));
+}
+
+
+// beta - beta_i = pi
+inline double lunarEjecta_FractalIntegration::HH_zenithDownstream(double impactZenith) { // input and output in degrees
+	return 20. + impactZenith * (1.5206 + impactZenith * (-0.036 + impactZenith * 0.0003));
+}
+
+// beta - beta_i = 0
+inline double lunarEjecta_FractalIntegration::HH_zenithUpstream(double impactZenith) { // input and output in degrees
+	return 20. + impactZenith * (0.129 + impactZenith * (0.0236 + impactZenith * -0.00042));
+}
+
+// x = beta - beta_i
+// Note: beta_i is the impact azimuth (direction seen from impact point), which is defined to be due East (direction or Moon's rotation)
+//       
+//   beta is the secondary ejecta direction leaving the impact point (not direction seen from secondary impact point, ie ROI)
+//
+// impactZenith in degrees, x in radians, output in radians
+inline double lunarEjecta_FractalIntegration::HH_zenithGeneral(double impactZenith, double x) {
+	return (HH_zenithDownstream(impactZenith)
+		+ (HH_zenithUpstream(impactZenith) - HH_zenithDownstream(impactZenith)) / PI * fabs(x)) * DtoR;
+}
+
+// a = cos(a_max) / (1 - cos(amax)), converted to half sin to avoid subtraction of possible close #'s
+// x = \beta - \beta_i
+double lunarEjecta_FractalIntegration::a_power(double impactZenith, double x) {
+	double alpha_max = HH_zenithGeneral(impactZenith, x); // in units of radians
+	return cos(alpha_max) / (2. * sqr(sin(alpha_max / 2.)));
 }
