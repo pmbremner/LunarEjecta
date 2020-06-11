@@ -271,7 +271,17 @@ double lunarEjecta_FractalIntegration::integrand
 		         double Dx, // width of eval in x_zenith
 		         double Dy) // width of eval in y
 {
-	return Dx * Dy;
+	double y0 = y - Dy/2.;
+	double y1 = y + Dy/2.;
+	double zenith = acos(1. - x_zenith); // units of rads
+
+	double a = a_power(x_zenith, x_azm);
+
+	return Dbeta * Dx
+		* (pow(y0, -3.*mu) - pow(y1, -3.*mu))        // exact integral of speed dist
+		* pow(x_zenith, 1./a) * pow(1.-x_zenith, a)  // zenith term, first-order Taylor series approx
+		* HH_AzmDist(zenith, x_azm);				 // azimuth term, first-order Taylor series approx
+	//return Dx * Dy;
 }
 
 

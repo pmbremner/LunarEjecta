@@ -101,11 +101,6 @@ public:
 	
 		this->H_init_normalization();
 
-		///////
-		// init the x bin edges for integration
-		// this->H_init_integrationGrid(,
-		// 	                         );
-
 		AdaptiveMesh = new lunarEjecta_AdaptiveMesh(SecFluxOutputData->getNalt(), SecFluxOutputData->getNvel(), new_maxLevelMesh, new_maxLevelFractal);
 		
 	}
@@ -121,15 +116,27 @@ public:
 
 	void computeSecondaryFlux() { // All the magic happens here!
 		int i_siteDist, j_siteAzm;
+		double D0, D1; // units of circumference
+		double incomingAzm_at_ROI;  // units of rads
+		double outgoingAzm_at_site; // units of rads
 
 		// For each location, outer loop distance, inner loop azm
+		// Defines D0 and D1, given a ROI
 		for (i_siteDist = 0; i_siteDist < ImpactSitesROILoc->getND(); ++i_siteDist)
 		{
 			// all distance dependent only terms should be computed here
+			// units of circumference (so all distances range from 0 to 1)
+			D0 = (ImpactSitesROILoc->getD(i_siteDist) - ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
+			D1 = (ImpactSitesROILoc->getD(i_siteDist) + ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
 
 
 			for (j_siteAzm = 0; j_siteAzm < ImpactSitesROILoc->getNazm(); ++j_siteAzm)
 			{
+				// units of rads
+				/// used for output binning
+				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
+				// used for retrieving primary fluxes
+				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm);
 				
 			}
 		}

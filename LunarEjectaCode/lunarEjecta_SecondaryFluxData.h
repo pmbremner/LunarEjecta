@@ -80,13 +80,25 @@ public:
 	inline int getNazm();
 	inline int getNtot();
 
+	double getradius();
+
+	double getsiteLat(int i_azm, int j_dist);
+	double getsiteLon(int i_azm, int j_dist);
+
+	double getD(int j_dist);
+	double getsiteAzm(int i_azm, int j_dist);
+	double getROIAzm(int i_azm);
+
+	double getROI_SA();
+	double getROI_radius();
+	double getsite_SA(int j_dist);
 
 private:
 	inline int H_idx(int i_azm, int j_dist);
 
 	int ND;
 	int Nazm;
-	int Ntot;
+	int Ntot; // ND * Nazm
 
 	double radius; // units of m
 	
@@ -97,9 +109,9 @@ private:
 	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Ntot (defines the centers)
 	vector<double> ROIAzm;  // azimuth angle of incoming direction at ROI from impact location, size Nazm
 	
-	double ROI_SA;           // surface area of ROI
-	double ROI_radius;       // radius of ROI (assuming a circular region), *will be equal to half the first site distance
-	vector<double> site_SA;  // surface area of sites, size ND
+	double ROI_SA;           // units of m^2, surface area of ROI
+	double ROI_radius;       // units of m, radius of ROI (assuming a circular region), *will be equal to half the first site distance
+	vector<double> site_SA;  // surface area of sites (units of m^2), size ND
 };
 
 /////////////////////////////
