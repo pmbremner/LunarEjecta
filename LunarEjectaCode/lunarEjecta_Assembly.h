@@ -47,6 +47,17 @@ public:
 		double lMax, // Maximum lat (most likely +90)
 		int NL,      // Assumes lat data equally spaced with NL # of lat files
 
+		/* For lunarEjecta_NearEarthObjectFlux */
+		string NEOfn,
+		double new_m_min,
+		double new_m_max,
+		int densType,
+		double userDefDens,
+		string dn_NEO,
+		double lMin_NEO,
+		double lMax_NEO,
+		int NL_NEO,
+
 		/* For SecondaryFluxData */
 		string fn, // file name
 		double new_xMin, // min of x-axis of integral flux
@@ -80,6 +91,8 @@ public:
 		// establish secondary flux data
 		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
 	
+		NEOData = new lunarEjecta_NearEarthObjectFlux(NEOfn, new_m_min, new_m_max, densType, userDefDens, dn_NEO, lMin_NEO, lMax_NEO, NL_NEO);
+
 		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6" << endl;
 
 		cout << "H_compH11HiDensFactor = \n" << this->H_compH11HiDensFactor() << endl;
@@ -115,6 +128,7 @@ public:
 		delete MEMLatDataLo;
 		delete SecFluxOutputData;
 		delete AdaptiveMesh;
+		delete NEOData;
 	}
 
 	void computeSecondaryFlux() { // All the magic happens here!
@@ -166,19 +180,6 @@ public:
 		// Defines D0 and D1, given a ROI
 		for (i_siteDist = 0; i_siteDist < Ni; ++i_siteDist)
 		{
-			// timing stuff
-			// see: https://stackoverflow.com/questions/12231166/timing-algorithm-clock-vs-time-in-c
-			auto t2 = std::chrono::high_resolution_clock::now();
-			runtime = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count() / 1000. / 60.;
-			percentFinished = count / double(Ni*Nj*Nk*Nl);
-
-			//cout << "*****************************************************\n";
-			cout << " Percent finished = " << 100.*percentFinished << endl;
-			//cout << "*****************************************************\n";
-			cout << "  run time = " << runtime << " minutes |  time remaining = " << runtime * (1./percentFinished - 1.) << endl;
-
-
-
 			// all distance dependent only terms should be computed here
 			// units of circumference (so all distances range from 0 to 1)
 			D0 = (ImpactSitesROILoc->getD(i_siteDist) - ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
@@ -198,10 +199,20 @@ public:
 
 				siteLat = ImpactSitesROILoc->getsiteLatDeg(j_siteAzm, i_siteDist);
 
-				
-
 				cout << " Site Latitude = " << siteLat << endl;
 				cout << "  Lat idx = " << MEMLatDataHi->getLatIdx(siteLat) << endl;
+
+				// timing stuff
+				// see: https://stackoverflow.com/questions/12231166/timing-algorithm-clock-vs-time-in-c
+				auto t2 = std::chrono::high_resolution_clock::now();
+				runtime = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count() / 1000. / 60.;
+				percentFinished = count / double(Ni*Nj*Nk*Nl);
+
+				//cout << "*****************************************************\n";
+				cout << " Percent finished = " << 100.*percentFinished << endl;
+				//cout << "*****************************************************\n";
+				cout << "  run time = " << runtime << " minutes |  time remaining = " << runtime * (1./percentFinished - 1.) << endl;
+
 				// Next, we will loop over the impact angle, impact azm, and impact speeds
 				// for the MEM low and high density populations
 				// We will be ignoring negative horizon angles that MEM has
@@ -651,6 +662,7 @@ private:
 
 	lunarEjecta_Regolith*               RegolithProperties;
 	ImpactSites_and_ROI*                ImpactSitesROILoc;
+	lunarEjecta_NearEarthObjectFlux*    NEOData;
 	MEM_LatData<genMEMdataHi>*          MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*          MEMLatDataLo;
 	SecondaryFluxData<genOutput>*       SecFluxOutputData;

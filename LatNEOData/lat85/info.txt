@@ -1,0 +1,38 @@
+Meteoroid Engineering Model (MEM) version 3.0.1
+Run started at 15:20:55 PM 03/09/20
+
+================================================================================
+INPUT FILES AND CHOICES
+
+User's input file:    C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData\MEM_input_Horizons MAJOR BODY #C(usr{0.85..600^G}@301)_T(301) (11).txt
+Limiting mass:        10^-6 grams
+State vectors used:   all 10001
+Output resolution:    5 degrees
+High fidelity mode:   yes (required for standard deviation calculation)
+
+================================================================================
+BRIEF DESCRIPTION OF OUTPUT FILES
+
+--------------------------------------------------------------------------------
+FLUX FILES: These files report the meteoroid flux per bin of a three-dimensional
+radiant-velocity grid.
+
+ - flux_avg.txt:  reports the average flux for all state vectors used.
+
+--------------------------------------------------------------------------------
+CUBE FLUX FILES: These files report the flux and average speed of meteoroids
+relative to a variety of surfaces. The first line of these files reports the
+flux on a sphere of unit cross-sectional area. The third line reports the
+average speed of meteoroids incident on each surface, and the fourth line
+reports the flux on each surface. Subsequent lines break the flux down by speed.
+
+WARNING: AVERAGE SPEEDS ARE TO BE USED FOR ROUGH ESTIMATES ONLY, AND MAY LEAD TO
+AN UNDERESTIMATE OF VEHICLE RISK.
+
+ - cube_avg.txt:  reports average flux and speeds for all state vectors used.
+
+--------------------------------------------------------------------------------
+IGLOO FILES: These files are essentially equivalent to the flux files, but the
+directionality is divided into bins of approximately equal area.
+
+ - igloo_avg.txt: reports the average flux for all state vectors used.
