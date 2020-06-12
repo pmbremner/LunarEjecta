@@ -75,16 +75,20 @@ int main(int argc, char const *argv[])
 
 	int Nv = 11;
 	vector<double> vMin, vMax;
-	logspaceBinEdges(vMin, vMax, 0.1, 2.4, Nv);
+	//logspaceBinEdges(vMin, vMax, 0.1, 2.4, Nv);
+	linspaceBinEdges(vMin, vMax, 0.1, 2.4, Nv);
 
 	lunarEjecta_Assembly<MEM_HiDensityIglooAvg,
 						 MEM_LoDensityIglooAvg,
 						 MassLimitedIglooIntegratedFlux>
 		lunarEjecta(sandFlyAsh, DSNE, 0.0, 0.0, 0.0, 2375.89,
 			        50, 72, 1737.1E3, MN_ll,
-		            "../LatRunData", -90.0, 90.0, 2, // 37
+		            "../LatRunData", -90.0, 90.0, 37, // 37
 					"run0", 0., 1., 5, linearScale, Nv, vMin, vMax,
 					/*51, 51,*/ 3, 1);
+
+
+	lunarEjecta.computeSecondaryFlux();
 
 	return 0;
 } 

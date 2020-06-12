@@ -66,11 +66,12 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 lunarEjecta_AdaptiveMesh::~lunarEjecta_AdaptiveMesh() {}
 
 
-void lunarEjecta_AdaptiveMesh::evalBin(double D0,
+void lunarEjecta_AdaptiveMesh::evalBins(double D0,
 	             					   double D1,
-	             					   double new_x_azm,
-	             				       double new_Dbeta,
-	             					   double new_mu)
+	             					   double new_x_azm, // = beta - beta_i, units of rads
+	             				       double new_Dbeta, // units of rads
+	             					   double new_mu,
+	             					   double new_imp_zenith)
 {
 	int i, j;
 
@@ -93,14 +94,31 @@ void lunarEjecta_AdaptiveMesh::evalBin(double D0,
 
 			z[i][j] = H_r_evalBin(xMin, xMax, yMin, yMax, D0, D1, 0);
 
-			cout << i << ' ' << j;
-			cout << "  x-range | y-range | integral = ";
-			cout << xMin << ' ' << xMax << " | ";
-			cout << yMin << ' ' << yMax << " | ";
-			cout << z[i][j] << endl;
+			// cout << i << ' ' << j;
+			// cout << "  x-range | y-range | integral = ";
+			// cout << xMin << ' ' << xMax << " | ";
+			// cout << yMin << ' ' << yMax << " | ";
+			// cout << z[i][j] << endl;
 
 		}
 	}
+}
+
+
+void lunarEjecta_AdaptiveMesh::restartBins()
+{
+	int i, j;
+	// init z (cell centered, for integral eval data)
+	for (i = 0; i < Nx-1; ++i)
+		for (j = 0; j < Ny-1; ++j)
+			z[i][j] = 0.;
+
+	evalCount_skipped = 0;
+	evalCount_easy = 0;
+	evalCount_hard = 0;
+
+	funcCount_skipped = 0;
+	funcCount = 0;
 }
 
 void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
@@ -158,13 +176,13 @@ void lunarEjecta_AdaptiveMesh::printEvalCounts()
 }
 
 
-
+// all variables normalized to 1
 double lunarEjecta_AdaptiveMesh::H_r_evalBin
-		(double xMin,
+		(double xMin, // x = 1 - cos(secondary zenith)
 		 double xMax,
-		 double yMin,
+		 double yMin, // y = v/v_esc
 		 double yMax,
-		 double D0,
+		 double D0,  // D0 = D/(2*PI*r_m)
 		 double D1,
 		 int iter)
 {
@@ -194,14 +212,14 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		maskD1_node[i] = D_node[i] < D1 ? 0 : 1;
 	}
 
-	cout << "-------------------------------------------" << endl;
-	cout << "---Eval Report -> Iter = " << iter << " | iter max = " << iterMax << endl;
-	cout << "AllSame check: " << AllSame(maskD0_node) << ' ' << AllSame(maskD1_node) << ' ' << (AllSame(maskD0_node) && AllSame(maskD1_node)) << endl;
-	cout << "AND check: " << AND(maskD0_node) << ' ' << AND(maskD1_node) << ' ' << (AND(maskD0_node) ^ AND(maskD1_node)) << endl;
+	// cout << "-------------------------------------------" << endl;
+	// cout << "---Eval Report -> Iter = " << iter << " | iter max = " << iterMax << endl;
+	// cout << "AllSame check: " << AllSame(maskD0_node) << ' ' << AllSame(maskD1_node) << ' ' << (AllSame(maskD0_node) && AllSame(maskD1_node)) << endl;
+	// cout << "AND check: " << AND(maskD0_node) << ' ' << AND(maskD1_node) << ' ' << (AND(maskD0_node) ^ AND(maskD1_node)) << endl;
 
-	cout << "  x-range | y-range ";
-	cout << xMin << ' ' << xMax << " | ";
-	cout << yMin << ' ' << yMax << endl;
+	// cout << "  x-range | y-range ";
+	// cout << xMin << ' ' << xMax << " | ";
+	// cout << yMin << ' ' << yMax << endl;
 
 	// if all the nodes are on one side of both of the curves
 	if (AllSame(maskD0_node) && AllSame(maskD1_node))
@@ -211,7 +229,7 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		{
 			evalCount_easy++;
 			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.1, 0);
-			intEval = scheme.evalIntegral(x_azm, Dbeta, mu); // max steps = 0, so we can eval the domain right away
+			intEval = scheme.evalIntegral(x_azm, Dbeta, mu, imp_zenith); // max steps = 0, so we can eval the domain right away
 			scheme.incEvalCounts(funcCount, funcCount_skipped);
 			return intEval;
 		}
@@ -238,7 +256,7 @@ double lunarEjecta_AdaptiveMesh::H_r_evalBin
 		{
 			evalCount_hard++;
 			lunarEjecta_FractalIntegration scheme(xMin, xMax, yMin, yMax, D0, D1, 0.01, levelMax);
-			intEval =  scheme.evalIntegral(x_azm, Dbeta, mu);
+			intEval =  scheme.evalIntegral(x_azm, Dbeta, mu, imp_zenith);
 			scheme.incEvalCounts(funcCount, funcCount_skipped);
 			return intEval;
 		}

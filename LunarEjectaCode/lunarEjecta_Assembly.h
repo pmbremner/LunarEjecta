@@ -7,12 +7,15 @@
 #include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_SecondaryFluxData.h"
 #include "lunarEjecta_MeteoroidFlux.h"
+#include "lunarEjecta_NearEarthObjectFlux.h"
 
 //#include "lunarEjecta_SpeedZenithIntegration.h"
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
+#include <chrono>
 
 using namespace std;
 
@@ -115,31 +118,153 @@ public:
 	}
 
 	void computeSecondaryFlux() { // All the magic happens here!
-		int i_siteDist, j_siteAzm;
+		double runtime, percentFinished;
+
+		int i_siteDist, j_siteAzm, k_impactHorzAngle, l_impactAzm, m_impactSpeed, count = 1, count2 = 1;
+		int ii_ejectaAzm, jj_ejectaAlt, kk_ejectaSpeed;
+		int Ni, Nj, Nk, Nl, Nm;
+		int Nii, Njj, Nkk;
 		double D0, D1; // units of circumference
+		double siteLat; // in degrees, used for getting the right impact latitude MEM file
+		double siteSA; // the site surface area, in m^2
 		double incomingAzm_at_ROI;  // units of rads
 		double outgoingAzm_at_site; // units of rads
+		double impactHorzAngle; // units of rads
+		double impactAzm; // units of rads
+		double impactSpeed; // units of km/s
+		double Dbeta; // swath of azm the secondaries reach the ROI, units of rads
+
+		double MEM_fluxLo;
+		double MEM_fluxHi;
+
+		cout << "------------------------------------\n";
+		cout << "---- Computing Secondary Fluxes ----\n";
+		cout << "------------------------------------\n";
+
+		Ni = ImpactSitesROILoc->getND();
+		Nj = ImpactSitesROILoc->getNazm();
+		Nk = MEMLatDataHi->getNphi()/2; // ignoring below the horizon
+		Nl = MEMLatDataHi->getNtheta();
+		Nm = MEMLatDataHi->getNvel();
+
+		Nii = SecFluxOutputData->getNazm();
+		Njj = SecFluxOutputData->getNalt(); // the same as our integration mesh
+		Nkk = SecFluxOutputData->getNvel(); // ''
+
+		cout << " Ni (i_siteDist) = " << Ni << endl;
+		cout << " Nj (j_siteAzm) = " << Nj << endl;
+		cout << " Nk (k_impactHorzAngle) = " << Nk << endl;
+		cout << " Nl (l_impactAzm) = " << Nl << endl;
+		cout << " Nm (m_impactSpeed) = " << Nm << endl;
+		cout << " Nii (ii_ejectaAzm) = " << Nii << endl;
+		cout << " Njj (jj_ejectaAlt) = " << Njj << endl;
+		cout << " Nkk (kk_ejectaSpeed) = " << Nkk << endl;
+
+		auto t1 = std::chrono::high_resolution_clock::now();
 
 		// For each location, outer loop distance, inner loop azm
 		// Defines D0 and D1, given a ROI
-		for (i_siteDist = 0; i_siteDist < ImpactSitesROILoc->getND(); ++i_siteDist)
+		for (i_siteDist = 0; i_siteDist < Ni; ++i_siteDist)
 		{
+			// timing stuff
+			// see: https://stackoverflow.com/questions/12231166/timing-algorithm-clock-vs-time-in-c
+			auto t2 = std::chrono::high_resolution_clock::now();
+			runtime = std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count() / 1000. / 60.;
+			percentFinished = count / double(Ni*Nj*Nk*Nl);
+
+			//cout << "*****************************************************\n";
+			cout << " Percent finished = " << 100.*percentFinished << endl;
+			//cout << "*****************************************************\n";
+			cout << "  run time = " << runtime << " minutes |  time remaining = " << runtime * (1./percentFinished - 1.) << endl;
+
+
+
 			// all distance dependent only terms should be computed here
 			// units of circumference (so all distances range from 0 to 1)
 			D0 = (ImpactSitesROILoc->getD(i_siteDist) - ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
 			D1 = (ImpactSitesROILoc->getD(i_siteDist) + ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
 
+			Dbeta = ImpactSitesROILoc->getDbeta(D0, D1);
 
-			for (j_siteAzm = 0; j_siteAzm < ImpactSitesROILoc->getNazm(); ++j_siteAzm)
+			siteSA = ImpactSitesROILoc->getsite_SA(i_siteDist); // units m^2
+
+			for (j_siteAzm = 0; j_siteAzm < Nj; ++j_siteAzm)
 			{
 				// units of rads
 				/// used for output binning
 				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
-				// used for retrieving primary fluxes
+				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
 				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm);
+
+				siteLat = ImpactSitesROILoc->getsiteLatDeg(j_siteAzm, i_siteDist);
+
 				
-			}
-		}
+
+				cout << " Site Latitude = " << siteLat << endl;
+				cout << "  Lat idx = " << MEMLatDataHi->getLatIdx(siteLat) << endl;
+				// Next, we will loop over the impact angle, impact azm, and impact speeds
+				// for the MEM low and high density populations
+				// We will be ignoring negative horizon angles that MEM has
+				//
+				// The x-v integration depends on the impact angle and impact azm
+
+				
+				for (k_impactHorzAngle = 0; k_impactHorzAngle < Nk; ++k_impactHorzAngle)
+				{
+					impactHorzAngle = PI/2. * k_impactHorzAngle / double(Nk);
+
+					for (l_impactAzm = 0; l_impactAzm < Nl; ++l_impactAzm)
+					{
+						impactAzm = 2.*PI * l_impactAzm / double(Nl);
+
+						// First, compute the integration grid (which gives the secondary
+						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
+						AdaptiveMesh->restartBins();
+						AdaptiveMesh->evalBins(D0, D1, outgoingAzm_at_site - impactAzm, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+
+						count++;
+						
+						// The normalization terms precompute the impact speed depence,
+						// so all we need to do here is loop over the normalization terms
+						// to finish the computation
+						// The norm terms also integrate out the impactor density distribution
+						// as well as the impactor mass distribution, assuming a single density
+						// for the regolith
+						for (m_impactSpeed = 0; m_impactSpeed < Nm; ++m_impactSpeed)
+						{ // speed in km/s
+							impactSpeed = MEMLatDataHi->getvMin() + (MEMLatDataHi->getvMax() - MEMLatDataHi->getvMin()) * (m_impactSpeed+0.5) / double(Nm);
+							//cout << impactspeed << endl;
+
+							// at this point, we can get specific MEM fluxes for high and low densities
+							// units of (#/yr)
+							MEM_fluxLo = siteSA * MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							MEM_fluxHi = siteSA * MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+
+							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
+							// cout << impactSpeed << " | Lo and Hi fluxes = " << scientific << MEM_fluxLo << ' ' << MEM_fluxHi << endl;
+							
+							// Next, we loop over the secondary ejecta bins for 
+							// ejecta azimuth, altitude, and speed
+							for (ii_ejectaAzm = 0; ii_ejectaAzm < Nii; ++ii_ejectaAzm)
+							{
+								for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
+								{
+									for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
+									{
+										count2++;
+									}
+								}
+							}
+
+
+						} // END FOR, impact speed
+					} // END FOR, impact azimuth angle
+				} // END FOR, impact horizon angle
+				
+			}// END FOR, impact outgoing secondary azimuth
+		} // END FOR, impact distance
+		cout << " Total count = " << count << endl;
+		cout << " Total count2 = " << count2 << endl;
 	}
 
 
@@ -513,13 +638,13 @@ private:
 	}
 
 
-	void H_init_integrationGrid(int Nx, int Ny)
-	{
-		int i;
+	// void H_init_integrationGrid(int Nx, int Ny)
+	// {
+	// 	int i;
 
-		// init the x bin edges
+	// 	// init the x bin edges
 
-	}
+	// }
 
 
 

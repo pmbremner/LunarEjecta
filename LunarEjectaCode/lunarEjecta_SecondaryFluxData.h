@@ -76,14 +76,17 @@ public:
 		                latLon& new_ROI);  // lat-lon location of Region-Of-Interest
 	~ImpactSites_and_ROI();
 	
-	inline int getND();
-	inline int getNazm();
-	inline int getNtot();
+	int getND();
+	int getNazm();
+	int getNtot();
 
 	double getradius();
 
-	double getsiteLat(int i_azm, int j_dist);
-	double getsiteLon(int i_azm, int j_dist);
+	double getsiteLatRad(int i_azm, int j_dist);
+	double getsiteLonRad(int i_azm, int j_dist);
+
+	double getsiteLatDeg(int i_azm, int j_dist);
+	double getsiteLonDeg(int i_azm, int j_dist);
 
 	double getD(int j_dist);
 	double getsiteAzm(int i_azm, int j_dist);
@@ -92,6 +95,8 @@ public:
 	double getROI_SA();
 	double getROI_radius();
 	double getsite_SA(int j_dist);
+
+	double getDbeta(double D0, double D1); // D's in units of circumference (2*Pi*rm)
 
 private:
 	inline int H_idx(int i_azm, int j_dist);
@@ -105,7 +110,7 @@ private:
 	latLon ROI;              // region of interest location
 	vector<latLon> siteLoc;   // lat-lon of impact sites, size Ntot
 	
-	vector<double> D;       // distances to impact sites, size ND, units of radii
+	vector<double> D;       // distances to impact sites, size ND, units of radii (NOT CIRCUMFERENCE)
 	vector<double> siteAzm; // azimuth angle of outgoing secondary debris from impact location, size Ntot (defines the centers)
 	vector<double> ROIAzm;  // azimuth angle of incoming direction at ROI from impact location, size Nazm
 	

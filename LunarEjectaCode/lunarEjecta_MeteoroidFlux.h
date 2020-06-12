@@ -24,7 +24,7 @@ class MEM_data
 public:
 	MEM_data(string fn);
 	~MEM_data();
-
+	// alt and azm in degrees, vel in km/s
 	virtual double getFlux_atAngleVel(double alt, double azm, double vel) = 0;
 
 	inline double getFlux(int row, int col);
@@ -225,6 +225,12 @@ public:
 			delete dataSet[i];
 			//cout << "delete " << i << endl;
 		}
+	}
+
+	// alt, azm in degrees, vel in km/s, lat in degrees
+	double getFlux_atAngleVelLat(double alt, double azm, double vel, double lat)
+	{
+		return dataSet[getLatIdx(lat)]->getFlux_atAngleVel(alt, azm, vel);
 	}
 
 	inline int getLatIdx(double cur_lat) {

@@ -18,18 +18,25 @@ public:
 							 int new_levelMax);
 	~lunarEjecta_AdaptiveMesh();
 
-	void evalBin(double D0,
+	void evalBins(double D0,
 	             double D1,
 	             double new_x_azm,
 	             double new_Dbeta,
-	             double new_mu);
+	             double new_mu,
+	             double new_imp_zenith);
 
+	void restartBins();
 
 	void printDataToFile(string fn);
 
 	double getReducedIntegral();
 
 	void printEvalCounts();
+
+	// yes, we are making these public. It's bad practice, but I need easy access to z
+	vector<double> x;
+	vector<double> y;
+	vector<vector<double>> z; // z[Nx][Ny]
 
 private:
 
@@ -48,14 +55,12 @@ private:
 	bool AND(vector<bool>& m);
 	bool ANDnot(vector<bool>& m);
 
-	vector<double> x;
-	vector<double> y;
-	vector<vector<double>> z; // z[Nx][Ny]
 
 	// for integrand, initialized when evalIntegral is called
 	double x_azm; // = beta - beta_i, units of rads
 	double Dbeta; // units of rads
 	double mu;
+	double imp_zenith;
 
 	int Nx;
 	int Ny;

@@ -229,7 +229,7 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 			//cout << " siteAzm = " << siteAzm[idx] << endl;
 
-			siteLoc[idx].dispLatLon();
+			////siteLoc[idx].dispLatLon();
 		}
 		//cout << endl;
 	}
@@ -246,13 +246,13 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 ImpactSites_and_ROI::~ImpactSites_and_ROI() {}
 
-inline int ImpactSites_and_ROI::getND() {
+int ImpactSites_and_ROI::getND() {
 	return ND;
 }
-inline int ImpactSites_and_ROI::getNazm() {
+int ImpactSites_and_ROI::getNazm() {
 	return Nazm;
 }
-inline int ImpactSites_and_ROI::getNtot() {
+int ImpactSites_and_ROI::getNtot() {
 	return Ntot;
 }
 
@@ -260,13 +260,21 @@ double ImpactSites_and_ROI::getradius() {
 	return radius;
 }
 
-double ImpactSites_and_ROI::getsiteLat(int i_azm, int j_dist) {
+double ImpactSites_and_ROI::getsiteLatRad(int i_azm, int j_dist) {
 	return siteLoc[H_idx(i_azm, j_dist)].getLatRad();
 }
 
-double ImpactSites_and_ROI::getsiteLon(int i_azm, int j_dist) {
+double ImpactSites_and_ROI::getsiteLonRad(int i_azm, int j_dist) {
 	return siteLoc[H_idx(i_azm, j_dist)].getLonRad();
 }
+
+double ImpactSites_and_ROI::getsiteLatDeg(int i_azm, int j_dist) {
+	return siteLoc[H_idx(i_azm, j_dist)].getLatDeg();
+}
+double ImpactSites_and_ROI::getsiteLonDeg(int i_azm, int j_dist) {
+	return siteLoc[H_idx(i_azm, j_dist)].getLonDeg();
+}
+
 
 double ImpactSites_and_ROI::getD(int j_dist) {
 	return D[j_dist];
@@ -289,6 +297,15 @@ double ImpactSites_and_ROI::getsite_SA(int j_dist) {
 	return site_SA[j_dist];
 }
 
+
+double ImpactSites_and_ROI::getDbeta(double D0, double D1) // D's in units of circumference (2*Pi*rm)
+{
+	double D = (D0 + D1) / 2.; // units of circ (2pi*rm)
+	// A spherical right triangle
+	double cos_h_2 = sqr(cos(2.*PI*D + ROI_radius/radius) * cos(ROI_radius/radius));
+
+	return acos((cos(2.*ROI_radius/radius) - cos_h_2) / (1. - cos_h_2));
+}
 
 
 //////////////////////////////////////
@@ -523,10 +540,10 @@ int MassLimitedIglooIntegratedFlux::getNalt()
 	return 90/angleRes;
 }
 
-// We shouldn't use this, need to FIX!
+// This is inefficient, but it will get it to work without much effort
 int MassLimitedIglooIntegratedFlux::getNazm()
 {
-	return 0;
+	return 360/angleRes;
 }
 
 // This is also integrated out

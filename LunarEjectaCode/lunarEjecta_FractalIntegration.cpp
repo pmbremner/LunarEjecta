@@ -52,13 +52,14 @@ lunarEjecta_FractalIntegration::~lunarEjecta_FractalIntegration() {}
 
 // Note, we can probably apply Richardson extrapolation here,
 //  but I'm not sure how the error goes... so maybe later
-double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new_Dbeta, double new_mu)
+double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new_Dbeta, double new_mu, double new_imp_zenith)
 {
 	double curError = 10.*epsError;
 
 	x_azm = new_x_azm;
 	Dbeta = new_Dbeta;
 	mu = new_mu;
+	imp_zenith = new_imp_zenith;
 
 	// moved from init function
 	if(levelCur < 0)
@@ -78,8 +79,8 @@ double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new
 		curError = fabs((reducedSum[levelCur] - reducedSum[levelCur-1]) / reducedSum[levelCur]);
 	}
 
-	cout << " - - - evalIntegral: level = " << levelCur << " | " << levelMax << endl;
-	cout << " - - - relative error " << curError << " | " << epsError << endl;
+	// cout << " - - - evalIntegral: level = " << levelCur << " | " << levelMax << endl;
+	// cout << " - - - relative error " << curError << " | " << epsError << endl;
 
 	return reducedSum[levelCur];
 }
@@ -203,7 +204,7 @@ void lunarEjecta_FractalIntegration::h_evalLevel_reduce(int lev)
 	// init sum to zero
 	reducedSum[levelCur] = 0.0;
 
-	cout << " Npoints = " << Npoints << endl;
+	//cout << " Npoints = " << Npoints << endl;
 
 	// loop through points at current level
 	for (i = 0; i < Npoints; ++i)
@@ -273,14 +274,14 @@ double lunarEjecta_FractalIntegration::integrand
 {
 	double y0 = y - Dy/2.;
 	double y1 = y + Dy/2.;
-	double zenith = acos(1. - x_zenith); // units of rads
+	//double zenith = acos(1. - x_zenith); // units of rads
 
-	double a = a_power(x_zenith, x_azm);
+	double a = a_power(imp_zenith, x_azm); // needs impact zenith angle, not secondary zenith angle
 
 	return Dbeta * Dx
 		* (pow(y0, -3.*mu) - pow(y1, -3.*mu))        // exact integral of speed dist
 		* pow(x_zenith, 1./a) * pow(1.-x_zenith, a)  // zenith term, first-order Taylor series approx
-		* HH_AzmDist(zenith, x_azm);				 // azimuth term, first-order Taylor series approx
+		* HH_AzmDist(imp_zenith, x_azm);				 // azimuth term, first-order Taylor series approx
 	//return Dx * Dy;
 }
 
@@ -308,16 +309,16 @@ double lunarEjecta_FractalIntegration::HH_calcDist(double x, double v) {
 
 //// Same as in lunarEjecta_Assembly
 // zenith in units of rad, x = \beta - \beta_i
-double lunarEjecta_FractalIntegration::HH_AzmDist(double zenith, double x) {
-	if(zenith < PI/3.)
+double lunarEjecta_FractalIntegration::HH_AzmDist(double impact_zenith, double x) {
+	if(impact_zenith < PI/3.)
 	{
-		return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
+		return (1. + cos(x) * 3.*impact_zenith / (2.*PI - 3.*impact_zenith)) / (2.*PI);
 
-	} else { // zenith > PI/3
+	} else { // impact_zenith > PI/3
 
-		double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
+		double b = (0.05 - 1.) /(PI/2. - PI/3.) * (impact_zenith - PI/3.) + 1.;
 
-		return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+		return exp(-(x - 2.*(impact_zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(impact_zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
 	}
 }
 

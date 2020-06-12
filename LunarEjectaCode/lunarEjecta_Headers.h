@@ -13,6 +13,7 @@
 #include "lunarEjecta_AdaptiveMesh.h"
 #include "lunarEjecta_MeteoroidFlux.h"
 #include "lunarEjecta_SecondaryFluxData.h"
+#include "lunarEjecta_NearEarthObjectFlux.h"
 #include "lunarEjecta_Regolith.h"
 #include "lunarEjecta_Assembly.h"
 //#include "lunarEjecta_SpeedZenithIntegration.h"

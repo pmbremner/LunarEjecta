@@ -38,7 +38,7 @@ public:
 	~lunarEjecta_FractalIntegration();
 
 
-	double evalIntegral(double new_x_azm, double new_Dbeta, double new_mu);
+	double evalIntegral(double new_x_azm, double new_Dbeta, double new_mu, double new_imp_zenith);
 
 	// the complete integrand is defined in here, to avoid weird function pointer stuff with classes
 	double integrand
@@ -46,6 +46,7 @@ public:
 		         double y, //  of eval, y = v/v_esc
 		         double Dx, // width of eval in x_zenith
 		         double Dy); // width of eval in y
+
 
 	void printQuarryPoints();
 
@@ -92,6 +93,7 @@ private:
 	double x_azm; // = beta - beta_i, units of rads
 	double Dbeta; // units of rads
 	double mu;
+	double imp_zenith;
 
 	double epsError;
 
