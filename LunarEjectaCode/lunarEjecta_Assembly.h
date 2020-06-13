@@ -91,7 +91,7 @@ public:
 		// establish secondary flux data
 		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
 	
-		NEOData = new lunarEjecta_NearEarthObjectFlux(NEOfn, new_m_min, new_m_max, densType, userDefDens, dn_NEO, lMin_NEO, lMax_NEO, NL_NEO);
+		NEOLatData = new lunarEjecta_NearEarthObjectFlux(NEOfn, new_m_min, new_m_max, densType, userDefDens, dn_NEO, lMin_NEO, lMax_NEO, NL_NEO);
 
 		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6" << endl;
 
@@ -128,7 +128,7 @@ public:
 		delete MEMLatDataLo;
 		delete SecFluxOutputData;
 		delete AdaptiveMesh;
-		delete NEOData;
+		delete NEOLatData;
 	}
 
 	void computeSecondaryFlux() { // All the magic happens here!
@@ -148,8 +148,9 @@ public:
 		double impactSpeed; // units of km/s
 		double Dbeta; // swath of azm the secondaries reach the ROI, units of rads
 
-		double MEM_fluxLo;
-		double MEM_fluxHi;
+		double MEM_fluxLo;   // #/m^2/yr
+		double MEM_fluxHi;   // #/m^2/yr
+		double NEO_massflux; // kg/m^2/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
 
 		cout << "------------------------------------\n";
 		cout << "---- Computing Secondary Fluxes ----\n";
@@ -246,13 +247,14 @@ public:
 							impactSpeed = MEMLatDataHi->getvMin() + (MEMLatDataHi->getvMax() - MEMLatDataHi->getvMin()) * (m_impactSpeed+0.5) / double(Nm);
 							//cout << impactspeed << endl;
 
-							// at this point, we can get specific MEM fluxes for high and low densities
+							// at this point, we can get specific MEM fluxes for high and low densities, and NEO's
 							// units of (#/yr)
 							MEM_fluxLo = siteSA * MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
 							MEM_fluxHi = siteSA * MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							NEO_massflux   = siteSA * NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
 
-							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
-							// cout << impactSpeed << " | Lo and Hi fluxes = " << scientific << MEM_fluxLo << ' ' << MEM_fluxHi << endl;
+							cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
+							cout << impactSpeed << " | Lo, Hi, and NEO fluxes = " << scientific << MEM_fluxLo << ", " << MEM_fluxHi << ", " << NEO_massflux << endl;
 							
 							// Next, we loop over the secondary ejecta bins for 
 							// ejecta azimuth, altitude, and speed
@@ -662,7 +664,7 @@ private:
 
 	lunarEjecta_Regolith*               RegolithProperties;
 	ImpactSites_and_ROI*                ImpactSitesROILoc;
-	lunarEjecta_NearEarthObjectFlux*    NEOData;
+	lunarEjecta_NearEarthObjectFlux*    NEOLatData;
 	MEM_LatData<genMEMdataHi>*          MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*          MEMLatDataLo;
 	SecondaryFluxData<genOutput>*       SecFluxOutputData;

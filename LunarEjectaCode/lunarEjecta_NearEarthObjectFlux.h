@@ -18,6 +18,7 @@ enum NEOdensType{defaultDens, userDefined};
 // using a separate script. Therefore, all we need to provide is similar
 // init paramters for a MEM_LatData<> type class, which includes the directory
 // of latitude dependent, high density igloo flux files
+//   See: https://stackoverflow.com/questions/8810224/inheriting-from-a-template-class-in-c
 class lunarEjecta_NearEarthObjectFlux : public MEM_LatData<MEM_HiDensityIglooAvg> 
 {
 public:
@@ -26,8 +27,10 @@ public:
 		                            double new_m_max,
 		                            int densType,
 		                            double userDefDens,
-  /* params for MEM_LatData part */ string dn, double lMin, double lMax, int NL);
+  /* params for MEM_LatData part */ string dn_NEO, double lMin_NEO, double lMax_NEO, int NL_NEO);
 	~lunarEjecta_NearEarthObjectFlux();
+
+	double getMassFluxNEO_atAngleVelLat(double alt, double azm, double vel, double lat);
 
 	double getNEOflux_atSpeed(double v);
 

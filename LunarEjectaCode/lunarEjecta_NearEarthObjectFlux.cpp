@@ -83,6 +83,11 @@ lunarEjecta_NearEarthObjectFlux::lunarEjecta_NearEarthObjectFlux
 lunarEjecta_NearEarthObjectFlux::~lunarEjecta_NearEarthObjectFlux() {}
 
 
+double lunarEjecta_NearEarthObjectFlux::getMassFluxNEO_atAngleVelLat(double alt, double azm, double vel, double lat)
+{
+	return massFactor * this->getFlux_atAngleVelLat(alt, azm, vel, lat);
+}
+
 double lunarEjecta_NearEarthObjectFlux::getNEOflux_atSpeed(double v)
 {
 
