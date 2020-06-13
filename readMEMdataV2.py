@@ -28,7 +28,7 @@ densityDirectory = sys.argv[2] # HiDensity LoDensity
 
 for ilat in range(0, N_lat):
 	lat = int(lat_min + d_lat * ilat)
-	figfilename = densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
+	figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 	filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/flux_avg.txt'
 	#data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
 	data = np.loadtxt(filename, unpack=True) # Equator South45 SouthPole
