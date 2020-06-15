@@ -67,10 +67,10 @@ public:
 		int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 		vector<double> new_setMin, // minimum of set range i
 		vector<double> new_setMax, // maximum of set range i
+		double new_vMin,
+		double new_vMax,
 
 		/* For lunarEjecta_AdaptiveMesh */
-		//int new_Nx_mesh,  // number of x cell edges
-		//int new_Ny_mesh,  // number of y cell edges
 		int new_maxLevelMesh,    // the division level of the integration mesh
 		int new_maxLevelFractal) // the division level of the integrand-domain probing
 	{
@@ -89,7 +89,7 @@ public:
 		MEMLatDataLo = new MEM_LatData<genMEMdataLo>(dn, lMin, lMax, NL);
 
 		// establish secondary flux data
-		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
+		SecFluxOutputData = new SecondaryFluxData<genOutput>(fn, new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax, new_vMin, new_vMax);
 	
 		NEOLatData = new lunarEjecta_NearEarthObjectFlux(NEOfn, new_m_min, new_m_max, densType, userDefDens, dn_NEO, lMin_NEO, lMax_NEO, NL_NEO);
 
@@ -161,6 +161,9 @@ public:
 		double MEM_normLo;
 		double MEM_normHi;
 		double NEO_norm;
+
+		double vMin = SecFluxOutputData.getvMin(); // km/s
+		double vMax = SecFluxOutputData.getvMax(); // km/s
 
 		cout << "------------------------------------\n";
 		cout << "---- Computing Secondary Fluxes ----\n";
@@ -287,11 +290,11 @@ public:
 
 								for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
 								{ 
-									// NEED TO FIX THIS LINE!!!!!, should have vMin and vMax vars
-									secondarySpeed = 0.1 + (2.4 - 0.1) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
-//-------> testing here
+									secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
+//-------> testing here (The issue seems to be in z...)
 									// units of kg/m^2/yr
-									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux);// * AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
+									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
+									//totalFlux =  AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
 
 									//cout << incomingAzm_at_ROI/DtoR << ' ' <<  secondaryAlt << ' ' << secondarySpeed << ' ' << totalFlux << endl;
 

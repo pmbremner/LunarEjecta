@@ -8,12 +8,12 @@ from matplotlib import ticker, cm
 
 N_phi   = 36
 N_theta = 0# defined later
-N_v     = 11 #40
+N_v     = 21 #40
 N_lat   = 37
 
 d_phi   = 5
 d_theta = 5
-d_v     = 2.3/11. #2
+d_v     = 2.3/float(N_v) #2
 d_lat   = 5
 
 phi_min   = -90
@@ -33,8 +33,8 @@ lat_min   = -90
 #figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 #filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/igloo_avg.txt'
 
-filename = "run0_edit.txt"
-figfilename = "run0_edit.png"
+filename = "run4.txt"
+figfilename = "run4.png"
 
 #data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
 data = np.loadtxt(filename, unpack=True, skiprows = 834)
@@ -55,13 +55,17 @@ while i < Ndata:
 	N_theta = int(np.round(360./data[6][i]))
 
 	print(np.shape(data[9:, i:i+N_theta-1]), np.shape(data2d[:]))
-	data2d[j] = data2d[j] + np.sum(data[9:, i:i+N_theta-1], axis=1)
+	dataSum = np.sum(data[9:, i:i+N_theta-1], axis=1)
+
+	# dataSum[dataSum > 0.] = np.log10(dataSum[dataSum > 0.])
+
+	data2d[j] = data2d[j] + dataSum
 
 	j = j + 1
 	i = i + N_theta
 
-plt.contourf(v, phi, data2d/(data2d.max()), 20)
-plt.colorbar(label='Max flux [#/m^2/year] = ' + str("{0:.3E}".format(data2d.max())))
+plt.contourf(v, phi, data2d/(data2d.max()), 100)
+plt.colorbar(label='Max flux [kg/m^2/year] = ' + str("{0:.3E}".format(data2d.max())))
 plt.xlabel('Impact Speed [km/s]')
 plt.ylabel('Impact Angle from Horizon [degrees]')
 plt.title(filename)

@@ -279,10 +279,16 @@ public:
 				  int new_xScale,      // xScaleType = linear or log10
 				  int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 				  vector<double>& new_setMin, // minimum of set range i
-				  vector<double>& new_setMax) // maximum of set range i
+				  vector<double>& new_setMax, // maximum of set range i
+				  double new_vMin, // min velocity of bins, km/s
+				  double new_vMax) // min velocity of bins, km/s
 	{
 		filename = fn;
 		fluxData.resize(1);
+
+		vMin = new_vMin;
+		vMax = new_vMax;
+
 		fluxData[0] = new genOutput(new_xMin, new_xMax, new_Nx, new_xScale, new_NSetsXY, new_setMin, new_setMax);
 	}
 	~SecondaryFluxData() {
@@ -307,10 +313,16 @@ public:
 	int getNazm() { return fluxData[0]->getNazm(); }
 	int getNvel() { return fluxData[0]->getNvel(); }
 
+	double getvMin() { return vMin; }
+	double getvMax() { return vMax; }
+
 
 private:
 	string filename;
 	vector<genOutput*> fluxData;
+
+	double vMin; // units of km/s
+	double vMax; // units of km/s
 };
 
 #endif 
