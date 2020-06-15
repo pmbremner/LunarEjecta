@@ -234,7 +234,7 @@ public:
 	}
 
 	inline int getLatIdx(double cur_lat) {
-		return int(round((cur_lat - latMin)/(latMax-latMin) * NLat));
+		return int(round((cur_lat - latMin)/(latMax-latMin) * (NLat-1 /* We need a -1 here (squash bug)*/)));
 	}
 
 	inline double getGrunMinMass(int i = 0) {

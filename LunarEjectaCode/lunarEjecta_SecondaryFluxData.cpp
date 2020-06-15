@@ -532,7 +532,38 @@ MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 
 
 
-void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn) {}
+void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn)
+{
+	int i, j;
+	ofstream file;
+	file.open(fn);
+
+	cout << " Saving MassLimitedIglooIntegratedFlux to file: " << fn << endl;
+
+	file << "#\n#\n#\n#\n#\n#\n#\n#\n"; // placeholder header
+
+	for (i = 0; i < Nx; ++i)
+	{
+		file << igloo_ID[i] << ' ';
+		file << igloo_I[i] << ' ';
+		file << igloo_J[i] << ' ';
+		file << igloo_PHI1[i] << ' ';
+		file << igloo_PHI2[i] << ' ';
+		file << igloo_THETA1[i] << ' ';
+		file << igloo_THETA2[i] << ' ';
+		file << igloo_PHIavg[i] << ' ';
+		file << igloo_THETAavg[i] << ' ';
+
+		// output data
+		for (j = 0; j < NSetsXY; ++j)
+		{
+			file << xData[j][i] << ' ';
+		}
+		file << endl;
+	}
+
+	file.close();
+}
 
 
 int MassLimitedIglooIntegratedFlux::getNalt()
@@ -553,11 +584,15 @@ int MassLimitedIglooIntegratedFlux::getNvel()
 }
 
 // same as MEM_iglooAvg::getFlux_atAngleVel
+// alt, azm units of degrees, vel units of km/s
 void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double azm, double vel) {
 	// find index for correct phi (alt)
 	int idx_min = 0, idx_max = Nx-1, idx_mid = (idx_max - idx_min)/2;
 	int row_idx, col_idx, Nazm;
 	double dAzm;
+
+	// make azm from 0 to 360
+	azm = fmod(azm + 360.0, 360.0);
 
 	// simple binary search algorithm
 	while (igloo_PHI1[idx_min] != igloo_PHI1[idx_mid])

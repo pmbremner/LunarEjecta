@@ -289,6 +289,16 @@ public:
 		delete fluxData[0];
 	}
 
+	void updateFlux(double flux, double alt, double azm, double speed)
+	{
+		fluxData[0]->updateFlux(flux, alt, azm, speed);
+	}
+
+	void saveFluxToFile()
+	{
+		fluxData[0]->saveFluxToFile(filename);
+	}
+
 	void getOutputFilename() {
 		cout << " Output filename = " << filename << endl;
 	}

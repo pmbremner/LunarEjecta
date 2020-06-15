@@ -31,6 +31,8 @@ public:
 	double getlowDensity();
 	double getavgDensity();
 	double gethighDensity();
+	double getlunarRadius();
+	double getlunarEscapeSpeed();
 
 private:
 	inline double H_calcHH11_C4();
@@ -46,7 +48,7 @@ private:
 	double avgDensity;  // kg/m^3
 	double highDensity; // kg/m^3
 
-	double lunarRadius; // km
-	double lunarEscapeSpeed; // km/s
+	double lunarRadius; // m
+	double lunarEscapeSpeed; // m/s
 };
 #endif 

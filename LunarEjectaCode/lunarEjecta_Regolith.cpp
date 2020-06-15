@@ -115,15 +115,17 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
 
 lunarEjecta_Regolith::~lunarEjecta_Regolith() {}
 
-inline double lunarEjecta_Regolith::getHH11_porosity() {return HH11_porosity;}
-       double lunarEjecta_Regolith::getHH11_mu()       {return HH11_mu;}
-inline double lunarEjecta_Regolith::getHH11_C1()       {return HH11_C1;}
-inline double lunarEjecta_Regolith::getHH11_k()        {return HH11_k;}
-	   double lunarEjecta_Regolith::getHH11_C4()       {return HH11_C4;}
-       double lunarEjecta_Regolith::getHH11_nu()       {return HH11_nu;}
-	   double lunarEjecta_Regolith::getlowDensity()    {return lowDensity;}
-	   double lunarEjecta_Regolith::getavgDensity()    {return avgDensity;}
-	   double lunarEjecta_Regolith::gethighDensity()   {return highDensity;}
+inline double lunarEjecta_Regolith::getHH11_porosity()    {return HH11_porosity;}
+       double lunarEjecta_Regolith::getHH11_mu()          {return HH11_mu;}
+inline double lunarEjecta_Regolith::getHH11_C1()          {return HH11_C1;}
+inline double lunarEjecta_Regolith::getHH11_k()           {return HH11_k;}
+	   double lunarEjecta_Regolith::getHH11_C4()          {return HH11_C4;}
+       double lunarEjecta_Regolith::getHH11_nu()          {return HH11_nu;}
+	   double lunarEjecta_Regolith::getlowDensity()       {return lowDensity;}
+	   double lunarEjecta_Regolith::getavgDensity()       {return avgDensity;}
+	   double lunarEjecta_Regolith::gethighDensity()      {return highDensity;}
+	   double lunarEjecta_Regolith::getlunarRadius()      {return lunarRadius;}
+	   double lunarEjecta_Regolith::getlunarEscapeSpeed() {return lunarEscapeSpeed;}
 
 inline double lunarEjecta_Regolith::H_calcHH11_C4() {
 	return 3.*HH11_k / (4.*PI) * pow(HH11_C1, 3.*HH11_mu);

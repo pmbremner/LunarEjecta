@@ -15,26 +15,26 @@ int main(int argc, char const *argv[])
 	// MEM_iglooAvg igloo_data("../LatRunData/lat0/HiDensity");
 
 
-	MEM_HiDensityCubeAvg  HiD_cube_data("../LatRunData/lat0");
-	cout << HiD_cube_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
-	cout << HiD_cube_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
-	cout << HiD_cube_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
-	cout << HiD_cube_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
-	cout << HiD_cube_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
+	// MEM_HiDensityCubeAvg  HiD_cube_data("../LatRunData/lat0");
+	// cout << HiD_cube_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
+	// cout << HiD_cube_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
+	// cout << HiD_cube_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
+	// cout << HiD_cube_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
+	// cout << HiD_cube_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
 
-	MEM_HiDensityFluxAvg  HiD_flux_data("../LatRunData/lat0");
-	cout << HiD_flux_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
-	cout << HiD_flux_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
-	cout << HiD_flux_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
-	cout << HiD_flux_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
-	cout << HiD_flux_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
+	// MEM_HiDensityFluxAvg  HiD_flux_data("../LatRunData/lat0");
+	// cout << HiD_flux_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
+	// cout << HiD_flux_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
+	// cout << HiD_flux_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
+	// cout << HiD_flux_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
+	// cout << HiD_flux_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
 
-	MEM_HiDensityIglooAvg HiD_igloo_data("../LatRunData/lat0");
-	cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
-	cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
-	cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
-	cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
-	cout << HiD_igloo_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
+	// MEM_HiDensityIglooAvg HiD_igloo_data("../LatRunData/lat0");
+	// cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 0.0, 5.6) << endl;
+	// cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 180.0, 5.6) << endl;
+	// cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 90.0, 5.6) << endl;
+	// cout << HiD_igloo_data.getFlux_atAngleVel(0.0, 270.0, 5.6) << endl;
+	// cout << HiD_igloo_data.getFlux_atAngleVel(90.0, 0.0, 5.6) << endl;
 
 	// MEM_LoDensityCubeAvg  LoD_cube_data("../LatRunData/lat0");
 	// MEM_LoDensityFluxAvg  LoD_flux_data("../LatRunData/lat0");
@@ -86,7 +86,7 @@ int main(int argc, char const *argv[])
 		            "../LatRunData", -90.0, 90.0, 37, // 37
 		            "../NEA_Brown/vmass.txt", 1.E-2, 1.57E12, defaultDens, 0.,
 		            "../LatNEOData", -90.0, 90.0, 37,
-					"run0", 0., 1., 5, linearScale, Nv, vMin, vMax,
+					"run1.txt", 0., 1., 5, linearScale, Nv, vMin, vMax,
 					/*51, 51,*/ 3, 1);
 
 

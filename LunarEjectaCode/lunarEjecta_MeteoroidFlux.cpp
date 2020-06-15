@@ -429,7 +429,7 @@ MEM_iglooAvg::~MEM_iglooAvg() {}
 double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
 	// find index for correct phi (alt)
-	int idx_min = 0, idx_max = Nrows, idx_mid = (idx_max - idx_min)/2;
+	int idx_min = 0, idx_max = Nrows-1 /* Debug changed to -1 */, idx_mid = (idx_max - idx_min)/2;
 	int row_idx, col_idx, Nazm;
 	double dAzm;
 
@@ -465,6 +465,13 @@ double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 	Nazm = round(360.0 / dAzm);
 
 	row_idx += int(azm / dAzm);
+
+	// for debugging
+	// if (row_idx >= Nrows)
+	// {
+	// 	cerr << "ERROR: MEM_iglooAvg::getFlux_atAngleVel: row_idx = " << row_idx << ' ' << Nrows << endl;
+	// 	return 0.0;
+	// }
 
 	// cout << " dAzm = " << dAzm << " | Nazm = " << Nazm << endl;
 	// cout << " ID = " << this->getRVar(row_idx, ID)

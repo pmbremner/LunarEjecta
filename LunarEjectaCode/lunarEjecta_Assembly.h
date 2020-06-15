@@ -131,12 +131,13 @@ public:
 		delete NEOLatData;
 	}
 
-	void computeSecondaryFlux() { // All the magic happens here!
+	void computeSecondaryFlux()
+	{ // All the magic happens here!
 		double runtime, percentFinished;
 
 		int i_siteDist, j_siteAzm, k_impactHorzAngle, l_impactAzm, m_impactSpeed, count = 1, count2 = 1;
 		int ii_ejectaAzm, jj_ejectaAlt, kk_ejectaSpeed;
-		int Ni, Nj, Nk, Nl, Nm;
+		int Ni, Nj, Nk, Nl, Nm, idx_norm;
 		int Nii, Njj, Nkk;
 		double D0, D1; // units of circumference
 		double siteLat; // in degrees, used for getting the right impact latitude MEM file
@@ -147,10 +148,19 @@ public:
 		double impactAzm; // units of rads
 		double impactSpeed; // units of km/s
 		double Dbeta; // swath of azm the secondaries reach the ROI, units of rads
+		// for output data
+		double secondaryAlt; // units of degrees
+		double secondarySpeed; // units of km/s
 
-		double MEM_fluxLo;   // #/m^2/yr
-		double MEM_fluxHi;   // #/m^2/yr
-		double NEO_massflux; // kg/m^2/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
+		double MEM_massfluxLo;   // kg/yr
+		double MEM_massfluxHi;   // kg/yr
+		double NEO_massflux;     // kg/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
+		double totalFlux; // kg/yr
+
+		// units of MEM: kg , NEO 1
+		double MEM_normLo;
+		double MEM_normHi;
+		double NEO_norm;
 
 		cout << "------------------------------------\n";
 		cout << "---- Computing Secondary Fluxes ----\n";
@@ -195,8 +205,9 @@ public:
 				// units of rads
 				/// used for output binning
 				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
+				cout << " incoming Azm = " << incomingAzm_at_ROI << endl;
 				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
-				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm);
+				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
 
 				siteLat = ImpactSitesROILoc->getsiteLatDeg(j_siteAzm, i_siteDist);
 
@@ -232,7 +243,7 @@ public:
 						// First, compute the integration grid (which gives the secondary
 						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
 						AdaptiveMesh->restartBins();
-						AdaptiveMesh->evalBins(D0, D1, outgoingAzm_at_site - impactAzm, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+						AdaptiveMesh->evalBins(D0, D1, fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI), Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
 
 						count++;
 						
@@ -247,27 +258,50 @@ public:
 							impactSpeed = MEMLatDataHi->getvMin() + (MEMLatDataHi->getvMax() - MEMLatDataHi->getvMin()) * (m_impactSpeed+0.5) / double(Nm);
 							//cout << impactspeed << endl;
 
-							// at this point, we can get specific MEM fluxes for high and low densities, and NEO's
-							// units of (#/yr)
-							MEM_fluxLo = siteSA * MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
-							MEM_fluxHi = siteSA * MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
-							NEO_massflux   = siteSA * NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							
+							idx_norm = m_impactSpeed + k_impactHorzAngle * Nm;
+							// units of (MEM: kg, NEO: 1)
+							MEM_normLo = normalizationLoDens[idx_norm];
+							MEM_normHi = normalizationHiDens[idx_norm];
+							NEO_norm   = normalizationNEA[idx_norm];
 
-							cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
-							cout << impactSpeed << " | Lo, Hi, and NEO fluxes = " << scientific << MEM_fluxLo << ", " << MEM_fluxHi << ", " << NEO_massflux << endl;
+
+////  Error was in getting lat idx (need max -1)
+							// at this point, we can get specific MEM fluxes for high and low densities, and NEO's
+							// units of (kg/m^2/yr)
+							MEM_massfluxLo = MEM_normLo * siteSA / ImpactSitesROILoc->getROI_SA() * MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							MEM_massfluxHi = MEM_normHi * siteSA / ImpactSitesROILoc->getROI_SA() * MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							NEO_massflux   = NEO_norm   * siteSA / ImpactSitesROILoc->getROI_SA() * NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+////
+							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
+							// cout << impactSpeed << " | Lo, Hi, and NEO fluxes = " << scientific << MEM_massfluxLo << ", " << MEM_massfluxHi << ", " << NEO_massflux << endl;
 							
 							// Next, we loop over the secondary ejecta bins for 
-							// ejecta azimuth, altitude, and speed
-							for (ii_ejectaAzm = 0; ii_ejectaAzm < Nii; ++ii_ejectaAzm)
-							{
-								for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
-								{
-									for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
-									{
-										count2++;
-									}
+							// ejecta azimuth (no looping, just a single direction), altitude, and speed
+							// for (ii_ejectaAzm = 0; ii_ejectaAzm < Nii; ++ii_ejectaAzm)
+							// {
+////////// Doesn't crash here
+							for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
+							{ // z[x] goes like the zenith angle (1 - cos(zenith))
+								secondaryAlt = 90. * (1. - jj_ejectaAlt / double(Njj-1.)); // degrees
+
+								for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
+								{ 
+									// NEED TO FIX THIS LINE!!!!!, should have vMin and vMax vars
+									secondarySpeed = 0.1 + (2.4 - 0.1) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
+//-------> testing here
+									// units of kg/m^2/yr
+									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux);// * AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
+
+									//cout << incomingAzm_at_ROI/DtoR << ' ' <<  secondaryAlt << ' ' << secondarySpeed << ' ' << totalFlux << endl;
+
+									SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
+
+									count2++;
 								}
 							}
+//////////////
+							//}
 
 
 						} // END FOR, impact speed
@@ -278,6 +312,8 @@ public:
 		} // END FOR, impact distance
 		cout << " Total count = " << count << endl;
 		cout << " Total count2 = " << count2 << endl;
+	
+		SecFluxOutputData->saveFluxToFile();
 	}
 
 
@@ -334,8 +370,9 @@ private:
 		} else {
 			sin_term = pow(sin(alt), eta); 
 		}
-
-		return pow(speed * sin_term, 3.*RegolithProperties->getHH11_mu());
+		// NOTE: we are pulling out the escape speed into here so that when we integrate over the speed,
+		//  we are using v/v_esc, normalized to the escape speed
+		return pow(speed * sin_term / RegolithProperties->getlunarEscapeSpeed(), 3.*RegolithProperties->getHH11_mu());
 	}
 
 	inline double HH_Grun(double m) { // m = units of g, output in units of 1/(m^2*yr)
@@ -377,7 +414,7 @@ private:
 		return sum;	
 	}
 
-	// NEED TO CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	// Don't need, we do this in the NEO class (I know it's not consistant...)
 	double H_compH11NEAMassFactor() {
 		return 1.;
 	}
@@ -423,9 +460,9 @@ private:
 		return mass_sum;
 	}
 
-	// NEED TO CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
 	double H_compH11NEADensFactor() {
-		return 1.;
+		return pow(NEOLatData->getDens(), 3.*RegolithProperties->getHH11_nu()-1.);
 	}
 
 	// beta - beta_i = pi
@@ -501,7 +538,7 @@ private:
 		densRegolith = H_compH11RegDensFactor(2/* Average Density */);
 		denseMEMLo   = H_compH11LoDensFactor();
 		densMEMHi    = H_compH11HiDensFactor();
-		densNEA      = H_compH11NEADensFactor(); // NEED TO FINISH FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		densNEA      = H_compH11NEADensFactor();
 
 		cout << " densRegolith = " << densRegolith << endl;
 		cout << " denseMEMLo   = " << denseMEMLo << endl;
@@ -510,7 +547,7 @@ private:
 
 		// compute mass term, not dependent on speed or impact angle
 		massMEM = H_compH11GrunMassFactor(200); // units of kg
-		massNEA = H_compH11NEAMassFactor(); // NEED TO FINISH FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		massNEA = H_compH11NEAMassFactor(); // this is just 1, since we already incorporate it in the NEO flux (which is a mass flux)
 
 		cout << " massMEM = " << massMEM << endl;
 		cout << " massNEA = " << massNEA << endl;
@@ -532,9 +569,10 @@ private:
 				idx = j + i * Nvel;
 				vel = vMin + (vMax - vMin) * double(j + 0.5) / double(Nvel);
 
-				speedTerm = H_compH11ProjSpeedFactor(vel, alt, 1);
+				speedTerm = H_compH11ProjSpeedFactor(vel, alt, 1 /* power on the sine */);
 
 				// build norm terms (the velocity term cancles out from the HH11 scaling laws, by definition)
+				// These are in units of MEM: kg, NEO: 1 
 				normalizationHiDens[idx] = C4 * massMEM * speedTerm * densRegolith * densMEMHi  / Gint_alt_i;
 				normalizationLoDens[idx] = C4 * massMEM * speedTerm * densRegolith * denseMEMLo / Gint_alt_i;
 				normalizationNEA[idx]    = C4 * massNEA * speedTerm * densRegolith * densNEA    / Gint_alt_i; // place holder #'s for now, need to finish the functions~~!'

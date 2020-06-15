@@ -32,7 +32,7 @@ public:
 
 	double getMassFluxNEO_atAngleVelLat(double alt, double azm, double vel, double lat);
 
-	double getNEOflux_atSpeed(double v);
+	//double getNEOflux_atSpeed(double v);, not using for now
 
 	double getmMin();
 	double getmMax();
@@ -57,7 +57,7 @@ private:
 	double m_min; // minimum mass range in kg
 	double m_max; // maximum mass range in kg
 
-	double density; // this is the average density of NEO's, should be 3000 kg/m^3 for default (see Brown 2002)
+	double density; // kg/m^3, this is the average density of NEO's, should be 3000 kg/m^3 for default (see Brown 2002)
 
 	double vMin; // units of km/s
 	double vMax; // units of km/s

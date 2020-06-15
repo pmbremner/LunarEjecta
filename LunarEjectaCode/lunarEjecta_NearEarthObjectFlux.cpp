@@ -88,17 +88,17 @@ double lunarEjecta_NearEarthObjectFlux::getMassFluxNEO_atAngleVelLat(double alt,
 	return massFactor * this->getFlux_atAngleVelLat(alt, azm, vel, lat);
 }
 
-double lunarEjecta_NearEarthObjectFlux::getNEOflux_atSpeed(double v)
-{
+// double lunarEjecta_NearEarthObjectFlux::getNEOflux_atSpeed(double v)
+// {
+	
+// }
 
-}
-
-double lunarEjecta_NearEarthObjectFlux::getmMin() {}
-double lunarEjecta_NearEarthObjectFlux::getmMax() {}
-double lunarEjecta_NearEarthObjectFlux::getDens() {}
-double lunarEjecta_NearEarthObjectFlux::getvMin() {}
-double lunarEjecta_NearEarthObjectFlux::getvMax() {}
-int    lunarEjecta_NearEarthObjectFlux::getNv()   {}
+double lunarEjecta_NearEarthObjectFlux::getmMin() {return m_min;}
+double lunarEjecta_NearEarthObjectFlux::getmMax() {return m_max;}
+double lunarEjecta_NearEarthObjectFlux::getDens() {return density;}
+double lunarEjecta_NearEarthObjectFlux::getvMin() {return vMin;}
+double lunarEjecta_NearEarthObjectFlux::getvMax() {return vMax;}
+int    lunarEjecta_NearEarthObjectFlux::getNv()   {return Nv;}
 
 
 
