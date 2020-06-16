@@ -135,7 +135,9 @@ public:
 	{ // All the magic happens here!
 		double runtime, percentFinished;
 
-		int i_siteDist, j_siteAzm, k_impactHorzAngle, l_impactAzm, m_impactSpeed, count = 1, count2 = 1;
+		unsigned long long int count = 1, count2 = 1;
+
+		int i_siteDist, j_siteAzm, k_impactHorzAngle, l_impactAzm, m_impactSpeed;
 		int ii_ejectaAzm, jj_ejectaAlt, kk_ejectaSpeed;
 		int Ni, Nj, Nk, Nl, Nm, idx_norm;
 		int Nii, Njj, Nkk;
@@ -148,6 +150,7 @@ public:
 		double impactAzm; // units of rads
 		double impactSpeed; // units of km/s
 		double Dbeta; // swath of azm the secondaries reach the ROI, units of rads
+		double xbeta; // = beta - beta_i
 		// for output data
 		double secondaryAlt; // units of degrees
 		double secondarySpeed; // units of km/s
@@ -162,8 +165,8 @@ public:
 		double MEM_normHi;
 		double NEO_norm;
 
-		double vMin = SecFluxOutputData.getvMin(); // km/s
-		double vMax = SecFluxOutputData.getvMax(); // km/s
+		double vMin = SecFluxOutputData->getvMin(); // km/s
+		double vMax = SecFluxOutputData->getvMax(); // km/s
 
 		cout << "------------------------------------\n";
 		cout << "---- Computing Secondary Fluxes ----\n";
@@ -208,7 +211,7 @@ public:
 				// units of rads
 				/// used for output binning
 				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
-				cout << " incoming Azm = " << incomingAzm_at_ROI << endl;
+				cout << defaultfloat << "\n incoming Azm, Dbeta = " << incomingAzm_at_ROI << ", " << Dbeta/DtoR << endl;
 				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
 				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
 
@@ -217,6 +220,8 @@ public:
 				cout << " Site Latitude = " << siteLat << endl;
 				cout << "  Lat idx = " << MEMLatDataHi->getLatIdx(siteLat) << endl;
 
+				cout << " D0, D1 = " << D0 << ' ' << D1 << endl;
+
 				// timing stuff
 				// see: https://stackoverflow.com/questions/12231166/timing-algorithm-clock-vs-time-in-c
 				auto t2 = std::chrono::high_resolution_clock::now();
@@ -224,9 +229,9 @@ public:
 				percentFinished = count / double(Ni*Nj*Nk*Nl);
 
 				//cout << "*****************************************************\n";
-				cout << " Percent finished = " << 100.*percentFinished << endl;
+				cout << " Percent finished = " << 100.*percentFinished << "   " << count2 << endl;
 				//cout << "*****************************************************\n";
-				cout << "  run time = " << runtime << " minutes |  time remaining = " << runtime * (1./percentFinished - 1.) << endl;
+				cout << "  run time = " << runtime << " minutes |  time remaining = " << runtime * (1./percentFinished - 1.) << " minutes\n";
 
 				// Next, we will loop over the impact angle, impact azm, and impact speeds
 				// for the MEM low and high density populations
@@ -242,11 +247,11 @@ public:
 					for (l_impactAzm = 0; l_impactAzm < Nl; ++l_impactAzm)
 					{
 						impactAzm = 2.*PI * l_impactAzm / double(Nl);
-
+						xbeta = fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI);
 						// First, compute the integration grid (which gives the secondary
 						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
 						AdaptiveMesh->restartBins();
-						AdaptiveMesh->evalBins(D0, D1, fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI), Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+						AdaptiveMesh->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
 
 						count++;
 						

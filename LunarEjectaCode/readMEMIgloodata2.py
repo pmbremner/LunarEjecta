@@ -8,7 +8,7 @@ from matplotlib import ticker, cm
 
 N_phi   = 36
 N_theta = 0# defined later
-N_v     = 21 #40
+N_v     = 13 #40
 N_lat   = 37
 
 d_phi   = 5
@@ -33,8 +33,8 @@ lat_min   = -90
 #figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 #filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/igloo_avg.txt'
 
-filename = "run4.txt"
-figfilename = "run4.png"
+filename = "run_equator_A3.txt"
+figfilename = "run_equator_A3.png"
 
 #data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
 data = np.loadtxt(filename, unpack=True, skiprows = 834)

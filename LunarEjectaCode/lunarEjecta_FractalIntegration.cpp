@@ -272,16 +272,24 @@ double lunarEjecta_FractalIntegration::integrand
 		         double Dx, // width of eval in x_zenith
 		         double Dy) // width of eval in y
 {
+//////////	
 	double y0 = y - Dy/2.;
 	double y1 = y + Dy/2.;
-	//double zenith = acos(1. - x_zenith); // units of rads
+	// //double zenith = acos(1. - x_zenith); // units of rads
 
-	double a = a_power(imp_zenith, x_azm); // needs impact zenith angle, not secondary zenith angle
+	//double a = a_power(imp_zenith, x_azm); // needs impact zenith angle, not secondary zenith angle
+	double a = a_power(0.0, 0.0); // Temp, testing a that doesn't depend on azm
 
-	return Dbeta * Dx
-		* (pow(y0, -3.*mu) - pow(y1, -3.*mu))        // exact integral of speed dist
-		* pow(x_zenith, 1./a) * pow(1.-x_zenith, a)  // zenith term, first-order Taylor series approx
-		* HH_AzmDist(imp_zenith, x_azm);				 // azimuth term, first-order Taylor series approx
+	// return Dbeta * Dx
+	// 	* (pow(y0, -3.*mu) - pow(y1, -3.*mu))        // exact integral of speed dist
+	// 	* pow(x_zenith, 1./a) * pow(1.-x_zenith, a)  // zenith term, first-order Taylor series approx
+	// 	* HH_AzmDist(imp_zenith, x_azm);				 // azimuth term, first-order Taylor series approx
+////////////
+
+
+	/*run_equator_A3.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * pow(x_zenith, 1./a) * pow(1.-x_zenith, a);
+	///*run_equator_A2.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
+	///*run_equator_A1.txt*/ return Dx * Dbeta * Dy;// * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
 	//return Dx * Dy;
 }
 
