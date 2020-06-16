@@ -33,8 +33,8 @@ lat_min   = -90
 #figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 #filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/igloo_avg.txt'
 
-filename = "run_equator_A3.txt"
-figfilename = "run_equator_A3.png"
+filename = "run_polar_Case0.txt"  # run_lat45_Case0 run_equator_Case0 run_polar_Case0
+figfilename = "run_polar_Case0.png"
 
 #data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
 data = np.loadtxt(filename, unpack=True, skiprows = 834)
@@ -64,8 +64,10 @@ while i < Ndata:
 	j = j + 1
 	i = i + N_theta
 
+print(data2d.sum())
+
 plt.contourf(v, phi, data2d/(data2d.max()), 100)
-plt.colorbar(label='Max flux [kg/m^2/year] = ' + str("{0:.3E}".format(data2d.max())))
+plt.colorbar(label='Max flux [kg/m^2/year] = ' + str("{0:.3E}".format(data2d.max())) + "\nNet Flux = " + str("{0:.3E}".format(data2d.sum())))
 plt.xlabel('Impact Speed [km/s]')
 plt.ylabel('Impact Angle from Horizon [degrees]')
 plt.title(filename)

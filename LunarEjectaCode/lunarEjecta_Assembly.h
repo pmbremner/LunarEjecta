@@ -211,7 +211,7 @@ public:
 				// units of rads
 				/// used for output binning
 				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
-				cout << defaultfloat << "\n incoming Azm, Dbeta = " << incomingAzm_at_ROI << ", " << Dbeta/DtoR << endl;
+				cout << defaultfloat << "\n incoming Azm, Dbeta = " << incomingAzm_at_ROI/DtoR << ", " << Dbeta/DtoR << endl;
 				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
 				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
 
@@ -575,7 +575,9 @@ private:
 			for (j = 0; j < Nvel; ++j) 
 			{
 				idx = j + i * Nvel;
-				vel = vMin + (vMax - vMin) * double(j + 0.5) / double(Nvel);
+				//vel = vMin + (vMax - vMin) * double(j + 0.5) / double(Nvel);
+/* use only for constant distribution */
+				vel = (vMin + (vMax - vMin) * double(j + 0.5) / double(Nvel)) / SecFluxOutputData->getvMin();
 
 				speedTerm = H_compH11ProjSpeedFactor(vel, alt, 1 /* power on the sine */);
 
@@ -608,36 +610,38 @@ private:
 	// x = \beta - \beta_i
 	double HH_AltInt(double zenith, double x) {
 
-		double a = a_power(zenith, x);
+		return 1.;
 
-		if(a > 15) // large 'a', worst 0.46% error
-		{
-			return HHH_BetaApproxLarge(a);
+		// double a = a_power(zenith, x);
 
-		} else if(a < 1./15.) { // small 'a' worst 0.46% error
+		// if(a > 15) // large 'a', worst 0.46% error
+		// {
+		// 	return HHH_BetaApproxLarge(a);
 
-			return HHH_BetaApproxLarge(1./a);
+		// } else if(a < 1./15.) { // small 'a' worst 0.46% error
 
-		} else { // intermediate 'a'
+		// 	return HHH_BetaApproxLarge(1./a);
 
-			return HHH_beta(a);
-		}
+		// } else { // intermediate 'a'
+
+		// 	return HHH_beta(a);
+		// }
 	}
 
 	// zenith in units of rad, x = \beta - \beta_i
 	double HH_AzmDist(double zenith, double x) {
 
+		return 1.;
+		// if(zenith < PI/3.)
+		// {
+		// 	return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
 
-		if(zenith < PI/3.)
-		{
-			return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
+		// } else { // zenith > PI/3
 
-		} else { // zenith > PI/3
+		// 	double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
 
-			double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
-
-			return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
-		}
+		// 	return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+		// }
 	}
 
 

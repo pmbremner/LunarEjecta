@@ -106,7 +106,7 @@ int main(int argc, char const *argv[])
 	    2375.89, // double new_escapeSpeed, units of m/s
 
 		// /*  For ImpactSites_and_ROI */
-		21,//21, // double new_ND,     // total number of distance increments
+		18,//21, // double new_ND,     // total number of distance increments
         15,//15, // double new_Nazm,   // total number of azimuth increments
         1737.1E3, // double new_radius, // radius of Moon, units of m
         Equator_ll,//Polar_ll,//Equator_ll,Lat45_ll    // latLon& new_ROI,   // lat-lon location of Region-Of-Interest
@@ -129,7 +129,7 @@ int main(int argc, char const *argv[])
 		37, // int NL_NEO,
 
 		// /* For SecondaryFluxData */
-		"run_equator_A3.txt", // string fn, // file name
+		"run_equator_Case0.txt", // string fn, // file name
 		0., // double new_xMin, // min of x-axis of integral flux
 		1., // double new_xMax, // max of x-axis of integral flux
 		5, // int new_Nx,          // number of spacings on x-axis (will be resolution for igloo)
