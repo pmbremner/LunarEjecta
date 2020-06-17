@@ -24,5 +24,10 @@ inline int tri_idx(int n, int m) { return ((n * (n+1)) >> 1) + m; }
 double romb_int(double a, double b, double eps, double* vv, double (*f)(double*, double));
 
 
+double d_r(int n, double a, double b);
+double Beta(double a, double b);
+double iBeta(double x, double a, double b);
+
+
 
 #endif 

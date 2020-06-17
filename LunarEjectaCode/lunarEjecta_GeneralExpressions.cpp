@@ -81,3 +81,64 @@ double romb_int(double a, double b, double eps, double* vv, double (*f)(double*,
 	}
 	return R[tri_idx(n-1, n-1)];
 }
+
+
+double d_r(int n, double a, double b) {
+	return (n % 2 == 0 ? n/2.*(b-n/2.)/((a+n-1.)*(a+n)) : -(a+(n-1.)/2.)*(a+b+(n-1.)/2.)/((a+n-1.)*(a+n)) );
+}
+
+double beta(double a, double b) {
+	// helps to avoid overflow errors doing it this way
+	return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
+}
+
+// doesn't catch negative a and b integers, but doesn't matter, we don't have negative vals
+// I wrote my own incomplete beta function to avoid having to use weird libraries
+// I used the continued fraction representation of the incomplete beta function
+// see-> https://dlmf.nist.gov/8.17
+//    along with a recursion relation for subsequent terms in the continued fraction (avoids having to recalculate the whole thing over and over)
+// see-> https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents
+// IMO, it's much better than this implementation, and uses a different approach: https://stackoverflow.com/questions/10927859/incomplete-beta-function-in-raw-c
+double ibeta(double x, double a, double b)
+{
+	if (x > (a+1.) / (a+b+2.))
+		return beta(a,b) - ibeta(1.-x, b, a);
+
+	double f0 = 1., fn = 1.;
+	double a0 = 1.;
+
+	double h0 = 0.;
+	double h1 = 1., hn;
+
+	double k0 = 1.;
+	double k1 = 1., kn;
+
+	int n = 2;
+	int nMax = 100;
+
+	// avoids having to check every loop
+	nMax = (fmod(b, 1.) < 0.0001 ? int(2*b + 1) : nMax);
+	nMax = (fmod(a, 1.) < 0.0001 ? (nMax < a + 2 ? nMax : int(a + 2) ) : nMax);
+
+	do
+	{
+		f0 = fn;
+
+		a0 = 1. / (a0 * d_r(n-1, a, b) * x);
+		
+		hn = a0 * h1 + h0;
+		kn = a0 * k1 + k0;
+
+		fn = hn / kn;
+		n++;
+
+		// swap
+		h0 = h1;
+		h1 = hn;
+		k0 = k1;
+		k1 = kn;
+
+	} while (n < nMax && fabs((f0-fn)/fn) > 0.00001);
+
+	return fn * pow(x, a) * pow(1.-x, b) / a;
+}
