@@ -33,7 +33,7 @@ public:
 		double new_lowDensity,
 		double new_avgDensity,
 		double new_highDensity,
-	    double new_escapeSpeed,
+	    double new_escapeSpeed, // m/s
 
 		/*  For ImpactSites_and_ROI */
 		double new_ND,     // total number of distance increments
@@ -67,8 +67,8 @@ public:
 		int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 		vector<double> new_setMin, // minimum of set range i
 		vector<double> new_setMax, // maximum of set range i
-		double new_vMin,
-		double new_vMax,
+		double new_vMin, // km/s
+		double new_vMax, // km/s
 
 		/* For lunarEjecta_AdaptiveMesh */
 		int new_maxLevelMesh,    // the division level of the integration mesh
@@ -82,7 +82,7 @@ public:
 		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity, new_radius, new_escapeSpeed);
 
 		// init site and ROI locations
-		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI);
+		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI, 2.*sqr(1000.*new_vMin/new_escapeSpeed) * 0.9 /* units of radius, below this distance (90% of it to just be safe) there will be no flux below vMin */);
 
 		// establish high density and low density MEM input data
 		MEMLatDataHi = new MEM_LatData<genMEMdataHi>(dn, lMin, lMax, NL);
@@ -117,7 +117,10 @@ public:
 	
 		this->H_init_normalization();
 
-		AdaptiveMesh = new lunarEjecta_AdaptiveMesh(SecFluxOutputData->getNalt(), SecFluxOutputData->getNvel(), new_maxLevelMesh, new_maxLevelFractal);
+		AdaptiveMesh.resize(2);
+		// 0 for close, 1 for far
+		AdaptiveMesh[0] = new lunarEjecta_AdaptiveMesh(SecFluxOutputData->getNalt(), SecFluxOutputData->getNvel(), new_maxLevelMesh, new_maxLevelFractal, 1000.*new_vMin/new_escapeSpeed, 1000.*new_vMax/new_escapeSpeed);
+		AdaptiveMesh[1] = new lunarEjecta_AdaptiveMesh(SecFluxOutputData->getNalt(), SecFluxOutputData->getNvel(), new_maxLevelMesh, new_maxLevelFractal, 1000.*new_vMin/new_escapeSpeed, 1000.*new_vMax/new_escapeSpeed);
 		
 	}
 
@@ -127,7 +130,8 @@ public:
 		delete MEMLatDataHi;
 		delete MEMLatDataLo;
 		delete SecFluxOutputData;
-		delete AdaptiveMesh;
+		delete AdaptiveMesh[0];
+		delete AdaptiveMesh[1];
 		delete NEOLatData;
 	}
 
@@ -141,16 +145,20 @@ public:
 		int ii_ejectaAzm, jj_ejectaAlt, kk_ejectaSpeed;
 		int Ni, Nj, Nk, Nl, Nm, idx_norm;
 		int Nii, Njj, Nkk;
-		double D0, D1; // units of circumference
+		double D0, D1, D2, D3; // units of circumference
 		double siteLat; // in degrees, used for getting the right impact latitude MEM file
 		double siteSA; // the site surface area, in m^2
 		double incomingAzm_at_ROI;  // units of rads
+		double incomingAzm_at_ROI_far;  // units of rads
 		double outgoingAzm_at_site; // units of rads
+		double outgoingAzm_at_site_far; // units of rads
 		double impactHorzAngle; // units of rads
 		double impactAzm; // units of rads
 		double impactSpeed; // units of km/s
 		double Dbeta; // swath of azm the secondaries reach the ROI, units of rads
+		double Dbeta_far; // swath of azm the secondaries reach the ROI, units of rads
 		double xbeta; // = beta - beta_i
+		double xbeta_far; // = beta - beta_i
 		// for output data
 		double secondaryAlt; // units of degrees
 		double secondarySpeed; // units of km/s
@@ -159,6 +167,7 @@ public:
 		double MEM_massfluxHi;   // kg/yr
 		double NEO_massflux;     // kg/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
 		double totalFlux; // kg/yr
+		vector<double> Flux_vs_D;
 
 		// units of MEM: kg , NEO 1
 		double MEM_normLo;
@@ -182,6 +191,8 @@ public:
 		Njj = SecFluxOutputData->getNalt(); // the same as our integration mesh
 		Nkk = SecFluxOutputData->getNvel(); // ''
 
+		Flux_vs_D.resize(Ni, 0.);
+
 		cout << " Ni (i_siteDist) = " << Ni << endl;
 		cout << " Nj (j_siteAzm) = " << Nj << endl;
 		cout << " Nk (k_impactHorzAngle) = " << Nk << endl;
@@ -201,8 +212,11 @@ public:
 			// units of circumference (so all distances range from 0 to 1)
 			D0 = (ImpactSitesROILoc->getD(i_siteDist) - ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
 			D1 = (ImpactSitesROILoc->getD(i_siteDist) + ImpactSitesROILoc-> getROI_radius()/ ImpactSitesROILoc->getradius()) / (2.*PI); 
+			D2 = 1. - D1;
+			D3 = 1. - D0;
 
-			Dbeta = ImpactSitesROILoc->getDbeta(D0, D1);
+			Dbeta     = ImpactSitesROILoc->getDbeta(D0, D1);
+			Dbeta_far = ImpactSitesROILoc->getDbeta(D2, D3);
 
 			siteSA = ImpactSitesROILoc->getsite_SA(i_siteDist); // units m^2
 
@@ -210,10 +224,12 @@ public:
 			{
 				// units of rads
 				/// used for output binning
-				incomingAzm_at_ROI  = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
+				incomingAzm_at_ROI     = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
+				incomingAzm_at_ROI_far = fmod(incomingAzm_at_ROI + PI, 2.*PI);
 				cout << defaultfloat << "\n incoming Azm, Dbeta = " << incomingAzm_at_ROI/DtoR << ", " << Dbeta/DtoR << endl;
 				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
-				outgoingAzm_at_site = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
+				outgoingAzm_at_site     = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
+				outgoingAzm_at_site_far = fmod(outgoingAzm_at_site + PI, 2.*PI);
 
 				siteLat = ImpactSitesROILoc->getsiteLatDeg(j_siteAzm, i_siteDist);
 
@@ -242,16 +258,22 @@ public:
 				
 				for (k_impactHorzAngle = 0; k_impactHorzAngle < Nk; ++k_impactHorzAngle)
 				{
-					impactHorzAngle = PI/2. * k_impactHorzAngle / double(Nk);
+					impactHorzAngle = PI/2. * k_impactHorzAngle / double(Nk-1.);
 
 					for (l_impactAzm = 0; l_impactAzm < Nl; ++l_impactAzm)
 					{
 						impactAzm = 2.*PI * l_impactAzm / double(Nl);
-						xbeta = fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI);
+						xbeta     = fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI);
+						xbeta_far = fmod(outgoingAzm_at_site_far - impactAzm + 2.*PI, 2.*PI);
 						// First, compute the integration grid (which gives the secondary
 						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
-						AdaptiveMesh->restartBins();
-						AdaptiveMesh->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+						// for direct direction
+						AdaptiveMesh[0]->restartBins();
+						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+
+						// for indirect direction
+						AdaptiveMesh[1]->restartBins();
+						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
 
 						count++;
 						
@@ -298,12 +320,15 @@ public:
 									secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
 //-------> testing here (The issue seems to be in z...)
 									// units of kg/m^2/yr
-									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
-									//totalFlux =  AdaptiveMesh->z[jj_ejectaAlt][kk_ejectaSpeed];
-
-									//cout << incomingAzm_at_ROI/DtoR << ' ' <<  secondaryAlt << ' ' << secondarySpeed << ' ' << totalFlux << endl;
-
+									// for direct, closer
+									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[0]->z[jj_ejectaAlt][kk_ejectaSpeed];
 									SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
+									Flux_vs_D[i_siteDist] += totalFlux;
+
+									// for wrap around, further
+									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[1]->z[jj_ejectaAlt][kk_ejectaSpeed];
+									SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI_far/DtoR, secondarySpeed);
+									Flux_vs_D[i_siteDist] += totalFlux;
 
 									count2++;
 								}
@@ -317,6 +342,7 @@ public:
 				} // END FOR, impact horizon angle
 				
 			}// END FOR, impact outgoing secondary azimuth
+			cout << " Total flux in distance range D0 and D1 = " << Flux_vs_D[i_siteDist] << " kg/m^2/yr\n";
 		} // END FOR, impact distance
 		cout << " Total count = " << count << endl;
 		cout << " Total count2 = " << count2 << endl;
@@ -497,7 +523,8 @@ private:
 	// a = cos(a_max) / (1 - cos(amax)), converted to half sin to avoid subtraction of possible close #'s
 	double a_power(double impactZenith, double x) {
 		double alpha_max = HH_zenithGeneral(impactZenith, x); // in units of radians
-		return cos(alpha_max) / (2. * sqr(sin(alpha_max / 2.)));
+		return sqrt(cos(alpha_max)/2.) / sin(alpha_max / 2.);
+		//return cos(alpha_max) / (2. * sqr(sin(alpha_max / 2.))); // forgot the sqrt...
 	}
 
 	// exlusion zone around upstream direction wrt to beta_i (impact azm, ie East), in radians
@@ -609,9 +636,11 @@ private:
 	// altitude distribution integral
 	// x = \beta - \beta_i
 	double HH_AltInt(double zenith, double x) {
+		// case 2
+		return HHH_beta(a45); // forces the peak angle to always be 45 degrees
 
-		return 1.;
-
+		//return 1.;
+///
 		// double a = a_power(zenith, x);
 
 		// if(a > 15) // large 'a', worst 0.46% error
@@ -718,7 +747,7 @@ private:
 	MEM_LatData<genMEMdataHi>*          MEMLatDataHi;
 	MEM_LatData<genMEMdataLo>*          MEMLatDataLo;
 	SecondaryFluxData<genOutput>*       SecFluxOutputData;
-	lunarEjecta_AdaptiveMesh*           AdaptiveMesh;
+	vector<lunarEjecta_AdaptiveMesh*>   AdaptiveMesh;
 	//lunarEjecta_SpeedZenithIntegration* SpeedZenithIntegration;
 
 

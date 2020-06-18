@@ -14,7 +14,9 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 		(int new_Nx,       // number of cell centers
 		 int new_Ny,       // number of cell cetners
 		 int new_iterMax,
-		 int new_levelMax) 
+		 int new_levelMax,
+		 double new_Vmin,
+		 double new_Vmax) 
 {
 	int i,j;
 	cout << " Adaptive Mesh Properties: \n";
@@ -25,6 +27,9 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 
 	iterMax = new_iterMax;
 	levelMax = new_levelMax;
+
+	Vmin = new_Vmin;
+	Vmax = new_Vmax;
 
 	cout << "  Nx, Ny = " << Nx << ", " << Ny << endl;
 	cout << "  iterMax, levelMax = " << iterMax << ", " << levelMax << endl;
@@ -47,7 +52,8 @@ lunarEjecta_AdaptiveMesh::lunarEjecta_AdaptiveMesh
 
 	// init y (boundaries of y = v/v_esc grid)
 	for (i = 0; i < Ny; ++i)
-		y[i] = double(i) / double(Ny-1.);
+		y[i] = Vmin + (Vmax - Vmin) * i / double(Ny-1.);
+		//y[i] = double(i) / double(Ny-1.);
 
 	// init z (cell centered, for integral eval data)
 	for (i = 0; i < Nx-1; ++i)

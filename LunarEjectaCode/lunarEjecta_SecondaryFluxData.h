@@ -73,7 +73,8 @@ public:
 	ImpactSites_and_ROI(double new_ND,     // total number of distance increments
 		                double new_Nazm,   // total number of azimuth increments
 		                double new_radius, // radius of Moon
-		                latLon& new_ROI);  // lat-lon location of Region-Of-Interest
+		                latLon& new_ROI,  // lat-lon location of Region-Of-Interest
+						double new_Dmin); // units of radius
 	~ImpactSites_and_ROI();
 	
 	int getND();

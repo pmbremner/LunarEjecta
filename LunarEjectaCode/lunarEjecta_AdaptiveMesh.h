@@ -15,7 +15,9 @@ public:
 	lunarEjecta_AdaptiveMesh(int new_Nx,
 							 int new_Ny,
 							 int new_iterMax,
-							 int new_levelMax);
+							 int new_levelMax,
+							 double new_Vmin,
+		 					 double new_Vmax);
 	~lunarEjecta_AdaptiveMesh();
 
 	void evalBins(double D0,
@@ -67,6 +69,9 @@ private:
 
 	int iterMax;
 	int levelMax;
+
+	double Vmin;
+	double Vmax;
 	
 	int evalCount_skipped;
 	int evalCount_easy;

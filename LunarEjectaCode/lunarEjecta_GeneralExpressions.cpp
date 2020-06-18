@@ -87,7 +87,7 @@ double d_r(int n, double a, double b) {
 	return (n % 2 == 0 ? n/2.*(b-n/2.)/((a+n-1.)*(a+n)) : -(a+(n-1.)/2.)*(a+b+(n-1.)/2.)/((a+n-1.)*(a+n)) );
 }
 
-double beta(double a, double b) {
+double Beta(double a, double b) {
 	// helps to avoid overflow errors doing it this way
 	return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
 }
@@ -99,10 +99,13 @@ double beta(double a, double b) {
 //    along with a recursion relation for subsequent terms in the continued fraction (avoids having to recalculate the whole thing over and over)
 // see-> https://en.wikipedia.org/wiki/Continued_fraction#Infinite_continued_fractions_and_convergents
 // IMO, it's much better than this implementation, and uses a different approach: https://stackoverflow.com/questions/10927859/incomplete-beta-function-in-raw-c
-double ibeta(double x, double a, double b)
+double iBeta(double x, double a, double b)
 {
 	if (x > (a+1.) / (a+b+2.))
-		return beta(a,b) - ibeta(1.-x, b, a);
+		return Beta(a,b) - iBeta(1.-x, b, a);
+
+	if(x == 0.) // need to check for zero case (even though it's a float, it happens)
+		return 0.;
 
 	double f0 = 1., fn = 1.;
 	double a0 = 1.;

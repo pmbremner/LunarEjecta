@@ -62,7 +62,7 @@ int main(int argc, char const *argv[])
 	AL_ll.dispAzmFinal(MN_ll);
 
 	cout << endl << endl;
-	ImpactSites_and_ROI siteList(3, 3, 1737.1E3, MN_ll);
+	ImpactSites_and_ROI siteList(3, 3, 1737.1E3, MN_ll, 0.01);
 
 	vector<double> emptyVector;
 	MassLimitedIntegralFluxVsMass fluxM(8.E-13, 0.8, 36, log10Scale, 0, emptyVector, emptyVector);
@@ -106,8 +106,8 @@ int main(int argc, char const *argv[])
 	    2375.89, // double new_escapeSpeed, units of m/s
 
 		// /*  For ImpactSites_and_ROI */
-		18,//21, // double new_ND,     // total number of distance increments
-        15,//15, // double new_Nazm,   // total number of azimuth increments
+		45,//21, // double new_ND,     // total number of distance increments
+        6,//15, // double new_Nazm,   // total number of azimuth increments
         1737.1E3, // double new_radius, // radius of Moon, units of m
         Equator_ll,//Polar_ll,//Equator_ll,Lat45_ll    // latLon& new_ROI,   // lat-lon location of Region-Of-Interest
 
@@ -129,10 +129,10 @@ int main(int argc, char const *argv[])
 		37, // int NL_NEO,
 
 		// /* For SecondaryFluxData */
-		"run_equator_Case0.txt", // string fn, // file name
+		"run_equator_Case3.txt", // string fn, // file name
 		0., // double new_xMin, // min of x-axis of integral flux
 		1., // double new_xMax, // max of x-axis of integral flux
-		5, // int new_Nx,          // number of spacings on x-axis (will be resolution for igloo)
+		10, // int new_Nx,          // number of spacings on x-axis (will be resolution for igloo)
 		linearScale, // int new_xScale,      // xScaleType = linear or log10
 		Nv, // int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 		vLeft, // vector<double> new_setMin, // minimum of set range i
@@ -142,7 +142,7 @@ int main(int argc, char const *argv[])
 
 
 		// /* For lunarEjecta_AdaptiveMesh */
-		3, // int new_maxLevelMesh,    // the division level of the integration mesh
+		5, // int new_maxLevelMesh,    // the division level of the integration mesh
 		1);// int new_maxLevelFractal // the division level of the integrand-domain probing
 
 

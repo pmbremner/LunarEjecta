@@ -168,17 +168,19 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 	                 (double new_ND,
 	                  double new_Nazm,
 	                  double new_radius,
-	                  latLon& new_ROI)
+	                  latLon& new_ROI,
+	                  double new_Dmin)
 {
 	int i_azm, j_dist, idx;
-	double temp_bearing, temp_dist, d_bearing, d_lat;
+	double temp_bearing, temp_dist, d_bearing;//, d_lat;
+	double Dmin, Dmax;
 	double temp_lat, temp_lon;
 	double SA_check = 0.0;
 
 	ND     = new_ND;
 	Nazm   = new_Nazm;
 	Ntot   = ND * Nazm;
-	radius = new_radius; 
+	radius = new_radius; // units of m
 
 	ROI.copyLatLon(new_ROI);
 
@@ -195,15 +197,41 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 	// generate list of impact sites distributed over the globe
 	d_bearing = 2.*PI/ double(Nazm);
-	d_lat = PI / double(ND + 1.);
+	//d_lat = PI / double(ND + 1.);
+
+	Dmin = new_Dmin;//1000./radius; 
+	Dmax = PI - Dmin; // to avoid being right at the antipode location
+	cout << "Dmin = " << Dmin * radius << " m\n";
+
+	// first compute all distances
+	for (j_dist = 0; j_dist < ND; ++j_dist)
+	{
+		//D[j_dist] = (j_dist + 1.) * d_lat; // units of radii
+		// logarithmically spaced, so get more close samples
+		D[j_dist] = Dmin * pow(Dmax/Dmin, double(j_dist + 1.) / double(ND)); // units of radii, ND + 1.
+	}
 
 	for (j_dist = 0; j_dist < ND; ++j_dist) {
-		D[j_dist] = (j_dist + 1.) * d_lat; // units of radii
-		//cout << j_dist << " D = " << D[j_dist] << endl;
-
+		
 		// compute site surface areas
-		site_SA[j_dist] = sqr(radius) * d_bearing
-			* fabs(cos((0.5+j_dist)*d_lat) - cos((1.5+j_dist)*d_lat));
+		if (j_dist == 0)
+		{ // Use Dmin, so we have some surface area for our ROI
+			site_SA[j_dist] = sqr(radius) * d_bearing
+				* fabs(cos( Dmin ) - cos( (D[j_dist]+D[j_dist+1])/2. ));
+		}
+		else if(j_dist == ND-1)
+		{ // go out to PI so we cover the whole Moon
+			site_SA[j_dist] = sqr(radius) * d_bearing
+				* fabs(cos( (D[j_dist-1]+D[j_dist])/2. ) - cos( PI ));
+		}
+		else
+		{
+			site_SA[j_dist] = sqr(radius) * d_bearing
+				* fabs(cos( (D[j_dist-1]+D[j_dist])/2. ) - cos( (D[j_dist]+D[j_dist+1])/2. ));
+		}
+
+		// site_SA[j_dist] = sqr(radius) * d_bearing
+		// 	* fabs(cos((0.5+j_dist)*d_lat) - cos((1.5+j_dist)*d_lat));
 
 		SA_check += site_SA[j_dist] * Nazm;
 
@@ -234,10 +262,10 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 		//cout << endl;
 	}
 	// compute ROI surface area
-	ROI_radius = 2. * radius * sin(0.5*d_lat/2.0);
+	ROI_radius = 2. *  radius * sin(Dmin/2.); // 0.5*d_lat/2.0
 	ROI_SA = PI * sqr(ROI_radius);
 
-	SA_check += 2.*ROI_SA;
+	SA_check += ROI_SA;//2.*ROI_SA;
 
 	// cout << " ROI radius = " << ROI_radius << " m" << endl;
 	// cout << " ROI SA = " << ROI_SA << " m^2" << endl;

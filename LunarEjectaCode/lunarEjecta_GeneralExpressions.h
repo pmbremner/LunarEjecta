@@ -9,6 +9,7 @@ using namespace std;
 const double PI = 3.14159265358979323846;
 const double DtoR = PI/180.;
 const double EulerGamma = 0.5772156649015328;
+const double a45 = 1.553773974;
 inline double sqr(double x) {return x*x;}
 
 void copyVector(vector<double>& xFrom, vector<double>& xTo, int Nx);

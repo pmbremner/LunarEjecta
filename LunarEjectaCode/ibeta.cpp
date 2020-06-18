@@ -18,6 +18,9 @@ double ibeta(double x, double a, double b)
 	if (x > (a+1.) / (a+b+2.))
 		return beta(a,b) - ibeta(1.-x, b, a);
 
+	if(x == 0.)
+		return 0.;
+
 	double f0 = 1., fn = 1., rel_err;
 	double a0 = 1.;
 
