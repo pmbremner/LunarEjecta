@@ -290,12 +290,12 @@ double lunarEjecta_FractalIntegration::integrand
 	// 	* HH_AzmDist(imp_zenith, x_azm);				 // azimuth term, first-order Taylor series approx
 ////////////
 
-	/* Case 2  */ return Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * (iBeta(x1, 1.+ a45, 1.+ a45) -iBeta(x0, 1.+ a45, 1.+ a45) );
+	///* Case 2  */ return Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * (iBeta(x1, 1.+ a45, 1.+ a45) -iBeta(x0, 1.+ a45, 1.+ a45) );
 	
 	///*run_equator_A3.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * pow(x_zenith, 1./a) * pow(1.-x_zenith, a);
 	///*Case 1 run_equator_A2.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
 	///*run_equator_A1.txt*/ return Dx * Dbeta * Dy;// * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
-	// /* Case 0 */ return Dx * Dy;
+	 /* Case 0 */ return Dx * Dy;
 }
 
 

@@ -270,10 +270,16 @@ public:
 						// for direct direction
 						AdaptiveMesh[0]->restartBins();
 						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
-
+						
+						if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+							AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
+						
 						// for indirect direction
 						AdaptiveMesh[1]->restartBins();
 						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+
+						if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+							AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
 
 						count++;
 						
@@ -637,9 +643,9 @@ private:
 	// x = \beta - \beta_i
 	double HH_AltInt(double zenith, double x) {
 		// case 2
-		return HHH_beta(a45); // forces the peak angle to always be 45 degrees
+		//return HHH_beta(a45); // forces the peak angle to always be 45 degrees
 
-		//return 1.;
+		return 1.;
 ///
 		// double a = a_power(zenith, x);
 

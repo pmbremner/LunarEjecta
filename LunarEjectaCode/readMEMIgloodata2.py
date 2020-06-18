@@ -8,7 +8,7 @@ from matplotlib import ticker, cm
 
 N_phi   = 18#36
 N_theta = 0# defined later
-N_v     = 13#13 #40
+N_v     = 10#13 #40
 N_lat   = 37
 
 d_phi   = 10#5
@@ -33,8 +33,8 @@ lat_min   = -90
 #figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 #filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/igloo_avg.txt'
 
-filename = "run_equator_Case3.txt"  # run_lat45_Case0 run_equator_Case0 run_polar_Case0
-figfilename = "run_equator_Case3.png"
+filename = "run_equator_CaseB1.txt"  # run_lat45_Case0 run_equator_Case0 run_polar_Case0
+figfilename = "run_equator_CaseB1.png"
 
 #data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
 data = np.loadtxt(filename, unpack=True, skiprows = 214) #834
@@ -46,14 +46,14 @@ phi = np.linspace(0, phi_min + d_phi * (N_phi), int(N_phi/2))
 
 data2d = np.zeros((int(N_phi/2), N_v))
 
-Ndata = np.shape(data)[1]
+Ndata = np.shape(data)[1] - 1
 
 i = 0
 j = 0
 print("\n")
 while i < Ndata:
 	N_theta = int(np.round(360./data[6][i]))
-
+	#print(data[:][i])
 	print(np.shape(data[9:, i:i+N_theta-1]), np.shape(data2d[:]))
 	dataSum = np.sum(data[9:, i:i+N_theta-1], axis=1)
 

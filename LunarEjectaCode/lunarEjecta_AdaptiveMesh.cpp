@@ -136,9 +136,9 @@ void lunarEjecta_AdaptiveMesh::printDataToFile(string fn)
 	int i, j;
 
 
-	for (i = 0; i < Nx-1; ++i)
+	for (i = 0; i < Nx-1; ++i) // x = 1 - cos(alpha)
 	{
-		for (j = 0; j < Ny-1; ++j)
+		for (j = 0; j < Ny-1; ++j) // y = v/v_esc
 		{
 			file << z[i][j] << ' ';
 		}
