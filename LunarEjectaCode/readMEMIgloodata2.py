@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 # https://matplotlib.org/gallery/images_contours_and_fields/contourf_log.html#sphx-glr-gallery-images-contours-and-fields-contourf-log-py
 from matplotlib import ticker, cm
 
-N_phi   = 18#36
+N_phi   = 12#36
 N_theta = 0# defined later
-N_v     = 10#13 #40
+N_v     = 15#13 #40
 N_lat   = 37
 
-d_phi   = 10#5
-d_theta = 10#5
+d_phi   = 15#5
+d_theta = 15#5
 d_v     = 2.3/float(N_v) #2
 d_lat   = 5
 
@@ -33,11 +33,11 @@ lat_min   = -90
 #figfilename = preDirectory + densityDirectory + str(ilat).zfill(3) + '_lat' + str(lat) + '.png'
 #filename = preDirectory + '/lat' + str(lat) + '/' + densityDirectory + '/igloo_avg.txt'
 
-filename = "run_equator_CaseB1.txt"  # run_lat45_Case0 run_equator_Case0 run_polar_Case0
-figfilename = "run_equator_CaseB1.png"
+filename = "run_polar_test3.txt"  # run_lat45_Case0 run_equator_Case0 run_polar_Case0
+figfilename = "run_polar_test3.png"
 
 #data = np.loadtxt('RunData/SouthPole/HiDensity/flux_avg.txt', unpack=True) # Equator South45 SouthPole
-data = np.loadtxt(filename, unpack=True, skiprows = 214) #834
+data = np.loadtxt(filename, unpack=True, skiprows = 99) #834
 
 print(np.shape(data))
 
@@ -79,7 +79,7 @@ datalog[datalog > 0] = np.log10(datalog[datalog > 0])
 datalog[datalog == 0] = np.log10(mindata) - 1
 
 #plt.contourf(v, phi, data2d/(data2d.max()), 100)
-plt.contourf(v, phi, datalog, 100, cmap=cm.nipy_spectral)
+plt.contourf(v, phi, datalog, 1000, cmap=cm.nipy_spectral)
 plt.colorbar(label='Max flux [kg/m^2/year] = ' + str("{0:.3E}".format(data2d.max())) + "\nNet Flux = " + str("{0:.3E}".format(data2d.sum())))
 plt.xlabel('Impact Speed [km/s]')
 plt.ylabel('Impact Angle from Horizon [degrees]')

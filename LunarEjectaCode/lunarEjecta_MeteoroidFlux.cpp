@@ -425,7 +425,7 @@ MEM_iglooAvg::MEM_iglooAvg(string dn)  : MEM_data(dn + "/igloo_avg.txt")
 
 MEM_iglooAvg::~MEM_iglooAvg() {}
 
-
+// fixed, copied algorithm from MassLimitedIglooIntegratedFlux::updateFlux
 double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 {
 	// find index for correct phi (alt)
@@ -433,8 +433,12 @@ double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 	int row_idx, col_idx, Nazm;
 	double dAzm;
 
+	// make azm from 0 to 360
+	azm = fmod(azm + 360.0, 360.0);
+
 	// simple binary search algorithm
-	while (this->getRVar(idx_min, PHI1) != this->getRVar(idx_mid, PHI1)) // idx_max - idx_min > 1
+	//while (this->getRVar(idx_min, PHI1) != this->getRVar(idx_mid, PHI1)) // idx_max - idx_min > 1
+	while (!(this->getRVar(idx_mid, PHI1) <= alt && this->getRVar(idx_mid, PHI2) >= alt ))
 	{
 		// cout << " atl = " << alt << " | "
 		// 	<< this->getRVar(idx_min, PHI1) << ' '
@@ -443,19 +447,19 @@ double MEM_iglooAvg::getFlux_atAngleVel(double alt, double azm, double vel)
 		// 	<< " | idx_min = " << idx_min
 		// 	<< " | idx_mid = " << idx_mid
 		// 	<< " | idx_max = " << idx_max << endl;
-		if (alt < this->getRVar(idx_mid, PHI1))
+		if (alt < this->getRVar(idx_mid, PHI2))
 		{
 			idx_max = idx_mid;
 		} else
 		{
-			idx_min = idx_mid;
+			idx_min = idx_mid + 1;
 		}
 		idx_mid = (idx_max + idx_min)/2;
 		//cout << this->getRVar(idx_mid, PHI1) << endl;
 	}
 	//cout << " J = " << this->getRVar(idx_min, J) << endl;
 
-	row_idx = idx_min - this->getRVar(idx_min, J) + 1;
+	row_idx = idx_mid - this->getRVar(idx_mid, J) + 1;
 
 	// cout << " J = " << this->getRVar(row_idx, J) << " | " << row_idx
 	// 	<< " | ID = " << this->getRVar(row_idx, ID) << endl;

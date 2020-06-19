@@ -1,15 +1,8 @@
 #ifndef LUNAREJECTA_ASSEMBLY_H
 #define LUNAREJECTA_ASSEMBLY_H
 
-#include "lunarEjecta_FractalIntegration.h"
-#include "lunarEjecta_AdaptiveMesh.h"
-#include "lunarEjecta_GeneralExpressions.h"
-#include "lunarEjecta_Regolith.h"
-#include "lunarEjecta_SecondaryFluxData.h"
-#include "lunarEjecta_MeteoroidFlux.h"
-#include "lunarEjecta_NearEarthObjectFlux.h"
+#include "lunarEjecta_Headers_Assembly.h"
 
-//#include "lunarEjecta_SpeedZenithIntegration.h"
 
 #include <iostream>
 #include <iomanip>
@@ -82,7 +75,7 @@ public:
 		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity, new_radius, new_escapeSpeed);
 
 		// init site and ROI locations
-		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI, 2.*sqr(1000.*new_vMin/new_escapeSpeed) * 0.9 /* units of radius, below this distance (90% of it to just be safe) there will be no flux below vMin */);
+		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI, 2.*sqr(1000.*new_vMin/new_escapeSpeed) * 0.8 /* units of radius, below this distance there will be no flux below vMin */);
 
 		// establish high density and low density MEM input data
 		MEMLatDataHi = new MEM_LatData<genMEMdataHi>(dn, lMin, lMax, NL);
@@ -139,7 +132,7 @@ public:
 	{ // All the magic happens here!
 		double runtime, percentFinished;
 
-		unsigned long long int count = 1, count2 = 1;
+		unsigned long long int count = 1, count2 = 1; // int's aren't big enough...
 
 		int i_siteDist, j_siteAzm, k_impactHorzAngle, l_impactAzm, m_impactSpeed;
 		int ii_ejectaAzm, jj_ejectaAlt, kk_ejectaSpeed;
@@ -159,6 +152,7 @@ public:
 		double Dbeta_far; // swath of azm the secondaries reach the ROI, units of rads
 		double xbeta; // = beta - beta_i
 		double xbeta_far; // = beta - beta_i
+
 		// for output data
 		double secondaryAlt; // units of degrees
 		double secondarySpeed; // units of km/s
@@ -166,7 +160,8 @@ public:
 		double MEM_massfluxLo;   // kg/yr
 		double MEM_massfluxHi;   // kg/yr
 		double NEO_massflux;     // kg/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
-		double totalFlux; // kg/yr
+		double totalFlux; // kg/m^2/yr
+		//double fluxAtNormal; // kg/m^2/yr
 		vector<double> Flux_vs_D;
 
 		// units of MEM: kg , NEO 1
@@ -191,7 +186,11 @@ public:
 		Njj = SecFluxOutputData->getNalt(); // the same as our integration mesh
 		Nkk = SecFluxOutputData->getNvel(); // ''
 
-		Flux_vs_D.resize(Ni, 0.);
+		Flux_vs_D.resize(2*Ni, 0.);
+		ofstream flux_vs_D_file;
+		string flux_vs_D_filename = "flux_vs_D.txt";
+		flux_vs_D_file.open(flux_vs_D_filename);
+		cout << "  flux_vs_D_filename = " << flux_vs_D_filename << endl;
 
 		cout << " Ni (i_siteDist) = " << Ni << endl;
 		cout << " Nj (j_siteAzm) = " << Nj << endl;
@@ -216,7 +215,7 @@ public:
 			D3 = 1. - D0;
 
 			Dbeta     = ImpactSitesROILoc->getDbeta(D0, D1);
-			Dbeta_far = ImpactSitesROILoc->getDbeta(D2, D3);
+			Dbeta_far = Dbeta;// By symmetry, they should be the same  ImpactSitesROILoc->getDbeta(D2, D3);
 
 			siteSA = ImpactSitesROILoc->getsite_SA(i_siteDist); // units m^2
 
@@ -237,6 +236,7 @@ public:
 				cout << "  Lat idx = " << MEMLatDataHi->getLatIdx(siteLat) << endl;
 
 				cout << " D0, D1 = " << D0 << ' ' << D1 << endl;
+				cout << " D2, D3 = " << D2 << ' ' << D3 << endl;
 
 				// timing stuff
 				// see: https://stackoverflow.com/questions/12231166/timing-algorithm-clock-vs-time-in-c
@@ -271,15 +271,15 @@ public:
 						AdaptiveMesh[0]->restartBins();
 						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
 						
-						if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
-							AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
+						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+						/// 	AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
 						
 						// for indirect direction
 						AdaptiveMesh[1]->restartBins();
 						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
 
-						if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
-							AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
+						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+						/// 	AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
 
 						count++;
 						
@@ -317,28 +317,44 @@ public:
 							// for (ii_ejectaAzm = 0; ii_ejectaAzm < Nii; ++ii_ejectaAzm)
 							// {
 ////////// Doesn't crash here
+							//fluxAtNormal = 0.;
 							for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
 							{ // z[x] goes like the zenith angle (1 - cos(zenith))
-								secondaryAlt = 90. * (1. - jj_ejectaAlt / double(Njj-1.)); // degrees
+								//secondaryAlt = 90. * (1. - jj_ejectaAlt / double(Njj-1.)); // degrees
+								// When we init the adaptive mesh, there are Njj+1 edges and Njj cell centers
+								secondaryAlt = 90. * (1. - (jj_ejectaAlt + 0.5) / double(Njj)); // degrees
 
 								for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
 								{ 
-									secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
+									//secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
+									// When we init the adaptive mesh, there are Nkk+1 edges and Nkk cell centers
+									secondarySpeed = vMin + (vMax - vMin) * (kk_ejectaSpeed + 0.5) / double(Nkk); // km/s
 //-------> testing here (The issue seems to be in z...)
 									// units of kg/m^2/yr
 									// for direct, closer
 									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[0]->z[jj_ejectaAlt][kk_ejectaSpeed];
-									SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
-									Flux_vs_D[i_siteDist] += totalFlux;
+									if(totalFlux > 0) // only update if we need to
+									{
+										SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
+										Flux_vs_D[i_siteDist] += totalFlux;
+									}
+									// if(jj_ejectaAlt == 0)
+									// 	fluxAtNormal += totalFlux;
 
 									// for wrap around, further
 									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[1]->z[jj_ejectaAlt][kk_ejectaSpeed];
-									SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI_far/DtoR, secondarySpeed);
-									Flux_vs_D[i_siteDist] += totalFlux;
+									if(totalFlux > 0) // only update if we need to
+									{
+										SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI_far/DtoR, secondarySpeed);
+										Flux_vs_D[2*Ni - i_siteDist - 1] += totalFlux;
+									}
+									// if(jj_ejectaAlt == 0)
+									// 	fluxAtNormal += totalFlux;
 
 									count2++;
 								}
 							}
+							//cout << " Flux at " << 90. * (1. - 0.5/double(Njj)) << " degrees [alt] = " << fluxAtNormal << " kg/m^2/yr\n";
 //////////////
 							//}
 
@@ -348,21 +364,28 @@ public:
 				} // END FOR, impact horizon angle
 				
 			}// END FOR, impact outgoing secondary azimuth
+
+			flux_vs_D_file << D0 << ' ' << D1 << ' ' << Flux_vs_D[i_siteDist] << ' ';
+			flux_vs_D_file << D2 << ' ' << D3 << ' ' << Flux_vs_D[2*Ni - i_siteDist - 1] << endl;
+
+
 			cout << " Total flux in distance range D0 and D1 = " << Flux_vs_D[i_siteDist] << " kg/m^2/yr\n";
+			cout << " Total flux in distance range D2 and D3 = " << Flux_vs_D[2*Ni - i_siteDist - 1] << " kg/m^2/yr\n";
 		} // END FOR, impact distance
+
 		cout << " Total count = " << count << endl;
 		cout << " Total count2 = " << count2 << endl;
-	
+		flux_vs_D_file.close();
 		SecFluxOutputData->saveFluxToFile();
 	}
 
 
 
-// once these are initialized, they shouldn't need to change since we will always have
-	//  the same resolution throughout the simulation
-	vector<double> x; // x = 1 - cos(zenith), for integration
-	vector<double> y; // y = v/v_esc, for integration
-	vector<vector<double>> z; // z[Nx][Ny]
+// // once these are initialized, they shouldn't need to change since we will always have
+// 	//  the same resolution throughout the simulation
+// 	vector<double> x; // x = 1 - cos(zenith), for integration
+// 	vector<double> y; // y = v/v_esc, for integration
+// 	vector<vector<double>> z; // z[Nx][Ny]
 
 
 private:
@@ -643,7 +666,7 @@ private:
 	// x = \beta - \beta_i
 	double HH_AltInt(double zenith, double x) {
 		// case 2
-		//return HHH_beta(a45); // forces the peak angle to always be 45 degrees
+		return HHH_beta(a45); // forces the peak angle to always be 45 degrees
 
 		return 1.;
 ///
@@ -734,17 +757,6 @@ private:
 		}
 		return 2. * R[tri_idx(n-1, n-1)]; // multiply by 2 since we cut the domain in half at zero (even function)
 	}
-
-
-	// void H_init_integrationGrid(int Nx, int Ny)
-	// {
-	// 	int i;
-
-	// 	// init the x bin edges
-
-	// }
-
-
 
 
 	lunarEjecta_Regolith*               RegolithProperties;

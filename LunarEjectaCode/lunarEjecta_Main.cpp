@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
 	latLon Polar_ll(89.0, 0.0);
 	latLon Lat45_ll(45.0, 0.0);
 
-	int Nv = 20;
+	int Nv = 21;
 	double vMin = 0.1; // km/s
 	double vMax = 2.4; // km/s
 	vector<double> vLeft, vRight;
@@ -106,10 +106,10 @@ int main(int argc, char const *argv[])
 	    2375.89, // double new_escapeSpeed, units of m/s
 
 		// /*  For ImpactSites_and_ROI */
-		10,//21, // double new_ND,     // total number of distance increments
-        3,//15, // double new_Nazm,   // total number of azimuth increments
+		100,//21, // double new_ND,     // total number of distance increments
+        12,//15, // double new_Nazm,   // total number of azimuth increments
         1737.1E3, // double new_radius, // radius of Moon, units of m
-        Equator_ll,//Polar_ll,//Equator_ll,Lat45_ll    // latLon& new_ROI,   // lat-lon location of Region-Of-Interest
+        Polar_ll,//Polar_ll,//Equator_ll,Lat45_ll    // latLon& new_ROI,   // lat-lon location of Region-Of-Interest
 
 		// /* For MEM_LatData */
 		"../LatRunData", // string dn,   // directory name of lat data
@@ -129,10 +129,10 @@ int main(int argc, char const *argv[])
 		37, // int NL_NEO,
 
 		// /* For SecondaryFluxData */
-		"run_equator_test1.txt", // string fn, // file name
+		"run_polar_test4.txt", // string fn, // file name
 		0., // double new_xMin, // min of x-axis of integral flux
 		1., // double new_xMax, // max of x-axis of integral flux
-		5, // int new_Nx,          // number of spacings on x-axis (will be resolution for igloo)
+		10, // int new_Nx,          // number of spacings on x-axis (will be resolution for igloo)
 		linearScale, // int new_xScale,      // xScaleType = linear or log10
 		Nv, // int new_NSetsXY,           // number of sets of x-y data, if 0 will ignore setMin and setMax
 		vLeft, // vector<double> new_setMin, // minimum of set range i
@@ -142,8 +142,8 @@ int main(int argc, char const *argv[])
 
 
 		// /* For lunarEjecta_AdaptiveMesh */
-		4, // int new_maxLevelMesh,    // the division level of the integration mesh
-		1);// int new_maxLevelFractal // the division level of the integrand-domain probing
+		7, // int new_maxLevelMesh,    // the division level of the integration mesh
+		2);// int new_maxLevelFractal // the division level of the integrand-domain probing
 
 
 

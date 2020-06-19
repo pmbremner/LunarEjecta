@@ -200,7 +200,7 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 	//d_lat = PI / double(ND + 1.);
 
 	Dmin = new_Dmin;//1000./radius; 
-	Dmax = PI - Dmin; // to avoid being right at the antipode location
+	Dmax = PI*(0.95); // to avoid being right at the antipode location
 	cout << "Dmin = " << Dmin * radius << " m\n";
 
 	// first compute all distances
@@ -209,6 +209,8 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 		//D[j_dist] = (j_dist + 1.) * d_lat; // units of radii
 		// logarithmically spaced, so get more close samples
 		D[j_dist] = Dmin * pow(Dmax/Dmin, double(j_dist + 1.) / double(ND)); // units of radii, ND + 1.
+	
+		cout << "  D[" << j_dist << "] = " << D[j_dist] / (2.*PI) << endl;
 	}
 
 	for (j_dist = 0; j_dist < ND; ++j_dist) {
@@ -235,7 +237,7 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 
 		SA_check += site_SA[j_dist] * Nazm;
 
-		cout << " D = " << D[j_dist] << endl;
+		//cout << " D = " << D[j_dist]/PI << " circ" << endl;
 
 		for (i_azm = 0; i_azm < Nazm; ++i_azm) {
 			idx = this->H_idx(i_azm, j_dist);
@@ -329,10 +331,46 @@ double ImpactSites_and_ROI::getsite_SA(int j_dist) {
 double ImpactSites_and_ROI::getDbeta(double D0, double D1) // D's in units of circumference (2*Pi*rm)
 {
 	double D = (D0 + D1) / 2.; // units of circ (2pi*rm)
-	// A spherical right triangle
-	double cos_h_2 = sqr(cos(2.*PI*D + ROI_radius/radius) * cos(ROI_radius/radius));
 
-	return acos((cos(2.*ROI_radius/radius) - cos_h_2) / (1. - cos_h_2));
+	// if (ROI_radius/radius < 0.01) // Taylor expansion in ROI_radius near zero
+	// {
+	// 	return acos(1. - 2.*sqr(ROI_radius/radius) / sqr(sin(2.*PI*D)));
+	// }
+	// else
+	// {
+
+	// A spherical right triangle
+	//double cos_h_2 = sqr(cos(2.*PI*D + ROI_radius/radius) * cos(ROI_radius/radius));
+///	
+	// double cos_h_2 = sqr((cos(2.*PI*D)*cos(ROI_radius/radius) - sin(2.*PI*D)*sin(ROI_radius/radius))* cos(ROI_radius/radius));
+	// double denom = sqr(sin(2.*PI*D + ROI_radius/radius) * cos(ROI_radius/radius)) + sqr(sin(ROI_radius/radius));
+	// double x = (cos(2.*ROI_radius/radius) - cos_h_2) / denom;
+	// cout << "getDbeta: cos_h_2 = " << cos_h_2 << " | denom = " << denom << " | " << (cos(2.*ROI_radius/radius) - cos_h_2) / denom << " | " << acos((cos(2.*ROI_radius/radius) - cos_h_2) / denom) << endl;
+	// if(fabs(1.-x) < 0.001)
+	// 	return sqrt(2.*(1. - x));
+	// else if(fabs(1.+x) < 0.001)
+	// 	return PI - sqrt(2.*(1. + x));
+	// else
+	// 	return acos(x);
+///
+	// double denom = sqr(sin(2.*PI*D + ROI_radius/radius) * cos(ROI_radius/radius)) + sqr(sin(ROI_radius/radius));
+	// double num = sin(2.*ROI_radius/radius) * sin(2.*PI*D + ROI_radius/radius);
+
+	// cout << "getDbeta: num, denom = " << num << " | " << denom << " | " << atan2(num, denom) << endl;
+
+	// return atan2(num, denom);
+//
+	double sin2Dr = sqr(sin(2.*PI*D + ROI_radius/radius));
+	double cos2Dr = sqr(cos(2.*PI*D + ROI_radius/radius));
+
+	double num = sin2Dr - sqr(ROI_radius/radius) * (2. + 0.5 * cos2Dr);
+	double denom = sin2Dr + 0.5*sqr(ROI_radius/radius) * cos2Dr;
+
+	cout << "getDbeta: num, denom = " << num << " | " << denom << " | " << acos(num / denom) << endl;
+
+	return acos(num / denom);
+	//}
+	
 }
 
 
@@ -622,25 +660,30 @@ void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double 
 	// make azm from 0 to 360
 	azm = fmod(azm + 360.0, 360.0);
 
+	/// cout << "***************\n";
+	/// cout << " MassLimitedIglooIntegratedFlux::updateFlux:\n";
+	/// cout << " flux = " << flux << " | alt = " << alt << " | azm = " << azm << " | vel = " << vel << endl;
+
 	// simple binary search algorithm
-	while (igloo_PHI1[idx_min] != igloo_PHI1[idx_mid])
+	//while (igloo_PHI1[idx_min] != igloo_PHI1[idx_mid])
+	while (!(igloo_PHI1[idx_mid] <= alt && igloo_PHI2[idx_mid] >= alt))
 	{
 
-		if (alt < igloo_PHI1[idx_mid])
+		if (alt < igloo_PHI2[idx_mid]) // changed to PHI2 w/ <=, issues with getting into last bin
 		{
 			idx_max = idx_mid;
 		} else
 		{
-			idx_min = idx_mid;
+			idx_min = idx_mid + 1; // changed to add one, since if >, then must be in next bin
 		}
 		idx_mid = (idx_max + idx_min)/2;
 
-		// cout << idx_min << ' ' << idx_mid << ' ' << idx_max << "   ";
-		// cout << igloo_PHI1[idx_min] << ' ' << igloo_PHI1[idx_mid] << ' ' << igloo_PHI1[idx_max] << ' ' << alt << endl;
+		/// cout << idx_min << ' ' << idx_mid << ' ' << idx_max << "   ";
+		/// cout << igloo_PHI2[idx_min] << ' ' << igloo_PHI2[idx_mid] << ' ' << igloo_PHI2[idx_max] << ' ' << alt << endl;
 	}
 
-	row_idx = idx_min - igloo_J[idx_min] + 1;
-	//cout << "row_idx = " << row_idx << endl;
+	row_idx = idx_mid - igloo_J[idx_mid] + 1; // changed to idx_mid from idx_min
+	///cout << "row_idx = " << row_idx << endl;
 
 
 	// correct index for correct theta (azm)
@@ -650,12 +693,17 @@ void MassLimitedIglooIntegratedFlux::updateFlux(double flux, double alt, double 
 	row_idx += int(azm / dAzm);
 	// cout << "row_idx = " << row_idx << endl;
 	// cout << " NSetsXY = " << NSetsXY << endl;
+
+	/// cout << "igloo_PHI1, igloo_PHI2 = " << igloo_PHI1[row_idx] << ", " << igloo_PHI2[row_idx] << endl;
+	/// cout << "igloo_THETA1, igloo_THETA2 = " << igloo_THETA1[row_idx] << ", " << igloo_THETA2[row_idx] << endl;
+
 	// find index for vel and return the flux
 	col_idx = 0;
 	while (col_idx < NSetsXY && !(vel >= setMin[col_idx] && vel <= setMax[col_idx])) {
 		//cout << col_idx << " | " << setMin[col_idx] << ' ' << setMax[col_idx] << endl;
 		col_idx++;
 	}
+	///cout << col_idx << " | " << setMin[col_idx] << ' ' << setMax[col_idx] << endl;
 
 	if(col_idx < NSetsXY) {
 		// store flux
