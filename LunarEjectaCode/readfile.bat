@@ -1,0 +1,4 @@
+@echo off
+del a.exe readfile_main.o lunarEjecta_GeneralExpressions.o lunarEjecta_MeteoroidFlux.o lunarEjecta_SecondaryFluxData.o lunarEjecta_Assembly.o lunarEjecta_Regolith.o lunarEjecta_FractalIntegration.o lunarEjecta_AdaptiveMesh.o lunarEjecta_NearEarthObjectFlux.o lunarEjecta_InitializeInterface.o
+g++ -std=c++11 -O2 -c readfile_main.cpp lunarEjecta_GeneralExpressions.cpp lunarEjecta_MeteoroidFlux.cpp lunarEjecta_SecondaryFluxData.cpp lunarEjecta_Assembly.cpp lunarEjecta_Regolith.cpp lunarEjecta_FractalIntegration.cpp lunarEjecta_AdaptiveMesh.cpp lunarEjecta_NearEarthObjectFlux.cpp lunarEjecta_InitializeInterface.cpp
+g++ readfile_main.o lunarEjecta_GeneralExpressions.o lunarEjecta_MeteoroidFlux.o lunarEjecta_SecondaryFluxData.o lunarEjecta_Assembly.o lunarEjecta_Regolith.o lunarEjecta_FractalIntegration.o lunarEjecta_AdaptiveMesh.o lunarEjecta_NearEarthObjectFlux.o lunarEjecta_InitializeInterface.o

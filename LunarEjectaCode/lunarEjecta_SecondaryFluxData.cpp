@@ -165,8 +165,8 @@ inline int ImpactSites_and_ROI::H_idx(int i_azm, int j_dist) {
 ///////////////////////////////
 
 ImpactSites_and_ROI::ImpactSites_and_ROI
-	                 (double new_ND,
-	                  double new_Nazm,
+	                 (int new_ND,
+	                  int new_Nazm,
 	                  double new_radius,
 	                  latLon& new_ROI,
 	                  double new_Dmin)

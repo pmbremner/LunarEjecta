@@ -29,8 +29,8 @@ public:
 	    double new_escapeSpeed, // m/s
 
 		/*  For ImpactSites_and_ROI */
-		double new_ND,     // total number of distance increments
-        double new_Nazm,   // total number of azimuth increments
+		int new_ND,     // total number of distance increments
+        int new_Nazm,   // total number of azimuth increments
         double new_radius, // radius of Moon
         latLon& new_ROI,   // lat-lon location of Region-Of-Interest
 
