@@ -175,6 +175,15 @@ public:
 		}
 	}
 
+
+	void computeSecondaryFlux()
+	{
+		if(!initError)
+			ejectaModel->computeSecondaryFlux();
+		else
+			cout << "ERROR: Compute Secondary Flux failed --> Need a successful initialization...\n";
+	}
+
 	//////////////
 	// Functions to modify individual parameters before commiting
 

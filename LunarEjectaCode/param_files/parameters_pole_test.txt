@@ -1,9 +1,9 @@
 # This is a comment
 #/*  For ImpactSites_and_ROI */
-NDistance# 40
+NDistance# 20
 Nazm#      3
-ROI_Lat#   45.0
-ROI_Lon#   0.0
+ROI_Lat#   0.0
+ROI_Lon#   89.0
 #
 #/* For MEM_LatData */
 MEMDirectoryName# ../LatRunData
@@ -24,3 +24,5 @@ SecNx#        10
 SecNSetsXY#   12
 SecvMin#      0.1
 SecvMax#      2.4
+#/* For lunarEjecta_AdaptiveMesh */
+maxLevelMesh# 4

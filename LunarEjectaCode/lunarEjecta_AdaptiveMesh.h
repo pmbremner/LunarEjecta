@@ -25,7 +25,8 @@ public:
 	             double new_x_azm,
 	             double new_Dbeta,
 	             double new_mu,
-	             double new_imp_zenith);
+	             double new_imp_zenith,
+	             double new_excZone);
 
 	void restartBins();
 
@@ -63,6 +64,7 @@ private:
 	double Dbeta; // units of rads
 	double mu;
 	double imp_zenith;
+	double excZone;
 
 	int Nx;
 	int Ny;

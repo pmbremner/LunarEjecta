@@ -52,7 +52,11 @@ lunarEjecta_FractalIntegration::~lunarEjecta_FractalIntegration() {}
 
 // Note, we can probably apply Richardson extrapolation here,
 //  but I'm not sure how the error goes... so maybe later
-double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new_Dbeta, double new_mu, double new_imp_zenith)
+double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm,
+		                							double new_Dbeta,
+		                							double new_mu,
+									                double new_imp_zenith,
+									                double new_excZone)
 {
 	double curError = 10.*epsError;
 
@@ -60,6 +64,7 @@ double lunarEjecta_FractalIntegration::evalIntegral(double new_x_azm, double new
 	Dbeta = new_Dbeta;
 	mu = new_mu;
 	imp_zenith = new_imp_zenith;
+	excZone = new_excZone;
 
 	// moved from init function
 	if(levelCur < 0)
@@ -274,11 +279,11 @@ double lunarEjecta_FractalIntegration::integrand
 		         double Dy) // width of eval in y
 {
 //////////	
-	double y0 = y - Dy/2.;
-	double y1 = y + Dy/2.;
+	// double y0 = y - Dy/2.;
+	// double y1 = y + Dy/2.;
 
-	double x0 = x_zenith - Dx/2.;
-	double x1 = x_zenith + Dx/2.;
+	// double x0 = x_zenith - Dx/2.;
+	// double x1 = x_zenith + Dx/2.;
 	// //double zenith = acos(1. - x_zenith); // units of rads
 
 	//double a = a_power(imp_zenith, x_azm); // needs impact zenith angle, not secondary zenith angle
@@ -290,12 +295,104 @@ double lunarEjecta_FractalIntegration::integrand
 	// 	* HH_AzmDist(imp_zenith, x_azm);				 // azimuth term, first-order Taylor series approx
 ////////////
 
-	/* Case 2  */ return Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * (iBeta(x1, 1.+ 1./a45, 1.+ a45) -iBeta(x0, 1.+ 1./a45, 1.+ a45) );
+	///* Case 2  */ return Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * (iBeta(x1, 1.+ 1./a45, 1.+ a45) -iBeta(x0, 1.+ 1./a45, 1.+ a45) );
 	
 	///*run_equator_A3.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu)) * pow(x_zenith, 1./a) * pow(1.-x_zenith, a);
 	///*Case 1 run_equator_A2.txt */ return Dx * Dbeta * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
 	///*run_equator_A1.txt*/ return Dx * Dbeta * Dy;// * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
 	// /* Case 0 */ return Dx * Dy;
+
+
+	return H_betaIntegrate(x_zenith, y, Dx, Dy);
+
+}
+
+// zenith in units of rad, x = \beta - \beta_i
+double lunarEjecta_FractalIntegration::HH_AzmDist(double x)
+{
+
+	//return 1.;
+	if(imp_zenith < PI/3.)
+	{
+		return (1. + cos(x) * 3.*imp_zenith / (2.*PI - 3.*imp_zenith)) / (2.*PI);
+
+	}
+	else
+	{ // imp_zenith > PI/3
+
+		return (1. + cos(x) ) / (2.*PI);
+	}
+}
+
+double lunarEjecta_FractalIntegration::HH_integrand(double x0, double x1, double y0, double y1, double x_beta)
+{
+	if(x_beta > PI - excZone && x_beta < PI + excZone)
+	{ // in the exclusion zone
+		return 0.0;
+	}
+	else
+	{
+		double a = a_power(imp_zenith, x_beta);
+		return HH_AzmDist(x_beta) * (iBeta(x1, 1.+ 1./a, 1.+ a) -iBeta(x0, 1.+ 1./a, 1.+ a) );
+	}
+}
+
+
+double lunarEjecta_FractalIntegration::H_betaIntegrate
+				(double x_zenith, // location of center, x_zenith = 1 - cos(zenith)
+		         double y, //  of eval, y = v/v_esc
+		         double Dx, // width of eval in x_zenith
+		         double Dy) // width of eval in y
+{
+	double y0 = y - Dy/2.;
+	double y1 = y + Dy/2.;
+
+	double x0 = x_zenith - Dx/2.;
+	double x1 = x_zenith + Dx/2.;
+
+	double a = x_azm - Dbeta/2.;
+	double b = x_azm + Dbeta/2.;
+
+	double eps = 1.E-2; // epsilon error in numerical integration
+
+	double pow4m, hn, err = 10.*eps, fsum;
+	int n = 1, m, k;
+	vector<double> R;
+
+	// base case, R(0,0), trapezoid rule
+	hn = (b-a) / 2.;
+	R.push_back(hn * (HH_integrand(x0, x1, y0, y1, a) + HH_integrand(x0, x1, y0, y1, b)));
+
+	while(n < 4 || err > eps) { // do at least 2^3=8 function evals
+
+		R.push_back(0.); // extend R array
+		fsum = 0.;
+
+		// fill in func eval gaps for next level
+		for (k = 1; k <= (1 << (n-1)); k++)
+			fsum += HH_integrand(x0, x1, y0, y1, a + (2.*k - 1.)*hn);
+
+		R[tri_idx(n,0)] = R[tri_idx(n-1,0)] / 2. + hn * fsum;
+
+		pow4m = 1.;
+
+		// compute n-th row of m's
+		for (m = 1; m <= n; m++)
+		{
+			R.push_back(0.); // extend R array
+			pow4m *= 4.;
+			R[tri_idx(n,m)] = R[tri_idx(n,m-1)]
+			                + (R[tri_idx(n,m-1)] - R[tri_idx(n-1,m-1)])
+			                / (pow4m - 1.);
+
+		}
+
+		// compute relative error
+		err = fabs((R[tri_idx(n,n)] - R[tri_idx(n-1,n-1)]) / R[tri_idx(n,n)]);
+		n++;
+		hn /= 2.;
+	}
+	return R[tri_idx(n-1, n-1)] * (pow(y0, -3.*mu) - pow(y1, -3.*mu));
 }
 
 
@@ -322,33 +419,33 @@ double lunarEjecta_FractalIntegration::HH_calcDist(double x, double v) {
 
 //// Same as in lunarEjecta_Assembly
 // zenith in units of rad, x = \beta - \beta_i
-double lunarEjecta_FractalIntegration::HH_AzmDist(double impact_zenith, double x) {
-	if(impact_zenith < PI/3.)
-	{
-		return (1. + cos(x) * 3.*impact_zenith / (2.*PI - 3.*impact_zenith)) / (2.*PI);
+// double lunarEjecta_FractalIntegration::HH_AzmDist(double impact_zenith, double x) {
+// 	if(impact_zenith < PI/3.)
+// 	{
+// 		return (1. + cos(x) * 3.*impact_zenith / (2.*PI - 3.*impact_zenith)) / (2.*PI);
 
-	} else { // impact_zenith > PI/3
+// 	} else { // impact_zenith > PI/3
 
-		double b = (0.05 - 1.) /(PI/2. - PI/3.) * (impact_zenith - PI/3.) + 1.;
+// 		double b = (0.05 - 1.) /(PI/2. - PI/3.) * (impact_zenith - PI/3.) + 1.;
 
-		return exp(-(x - 2.*(impact_zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(impact_zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
-	}
-}
+// 		return exp(-(x - 2.*(impact_zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(impact_zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+// 	}
+// }
 
 // zenith in units of rad, x = \beta - \beta_i
 // x_angle = 1 - cos(zenith)
-double lunarEjecta_FractalIntegration::HH_AltDist(double zenith, double x)
-{
-	double x_angle = 1. - cos(zenith);
-	double a = a_power(zenith, x);
+// double lunarEjecta_FractalIntegration::HH_AltDist(double zenith, double x)
+// {
+// 	double x_angle = 1. - cos(zenith);
+// 	double a = a_power(zenith, x);
 	
-	return pow(x_angle, 1./a) * pow(1. - x_angle, a);
-}
+// 	return pow(x_angle, 1./a) * pow(1. - x_angle, a);
+// }
 
-double lunarEjecta_FractalIntegration::HH_vDist(double v, double mu)
-{
-	return 3.*mu * pow(v, -(3.*mu+1.));
-}
+// double lunarEjecta_FractalIntegration::HH_vDist(double v, double mu)
+// {
+// 	return 3.*mu * pow(v, -(3.*mu+1.));
+// }
 
 
 // beta - beta_i = pi

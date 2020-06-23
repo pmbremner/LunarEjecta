@@ -14,5 +14,6 @@ int main(int argc, char const *argv[])
 						 MassLimitedIglooIntegratedFlux> setupModel(parameter_filename, run_filename);
 
 	setupModel.commitInit();
+	setupModel.computeSecondaryFlux();
 	return 0;
 }

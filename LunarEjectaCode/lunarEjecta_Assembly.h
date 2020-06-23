@@ -152,6 +152,7 @@ public:
 		double Dbeta_far; // swath of azm the secondaries reach the ROI, units of rads
 		double xbeta; // = beta - beta_i
 		double xbeta_far; // = beta - beta_i
+		double excZone; // rads (wrt beta - beta_i)
 
 		// for output data
 		double secondaryAlt; // units of degrees
@@ -260,23 +261,26 @@ public:
 				{
 					impactHorzAngle = PI/2. * k_impactHorzAngle / double(Nk-1.);
 
+					excZone = exclusion_zone((PI/2. - impactHorzAngle)/DtoR); // in rads
+
 					for (l_impactAzm = 0; l_impactAzm < Nl; ++l_impactAzm)
 					{
 						impactAzm = 2.*PI * l_impactAzm / double(Nl);
 						xbeta     = fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI);
 						xbeta_far = fmod(outgoingAzm_at_site_far - impactAzm + 2.*PI, 2.*PI);
+
 						// First, compute the integration grid (which gives the secondary
 						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
 						// for direct direction
 						AdaptiveMesh[0]->restartBins();
-						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
 						
 						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
 						/// 	AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
 						
 						// for indirect direction
 						AdaptiveMesh[1]->restartBins();
-						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle);
+						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
 
 						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
 						/// 	AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
@@ -380,12 +384,10 @@ public:
 	}
 
 
-
-// // once these are initialized, they shouldn't need to change since we will always have
-// 	//  the same resolution throughout the simulation
-// 	vector<double> x; // x = 1 - cos(zenith), for integration
-// 	vector<double> y; // y = v/v_esc, for integration
-// 	vector<vector<double>> z; // z[Nx][Ny]
+	// double getExclusion_zone(double zenith) //zenith angle in deg
+	// {
+	// 	return exclusion_zone(zenith);
+	// }
 
 
 private:
@@ -666,40 +668,42 @@ private:
 	// x = \beta - \beta_i
 	double HH_AltInt(double zenith, double x) {
 		// case 2
-		return HHH_beta(a45); // forces the peak angle to always be 45 degrees
+		//return HHH_beta(a45); // forces the peak angle to always be 45 degrees
 
-		return 1.;
+		//return 1.;
 ///
-		// double a = a_power(zenith, x);
+		double a = a_power(zenith, x);
 
-		// if(a > 15) // large 'a', worst 0.46% error
-		// {
-		// 	return HHH_BetaApproxLarge(a);
+		if(a > 15.) // large 'a', worst 0.46% error
+		{
+			return HHH_BetaApproxLarge(a);
 
-		// } else if(a < 1./15.) { // small 'a' worst 0.46% error
+		} else if(a < 1./15.) { // small 'a' worst 0.46% error
 
-		// 	return HHH_BetaApproxLarge(1./a);
+			return HHH_BetaApproxLarge(1./a);
 
-		// } else { // intermediate 'a'
+		} else { // intermediate 'a'
 
-		// 	return HHH_beta(a);
-		// }
+			return HHH_beta(a);
+		 }
 	}
 
 	// zenith in units of rad, x = \beta - \beta_i
 	double HH_AzmDist(double zenith, double x) {
 
-		return 1.;
-		// if(zenith < PI/3.)
-		// {
-		// 	return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
+		//return 1.;
+		if(zenith < PI/3.)
+		{
+			return (1. + cos(x) * 3.*zenith / (2.*PI - 3.*zenith)) / (2.*PI);
 
-		// } else { // zenith > PI/3
+		} else { // zenith > PI/3
 
-		// 	double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
+			return (1. + cos(x) ) / (2.*PI);
 
-		// 	return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
-		// }
+			// double b = (0.05 - 1.) /(PI/2. - PI/3.) * (zenith - PI/3.) + 1.;
+
+			// return exp(-(x - 2.*(zenith - PI/3.) ) / (PI*b)) + exp(-(x + 2.*(zenith - PI/3.) ) / (PI*b)); // not normalized to itself, it will get normalized with everything later
+		}
 	}
 
 
