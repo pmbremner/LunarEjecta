@@ -90,7 +90,7 @@ double lunarEjecta_NearEarthObjectFlux::getMassFluxNEO_atAngleVelLat(double alt,
 
 // double lunarEjecta_NearEarthObjectFlux::getNEOflux_atSpeed(double v)
 // {
-	
+
 // }
 
 double lunarEjecta_NearEarthObjectFlux::getmMin() {return m_min;}
@@ -105,13 +105,13 @@ int    lunarEjecta_NearEarthObjectFlux::getNv()   {return Nv;}
 
 double lunarEjecta_NearEarthObjectFlux::g_NEOflux(double m)
 {
-	return 2.89E-11 * pow(m, -0.9);
+	return 2.89E-11 * pow(m, -0.9) / 4.;
 }
 
 // computed in mathematica
 double lunarEjecta_NearEarthObjectFlux::Dg_NEOflux(double m)
 {
-	return 2.601E-11 * pow(m, -0.9);
+	return 2.601E-11 * pow(m, -0.9) / 4.;
 }
 
 // integrating with HH11 mass term

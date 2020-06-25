@@ -248,7 +248,7 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 			if(j_dist == 0){
 				// takes init bearing point 1-2, converts to azm, then gets final azm point 2-1
 				ROIAzm[i_azm] = siteLoc[idx].init2Final(siteLoc[idx].bearing2Azm(temp_bearing));
-				//cout << " ROIAzm = " << ROIAzm[i_azm] << endl;
+				cout << " ROIAzm = " << ROIAzm[i_azm] << endl;
 			}
 
 			// compute lat lon of new site
@@ -257,9 +257,9 @@ ImpactSites_and_ROI::ImpactSites_and_ROI
 			// outgoing azimuth from siteLoc to ROI
 			siteAzm[idx] = siteLoc[idx].getAzmInitial(ROI);
 
-			//cout << " siteAzm = " << siteAzm[idx] << endl;
+			cout << " siteAzm = " << siteAzm[idx] << endl;
 
-			////siteLoc[idx].dispLatLon();
+			siteLoc[idx].dispLatLon();
 		}
 		//cout << endl;
 	}
