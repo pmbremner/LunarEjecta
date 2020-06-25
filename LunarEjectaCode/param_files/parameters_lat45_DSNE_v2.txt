@@ -1,8 +1,8 @@
 # Parameters for DSNE Tables 3.4.8.3-x 
 #/*  For ImpactSites_and_ROI */
-NDistance# 35
-Nazm#      18
-ROI_Lat#   90.0
+NDistance# 30
+Nazm#      72
+ROI_Lat#   45.0
 ROI_Lon#   0.0
 #
 #/* For MEM_LatData */
