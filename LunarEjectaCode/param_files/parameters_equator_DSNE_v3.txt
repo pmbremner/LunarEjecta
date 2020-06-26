@@ -2,7 +2,7 @@
 #/*  For ImpactSites_and_ROI */
 NDistance# 30
 Nazm#      15
-ROI_Lat#   89.99
+ROI_Lat#   0.0
 ROI_Lon#   0.0
 #
 #/* For MEM_LatData */

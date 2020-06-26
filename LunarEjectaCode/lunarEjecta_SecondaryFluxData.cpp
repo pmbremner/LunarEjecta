@@ -67,11 +67,11 @@ double latLon::getLatDeg() {return lat/DtoR;}
 double latLon::getLonDeg() {return lon/DtoR;}
 
 inline double latLon::azm2Bearing(double azm){
-	return fmod(2.5*PI - azm, 2.*PI);
+	return fmod(PI/2. - azm, 2.*PI);
 }
 
 inline double latLon::bearing2Azm(double bearing) {
-	return fmod(2.5*PI - bearing, 2.*PI);
+	return fmod(PI/2. - bearing, 2.*PI);
 }
 
 inline double latLon::init2Final(double angle) {
