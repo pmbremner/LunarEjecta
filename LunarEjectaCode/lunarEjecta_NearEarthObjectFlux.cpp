@@ -105,13 +105,13 @@ int    lunarEjecta_NearEarthObjectFlux::getNv()   {return Nv;}
 
 double lunarEjecta_NearEarthObjectFlux::g_NEOflux(double m)
 {
-	return 2.89E-11 * pow(m, -0.9) / 4.;
+	return 2.89E-11 * pow(m, -0.9) * 4.;
 }
 
 // computed in mathematica
 double lunarEjecta_NearEarthObjectFlux::Dg_NEOflux(double m)
 {
-	return 2.601E-11 * pow(m, -0.9) / 4.;
+	return 2.601E-11 * pow(m, -0.9) * 4.;
 }
 
 // integrating with HH11 mass term
