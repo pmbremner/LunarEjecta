@@ -359,17 +359,20 @@ double ImpactSites_and_ROI::getDbeta(double D0, double D1) // D's in units of ci
 	// cout << "getDbeta: num, denom = " << num << " | " << denom << " | " << atan2(num, denom) << endl;
 
 	// return atan2(num, denom);
-//
-	double sin2Dr = sqr(sin(2.*PI*D + ROI_radius/radius));
-	double cos2Dr = sqr(cos(2.*PI*D + ROI_radius/radius));
+///////////////////////////////
+	// double sin2Dr = sqr(sin(2.*PI*D + ROI_radius/radius));
+	// double cos2Dr = sqr(cos(2.*PI*D + ROI_radius/radius));
 
-	double num = sin2Dr - sqr(ROI_radius/radius) * (2. + 0.5 * cos2Dr);
-	double denom = sin2Dr + 0.5*sqr(ROI_radius/radius) * cos2Dr;
+	// double num = sin2Dr - sqr(ROI_radius/radius) * (2. + 0.5 * cos2Dr);
+	// double denom = sin2Dr + 0.5*sqr(ROI_radius/radius) * cos2Dr;
 
-	cout << "getDbeta: num, denom = " << num << " | " << denom << " | " << acos(num / denom) << endl;
+	// cout << "getDbeta: num, denom = " << num << " | " << denom << " | " << acos(num / denom) << endl;
 
-	return acos(num / denom);
+	// return acos(num / denom);
 	//}
+	// use https://en.wikipedia.org/wiki/Spherical_trigonometry#Napier's_rules_for_right_spherical_triangles
+	cout "getDbeta: = " << atan2(tan(2.*PI*D + ROI_radius/radius), sin(ROI_radius/radius)) / DtoR << endl;
+	return atan2(tan(2.*PI*D + ROI_radius/radius), sin(ROI_radius/radius));
 	
 }
 
