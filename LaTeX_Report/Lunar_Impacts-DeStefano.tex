@@ -7,6 +7,9 @@
 \usepackage{pdfpages}
 \usepackage{listings}
 \usepackage{amsmath}
+%https://tex.stackexchange.com/questions/54241/change-the-type-of-equation-numbering-in-document-class-article
+\numberwithin{equation}{section}
+
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \lstset{  breaklines=true, numbers=left, numberstyle=\tiny\color{mygray}, keepspaces=true }
 
@@ -293,7 +296,7 @@ V_{P_{moon}}(x_{0}) = \frac{4}{3}\pi \left[\frac{1}{22.96}\left(x_{max}^2 - x_{0
 where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regolith $\rho$, we can then compute the total mass of the particles from the PDF.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ejected Mass from an Impactor}
+\subsection{Ejected Mass from an Impactor}\label{ssec:Ejected Mass from an Impactor}
 From \cite{housen2011ejecta}, we can compute the mass ejected faster than $v$ in terms of impactor properties, given by
 \begin{eqnarray}\label{eq:HH11_mass-ejected1}
 M(v; \rho; m, \delta, U, \alpha) = M(>v) = C_4 m\left[\frac{v}{U\Theta(\alpha)}\left(\frac{\rho}{\delta}\right)^{\frac{3\nu-1}{3\mu}}\right]^{-3\mu},
@@ -643,7 +646,7 @@ The speed distribution $H(v')$ is defined by
 \int_{v}^{\infty}dv'H(v') = v^{-3\mu},
 \end{equation}
 which is the speed dependent term of Eq.\ \eqref{eq:HH11_mass-ejected1}. We can then solve the speed distribution explicitly as
-\begin{equation}
+\begin{equation}\label{eq:vel_dist}
 H(v) = 3\mu v^{-(3\mu+1)}.
 \end{equation}
 
@@ -786,7 +789,7 @@ The meteoroid density has two components, a low and a high density contribution,
 F_\delta(x) = \frac{A}{\sigma\sqrt{2\pi}x}\exp\left[-\frac{(\ln x-\mu_\delta)^2}{2\sigma^2}\right],
 \end{equation}
 the integration entails computing the moments of a log-normal distribution. The $\alpha$-~moment is given by
-\begin{equation}
+\begin{equation}\label{eq:log_normal-moment}
 F^\alpha_\delta(A,\mu_\delta,\sigma) = A\exp\left(\alpha\mu_\delta+\frac{1}{2}\alpha^2\sigma^2\right).
 \end{equation}
 Inserting these results into Eq.\ \ref{eq:HH11_mass-ejected1}, the functional form of the projectile density contribution can be written as
@@ -1032,13 +1035,13 @@ The integral flux of ejecta particles great than critical energy $E_c$ as a func
 
 The NASA SP-8013 Meteoroid Environment Model \citep{cour1969meteoroid}, is a document published in 1969 that describes the meteoroid and lunar ejecta environment of cometary origin with masses between $10^{-12}$ g and $1$ g. The flux-mass models and the associated density and velocity characteristics are for engineering applications in the design of space vehicles for near-Earth orbit, cis-lunar, lunar orbit, and lunar surface missions.
 
-Our aim is to provide an updated specification to NASA SP-8013 for the lunar impact ejecta environment. Until the update is finished, DSNE points to Figure 10 (shown here in Figure \ref{fig:NASA-SP-8013-Fig10-flux-mass-distribution}) of \cite{cour1969meteoroid} for lunar ejecta. The results that follow from Sections \ref{sec:Spheral Based Lunar Ejecta Modeling} and \ref{sec:MEM3 Based Lunar Ejecta Modeling} will be verified against NASA SP-8013. We already anticipate that our new environments will be more benign (e.g., \cite[][pointing out that $50$ J is the critial energy]{bjorkman2019astronaut}), however to what degree from our analysis is yet to be determined. We also plan to provide output in terms of penetrating flux as a function of critical kinetic energy, as comparison to Figure 5 of \cite{bjorkman2019astronaut}, to aid in risk assessment of lunar impact ejecta.
-
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.6]{NASA-SP-8013-Fig10-flux-mass-distribution.PNG}
+	\includegraphics[scale=0.5]{NASA-SP-8013-Fig10-flux-mass-distribution.PNG}
 	\caption{Average cumularive lunar ejecta flux-mass distribution for each of three ejecta velocity intervals \citep{cour1969meteoroid}.}\label{fig:NASA-SP-8013-Fig10-flux-mass-distribution}
 \end{figure}
+
+Our aim is to provide an updated specification to NASA SP-8013 for the lunar impact ejecta environment. Until the update is finished, DSNE points to Figure 10 (shown here in Figure \ref{fig:NASA-SP-8013-Fig10-flux-mass-distribution}) of \cite{cour1969meteoroid} for lunar ejecta. The results that follow from Sections \ref{sec:Spheral Based Lunar Ejecta Modeling} and \ref{sec:MEM3 Based Lunar Ejecta Modeling} will be verified against NASA SP-8013. We already anticipate that our new environments will be more benign (e.g., \cite[][pointing out that $50$ J is the critial energy]{bjorkman2019astronaut}), however to what degree from our analysis is yet to be determined. We also plan to provide output in terms of penetrating flux as a function of critical kinetic energy, as comparison to Figure 5 of \cite{bjorkman2019astronaut}, to aid in risk assessment of lunar impact ejecta.
 
 
 Our ultimate goal in providing an updated environment definition is to have an output in the same format as MEM 3's igloo files (see Section 3.4.4 of \cite{moorhead2019nasa}). This will allow for current analysis tools already familiar with MEM 3 to ingest our new environments without modification to those tools. 
@@ -1046,6 +1049,131 @@ Our ultimate goal in providing an updated environment definition is to have an o
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analytic Study of Secondary Lunar Ejecta}
+\label{sec:AnalyticStudyofSecondaryLunarEjecta}
+
+In this section, we dive into a \textit{back-of-the-envelope} approach to understanding the secondary ejecta on the Moon. We begin by first defining the expected total mass of ejecta that is produced by an impact (or class of impacts) in Section \ref{ssec:TotalEjectedMass}, first discussed in Section \ref{ssec:Ejected Mass from an Impactor}. We then count secondary ejecta produced over the entire surface of the Moon that reaches our particular region of interest, discussed in Section \ref{ssec:EstimatedSecondaryEjectaataROI}.
+
+The purpose of doing an analytic study of the secondary lunar ejecta is to compare with our computer simulations and to see mathematically what drives the secondary ejecta environment.
+
+\subsection{Total Ejected Mass}\label{ssec:TotalEjectedMass}
+From \cite{housen2011ejecta}, we can compute the mass ejected faster than $v$ in terms of impactor properties, given by (copying Equation \eqref{eq:HH11_mass-ejected1} here for convenience))
+\begin{eqnarray}\label{eq:HH11_mass-ejected1-repeat}
+M(v; \rho; m, \delta, U, \alpha) = M(>v) = C_4 m\left[\frac{v}{U\Theta(\alpha)}\left(\frac{\rho}{\delta}\right)^{\frac{3\nu-1}{3\mu}}\right]^{-3\mu},
+\end{eqnarray}
+where
+\begin{itemize}
+	\item $v$: secondary ejecta speed,
+	\item $\rho$: target density,
+	\item $m$: projectile mass,
+	\item $\delta$: projectile density,
+	\item $U$: projectile speed,
+	\item $\alpha$: projectile impact angle (from horizon),
+\end{itemize}
+and
+\begin{eqnarray}
+C_4 = \frac{3k}{4\pi}C_1^{3\mu},
+\end{eqnarray}
+where the constants $k$, $C_1$, $\nu$, and $\mu$ depend on the specific material properties, see Table 3 of \cite{housen2011ejecta}. We will assume that $\Theta(\alpha) = 1$ for now (i.e., all impacts are normal to the surface), but will reintroduce this dependence later.
+
+Given that we have a mass distribution and density distribution of primary impactors that are independent of the impact speed and other parameters, we can integrate these out. The mass term is given by (from Equation \eqref{eq:Gm_integral})
+\begin{equation}\label{eq:Gm_integral-repeat}
+G_m = \int_{m_{min}}^{m_{max}}dm\frac{dg(m)}{dm}m.
+\end{equation}
+where $\frac{dg(m)}{dm}$ is the derivative of the Gr{\"u}n interplanetary flux in Equation \eqref{eq:Grun_flux}.
+
+Assuming that the density distribution is log-normal, the density term is given by (from Equation \eqref{eq:log_normal-moment})
+\begin{equation}\label{eq:log_normal-moment-repeat}
+F^\alpha_\delta(A,\mu_\delta,\sigma) = A\exp\left(\alpha\mu_\delta+\frac{1}{2}\alpha^2\sigma^2\right).
+\end{equation}
+
+We then multiply Equation \eqref{eq:HH11_mass-ejected1-repeat} by the primary meteor flux $f_p$ (in number per area per time) so that we have
+\begin{equation}\label{eq:ejected_mass}
+M_p(>v) = \frac{C_4 G_m F_\delta^{3\nu-1}}{\rho^{3\nu-1}}f_p\left(\frac{U}{v}\right)^{3\mu},
+\end{equation}
+where we will use $\nu = 0.4$ and $\mu = 0.4$ for the lunar regolith. The units of $M_p(>v)$ is now mass per impact area per time.
+
+
+\subsection{Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}\label{ssec:EstimatedSecondaryEjectaataROI}
+In order to integrate over the entire Moon, we imagine the region-of-interest (ROI) to be centered on the z-axis of a spherical coordinate system\footnote{When we have to worry about latitudinal effects, we will need to adjust this definition.} with the radius of the Moon $r_m$. Therefore, this distance from the center of the ROI is defined as $D = \theta r_m$, where $\theta$ is the angle from the z-axis. The azimuthal angle is given by $\phi$, defined to rotate in the right-handed sense from the x-axis.
+
+The differential surface area is then given by
+\begin{equation}
+dA = r_m^2\sin\theta d\theta d\phi = r_m\sin(D/r_m)dD d\phi.
+\end{equation}
+When integrating over the distance, we will put a placeholder function $D_{min}$ and $D_{max}$ which can be constant in the ROI distance $D$ or the secondary ejecta speed $v$ and depend on the other.
+
+We can back out the secondary ejecta speed distribution $H(v)$ in Equation \eqref{eq:ejected_mass} by employing the definition given in Equation \eqref{eq:vel_dist}
+
+\begin{equation}\label{eq:vel_dist-repeat}
+H(v) = 3\mu v^{-(3\mu+1)},
+\end{equation}
+such that
+\begin{equation}
+\int_{v}^{\infty}dv'H(v') = v^{-3\mu}.
+\end{equation}
+
+The corresponding speeds that reach a particular ROI of radius $r_{ROI}$ (or diameter $\Delta D$) at a distance $D$ can be computed by
+\begin{align}
+\mathcal{V}(D) &= \int_{v(D_0)}^{v(D_1)}dv'H(v'),\\
+&= v(D_0 = D - r_{ROI})^{-3\mu} - v(D_1 = D + r_{ROI})^{-3\mu}.
+\end{align}
+
+In the limit as $\Delta D \to 0$, or $\Delta D/r_m \ll 1$, we can approximate $\mathcal{V}$ as
+\begin{equation}
+\mathcal{V}(D) = -\Delta D f_v'(D) + \mathcal{O}(\Delta D^3),
+\end{equation}
+with an error\footnote{The $\Delta D^2$ terms cancel out.} proportional to $\Delta D^3f_v'''$, where the function $f_v(D)$ is given by
+\begin{equation}
+f_v(D) = v_{esc}^{3\mu}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}} = v(D,\gamma)^{-3\mu}.
+\end{equation}
+The derivative of $f_v$ with respect to $D$ can then be computed as
+\begin{equation}
+f_v'(D) = \frac{df_v(D)}{dD} = -3\mu\frac{\sin(2\gamma)}{\sin^2\left(\frac{D}{2r_m}\right)}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}-1}.
+\end{equation}
+
+The total mass per ROI area per time for a given ejecta zenith angle $\gamma$ can be computed by integrating over the sphere of the Moon
+\begin{equation}\label{eq:M_ROI}
+M_{ROI}(\gamma) = \frac{M_p(1)r_m}{\Delta D^2} \int_{D_{min}}^{D_{max}}\hspace{-0.1cm}\int_{0}^{2\pi}d\phi dD \sin(D/r_m) \mathcal{V}(D,\gamma)\Phi(D),
+\end{equation}
+where $\Phi(D)$ is the fraction of azimuth field-of-view (FOV) $\Delta\beta$ from the primary impact location to the ROI location (approximated as a circle\footnote{Although, the area of the ROI is approximated as a rectangle of area $\Delta D^2$.} of radius $r_m = \Delta D/2$). Using Napier's law for spherical triangles, the half-angle azimuth FOV can be computed by
+\begin{equation}
+\tan(\Delta\beta/2) = \frac{\tan\left(\frac{\Delta D}{2r_m}\right)}{\sin\left(\frac{D+\Delta D/2}{r_m}\right)},
+\end{equation}
+such that the fraction of FOV is
+\begin{equation}\label{eq:frac_FOV}
+\Phi(D) = \frac{\Delta\beta}{2\pi} = \frac{1}{\pi}\arctan\left[\frac{\tan\left(\frac{\Delta D}{2r_m}\right)}{\sin\left(\frac{D+\Delta D/2}{r_m}\right)}\right].
+\end{equation}
+In the limit as $\Delta D \to 0$, we can approximate Equation \eqref{eq:frac_FOV} as\footnote{In this case, Mathematica is our friend.}
+\begin{equation}
+\Phi(D) \sim \frac{\Delta D}{2\pi r_m\sin(D/r_m)}.
+\end{equation}
+Therefore, we can see that the $\sin(D/r_m)$ and $\Delta D$ terms cancel in Equation \eqref{eq:M_ROI} (which is remarkable! or was it obvious?), so that Equation \eqref{eq:M_ROI} can be simplified to
+\begin{align}
+M_{ROI}(\gamma) &\sim M_p(1)\left[v(D_{min},\gamma)^{-3\mu} - v(D_{max},\gamma)^{-3\mu}\right],\\\label{eq:M_ROI_simp2}
+&\sim M_p(>v(D_{min},\gamma)) - M_p(>v(D_{max},\gamma)),
+\end{align}
+for $\Delta D \ll r_m$, which is in units of mass per ROI area per time.
+Equation \eqref{eq:M_ROI_simp2} is very interesting, because it tells us that we can directly relate the total ejected mass flux at a particular primary impact location to the total secondary mass flux at the ROI, for a given secondary ejecta angle, in the limit as our ROI length scale is small compared to the radius of the Moon. If we were to introduce a zenith ejecta angle distribution, more work would be needed.
+
+Another remark to make, if we study the simplified integrand of Equation \eqref{eq:M_ROI}, we can see that the contribution of secondary ejecta as a function of distance and ejecta zenith angle is simply given by $f_v'(D,\gamma) = df_v(D,\gamma)/dD$.
+
+
+\subsubsection{Isotropic Azimuth and $45^\circ$ Zenith Distributions}\label{sssec:IsoAzm45Zen}
+If we assume that all the ejecta is at $45^\circ$ isotropically and we are interested in ejecta of speeds greater than $v_{min}$, then the total secondary ejecta mass flux (from Equation~\eqref{eq:M_ROI_simp2}) at a ROI is given by
+\begin{equation}
+M_{ROI}(45^\circ) = M_p(>v_{min}) - M_p(>v_{esc}).
+\end{equation}
+
+
+\subsubsection{Isotropic Azimuth and Zenith Distributions}
+
+%eq:HH11_mass-ejected1
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\section{References}
 \cleardoublepage
 \phantomsection

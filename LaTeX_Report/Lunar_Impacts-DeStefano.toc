@@ -26,19 +26,24 @@
 \contentsline {subsubsection}{\numberline {6.4.2}Azimuth Distribution Function}{14}{subsubsection.6.4.2}%
 \contentsline {paragraph}{Alternative Azimuth Distribution:}{14}{section*.8}%
 \contentsline {subsubsection}{\numberline {6.4.3}Speed Distribution Function}{15}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Normalization Term}{16}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.4}Normalization Term}{17}{subsubsection.6.4.4}%
 \contentsline {subsection}{\numberline {6.5}Algorithm to Integrate Speed-Zenith Space}{17}{subsection.6.5}%
 \contentsline {subsubsection}{\numberline {6.5.1}Region I}{18}{subsubsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Mass Distribution}{18}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Density Distribution}{19}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Density Distribution}{20}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}Meteoroid Projectile Speed and Angle Distribution}{20}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Secondary Ejecta Distance, Speed, \& Angle}{22}{subsection.6.9}%
 \contentsline {subsubsection}{\numberline {6.9.1}Coriolis Force}{25}{subsubsection.6.9.1}%
 \contentsline {subsection}{\numberline {6.10}Distance and Bearing}{25}{subsection.6.10}%
-\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{26}{section.7}%
+\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{27}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{27}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{27}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{27}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{27}{subsection.7.4}%
 \contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{27}{section.8}%
-\contentsline {section}{References}{29}{section*.17}%
+\contentsline {section}{\numberline {9}Analytic Study of Secondary Lunar Ejecta}{29}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Total Ejected Mass}{29}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{30}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{32}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{32}{subsubsection.9.2.2}%
+\contentsline {section}{References}{33}{section*.17}%
