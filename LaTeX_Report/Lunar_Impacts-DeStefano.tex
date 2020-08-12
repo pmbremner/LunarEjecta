@@ -15,6 +15,7 @@
 
 \usepackage{titlesec}
 \usepackage{hyperref}
+
 \usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
 
 \usepackage{pgfplots} % https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf
@@ -895,7 +896,7 @@ For $D \ll 2r_m$, the optimum angle that gives the smallest velocity needed is $
 \gamma > \frac{D}{4r_m}.
 \end{equation}
 In other words, the maximum distance the ejecta can reach for a given angle is
-\begin{equation}
+\begin{equation}\label{eq:max_D_gamma}
 D = 4\gamma r_m.
 \end{equation}
 For example, from this equation we can conclude that for $\gamma < 45^\circ$, the ejecta will not reach the antipodal point, see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle}.
@@ -1149,7 +1150,7 @@ In the limit as $\Delta D \to 0$, we can approximate Equation \eqref{eq:frac_FOV
 \Phi(D) \sim \frac{\Delta D}{2\pi r_m\sin(D/r_m)}.
 \end{equation}
 Therefore, we can see that the $\sin(D/r_m)$ and $\Delta D$ terms cancel in Equation \eqref{eq:M_ROI} (which is remarkable! or was it obvious?), so that Equation \eqref{eq:M_ROI} can be simplified to
-\begin{align}
+\begin{align}\label{eq:M_ROI_simp1}
 M_{ROI}(\gamma) &\sim M_p(1)\left[v(D_{min},\gamma)^{-3\mu} - v(D_{max},\gamma)^{-3\mu}\right],\\\label{eq:M_ROI_simp2}
 &\sim M_p(>v(D_{min},\gamma)) - M_p(>v(D_{max},\gamma)),
 \end{align}
@@ -1161,15 +1162,60 @@ Another remark to make, if we study the simplified integrand of Equation \eqref{
 
 \subsubsection{Isotropic Azimuth and $45^\circ$ Zenith Distributions}\label{sssec:IsoAzm45Zen}
 If we assume that all the ejecta is at $45^\circ$ isotropically and we are interested in ejecta of speeds greater than $v_{min}$, then the total secondary ejecta mass flux (from Equation~\eqref{eq:M_ROI_simp2}) at a ROI is given by
-\begin{equation}
+\begin{equation}\label{eq:M_ROI45}
 M_{ROI}(45^\circ) = M_p(>v_{min}) - M_p(>v_{esc}).
 \end{equation}
 
 
 \subsubsection{Isotropic Azimuth and Zenith Distributions}
+In this section, we will assume both an isotropic ejecta distribution in both azimuth and zenith angle. It is not at all obvious from the start, but it turns out that the leading term to the solution to this problem is exactly that of Equation \eqref{eq:M_ROI45}.
 
-%eq:HH11_mass-ejected1
+Superficially, the total secondary ejecta mass flux for an isotropic zenith angle distribution is given by
+\begin{equation}
+M_{ROI,\text{isotropic}} = \frac{\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma M_{ROI}(\gamma)}{\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma},
+\end{equation}
+where $M_{ROI}(\gamma)$ is given in Equation \eqref{eq:M_ROI_simp1}. However, we need to break this integral into separate regions. In all, we need three regions defined in the speed-angle space (see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle} for an example):
+\begin{enumerate}[label=Region \Roman*:]
+	\item $\gamma_{min} = \gamma(v_{esc},\Delta D/2)$, $\gamma_{max} = \gamma^+(v_{min}, \Delta D/2)$
+	\item $\gamma_{min} = \gamma^+(v_{min}, \Delta D/2)$, $\gamma_{max} = \gamma^-(v_{min}, \Delta D/2)$
+	\item $\gamma_{min} = \gamma^-(v_{min}, \Delta D/2)$, $\gamma_{max} = \pi/2$
+\end{enumerate}
 
+First, we will define the minimum and maximum zenith angles for each region.
+
+In region I, $\gamma_{min}$ can be solved exactly and is given by (see Equation \eqref{eq:max_D_gamma})
+\begin{equation}
+\gamma_{I,min} = \gamma(v_{esc},\Delta D/2) = \frac{\Delta D}{8r_m}.
+\end{equation}
+The maximum angle $\gamma_{max}$ can be approximated by expanding Equation \eqref{eq:gammaVs_V_D} for small $D\to\Delta D/2$, such that
+\begin{equation}
+\gamma_{I,max} = \gamma^+(v_{min}, \Delta D/2) \sim \frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2 + \mathcal{O}\left(\frac{(\Delta D/r_m)^3}{(v_{min}/v_{esc})^6}\right),
+\end{equation}
+for $\Delta D/r_m \ll 1$.
+
+
+In region II, we minimum angle is the same as the maximum angle of the previous section, i.e.
+\begin{equation}
+\gamma_{II,min} = \gamma_{I,max}.
+\end{equation}
+
+The maximum angle $\gamma_{max}$ is computed by again taking Equation \eqref{eq:gammaVs_V_D} and expanding in small $D\to\Delta D/2$ so that we have
+\begin{align}
+\gamma_{II,max} &= \gamma^-(v_{min}, \Delta D/2)\\
+ &\sim \frac{\pi}{2} - \frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2\left[1-2\left(\frac{v_{min}}{v_{max}}\right)^2\right] + \mathcal{O}\left(\frac{(\Delta D/r_m)^3}{(v_{min}/v_{esc})^6}\right),
+\end{align}
+for $\Delta D/r_m \ll 1$.
+
+Finally, for region III, again we have the same minimum angle as the previous maximum,
+\begin{equation}
+\gamma_{III,min} = \gamma_{II,max}.
+\end{equation}
+The maximum angle $\gamma_{max}$ is simply
+\begin{equation}
+\gamma_{II,max} = \pi/2.
+\end{equation}
+
+We can already notice that in the limit as $\Delta D \to 0$, we expect the integrals in regions I and III to vanish and that the integral in region II will span zenith angles $\gamma$ from $0$ to $\pi/2$, with the limiting speeds as $v_{min}$ and $v_{max}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
