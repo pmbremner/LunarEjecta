@@ -1171,7 +1171,7 @@ M_{ROI}(45^\circ) = M_p(>v_{min}) - M_p(>v_{esc}).
 In this section, we will assume both an isotropic ejecta distribution in both azimuth and zenith angle. It is not at all obvious from the start, but it turns out that the leading term to the solution to this problem is exactly that of Equation \eqref{eq:M_ROI45}.
 
 Superficially, the total secondary ejecta mass flux for an isotropic zenith angle distribution is given by
-\begin{equation}
+\begin{equation}\label{eq:M_ROIiso1}
 M_{ROI,\text{isotropic}} = \frac{\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma M_{ROI}(\gamma)}{\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma},
 \end{equation}
 where $M_{ROI}(\gamma)$ is given in Equation \eqref{eq:M_ROI_simp1}. However, we need to break this integral into separate regions. In all, we need three regions defined in the speed-angle space (see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle} for an example):
@@ -1181,6 +1181,8 @@ where $M_{ROI}(\gamma)$ is given in Equation \eqref{eq:M_ROI_simp1}. However, we
 	\item $\gamma_{min} = \gamma^-(v_{min}, \Delta D/2)$, $\gamma_{max} = \pi/2$
 \end{enumerate}
 
+
+\paragraph{Minimum and Maximum Zenith Angles:}
 First, we will define the minimum and maximum zenith angles for each region.
 
 In region I, $\gamma_{min}$ can be solved exactly and is given by (see Equation \eqref{eq:max_D_gamma})
@@ -1216,6 +1218,95 @@ The maximum angle $\gamma_{max}$ is simply
 \end{equation}
 
 We can already notice that in the limit as $\Delta D \to 0$, we expect the integrals in regions I and III to vanish and that the integral in region II will span zenith angles $\gamma$ from $0$ to $\pi/2$, with the limiting speeds as $v_{min}$ and $v_{max}$.
+
+\paragraph{Integration of Isotropic Zenith Angle Distribution:}
+We begin by breaking up the numerator of Equation \eqref{eq:M_ROIiso1} into the respective regions, so that we have
+\begin{align}
+\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma M_{ROI}(\gamma) &= \int_{\gamma^+_{(v_{esc},\Delta D/2)}}^{\gamma^+_{(v_{min},\Delta D/2)}} d\gamma\sin\gamma v(\Delta D/2, \gamma)^{-3\mu}\\\nonumber
+&+ \int_{\gamma^+_{(v_{min},\Delta D/2)}}^{\gamma^-_{(v_{min},\Delta D/2)}} d\gamma\sin\gamma v_{min}^{-3\mu}\\\nonumber
+&+ \int_{\gamma^-_{(v_{min},\Delta D/2)}}^{\pi/2} d\gamma\sin\gamma v(\Delta D/2, \gamma)^{-3\mu}\\\nonumber
+&- \int_{\gamma^+_{(v_{esc},\Delta D/2)}}^{\pi/2} d\gamma\sin\gamma v_{esc}^{-3\mu}
+\end{align}
+
+Taking the function $v(\Delta D/2, \gamma)^{-3\mu}$, as defined in Equation \eqref{eq:speed_asof_distance_angle}, and taking the limit as $\Delta D\to 0$ we have
+\begin{equation}\label{eq:v_small_D}
+v(\Delta D/2, \gamma)^{-3\mu} \sim v_{esc}^{-3\mu}\left(\frac{\sin(2\gamma)}{\sin\left(\frac{\Delta D}{4r_m}\right)}\right)^{3\mu/2}\left[1 + \mathcal{O}\left(\sin\left(\frac{\Delta D}{4r_m}\right)\frac{1-\cos(2\gamma)}{\sin(2\gamma)}\right)\right],
+\end{equation}
+as $\Delta D\to 0$. We decided to actually expand in terms of $\sin(x)$ instead of $x$, for $x = \Delta D/4r_m$. Now we need to further expand Equation \eqref{eq:v_small_D} as $\gamma\to 0$ and $\gamma\to \pi/2$.
+
+For the first limit, we have
+\begin{equation}
+\sin\gamma v(\Delta D/2, \gamma)^{-3\mu} \sim
+v_{esc}^{-3\mu} \gamma\left(\frac{8\gamma r_m}{\Delta D}\right)^{3\mu/2}\left[1 + \mathcal{O}(\gamma^2,\gamma\Delta D,\Delta D^2)\right],
+\end{equation}
+as $\Delta D\to 0$ and $\gamma\to 0$.
+
+For the second limit, we have
+\begin{equation}
+\sin\gamma v(\Delta D/2, \gamma)^{-3\mu} \sim
+v_{esc}^{-3\mu} \left(\frac{8\gamma' r_m}{\Delta D}\right)^{3\mu/2} \left[\left(1+\frac{\Delta D}{4\gamma' r_m}\right)^{3\mu/2} + \mathcal{O}(\gamma^2,\gamma\Delta D,\Delta D^2)\right],
+\end{equation}
+as $\Delta D\to 0$ and $\gamma'\to 0$, where $\gamma = \pi/2 - \gamma'$.
+
+
+The first integral in region I can then be shown to be
+\begin{align}
+\int_{\gamma^+_{(v_{esc},\Delta D/2)}}^{\gamma^+_{(v_{min},\Delta D/2)}} d\gamma\sin\gamma v(\Delta D/2, \gamma)^{-3\mu}
+&\sim
+v_{esc}^{-3\mu}\int_{\frac{\Delta D}{8r_m}}^{\frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2} d\gamma \gamma\left(\frac{8\gamma r_m}{\Delta D}\right)^{3\mu/2},\\
+&\sim v_{esc}^{-3\mu}\frac{\left(\frac{v_{esc}}{v_{min}}\right)^{3\mu+4}-1}{32(3\mu+4)}\frac{\Delta D}{r_m},
+\end{align}
+as $\Delta D\to 0$.
+
+In region II, our integral is much easier to evaluate, and is given by
+\begin{align}
+\int_{\gamma^+_{(v_{min},\Delta D/2)}}^{\gamma^-_{(v_{min},\Delta D/2)}} d\gamma\sin\gamma v_{min}^{-3\mu}
+&\sim
+v_{min}^{-3\mu}\int_{\frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2}^{\pi/2-\frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2\left[1-2\left(\frac{v_{min}}{v_{esc}}\right)^2\right]}
+d\gamma\sin\gamma,\\
+&\sim v_{min}^{-3\mu}\left[1 + \frac{1}{8}\left(2-\frac{v_{esc}^2}{v_{min}^2}\right)\frac{\Delta D}{r_m} + \mathcal{O}(\Delta D^2 v_{esc}^4/v_{min}^4)\right],
+\end{align}
+as $\Delta D\to 0$.
+
+The next integral in region III, is similar to that of region I. We find that the integral is given by
+\begin{align}
+&\int_{\gamma^-_{(v_{min},\Delta D/2)}}^{\pi/2} d\gamma\sin\gamma v(\Delta D/2, \gamma)^{-3\mu},\\
+&\sim
+v_{esc}^{-3\mu} \int_{\pi/2-\frac{\Delta D}{8r_m}\left(\frac{v_{esc}}{v_{min}}\right)^2\left[1-2\left(\frac{v_{min}}{v_{esc}}\right)^2\right]}^{\pi/2}
+d\gamma\left(2+\frac{8(\pi/2-\gamma)}{\Delta D/r_m}\right)^{3\mu/2},\\
+&\sim v_{esc}^{-3\mu}\frac{\left(\frac{v_{esc}}{v_{min}}\right)^{3\mu+2}-2^{3\mu/2+1}}{4(3\mu+2)}\frac{\Delta D}{r_m},
+\end{align}
+as $\Delta D\to 0$.
+
+Finally, the last integral that spans all regions is like the integral in region II and only requires a simple integral over $\sin$. Therefore, we have
+\begin{align}
+\int_{\gamma^+_{(v_{esc},\Delta D/2)}}^{\pi/2} d\gamma\sin\gamma v_{esc}^{-3\mu}
+&\sim
+v_{esc}^{-3\mu}\int_{\frac{\Delta D}{8r_m}}^{\pi/2} d\gamma\sin\gamma,\\
+&\sim v_{esc}^{-3\mu}\left(1 - \frac{\Delta D^2}{128r_m^2} + \mathcal{O}(\Delta D^4)\right),
+\end{align}
+as $\Delta D\to 0$.
+
+
+Putting everything together, to first order in $\Delta D$, we finally have
+\begin{align}\label{eq:M_ROIiso_solved}
+M_{ROI,\text{isotropic}}
+&\sim
+v_{min}^{-3\mu}\left[1 + \frac{1}{8}\left(2-\frac{v_{esc}^2}{v_{min}^2}\right)\frac{\Delta D}{r_m}\right] \\\nonumber
+&-v_{esc}^{-3\mu}\left[1-\left[ \frac{\left(\frac{v_{esc}}{v_{min}}\right)^{3\mu+4}-1}{32(3\mu+4)} + \frac{\left(\frac{v_{esc}}{v_{min}}\right)^{3\mu+2}-2^{3\mu/2+1}}{4(3\mu+2)} \right]\frac{\Delta D}{r_m}\right]\\\nonumber
+&+\mathcal{O}(\Delta D^2),
+\end{align}
+as $\Delta D\to 0$. If the ROI length scale $\Delta D$ is to be finite, then we require
+\begin{equation}
+\frac{\Delta D}{r_m}\left(\frac{v_{esc}}{v_{min}}\right)^{4} \ll 1,
+\end{equation}
+in order for Equation \eqref{eq:M_ROIiso_solved} to stay valid. The driving contribution to the integral is all from region II, since regions I and III disappear as $\Delta D\to 0$. Note that we account for ejecta that travels less than and greater than half the lunar circumference.
+
+We can now relate the total secondary ejecta mass flux for an isotropic zenith angle distribution to be the same as if the zenith angle distribution has a delta function at $45^\circ$,
+\begin{equation}
+M_{ROI,\text{isotropic}} \sim M_{ROI}(45^\circ) + \mathcal{O}\left[\frac{\Delta D}{r_m}\left(\frac{v_{esc}}{v_{min}}\right)^{4}\right].
+\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
