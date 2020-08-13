@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  12 AUG 2020 20:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  12 AUG 2020 20:35
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -1124,34 +1124,34 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [27] [28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [29] [30] [31]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1163.
+(hyperref)                removing `math shift' on input line 1164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 1163.
+(hyperref)                removing `superscript' on input line 1164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\circ' on input line 1163.
+(hyperref)                removing `\circ' on input line 1164.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1163.
+(hyperref)                removing `math shift' on input line 1164.
 
 [32] [33] [34] [35] (Lunar_Impacts-DeStefano.bbl [36
 
 ]) [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1321.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1321.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1322.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1322.
 
 (Lunar_Impacts-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1321.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1321.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1322.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1322.
 
 Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 .
 (rerunfilecheck)             Checksum: A4453389E4DC8548E8D87C029CE47CBC;3838.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1321.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1322.
  ) 
 Here is how much of TeX's memory you used:
  31191 strings out of 480799
@@ -1182,7 +1182,7 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files
 /Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppD
 ata/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/A
 ppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (40 pages, 1435877 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (40 pages, 1436441 bytes).
 PDF statistics:
  1143 PDF objects out of 1200 (max. 8388607)
  359 named destinations out of 1000 (max. 500000)
