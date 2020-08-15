@@ -919,9 +919,15 @@ where $x = v/v_{esc}$. Solving for the discriminant, the minimum $x$ can be for 
 x_{min}^2 = \tan^2\left(\frac{D}{2r_m}\right)\left[\csc\left(\frac{D}{2r_m}\right)-1\right].
 \end{equation}
 Plugging into Equation \ref{eq:gammaVs_V_D}, the optimal angle from zenith is given by
-\begin{equation}\label{eq:opt_angle}
-\cot\gamma_{opt} = \sec\left(\frac{D}{2r_m}\right) - \tan\left(\frac{D}{2r_m}\right).
+\begin{align}\label{eq:opt_angle}
+\cot\gamma_{opt} &= \sec\left(\frac{D}{2r_m}\right) - \tan\left(\frac{D}{2r_m}\right),\\\nonumber
+&=\tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right).
+\end{align}
+Solving for $\gamma_{opt}$ we have
+\begin{equation}
+\gamma_{opt} = \frac{\pi+D/r_m}{4},
 \end{equation}
+which is valid for $D \le r_m$. For larger distances, the optimal zenith angle is $\pi/2$.
 In terms of $x$, we have
 \begin{equation}
 \cos(2\gamma_{opt}) = \frac{x^2}{x^2-1}.
@@ -1114,7 +1120,7 @@ such that
 \int_{v}^{\infty}dv'H(v') = v^{-3\mu}.
 \end{equation}
 
-The corresponding speeds that reach a particular ROI of radius $r_{ROI}$ (or diameter $\Delta D$) at a distance $D$ can be computed by
+The corresponding speeds\footnote{By first imposing to integrate over the speed as a function of distance, we give up the ability to study the contribution of ejecta as a function of speed. In order to do this, we must integrate first over the zenith angle space so that we have the remaining terms as a function of distance and speed.} that reach a particular ROI of radius $r_{ROI}$ (or diameter $\Delta D$) at a distance $D$ can be computed by
 \begin{align}
 \mathcal{V}(D) &= \int_{v(D_0)}^{v(D_1)}dv'H(v'),\\
 &= v(D_0 = D - r_{ROI})^{-3\mu} - v(D_1 = D + r_{ROI})^{-3\mu}.
@@ -1126,11 +1132,11 @@ In the limit as $\Delta D \to 0$, or $\Delta D/r_m \ll 1$, we can approximate $\
 \end{equation}
 with an error\footnote{The $\Delta D^2$ terms cancel out.} proportional to $\Delta D^3f_v'''$, where the function $f_v(D)$ is given by
 \begin{equation}
-f_v(D) = v_{esc}^{3\mu}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}} = v(D,\gamma)^{-3\mu}.
+f_v(D) = v_{esc}^{-3\mu}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}} = v(D,\gamma)^{-3\mu}.
 \end{equation}
 The derivative of $f_v$ with respect to $D$ can then be computed as
-\begin{equation}
-f_v'(D) = \frac{df_v(D)}{dD} = -3\mu\frac{\sin(2\gamma)}{\sin^2\left(\frac{D}{2r_m}\right)}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}-1}.
+\begin{equation}\label{eq:fv'}
+f_v'(D) = \frac{df_v(D)}{dD} = -v_{esc}^{-3\mu}\frac{3\mu}{4}\frac{\sin(2\gamma)}{\sin^2\left(\frac{D}{2r_m}\right)}\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right) - \cos(2\gamma)\right]^{\frac{3\mu}{2}-1}.
 \end{equation}
 
 The total mass per ROI area per time for a given ejecta zenith angle $\gamma$ can be computed by integrating over the sphere of the Moon
@@ -1308,6 +1314,54 @@ We can now relate the total secondary ejecta mass flux for an isotropic zenith a
 M_{ROI,\text{isotropic}} \sim M_{ROI}(45^\circ) + \mathcal{O}\left[\frac{\Delta D}{r_m}\left(\frac{v_{esc}}{v_{min}}\right)^{4}\right].
 \end{equation}
 
+
+
+
+\subsection{Secondary Ejecta at a ROI vs.\ Distance}
+
+We are also interested in studying the contribution of secondary ejecta as a function of distance from the ROI. Instead of integrating over the distances and then integrate over the ejecta angles, we will first integrate over the ejecta zenith angles such that
+\begin{equation}\label{M_ROI_D}
+M_{ROI}(D) = -M_p(1)\int_{D/4r_m}^{\pi/2}d\gamma\sin\gamma f'_v(D,\gamma),
+\end{equation}
+where $f'_v(D,\gamma)$ is given in Equation \eqref{eq:fv'}. We notice that for all $\gamma$ in our domain, the integrand is strongly peaked for $D\ll r_m$ and is also dominated by $\gamma$ near $\pi/4$ or $45^\circ$.
+
+For small $D$, we can write (using $a = 3\mu/2$)
+\begin{equation}
+\left[1+\sin(2\gamma)\cot\left(\frac{D}{2r_m}\right)-\cos(2\gamma)\right]^{a-1} \sim
+\left[\frac{\sin(2\gamma)}{D/2r_m}\right]^{a-1},
+\end{equation}
+as $D\to 0$. Therefore, we can write Equation \eqref{M_ROI_D} as
+\begin{equation}
+M_{ROI}(D) \sim a M_p(>v_{esc})\int_{D/4r_m}^{\pi/2}d\gamma\frac{\sin\gamma\sin(2\gamma)}{\sin^2\left(\frac{D}{2r_m}\right)}
+\left[\frac{\sin(2\gamma)}{D/2r_m}\right]^{a-1},
+\end{equation}
+as $D\to 0$. Collecting the $\gamma$-dependent terms, we let $x=\cos\gamma$ such that $dx = -\sin\gamma d\gamma$,
+\begin{equation}
+\int_{D/4r_m}^{\pi/2}d\gamma\sin\gamma\sin^a(2\gamma) = 2^a\int_{0}^{\cos(D/4r_m)}dx x^a(1-x^2)^{a/2}.
+\end{equation}
+We employ another substitution $y=x^2$ such that $dx = dy/2\sqrt{y}$, giving
+\begin{equation}
+= 2^{a-1}\int_{0}^{\cos^2(D/4r_m)}dy y^{\frac{a-1}{2}}(1-y)^{a/2} = 2^{a-1}\beta\left(\cos^2(D/4r_m),\frac{a+1}{2}, \frac{a}{2}+1\right),
+\end{equation}
+and we notice that this is the integral for the incomplete beta function. Therefore, the contribution of secondary ejecta as a function of distance is given by
+\begin{align}
+M_{ROI}(D) &\sim M_p(>v_{esc})\frac{3\mu}{2} \frac{\left(\frac{D}{4r_m}\right)^{1-3\mu/2}}{\sin^2\left(\frac{D}{2r_m}\right)}
+\beta\left(\cos^2(D/4r_m),\frac{3\mu+2}{4}, \frac{3\mu}{4}+1\right),\\\label{eq:M_ROI_D_approx}
+&\sim M_p(>v_{esc})\frac{3\mu}{8}\frac{\Gamma\left(\frac{3\mu+2}{4}\right)\Gamma\left(\frac{3\mu}{4}+1\right)}{\Gamma\left(\frac{3\mu+3}{2}\right)}
+\left(\frac{D}{4r_m}\right)^{-(3\mu/2+1)},
+\end{align}
+We do note that the normalization factor should not be taken seriously in this calculation. If one then integrates over the entire Moon using Equation \eqref{eq:M_ROI_D_approx}, an overestimate of about a factor of $2.29$ will occur. The point is to illustrate that the contribution roughly follows a power law of index $-(3\mu/2+1)$, which for $\mu=0.4$, the index is $-1.6$. To compare with the speed distribution $H(v)$, the power law index would be $-(3\mu+1) = -2.2$.
+
+
+
+\subsection{Secondary Ejecta at a ROI vs.\ Speed for a given Distance}
+To study the speed distribution as a function of distance, we begin with the speed distribution $H(v)$ and integrate over all contributing angles. For this exercise, we will assume an isotropic distribution. For a given distance and speed, the zenith angle dependence is a multi-valued function for speeds $v/v_{esc} < \sqrt{2}/2$ and a single-valued function for speeds $v/v_{esc} \ge \sqrt{2}/2$.
+
+The integral over the secondary ejecta as a function of speed is given by
+\begin{equation}
+\Phi(D)\int_{v_{min}}^{v_{max}}\int_{\gamma_{min}}^{\gamma_{max}}d\gamma\sin\gamma dv H(v).
+\end{equation}
+We must break up the integral over the zenith angle into two regions, one less than the optimal angle $\gamma_{opt}$ and one greater than. In the limit as the ROI size goes to zero, the region between the two cases goes away, so we will not worry about it here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
