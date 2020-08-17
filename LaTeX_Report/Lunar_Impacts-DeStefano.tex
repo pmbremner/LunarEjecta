@@ -915,9 +915,10 @@ We can also solve for the zenith angle $\gamma$, given by
 \cot\gamma = x^2\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{x^4\cot^2\left(\frac{D}{2r_m}\right) + (2x^2-1)},
 \end{equation}
 where $x = v/v_{esc}$. Solving for the discriminant, the minimum $x$ can be for a given distance $D$ is
-\begin{equation}
-x_{min}^2 = \tan^2\left(\frac{D}{2r_m}\right)\left[\csc\left(\frac{D}{2r_m}\right)-1\right].
-\end{equation}
+\begin{align}
+x_{min}^2 &= \tan^2\left(\frac{D}{2r_m}\right)\left[\csc\left(\frac{D}{2r_m}\right)-1\right],\\\label{eq:v_min_tans}
+&=\frac{\tan\left(\frac{D}{2r_m}\right)}{\tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right)}.
+\end{align}
 Plugging into Equation \ref{eq:gammaVs_V_D}, the optimal angle from zenith is given by
 \begin{align}\label{eq:opt_angle}
 \cot\gamma_{opt} &= \sec\left(\frac{D}{2r_m}\right) - \tan\left(\frac{D}{2r_m}\right),\\\nonumber
@@ -934,7 +935,10 @@ In terms of $x$, we have
 \end{equation}
 Once $D > \pi r_m$, the optimal angle is $\gamma = 90^\circ$, i.e., parallel to the horizon. For small distances $D \ll 2r_m$, the optimal angle is $\gamma = 45^\circ$, as mentioned above.
 
-
+The distance traveled for the optimal angle as a function of speed is
+\begin{equation}
+\frac{D}{r_m} = \arcsin\left(\frac{x^2}{1-x^2}\right).
+\end{equation}
 
 \subsubsection{Coriolis Force}
 The Coriolis force on secondary ejecta may also affect the ground path. To estimate the strength of the Coriolis force, the greatest speed due to the rotation of the Moon is at the equator, given by
@@ -1357,11 +1361,54 @@ We do note that the normalization factor should not be taken seriously in this c
 \subsection{Secondary Ejecta at a ROI vs.\ Speed for a given Distance}
 To study the speed distribution as a function of distance, we begin with the speed distribution $H(v)$ and integrate over all contributing angles. For this exercise, we will assume an isotropic distribution. For a given distance and speed, the zenith angle dependence is a multi-valued function for speeds $v/v_{esc} < \sqrt{2}/2$ and a single-valued function for speeds $v/v_{esc} \ge \sqrt{2}/2$.
 
-The integral over the secondary ejecta as a function of speed is given by
+The integral over the secondary ejecta as a function of speed and distance is given by
 \begin{equation}
-\Phi(D)\int_{v_{min}}^{v_{max}}\int_{\gamma_{min}}^{\gamma_{max}}d\gamma\sin\gamma dv H(v).
+M_{ROI}(D,v) = dA(D)\Phi(D)H(v)\int_{\gamma_{min}}^{\gamma_{max}}d\gamma\sin\gamma.
 \end{equation}
-We must break up the integral over the zenith angle into two regions, one less than the optimal angle $\gamma_{opt}$ and one greater than. In the limit as the ROI size goes to zero, the region between the two cases goes away, so we will not worry about it here.
+We must break up the integral over the zenith angle into two regions in order to have a single-valued function, one less than the optimal angle $\gamma_{opt}$ and one greater than. In the limit as the ROI size goes to zero, the region between the two cases goes away, so we will not worry about it here. Breaking up the integral, we have (assuming\footnote{The $v_{min}$ defined here is different from previous usage in Section \ref{sec:AnalyticStudyofSecondaryLunarEjecta}.} $v>v_{min}$)
+\begin{equation}
+\int_{\gamma_{min}}^{\gamma_{max}}d\gamma\sin\gamma
+= \int_{\gamma^+(D_0,v)}^{\gamma^+(D_1,v)}d\gamma\sin\gamma
++ \begin{cases}
+\int_{\gamma^-(D_1,v)}^{\gamma^-(D_0,v)}d\gamma\sin\gamma& \text{for $D \le \pi r_m $ and $\frac{v^2}{v_{esc}^2} \le \frac{1}{2}$}\\
+0 &\text{for $D > \pi r_m $ or $\frac{v^2}{v_{esc}^2} > \frac{1}{2}$}
+\end{cases},
+\end{equation}
+where $D_0 = D - \Delta D/2$ and $D_1 = D + \Delta D/2$ with the ROI width diameter of $\Delta D$. We also note that the minimum speed $v_{min}$ for a given distance $D$ is given by (see also Equation \eqref{eq:v_min_tans})
+\begin{equation}
+\frac{v_{min}^2}{v_{esc}^2} = \frac{\tan\left(\frac{D}{2r_m}\right)}{\tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right)}.
+\end{equation}
+The angles $\gamma^{\pm}$ are given by (see Equation \eqref{eq:gammaVs_V_D})
+\begin{equation}\label{eq:gammaVs_V_D-repeat}
+\cot\gamma^\pm = x^2\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{x^4\cot^2\left(\frac{D}{2r_m}\right) + (2x^2-1)}.
+\end{equation}
+Evaluating the integrals and letting $\Delta D \to 0$, we arrive at the following solution:
+\begin{equation}
+M_{ROI}(D,v) \sim dA(D)\Phi(D)H(v)\Delta D \mathcal{G}(D,v),
+\end{equation}
+where the geometrical term of the secondary ejecta speed distribution is (see Figure \ref{fig:speed_dist} for an example)
+\begin{equation}
+\mathcal{G}(D,v) \sim
+\begin{cases}
+-\frac{d}{dD}\cos\gamma^+ + \frac{d}{dD}\cos\gamma^- &\text{for $D \le \pi r_m$ and $\frac{v_{min}^2}{v_{esc}^2} \le \frac{v^2}{v_{esc}^2} \le \frac{1}{2}$ }\\
+-\frac{d}{dD}\cos\gamma^+ & \text{for $D > \pi r_m $ or $\frac{v^2}{v_{esc}^2} > \frac{1}{2}$}\\
+0 & \text{for $\frac{v^2}{v_{esc}^2} < \frac{v_{min}^2}{v_{esc}^2}$},
+\end{cases}
+\end{equation}
+for $\Delta D\to 0$ and the $\cos\gamma^\pm$ terms can be computed from the $\cot\gamma^\pm$ equation by
+\begin{eqnarray}
+\cos\gamma^\pm = \frac{\cot\gamma^\pm}{\sqrt{1 + \cot^2\gamma^\pm}}.
+\end{eqnarray}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{speed_dist.eps}
+	\caption{The geometrical term of the secondary ejecta speed distribution $\mathcal{G}(D,v)$ as a function of speed for various distances in units of lunar radii $r_m$.}\label{fig:speed_dist}
+\end{figure}
+
+In Figure \ref{fig:speed_dist}, we can see that for distances less than $\pi r_m$, i.e.\ less than half the lunar circumference, the speed distribution decreases for larger speeds. However, for distances greater than half the lunar circumference, only speeds $v > \frac{\sqrt{2}}{2}v_{esc}$ are valid and the speed distribution increases for larger speeds. The fastest speeds near the escape speed seem to be more prevalent from distances $D > \pi r_m$. It is also evident that the ejecta originating from close distances dominates the total secondary ejecta.
+
+Not shown in Figure \ref{fig:speed_dist} due to plotting artifacts and scaling, the peaks as a function of speed are proportional to $\propto v^{-2}$ for speeds $v < \frac{\sqrt{2}}{2}v_{esc}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
