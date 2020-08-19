@@ -50,4 +50,5 @@
 \contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{34}{section*.18}%
 \contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{36}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed for a given Distance}{37}{subsection.9.4}%
-\contentsline {section}{References}{39}{section*.20}%
+\contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{39}{subsection.9.5}%
+\contentsline {section}{References}{40}{section*.20}%
