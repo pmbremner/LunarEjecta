@@ -1419,7 +1419,7 @@ Not shown in Figure \ref{fig:speed_dist} due to plotting artifacts and scaling, 
 \subsection{Secondary Ejecta at a Satellite of the Moon}
 \label{ssec:SecondaryEjectaAtASatelliteOfTheMoon}
 
-In this section, we will derive more general equations than what was done in Section~\ref{ssec:SecondaryEjectaDistanceSpeedAngle} by assuming the final impact point to be different from the ejected point, where before we assumed the heights were the same. For convenience, we rewrite Equations~\eqref{eq:a_of_v}, \eqref{eq:e_of_v}, and \eqref{eq:r_elliptical_orbit} here:
+In this section, we will derive more general equations than what was done in Section~\ref{ssec:SecondaryEjectaDistanceSpeedAngle} by assuming the final impact radius to be different from the ejected radius, where before we assumed the heights were the same. For convenience, we rewrite Equations~\eqref{eq:a_of_v}, \eqref{eq:e_of_v}, and \eqref{eq:r_elliptical_orbit} here:
 \begin{equation}\label{eq:a_of_v-repeat}
 \frac{a}{r_m} = \frac{1}{2\left(1-\frac{v^2}{v_{esc}^2}\right)},
 \end{equation}
@@ -1432,7 +1432,57 @@ where we employed the fact that the gravity of the Moon is $g = GM/r_m^2$ and th
 r = \frac{a(1-e^2)}{1+e\cos\beta}.
 \end{equation}
 
-We will define the $p$-subscripts by the particle ejecta location and the $s$-subscripts by the satellite location.
+We will define the $p$-subscripts by the particle ejecta location and the $s$-subscripts by the satellite location. Unless stated otherwise, we will assume the ejecta speed $v_p$ and zenith angle $\gamma_p$ are given in addition to the satellite radius $r_s$ from the center of the Moon.
+
+The satellite location with respect to the perilune $\beta_s$ has a similar structure to that of the location of the ejecta $\beta_p$, given by
+\begin{equation}
+\tan\beta_s = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p}{2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p-1}F_s(r_s,v_p,\gamma_p),
+\end{equation}
+where the factor $F_s$ is given by
+\begin{equation}
+F_s(r_s,v_p,\gamma_p) = \sqrt{1 + \frac{1-\frac{r_m}{r_s}}{\cos^2\gamma_p}\left[\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)-\frac{v_{esc}^2}{v_p^2}\right]}.
+\end{equation}
+
+The local zenith angle of the ejecta at the satellite $\gamma_s$ starts from
+\begin{equation}
+\tan\left(\frac{\pi}{2}-\gamma_s\right) = \frac{e\sin\beta_s}{1+e\cos\beta_s},
+\end{equation}
+where
+\begin{align}
+e\cos\beta_s &= \frac{a}{r_s}(1-e^2) - 1\\ &= 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p-1,\\
+e\sin\beta_s &= \sqrt{e^2 - (e\cos\beta_s)^2}\\
+ &= 2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p
+F_s(r_s,v_p,\gamma_p),
+\end{align}
+such that
+\begin{equation}
+\cot\gamma_s = \frac{r_s}{r_m}\cot\gamma_p F_s(r_s,v_p,\gamma_p).
+\end{equation}
+
+%The minimum ejecta speed $v_{p,\text{min}}$ for a given ejecta zenith angle $\gamma_{p,\text{min}}$ to reach the orbit of a satellite at radius $r_s$
+The maximum height $r_{\text{max}}$ (i.e., the apoapsis) the ejecta of speed $v_p$ and zenith angle $\gamma_p$ is given by (fixing the typo in Equation 16 of \cite{gault1963spray})
+\begin{equation}
+\frac{r_{\text{max}}}{r_m} = \frac{1 + \sqrt{1 - 4\frac{v_{p}^2}{v_{esc}^2}\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)\sin^2\gamma_p}}{2\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)}
+\end{equation}
+
+To reach a particular satellite radius $r_s$ for a given ejecta angle $\gamma_p$, we have the following condition on the ejecta speed $v_p$:
+\begin{equation}
+\frac{v_p^2}{v_{esc}^2} \ge \frac{\left(1-\frac{r_m}{r_s}\right)(\cot^2\gamma_p-1)}{\cot^2\gamma_p-\left(1-\frac{r_m^2}{r_s^2}\right)},
+\end{equation}
+which can be derived by taking $F_s \ge 0$, since the value under the square root must be positive. The right hand side of this equation can be negative or zero, so the inequality would be replaced with $v_p \ge 0$.
+
+The speed of the ejecta at the satellite orbital radius given the initial ejecta speed is given by
+\begin{equation}
+\frac{v_s}{v_{esc}} = \sqrt{\frac{r_m}{r_s}+\frac{v_p^2}{v_{esc}^2}-1}.
+\end{equation}
+If $r_s\to\infty$, then $v_\infty$ is the hyperbolic excess speed
+\begin{equation}
+\frac{v_\infty}{v_{esc}} = \sqrt{\frac{v_p^2}{v_{esc}^2}-1}.
+\end{equation}
+Rearranging to solve for the ejecta speed $v_p$, we have
+\begin{equation}
+\frac{v_p}{v_{esc}} = \sqrt{1-\frac{r_m}{r_s}+\frac{v_s^2}{v_{esc}^2}}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
