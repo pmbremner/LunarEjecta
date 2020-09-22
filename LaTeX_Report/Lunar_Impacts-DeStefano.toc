@@ -51,4 +51,10 @@
 \contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{36}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed for a given Distance}{37}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{39}{subsection.9.5}%
-\contentsline {section}{References}{41}{section*.20}%
+\contentsline {paragraph}{Satellite Angle from Periapsis}{39}{section*.20}%
+\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{39}{section*.21}%
+\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{40}{section*.22}%
+\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{40}{section*.23}%
+\contentsline {paragraph}{Ejecta Speed at Satellite}{40}{section*.24}%
+\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{41}{section*.25}%
+\contentsline {section}{References}{42}{section*.26}%

@@ -1434,8 +1434,9 @@ r = \frac{a(1-e^2)}{1+e\cos\beta}.
 
 We will define the $p$-subscripts by the particle ejecta location and the $s$-subscripts by the satellite location. Unless stated otherwise, we will assume the ejecta speed $v_p$ and zenith angle $\gamma_p$ are given in addition to the satellite radius $r_s$ from the center of the Moon.
 
+\paragraph{Satellite Angle from Periapsis}
 The satellite location with respect to the perilune $\beta_s$ has a similar structure to that of the location of the ejecta $\beta_p$, given by
-\begin{equation}
+\begin{equation}\label{eq:Satellite Angle from Periapsis}
 \tan\beta_s = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p}{2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p-1}F_s(r_s,v_p,\gamma_p),
 \end{equation}
 where the factor $F_s$ is given by
@@ -1443,6 +1444,7 @@ where the factor $F_s$ is given by
 F_s(r_s,v_p,\gamma_p) = \sqrt{1 + \frac{1-\frac{r_m}{r_s}}{\cos^2\gamma_p}\left[\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)-\frac{v_{esc}^2}{v_p^2}\right]}.
 \end{equation}
 
+\paragraph{Ejecta Local Zenith Angle at Satellite}
 The local zenith angle of the ejecta at the satellite $\gamma_s$ starts from
 \begin{equation}
 \tan\left(\frac{\pi}{2}-\gamma_s\right) = \frac{e\sin\beta_s}{1+e\cos\beta_s},
@@ -1460,17 +1462,24 @@ such that
 \end{equation}
 
 %The minimum ejecta speed $v_{p,\text{min}}$ for a given ejecta zenith angle $\gamma_{p,\text{min}}$ to reach the orbit of a satellite at radius $r_s$
+\paragraph{Maximum Apoapsis of Ejecta}
 The maximum height $r_{\text{max}}$ (i.e., the apoapsis) the ejecta of speed $v_p$ and zenith angle $\gamma_p$ is given by (fixing the typo in Equation 16 of \cite{gault1963spray})
 \begin{equation}
 \frac{r_{\text{max}}}{r_m} = \frac{1 + \sqrt{1 - 4\frac{v_{p}^2}{v_{esc}^2}\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)\sin^2\gamma_p}}{2\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)}
 \end{equation}
 
-To reach a particular satellite radius $r_s$ for a given ejecta angle $\gamma_p$, we have the following condition on the ejecta speed $v_p$:
+\paragraph{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}
+To reach a particular satellite radius $r_s=r_{\text{max}}$ for a given ejecta angle $\gamma_p$, we have the following condition on the ejecta speed $v_p$:
+%\begin{equation}
+%\frac{v_p^2}{v_{esc}^2} \ge \frac{\left(1-\frac{r_m}{r_s}\right)(\cot^2\gamma_p-1)}{\cot^2\gamma_p-\left(1-\frac{r_m^2}{r_s^2}\right)},
+%\end{equation}
+%which can be derived by taking $F_s \ge 0$, since the value under the square root must be positive. The right hand side of this equation can be negative or zero, so the inequality would be replaced with $v_p \ge 0$.
 \begin{equation}
-\frac{v_p^2}{v_{esc}^2} \ge \frac{\left(1-\frac{r_m}{r_s}\right)(\cot^2\gamma_p-1)}{\cot^2\gamma_p-\left(1-\frac{r_m^2}{r_s^2}\right)},
+\frac{v_p}{v_{esc}} = \sqrt{\frac{\frac{r_{\text{max}}}{r_m}\left(\frac{r_{\text{max}}}{r_m}-1\right)}{\frac{r_{\text{max}}^2}{r_m^2}-\sin^2\gamma_p}}.
 \end{equation}
-which can be derived by taking $F_s \ge 0$, since the value under the square root must be positive. The right hand side of this equation can be negative or zero, so the inequality would be replaced with $v_p \ge 0$.
+To find the speed of the ejecta at the satellite height, use the following expression.
 
+\paragraph{Ejecta Speed at Satellite}
 The speed of the ejecta at the satellite orbital radius given the initial ejecta speed is given by
 \begin{equation}
 \frac{v_s}{v_{esc}} = \sqrt{\frac{r_m}{r_s}+\frac{v_p^2}{v_{esc}^2}-1}.
@@ -1483,6 +1492,24 @@ Rearranging to solve for the ejecta speed $v_p$, we have
 \begin{equation}
 \frac{v_p}{v_{esc}} = \sqrt{1-\frac{r_m}{r_s}+\frac{v_s^2}{v_{esc}^2}}.
 \end{equation}
+
+\paragraph{Geographic Distance between Impact Point and Satellite}
+The geographic distance between the point of primary impact and the satellite $D_s$ can be related between the difference between angles from periapsis
+\begin{equation}
+\frac{D_s}{r_m} = \beta_s - \beta_p.
+\end{equation}
+Taking the tangent of this difference, we can use Equations \eqref{eq:Satellite Angle from Periapsis} and \eqref{eq:ejecta_distance} for the satellite and point-of-impact (POI) periapsis angles $\beta_s$ and $\beta_p$ such that
+\begin{align}
+\tan\left(\frac{D_s}{r_m}\right) &= \tan(\beta_s - \beta_p)\nonumber\\
+&= \frac{\tan\beta_s - \tan\beta_p}{1 + \tan\beta_s\tan\beta_p}
+\end{align}
+In terms of the satellite angle from periapsis $\beta_s$, we have
+\begin{equation}
+\tan\beta_s = \frac{\tan(D_s/r_m) + \tan\beta_p}{1 - \tan(D_s/r_m)\tan\beta_p}.
+\end{equation}
+We could then assume a specific location of the satellite defined by it's height and geographic distance from the POI and find the valid ejecta angles and speeds.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
