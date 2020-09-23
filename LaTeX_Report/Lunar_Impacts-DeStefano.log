@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  22 SEP 2020 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  23 SEP 2020 17:54
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -249,17 +249,57 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/csvsimple\csvsimple.sty
+Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks25
+\pgfutil@tempdima=\dimen166
+\pgfutil@tempdimb=\dimen167
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-latex.def"
+\pgfutil@abb=\box55
+("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfrcs.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf\pgf.revision.tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks28
+))) ("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\shellesc.sty"
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\csv@file=\read2
+\c@csvinputline=\count276
+\c@csvrow=\count277
+\c@csvcol=\count278
+\csv@out=\write3
+)
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
-\ttl@box=\box55
+\ttl@box=\box56
 \beforetitleunit=\skip59
 \aftertitleunit=\skip60
-\ttl@plus=\dimen166
-\ttl@minus=\dimen167
-\ttl@toksa=\toks25
-\titlewidth=\dimen168
-\titlewidthlast=\dimen169
-\titlewidthfirst=\dimen170
+\ttl@plus=\dimen168
+\ttl@minus=\dimen169
+\ttl@toksa=\toks29
+\titlewidth=\dimen170
+\titlewidthlast=\dimen171
+\titlewidthfirst=\dimen172
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
@@ -295,9 +335,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen171
-\Hy@linkcounter=\count275
-\Hy@pagecounter=\count276
+\@linkdim=\dimen173
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -309,7 +349,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count277
+\Hy@SavedSpaceFactor=\count281
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -317,13 +357,13 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count278
+\c@Hy@tempcnt=\count282
  ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen172
+\XeTeXLinkMargin=\dimen174
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -333,9 +373,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count279
-\Field@Width=\dimen173
-\Fld@charsize=\dimen174
+\Fld@menulength=\count283
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -345,9 +385,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6372.
 Package hyperref Info: PDF/A mode OFF on input line 6377.
 LaTeX Info: Redefining \ref on input line 6417.
 LaTeX Info: Redefining \pageref on input line 6421.
-\Hy@abspage=\count280
-\c@Item=\count281
-\c@Hfootnote=\count282
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
@@ -355,10 +395,9 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/atveryend\atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count283
-\c@bookmark@seq@number=\count284
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -376,11 +415,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip62
-\enit@outerparindent=\dimen175
-\enit@toks=\toks26
-\enit@inbox=\box56
-\enit@count@id=\count285
-\enitdp@description=\count286
+\enit@outerparindent=\dimen177
+\enit@toks=\toks30
+\enit@inbox=\box57
+\enit@count@id=\count289
+\enitdp@description=\count290
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgfplots\pgfplots.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.revision.tex")
@@ -388,22 +427,6 @@ Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/frontendlayer\tikz.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf.sty"
-("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrcs.sty"
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common.tex"
-\pgfutil@everybye=\toks27
-\pgfutil@tempdima=\dimen176
-\pgfutil@tempdimb=\dimen177
-
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common-lists.te
-x")) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-latex.def"
-\pgfutil@abb=\box57
-("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfrcs.code.tex"
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf\pgf.revision.tex")
-Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
-))
 Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgfcore.sty"
@@ -411,14 +434,7 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsys.code.tex"
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex"
-\pgfkeys@pathtoks=\toks28
-\pgfkeys@temptoks=\toks29
-
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeysfiltered.code.te
-x"
-\pgfkeys@tmptoks=\toks30
-))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex")
 \pgf@x=\dimen178
 \pgf@y=\dimen179
 \pgf@xa=\dimen180
@@ -429,17 +445,18 @@ x"
 \pgf@yc=\dimen185
 \pgf@xd=\dimen186
 \pgf@yd=\dimen187
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count287
-\c@pgf@countb=\count288
-\c@pgf@countc=\count289
-\c@pgf@countd=\count290
+\w@pgf@writea=\write4
+\r@pgf@reada=\read3
+\c@pgf@counta=\count291
+\c@pgf@countb=\count292
+\c@pgf@countc=\count293
+\c@pgf@countd=\count294
 \t@pgf@toka=\toks31
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
-\pgf@sys@id@count=\count291
- ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgf.cfg"
+\pgf@sys@id@count=\count295
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgf.cfg"
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
 Driver file for pgf: pgfsys-pdftex.def
@@ -454,8 +471,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.t
 ex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count292
-\pgfsyssoftpath@bigbuffer@items=\count293
+\pgfsyssoftpath@smallbuffer@items=\count296
+\pgfsyssoftpath@bigbuffer@items=\count297
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsysprotocol.code.t
 ex"
@@ -467,7 +484,7 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathutil.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathparser.code.tex"
 \pgfmath@dimen=\dimen188
-\pgfmath@count=\count294
+\pgfmath@count=\count298
 \pgfmath@box=\box58
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
@@ -491,7 +508,7 @@ ex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.integerarit
 hmetics.code.tex")))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count295
+\c@pgfmathroundto@lastzeros=\count299
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfint.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
@@ -530,7 +547,7 @@ File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count296
+\pgf@picture@serial@count=\count300
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoregraphicstate.co
 de.tex"
@@ -563,8 +580,8 @@ File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen268
-\pgf@sys@shading@range@num=\count297
-\pgf@shadingcount=\count298
+\pgf@sys@shading@range@num=\count301
+\pgf@shadingcount=\count302
 ) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreimage.code.te
 x"
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -605,8 +622,6 @@ Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
 sty"
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 )) ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgffor.sty"
-("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfkeys.sty"
-("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex"))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/math\pgfmath.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex"))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgffor.code.tex"
@@ -624,7 +639,7 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryplothandlers.
 code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count299
+\pgf@plot@mark@count=\count303
 \pgfplotmarksize=\dimen273
 )
 \tikz@lastx=\dimen274
@@ -639,18 +654,18 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@figbox@bg=\box65
 \tikz@tempbox=\box66
 \tikz@tempbox@bg=\box67
-\tikztreelevel=\count300
-\tikznumberofchildren=\count301
-\tikznumberofcurrentchild=\count302
-\tikz@fig@count=\count303
+\tikztreelevel=\count304
+\tikznumberofchildren=\count305
+\tikznumberofcurrentchild=\count306
+\tikz@fig@count=\count307
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count304
-\pgfmatrixcurrentcolumn=\count305
-\pgf@matrix@numberofcolumns=\count306
+\pgfmatrixcurrentrow=\count308
+\pgfmatrixcurrentcolumn=\count309
+\pgf@matrix@numberofcolumns=\count310
 )
-\tikz@expandcount=\count307
+\tikz@expandcount=\count311
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
 librarytopaths.code.tex"
@@ -662,8 +677,8 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
 \pgfplots@tmpa=\dimen282
-\c@pgfplots@coordindex=\count308
-\c@pgfplots@scanlineindex=\count309
+\c@pgfplots@coordindex=\count312
+\c@pgfplots@scanlineindex=\count313
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.
 tex"))
@@ -680,13 +695,13 @@ ructure.code.tex")
 ructureext.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsarray.
 code.tex"
-\c@pgfplotsarray@tmp=\count310
+\c@pgfplotsarray@tmp=\count314
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsmatrix
 .code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/numtable\pgfplotstableshared
 .code.tex"
-\c@pgfplotstable@counta=\count311
+\c@pgfplotstable@counta=\count315
 \t@pgfplotstable@a=\toks42
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsdeque.
@@ -699,7 +714,7 @@ e.tex"))
 tex")
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/libs\pgflibrarypgfplots.surf
 shading.code.tex"
-\c@pgfplotslibrarysurf@no=\count312
+\c@pgfplotslibrarysurf@no=\count316
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfs
 hading.pgfsys-pdftex.def")))
@@ -731,7 +746,7 @@ librarydecorations.code.tex"
 \pgfdecoratedinputsegmentcompleteddistance=\dimen285
 \pgfdecoratedinputsegmentremainingdistance=\dimen286
 \pgf@decorate@distancetomove=\dimen287
-\pgf@decorate@repeatstate=\count313
+\pgf@decorate@repeatstate=\count317
 \pgfdecorationsegmentamplitude=\dimen288
 \pgfdecorationsegmentlength=\dimen289
 )
@@ -745,7 +760,7 @@ ecorations.pathmorphing.code.tex"))
 librarydecorations.pathreplacing.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries/decorations\pgflibraryd
 ecorations.pathreplacing.code.tex"))
-\pgfplots@numplots=\count314
+\pgfplots@numplots=\count318
 \pgfplots@xmin@reg=\dimen290
 \pgfplots@xmax@reg=\dimen291
 \pgfplots@ymin@reg=\dimen292
@@ -766,53 +781,53 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip63
 \bibsep=\skip64
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count315
+\c@NAT@ctr=\count319
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 31.
-\c@subsubsubsection=\count316
+Package hyperref Info: Option `colorlinks' set `true' on input line 33.
+\c@subsubsubsection=\count320
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count317
+\l__kernel_color_stack_int=\count321
 \l__pdf_internal_box=\box69
 )
 (Lunar_Impacts-DeStefano.aux)
 \openout1 = `Lunar_Impacts-DeStefano.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
-0.
+2.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
+\scratchcounter=\count322
 \scratchdimen=\dimen296
 \scratchbox=\box70
-\nofMPsegments=\count319
-\nofMParguments=\count320
+\nofMPsegments=\count323
+\nofMParguments=\count324
 \everyMPshowfont=\toks43
-\MPscratchCnt=\count321
+\MPscratchCnt=\count325
 \MPscratchDim=\dimen297
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks44
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -829,9 +844,11 @@ Package caption Info: End \AtBeginDocument code.
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count324
-Package hyperref Info: Link coloring ON on input line 70.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
+\c@lstlisting=\count328
+ ABD: EveryShipout initializing macros
+Package hyperref Info: Link coloring ON on input line 72.
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/refcount\refcount.sty
@@ -841,56 +858,55 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count325
+\c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 72.
+LaTeX Info: Redefining \pageref on input line 72.
+LaTeX Info: Redefining \nameref on input line 72.
  (Lunar_Impacts-DeStefano.out) (Lunar_Impacts-DeStefano.out)
-\@outlinefile=\write4
-\openout4 = `Lunar_Impacts-DeStefano.out'.
+\@outlinefile=\write5
+\openout5 = `Lunar_Impacts-DeStefano.out'.
 
 
-ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 70.
+ on input line 72.
 
 (Lunar_Impacts-DeStefano.toc [1
 
 {C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
-\tf@toc=\write5
-\openout5 = `Lunar_Impacts-DeStefano.toc'.
+\tf@toc=\write6
+\openout6 = `Lunar_Impacts-DeStefano.toc'.
 
  (Lunar_Impacts-DeStefano.lof
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 2.
  [2]
-Overfull \hbox (0.30348pt too wide) in paragraph at lines 13--13
+Overfull \hbox (0.30348pt too wide) in paragraph at lines 14--14
  [][] [][][]\OT1/phv/m/n/10 The ge-o-met-ri-cal term of the sec-ondary ejecta s
 peed dis-tri-bu-tion $\OMS/cmsy/m/n/10 G\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D; v\
 OT1/cmr/m/n/10 )$ 
  []
 
 )
-\tf@lof=\write6
-\openout6 = `Lunar_Impacts-DeStefano.lof'.
+\tf@lof=\write7
+\openout7 = `Lunar_Impacts-DeStefano.lof'.
 
  (Lunar_Impacts-DeStefano.lot)
-\tf@lot=\write7
-\openout7 = `Lunar_Impacts-DeStefano.lot'.
+\tf@lot=\write8
+\openout8 = `Lunar_Impacts-DeStefano.lot'.
 
  [3]
-<simpleExcavationCrater-Holsapple.jpg, id=376, 780.9175pt x 284.06125pt>
+<simpleExcavationCrater-Holsapple.jpg, id=387, 780.9175pt x 284.06125pt>
 File: simpleExcavationCrater-Holsapple.jpg Graphic file (type jpg)
 <use simpleExcavationCrater-Holsapple.jpg>
 Package pdftex.def Info: simpleExcavationCrater-Holsapple.jpg  used on input li
-ne 105.
+ne 107.
 (pdftex.def)             Requested size: 312.36147pt x 113.62247pt.
 
-Overfull \hbox (3.59554pt too wide) in paragraph at lines 116--117
+Overfull \hbox (3.59554pt too wide) in paragraph at lines 118--119
 [][]\OT1/phv/m/sl/10 Moser et al.[][] \OT1/phv/m/n/10 [[][]2014[][]] found cor-
 re-la-tion with the Vir-ginid me-teor shower com-plex (EVI/NVI)
  []
@@ -915,14 +931,14 @@ LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 35.
 )
 [3]
-Overfull \hbox (1.91994pt too wide) in paragraph at lines 178--179
+Overfull \hbox (1.91994pt too wide) in paragraph at lines 180--181
 []\OT1/cmss/m/n/10 srun -n $\OML/cmm/m/it/10 <$\OT1/cmss/m/n/10 # of CPUs, max 
 36 per node$\OML/cmm/m/it/10 >$ \OT1/cmss/m/n/10 -p pde-bug python -i $\OML/cmm
 /m/it/10 <$\OT1/cmss/m/n/10 python[]script.py$\OML/cmm/m/it/10 >$ 
  []
 
 
-Overfull \hbox (21.72765pt too wide) in paragraph at lines 179--180
+Overfull \hbox (21.72765pt too wide) in paragraph at lines 181--182
 []\OT1/phv/m/n/10 Add any vari-able def-i-ni-tions af-ter the \OT1/cmss/m/n/10 
 python[]script.py\OT1/phv/m/n/10 , such as \OT1/cmss/m/n/10 - -impactAngle=56\O
 T1/phv/m/n/10 ,
@@ -930,226 +946,230 @@ T1/phv/m/n/10 ,
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 197.
+(hyperref)                removing `math shift' on input line 199.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\phi' on input line 197.
+(hyperref)                removing `\phi' on input line 199.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 197.
+(hyperref)                removing `subscript' on input line 199.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 197.
+(hyperref)                removing `math shift' on input line 199.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 202.
+(hyperref)                removing `math shift' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 202.
+(hyperref)                removing `subscript' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 202.
+(hyperref)                removing `math shift' on input line 204.
 
 [4] [5]
-<Carrier2003_Fig1_particle-size-distribution.PNG, id=489, 889.07156pt x 624.081
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=500, 889.07156pt x 624.081
 56pt>
 File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
 <use Carrier2003_Fig1_particle-size-distribution.PNG>
 Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
-on input line 255.
+on input line 257.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
- [6 <./Carrier2003_Fig1_particle-size-distribution.PNG>]
-<Fit-to-CDF.PNG, id=509, 357.58594pt x 159.59625pt>
+ [6 <./Carrier2003_Fig1_particle-size-distribution.PNG>] [7]
+<Fit-to-CDF.PNG, id=532, 357.58594pt x 159.59625pt>
 File: Fit-to-CDF.PNG Graphic file (type png)
 <use Fit-to-CDF.PNG>
-Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 267.
+Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 279.
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
- [7 <./Fit-to-CDF.PNG>] [8] [9]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10]
-<ExlusionRange_vs_ImpactAngle.png, id=596, 462.528pt x 346.896pt>
+ [8 <./Fit-to-CDF.PNG>]
+<Fit-to-Nej.PNG, id=555, 313.77225pt x 155.3805pt>
+File: Fit-to-Nej.PNG Graphic file (type png)
+<use Fit-to-Nej.PNG>
+Package pdftex.def Info: Fit-to-Nej.PNG  used on input line 325.
+(pdftex.def)             Requested size: 313.77147pt x 155.3801pt.
+ [9 <./Fit-to-Nej.PNG>] [10] [11]
+<ExlusionRange_vs_ImpactAngle.png, id=621, 462.528pt x 346.896pt>
 File: ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ExlusionRange_vs_ImpactAngle.png  used on input line 4
-56.
+82.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
- [11 <./ExlusionRange_vs_ImpactAngle.png>] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13 <./ExlusionRange_vs_ImpactAngle.png>] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 615--617
 
  []
 
 
-Overfull \hbox (7.76584pt too wide) in paragraph at lines 593--594
+Overfull \hbox (7.76584pt too wide) in paragraph at lines 619--620
  []\OT1/phv/b/n/10 Alternative Az-imuth Dis-tri-bu-tion:[] \OT1/phv/m/n/10 The 
 piece-wise func-tion de-fined in Equa-tion []
  []
 
-[14]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 625.
- [15] [16]
-<integration_bounds_cases.png, id=697, 615.7404pt x 456.7464pt>
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 651.
+[16] [17] [18]
+<integration_bounds_cases.png, id=736, 615.7404pt x 456.7464pt>
 File: integration_bounds_cases.png Graphic file (type png)
 <use integration_bounds_cases.png>
-Package pdftex.def Info: integration_bounds_cases.png  used on input line 767.
+Package pdftex.def Info: integration_bounds_cases.png  used on input line 793.
 (pdftex.def)             Requested size: 400.22652pt x 296.88164pt.
 
-Overfull \hbox (25.22652pt too wide) in paragraph at lines 767--768
+Overfull \hbox (25.22652pt too wide) in paragraph at lines 793--794
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=717, 428.35031pt x 321.45094pt
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=741, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
-nput line 784.
+nput line 810.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18 <./integration_bounds_cases.png>]
-<Fit-to-D_Grun.PNG, id=731, 326.72063pt x 167.87718pt>
+[19]
+<Fit-to-D_Grun.PNG, id=762, 326.72063pt x 167.87718pt>
 File: Fit-to-D_Grun.PNG Graphic file (type png)
 <use Fit-to-D_Grun.PNG>
-Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 801.
+Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 827.
 (pdftex.def)             Requested size: 326.71982pt x 167.87677pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19 <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=753, 694.84593pt x 472.76625pt>
+[20 <./integration_bounds_cases.png>] [21 <./MEM_UG_Fig2.1_partile-mass-distrib
+ution.PNG> <./Fit-to-D_Grun.PNG>]
+<MEM_UG_Fig2.5_density-distribution.PNG, id=790, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
-line 832.
+line 858.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_low_dens.PNG, id=758, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=795, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 840.
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 866.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_high_dens.PNG, id=763, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=800, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 846.
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 872.
 (pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20 <./Fit-to-D_Grun.PNG>] [21 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fi
-t-to-MEM_low_dens.PNG>] [22 <./Fit-to-MEM_high_dens.PNG>]
-<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=802, 462.528pt x 346.896pt>
+[22] [23 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fit-to-MEM_low_dens.PNG>
+] [24 <./Fit-to-MEM_high_dens.PNG>]
+<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=839, 462.528pt x 346.896pt>
 File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
 <use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
-nput line 916.
+nput line 942.
 (pdftex.def)             Requested size: 393.15065pt x 294.86298pt.
 
-Overfull \hbox (18.15065pt too wide) in paragraph at lines 916--917
+Overfull \hbox (18.15065pt too wide) in paragraph at lines 942--943
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23] [24 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1034
+[25] [26 <./Distance_vs_EjectaSpeed_and_ZenithAngle.png>] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
 
  []
 
-[26]
+[28]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1050.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1050.
+(hyperref)                removing `math shift' on input line 1076.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1056.
+(hyperref)                removing `math shift' on input line 1076.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1056.
+(hyperref)                removing `math shift' on input line 1082.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1056.
+(hyperref)                removing `subscript' on input line 1082.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1062.
+(hyperref)                removing `math shift' on input line 1082.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1062.
+(hyperref)                removing `math shift' on input line 1088.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1066.
+(hyperref)                removing `math shift' on input line 1088.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1066.
+(hyperref)                removing `math shift' on input line 1092.
 
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=873, 658.71094pt x 851.43094
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1092.
+
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=910, 658.71094pt x 851.43094
 pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
 Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
- input line 1079.
+ input line 1105.
 (pdftex.def)             Requested size: 329.35466pt x 425.71443pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27] [28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [29] [30] [31]
+[29] [30 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [31] [32] [33]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1202.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 1202.
+(hyperref)                removing `math shift' on input line 1228.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\circ' on input line 1202.
+(hyperref)                removing `superscript' on input line 1228.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1202.
+(hyperref)                removing `\circ' on input line 1228.
 
-[32] [33] [34] [35] [36]
-Overfull \hbox (0.66174pt too wide) detected at line 1406
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1228.
+
+[34] [35] [36] [37] [38]
+Overfull \hbox (0.66174pt too wide) detected at line 1432
 [] [][] \OML/cmm/m/it/10 d []  \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 d [] 
  \OT1/cmr/m/n/10 + [] \OML/cmm/m/it/10 ;
  []
 
-[37]
+[39]
 Package epstopdf Info: Source file: <speed_dist.eps>
 (epstopdf)                    date: 2020-08-17 17:51:23
 (epstopdf)                    size: 96883 bytes
@@ -1158,41 +1178,40 @@ Package epstopdf Info: Source file: <speed_dist.eps>
 (epstopdf)                    size: 34314 bytes
 (epstopdf)             Command: <epstopdf --outfile=speed_dist-eps-converted-to
 .pdf speed_dist.eps>
-(epstopdf)             \includegraphics on input line 1435.
+(epstopdf)             \includegraphics on input line 1461.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./speed_dist-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<speed_dist-eps-converted-to.pdf, id=1051, 344.28625pt x 134.5025pt>
+<speed_dist-eps-converted-to.pdf, id=1087, 344.28625pt x 134.5025pt>
 File: speed_dist-eps-converted-to.pdf Graphic file (type pdf)
 <use speed_dist-eps-converted-to.pdf>
 Package pdftex.def Info: speed_dist-eps-converted-to.pdf  used on input line 14
-35.
+61.
 (pdftex.def)             Requested size: 375.0pt x 146.50218pt.
-[38 <./speed_dist-eps-converted-to.pdf>] [39] [40] [41]
-(Lunar_Impacts-DeStefano.bbl [42
+[40 <./speed_dist-eps-converted-to.pdf>] [41] [42] [43]
+(Lunar_Impacts-DeStefano.bbl [44
 
-]) [43]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1552.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1552.
+]) [45]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1578.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1578.
  (Lunar_Impacts-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1552.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1552.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1578.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1578.
 
 Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 .
-(rerunfilecheck)             Checksum: 6CF2BC958DF3A20EA7604F175A7B6DB8;4125.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1552.
+(rerunfilecheck)             Checksum: 1F91F35303ACBA4132E316209D8CB4BF;4125.
  ) 
 Here is how much of TeX's memory you used:
- 31270 strings out of 480799
- 724160 string characters out of 2905519
- 1179602 words of memory out of 3000000
- 46300 multiletter control sequences out of 15000+200000
+ 32084 strings out of 480799
+ 740719 string characters out of 2905519
+ 1197795 words of memory out of 3000000
+ 47094 multiletter control sequences out of 15000+200000
  557772 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,13n,98p,962b,1805s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,13n,98p,962b,1805s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -1215,9 +1234,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2
 MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roami
 ng/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Ro
 aming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (46 pages, 1488663 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (48 pages, 1507212 bytes).
 PDF statistics:
- 1291 PDF objects out of 1440 (max. 8388607)
- 417 named destinations out of 1000 (max. 500000)
- 478 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1328 PDF objects out of 1440 (max. 8388607)
+ 422 named destinations out of 1000 (max. 500000)
+ 483 words of extra memory for PDF output out of 10000 (max. 10000000)
 

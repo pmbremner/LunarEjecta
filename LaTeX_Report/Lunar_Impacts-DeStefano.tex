@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 %https://tex.stackexchange.com/questions/54241/change-the-type-of-equation-numbering-in-document-class-article
 \numberwithin{equation}{section}
+%https://texblog.org/2012/05/30/generate-latex-tables-from-csv-files-excel/
+\usepackage{csvsimple}
 
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \lstset{  breaklines=true, numbers=left, numberstyle=\tiny\color{mygray}, keepspaces=true }
@@ -256,6 +258,16 @@ For relatively small impact sizes (craters $<30-50$ m), we can generally assume 
 	\caption{Geotechnical particle size distribution: middle curve showing the average distribution; left-hand and right-hand curves showing $\pm$1 standard deviation \citep{carrier2003particle}. Note, that the percent passing is normalized by mass and not particle number \citep[see][]{carrier1973lunar}.}\label{fig:Carrier2003_Fig1_particle-size-distribution}
 \end{figure}
 
+The digitized data from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution} is shown in Table \ref{tab:Carrier2003}.
+
+\begin{table}
+	\centering
+	\caption{Digitized data points from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, see \cite{carrier2003particle}.}\label{tab:Carrier2003}
+	\csvautotabular{Carrier2003_digitized.csv}
+\end{table}
+
+
+
 In order to parameterize the CDF from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, we make a fit to the model equation
 \begin{equation}\label{eq:particle-CDF}
 C_{\text{Moon}} = 1 - \exp\left(\frac{-1}{ax^b+cx^d}\right),
@@ -276,7 +288,7 @@ where $A$ is the normalization constant. In theory, this should be equal to 1, b
 
 In order to compare with NASA SP-8013 \citep{cour1969meteoroid}, we first must convert the distribution function normalized by number and not mass. We can then write
 \begin{equation}\label{eq:N_ej_carrier1}
-N_{ej}(x) \sim \int_{x}^{\infty}\frac{dx}{m(x)}\frac{d(P_{\text{Moon}}(x))}{dx},
+N_{ej}(x) \sim \int_{x}^{\infty}\frac{dx}{m(x)}\frac{d(C_{\text{Moon}}(x))}{dx},
 \end{equation}
 where $x$ is the particle diameter, and
 \begin{equation}
@@ -285,7 +297,7 @@ m(x) = \frac{\pi}{6}\rho x^3.
 
 Instead of fitting $C_{\text{Moon}}$ to Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution} directly, we will approximate using a power-law interpolation technique such that
 \begin{equation}
-P_{\text{Moon}}(x) = y_i\left(\frac{x}{x_i}\right)^{b_i},
+C_{\text{Moon}}(x) = y_i\left(\frac{x}{x_i}\right)^{b_i},
 \end{equation}
 where
 \begin{equation}
@@ -297,9 +309,23 @@ N_{ej}(x) \sim \frac{6}{\pi\rho}\frac{b_i}{3-b_i}\frac{y_i}{x_i^{b_i}}x^{b_i-3}.
 \end{equation}
 
 If we want to normalize Equation \eqref{eq:N_ej_carrier2} to unity for a certain size $x_{\text{norm}}$, we then have
-\begin{equation}
-N_{ej}(x) = \left(\frac{x}{}\right)
+\begin{equation}\label{eq:N_ej_carrier3}
+N_{ej}(x) = \frac{b_i(3-b_n)}{b_n(3-b_i)}\frac{x_n^{b_n}}{x_i^{b_i}}\frac{y_i}{y_n}\frac{x^{b_i-3}}{x_{\text{norm}}^{b_n-3}},
 \end{equation}
+where $x_n \le x_{\text{norm}} \le x_{n+1}$.
+
+If we apply the method of Equation \eqref{eq:N_ej_carrier3} to the Carrier 2003 data shown in Table \ref{tab:Carrier2003} and make a fit using a double power-law expression given by
+\begin{equation}\label{eq:double_power-law}
+N_{ej}(x) = \frac{A}{\left(\frac{x}{a}\right)^b + x^d},
+\end{equation}
+then the fit parameters can be computed as shown in Figure \ref{fig:Fit-to-Nej}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=1]{Fit-to-Nej.PNG}
+	\caption{Non-linear fit of Table \ref{tab:Carrier2003} with Eq.\ \ref{eq:double_power-law} in \textsf{SciDAVis}, giving the constants for $A$, $a$, $b$, and $d$.}\label{fig:Fit-to-Nej}
+\end{figure}
+
 
 %
 %Since our goal is to compute the particle flux mass spectrum, we need to \textit{count} the number of particles from the PDF that make up the mass of $M$ from Eq.\ \ref{eq:HH11_mass-ejected1}. We first need to know the total volume per complete PDF, which is given by
