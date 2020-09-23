@@ -253,12 +253,12 @@ For relatively small impact sizes (craters $<30-50$ m), we can generally assume 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.4]{Carrier2003_Fig1_particle-size-distribution.PNG}
-	\caption{Geotechnical particle size distribution: middle curve showing the average distribution; left-hand and right-hand curves showing $\pm$1 standard deviation \citep{carrier2003particle}.}\label{fig:Carrier2003_Fig1_particle-size-distribution}
+	\caption{Geotechnical particle size distribution: middle curve showing the average distribution; left-hand and right-hand curves showing $\pm$1 standard deviation \citep{carrier2003particle}. Note, that the percent passing is normalized by mass and not particle number \citep[see][]{carrier1973lunar}.}\label{fig:Carrier2003_Fig1_particle-size-distribution}
 \end{figure}
 
 In order to parameterize the CDF from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, we make a fit to the model equation
 \begin{equation}\label{eq:particle-CDF}
-C_{moon} = 1 - \exp\left(\frac{-1}{ax^b+cx^d}\right),
+C_{\text{Moon}} = 1 - \exp\left(\frac{-1}{ax^b+cx^d}\right),
 \end{equation}
 which is an exponential distribution with two scales defined by $a$ and $c$, with $x$ in units of mm. In \textsf{SciDAVis}, we make the fit with the x-axis on a logarithmic scale to give equal weight to both small and large scaled particles. The results for the curve fit are shown in Figure \ref{fig:Fit-to-CDF}. We found that a simple exponential distribution with a single scale was insufficient, hence the reason we opted for a two-scaled exponential distribution.
 
@@ -270,31 +270,59 @@ which is an exponential distribution with two scales defined by $a$ and $c$, wit
 
 To compute the probability distribution function (PDF), we can simply take the derivative of the CDF with respect to $x$, which results in the following equation:
 \begin{equation}
-P_{moon} = -A\frac{abx^{b-1}+cdx^{d-1}}{(ax^b+cx^d)^2}\exp\left(\frac{-1}{ax^b+cx^d}\right),
+P_{\text{Moon}} = -A\frac{abx^{b-1}+cdx^{d-1}}{(ax^b+cx^d)^2}\exp\left(\frac{-1}{ax^b+cx^d}\right),
 \end{equation}
 where $A$ is the normalization constant. In theory, this should be equal to 1, but since we are not taking our particle size from 0 to infinity, we need to compute the value of $A$. If we assume the particle size can range from $0.001$ mm to $10$ mm, then $A = 1.02218$.
 
-Since our goal is to compute the particle flux mass spectrum, we need to \textit{count} the number of particles from the PDF that make up the mass of $M$ from Eq.\ \ref{eq:HH11_mass-ejected1}. We first need to know the total volume per complete PDF, which is given by
-\begin{equation}\label{eq:VPmoon}
-V_{P_{moon}}(x_{min}) = \frac{4}{3}\pi \int_{x_{min}}^{x_{max}}dx x^3 P_{moon}(x),
+In order to compare with NASA SP-8013 \citep{cour1969meteoroid}, we first must convert the distribution function normalized by number and not mass. We can then write
+\begin{equation}\label{eq:N_ej_carrier1}
+N_{ej}(x) \sim \int_{x}^{\infty}\frac{dx}{m(x)}\frac{d(P_{\text{Moon}}(x))}{dx},
 \end{equation}
-where $x_{min} = 0.001$ mm and $x_{max} = 10$ mm. An exact analytic solution of Eq.\ \ref{eq:VPmoon} is quite difficult, but we notice that the integrand $x^3 P_{moon}(x)$ very closely resembles a linear equation within the desired range, see Figure \ref{fig:Fit-to-x3PDF}.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.7]{Fit-to-x3PDF.png}
-	\caption{Linear fit to the integrand $x^3 P_{moon}(x)$.}\label{fig:Fit-to-x3PDF}
-\end{figure}
-
-Therefore, we make the approximation
+where $x$ is the particle diameter, and
 \begin{equation}
-x^3 P_{moon}(x) \sim p_0 x + p_1,
+m(x) = \frac{\pi}{6}\rho x^3.
 \end{equation}
-where $p_0 = 1/11.48$ and $p_1 = 1/232.6$. The total volume of particles with mass greater than $m_{0} = \frac{4}{3}\pi\rho x_{0}^3$ is given by
-\begin{equation}\label{eq:VPmoon2}
-V_{P_{moon}}(x_{0}) = \frac{4}{3}\pi \left[\frac{1}{22.96}\left(x_{max}^2 - x_{0}^2\right) - \frac{1}{232.6}\left(x_{max} - x_{0}\right)\right],
+
+Instead of fitting $C_{\text{Moon}}$ to Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution} directly, we will approximate using a power-law interpolation technique such that
+\begin{equation}
+P_{\text{Moon}}(x) = y_i\left(\frac{x}{x_i}\right)^{b_i},
 \end{equation}
-where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regolith $\rho$, we can then compute the total mass of the particles from the PDF.
+where
+\begin{equation}
+b_i = \frac{\log(y_{i+1}/y_i)}{\log(x_{i+1}/x_i)},
+\end{equation}
+and where $x_i \le x \le x_{i+1}$, for data $x_i$ from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}. Therefore, we can write Equation~\eqref{eq:N_ej_carrier1} as
+\begin{equation}\label{eq:N_ej_carrier2}
+N_{ej}(x) \sim \frac{6}{\pi\rho}\frac{b_i}{3-b_i}\frac{y_i}{x_i^{b_i}}x^{b_i-3}.
+\end{equation}
+
+If we want to normalize Equation \eqref{eq:N_ej_carrier2} to unity for a certain size $x_{\text{norm}}$, we then have
+\begin{equation}
+N_{ej}(x) = \left(\frac{x}{}\right)
+\end{equation}
+
+%
+%Since our goal is to compute the particle flux mass spectrum, we need to \textit{count} the number of particles from the PDF that make up the mass of $M$ from Eq.\ \ref{eq:HH11_mass-ejected1}. We first need to know the total volume per complete PDF, which is given by
+%\begin{equation}\label{eq:VPmoon}
+%V_{P_{moon}}(x_{min}) = \frac{4}{3}\pi \int_{x_{min}}^{x_{max}}dx x^3 P_{moon}(x),
+%\end{equation}
+%where $x_{min} = 0.001$ mm and $x_{max} = 10$ mm. An exact analytic solution of Eq.\ \ref{eq:VPmoon} is quite difficult, but we notice that the integrand $x^3 P_{moon}(x)$ very closely resembles a linear equation within the desired range, see Figure \ref{fig:Fit-to-x3PDF}.
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.7]{Fit-to-x3PDF.png}
+%	\caption{Linear fit to the integrand $x^3 P_{moon}(x)$.}\label{fig:Fit-to-x3PDF}
+%\end{figure}
+%
+%Therefore, we make the approximation
+%\begin{equation}
+%x^3 P_{moon}(x) \sim p_0 x + p_1,
+%\end{equation}
+%where $p_0 = 1/11.48$ and $p_1 = 1/232.6$. The total volume of particles with mass greater than $m_{0} = \frac{4}{3}\pi\rho x_{0}^3$ is given by
+%\begin{equation}\label{eq:VPmoon2}
+%V_{P_{moon}}(x_{0}) = \frac{4}{3}\pi \left[\frac{1}{22.96}\left(x_{max}^2 - x_{0}^2\right) - \frac{1}{232.6}\left(x_{max} - x_{0}\right)\right],
+%\end{equation}
+%where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regolith $\rho$, we can then compute the total mass of the particles from the PDF.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ejected Mass from an Impactor}\label{ssec:Ejected Mass from an Impactor}

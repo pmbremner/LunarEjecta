@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -20,6 +20,10 @@ Bouley, S., et~al., Power and duration of impact flashes on the moon:
 Brown, P., R.~Spalding, D.~O. ReVelle, E.~Tagliaferri, and S.~Worden, The flux
   of small near-earth objects colliding with the earth, \textit{Nature},
   \textit{420}(6913), 294, 2002.
+
+\bibitem[{\textit{Carrier}(1973)}]{carrier1973lunar}
+Carrier, W.~D., Lunar soil grain size distribution, \textit{The moon},
+  \textit{6}(3-4), 250--263, 1973.
 
 \bibitem[{\textit{Carrier~III}(2003)}]{carrier2003particle}
 Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal

@@ -22,15 +22,15 @@
 \contentsline {subsection}{\numberline {6.3}Ejected Mass from an Impactor}{8}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Ejecta Mass Distribution Function}{9}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Zenith Distribution Function}{9}{subsubsection.6.4.1}%
-\contentsline {paragraph}{Alternative Zenith Distribution:}{10}{section*.5}%
+\contentsline {paragraph}{Alternative Zenith Distribution:}{10}{section*.4}%
 \contentsline {subsubsection}{\numberline {6.4.2}Azimuth Distribution Function}{14}{subsubsection.6.4.2}%
-\contentsline {paragraph}{Alternative Azimuth Distribution:}{14}{section*.8}%
+\contentsline {paragraph}{Alternative Azimuth Distribution:}{14}{section*.7}%
 \contentsline {subsubsection}{\numberline {6.4.3}Speed Distribution Function}{15}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Normalization Term}{17}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.4}Normalization Term}{16}{subsubsection.6.4.4}%
 \contentsline {subsection}{\numberline {6.5}Algorithm to Integrate Speed-Zenith Space}{17}{subsection.6.5}%
 \contentsline {subsubsection}{\numberline {6.5.1}Region I}{18}{subsubsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.6}Meteoroid Projectile Mass Distribution}{18}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Density Distribution}{20}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.7}Meteoroid Projectile Density Distribution}{19}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}Meteoroid Projectile Speed and Angle Distribution}{20}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Secondary Ejecta Distance, Speed, \& Angle}{22}{subsection.6.9}%
 \contentsline {subsubsection}{\numberline {6.9.1}Coriolis Force}{25}{subsubsection.6.9.1}%
@@ -46,15 +46,15 @@
 \contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{30}{subsection.9.2}%
 \contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{32}{subsubsection.9.2.1}%
 \contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{32}{subsubsection.9.2.2}%
-\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{33}{section*.17}%
-\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{34}{section*.18}%
+\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{33}{section*.16}%
+\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{34}{section*.17}%
 \contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{36}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed for a given Distance}{37}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{39}{subsection.9.5}%
-\contentsline {paragraph}{Satellite Angle from Periapsis}{39}{section*.20}%
-\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{39}{section*.21}%
-\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{40}{section*.22}%
-\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{40}{section*.23}%
-\contentsline {paragraph}{Ejecta Speed at Satellite}{40}{section*.24}%
-\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{41}{section*.25}%
-\contentsline {section}{References}{42}{section*.26}%
+\contentsline {paragraph}{Satellite Angle from Periapsis}{39}{section*.19}%
+\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{39}{section*.20}%
+\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{40}{section*.21}%
+\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{40}{section*.22}%
+\contentsline {paragraph}{Ejecta Speed at Satellite}{40}{section*.23}%
+\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{41}{section*.24}%
+\contentsline {section}{References}{42}{section*.25}%
