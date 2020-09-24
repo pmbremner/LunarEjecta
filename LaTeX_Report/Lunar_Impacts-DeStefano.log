@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  23 SEP 2020 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  23 SEP 2020 18:30
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -987,13 +987,13 @@ File: Fit-to-CDF.PNG Graphic file (type png)
 Package pdftex.def Info: Fit-to-CDF.PNG  used on input line 279.
 (pdftex.def)             Requested size: 357.58505pt x 159.59584pt.
  [8 <./Fit-to-CDF.PNG>]
-<Fit-to-Nej.PNG, id=555, 313.77225pt x 155.3805pt>
+<Fit-to-Nej.PNG, id=556, 313.77225pt x 155.3805pt>
 File: Fit-to-Nej.PNG Graphic file (type png)
 <use Fit-to-Nej.PNG>
 Package pdftex.def Info: Fit-to-Nej.PNG  used on input line 325.
 (pdftex.def)             Requested size: 313.77147pt x 155.3801pt.
  [9 <./Fit-to-Nej.PNG>] [10] [11]
-<ExlusionRange_vs_ImpactAngle.png, id=621, 462.528pt x 346.896pt>
+<ExlusionRange_vs_ImpactAngle.png, id=622, 462.528pt x 346.896pt>
 File: ExlusionRange_vs_ImpactAngle.png Graphic file (type png)
 <use ExlusionRange_vs_ImpactAngle.png>
 Package pdftex.def Info: ExlusionRange_vs_ImpactAngle.png  used on input line 4
@@ -1017,7 +1017,7 @@ piece-wise func-tion de-fined in Equa-tion []
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 651.
 [16] [17] [18]
-<integration_bounds_cases.png, id=736, 615.7404pt x 456.7464pt>
+<integration_bounds_cases.png, id=737, 615.7404pt x 456.7464pt>
 File: integration_bounds_cases.png Graphic file (type png)
 <use integration_bounds_cases.png>
 Package pdftex.def Info: integration_bounds_cases.png  used on input line 793.
@@ -1030,7 +1030,7 @@ Overfull \hbox (25.22652pt too wide) in paragraph at lines 793--794
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=741, 428.35031pt x 321.45094pt
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=742, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
@@ -1041,7 +1041,7 @@ nput line 810.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19]
-<Fit-to-D_Grun.PNG, id=762, 326.72063pt x 167.87718pt>
+<Fit-to-D_Grun.PNG, id=763, 326.72063pt x 167.87718pt>
 File: Fit-to-D_Grun.PNG Graphic file (type png)
 <use Fit-to-D_Grun.PNG>
 Package pdftex.def Info: Fit-to-D_Grun.PNG  used on input line 827.
@@ -1052,7 +1052,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20 <./integration_bounds_cases.png>] [21 <./MEM_UG_Fig2.1_partile-mass-distrib
 ution.PNG> <./Fit-to-D_Grun.PNG>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=790, 694.84593pt x 472.76625pt>
+<MEM_UG_Fig2.5_density-distribution.PNG, id=791, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
@@ -1062,7 +1062,7 @@ line 858.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_low_dens.PNG, id=795, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=796, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 866.
@@ -1070,7 +1070,7 @@ Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 866.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Fit-to-MEM_high_dens.PNG, id=800, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=801, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 872.
@@ -1080,7 +1080,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [22] [23 <./MEM_UG_Fig2.5_density-distribution.PNG> <./Fit-to-MEM_low_dens.PNG>
 ] [24 <./Fit-to-MEM_high_dens.PNG>]
-<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=839, 462.528pt x 346.896pt>
+<Distance_vs_EjectaSpeed_and_ZenithAngle.png, id=840, 462.528pt x 346.896pt>
 File: Distance_vs_EjectaSpeed_and_ZenithAngle.png Graphic file (type png)
 <use Distance_vs_EjectaSpeed_and_ZenithAngle.png>
 Package pdftex.def Info: Distance_vs_EjectaSpeed_and_ZenithAngle.png  used on i
@@ -1136,7 +1136,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1092.
 
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=910, 658.71094pt x 851.43094
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=911, 658.71094pt x 851.43094
 pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
@@ -1184,7 +1184,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex.exe (file ./speed_dist-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<speed_dist-eps-converted-to.pdf, id=1087, 344.28625pt x 134.5025pt>
+<speed_dist-eps-converted-to.pdf, id=1088, 344.28625pt x 134.5025pt>
 File: speed_dist-eps-converted-to.pdf Graphic file (type pdf)
 <use speed_dist-eps-converted-to.pdf>
 Package pdftex.def Info: speed_dist-eps-converted-to.pdf  used on input line 14
@@ -1234,9 +1234,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2
 MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roami
 ng/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Ro
 aming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (48 pages, 1507212 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (48 pages, 1507401 bytes).
 PDF statistics:
- 1328 PDF objects out of 1440 (max. 8388607)
+ 1329 PDF objects out of 1440 (max. 8388607)
  422 named destinations out of 1000 (max. 500000)
  483 words of extra memory for PDF output out of 10000 (max. 10000000)
 
