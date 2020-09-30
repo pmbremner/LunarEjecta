@@ -1111,6 +1111,23 @@ Our aim is to provide an updated specification to NASA SP-8013 for the lunar imp
 
 Our ultimate goal in providing an updated environment definition is to have an output in the same format as MEM 3's igloo files (see Section 3.4.4 of \cite{moorhead2019nasa}). This will allow for current analysis tools already familiar with MEM 3 to ingest our new environments without modification to those tools. 
 
+%%%%%%%%%%%%
+
+\subsection{Comparison of Scaling Laws of New and Old Ejecta Models}
+
+In this section we dive into the comparison between the scaling laws assumed in the secondary ejecta environment of the Housen \& Holsapple 2011 model and the NASA SP-8013 model, i.e., \cite{zook1967problem}. Previously in Section \ref{ssec:TotalEjectedMass}, the scaling law equation from \cite{housen2011ejecta} has the following relation:
+\begin{equation}
+\bar{m}_{\text{HH11}}(>v) \sim \left(\frac{U}{v}\right)^{3\mu},
+\end{equation}
+where $\bar{m}_{\text{HH11}}(>v)$ is the secondary ejecta greater than the ejecta speed $v$, and $U$ is the impactor speed. We are ignoring any density dependence of the target or impactor. The $\mu$ index depends on the target properties (such as strength/porosity).
+
+On the other hand, from \cite{zook1967problem} we have:
+\begin{equation}
+\bar{m}_{\text{Z67}}(>v) \sim U^{-2\gamma}\left[G(v)\right]^{1-\frac{3}{\alpha}(1+\gamma)},
+\end{equation}
+where $\gamma$ is the power-law index of the cumulative flux-mass relation of the primaries, $\alpha$ depends on the target properties, and the function $G(v)$ \citep[from Figure 10 of][]{gault1963spray} relates the dependence of ejecta mass and ejecta speed (which is assumed to be a single-valued function, such that an inverse can be defined).
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

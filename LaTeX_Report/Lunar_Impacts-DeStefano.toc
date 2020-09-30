@@ -41,20 +41,21 @@
 \contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{29}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{29}{subsection.7.4}%
 \contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{29}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Comparison of Scaling Laws of New and Old Ejecta Models}{31}{subsection.8.1}%
 \contentsline {section}{\numberline {9}Analytic Study of Secondary Lunar Ejecta}{31}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Total Ejected Mass}{31}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{32}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{34}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{34}{subsubsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.1}Total Ejected Mass}{32}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{33}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{35}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{35}{subsubsection.9.2.2}%
 \contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{35}{section*.18}%
 \contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{36}{section*.19}%
 \contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{38}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed for a given Distance}{39}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{41}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{40}{subsection.9.5}%
 \contentsline {paragraph}{Satellite Angle from Periapsis}{41}{section*.21}%
-\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{41}{section*.22}%
+\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{42}{section*.22}%
 \contentsline {paragraph}{Maximum Apoapsis of Ejecta}{42}{section*.23}%
 \contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{42}{section*.24}%
-\contentsline {paragraph}{Ejecta Speed at Satellite}{42}{section*.25}%
+\contentsline {paragraph}{Ejecta Speed at Satellite}{43}{section*.25}%
 \contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{43}{section*.26}%
 \contentsline {section}{References}{44}{section*.27}%

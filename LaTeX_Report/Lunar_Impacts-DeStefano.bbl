@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -107,5 +107,10 @@ Shuvalov, V., Ejecta deposition after oblique impacts: An influence of impact
 \bibitem[{\textit{Vickery}(1986)}]{vickery1986size}
 Vickery, A., Size-velocity distribution of large ejecta fragments,
   \textit{Icarus}, \textit{67}(2), 224--236, 1986.
+
+\bibitem[{\textit{Zook}(1967)}]{zook1967problem}
+Zook, H.~A., The problem of secondary ejecta near the lunar surface., in
+  \textit{Transactions of the 1967 National Symposium on Saturn V/Apollo and
+  Beyond}, vol.~I, pp. EN--8, 1967.
 
 \end{thebibliography}
