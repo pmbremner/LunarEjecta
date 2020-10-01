@@ -6,44 +6,44 @@ The style file: agu.bst
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 Database file #1: report.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 22 entries,
+You've used 25 entries,
             3075 wiz_defined-function locations,
-            1204 strings with 13232 characters,
-and the built_in function-call counts, 19096 in all, are:
-= -- 2077
-> -- 602
-< -- 21
-+ -- 329
-- -- 147
-* -- 1141
-:= -- 1749
-add.period$ -- 22
-call.type$ -- 22
-change.case$ -- 112
-chr.to.int$ -- 22
-cite$ -- 66
-duplicate$ -- 2058
-empty$ -- 1150
-format.name$ -- 203
-if$ -- 3873
+            1221 strings with 13781 characters,
+and the built_in function-call counts, 22621 in all, are:
+= -- 2495
+> -- 729
+< -- 22
++ -- 401
+- -- 177
+* -- 1355
+:= -- 2042
+add.period$ -- 25
+call.type$ -- 25
+change.case$ -- 131
+chr.to.int$ -- 25
+cite$ -- 75
+duplicate$ -- 2433
+empty$ -- 1325
+format.name$ -- 244
+if$ -- 4583
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 214
-newline$ -- 73
-num.names$ -- 88
-pop$ -- 878
+missing$ -- 248
+newline$ -- 82
+num.names$ -- 100
+pop$ -- 1034
 preamble$ -- 1
-purify$ -- 91
+purify$ -- 107
 quote$ -- 0
-skip$ -- 1200
+skip$ -- 1442
 stack$ -- 0
-substring$ -- 755
-swap$ -- 1639
+substring$ -- 911
+swap$ -- 1968
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 195
+type$ -- 222
 warning$ -- 0
-while$ -- 114
+while$ -- 132
 width$ -- 0
-write$ -- 244
+write$ -- 277

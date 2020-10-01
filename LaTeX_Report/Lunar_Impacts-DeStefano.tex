@@ -1121,13 +1121,31 @@ In this section we dive into the comparison between the scaling laws assumed in 
 \end{equation}
 where $\bar{m}_{\text{HH11}}(>v)$ is the secondary ejecta greater than the ejecta speed $v$, and $U$ is the impactor speed. We are ignoring any density dependence of the target or impactor. The $\mu$ index depends on the target properties (such as strength/porosity).
 
-On the other hand, from \cite{zook1967problem} we have:
-\begin{equation}
-\bar{m}_{\text{Z67}}(>v) \sim U^{-2\gamma}\left[G(v)\right]^{1-\frac{3}{\alpha}(1+\gamma)},
+On the other hand, from \cite{zook1967problem} we have (which is based on laboratory data of impacts in solid basalt):
+\begin{equation}\label{eq:m_Z67}
+\bar{m}_{\text{Z67}}(>v) \sim U^{-2\beta\gamma}\left[G(v)\right]^{1-\frac{3}{\alpha}(1+\gamma)},
 \end{equation}
 where $\gamma$ is the power-law index of the cumulative flux-mass relation of the primaries, $\alpha$ depends on the target properties, and the function $G(v)$ \citep[from Figure 10 of][]{gault1963spray} relates the dependence of ejecta mass and ejecta speed (which is assumed to be a single-valued function, such that an inverse can be defined).
 
+According to \cite{zook1967problem}, the value of $\alpha$ ranges between $0.3$ and $0.7$ where a more general restriction is $\alpha < 1$ from \cite{gault1963spray}. In addition, $\beta \le 1$ \citep{gault1963spray} for basalt targets and might even be $\beta < 0.88$ by empirical scaling laws in alluvium. The value for the primary flux-mass index $\gamma$ depends on analysis of the comets and asteroids, typically measured at/from Earth. \cite{zook1967problem} showed that $\gamma$ depends on the primary mass $m$ (in grams) such that
+\begin{align}
+\gamma = -0.3, \text{  }& 10^{-14} \le m < 10^{-8}\\\nonumber
+\gamma = -1.0, \text{  }& 10^{-8} \le m < 10^{-2.15} \nonumber\\
+\gamma = -1.34, \text{  }& 10^{-2.15} \le m < \infty, \nonumber
+\end{align}
+whereas in our new ejecta model, we employ \cite{grun1985collisional}. Fitting a single power-law to the Gr{\"u}n interplanetary fluxes gives (in the range $10^{-6} < m < 10^{1}$)
+\begin{equation}
+\gamma \approx -1.25,
+\end{equation}
+which seems to agree with the index range from \cite{zook1967problem}.
 
+In theory, in order for the secondary fluxes to be finite, we require the primary flux index $\gamma$ to be $\gamma < -1$, otherwise we need a finite upper limit to the size of the primaries. Interestingly, if $\gamma = -1$, then the secondary fluxes suggested by Zook in Equation \eqref{eq:m_Z67} stop being dependent on the target material.
+
+There is a third ejecta model that can be found in the literature that is based on fitting laboratory data and producing scaling laws given by \cite{koschny2001impacts}. Without going into too much detail, the scaling law equation can be summarized as
+\begin{equation}
+\bar{m}_{\text{KG01}}(>v) \sim m^{b-1}\frac{U^{2b}}{v^{\gamma_{1}}},
+\end{equation}
+where both $b$ and $\gamma_1$ depend on target properties. For basalt targets, $b=1.02$ \citep{moore1963experimental}. For regolith-type targets $\gamma_1 = 1.2$ and for solid- (basalt) type target $\gamma_1 = 2$ \citep{krivov2003impact}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

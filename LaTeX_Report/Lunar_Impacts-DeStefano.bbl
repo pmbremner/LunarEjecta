@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -63,9 +63,26 @@ Holsapple, K., The scaling of impact processes in planetary sciences,
 Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
   \textit{Icarus}, \textit{211}(1), 856--875, 2011.
 
+\bibitem[{\textit{Koschny and Gr{\"u}n}(2001)}]{koschny2001impacts}
+Koschny, D., and E.~Gr{\"u}n, Impacts into ice--silicate mixtures: Crater
+  morphologies, volumes, depth-to-diameter ratios, and yield, \textit{Icarus},
+  \textit{154}(2), 391--401, 2001.
+
+\bibitem[{\textit{Krivov et~al.}(2003)\textit{Krivov, Srem{\v{c}}evi{\'c},
+  Spahn, Dikarev, and Kholshevnikov}}]{krivov2003impact}
+Krivov, A.~V., M.~Srem{\v{c}}evi{\'c}, F.~Spahn, V.~V. Dikarev, and K.~V.
+  Kholshevnikov, Impact-generated dust clouds around planetary satellites:
+  spherically symmetric case, \textit{Planetary and Space Science},
+  \textit{51}(3), 251--269, 2003.
+
 \bibitem[{\textit{Miller}(2017)}]{ESABASE2_DebrisRelease10.0}
 Miller, A., Esabase2 debris release 10.0 technical description, \textit{Tech.
   Rep. 1.7}, ESA, 2017.
+
+\bibitem[{\textit{Moore et~al.}(1963)\textit{Moore, Gault, and
+  Lugn}}]{moore1963experimental}
+Moore, H., D.~Gault, and R.~Lugn, Experimental impact craters in basalt,
+  \textit{Trans. Min. Eng}, \textit{229}, 258--262, 1963.
 
 \bibitem[{\textit{Moorhead et~al.}(2019)\textit{Moorhead, Kingery, and
   Ehlert}}]{moorhead2019nasa}
