@@ -37,3 +37,5 @@ plt.legend()
 plt.grid()
 plt.savefig('comparePrimaryFlux.png',dpi=600)
 plt.show()
+
+np.savetxt('grun85.txt', np.c_[np.log10(m), np.log10(primary_grun85(m))], fmt='%1.6e', newline='\r')
