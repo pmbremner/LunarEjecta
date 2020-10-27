@@ -25,27 +25,25 @@
 \BOOKMARK [3][-]{subsubsection.6.4.2}{Azimuth Distribution Function}{subsection.6.4}% 25
 \BOOKMARK [3][-]{subsubsection.6.4.3}{Speed Distribution Function}{subsection.6.4}% 26
 \BOOKMARK [3][-]{subsubsection.6.4.4}{Normalization Term}{subsection.6.4}% 27
-\BOOKMARK [2][-]{subsection.6.5}{Algorithm to Integrate Speed-Zenith Space}{section.6}% 28
-\BOOKMARK [3][-]{subsubsection.6.5.1}{Region I}{subsection.6.5}% 29
-\BOOKMARK [2][-]{subsection.6.6}{Meteoroid Projectile Mass Distribution}{section.6}% 30
-\BOOKMARK [2][-]{subsection.6.7}{Meteoroid Projectile Density Distribution}{section.6}% 31
-\BOOKMARK [2][-]{subsection.6.8}{Meteoroid Projectile Speed and Angle Distribution}{section.6}% 32
-\BOOKMARK [2][-]{subsection.6.9}{Secondary Ejecta Distance, Speed, \046 Angle}{section.6}% 33
-\BOOKMARK [3][-]{subsubsection.6.9.1}{Coriolis Force}{subsection.6.9}% 34
-\BOOKMARK [2][-]{subsection.6.10}{Distance and Bearing}{section.6}% 35
-\BOOKMARK [1][-]{section.7}{Meteoroid Ejecta Environment Output}{}% 36
-\BOOKMARK [2][-]{subsection.7.1}{Integral Flux \(>m\) vs. Particle Ejecta Mass}{section.7}% 37
-\BOOKMARK [2][-]{subsection.7.2}{Integral Flux \(>Ecrit\) vs. Critical Energy}{section.7}% 38
-\BOOKMARK [2][-]{subsection.7.3}{Integral Flux \(>d\) vs. Particle Ejecta Size}{section.7}% 39
-\BOOKMARK [2][-]{subsection.7.4}{Igloo Distribution of Integral Flux \(>m\)}{section.7}% 40
-\BOOKMARK [1][-]{section.8}{NASA SP-8013 Meteoroid Environment Model - 1969}{}% 41
-\BOOKMARK [2][-]{subsection.8.1}{Comparison of Scaling Laws of New and Old Ejecta Models}{section.8}% 42
-\BOOKMARK [1][-]{section.9}{Analytic Study of Secondary Lunar Ejecta}{}% 43
-\BOOKMARK [2][-]{subsection.9.1}{Total Ejected Mass}{section.9}% 44
-\BOOKMARK [2][-]{subsection.9.2}{Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{section.9}% 45
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Isotropic Azimuth and 45 Zenith Distributions}{subsection.9.2}% 46
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Isotropic Azimuth and Zenith Distributions}{subsection.9.2}% 47
-\BOOKMARK [2][-]{subsection.9.3}{Secondary Ejecta at a ROI vs. Distance}{section.9}% 48
-\BOOKMARK [2][-]{subsection.9.4}{Secondary Ejecta at a ROI vs. Speed for a given Distance}{section.9}% 49
-\BOOKMARK [2][-]{subsection.9.5}{Secondary Ejecta at a Satellite of the Moon}{section.9}% 50
-\BOOKMARK [1][-]{section*.27}{References}{}% 51
+\BOOKMARK [2][-]{subsection.6.5}{Meteoroid Projectile Mass Distribution}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.6}{Meteoroid Projectile Density Distribution}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.7}{Meteoroid Projectile Speed and Angle Distribution}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.8}{Secondary Ejecta Distance, Speed, \046 Angle}{section.6}% 31
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Coriolis Force}{subsection.6.8}% 32
+\BOOKMARK [2][-]{subsection.6.9}{Distance and Bearing}{section.6}% 33
+\BOOKMARK [1][-]{section.7}{Meteoroid Ejecta Environment Output}{}% 34
+\BOOKMARK [2][-]{subsection.7.1}{Integral Flux \(>m\) vs. Particle Ejecta Mass}{section.7}% 35
+\BOOKMARK [2][-]{subsection.7.2}{Integral Flux \(>Ecrit\) vs. Critical Energy}{section.7}% 36
+\BOOKMARK [2][-]{subsection.7.3}{Integral Flux \(>d\) vs. Particle Ejecta Size}{section.7}% 37
+\BOOKMARK [2][-]{subsection.7.4}{Igloo Distribution of Integral Flux \(>m\)}{section.7}% 38
+\BOOKMARK [1][-]{section.8}{NASA SP-8013 Meteoroid Environment Model - 1969}{}% 39
+\BOOKMARK [2][-]{subsection.8.1}{Comparison of Scaling Laws of New and Old Ejecta Models}{section.8}% 40
+\BOOKMARK [1][-]{section.9}{Analytic Study of Secondary Lunar Ejecta}{}% 41
+\BOOKMARK [2][-]{subsection.9.1}{Total Ejected Mass}{section.9}% 42
+\BOOKMARK [2][-]{subsection.9.2}{Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{section.9}% 43
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Isotropic Azimuth and 45 Zenith Distributions}{subsection.9.2}% 44
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Isotropic Azimuth and Zenith Distributions}{subsection.9.2}% 45
+\BOOKMARK [2][-]{subsection.9.3}{Secondary Ejecta at a ROI vs. Distance}{section.9}% 46
+\BOOKMARK [2][-]{subsection.9.4}{Secondary Ejecta at a ROI vs. Speed and Distance}{section.9}% 47
+\BOOKMARK [2][-]{subsection.9.5}{Secondary Ejecta at a Satellite of the Moon}{section.9}% 48
+\BOOKMARK [1][-]{section*.28}{References}{}% 49

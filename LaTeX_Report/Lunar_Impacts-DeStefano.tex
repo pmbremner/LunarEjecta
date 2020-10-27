@@ -766,33 +766,33 @@ and where $\alpha_{max}$ is given by
 The $\mathcal{G}$ pre-normalization term can be computed using your favorite numerical integration method, such as Romberg integration.
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Algorithm to Integrate Speed-Zenith Space}
-For the three different possible regions as defined in Section \ref{sssec:ZenithDistributionFunction}, shown here again for convenience
-
-\begin{enumerate}[label=Region \Roman*:]
-	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
-	\item For $D_j < \pi r_m$ and all $D_{j+1}$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
-	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$,
-\end{enumerate}
-
-there will be a fixed combination of ways the speed-zenith curves will intersect a given speed-zenith bin. For each region, we can assume the following about the slopes of the curves (and hence, the sign of their derivatives):
-\begin{enumerate}[label=Region \Roman*:]
-	\item Negative,
-	\item Zero,
-	\item Positive.
-\end{enumerate}
-Our analysis of Region I will be a mirror image of Region III. Region II is trivial in that there is only one case. We will outline the all the cases below for each region.
-
-\subsubsection{Region I}
-
-
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=0.65]{integration_bounds_cases.png}
-	\caption{Illustration of the various ways a line can cross a rectangular region assuming a negative-definite slope.}\label{fig:integration_bounds_cases}
-\end{figure}
+%\subsection{Algorithm to Integrate Speed-Zenith Space}
+%For the three different possible regions as defined in Section \ref{sssec:ZenithDistributionFunction}, shown here again for convenience
+%
+%\begin{enumerate}[label=Region \Roman*:]
+%	\item For all valid distances $D_j$ and $D_{j+1}$, use $m_{j,i}^{+}$, $b_{j,i}^{+}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+%	\item For $D_j < \pi r_m$ and all $D_{j+1}$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{+}$ and $b_{j+1,i}^{+}$
+%	\item For $D_j < \pi r_m$ and $D_{j+1} < \pi r_m$, use $m_{j,i}^{-}$, $b_{j,i}^{-}$, $m_{j+1,i}^{-}$ and $b_{j+1,i}^{-}$,
+%\end{enumerate}
+%
+%there will be a fixed combination of ways the speed-zenith curves will intersect a given speed-zenith bin. For each region, we can assume the following about the slopes of the curves (and hence, the sign of their derivatives):
+%\begin{enumerate}[label=Region \Roman*:]
+%	\item Negative,
+%	\item Zero,
+%	\item Positive.
+%\end{enumerate}
+%Our analysis of Region I will be a mirror image of Region III. Region II is trivial in that there is only one case. We will outline the all the cases below for each region.
+%
+%\subsubsection{Region I}
+%
+%
+%
+%
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[scale=0.65]{integration_bounds_cases.png}
+%	\caption{Illustration of the various ways a line can cross a rectangular region assuming a negative-definite slope.}\label{fig:integration_bounds_cases}
+%\end{figure}
 
 
 
@@ -984,7 +984,7 @@ Solving for $\gamma_{opt}$ we have
 \end{equation}
 which is valid for $D \le r_m$. For larger distances, the optimal zenith angle is $\pi/2$.
 In terms of $x$, we have
-\begin{equation}
+\begin{equation}\label{eq:opt_angle_speed}
 \cos(2\gamma_{opt}) = \frac{x^2}{x^2-1}.
 \end{equation}
 Once $D > \pi r_m$, the optimal angle is $\gamma = 90^\circ$, i.e., parallel to the horizon. For small distances $D \ll 2r_m$, the optimal angle is $\gamma = 45^\circ$, as mentioned above.
@@ -1276,7 +1276,7 @@ M_{ROI,\text{isotropic}} = \frac{\int_{\gamma_{min}}^{\pi/2}d\gamma\sin\gamma M_
 \end{equation}
 where $M_{ROI}(\gamma)$ is given in Equation \eqref{eq:M_ROI_simp1}. However, we need to break this integral into separate regions. In all, we need three regions defined in the speed-angle space (see Figure \ref{fig:Distance_vs_EjectaSpeed_and_ZenithAngle} for an example):
 \begin{enumerate}[label=Region \Roman*:]
-	\item $\gamma_{min} = \gamma(v_{esc},\Delta D/2)$, $\gamma_{max} = \gamma^+(v_{min}, \Delta D/2)$
+	\item $\gamma_{min} = \gamma^+(v_{esc},\Delta D/2)$, $\gamma_{max} = \gamma^+(v_{min}, \Delta D/2)$
 	\item $\gamma_{min} = \gamma^+(v_{min}, \Delta D/2)$, $\gamma_{max} = \gamma^-(v_{min}, \Delta D/2)$
 	\item $\gamma_{min} = \gamma^-(v_{min}, \Delta D/2)$, $\gamma_{max} = \pi/2$
 \end{enumerate}
@@ -1287,7 +1287,7 @@ First, we will define the minimum and maximum zenith angles for each region.
 
 In region I, $\gamma_{min}$ can be solved exactly and is given by (see Equation \eqref{eq:max_D_gamma})
 \begin{equation}
-\gamma_{I,min} = \gamma(v_{esc},\Delta D/2) = \frac{\Delta D}{8r_m}.
+\gamma_{I,min} = \gamma^+(v_{esc},\Delta D/2) = \frac{\Delta D}{8r_m}.
 \end{equation}
 The maximum angle $\gamma_{max}$ can be approximated by expanding Equation \eqref{eq:gammaVs_V_D} for small $D\to\Delta D/2$, such that
 \begin{equation}
@@ -1296,7 +1296,7 @@ The maximum angle $\gamma_{max}$ can be approximated by expanding Equation \eqre
 for $\Delta D/r_m \ll 1$.
 
 
-In region II, we minimum angle is the same as the maximum angle of the previous section, i.e.
+In region II, the minimum angle is the same as the maximum angle of the previous section, i.e.
 \begin{equation}
 \gamma_{II,min} = \gamma_{I,max}.
 \end{equation}
@@ -1447,9 +1447,11 @@ M_{ROI}(D) &\sim M_p(>v_{esc})\frac{3\mu}{2} \frac{\cot\left(\frac{D}{4r_m}\righ
 \end{align}
 We do note that the normalization factor should not be taken seriously in this calculation. If one then integrates over the entire Moon using Equation \eqref{eq:M_ROI_D_approx}, an overestimate of about a factor of $2.29$ will occur. The point is to illustrate that the contribution roughly follows a power law of index $-(3\mu/2+1)$, which for $\mu=0.4$, the index is $-1.6$. To compare with the speed distribution $H(v)$, the power law index would be $-(3\mu+1) = -2.2$.
 
+To further expound, we analyzed integrating Equation \eqref{eq:M_ROI_D-v} over the speed in order to compute $M_{ROI}(D)$ and we found that the power law index $-(3\mu/2+1)$ on the distance holds for all distances on the Moon. There is a correction term that multiplies the power-law relation that varies at most by $10\%$ over the whole Moon, specifically the pure power-law over estimates the antipodal contributions by a factor of $10$, which is insignificant compared to the overall fluxes. Most importantly, the fluxes that originate close to the ROI are correctly modeled by a power-law of the distance.
 
 
-\subsection{Secondary Ejecta at a ROI vs.\ Speed for a given Distance}
+
+\subsection{Secondary Ejecta at a ROI vs.\ Speed and Distance}
 To study the speed distribution as a function of distance, we begin with the speed distribution $H(v)$ and integrate over all contributing angles. For this exercise, we will assume an isotropic distribution. For a given distance and speed, the zenith angle dependence is a multi-valued function for speeds $v/v_{esc} < \sqrt{2}/2$ and a single-valued function for speeds $v/v_{esc} \ge \sqrt{2}/2$.
 
 The integral over the secondary ejecta as a function of speed and distance is given by
@@ -1469,12 +1471,22 @@ where $D_0 = D - \Delta D/2$ and $D_1 = D + \Delta D/2$ with the ROI width diame
 \begin{equation}
 \frac{v_{min}^2}{v_{esc}^2} = \frac{\tan\left(\frac{D}{2r_m}\right)}{\tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right)}.
 \end{equation}
+We can also express the maximum distance that can be reached as a function of speed
+\begin{equation}
+\cot\left(\frac{D_{max}}{2r_m}\right) = \frac{\sqrt{1-2x^2}}{x^2}.
+\end{equation}
+
 The angles $\gamma^{\pm}$ are given by (see Equation \eqref{eq:gammaVs_V_D})
 \begin{equation}\label{eq:gammaVs_V_D-repeat}
 \cot\gamma^\pm = x^2\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{x^4\cot^2\left(\frac{D}{2r_m}\right) + (2x^2-1)}.
 \end{equation}
-Evaluating the integrals and letting $\Delta D \to 0$, we arrive at the following solution:
+The optimal angle in terms of the ejecta speed can also be written as (see also Equation \eqref{eq:opt_angle_speed})
 \begin{equation}
+\cot\gamma_{opt}^\pm = \sqrt{1-2x^2}.
+\end{equation}
+
+Evaluating the integrals and letting $\Delta D \to 0$, we arrive at the following solution:
+\begin{equation}\label{eq:M_ROI_D-v}
 M_{ROI}(D,v) \sim dA(D)\Phi(D)H(v)\Delta D \mathcal{G}(D,v),
 \end{equation}
 where the geometrical term of the secondary ejecta speed distribution is (see Figure~\ref{fig:speed_dist} for an example)
@@ -1501,7 +1513,27 @@ In Figure \ref{fig:speed_dist}, we can see that for distances less than $\pi r_m
 
 Not shown in Figure \ref{fig:speed_dist} due to plotting artifacts and scaling, the peaks as a function of speed are proportional to $\propto v^{-2}$ for speeds $v < \frac{\sqrt{2}}{2}v_{esc}$
 
+\paragraph{Ejecta distance distribution:}
 
+We can also study the distance distribution as a function of speed. This shows where the majority of the contribution is at a certain distance for a particular ejecta speed.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{speed_dist_2.eps}
+	\caption{The geometrical term of the secondary ejecta distance distribution $\mathcal{G}(D,v)$ as a function of distance, in units of lunar radii $r_m$, for various speeds in units of escape velocity $v_{esc}$.}\label{fig:speed_dist2}
+\end{figure}
+
+In Figure \ref{fig:speed_dist2}, we see that for ejecta speeds $x < \sqrt{2}/2 \approx 0.7071$, the main contribution of ejecta comes from very particular distances (i.e., a ring of distances centered on the ROI). For speeds in the range $\sqrt{2}/2 < x < 0.9$, there is an approximate range of distances $0.35 < D/2r_m < 0.6$ that contribute to the ejecta flux (i.e., a hemispherical cap centered on the antipode location). And finally, for speeds $ 0.9 < x < 1$, the contribution of distances to the ejecta flux are $0.4 < D/2r_m < 1$ (i.e., the entire surface of the Moon contributes to this speed range).\\
+
+To summarize, the contribution of ejecta for a particular speed ($x = v / v_{esc}$) originates from:
+\begin{itemize}
+	\item Slowest speeds ($x < \sqrt{2}/2 \approx 0.7071$): ring of locations centered on the ROI,
+	\item Intermediate speeds ($\sqrt{2}/2 < x < 0.9$): hemispherical cap of locations centered on the antipode,
+	\item Fast speeds ($ 0.9 < x < 1$): the entire surface of the Moon.
+\end{itemize}
+
+If we include the fact that the speed distribution follows a power-law, then we can conclude that most of the ejecta comes from nearby (fraction of the Moon's radius) at slow speeds (less than $0.7\times v_{esc}$). However, in terms of penetration risk, there may be other speeds and hence a larger portion of the Moon that contribute to our problem.
 
 
 
