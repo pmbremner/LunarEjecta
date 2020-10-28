@@ -1,0 +1,28 @@
+# Parameters for DSNE Tables 3.4.8.3-x 
+#/*  For ImpactSites_and_ROI */
+NDistance# 42
+Nazm#      36
+ROI_Lat#   0.0
+ROI_Lon#   0.0
+#
+#/* For MEM_LatData */
+MEMDirectoryName# ../LatRunData
+MEMLatMin#        -90.0
+MEMLatMax#        90.0
+MEMNLat#          37
+#
+#/* For lunarEjecta_NearEarthObjectFlux */
+NEOSpeedFName#    ../NEA_Brown/vmass.txt
+NEODirectoryName# ../LatNEOData
+NEOLatMin#        -90.0
+NEOLatMax#        90.0
+NEONLat#          37
+#
+#/* For SecondaryFluxData */
+SecNx#        10
+SecNSetsXY#   23
+SecvMin#      0.1
+SecvMax#      2.4
+#/* For lunarEjecta_AdaptiveMesh */
+maxLevelMesh# 4
+maxLevelFractal# 1

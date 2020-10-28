@@ -15,6 +15,8 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \lstset{  breaklines=true, numbers=left, numberstyle=\tiny\color{mygray}, keepspaces=true }
 
+\usepackage{mathabx} % for moon character
+
 \usepackage{titlesec}
 \usepackage{hyperref}
 
@@ -67,7 +69,7 @@
 \title{Lunar Impact Ejecta Benchmark and Models}
 \author{Anthony M. DeStefano}
 \company{NASA, MSFC, EV44}
-\confidential{\textbf{-- For internal NASA and partners use only --}}
+\confidential{\textbf{-- For internal NASA use only --}}
 \usepackage{hyperref} 
 \begin{document}
 \maketitle
@@ -91,7 +93,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Executive Summary}
 
+The goal of the secondary ejecta model discussed in this report is to provide an updated environment to replace the Apollo-era model given in \cite{cour1969meteoroid}. This update will be published in the next revision (rev.\ I) of the SLS-SPEC 159 Design Specification for Natural Environments (DSNE). Our primary customer of this update will be the Human Landing System (HLS) Appendix H contractors who will be designing an integrated human landing system to land near the Moon's south pole by 2024, in addition to contractors building longer-term and more sustainable solutions for the 2026+ time frame. The DSNE is a required document for HLS Appendix H contractors that provides terrestrial, in-space, and lunar natural environment definitions.
 
+The secondary ejecta environment will be the mass-limited particle flux as a function of both altitude and azimuth angles as well as speed for various latitudinal locations on the Moon. This environment will feed into bumper codes that compute risk of penetration by the secondary ejecta to different materials. Currently, bumper codes can ingest output from the Meteoroid Environment Model, so we chose to follow the same output format to help facilitate ease-of-use by these bumper codes. It is known that the net secondary ejecta flux is much greater than the net primary flux, however at very different speed (much lower) and angular distributions. At lower speeds, the physics of penetration due to the ejecta is much different than the high-speed primary ejecta. Therefore, it is important to quantify these effects in order to hone in on the risk involved.
+
+Our primary goal with this new secondary ejecta model encompasses the need to include information about impact angles (including azimuth) as well as the ejecta field angular distribution. Empirical decisions were based on or aided by experiments given in the literature, so we included as much information as necessary to incorporate leading order characteristics in a qualitative way. We did this in light of producing an engineering solution of computing secondary fluxes on the Moon from impact sizes that range from $10^{-6}$ g to $\sim 10^{15}$ g.
+
+%Beginning in Section \ref{sec:inputEnv}, we outline the input environments used in our model. Section \ref{sec:outputEnv} covers the output format of our model, and finally in Section \ref{sec:ejectaModel}, we discuss our secondary ejecta model. Our underlying assumptions are enumerated in Section \ref{ssec:assumptions}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,9 +221,48 @@ The connection and login details described below is assumed to be on a \textsf{W
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{MEM3 Based Lunar Ejecta Modeling}
 \label{sec:MEM3 Based Lunar Ejecta Modeling}
-The \textsf{Meteoroid Engineering Model} (MEM) describes the sporadic meteoroid complex, or the background meteoroid environment, and does not include meteor showers. The impactor masses range from $1$ $\mu$g to $10$ g. Larger impactor masses must be dealt with differently \citep[e.g., see][]{neukum2001cratering, brown2002flux},\textit{ which we omit here for now}\footnote{At some point we will need to account for impactor masses larger than 10 g in order to understand the tail of the distribution in terms of the risk analysis.}. We use output from MEM in order to estimate the number of particles per area per year greater than a certain mass (or the particle flux mass spectrum) due to secondary ejecta from meteoroid impacts on the Moon. The risk due to impacts on the Moon is driven by secondary ejecta and not the primary meteoroid flux.
+The \textsf{Meteoroid Engineering Model} (MEM) describes the sporadic meteoroid complex, or the background meteoroid environment, and does not include meteor showers. The impactor masses range from $1$ $\mu$g to $10$ g. Larger impactor masses must be dealt with differently \citep[e.g., see][]{neukum2001cratering, brown2002flux}.
+%,\textit{ which we omit here for now}\footnote{At some point we will need to account for impactor masses larger than 10 g in order to understand the tail of the distribution in terms of the risk analysis.}.
+We use output from MEM in order to estimate the number of particles per area per year greater than a certain mass (or the particle flux mass spectrum) due to secondary ejecta from meteoroid impacts on the Moon. The risk due to impacts on the Moon is driven by secondary ejecta and not the primary meteoroid flux.
 
 We begin by first describing the algorithm at which we plan to use to compute the particle flux mass spectrum at a given point on the Moon. In essence, the algorithm is based on the reverse Monte-Carlo idea. We then go into detail about how to compute each step of the algorithm, either borrowing from the literature or making our own derivations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Assumptions and Simplifications}\label{ssec:assumptions}
+
+There are several assumptions and simplications made in our model in order to provide traceable engineering solutions. We provide a list below with the most important assumptions in no particular order and provide comments on each.
+\begin{enumerate}
+	\item The ejecta particle distribution is the same as the virgin regolith particle distribution.
+	\begin{itemize}
+		\item Crater sizes that are less than $\sim50$ m will mostly sample the top-most layer of regolith. For impactors that generate larger craters, such as those found in the NEO population, this assumption breaks down. We expect the very large craters ($> 100$ m) to introduce larger bolder sizes not present in the virgin regolith particle distribution. We believe these large bolders to be in the far tail of the distribution function and are very unlikely. Ignoring the large particle population will inflate the smaller particle sizes, which may help to offset the error in the risk, but this offset is not for certain.
+	\end{itemize}
+	\item The scaling law provided by \cite{housen2011ejecta} is valid for all impactors simulated in our model.
+	\begin{itemize}
+		\item Both authors are experts in the field of high-velocity impacts and have done much work to develop scaling laws that are valid for several orders of magnitude of impact sizes. For extremely small size impacts, such as impactor masses near $10^{-6}$ g, the scaling laws might not be valid since this is roughly the 50-percentile size of the regolith particle size distribution. For simplification, we ignore this issue for now. 
+	\end{itemize}
+	\item The azimuth and zenith angle distribution functions are given empirically and do not depend on the size of impact or speed of impact, only the angle of impact.
+	\begin{itemize}
+		\item The azimuth distribution function follows published work done by ESA contract work \citep{ESABASE2_DebrisRelease10.0}. We modified the azimuth distribution function at highly oblique angles to include information about ejecta patterns that exhibit the so called butterfly pattern \citep{shuvalov2011ejecta}. Depending on the latitude of the impact location, there can be a substantial component of the flux that can come into play.
+		\item The zenith angle distribution does have an azimuthal and impact angle dependence that follows fits from \cite{gault1978experimental}. When the outgoing zenith angle tips over (when it goes negative), we ignore this component as an exclusion zone and implicitly include the fluxes in the downstream direction. This avoids having to deal with multi-valued functions which would require special cases to handle.
+		\item Since the integration is complicated enough, we do not want to complicate things by introducing a velocity dependence in the angle distributions. We know this to be the case in reality, but we ignore this dependence for simplicity.
+	\end{itemize}
+	\item The regolith density is constant over the whole Moon and for all depths.
+	\begin{itemize}
+		\item The regolith density differs from highlands to mare in addition to depth. However, building a density map of the Moon is beyond the scope of this engineering model. We also note that the density dependence is raised to a small power ($\sim 0.2$), so this will have a minor effect on total mass ejected from the crater. On the other hand, density can have a great impact on ballistic equations and bumper computations.
+	\end{itemize}
+	\item The Moon is a perfect sphere with a mono-polar gravity well (i.e., we ignore irregularities in the lunar surface and gravity).
+	\begin{itemize}
+		\item We expect landing locations to not be deep in craters, which can be hazardous to con-ops. Local terrain can have a shadowing effect, so our calculations could be seen as a worst-case in this sense since we ignore these.
+		\item Most of the ejecta will have relatively short transit times and therefore will only be slightly perturbed by the irregular gravity well of the Moon. We also ignore Coriolis forces, which can be shown to be insignificant on the Moon for all relevant ejecta speeds.
+	\end{itemize}
+	\item The angular distribution of NEA's on the lunar surface are modeled after the high density population provided by MEM.
+	\begin{itemize}
+		\item Roughly speaking, the NEA's we consider are in the ecliptic plane, as is the high density population of sporadic meteors in MEM. The speed distributions do differ so we re-scale the angular distribution from MEM using the NEA speed distribution.
+	\end{itemize}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Algorithm}
 \begin{enumerate}
@@ -247,6 +294,109 @@ We begin by first describing the algorithm at which we plan to use to compute th
 	\end{itemize}
 \end{enumerate}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Near-Earth Object Environment}\label{ssec:NEO}
+
+The near-Earth object (NEO) environment introduces mass sizes of impactors beyond 10 g, outside of MEM's size range. Unlike MEM, the NEO's consist of small asteroids and comets between 0.1 and 1000 m in diameter. The work outlined in this section originates from analysis done by Althea Moorhead (see Memo OSMA/MEO/Lunar-001). The goal of the this analysis converts energy-limited fluxes of NEO's at the Earth to mass-limited fluxes at the Moon using \cite{brown2002flux} as a starting point.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Kinetic-Energy-Limited Flux}
+
+\cite{brown2002flux} use a combination of bright bolide data, infrared and acoustic data, satellite observations, and telescopic observations of small asteroids to construct a power law describing the cumulative flux of large objects onto Earth, given by
+\begin{equation}
+\log_{10}N = a-b\log_{10}\text{KE},
+\end{equation}
+where KE is the kinetic energy of the impactor in kilotons TNT equivalent ($4.184\times 10^{12}$ J), N is the number of objects impacting the Earth per year with a given kinetic energy or greater, and the constants are $a = 0.5677$ and $b=0.9$.
+
+We convert this flux to MKS units by assuming the Earth has an effective radius of 6471 km (including 100 km of atmosphere capable of ablating meteoroids). The resulting kinetic-energy-limited flux per square meter per year is given by
+\begin{equation}\label{eq:NEO_KE_flux}
+f_\Earth(\text{KE}) = 7.023\times 10^{-15} \text{KE}^{-0.9}.
+\end{equation}
+To obtain Equation \eqref{eq:NEO_KE_flux}, we have divided by the surface are of the Earth. Thus, $f_\Earth$ reports the flux per unit surface area. One can convert Equation \eqref{eq:NEO_KE_flux} to a flux per cross-sectional are, if desired, by multiplying by 4. Note that the bulk density is assumed to be 3000 kg m$^{-3}$ \citep{brown2002flux}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mass-Limited Flux}
+
+The mass-limited flux at the lunar surface can be shown to be
+\begin{equation}\label{eq:NEO_mass_factor_int}
+g_\leftmoon (m) = 2.89\times 10^{-11} \text{m}^{-2}\text{yr}^{-1}\cdot m^{-0.9},
+\end{equation}
+where $m$ is the mass of the impactor in kg.
+
+When converting the NEO flux into secondary flux using Equation \eqref{eq:HH11_mass-ejected1}, we must integrate the flux per mass with $m$
+\begin{equation}
+G_{\leftmoon m} = \int_{m_{min}}^{m_{max}}dm\frac{-d g_\leftmoon(m)}{dm}m,
+\end{equation}
+where 
+\begin{equation}
+\frac{d g_\leftmoon(m)}{dm} = -2.601 \times 10^{-11} \text{m}^{-2}\text{yr}^{-1}\cdot m^{-1.9}.
+\end{equation}
+
+Therefore, using $m_{min} = 10 $ g (extrapolating down to the upper-limit of MEM) and $m_{max} = 1.57 \times 10^{15}$ g (mass of a sphere taking 1000 m as the diameter and 3000 kg m$^{-3}$ as the density), Equation \eqref{eq:NEO_mass_factor_int} becomes
+\begin{equation}
+G_{\leftmoon m} = 4.148 \times 10^{-9} \text{m}^{-2}\text{yr}^{-1} \cdot \text{kg},
+\end{equation}
+which represents the mass flux in the given range above.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Speed Distribution}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.45]{../NEA_Brown/vmass.png}
+	\caption{Mass-limited speed distribution at the lunar surface.}\label{fig:vmass}
+\end{figure}
+The speed distribution of NEO's is shown in Figure \ref{fig:vmass}. The values (fraction of flux per bin) in each bin are midpoint values, where the bins have a size of 2 km s$^{-1}$. Note also that because the flux is a power law, this speed distribution is independent of limiting mass.
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Latitudinal Dependence of Primary (sporadic meteoroids) Flux}
+
+The primary flux of sporadic meteoroids onto the surface of the Moon changes depending on the latitudinal location on the Moon. Because of this effect, we generated ephemeris data\footnote{Horizons Ephemeris System $<$horizons@ssd.jpl.nasa.gov$>$.} for different latitudes on the Moon in 5-degree increments from pole to pole along the meridian. We chose a time frame of 19 years, or a Metonic cycle, which takes into account many different Sun-Earth-Moon geometries in order to provide a time/longitude-averaged primary flux environment.
+
+\begin{figure}[h!]
+	\begin{subfigure}{.47\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.85\linewidth]{../LoDensity018_lat0.png}  
+		\caption{Low density population impacting at the equator.}
+		\label{fig:sub-LoDensity018_lat0}
+	\end{subfigure}
+	\begin{subfigure}{.47\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.85\linewidth]{../LoDensity036_lat90.png}  
+		\caption{Low density population impacting at the north pole.}
+		\label{fig:sub-LoDensity036_lat90}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}{.47\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.85\linewidth]{../HiDensity018_lat0.png}  
+		\caption{High density population impacting at the equator.}
+		\label{fig:sub-HiDensity018_lat0}
+	\end{subfigure}
+	\begin{subfigure}{.47\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.85\linewidth]{../HiDensity036_lat90.png}  
+		\caption{High density population impacting at the north pole.}
+		\label{fig:sub-HiDensity036_lat90}
+	\end{subfigure}
+	\caption{Fluxes (as a function of impact speed and angle from the horizon) of the low density population (a) and (b), and the high density population (c) and (d) impacting the Moon at the equator (a) and (c), and the north/south pole (b) and (d).}
+	\label{fig:latitudinal_dependence}
+\end{figure}
+
+As an example, in Figure \ref{fig:latitudinal_dependence}, we show the speed-angle flux distribution at the equator and poles for the low and high density MEM populations. Note that the fluxes in the northern and southern hemispheres are symmetric about the equator. We can see from Figure \ref{fig:latitudinal_dependence} that the impact angles and speeds are highly dependent on the impact latitude on the Moon and hence warrant a more sophisticated approach to computing the secondary fluxes. We cannot assume that most impacts are at 45 degrees or are not highly oblique. How this latitude dependence affects the secondary flux is not entirely clear, except for the fact that we hypothesize that the secondary fluxes will be themselves dependent on latitude.
+%\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Regolith Size Distribution}
