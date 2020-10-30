@@ -476,8 +476,21 @@ then the fit parameters can be computed as shown in Figure \ref{fig:Fit-to-Nej}.
 	\caption{Non-linear fit of Table \ref{tab:Carrier2003} with Eq.\ \ref{eq:double_power-law} in \textsf{SciDAVis}, giving the constants for $A$, $a$, $b$, and $d$.}\label{fig:Fit-to-Nej}
 \end{figure}
 
-We can also include even smaller particles (dust) of the lunar regolith distribution from LADEE measurements and modeling \citep{horanyi2015permanent}. They showed that the LDEX measurements indicate the ejected particles follow a power law $m^{-\alpha}$, where $\alpha\approx 0.9$, for the range of particle sizes between $0.1$ $\mu$m and $5$ $\mu$m \citep{horanyi2014lunar}. This implies a relation of $x^{-2.7}$, where $x$ is the particle diameter, since $m\sim x^3$.
+We can also include even smaller particles (dust) of the lunar regolith distribution from LADEE measurements and modeling \citep{horanyi2015permanent}. They showed that the LDEX measurements indicate the ejected particles follow a power law $m^{-\alpha}$, where $\alpha\approx 0.9$, for the range of particle sizes between $0.1$ $\mu$m and $5$ $\mu$m \citep{horanyi2014lunar}. This implies a relation of $x^{-2.7}$, where $x$ is the particle diameter, since $m\sim x^3$. If we extend the cumulative number distribution by size $N_{ej}(x)$ from Equation \eqref{eq:double_power-law}, we have a triple power-law distribution
+\begin{equation}
+N_{ej}(x) = \frac{A}{\left(\frac{x}{a}\right)^b + \frac{1}{x^{-d} + \left(\frac{x}{c}\right)^{-f}}},
+\end{equation}
+where
+\begin{align}
+A &= 9.659\times 10^{-3} \text{ number of particles $>x$}\\\nonumber
+a &= 0.34668\text{ mm},\\\nonumber
+b &= 3.69,\\\nonumber
+c &= 0.4326\text{ mm},\\\nonumber
+d &= 2.05,\\\nonumber
+f &= 2.7.\nonumber
+\end{align}
 
+Since the scales $a$ and $c$ are of the same order, the index $d$ is dominated by the overlap region, which really acts like $(d+f)/2 = 2.375$ and is comparable to the low end of the Carrier model in Equation \eqref{eq:double_power-law} for an index of $2.33$.
 
 %
 %Since our goal is to compute the particle flux mass spectrum, we need to \textit{count} the number of particles from the PDF that make up the mass of $M$ from Eq.\ \ref{eq:HH11_mass-ejected1}. We first need to know the total volume per complete PDF, which is given by

@@ -25,8 +25,8 @@
 \contentsline {subsubsection}{\numberline {6.3.3}Speed Distribution}{9}{subsubsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.4}Latitudinal Dependence of Primary (sporadic meteoroids) Flux}{10}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Regolith Size Distribution}{11}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Ejected Mass from an Impactor}{14}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Ejecta Mass Distribution Function}{15}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.6}Ejected Mass from an Impactor}{15}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Ejecta Mass Distribution Function}{16}{subsection.6.7}%
 \contentsline {subsubsection}{\numberline {6.7.1}Zenith Distribution Function}{16}{subsubsection.6.7.1}%
 \contentsline {paragraph}{Alternative Zenith Distribution:}{16}{section*.8}%
 \contentsline {subsubsection}{\numberline {6.7.2}Azimuth Distribution Function}{21}{subsubsection.6.7.2}%
