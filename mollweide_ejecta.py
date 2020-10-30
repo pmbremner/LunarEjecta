@@ -70,8 +70,9 @@ for ilat in range(0, N_lat):
 	plt.clf()
 
 	# https://stackoverflow.com/questions/9071084/polar-contour-plot-in-matplotlib-best-modern-way-to-do-it
+	# https://matplotlib.org/examples/images_contours_and_fields/pcolormesh_levels.html
 	fig, ax = plt.subplots(subplot_kw=dict(projection='polar'))
-	ax.contourf(np.fmod(Lon + np.pi*2., np.pi*2), (np.pi/2. - Lat)*180./np.pi, a)
+	ax.pcolormesh(np.fmod(Lon + np.pi*2., np.pi*2), (np.pi/2. - Lat)*180./np.pi, a)
 	plt.xlabel('Longitude from East CCW [degrees]')
 	plt.title(r'MEM number flux [#/m$^2$/yr]'+'\npolar_'+figfilename)
 	#plt.ylabel('Impact Angle from Horizon [degrees]')
