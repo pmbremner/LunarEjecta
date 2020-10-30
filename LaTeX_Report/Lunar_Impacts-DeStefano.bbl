@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -58,6 +58,17 @@ Gr{\"u}n, E., H.~Zook, H.~Fechtig, and R.~Giese, Collisional balance of the
 Holsapple, K., The scaling of impact processes in planetary sciences,
   \textit{Annual review of earth and planetary sciences}, \textit{21}(1),
   333--373, 1993.
+
+\bibitem[{\textit{Hor{\'a}nyi et~al.}(2015)\textit{Hor{\'a}nyi, Szalay, Kempf,
+  Schmidt, Gr{\"u}n, Srama, and Sternovsky}}]{horanyi2015permanent}
+Hor{\'a}nyi, M., J.~Szalay, S.~Kempf, J.~Schmidt, E.~Gr{\"u}n, R.~Srama, and
+  Z.~Sternovsky, A permanent, asymmetric dust cloud around the moon,
+  \textit{Nature}, \textit{522}(7556), 324--326, 2015.
+
+\bibitem[{\textit{Hor{\'a}nyi et~al.}(2014)}]{horanyi2014lunar}
+Hor{\'a}nyi, M., et~al., The lunar dust experiment (ldex) onboard the lunar
+  atmosphere and dust environment explorer (ladee) mission, \textit{Space
+  Science Reviews}, \textit{185}(1-4), 93--113, 2014.
 
 \bibitem[{\textit{Housen and Holsapple}(2011)}]{housen2011ejecta}
 Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
