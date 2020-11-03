@@ -371,7 +371,7 @@ double ImpactSites_and_ROI::getDbeta(double D0, double D1) // D's in units of ci
 	// return acos(num / denom);
 	//}
 	// use https://en.wikipedia.org/wiki/Spherical_trigonometry#Napier's_rules_for_right_spherical_triangles
-	cout "getDbeta: = " << atan2(tan(ROI_radius/radius), sin(2.*PI*D + ROI_radius/radius)) / DtoR << endl;
+	cout << "getDbeta: = " << atan2(tan(ROI_radius/radius), sin(2.*PI*D + ROI_radius/radius)) / DtoR << endl;
 	return atan2(tan(ROI_radius/radius), sin(2.*PI*D + ROI_radius/radius));
 	
 }

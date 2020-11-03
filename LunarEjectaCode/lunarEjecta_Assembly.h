@@ -130,6 +130,10 @@ public:
 
 	void computeSecondaryFlux()
 	{ // All the magic happens here!
+
+		bool SKIP_EJECTA_LOOP  = 0;
+		bool CONST_EJECTA_FLUX = 1;
+
 		double runtime, percentFinished;
 
 		unsigned long long int count = 1, count2 = 1; // int's aren't big enough...
@@ -161,6 +165,7 @@ public:
 		double MEM_massfluxLo;   // kg/yr
 		double MEM_massfluxHi;   // kg/yr
 		double NEO_massflux;     // kg/yr (already takes into acount integrating over the HH11 mass term wrt the NEO mass spectrum)
+		double sumMassFlux;
 		double totalFlux; // kg/m^2/yr
 		//double fluxAtNormal; // kg/m^2/yr
 		vector<double> Flux_vs_D;
@@ -226,10 +231,12 @@ public:
 				/// used for output binning
 				incomingAzm_at_ROI     = ImpactSitesROILoc->getsiteAzm(j_siteAzm, i_siteDist);
 				incomingAzm_at_ROI_far = fmod(incomingAzm_at_ROI + PI, 2.*PI);
-				cout << defaultfloat << "\n incoming Azm, Dbeta = " << incomingAzm_at_ROI/DtoR << ", " << Dbeta/DtoR << endl;
+				cout << defaultfloat << "\n incoming Azm at ROI, Dbeta = " << incomingAzm_at_ROI/DtoR << ", " << Dbeta/DtoR << endl;
+
 				// used as beta (in x = beta - beta_i, where beta_i is the primary flux azimuth)
 				outgoingAzm_at_site     = ImpactSitesROILoc->getROIAzm(j_siteAzm); // units rads
 				outgoingAzm_at_site_far = fmod(outgoingAzm_at_site + PI, 2.*PI);
+				cout << defaultfloat << "\n outgoing Azm at impact = " << outgoingAzm_at_site/DtoR << endl;
 
 				siteLat = ImpactSitesROILoc->getsiteLatDeg(j_siteAzm, i_siteDist);
 
@@ -256,7 +263,8 @@ public:
 				//
 				// The x-v integration depends on the impact angle and impact azm
 
-				
+				if (!SKIP_EJECTA_LOOP)
+				{
 				for (k_impactHorzAngle = 0; k_impactHorzAngle < Nk; ++k_impactHorzAngle)
 				{
 					impactHorzAngle = PI/2. * k_impactHorzAngle / double(Nk-1.);
@@ -269,21 +277,24 @@ public:
 						xbeta     = fmod(outgoingAzm_at_site - impactAzm + 2.*PI, 2.*PI);
 						xbeta_far = fmod(outgoingAzm_at_site_far - impactAzm + 2.*PI, 2.*PI);
 
-						// First, compute the integration grid (which gives the secondary
-						// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
-						// for direct direction
-						AdaptiveMesh[0]->restartBins();
-						AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
-						
-						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
-						/// 	AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
-						
-						// for indirect direction
-						AdaptiveMesh[1]->restartBins();
-						AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
+						if (!CONST_EJECTA_FLUX)
+						{
+							// First, compute the integration grid (which gives the secondary
+							// flux speed and horizon bins, the azm is given by the incomingAzm_at_ROI)
+							// for direct direction
+							AdaptiveMesh[0]->restartBins();
+							AdaptiveMesh[0]->evalBins(D0, D1, xbeta, Dbeta, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
+							
+							/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+							/// 	AdaptiveMesh[0]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D0D1_" + to_string(D0) + '_' + to_string(D1) + ".txt");
+							
+							// for indirect direction
+							AdaptiveMesh[1]->restartBins();
+							AdaptiveMesh[1]->evalBins(D2, D3, xbeta_far, Dbeta_far, RegolithProperties->getHH11_mu(), PI/2. - impactHorzAngle, excZone);
 
-						/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
-						/// 	AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
+							/// if (k_impactHorzAngle == 0 && l_impactAzm == 0 && j_siteAzm == 0)
+							/// 	AdaptiveMesh[1]->printDataToFile("meshgrid_" + to_string(i_siteDist) + "_D2D3_" + to_string(D2) + '_' + to_string(D3) + ".txt");
+						}
 
 						count++;
 						
@@ -312,6 +323,7 @@ public:
 							MEM_massfluxLo = MEM_normLo * siteSA / ImpactSitesROILoc->getROI_SA() * MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
 							MEM_massfluxHi = MEM_normHi * siteSA / ImpactSitesROILoc->getROI_SA() * MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
 							NEO_massflux   = NEO_norm   * siteSA / ImpactSitesROILoc->getROI_SA() * NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+							sumMassFlux    = MEM_massfluxLo + MEM_massfluxHi + NEO_massflux;
 ////
 							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
 							// cout << impactSpeed << " | Lo, Hi, and NEO fluxes = " << scientific << MEM_massfluxLo << ", " << MEM_massfluxHi << ", " << NEO_massflux << endl;
@@ -322,50 +334,61 @@ public:
 							// {
 ////////// Doesn't crash here
 							//fluxAtNormal = 0.;
-							for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
-							{ // z[x] goes like the zenith angle (1 - cos(zenith))
-								//secondaryAlt = 90. * (1. - jj_ejectaAlt / double(Njj-1.)); // degrees
-								// When we init the adaptive mesh, there are Njj+1 edges and Njj cell centers
-								secondaryAlt = 90. * (1. - (jj_ejectaAlt + 0.5) / double(Njj)); // degrees
+							if (sumMassFlux > 0) // to skip regions where flux is completely zero
+							{
+								for (jj_ejectaAlt = 0; jj_ejectaAlt < Njj; ++jj_ejectaAlt)
+								{ // z[x] goes like the zenith angle (1 - cos(zenith))
+									//secondaryAlt = 90. * (1. - jj_ejectaAlt / double(Njj-1.)); // degrees
+									// When we init the adaptive mesh, there are Njj+1 edges and Njj cell centers
+									secondaryAlt = 90. * (1. - (jj_ejectaAlt + 0.5) / double(Njj)); // degrees
 
-								for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
-								{ 
-									//secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
-									// When we init the adaptive mesh, there are Nkk+1 edges and Nkk cell centers
-									secondarySpeed = vMin + (vMax - vMin) * (kk_ejectaSpeed + 0.5) / double(Nkk); // km/s
-//-------> testing here (The issue seems to be in z...)
-									// units of kg/m^2/yr
-									// for direct, closer
-									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[0]->z[jj_ejectaAlt][kk_ejectaSpeed];
-									if(totalFlux > 0) // only update if we need to
-									{
-										SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
-										Flux_vs_D[i_siteDist] += totalFlux;
+									for (kk_ejectaSpeed = 0; kk_ejectaSpeed < Nkk; ++kk_ejectaSpeed)
+									{ 
+										//secondarySpeed = vMin + (vMax - vMin) * kk_ejectaSpeed / double(Nkk - 1.); // km/s
+										// When we init the adaptive mesh, there are Nkk+1 edges and Nkk cell centers
+										secondarySpeed = vMin + (vMax - vMin) * (kk_ejectaSpeed + 0.5) / double(Nkk); // km/s
+	//-------> testing here (The issue seems to be in z...)
+										// units of kg/m^2/yr
+										// for direct, closer
+										if (!CONST_EJECTA_FLUX)
+											totalFlux = sumMassFlux * AdaptiveMesh[0]->z[jj_ejectaAlt][kk_ejectaSpeed];
+										else
+											totalFlux = sumMassFlux;//(MEM_massfluxLo + MEM_massfluxHi + NEO_massflux);
+
+										if(totalFlux > 0) // only update if we need to
+										{
+											SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI/DtoR, secondarySpeed);
+											Flux_vs_D[i_siteDist] += totalFlux;
+										}
+										// if(jj_ejectaAlt == 0)
+										// 	fluxAtNormal += totalFlux;
+
+										// for wrap around, further
+										if (!CONST_EJECTA_FLUX)
+											totalFlux = sumMassFlux * AdaptiveMesh[1]->z[jj_ejectaAlt][kk_ejectaSpeed];
+										else
+											totalFlux = sumMassFlux;//(MEM_massfluxLo + MEM_massfluxHi + NEO_massflux);
+
+										if(totalFlux > 0) // only update if we need to
+										{
+											SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI_far/DtoR, secondarySpeed);
+											Flux_vs_D[2*Ni - i_siteDist - 1] += totalFlux;
+										}
+										// if(jj_ejectaAlt == 0)
+										// 	fluxAtNormal += totalFlux;
+
+										count2++;
 									}
-									// if(jj_ejectaAlt == 0)
-									// 	fluxAtNormal += totalFlux;
-
-									// for wrap around, further
-									totalFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * AdaptiveMesh[1]->z[jj_ejectaAlt][kk_ejectaSpeed];
-									if(totalFlux > 0) // only update if we need to
-									{
-										SecFluxOutputData->updateFlux(totalFlux, secondaryAlt, incomingAzm_at_ROI_far/DtoR, secondarySpeed);
-										Flux_vs_D[2*Ni - i_siteDist - 1] += totalFlux;
-									}
-									// if(jj_ejectaAlt == 0)
-									// 	fluxAtNormal += totalFlux;
-
-									count2++;
 								}
-							}
-							//cout << " Flux at " << 90. * (1. - 0.5/double(Njj)) << " degrees [alt] = " << fluxAtNormal << " kg/m^2/yr\n";
-//////////////
-							//}
-
+								//cout << " Flux at " << 90. * (1. - 0.5/double(Njj)) << " degrees [alt] = " << fluxAtNormal << " kg/m^2/yr\n";
+	//////////////
+								//}
+							} // END FOR, if sum flux > 0
 
 						} // END FOR, impact speed
 					} // END FOR, impact azimuth angle
 				} // END FOR, impact horizon angle
+				} // END DEBUG POINT
 				
 			}// END FOR, impact outgoing secondary azimuth
 
