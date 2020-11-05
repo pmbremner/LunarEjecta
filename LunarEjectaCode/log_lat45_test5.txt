@@ -1,0 +1,2310 @@
+---lunarEjecta_InitializeInterface: Reading .\param_files\parameters_lat45_test.txt ...
+Line 3 | NDistance = 5
+Line 4 | Nazm = 16
+  Overriding Default value...
+Line 5 | ROI_Lat = 0
+  Overriding Default value...
+Line 6 | ROI_Lon = 0
+Line 9 | MEMDirectoryName = ../LatRunData
+Line 10 | MEMLatMin = -90
+Line 11 | MEMLatMax = 90
+Line 12 | MEMNLat = 37
+Line 15 | NEOSpeedFName = ../NEA_Brown/vmass.txt
+Line 16 | NEODirectoryName = ../LatNEOData
+Line 17 | NEOLatMin = -90
+Line 18 | NEOLatMax = 90
+Line 19 | NEONLat = 37
+Line 23 | SecNx = 10
+Line 24 | SecNSetsXY = 12
+Line 25 | SecvMin = 0.1
+Line 26 | SecvMax = 2.37
+  Overriding Default value...
+Line 28 | maxLevelMesh = 5
+  Overriding Default value...
+Line 29 | maxLevelFractal = 1
+---Commit initialization successful!---
+----------------------------------------
+lunarEjecta_Assembly template class init 
+----------------------------------------
+ Regolith Cratering Properties: 
+lunarRadius = 1.7371e+006 m
+lunarEscapeSpeed = 2375.89 m/s
+sandFlyAsh
+ Regolith Density Model: DSNE
+  lowDensity = 2886.79 kg/m^3
+  avgDensity = 3100 kg/m^3
+  highDensity = 3129.63 kg/m^3
+ROI latlon:
+ Latitude = 0 degrees, Longitude = 0 degrees
+
+Dmin = 4923.71 m
+  D[0] = 0.00181455
+  D[1] = 0.00729877
+  D[2] = 0.0293583
+  D[3] = 0.11809
+  D[4] = 0.475
+ ROIAzm = 4.71239
+ siteAzm = -1.5708
+ Latitude = 0.653238 degrees, Longitude = 0 degrees
+ ROIAzm = 4.31969
+ siteAzm = -1.96352
+ Latitude = 0.603511 degrees, Longitude = 0.249992 degrees
+ ROIAzm = 3.92699
+ siteAzm = -2.35623
+ Latitude = 0.461904 degrees, Longitude = 0.461919 degrees
+ ROIAzm = 3.53429
+ siteAzm = -2.74892
+ Latitude = 0.249979 degrees, Longitude = 0.603517 degrees
+ ROIAzm = 3.14159
+ siteAzm = -3.14159
+ Latitude = 3.99971e-017 degrees, Longitude = 0.653238 degrees
+ ROIAzm = 2.74889
+ siteAzm = -3.53427
+ Latitude = -0.249979 degrees, Longitude = 0.603517 degrees
+ ROIAzm = 2.35619
+ siteAzm = -3.92696
+ Latitude = -0.461904 degrees, Longitude = 0.461919 degrees
+ ROIAzm = 1.9635
+ siteAzm = -4.31967
+ Latitude = -0.603511 degrees, Longitude = 0.249992 degrees
+ ROIAzm = 1.5708
+ siteAzm = 1.5708
+ Latitude = -0.653238 degrees, Longitude = 7.99994e-017 degrees
+ ROIAzm = 1.1781
+ siteAzm = 1.17807
+ Latitude = -0.603511 degrees, Longitude = -0.249992 degrees
+ ROIAzm = 0.785398
+ siteAzm = 0.785366
+ Latitude = -0.461904 degrees, Longitude = -0.461919 degrees
+ ROIAzm = 0.392699
+ siteAzm = 0.392676
+ Latitude = -0.249979 degrees, Longitude = -0.603517 degrees
+ ROIAzm = 0
+ siteAzm = 0
+ Latitude = -1.19991e-016 degrees, Longitude = -0.653238 degrees
+ ROIAzm = -0.392699
+ siteAzm = -0.392676
+ Latitude = 0.249979 degrees, Longitude = -0.603517 degrees
+ ROIAzm = -0.785398
+ siteAzm = -0.785366
+ Latitude = 0.461904 degrees, Longitude = -0.461919 degrees
+ ROIAzm = -1.1781
+ siteAzm = -1.17807
+ Latitude = 0.603511 degrees, Longitude = -0.249992 degrees
+ siteAzm = -1.5708
+ Latitude = 2.62756 degrees, Longitude = 0 degrees
+ siteAzm = -1.96387
+ Latitude = 2.42742 degrees, Longitude = 1.00613 degrees
+ siteAzm = -2.35672
+ Latitude = 1.85764 degrees, Longitude = 1.85862 degrees
+ siteAzm = -2.74927
+ Latitude = 1.00522 degrees, Longitude = 2.4278 degrees
+ siteAzm = -3.14159
+ Latitude = 1.6083e-016 degrees, Longitude = 2.62756 degrees
+ siteAzm = -3.53392
+ Latitude = -1.00522 degrees, Longitude = 2.4278 degrees
+ siteAzm = -3.92646
+ Latitude = -1.85764 degrees, Longitude = 1.85862 degrees
+ siteAzm = -4.31932
+ Latitude = -2.42742 degrees, Longitude = 1.00613 degrees
+ siteAzm = 1.5708
+ Latitude = -2.62756 degrees, Longitude = 3.21998e-016 degrees
+ siteAzm = 1.17773
+ Latitude = -2.42742 degrees, Longitude = -1.00613 degrees
+ siteAzm = 0.784872
+ Latitude = -1.85764 degrees, Longitude = -1.85862 degrees
+ siteAzm = 0.392327
+ Latitude = -1.00522 degrees, Longitude = -2.4278 degrees
+ siteAzm = 0
+ Latitude = -4.8249e-016 degrees, Longitude = -2.62756 degrees
+ siteAzm = -0.392327
+ Latitude = 1.00522 degrees, Longitude = -2.4278 degrees
+ siteAzm = -0.784872
+ Latitude = 1.85764 degrees, Longitude = -1.85862 degrees
+ siteAzm = -1.17773
+ Latitude = 2.42742 degrees, Longitude = -1.00613 degrees
+ siteAzm = -1.5708
+ Latitude = 10.569 degrees, Longitude = 0 degrees
+ siteAzm = -1.96958
+ Latitude = 9.75627 degrees, Longitude = 4.08416 degrees
+ siteAzm = -2.36475
+ Latitude = 7.45209 degrees, Longitude = 7.51593 degrees
+ siteAzm = -2.75491
+ Latitude = 4.02499 degrees, Longitude = 9.78063 degrees
+ siteAzm = -3.14159
+ Latitude = 6.43479e-016 degrees, Longitude = 10.569 degrees
+ siteAzm = -3.52828
+ Latitude = -4.02499 degrees, Longitude = 9.78063 degrees
+ siteAzm = -3.91844
+ Latitude = -7.45209 degrees, Longitude = 7.51593 degrees
+ siteAzm = -4.3136
+ Latitude = -9.75627 degrees, Longitude = 4.08416 degrees
+ siteAzm = 1.5708
+ Latitude = -10.569 degrees, Longitude = 1.30917e-015 degrees
+ siteAzm = 1.17201
+ Latitude = -9.75627 degrees, Longitude = -4.08416 degrees
+ siteAzm = 0.776843
+ Latitude = -7.45209 degrees, Longitude = -7.51593 degrees
+ siteAzm = 0.386686
+ Latitude = -4.02499 degrees, Longitude = -9.78063 degrees
+ siteAzm = 0
+ Latitude = -1.93044e-015 degrees, Longitude = -10.569 degrees
+ siteAzm = -0.386686
+ Latitude = 4.02499 degrees, Longitude = -9.78063 degrees
+ siteAzm = -0.776843
+ Latitude = 7.45209 degrees, Longitude = -7.51593 degrees
+ siteAzm = -1.17201
+ Latitude = 9.75627 degrees, Longitude = -4.08416 degrees
+ siteAzm = -1.5708
+ Latitude = 42.5123 degrees, Longitude = 0 degrees
+ siteAzm = -2.08275
+ Latitude = 38.6316 degrees, Longitude = 19.3317 degrees
+ siteAzm = -2.50638
+ Latitude = 28.5435 degrees, Longitude = 32.9523 degrees
+ siteAzm = -2.84525
+ Latitude = 14.9869 degrees, Longitude = 40.2628 degrees
+ siteAzm = -3.14159
+ Latitude = 2.37069e-015 degrees, Longitude = 42.5123 degrees
+ siteAzm = -3.43793
+ Latitude = -14.9869 degrees, Longitude = 40.2628 degrees
+ siteAzm = -3.77681
+ Latitude = -28.5435 degrees, Longitude = 32.9523 degrees
+ siteAzm = -4.20044
+ Latitude = -38.6316 degrees, Longitude = 19.3317 degrees
+ siteAzm = 1.5708
+ Latitude = -42.5123 degrees, Longitude = 6.43219e-015 degrees
+ siteAzm = 1.05884
+ Latitude = -38.6316 degrees, Longitude = -19.3317 degrees
+ siteAzm = 0.635215
+ Latitude = -28.5435 degrees, Longitude = -32.9523 degrees
+ siteAzm = 0.29634
+ Latitude = -14.9869 degrees, Longitude = -40.2628 degrees
+ siteAzm = 0
+ Latitude = -7.11206e-015 degrees, Longitude = -42.5123 degrees
+ siteAzm = -0.29634
+ Latitude = 14.9869 degrees, Longitude = -40.2628 degrees
+ siteAzm = -0.635215
+ Latitude = 28.5435 degrees, Longitude = -32.9523 degrees
+ siteAzm = -1.05884
+ Latitude = 38.6316 degrees, Longitude = -19.3317 degrees
+ siteAzm = -4.71239
+ Latitude = 9 degrees, Longitude = 180 degrees
+ siteAzm = -4.31529
+ Latitude = 8.30987 degrees, Longitude = 176.531 degrees
+ siteAzm = -3.9208
+ Latitude = 6.35082 degrees, Longitude = 173.61 degrees
+ siteAzm = -3.52993
+ Latitude = 3.43206 degrees, Longitude = 171.675 degrees
+ siteAzm = -3.14159
+ Latitude = 5.48809e-016 degrees, Longitude = 171 degrees
+ siteAzm = -2.75325
+ Latitude = -3.43206 degrees, Longitude = 171.675 degrees
+ siteAzm = -2.36239
+ Latitude = -6.35082 degrees, Longitude = 173.61 degrees
+ siteAzm = -1.96789
+ Latitude = -8.30987 degrees, Longitude = 176.531 degrees
+ siteAzm = -1.5708
+ Latitude = -9 degrees, Longitude = 180 degrees
+ siteAzm = -1.1737
+ Latitude = -8.30987 degrees, Longitude = -176.531 degrees
+ siteAzm = -0.779204
+ Latitude = -6.35082 degrees, Longitude = -173.61 degrees
+ siteAzm = -0.388338
+ Latitude = -3.43206 degrees, Longitude = -171.675 degrees
+ siteAzm = 0
+ Latitude = -1.64643e-015 degrees, Longitude = -171 degrees
+ siteAzm = 0.388338
+ Latitude = 3.43206 degrees, Longitude = -171.675 degrees
+ siteAzm = 0.779204
+ Latitude = 6.35082 degrees, Longitude = -173.61 degrees
+ siteAzm = 1.1737
+ Latitude = 8.30987 degrees, Longitude = -176.531 degrees
+ Total surface area = 3.79192e+013 m^2
+MEM_LatData template class init 
+../LatRunData/lat-90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-90/hidensity.txt
+../LatRunData/lat-85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-85/hidensity.txt
+../LatRunData/lat-80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-80/hidensity.txt
+../LatRunData/lat-75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-75/hidensity.txt
+../LatRunData/lat-70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-70/hidensity.txt
+../LatRunData/lat-65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-65/hidensity.txt
+../LatRunData/lat-60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-60/hidensity.txt
+../LatRunData/lat-55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-55/hidensity.txt
+../LatRunData/lat-50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-50/hidensity.txt
+../LatRunData/lat-45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-45/hidensity.txt
+../LatRunData/lat-40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-40/hidensity.txt
+../LatRunData/lat-35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-35/hidensity.txt
+../LatRunData/lat-30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-30/hidensity.txt
+../LatRunData/lat-25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-25/hidensity.txt
+../LatRunData/lat-20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-20/hidensity.txt
+../LatRunData/lat-15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-15/hidensity.txt
+../LatRunData/lat-10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-10/hidensity.txt
+../LatRunData/lat-5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-5/hidensity.txt
+../LatRunData/lat0/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat0/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat0/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat0/hidensity.txt
+../LatRunData/lat5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat5/hidensity.txt
+../LatRunData/lat10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat10/hidensity.txt
+../LatRunData/lat15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat15/hidensity.txt
+../LatRunData/lat20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat20/hidensity.txt
+../LatRunData/lat25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat25/hidensity.txt
+../LatRunData/lat30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat30/hidensity.txt
+../LatRunData/lat35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat35/hidensity.txt
+../LatRunData/lat40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat40/hidensity.txt
+../LatRunData/lat45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat45/hidensity.txt
+../LatRunData/lat50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat50/hidensity.txt
+../LatRunData/lat55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat55/hidensity.txt
+../LatRunData/lat60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat60/hidensity.txt
+../LatRunData/lat65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat65/hidensity.txt
+../LatRunData/lat70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat70/hidensity.txt
+../LatRunData/lat75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat75/hidensity.txt
+../LatRunData/lat80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat80/hidensity.txt
+../LatRunData/lat85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat85/hidensity.txt
+../LatRunData/lat90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat90/hidensity.txt
+MEM_LatData template class init 
+../LatRunData/lat-90/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-90/lodensity.txt
+../LatRunData/lat-85/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-85/lodensity.txt
+../LatRunData/lat-80/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-80/lodensity.txt
+../LatRunData/lat-75/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-75/lodensity.txt
+../LatRunData/lat-70/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-70/lodensity.txt
+../LatRunData/lat-65/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-65/lodensity.txt
+../LatRunData/lat-60/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-60/lodensity.txt
+../LatRunData/lat-55/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-55/lodensity.txt
+../LatRunData/lat-50/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-50/lodensity.txt
+../LatRunData/lat-45/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-45/lodensity.txt
+../LatRunData/lat-40/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-40/lodensity.txt
+../LatRunData/lat-35/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-35/lodensity.txt
+../LatRunData/lat-30/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-30/lodensity.txt
+../LatRunData/lat-25/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-25/lodensity.txt
+../LatRunData/lat-20/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-20/lodensity.txt
+../LatRunData/lat-15/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-15/lodensity.txt
+../LatRunData/lat-10/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-10/lodensity.txt
+../LatRunData/lat-5/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-5/lodensity.txt
+../LatRunData/lat0/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat0/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat0/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat0/lodensity.txt
+../LatRunData/lat5/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat5/lodensity.txt
+../LatRunData/lat10/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat10/lodensity.txt
+../LatRunData/lat15/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat15/lodensity.txt
+../LatRunData/lat20/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat20/lodensity.txt
+../LatRunData/lat25/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat25/lodensity.txt
+../LatRunData/lat30/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat30/lodensity.txt
+../LatRunData/lat35/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat35/lodensity.txt
+../LatRunData/lat40/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat40/lodensity.txt
+../LatRunData/lat45/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat45/lodensity.txt
+../LatRunData/lat50/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat50/lodensity.txt
+../LatRunData/lat55/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat55/lodensity.txt
+../LatRunData/lat60/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat60/lodensity.txt
+../LatRunData/lat65/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat65/lodensity.txt
+../LatRunData/lat70/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat70/lodensity.txt
+../LatRunData/lat75/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat75/lodensity.txt
+../LatRunData/lat80/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat80/lodensity.txt
+../LatRunData/lat85/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat85/lodensity.txt
+../LatRunData/lat90/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat90/lodensity.txt
+Output type = MassLimitedIglooIntegratedFlux
+xScale type = linearScale
+ NSetsXY = 12
+0.10000	0.28917
+0.28917	0.47833
+0.47833	0.66750
+0.66750	0.85667
+0.85667	1.04583
+1.04583	1.23500
+1.23500	1.42417
+1.42417	1.61333
+1.61333	1.80250
+1.80250	1.99167
+1.99167	2.18083
+2.18083	2.37000
+ Angle Resolution = 10
+ Nx = 412
+MEM_LatData template class init 
+../LatNEOData/lat-90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-90/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-90/hidensity.txt
+../LatNEOData/lat-85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-85/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-85/hidensity.txt
+../LatNEOData/lat-80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-80/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-80/hidensity.txt
+../LatNEOData/lat-75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-75/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-75/hidensity.txt
+../LatNEOData/lat-70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-70/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-70/hidensity.txt
+../LatNEOData/lat-65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-65/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-65/hidensity.txt
+../LatNEOData/lat-60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-60/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-60/hidensity.txt
+../LatNEOData/lat-55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-55/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-55/hidensity.txt
+../LatNEOData/lat-50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-50/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-50/hidensity.txt
+../LatNEOData/lat-45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-45/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-45/hidensity.txt
+../LatNEOData/lat-40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-40/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-40/hidensity.txt
+../LatNEOData/lat-35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-35/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-35/hidensity.txt
+../LatNEOData/lat-30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-30/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-30/hidensity.txt
+../LatNEOData/lat-25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-25/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-25/hidensity.txt
+../LatNEOData/lat-20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-20/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-20/hidensity.txt
+../LatNEOData/lat-15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-15/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-15/hidensity.txt
+../LatNEOData/lat-10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-10/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-10/hidensity.txt
+../LatNEOData/lat-5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat-5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat-5/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat-5/hidensity.txt
+../LatNEOData/lat0/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat0/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat0/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat0/hidensity.txt
+../LatNEOData/lat5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat5/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat5/hidensity.txt
+../LatNEOData/lat10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat10/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat10/hidensity.txt
+../LatNEOData/lat15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat15/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat15/hidensity.txt
+../LatNEOData/lat20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat20/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat20/hidensity.txt
+../LatNEOData/lat25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat25/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat25/hidensity.txt
+../LatNEOData/lat30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat30/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat30/hidensity.txt
+../LatNEOData/lat35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat35/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat35/hidensity.txt
+../LatNEOData/lat40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat40/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat40/hidensity.txt
+../LatNEOData/lat45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat45/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat45/hidensity.txt
+../LatNEOData/lat50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat50/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat50/hidensity.txt
+../LatNEOData/lat55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat55/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat55/hidensity.txt
+../LatNEOData/lat60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat60/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat60/hidensity.txt
+../LatNEOData/lat65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat65/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat65/hidensity.txt
+../LatNEOData/lat70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat70/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat70/hidensity.txt
+../LatNEOData/lat75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat75/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat75/hidensity.txt
+../LatNEOData/lat80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat80/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat80/hidensity.txt
+../LatNEOData/lat85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat85/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat85/hidensity.txt
+../LatNEOData/lat90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatNEOData/lat90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatNEOData/lat90/options.txt
+ Grun minimum mass = 10^-6.00000 g
+../LatNEOData/lat90/hidensity.txt
+--Init lunarEjecta_NearEarthObjectFlux starting--
+ Default NEO density = 3000.00000 kg/m^3
+ m_min, m_max = 1.00000e-002 kg, 1.57000e+012 | mass factor = 1.65936e-008 kg/m^2/yr
+../NEA_Brown/vmass.txt
+1 1.00000e+000	0.00000e+000
+2 3.00000e+000	5.60730e-003
+3 5.00000e+000	2.71826e-002
+4 7.00000e+000	5.22445e-002
+5 9.00000e+000	8.61288e-002
+6 1.10000e+001	1.07014e-001
+7 1.30000e+001	1.67341e-001
+8 1.50000e+001	1.53769e-001
+9 1.70000e+001	8.99408e-002
+10 1.90000e+001	6.92711e-002
+11 2.10000e+001	8.03369e-002
+12 2.30000e+001	3.43549e-002
+13 2.50000e+001	7.09064e-003
+14 2.70000e+001	3.61813e-002
+15 2.90000e+001	2.21515e-002
+16 3.10000e+001	2.23255e-002
+17 3.30000e+001	0.00000e+000
+18 3.50000e+001	1.52967e-002
+19 3.70000e+001	0.00000e+000
+20 3.90000e+001	0.00000e+000
+21 4.10000e+001	7.85461e-003
+22 4.30000e+001	7.91453e-003
+23 4.50000e+001	0.00000e+000
+24 4.70000e+001	7.99532e-003
+25 4.90000e+001	0.00000e+000
+26 5.10000e+001	0.00000e+000
+27 5.30000e+001	0.00000e+000
+28 5.50000e+001	0.00000e+000
+29 5.70000e+001	0.00000e+000
+30 5.90000e+001	0.00000e+000
+31 6.10000e+001	0.00000e+000
+32 6.30000e+001	0.00000e+000
+33 6.50000e+001	0.00000e+000
+34 6.70000e+001	0.00000e+000
+35 6.90000e+001	0.00000e+000
+ distribution rows = 35
+H_compH11GrunMassFactor = 
+7.80005e+000 E-6
+H_compH11HiDensFactor = 
+5.20075e+000
+H_compH11LoDensFactor = 
+3.86669e+000
+
+H_C03RegolithParticleDiameterCDF = (> 1 cm) 
+5.81854e-003
+H_C03RegolithParticleDiameterCDF = (> 0.1 mm) 
+4.25291e-001
+H_C03RegolithParticleDiameterCDF = (> 0.1 um) 
+9.98417e-001
+
+H_C03RegolithParticleMassCDF = (> 10 g, low dens) 
+2.25493e-003
+H_C03RegolithParticleMassCDF = (> 10 g, high dens) 
+2.35476e-003
+
+H_C03RegolithParticleMassCDF = (> 1 ug, low dens) 
+4.56687e-001
+H_C03RegolithParticleMassCDF = (> 1 ug, high dens) 
+4.62877e-001
+
+H_C03RegolithParticleMassCDF = (> 1 ng, low dens) 
+8.80515e-001
+H_C03RegolithParticleMassCDF = (> 1 ng, high dens) 
+8.83224e-001
+
+H_C03RegolithParticleMassCDF = (> 1 pg, low dens) 
+9.86161e-001
+H_C03RegolithParticleMassCDF = (> 1 pg, high dens) 
+9.86524e-001
+
+ Initializing normalization terms...
+Nalt = 18 | Nvel = 80
+vMin = 0.00000e+000 | vMax = 8.00000e+001
+ densRegolith = 2.00322e-001
+ denseMEMLo   = 3.86669e+000
+ densMEMHi    = 5.20075e+000
+ densNEA      = 4.95934e+000
+ massMEM = 7.80062e-006
+ massNEA = 1.00000e+000
+ C4 = 3.49517e-002
+0.00000e+000 1.01405e-001
+9.23998e-002 1.08535e-001
+1.84800e-001 1.16085e-001
+2.77199e-001 1.21482e-001
+3.69599e-001 1.22185e-001
+4.61999e-001 1.21910e-001
+5.54399e-001 1.21589e-001
+6.46798e-001 1.21203e-001
+7.39198e-001 1.20850e-001
+8.31598e-001 1.20523e-001
+9.23998e-001 1.20217e-001
+1.01640e+000 1.19929e-001
+1.10880e+000 1.19654e-001
+1.20120e+000 1.19392e-001
+1.29360e+000 1.19139e-001
+1.38600e+000 1.18895e-001
+1.47840e+000 1.18658e-001
+1.57080e+000 1.18428e-001
+ Adaptive Mesh Properties: 
+  Nx, Ny = 10, 13
+  iterMax, levelMax = 5, 1
+0 | x = 0.00000e+000
+1 | x = 1.51922e-002
+2 | x = 6.03074e-002
+3 | x = 1.33975e-001
+4 | x = 2.33956e-001
+5 | x = 3.57212e-001
+6 | x = 5.00000e-001
+7 | x = 6.57980e-001
+8 | x = 8.26352e-001
+9 | x = 1.00000e+000
+ Adaptive Mesh Properties: 
+  Nx, Ny = 10, 13
+  iterMax, levelMax = 5, 1
+0 | x = 0.00000e+000
+1 | x = 1.51922e-002
+2 | x = 6.03074e-002
+3 | x = 1.33975e-001
+4 | x = 2.33956e-001
+5 | x = 3.57212e-001
+6 | x = 5.00000e-001
+7 | x = 6.57980e-001
+8 | x = 8.26352e-001
+9 | x = 1.00000e+000
+------------------------------------
+---- Computing Secondary Fluxes ----
+------------------------------------
+  flux_vs_D_filename = flux_vs_D.txt
+ Ni (i_siteDist) = 5
+ Nj (j_siteAzm) = 16
+ Nk (k_impactHorzAngle) = 18
+ Nl (l_impactAzm) = 72
+ Nm (m_impactSpeed) = 80
+ Nii (ii_ejectaAzm) = 36
+ Njj (jj_ejectaAlt) = 9
+ Nkk (kk_ejectaSpeed) = 12
+getDbeta: = 1.12613e+001
+
+ incoming Azm at ROI, Dbeta = -90, 11.261
+
+ outgoing Azm at impact = 270
+ Site Latitude = 0.65324
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 0.00096451   1
+  run time = 0 minutes |  time remaining = 0 minutes
+
+ incoming Azm at ROI, Dbeta = -112.5, 11.261
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 0.60351
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 1.251   8646589
+  run time = 0.46983 minutes |  time remaining = 37.088 minutes
+
+ incoming Azm at ROI, Dbeta = -135, 11.261
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.4619
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 2.501   17293177
+  run time = 0.97628 minutes |  time remaining = 38.06 minutes
+
+ incoming Azm at ROI, Dbeta = -157.5, 11.261
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.24998
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 3.751   25939765
+  run time = 1.5022 minutes |  time remaining = 38.547 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 11.261
+
+ outgoing Azm at impact = 180
+ Site Latitude = 3.9997e-017
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 5.001   34586353
+  run time = 1.9989 minutes |  time remaining = 37.971 minutes
+
+ incoming Azm at ROI, Dbeta = -202.5, 11.261
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.24998
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 6.251   43232941
+  run time = 2.4594 minutes |  time remaining = 36.884 minutes
+
+ incoming Azm at ROI, Dbeta = -225, 11.261
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.4619
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 7.501   51879529
+  run time = 2.9188 minutes |  time remaining = 35.993 minutes
+
+ incoming Azm at ROI, Dbeta = -247.5, 11.261
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -0.60351
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 8.751   60526117
+  run time = 3.4038 minutes |  time remaining = 35.493 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 11.261
+
+ outgoing Azm at impact = 90
+ Site Latitude = -0.65324
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 10.001   69172705
+  run time = 3.8781 minutes |  time remaining = 34.899 minutes
+
+ incoming Azm at ROI, Dbeta = 67.499, 11.261
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -0.60351
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 11.251   77819293
+  run time = 4.3323 minutes |  time remaining = 34.174 minutes
+
+ incoming Azm at ROI, Dbeta = 44.998, 11.261
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.4619
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 12.501   86465881
+  run time = 4.7912 minutes |  time remaining = 33.535 minutes
+
+ incoming Azm at ROI, Dbeta = 22.499, 11.261
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.24998
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 13.751   95112469
+  run time = 5.2388 minutes |  time remaining = 32.859 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 11.261
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.1999e-016
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 15.001   103759057
+  run time = 5.7165 minutes |  time remaining = 32.391 minutes
+
+ incoming Azm at ROI, Dbeta = -22.499, 11.261
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.24998
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 16.251   112405645
+  run time = 6.2007 minutes |  time remaining = 31.955 minutes
+
+ incoming Azm at ROI, Dbeta = -44.998, 11.261
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.4619
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 17.501   121052233
+  run time = 6.7282 minutes |  time remaining = 31.717 minutes
+
+ incoming Azm at ROI, Dbeta = -67.499, 11.261
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 0.60351
+  Lat idx = 18
+ D0, D1 = 0.0013634 0.0022657
+ D2, D3 = 0.99773 0.99864
+ Percent finished = 18.751   129698821
+  run time = 7.2829 minutes |  time remaining = 31.557 minutes
+ Total flux in distance range D0 and D1 = 5.2564e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 3.3327
+
+ incoming Azm at ROI, Dbeta = -90, 3.3327
+
+ outgoing Azm at impact = 270
+ Site Latitude = 2.6276
+  Lat idx = 19
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 20.001   138345409
+  run time = 7.7981 minutes |  time remaining = 31.191 minutes
+
+ incoming Azm at ROI, Dbeta = -112.52, 3.3327
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 2.4274
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 21.251   146987245
+  run time = 8.2148 minutes |  time remaining = 30.441 minutes
+
+ incoming Azm at ROI, Dbeta = -135.03, 3.3327
+
+ outgoing Azm at impact = 225
+ Site Latitude = 1.8576
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 22.501   155633833
+  run time = 8.6776 minutes |  time remaining = 29.888 minutes
+
+ incoming Azm at ROI, Dbeta = -157.52, 3.3327
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 1.0052
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 23.751   164280421
+  run time = 9.106 minutes |  time remaining = 29.234 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 3.3327
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.6083e-016
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 25.001   172927009
+  run time = 9.5975 minutes |  time remaining = 28.791 minutes
+
+ incoming Azm at ROI, Dbeta = -202.48, 3.3327
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -1.0052
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 26.251   181573597
+  run time = 9.9721 minutes |  time remaining = 28.015 minutes
+
+ incoming Azm at ROI, Dbeta = -224.97, 3.3327
+
+ outgoing Azm at impact = 135
+ Site Latitude = -1.8576
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 27.501   190220185
+  run time = 10.413 minutes |  time remaining = 27.452 minutes
+
+ incoming Azm at ROI, Dbeta = -247.48, 3.3327
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -2.4274
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 28.751   198866773
+  run time = 10.804 minutes |  time remaining = 26.773 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 3.3327
+
+ outgoing Azm at impact = 90
+ Site Latitude = -2.6276
+  Lat idx = 17
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 30.001   207513361
+  run time = 11.233 minutes |  time remaining = 26.209 minutes
+
+ incoming Azm at ROI, Dbeta = 67.479, 3.3327
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -2.4274
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 31.251   216154873
+  run time = 11.606 minutes |  time remaining = 25.531 minutes
+
+ incoming Azm at ROI, Dbeta = 44.97, 3.3327
+
+ outgoing Azm at impact = 45
+ Site Latitude = -1.8576
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 32.501   224801461
+  run time = 12.037 minutes |  time remaining = 24.998 minutes
+
+ incoming Azm at ROI, Dbeta = 22.479, 3.3327
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -1.0052
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 33.751   233448049
+  run time = 12.413 minutes |  time remaining = 24.366 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 3.3327
+
+ outgoing Azm at impact = 0
+ Site Latitude = -4.8249e-016
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 35.001   242094637
+  run time = 12.849 minutes |  time remaining = 23.861 minutes
+
+ incoming Azm at ROI, Dbeta = -22.479, 3.3327
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 1.0052
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 36.251   250741225
+  run time = 13.228 minutes |  time remaining = 23.262 minutes
+
+ incoming Azm at ROI, Dbeta = -44.97, 3.3327
+
+ outgoing Azm at impact = -45
+ Site Latitude = 1.8576
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 37.501   259387813
+  run time = 13.659 minutes |  time remaining = 22.764 minutes
+
+ incoming Azm at ROI, Dbeta = -67.479, 3.3327
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 2.4274
+  Lat idx = 18
+ D0, D1 = 0.0068477 0.0077499
+ D2, D3 = 0.99225 0.99315
+ Percent finished = 38.751   268034401
+  run time = 14.031 minutes |  time remaining = 22.176 minutes
+ Total flux in distance range D0 and D1 = 2.4512e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 0.8721
+
+ incoming Azm at ROI, Dbeta = -90, 0.8721
+
+ outgoing Azm at impact = 270
+ Site Latitude = 10.569
+  Lat idx = 20
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 40.001   276680989
+  run time = 14.462 minutes |  time remaining = 21.692 minutes
+
+ incoming Azm at ROI, Dbeta = -112.85, 0.8721
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 9.7563
+  Lat idx = 20
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 41.251   285299929
+  run time = 14.67 minutes |  time remaining = 20.892 minutes
+
+ incoming Azm at ROI, Dbeta = -135.49, 0.8721
+
+ outgoing Azm at impact = 225
+ Site Latitude = 7.4521
+  Lat idx = 19
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 42.501   293918869
+  run time = 14.869 minutes |  time remaining = 20.116 minutes
+
+ incoming Azm at ROI, Dbeta = -157.84, 0.8721
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 4.025
+  Lat idx = 19
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 43.751   302560705
+  run time = 15.073 minutes |  time remaining = 19.378 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.8721
+
+ outgoing Azm at impact = 180
+ Site Latitude = 6.4348e-016
+  Lat idx = 18
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 45.001   311202541
+  run time = 15.272 minutes |  time remaining = 18.665 minutes
+
+ incoming Azm at ROI, Dbeta = -202.16, 0.8721
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -4.025
+  Lat idx = 17
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 46.251   319849129
+  run time = 15.477 minutes |  time remaining = 17.986 minutes
+
+ incoming Azm at ROI, Dbeta = -224.51, 0.8721
+
+ outgoing Azm at impact = 135
+ Site Latitude = -7.4521
+  Lat idx = 17
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 47.501   328490641
+  run time = 15.678 minutes |  time remaining = 17.328 minutes
+
+ incoming Azm at ROI, Dbeta = -247.15, 0.8721
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -9.7563
+  Lat idx = 16
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 48.751   337132153
+  run time = 15.884 minutes |  time remaining = 16.698 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.8721
+
+ outgoing Azm at impact = 90
+ Site Latitude = -10.569
+  Lat idx = 16
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 50.001   345750985
+  run time = 16.083 minutes |  time remaining = 16.083 minutes
+
+ incoming Azm at ROI, Dbeta = 67.151, 0.8721
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -9.7563
+  Lat idx = 16
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 51.251   354369817
+  run time = 16.289 minutes |  time remaining = 15.493 minutes
+
+ incoming Azm at ROI, Dbeta = 44.51, 0.8721
+
+ outgoing Azm at impact = 45
+ Site Latitude = -7.4521
+  Lat idx = 17
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 52.501   362988649
+  run time = 16.487 minutes |  time remaining = 14.917 minutes
+
+ incoming Azm at ROI, Dbeta = 22.155, 0.8721
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -4.025
+  Lat idx = 17
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 53.751   371630161
+  run time = 16.693 minutes |  time remaining = 14.363 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.8721
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.9304e-015
+  Lat idx = 18
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 55.001   380271673
+  run time = 16.892 minutes |  time remaining = 13.82 minutes
+
+ incoming Azm at ROI, Dbeta = -22.155, 0.8721
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 4.025
+  Lat idx = 19
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 56.251   388918261
+  run time = 17.096 minutes |  time remaining = 13.296 minutes
+
+ incoming Azm at ROI, Dbeta = -44.51, 0.8721
+
+ outgoing Azm at impact = -45
+ Site Latitude = 7.4521
+  Lat idx = 19
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 57.501   397560097
+  run time = 17.298 minutes |  time remaining = 12.785 minutes
+
+ incoming Azm at ROI, Dbeta = -67.151, 0.8721
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 9.7563
+  Lat idx = 20
+ D0, D1 = 0.028907 0.029809
+ D2, D3 = 0.97019 0.97109
+ Percent finished = 58.751   406201933
+  run time = 17.508 minutes |  time remaining = 12.293 minutes
+ Total flux in distance range D0 and D1 = 1.0201e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 0.23959
+
+ incoming Azm at ROI, Dbeta = -90, 0.23959
+
+ outgoing Azm at impact = 270
+ Site Latitude = 42.512
+  Lat idx = 27
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 60.001   414820873
+  run time = 17.715 minutes |  time remaining = 11.81 minutes
+
+ incoming Azm at ROI, Dbeta = -119.33, 0.23959
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 38.632
+  Lat idx = 26
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 61.251   422917417
+  run time = 17.8 minutes |  time remaining = 11.261 minutes
+
+ incoming Azm at ROI, Dbeta = -143.6, 0.23959
+
+ outgoing Azm at impact = 225
+ Site Latitude = 28.544
+  Lat idx = 24
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 62.501   431115157
+  run time = 17.886 minutes |  time remaining = 10.731 minutes
+
+ incoming Azm at ROI, Dbeta = -163.02, 0.23959
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 14.987
+  Lat idx = 21
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 63.751   439502113
+  run time = 17.971 minutes |  time remaining = 10.218 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.23959
+
+ outgoing Azm at impact = 180
+ Site Latitude = 2.3707e-015
+  Lat idx = 18
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 65.001   448083793
+  run time = 18.057 minutes |  time remaining = 9.7223 minutes
+
+ incoming Azm at ROI, Dbeta = -196.98, 0.23959
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -14.987
+  Lat idx = 15
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 66.251   456730381
+  run time = 18.141 minutes |  time remaining = 9.2415 minutes
+
+ incoming Azm at ROI, Dbeta = -216.4, 0.23959
+
+ outgoing Azm at impact = 135
+ Site Latitude = -28.544
+  Lat idx = 12
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 67.501   465315409
+  run time = 18.228 minutes |  time remaining = 8.7758 minutes
+
+ incoming Azm at ROI, Dbeta = -240.67, 0.23959
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -38.632
+  Lat idx = 10
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 68.751   473704849
+  run time = 18.314 minutes |  time remaining = 8.324 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.23959
+
+ outgoing Azm at impact = 90
+ Site Latitude = -42.512
+  Lat idx = 9
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 70.001   481903993
+  run time = 18.399 minutes |  time remaining = 7.885 minutes
+
+ incoming Azm at ROI, Dbeta = 60.667, 0.23959
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -38.632
+  Lat idx = 10
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 71.251   490002589
+  run time = 18.484 minutes |  time remaining = 7.4581 minutes
+
+ incoming Azm at ROI, Dbeta = 36.395, 0.23959
+
+ outgoing Azm at impact = 45
+ Site Latitude = -28.544
+  Lat idx = 12
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 72.501   498201733
+  run time = 18.57 minutes |  time remaining = 7.0435 minutes
+
+ incoming Azm at ROI, Dbeta = 16.979, 0.23959
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -14.987
+  Lat idx = 15
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 73.751   506591173
+  run time = 18.655 minutes |  time remaining = 6.6397 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.23959
+
+ outgoing Azm at impact = 0
+ Site Latitude = -7.1121e-015
+  Lat idx = 18
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 75.001   515176201
+  run time = 18.742 minutes |  time remaining = 6.247 minutes
+
+ incoming Azm at ROI, Dbeta = -16.979, 0.23959
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 14.987
+  Lat idx = 21
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 76.251   523822789
+  run time = 18.827 minutes |  time remaining = 5.8639 minutes
+
+ incoming Azm at ROI, Dbeta = -36.395, 0.23959
+
+ outgoing Azm at impact = -45
+ Site Latitude = 28.544
+  Lat idx = 24
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 77.501   532404469
+  run time = 18.913 minutes |  time remaining = 5.4906 minutes
+
+ incoming Azm at ROI, Dbeta = -60.667, 0.23959
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 38.632
+  Lat idx = 26
+ D0, D1 = 0.11764 0.11854
+ D2, D3 = 0.88146 0.88236
+ Percent finished = 78.751   540791425
+  run time = 18.998 minutes |  time remaining = 5.1261 minutes
+ Total flux in distance range D0 and D1 = 2.2601e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 1.7765e-020 kg/m^2/yr
+getDbeta: = 1.0569
+
+ incoming Azm at ROI, Dbeta = -270, 1.0569
+
+ outgoing Azm at impact = 270
+ Site Latitude = 9
+  Lat idx = 20
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 80.001   548989165
+  run time = 19.083 minutes |  time remaining = 4.7705 minutes
+
+ incoming Azm at ROI, Dbeta = -247.25, 1.0569
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 8.3099
+  Lat idx = 20
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 81.251   557608105
+  run time = 19.131 minutes |  time remaining = 4.4146 minutes
+
+ incoming Azm at ROI, Dbeta = -224.65, 1.0569
+
+ outgoing Azm at impact = 225
+ Site Latitude = 6.3508
+  Lat idx = 19
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 82.501   566227045
+  run time = 19.178 minutes |  time remaining = 4.0679 minutes
+
+ incoming Azm at ROI, Dbeta = -202.25, 1.0569
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 3.4321
+  Lat idx = 19
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 83.751   574868881
+  run time = 19.226 minutes |  time remaining = 3.7302 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 1.0569
+
+ outgoing Azm at impact = 180
+ Site Latitude = 5.4881e-016
+  Lat idx = 18
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 85.001   583510717
+  run time = 19.274 minutes |  time remaining = 3.401 minutes
+
+ incoming Azm at ROI, Dbeta = -157.75, 1.0569
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -3.4321
+  Lat idx = 17
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 86.251   592157305
+  run time = 19.322 minutes |  time remaining = 3.08 minutes
+
+ incoming Azm at ROI, Dbeta = -135.35, 1.0569
+
+ outgoing Azm at impact = 135
+ Site Latitude = -6.3508
+  Lat idx = 17
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 87.501   600798817
+  run time = 19.37 minutes |  time remaining = 2.767 minutes
+
+ incoming Azm at ROI, Dbeta = -112.75, 1.0569
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -8.3099
+  Lat idx = 16
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 88.751   609440329
+  run time = 19.418 minutes |  time remaining = 2.4612 minutes
+
+ incoming Azm at ROI, Dbeta = -90, 1.0569
+
+ outgoing Azm at impact = 90
+ Site Latitude = -9
+  Lat idx = 16
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 90.001   618059161
+  run time = 19.466 minutes |  time remaining = 2.1626 minutes
+
+ incoming Azm at ROI, Dbeta = -67.248, 1.0569
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -8.3099
+  Lat idx = 16
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 91.251   626677993
+  run time = 19.514 minutes |  time remaining = 1.871 minutes
+
+ incoming Azm at ROI, Dbeta = -44.645, 1.0569
+
+ outgoing Azm at impact = 45
+ Site Latitude = -6.3508
+  Lat idx = 17
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 92.501   635296825
+  run time = 19.562 minutes |  time remaining = 1.5859 minutes
+
+ incoming Azm at ROI, Dbeta = -22.25, 1.0569
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -3.4321
+  Lat idx = 17
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 93.751   643938337
+  run time = 19.61 minutes |  time remaining = 1.3071 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 1.0569
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.6464e-015
+  Lat idx = 18
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 95.001   652579849
+  run time = 19.658 minutes |  time remaining = 1.0344 minutes
+
+ incoming Azm at ROI, Dbeta = 22.25, 1.0569
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 3.4321
+  Lat idx = 19
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 96.251   661226437
+  run time = 19.707 minutes |  time remaining = 0.7676 minutes
+
+ incoming Azm at ROI, Dbeta = 44.645, 1.0569
+
+ outgoing Azm at impact = -45
+ Site Latitude = 6.3508
+  Lat idx = 19
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 97.501   669868273
+  run time = 19.754 minutes |  time remaining = 0.50632 minutes
+
+ incoming Azm at ROI, Dbeta = 67.248, 1.0569
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 8.3099
+  Lat idx = 20
+ D0, D1 = 0.47455 0.47545
+ D2, D3 = 0.52455 0.52545
+ Percent finished = 98.751   678510109
+  run time = 19.802 minutes |  time remaining = 0.25046 minutes
+ Total flux in distance range D0 and D1 = 2.2312e-010 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 3.0942e-011 kg/m^2/yr
+ Total count = 103681
+ Total count2 = 687129049
+ Saving MassLimitedIglooIntegratedFlux to file: run_lat45_test5.txt

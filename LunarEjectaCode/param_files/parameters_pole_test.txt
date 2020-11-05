@@ -1,7 +1,7 @@
 # This is a comment
 #/*  For ImpactSites_and_ROI */
-NDistance# 20
-Nazm#      3
+NDistance# 15
+Nazm#      18
 ROI_Lat#   0.0
 ROI_Lon#   89.0
 #
@@ -26,3 +26,4 @@ SecvMin#      0.1
 SecvMax#      2.4
 #/* For lunarEjecta_AdaptiveMesh */
 maxLevelMesh# 4
+maxLevelFractal# 1

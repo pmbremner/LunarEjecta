@@ -1,7 +1,7 @@
 # This is a comment
 #/*  For ImpactSites_and_ROI */
-NDistance# 17
-Nazm#      3
+NDistance# 15
+Nazm#      18
 ROI_Lat#   0.0
 ROI_Lon#   0.0
 #
@@ -20,7 +20,7 @@ NEONLat#          37
 #
 #/* For SecondaryFluxData */
 SecNx#        10
-SecNSetsXY#   8
+SecNSetsXY#   12
 SecvMin#      0.1
 SecvMax#      2.4
 #/* For lunarEjecta_AdaptiveMesh */
