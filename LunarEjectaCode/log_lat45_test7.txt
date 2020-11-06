@@ -1,0 +1,2301 @@
+---lunarEjecta_InitializeInterface: Reading .\param_files\parameters_lat45_test.txt ...
+Line 3 | NDistance = 25
+Line 4 | Nazm = 30
+  Overriding Default value...
+Line 5 | ROI_Lat = 45
+  Overriding Default value...
+Line 6 | ROI_Lon = 0
+Line 9 | MEMDirectoryName = ../LatRunData
+Line 10 | MEMLatMin = -90
+Line 11 | MEMLatMax = 90
+Line 12 | MEMNLat = 37
+Line 15 | NEOSpeedFName = ../NEA_Brown/vmass.txt
+Line 16 | NEODirectoryName = ../LatNEOData
+Line 17 | NEOLatMin = -90
+Line 18 | NEOLatMax = 90
+Line 19 | NEONLat = 37
+Line 23 | SecNx = 10
+Line 24 | SecNSetsXY = 12
+Line 25 | SecvMin = 0.1
+Line 26 | SecvMax = 2.37
+  Overriding Default value...
+Line 28 | maxLevelMesh = 5
+  Overriding Default value...
+Line 29 | maxLevelFractal = 1
+---Commit initialization successful!---
+----------------------------------------
+lunarEjecta_Assembly template class init 
+----------------------------------------
+ Regolith Cratering Properties: 
+lunarRadius = 1.7371e+006 m
+lunarEscapeSpeed = 2375.89 m/s
+sandFlyAsh
+ Regolith Density Model: DSNE
+  lowDensity = 2886.79 kg/m^3
+  avgDensity = 3100 kg/m^3
+  highDensity = 3129.63 kg/m^3
+ROI latlon:
+ Latitude = 45 degrees, Longitude = 0 degrees
+
+Dmin = 4923.71 m
+  D[0] = 0.000595914
+  D[1] = 0.000787191
+  D[2] = 0.00103986
+  D[3] = 0.00137364
+  D[4] = 0.00181455
+  D[5] = 0.00239698
+  D[6] = 0.00316637
+  D[7] = 0.00418271
+  D[8] = 0.00552527
+  D[9] = 0.00729877
+  D[10] = 0.00964153
+  D[11] = 0.0127363
+  D[12] = 0.0168244
+  D[13] = 0.0222246
+  D[14] = 0.0293583
+  D[15] = 0.0387817
+  D[16] = 0.0512299
+  D[17] = 0.0676737
+  D[18] = 0.0893956
+  D[19] = 0.11809
+  D[20] = 0.155994
+  D[21] = 0.206065
+  D[22] = 0.272208
+  D[23] = 0.359582
+  D[24] = 0.475
+ ROIAzm = 4.71239
+ siteAzm = -1.5708
+ Latitude = 45.2145 degrees, Longitude = 0 degrees
+ ROIAzm = 4.50295
+ siteAzm = -1.78102
+ Latitude = 45.2098 degrees, Longitude = 0.0633105 degrees
+ ROIAzm = 4.29351
+ siteAzm = -1.99121
+ Latitude = 45.1959 degrees, Longitude = 0.123824 degrees
+ ROIAzm = 4.08407
+ siteAzm = -2.20133
+ Latitude = 45.1734 degrees, Longitude = 0.17887 degrees
+ ROIAzm = 3.87463
+ siteAzm = -2.41135
+ Latitude = 45.1433 degrees, Longitude = 0.226029 degrees
+ ROIAzm = 3.66519
+ siteAzm = -2.62125
+ Latitude = 45.107 degrees, Longitude = 0.263236 degrees
+ ROIAzm = 3.45575
+ siteAzm = -2.831
+ Latitude = 45.0659 degrees, Longitude = 0.288874 degrees
+ ROIAzm = 3.24631
+ siteAzm = -3.0406
+ Latitude = 45.022 degrees, Longitude = 0.301845 degrees
+ ROIAzm = 3.03687
+ siteAzm = -3.25003
+ Latitude = 44.9772 degrees, Longitude = 0.301609 degrees
+ ROIAzm = 2.82743
+ siteAzm = -3.45931
+ Latitude = 44.9333 degrees, Longitude = 0.288206 degrees
+ ROIAzm = 2.61799
+ siteAzm = -3.66842
+ Latitude = 44.8924 degrees, Longitude = 0.262252 degrees
+ ROIAzm = 2.40855
+ siteAzm = -3.8774
+ Latitude = 44.8562 degrees, Longitude = 0.224899 degrees
+ ROIAzm = 2.19911
+ siteAzm = -4.08626
+ Latitude = 44.8263 degrees, Longitude = 0.17779 degrees
+ ROIAzm = 1.98968
+ siteAzm = -4.29503
+ Latitude = 44.804 degrees, Longitude = 0.12298 degrees
+ ROIAzm = 1.78024
+ siteAzm = -4.50372
+ Latitude = 44.7901 degrees, Longitude = 0.0628484 degrees
+ ROIAzm = 1.5708
+ siteAzm = 1.5708
+ Latitude = 44.7855 degrees, Longitude = 3.70149e-017 degrees
+ ROIAzm = 1.36136
+ siteAzm = 1.36213
+ Latitude = 44.7901 degrees, Longitude = -0.0628484 degrees
+ ROIAzm = 1.15192
+ siteAzm = 1.15343
+ Latitude = 44.804 degrees, Longitude = -0.12298 degrees
+ ROIAzm = 0.942478
+ siteAzm = 0.944669
+ Latitude = 44.8263 degrees, Longitude = -0.17779 degrees
+ ROIAzm = 0.733038
+ siteAzm = 0.73581
+ Latitude = 44.8562 degrees, Longitude = -0.224899 degrees
+ ROIAzm = 0.523599
+ siteAzm = 0.526832
+ Latitude = 44.8924 degrees, Longitude = -0.262252 degrees
+ ROIAzm = 0.314159
+ siteAzm = 0.317714
+ Latitude = 44.9333 degrees, Longitude = -0.288206 degrees
+ ROIAzm = 0.10472
+ siteAzm = 0.108441
+ Latitude = 44.9772 degrees, Longitude = -0.301609 degrees
+ ROIAzm = -0.10472
+ siteAzm = -0.100994
+ Latitude = 45.022 degrees, Longitude = -0.301845 degrees
+ ROIAzm = -0.314159
+ siteAzm = -0.310592
+ Latitude = 45.0659 degrees, Longitude = -0.288874 degrees
+ ROIAzm = -0.523599
+ siteAzm = -0.520347
+ Latitude = 45.107 degrees, Longitude = -0.263236 degrees
+ ROIAzm = -0.733038
+ siteAzm = -0.730245
+ Latitude = 45.1433 degrees, Longitude = -0.226029 degrees
+ ROIAzm = -0.942478
+ siteAzm = -0.940267
+ Latitude = 45.1734 degrees, Longitude = -0.17887 degrees
+ ROIAzm = -1.15192
+ siteAzm = -1.15039
+ Latitude = 45.1959 degrees, Longitude = -0.123824 degrees
+ ROIAzm = -1.36136
+ siteAzm = -1.36057
+ Latitude = 45.2098 degrees, Longitude = -0.0633105 degrees
+ siteAzm = -1.5708
+ Latitude = 45.2834 degrees, Longitude = 0 degrees
+ siteAzm = -1.78127
+ Latitude = 45.2772 degrees, Longitude = 0.0837309 degrees
+ siteAzm = -1.9917
+ Latitude = 45.2588 degrees, Longitude = 0.163749 degrees
+ siteAzm = -2.20204
+ Latitude = 45.229 degrees, Longitude = 0.236515 degrees
+ siteAzm = -2.41225
+ Latitude = 45.1892 degrees, Longitude = 0.29882 degrees
+ siteAzm = -2.62229
+ Latitude = 45.1412 degrees, Longitude = 0.347938 degrees
+ siteAzm = -2.83215
+ Latitude = 45.0869 degrees, Longitude = 0.381738 degrees
+ siteAzm = -3.0418
+ Latitude = 45.0289 degrees, Longitude = 0.39878 degrees
+ siteAzm = -3.25123
+ Latitude = 44.9697 degrees, Longitude = 0.398367 degrees
+ siteAzm = -3.46045
+ Latitude = 44.9118 degrees, Longitude = 0.380573 degrees
+ siteAzm = -3.66946
+ Latitude = 44.8578 degrees, Longitude = 0.346221 degrees
+ siteAzm = -3.87829
+ Latitude = 44.81 degrees, Longitude = 0.296849 degrees
+ siteAzm = -4.08696
+ Latitude = 44.7705 degrees, Longitude = 0.23463 degrees
+ siteAzm = -4.29551
+ Latitude = 44.741 degrees, Longitude = 0.162276 degrees
+ siteAzm = -4.50397
+ Latitude = 44.7228 degrees, Longitude = 0.0829246 degrees
+ siteAzm = 1.5708
+ Latitude = 44.7166 degrees, Longitude = 4.88376e-017 degrees
+ siteAzm = 1.36238
+ Latitude = 44.7228 degrees, Longitude = -0.0829246 degrees
+ siteAzm = 1.15392
+ Latitude = 44.741 degrees, Longitude = -0.162276 degrees
+ siteAzm = 0.945368
+ Latitude = 44.7705 degrees, Longitude = -0.23463 degrees
+ siteAzm = 0.736696
+ Latitude = 44.81 degrees, Longitude = -0.296849 degrees
+ siteAzm = 0.527866
+ Latitude = 44.8578 degrees, Longitude = -0.346221 degrees
+ siteAzm = 0.318852
+ Latitude = 44.9118 degrees, Longitude = -0.380573 degrees
+ siteAzm = 0.109635
+ Latitude = 44.9697 degrees, Longitude = -0.398367 degrees
+ siteAzm = -0.099797
+ Latitude = 45.0289 degrees, Longitude = -0.39878 degrees
+ siteAzm = -0.309445
+ Latitude = 45.0869 degrees, Longitude = -0.381738 degrees
+ siteAzm = -0.519299
+ Latitude = 45.1412 degrees, Longitude = -0.347938 degrees
+ siteAzm = -0.729344
+ Latitude = 45.1892 degrees, Longitude = -0.29882 degrees
+ siteAzm = -0.939553
+ Latitude = 45.229 degrees, Longitude = -0.236515 degrees
+ siteAzm = -1.14989
+ Latitude = 45.2588 degrees, Longitude = -0.163749 degrees
+ siteAzm = -1.36032
+ Latitude = 45.2772 degrees, Longitude = -0.0837309 degrees
+ siteAzm = -1.5708
+ Latitude = 45.3744 degrees, Longitude = 0 degrees
+ siteAzm = -1.78161
+ Latitude = 45.3661 degrees, Longitude = 0.11078 degrees
+ siteAzm = -1.99236
+ Latitude = 45.3418 degrees, Longitude = 0.216626 degrees
+ siteAzm = -2.20299
+ Latitude = 45.3024 degrees, Longitude = 0.312835 degrees
+ siteAzm = -2.41344
+ Latitude = 45.2498 degrees, Longitude = 0.395157 degrees
+ siteAzm = -2.62368
+ Latitude = 45.1863 degrees, Longitude = 0.459984 degrees
+ siteAzm = -2.83367
+ Latitude = 45.1146 degrees, Longitude = 0.504513 degrees
+ siteAzm = -3.04338
+ Latitude = 45.0379 degrees, Longitude = 0.526864 degrees
+ siteAzm = -3.2528
+ Latitude = 44.9597 degrees, Longitude = 0.526145 degrees
+ siteAzm = -3.46195
+ Latitude = 44.8832 degrees, Longitude = 0.50248 degrees
+ siteAzm = -3.67082
+ Latitude = 44.8119 degrees, Longitude = 0.456988 degrees
+ siteAzm = -3.87945
+ Latitude = 44.7488 degrees, Longitude = 0.391717 degrees
+ siteAzm = -4.08788
+ Latitude = 44.6967 degrees, Longitude = 0.309546 degrees
+ siteAzm = -4.29614
+ Latitude = 44.6578 degrees, Longitude = 0.214056 degrees
+ siteAzm = -4.50429
+ Latitude = 44.6338 degrees, Longitude = 0.109373 degrees
+ siteAzm = 1.5708
+ Latitude = 44.6256 degrees, Longitude = 6.44122e-017 degrees
+ siteAzm = 1.3627
+ Latitude = 44.6338 degrees, Longitude = -0.109373 degrees
+ siteAzm = 1.15455
+ Latitude = 44.6578 degrees, Longitude = -0.214056 degrees
+ siteAzm = 0.946288
+ Latitude = 44.6967 degrees, Longitude = -0.309546 degrees
+ siteAzm = 0.737862
+ Latitude = 44.7488 degrees, Longitude = -0.391717 degrees
+ siteAzm = 0.529229
+ Latitude = 44.8119 degrees, Longitude = -0.456988 degrees
+ siteAzm = 0.320354
+ Latitude = 44.8832 degrees, Longitude = -0.50248 degrees
+ siteAzm = 0.111211
+ Latitude = 44.9597 degrees, Longitude = -0.526145 degrees
+ siteAzm = -0.0982154
+ Latitude = 45.0379 degrees, Longitude = -0.526864 degrees
+ siteAzm = -0.307927
+ Latitude = 45.1146 degrees, Longitude = -0.504513 degrees
+ siteAzm = -0.517913
+ Latitude = 45.1863 degrees, Longitude = -0.459984 degrees
+ siteAzm = -0.728151
+ Latitude = 45.2498 degrees, Longitude = -0.395157 degrees
+ siteAzm = -0.938607
+ Latitude = 45.3024 degrees, Longitude = -0.312835 degrees
+ siteAzm = -1.14924
+ Latitude = 45.3418 degrees, Longitude = -0.216626 degrees
+ siteAzm = -1.35999
+ Latitude = 45.3661 degrees, Longitude = -0.11078 degrees
+ siteAzm = -1.5708
+ Latitude = 45.4945 degrees, Longitude = 0 degrees
+ siteAzm = -1.78205
+ Latitude = 45.4836 degrees, Longitude = 0.146643 degrees
+ siteAzm = -1.99323
+ Latitude = 45.4514 degrees, Longitude = 0.286714 degrees
+ siteAzm = -2.20424
+ Latitude = 45.3993 degrees, Longitude = 0.413957 degrees
+ siteAzm = -2.41502
+ Latitude = 45.3297 degrees, Longitude = 0.52273 degrees
+ siteAzm = -2.62552
+ Latitude = 45.2456 degrees, Longitude = 0.608266 degrees
+ siteAzm = -2.83567
+ Latitude = 45.1509 degrees, Longitude = 0.666879 degrees
+ siteAzm = -3.04547
+ Latitude = 45.0496 degrees, Longitude = 0.696123 degrees
+ siteAzm = -3.25488
+ Latitude = 44.9462 degrees, Longitude = 0.694868 degrees
+ siteAzm = -3.46393
+ Latitude = 44.8453 degrees, Longitude = 0.663332 degrees
+ siteAzm = -3.67262
+ Latitude = 44.7512 degrees, Longitude = 0.603039 degrees
+ siteAzm = -3.88099
+ Latitude = 44.6679 degrees, Longitude = 0.516727 degrees
+ siteAzm = -4.08909
+ Latitude = 44.5992 degrees, Longitude = 0.408216 degrees
+ siteAzm = -4.29698
+ Latitude = 44.5479 degrees, Longitude = 0.282228 degrees
+ siteAzm = -4.50472
+ Latitude = 44.5162 degrees, Longitude = 0.144187 degrees
+ siteAzm = 1.5708
+ Latitude = 44.5055 degrees, Longitude = 8.49112e-017 degrees
+ siteAzm = 1.36313
+ Latitude = 44.5162 degrees, Longitude = -0.144187 degrees
+ siteAzm = 1.15539
+ Latitude = 44.5479 degrees, Longitude = -0.282228 degrees
+ siteAzm = 0.947498
+ Latitude = 44.5992 degrees, Longitude = -0.408216 degrees
+ siteAzm = 0.739397
+ Latitude = 44.6679 degrees, Longitude = -0.516727 degrees
+ siteAzm = 0.531025
+ Latitude = 44.7512 degrees, Longitude = -0.603039 degrees
+ siteAzm = 0.322335
+ Latitude = 44.8453 degrees, Longitude = -0.663332 degrees
+ siteAzm = 0.113291
+ Latitude = 44.9462 degrees, Longitude = -0.694868 degrees
+ siteAzm = -0.0961249
+ Latitude = 45.0496 degrees, Longitude = -0.696123 degrees
+ siteAzm = -0.305918
+ Latitude = 45.1509 degrees, Longitude = -0.666879 degrees
+ siteAzm = -0.516076
+ Latitude = 45.2456 degrees, Longitude = -0.608266 degrees
+ siteAzm = -0.726569
+ Latitude = 45.3297 degrees, Longitude = -0.52273 degrees
+ siteAzm = -0.937351
+ Latitude = 45.3993 degrees, Longitude = -0.413957 degrees
+ siteAzm = -1.14836
+ Latitude = 45.4514 degrees, Longitude = -0.286714 degrees
+ siteAzm = -1.35954
+ Latitude = 45.4836 degrees, Longitude = -0.146643 degrees
+ siteAzm = -1.5708
+ Latitude = 45.6532 degrees, Longitude = 0 degrees
+ siteAzm = -1.78265
+ Latitude = 45.6388 degrees, Longitude = 0.194246 degrees
+ siteAzm = -1.99439
+ Latitude = 45.5961 degrees, Longitude = 0.379716 degrees
+ siteAzm = -2.20591
+ Latitude = 45.5272 degrees, Longitude = 0.548069 degrees
+ siteAzm = -2.41712
+ Latitude = 45.435 degrees, Longitude = 0.691804 degrees
+ siteAzm = -2.62795
+ Latitude = 45.3238 degrees, Longitude = 0.804618 degrees
+ siteAzm = -2.83833
+ Latitude = 45.1985 degrees, Longitude = 0.881678 degrees
+ siteAzm = -3.04823
+ Latitude = 45.0646 degrees, Longitude = 0.919814 degrees
+ siteAzm = -3.25763
+ Latitude = 44.928 degrees, Longitude = 0.917624 degrees
+ siteAzm = -3.46654
+ Latitude = 44.7948 degrees, Longitude = 0.875488 degrees
+ siteAzm = -3.67498
+ Latitude = 44.6706 degrees, Longitude = 0.795498 degrees
+ siteAzm = -3.88301
+ Latitude = 44.5609 degrees, Longitude = 0.68133 degrees
+ siteAzm = -4.09068
+ Latitude = 44.4702 degrees, Longitude = 0.538051 degrees
+ siteAzm = -4.29808
+ Latitude = 44.4026 degrees, Longitude = 0.371888 degrees
+ siteAzm = -4.50528
+ Latitude = 44.3609 degrees, Longitude = 0.189962 degrees
+ siteAzm = 1.5708
+ Latitude = 44.3468 degrees, Longitude = 1.11861e-016 degrees
+ siteAzm = 1.36369
+ Latitude = 44.3609 degrees, Longitude = -0.189962 degrees
+ siteAzm = 1.15648
+ Latitude = 44.4026 degrees, Longitude = -0.371888 degrees
+ siteAzm = 0.949087
+ Latitude = 44.4702 degrees, Longitude = -0.538051 degrees
+ siteAzm = 0.741415
+ Latitude = 44.5609 degrees, Longitude = -0.68133 degrees
+ siteAzm = 0.533388
+ Latitude = 44.6706 degrees, Longitude = -0.795498 degrees
+ siteAzm = 0.324945
+ Latitude = 44.7948 degrees, Longitude = -0.875488 degrees
+ siteAzm = 0.116037
+ Latitude = 44.928 degrees, Longitude = -0.917624 degrees
+ siteAzm = -0.0933615
+ Latitude = 45.0646 degrees, Longitude = -0.919814 degrees
+ siteAzm = -0.303259
+ Latitude = 45.1985 degrees, Longitude = -0.881678 degrees
+ siteAzm = -0.513641
+ Latitude = 45.3238 degrees, Longitude = -0.804618 degrees
+ siteAzm = -0.724468
+ Latitude = 45.435 degrees, Longitude = -0.691804 degrees
+ siteAzm = -0.935683
+ Latitude = 45.5272 degrees, Longitude = -0.548069 degrees
+ siteAzm = -1.14721
+ Latitude = 45.5961 degrees, Longitude = -0.379716 degrees
+ siteAzm = -1.35895
+ Latitude = 45.6388 degrees, Longitude = -0.194246 degrees
+ siteAzm = -1.5708
+ Latitude = 45.8629 degrees, Longitude = 0 degrees
+ siteAzm = -1.78344
+ Latitude = 45.8438 degrees, Longitude = 0.257536 degrees
+ siteAzm = -1.99593
+ Latitude = 45.7872 degrees, Longitude = 0.503309 degrees
+ siteAzm = -2.20813
+ Latitude = 45.6958 degrees, Longitude = 0.726165 degrees
+ siteAzm = -2.41992
+ Latitude = 45.5738 degrees, Longitude = 0.916117 degrees
+ siteAzm = -2.63118
+ Latitude = 45.4265 degrees, Longitude = 1.06483 degrees
+ siteAzm = -2.84186
+ Latitude = 45.2607 degrees, Longitude = 1.16597 degrees
+ siteAzm = -3.05188
+ Latitude = 45.0838 degrees, Longitude = 1.21548 degrees
+ siteAzm = -3.26125
+ Latitude = 44.9034 degrees, Longitude = 1.21166 degrees
+ siteAzm = -3.46997
+ Latitude = 44.7275 degrees, Longitude = 1.15517 degrees
+ siteAzm = -3.67809
+ Latitude = 44.5637 degrees, Longitude = 1.04891 degrees
+ siteAzm = -3.88566
+ Latitude = 44.4191 degrees, Longitude = 0.897838 degrees
+ siteAzm = -4.09276
+ Latitude = 44.2997 degrees, Longitude = 0.708683 degrees
+ siteAzm = -4.29951
+ Latitude = 44.2106 degrees, Longitude = 0.489647 degrees
+ siteAzm = -4.50601
+ Latitude = 44.1557 degrees, Longitude = 0.250057 degrees
+ siteAzm = 1.5708
+ Latitude = 44.1371 degrees, Longitude = 1.47238e-016 degrees
+ siteAzm = 1.36442
+ Latitude = 44.1557 degrees, Longitude = -0.250057 degrees
+ siteAzm = 1.15792
+ Latitude = 44.2106 degrees, Longitude = -0.489647 degrees
+ siteAzm = 0.95117
+ Latitude = 44.2997 degrees, Longitude = -0.708683 degrees
+ siteAzm = 0.744063
+ Latitude = 44.4191 degrees, Longitude = -0.897838 degrees
+ siteAzm = 0.536495
+ Latitude = 44.5637 degrees, Longitude = -1.04891 degrees
+ siteAzm = 0.328382
+ Latitude = 44.7275 degrees, Longitude = -1.15517 degrees
+ siteAzm = 0.119661
+ Latitude = 44.9034 degrees, Longitude = -1.21166 degrees
+ siteAzm = -0.0897078
+ Latitude = 45.0838 degrees, Longitude = -1.21548 degrees
+ siteAzm = -0.299737
+ Latitude = 45.2607 degrees, Longitude = -1.16597 degrees
+ siteAzm = -0.510408
+ Latitude = 45.4265 degrees, Longitude = -1.06483 degrees
+ siteAzm = -0.721675
+ Latitude = 45.5738 degrees, Longitude = -0.916117 degrees
+ siteAzm = -0.933461
+ Latitude = 45.6958 degrees, Longitude = -0.726165 degrees
+ siteAzm = -1.14566
+ Latitude = 45.7872 degrees, Longitude = -0.503309 degrees
+ siteAzm = -1.35816
+ Latitude = 45.8438 degrees, Longitude = -0.257536 degrees
+ siteAzm = -1.5708
+ Latitude = 46.1399 degrees, Longitude = 0 degrees
+ siteAzm = -1.7845
+ Latitude = 46.1145 degrees, Longitude = 0.341858 degrees
+ siteAzm = -1.99799
+ Latitude = 46.0394 degrees, Longitude = 0.667877 degrees
+ siteAzm = -2.2111
+ Latitude = 45.9182 degrees, Longitude = 0.963078 degrees
+ siteAzm = -2.42364
+ Latitude = 45.7564 degrees, Longitude = 1.21413 degrees
+ siteAzm = -2.63548
+ Latitude = 45.5613 degrees, Longitude = 1.41001 degrees
+ siteAzm = -2.84653
+ Latitude = 45.3419 degrees, Longitude = 1.54247 degrees
+ siteAzm = -3.05672
+ Latitude = 45.1079 degrees, Longitude = 1.60635 degrees
+ siteAzm = -3.26603
+ Latitude = 44.8697 degrees, Longitude = 1.59969 degrees
+ siteAzm = -3.4745
+ Latitude = 44.6376 degrees, Longitude = 1.52362 degrees
+ siteAzm = -3.68216
+ Latitude = 44.4217 degrees, Longitude = 1.38224 degrees
+ siteAzm = -3.88912
+ Latitude = 44.2311 degrees, Longitude = 1.18223 degrees
+ siteAzm = -4.09549
+ Latitude = 44.074 degrees, Longitude = 0.932569 degrees
+ siteAzm = -4.30139
+ Latitude = 43.9568 degrees, Longitude = 0.644032 degrees
+ siteAzm = -4.50697
+ Latitude = 43.8845 degrees, Longitude = 0.328805 degrees
+ siteAzm = 1.5708
+ Latitude = 43.8601 degrees, Longitude = 1.93587e-016 degrees
+ siteAzm = 1.36538
+ Latitude = 43.8845 degrees, Longitude = -0.328805 degrees
+ siteAzm = 1.15979
+ Latitude = 43.9568 degrees, Longitude = -0.644032 degrees
+ siteAzm = 0.953894
+ Latitude = 44.074 degrees, Longitude = -0.932569 degrees
+ siteAzm = 0.747531
+ Latitude = 44.2311 degrees, Longitude = -1.18223 degrees
+ siteAzm = 0.540572
+ Latitude = 44.4217 degrees, Longitude = -1.38224 degrees
+ siteAzm = 0.332904
+ Latitude = 44.6376 degrees, Longitude = -1.52362 degrees
+ siteAzm = 0.12444
+ Latitude = 44.8697 degrees, Longitude = -1.59969 degrees
+ siteAzm = -0.0848759
+ Latitude = 45.1079 degrees, Longitude = -1.60635 degrees
+ siteAzm = -0.295066
+ Latitude = 45.3419 degrees, Longitude = -1.54247 degrees
+ siteAzm = -0.506112
+ Latitude = 45.5613 degrees, Longitude = -1.41001 degrees
+ siteAzm = -0.717955
+ Latitude = 45.7564 degrees, Longitude = -1.21413 degrees
+ siteAzm = -0.930497
+ Latitude = 45.9182 degrees, Longitude = -0.963078 degrees
+ siteAzm = -1.1436
+ Latitude = 46.0394 degrees, Longitude = -0.667877 degrees
+ siteAzm = -1.3571
+ Latitude = 46.1145 degrees, Longitude = -0.341858 degrees
+ siteAzm = -1.5708
+ Latitude = 46.5058 degrees, Longitude = 0 degrees
+ siteAzm = -1.78592
+ Latitude = 46.472 degrees, Longitude = 0.454525 degrees
+ siteAzm = -2.00076
+ Latitude = 46.3722 degrees, Longitude = 0.887585 degrees
+ siteAzm = -2.21507
+ Latitude = 46.2112 degrees, Longitude = 1.27896 degrees
+ siteAzm = -2.42861
+ Latitude = 45.9964 degrees, Longitude = 1.6108 degrees
+ siteAzm = -2.6412
+ Latitude = 45.7378 degrees, Longitude = 1.86852 degrees
+ siteAzm = -2.85273
+ Latitude = 45.4472 degrees, Longitude = 2.04145 degrees
+ siteAzm = -3.06311
+ Latitude = 45.1378 degrees, Longitude = 2.12317 degrees
+ siteAzm = -3.27233
+ Latitude = 44.8231 degrees, Longitude = 2.11155 degrees
+ siteAzm = -3.48044
+ Latitude = 44.517 degrees, Longitude = 2.00858 degrees
+ siteAzm = -3.6875
+ Latitude = 44.2325 degrees, Longitude = 1.82007 degrees
+ siteAzm = -3.89365
+ Latitude = 43.9818 degrees, Longitude = 1.55514 degrees
+ siteAzm = -4.09904
+ Latitude = 43.7752 degrees, Longitude = 1.22571 degrees
+ siteAzm = -4.30382
+ Latitude = 43.6212 degrees, Longitude = 0.845962 degrees
+ siteAzm = -4.50821
+ Latitude = 43.5263 degrees, Longitude = 0.431738 degrees
+ siteAzm = 1.5708
+ Latitude = 43.4942 degrees, Longitude = 2.54157e-016 degrees
+ siteAzm = 1.36662
+ Latitude = 43.5263 degrees, Longitude = -0.431738 degrees
+ siteAzm = 1.16223
+ Latitude = 43.6212 degrees, Longitude = -0.845962 degrees
+ siteAzm = 0.957443
+ Latitude = 43.7752 degrees, Longitude = -1.22571 degrees
+ siteAzm = 0.752061
+ Latitude = 43.9818 degrees, Longitude = -1.55514 degrees
+ siteAzm = 0.545911
+ Latitude = 44.2325 degrees, Longitude = -1.82007 degrees
+ siteAzm = 0.338845
+ Latitude = 44.517 degrees, Longitude = -2.00858 degrees
+ siteAzm = 0.13074
+ Latitude = 44.8231 degrees, Longitude = -2.11155 degrees
+ siteAzm = -0.078484
+ Latitude = 45.1378 degrees, Longitude = -2.12317 degrees
+ siteAzm = -0.288865
+ Latitude = 45.4472 degrees, Longitude = -2.04145 degrees
+ siteAzm = -0.500389
+ Latitude = 45.7378 degrees, Longitude = -1.86852 degrees
+ siteAzm = -0.712985
+ Latitude = 45.9964 degrees, Longitude = -1.6108 degrees
+ siteAzm = -0.926527
+ Latitude = 46.2112 degrees, Longitude = -1.27896 degrees
+ siteAzm = -1.14083
+ Latitude = 46.3722 degrees, Longitude = -0.887585 degrees
+ siteAzm = -1.35568
+ Latitude = 46.472 degrees, Longitude = -0.454525 degrees
+ siteAzm = -1.5708
+ Latitude = 46.9891 degrees, Longitude = 0 degrees
+ siteAzm = -1.78784
+ Latitude = 46.9441 degrees, Longitude = 0.605645 degrees
+ siteAzm = -2.00449
+ Latitude = 46.8112 degrees, Longitude = 1.18195 degrees
+ siteAzm = -2.22041
+ Latitude = 46.5968 degrees, Longitude = 1.70143 degrees
+ siteAzm = -2.43527
+ Latitude = 46.3113 degrees, Longitude = 2.14007 degrees
+ siteAzm = -2.64884
+ Latitude = 45.968 degrees, Longitude = 2.47864 degrees
+ siteAzm = -2.86097
+ Latitude = 45.583 degrees, Longitude = 2.70343 degrees
+ siteAzm = -3.07157
+ Latitude = 45.1736 degrees, Longitude = 2.80667 degrees
+ siteAzm = -3.28063
+ Latitude = 44.7581 degrees, Longitude = 2.7864 degrees
+ siteAzm = -3.48823
+ Latitude = 44.3546 degrees, Longitude = 2.6461 degrees
+ siteAzm = -3.69448
+ Latitude = 43.9801 degrees, Longitude = 2.39412 degrees
+ siteAzm = -3.89955
+ Latitude = 43.6505 degrees, Longitude = 2.04295 degrees
+ siteAzm = -4.10364
+ Latitude = 43.3793 degrees, Longitude = 1.60848 degrees
+ siteAzm = -4.30698
+ Latitude = 43.1774 degrees, Longitude = 1.10928 degrees
+ siteAzm = -4.50981
+ Latitude = 43.0529 degrees, Longitude = 0.565851 degrees
+ siteAzm = 1.5708
+ Latitude = 43.0109 degrees, Longitude = 3.33054e-016 degrees
+ siteAzm = 1.36822
+ Latitude = 43.0529 degrees, Longitude = -0.565851 degrees
+ siteAzm = 1.16539
+ Latitude = 43.1774 degrees, Longitude = -1.10928 degrees
+ siteAzm = 0.962048
+ Latitude = 43.3793 degrees, Longitude = -1.60848 degrees
+ siteAzm = 0.757955
+ Latitude = 43.6505 degrees, Longitude = -2.04295 degrees
+ siteAzm = 0.552885
+ Latitude = 43.9801 degrees, Longitude = -2.39412 degrees
+ siteAzm = 0.346635
+ Latitude = 44.3546 degrees, Longitude = -2.6461 degrees
+ siteAzm = 0.139038
+ Latitude = 44.7581 degrees, Longitude = -2.7864 degrees
+ siteAzm = -0.0700257
+ Latitude = 45.1736 degrees, Longitude = -2.80667 degrees
+ siteAzm = -0.280622
+ Latitude = 45.583 degrees, Longitude = -2.70343 degrees
+ siteAzm = -0.492748
+ Latitude = 45.968 degrees, Longitude = -2.47864 degrees
+ siteAzm = -0.706323
+ Latitude = 46.3113 degrees, Longitude = -2.14007 degrees
+ siteAzm = -0.921186
+ Latitude = 46.5968 degrees, Longitude = -1.70143 degrees
+ siteAzm = -1.1371
+ Latitude = 46.8112 degrees, Longitude = -1.18195 degrees
+ siteAzm = -1.35376
+ Latitude = 46.9441 degrees, Longitude = -0.605645 degrees
+ siteAzm = -1.5708
+ Latitude = 47.6276 degrees, Longitude = 0 degrees
+ siteAzm = -1.79045
+ Latitude = 47.5674 degrees, Longitude = 0.809409 degrees
+ siteAzm = -2.00956
+ Latitude = 47.3898 degrees, Longitude = 1.57825 degrees
+ siteAzm = -2.22763
+ Latitude = 47.1038 degrees, Longitude = 2.26879 degrees
+ siteAzm = -2.44424
+ Latitude = 46.7235 degrees, Longitude = 2.84861 degrees
+ siteAzm = -2.65908
+ Latitude = 46.2672 degrees, Longitude = 3.29235 degrees
+ siteAzm = -2.87195
+ Latitude = 45.7565 degrees, Longitude = 3.58274 degrees
+ siteAzm = -3.08276
+ Latitude = 45.2147 degrees, Longitude = 3.71079 degrees
+ siteAzm = -3.29155
+ Latitude = 44.6662 degrees, Longitude = 3.67546 degrees
+ siteAzm = -3.49842
+ Latitude = 44.1346 degrees, Longitude = 3.48279 degrees
+ siteAzm = -3.70355
+ Latitude = 43.6424 degrees, Longitude = 3.14495 degrees
+ siteAzm = -3.90718
+ Latitude = 43.2099 degrees, Longitude = 2.67913 degrees
+ siteAzm = -4.10958
+ Latitude = 42.8544 degrees, Longitude = 2.10651 degrees
+ siteAzm = -4.31104
+ Latitude = 42.5902 degrees, Longitude = 1.4513 degrees
+ siteAzm = -4.51188
+ Latitude = 42.4274 degrees, Longitude = 0.739872 degrees
+ siteAzm = 1.5708
+ Latitude = 42.3724 degrees, Longitude = 4.35393e-016 degrees
+ siteAzm = 1.37028
+ Latitude = 42.4274 degrees, Longitude = -0.739872 degrees
+ siteAzm = 1.16945
+ Latitude = 42.5902 degrees, Longitude = -1.4513 degrees
+ siteAzm = 0.96799
+ Latitude = 42.8544 degrees, Longitude = -2.10651 degrees
+ siteAzm = 0.765589
+ Latitude = 43.2099 degrees, Longitude = -2.67913 degrees
+ siteAzm = 0.561957
+ Latitude = 43.6424 degrees, Longitude = -3.14495 degrees
+ siteAzm = 0.356824
+ Latitude = 44.1346 degrees, Longitude = -3.48279 degrees
+ siteAzm = 0.149956
+ Latitude = 44.6662 degrees, Longitude = -3.67546 degrees
+ siteAzm = -0.0588298
+ Latitude = 45.2147 degrees, Longitude = -3.71079 degrees
+ siteAzm = -0.269644
+ Latitude = 45.7565 degrees, Longitude = -3.58274 degrees
+ siteAzm = -0.482512
+ Latitude = 46.2672 degrees, Longitude = -3.29235 degrees
+ siteAzm = -0.69735
+ Latitude = 46.7235 degrees, Longitude = -2.84861 degrees
+ siteAzm = -0.913962
+ Latitude = 47.1038 degrees, Longitude = -2.26879 degrees
+ siteAzm = -1.13203
+ Latitude = 47.3898 degrees, Longitude = -1.57825 degrees
+ siteAzm = -1.35114
+ Latitude = 47.5674 degrees, Longitude = -0.809409 degrees
+ siteAzm = -1.5708
+ Latitude = 48.471 degrees, Longitude = 0 degrees
+ siteAzm = -1.79404
+ Latitude = 48.3902 degrees, Longitude = 1.08614 degrees
+ siteAzm = -2.0165
+ Latitude = 48.1521 degrees, Longitude = 2.11528 degrees
+ siteAzm = -2.23748
+ Latitude = 47.7692 degrees, Longitude = 3.035 degrees
+ siteAzm = -2.4564
+ Latitude = 47.2612 degrees, Longitude = 3.80123 degrees
+ siteAzm = -2.67285
+ Latitude = 46.6534 degrees, Longitude = 4.3808 degrees
+ siteAzm = -2.8866
+ Latitude = 45.9752 degrees, Longitude = 4.75249 degrees
+ siteAzm = -3.09759
+ Latitude = 45.2581 degrees, Longitude = 4.90691 degrees
+ siteAzm = -3.30589
+ Latitude = 44.5342 degrees, Longitude = 4.84538 degrees
+ siteAzm = -3.5117
+ Latitude = 43.8347 degrees, Longitude = 4.57837 degrees
+ siteAzm = -3.71529
+ Latitude = 43.1888 degrees, Longitude = 4.12382 degrees
+ siteAzm = -3.917
+ Latitude = 42.6224 degrees, Longitude = 3.50549 degrees
+ siteAzm = -4.11719
+ Latitude = 42.1579 degrees, Longitude = 2.75154 degrees
+ siteAzm = -4.31623
+ Latitude = 41.8129 degrees, Longitude = 1.89334 degrees
+ siteAzm = -4.5145
+ Latitude = 41.6007 degrees, Longitude = 0.964501 degrees
+ siteAzm = 1.5708
+ Latitude = 41.529 degrees, Longitude = 5.67438e-016 degrees
+ siteAzm = 1.37291
+ Latitude = 41.6007 degrees, Longitude = -0.964501 degrees
+ siteAzm = 1.17463
+ Latitude = 41.8129 degrees, Longitude = -1.89334 degrees
+ siteAzm = 0.975596
+ Latitude = 42.1579 degrees, Longitude = -2.75154 degrees
+ siteAzm = 0.77541
+ Latitude = 42.6224 degrees, Longitude = -3.50549 degrees
+ siteAzm = 0.573699
+ Latitude = 43.1888 degrees, Longitude = -4.12382 degrees
+ siteAzm = 0.370103
+ Latitude = 43.8347 degrees, Longitude = -4.57837 degrees
+ siteAzm = 0.164293
+ Latitude = 44.5342 degrees, Longitude = -4.84538 degrees
+ siteAzm = -0.044007
+ Latitude = 45.2581 degrees, Longitude = -4.90691 degrees
+ siteAzm = -0.254991
+ Latitude = 45.9752 degrees, Longitude = -4.75249 degrees
+ siteAzm = -0.468741
+ Latitude = 46.6534 degrees, Longitude = -4.3808 degrees
+ siteAzm = -0.685192
+ Latitude = 47.2612 degrees, Longitude = -3.80123 degrees
+ siteAzm = -0.904112
+ Latitude = 47.7692 degrees, Longitude = -3.035 degrees
+ siteAzm = -1.12509
+ Latitude = 48.1521 degrees, Longitude = -2.11528 degrees
+ siteAzm = -1.34756
+ Latitude = 48.3902 degrees, Longitude = -1.08614 degrees
+ siteAzm = -1.5708
+ Latitude = 49.5851 degrees, Longitude = 0 degrees
+ siteAzm = -1.79903
+ Latitude = 49.476 degrees, Longitude = 1.46572 degrees
+ siteAzm = -2.02612
+ Latitude = 49.1551 degrees, Longitude = 2.84962 degrees
+ siteAzm = -2.25105
+ Latitude = 48.6401 degrees, Longitude = 4.07761 degrees
+ siteAzm = -2.47301
+ Latitude = 47.9591 degrees, Longitude = 5.08945 degrees
+ siteAzm = -2.69148
+ Latitude = 47.1475 degrees, Longitude = 5.84229 degrees
+ siteAzm = -2.90621
+ Latitude = 46.2456 degrees, Longitude = 6.31148 degrees
+ siteAzm = -3.11721
+ Latitude = 45.2962 degrees, Longitude = 6.48927 degrees
+ siteAzm = -3.32467
+ Latitude = 44.3416 degrees, Longitude = 6.38228 degrees
+ siteAzm = -3.52892
+ Latitude = 43.4228 degrees, Longitude = 6.00851 degrees
+ siteAzm = -3.73039
+ Latitude = 42.5771 degrees, Longitude = 5.39459 degrees
+ siteAzm = -3.92953
+ Latitude = 41.8376 degrees, Longitude = 4.57338 degrees
+ siteAzm = -4.12683
+ Latitude = 41.2323 degrees, Longitude = 3.58212 degrees
+ siteAzm = -4.32277
+ Latitude = 40.7837 degrees, Longitude = 2.4611 degrees
+ siteAzm = -4.5178
+ Latitude = 40.508 degrees, Longitude = 1.25257 degrees
+ siteAzm = 1.5708
+ Latitude = 40.4149 degrees, Longitude = 7.36686e-016 degrees
+ siteAzm = 1.37621
+ Latitude = 40.508 degrees, Longitude = -1.25257 degrees
+ siteAzm = 1.18117
+ Latitude = 40.7837 degrees, Longitude = -2.4611 degrees
+ siteAzm = 0.985239
+ Latitude = 41.2323 degrees, Longitude = -3.58212 degrees
+ siteAzm = 0.787937
+ Latitude = 41.8376 degrees, Longitude = -4.57338 degrees
+ siteAzm = 0.588792
+ Latitude = 42.5771 degrees, Longitude = -5.39459 degrees
+ siteAzm = 0.387326
+ Latitude = 43.4228 degrees, Longitude = -6.00851 degrees
+ siteAzm = 0.183074
+ Latitude = 44.3416 degrees, Longitude = -6.38228 degrees
+ siteAzm = -0.0243837
+ Latitude = 45.2962 degrees, Longitude = -6.48927 degrees
+ siteAzm = -0.235381
+ Latitude = 46.2456 degrees, Longitude = -6.31148 degrees
+ siteAzm = -0.450115
+ Latitude = 47.1475 degrees, Longitude = -5.84229 degrees
+ siteAzm = -0.668585
+ Latitude = 47.9591 degrees, Longitude = -5.08945 degrees
+ siteAzm = -0.890545
+ Latitude = 48.6401 degrees, Longitude = -4.07761 degrees
+ siteAzm = -1.11547
+ Latitude = 49.1551 degrees, Longitude = -2.84962 degrees
+ siteAzm = -1.34256
+ Latitude = 49.476 degrees, Longitude = -1.46572 degrees
+ siteAzm = -1.5708
+ Latitude = 51.0568 degrees, Longitude = 0 degrees
+ siteAzm = -1.80611
+ Latitude = 50.9084 degrees, Longitude = 1.99375 degrees
+ siteAzm = -2.03968
+ Latitude = 50.4725 degrees, Longitude = 3.86644 degrees
+ siteAzm = -2.26999
+ Latitude = 49.7755 degrees, Longitude = 5.51103 degrees
+ siteAzm = -2.49592
+ Latitude = 48.8582 degrees, Longitude = 6.84482 degrees
+ siteAzm = -2.71684
+ Latitude = 47.771 degrees, Longitude = 7.8141 degrees
+ siteAzm = -2.93253
+ Latitude = 46.57 degrees, Longitude = 8.39345 degrees
+ siteAzm = -3.14317
+ Latitude = 45.3129 degrees, Longitude = 8.58166 degrees
+ siteAzm = -3.34917
+ Latitude = 44.056 degrees, Longitude = 8.3961 degrees
+ siteAzm = -3.5511
+ Latitude = 42.8518 degrees, Longitude = 7.8674 degrees
+ siteAzm = -3.7496
+ Latitude = 41.7479 degrees, Longitude = 7.03507 degrees
+ siteAzm = -3.94533
+ Latitude = 40.786 degrees, Longitude = 5.9443 degrees
+ siteAzm = -4.1389
+ Latitude = 40.0009 degrees, Longitude = 4.64385 degrees
+ siteAzm = -4.3309
+ Latitude = 39.42 degrees, Longitude = 3.18467 degrees
+ siteAzm = -4.5219
+ Latitude = 39.0634 degrees, Longitude = 1.61903 degrees
+ siteAzm = 1.5708
+ Latitude = 38.9432 degrees, Longitude = 9.5187e-016 degrees
+ siteAzm = 1.3803
+ Latitude = 39.0634 degrees, Longitude = -1.61903 degrees
+ siteAzm = 1.18931
+ Latitude = 39.42 degrees, Longitude = -3.18467 degrees
+ siteAzm = 0.997304
+ Latitude = 40.0009 degrees, Longitude = -4.64385 degrees
+ siteAzm = 0.803734
+ Latitude = 40.786 degrees, Longitude = -5.9443 degrees
+ siteAzm = 0.608012
+ Latitude = 41.7479 degrees, Longitude = -7.03507 degrees
+ siteAzm = 0.409511
+ Latitude = 42.8518 degrees, Longitude = -7.8674 degrees
+ siteAzm = 0.207579
+ Latitude = 44.056 degrees, Longitude = -8.3961 degrees
+ siteAzm = 0.0015775
+ Latitude = 45.3129 degrees, Longitude = -8.58166 degrees
+ siteAzm = -0.209062
+ Latitude = 46.57 degrees, Longitude = -8.39345 degrees
+ siteAzm = -0.424757
+ Latitude = 47.771 degrees, Longitude = -7.8141 degrees
+ siteAzm = -0.64567
+ Latitude = 48.8582 degrees, Longitude = -6.84482 degrees
+ siteAzm = -0.871603
+ Latitude = 49.7755 degrees, Longitude = -5.51103 degrees
+ siteAzm = -1.10191
+ Latitude = 50.4725 degrees, Longitude = -3.86644 degrees
+ siteAzm = -1.33548
+ Latitude = 50.9084 degrees, Longitude = -1.99375 degrees
+ siteAzm = -1.5708
+ Latitude = 53.0009 degrees, Longitude = 0 degrees
+ siteAzm = -1.8164
+ Latitude = 52.7966 degrees, Longitude = 2.74327 degrees
+ siteAzm = -2.05922
+ Latitude = 52.1982 degrees, Longitude = 5.29963 degrees
+ siteAzm = -2.29692
+ Latitude = 51.2467 degrees, Longitude = 7.50992 degrees
+ siteAzm = -2.52796
+ Latitude = 50.0032 degrees, Longitude = 9.26088 degrees
+ siteAzm = -2.75163
+ Latitude = 48.5414 degrees, Longitude = 10.49 degrees
+ siteAzm = -2.96795
+ Latitude = 46.9399 degrees, Longitude = 11.1794 degrees
+ siteAzm = -3.17745
+ Latitude = 45.2766 degrees, Longitude = 11.3449 degrees
+ siteAzm = -3.38095
+ Latitude = 43.625 degrees, Longitude = 11.0246 degrees
+ siteAzm = -3.5794
+ Latitude = 42.0524 degrees, Longitude = 10.2694 degrees
+ siteAzm = -3.77377
+ Latitude = 40.618 degrees, Longitude = 9.13731 degrees
+ siteAzm = -3.96494
+ Latitude = 39.3731 degrees, Longitude = 7.68963 degrees
+ siteAzm = -4.15373
+ Latitude = 38.3599 degrees, Longitude = 5.98891 degrees
+ siteAzm = -4.34083
+ Latitude = 37.6121 degrees, Longitude = 4.09822 degrees
+ siteAzm = -4.52687
+ Latitude = 37.1536 degrees, Longitude = 2.0808 degrees
+ siteAzm = 1.5708
+ Latitude = 36.9991 degrees, Longitude = 1.22284e-015 degrees
+ siteAzm = 1.38528
+ Latitude = 37.1536 degrees, Longitude = -2.0808 degrees
+ siteAzm = 1.19924
+ Latitude = 37.6121 degrees, Longitude = -4.09822 degrees
+ siteAzm = 1.01214
+ Latitude = 38.3599 degrees, Longitude = -5.98891 degrees
+ siteAzm = 0.823349
+ Latitude = 39.3731 degrees, Longitude = -7.68963 degrees
+ siteAzm = 0.632175
+ Latitude = 40.618 degrees, Longitude = -9.13731 degrees
+ siteAzm = 0.43781
+ Latitude = 42.0524 degrees, Longitude = -10.2694 degrees
+ siteAzm = 0.239358
+ Latitude = 43.625 degrees, Longitude = -11.0246 degrees
+ siteAzm = 0.0358584
+ Latitude = 45.2766 degrees, Longitude = -11.3449 degrees
+ siteAzm = -0.173639
+ Latitude = 46.9399 degrees, Longitude = -11.1794 degrees
+ siteAzm = -0.389961
+ Latitude = 48.5414 degrees, Longitude = -10.49 degrees
+ siteAzm = -0.613635
+ Latitude = 50.0032 degrees, Longitude = -9.26088 degrees
+ siteAzm = -0.844676
+ Latitude = 51.2467 degrees, Longitude = -7.50992 degrees
+ siteAzm = -1.08238
+ Latitude = 52.1982 degrees, Longitude = -5.29963 degrees
+ siteAzm = -1.32519
+ Latitude = 52.7966 degrees, Longitude = -2.74327 degrees
+ siteAzm = -1.5708
+ Latitude = 55.569 degrees, Longitude = 0 degrees
+ siteAzm = -1.83189
+ Latitude = 55.2828 degrees, Longitude = 3.83936 degrees
+ siteAzm = -2.08823
+ Latitude = 54.4486 degrees, Longitude = 7.37193 degrees
+ siteAzm = -2.33612
+ Latitude = 53.1337 degrees, Longitude = 10.3523 degrees
+ siteAzm = -2.57348
+ Latitude = 51.4344 degrees, Longitude = 12.6296 degrees
+ siteAzm = -2.79979
+ Latitude = 49.4606 degrees, Longitude = 14.1457 degrees
+ siteAzm = -3.01571
+ Latitude = 47.3232 degrees, Longitude = 14.9124 degrees
+ siteAzm = -3.22252
+ Latitude = 45.1266 degrees, Longitude = 14.9838 degrees
+ siteAzm = -3.42177
+ Latitude = 42.9652 degrees, Longitude = 14.4349 degrees
+ siteAzm = -3.615
+ Latitude = 40.9221 degrees, Longitude = 13.348 degrees
+ siteAzm = -3.80361
+ Latitude = 39.0695 degrees, Longitude = 11.8059 degrees
+ siteAzm = -3.9888
+ Latitude = 37.4686 degrees, Longitude = 9.88895 degrees
+ siteAzm = -4.17155
+ Latitude = 36.17 degrees, Longitude = 7.67481 degrees
+ siteAzm = -4.35266
+ Latitude = 35.2136 degrees, Longitude = 5.23914 degrees
+ siteAzm = -4.53276
+ Latitude = 34.6281 degrees, Longitude = 2.6563 degrees
+ siteAzm = 1.5708
+ Latitude = 34.431 degrees, Longitude = 1.56031e-015 degrees
+ siteAzm = 1.39117
+ Latitude = 34.6281 degrees, Longitude = -2.6563 degrees
+ siteAzm = 1.21106
+ Latitude = 35.2136 degrees, Longitude = -5.23914 degrees
+ siteAzm = 1.02996
+ Latitude = 36.17 degrees, Longitude = -7.67481 degrees
+ siteAzm = 0.847208
+ Latitude = 37.4686 degrees, Longitude = -9.88895 degrees
+ siteAzm = 0.662022
+ Latitude = 39.0695 degrees, Longitude = -11.8059 degrees
+ siteAzm = 0.473412
+ Latitude = 40.9221 degrees, Longitude = -13.348 degrees
+ siteAzm = 0.280181
+ Latitude = 42.9652 degrees, Longitude = -14.4349 degrees
+ siteAzm = 0.0809314
+ Latitude = 45.1266 degrees, Longitude = -14.9838 degrees
+ siteAzm = -0.12588
+ Latitude = 47.3232 degrees, Longitude = -14.9124 degrees
+ siteAzm = -0.341798
+ Latitude = 49.4606 degrees, Longitude = -14.1457 degrees
+ siteAzm = -0.568116
+ Latitude = 51.4344 degrees, Longitude = -12.6296 degrees
+ siteAzm = -0.805474
+ Latitude = 53.1337 degrees, Longitude = -10.3523 degrees
+ siteAzm = -1.05336
+ Latitude = 54.4486 degrees, Longitude = -7.37193 degrees
+ siteAzm = -1.3097
+ Latitude = 55.2828 degrees, Longitude = -3.83936 degrees
+ siteAzm = -1.5708
+ Latitude = 58.9614 degrees, Longitude = 0 degrees
+ siteAzm = -1.85643
+ Latitude = 58.5496 degrees, Longitude = 5.517 degrees
+ siteAzm = -2.13321
+ Latitude = 57.3595 degrees, Longitude = 10.4828 degrees
+ siteAzm = -2.395
+ Latitude = 55.5113 degrees, Longitude = 14.504 degrees
+ siteAzm = -2.63941
+ Latitude = 53.1658 degrees, Longitude = 17.4022 degrees
+ siteAzm = -2.86701
+ Latitude = 50.4905 degrees, Longitude = 19.1731 degrees
+ siteAzm = -3.08003
+ Latitude = 47.6409 degrees, Longitude = 19.9109 degrees
+ siteAzm = -3.28128
+ Latitude = 44.7529 degrees, Longitude = 19.7479 degrees
+ siteAzm = -3.47345
+ Latitude = 41.9425 degrees, Longitude = 18.8196 degrees
+ siteAzm = -3.65891
+ Latitude = 39.3087 degrees, Longitude = 17.251 degrees
+ siteAzm = -3.8396
+ Latitude = 36.9356 degrees, Longitude = 15.1535 degrees
+ siteAzm = -4.01702
+ Latitude = 34.8942 degrees, Longitude = 12.6268 degrees
+ siteAzm = -4.1923
+ Latitude = 33.2434 degrees, Longitude = 9.76243 degrees
+ siteAzm = -4.36627
+ Latitude = 32.0301 degrees, Longitude = 6.64712 degrees
+ siteAzm = -4.53949
+ Latitude = 31.2882 degrees, Longitude = 3.36517 degrees
+ siteAzm = 1.5708
+ Latitude = 31.0386 degrees, Longitude = 1.97574e-015 degrees
+ siteAzm = 1.3979
+ Latitude = 31.2882 degrees, Longitude = -3.36517 degrees
+ siteAzm = 1.22468
+ Latitude = 32.0301 degrees, Longitude = -6.64712 degrees
+ siteAzm = 1.05071
+ Latitude = 33.2434 degrees, Longitude = -9.76243 degrees
+ siteAzm = 0.875428
+ Latitude = 34.8942 degrees, Longitude = -12.6268 degrees
+ siteAzm = 0.698007
+ Latitude = 36.9356 degrees, Longitude = -15.1535 degrees
+ siteAzm = 0.517318
+ Latitude = 39.3087 degrees, Longitude = -17.251 degrees
+ siteAzm = 0.331853
+ Latitude = 41.9425 degrees, Longitude = -18.8196 degrees
+ siteAzm = 0.139683
+ Latitude = 44.7529 degrees, Longitude = -19.7479 degrees
+ siteAzm = -0.0615583
+ Latitude = 47.6409 degrees, Longitude = -19.9109 degrees
+ siteAzm = -0.274586
+ Latitude = 50.4905 degrees, Longitude = -19.1731 degrees
+ siteAzm = -0.502187
+ Latitude = 53.1658 degrees, Longitude = -17.4022 degrees
+ siteAzm = -0.746592
+ Latitude = 55.5113 degrees, Longitude = -14.504 degrees
+ siteAzm = -1.00838
+ Latitude = 57.3595 degrees, Longitude = -10.4828 degrees
+ siteAzm = -1.28516
+ Latitude = 58.5496 degrees, Longitude = -5.517 degrees
+ siteAzm = -1.5708
+ Latitude = 63.4428 degrees, Longitude = 0 degrees
+ siteAzm = -1.89851
+ Latitude = 62.823 degrees, Longitude = 8.27985 degrees
+ siteAzm = -2.20732
+ Latitude = 61.0626 degrees, Longitude = 15.4225 degrees
+ siteAzm = -2.487
+ Latitude = 58.4042 degrees, Longitude = 20.7885 degrees
+ siteAzm = -2.7368
+ Latitude = 55.1322 degrees, Longitude = 24.2827 degrees
+ siteAzm = -2.96118
+ Latitude = 51.5028 degrees, Longitude = 26.1125 degrees
+ siteAzm = -3.16599
+ Latitude = 47.7243 degrees, Longitude = 26.5683 degrees
+ siteAzm = -3.35661
+ Latitude = 43.9613 degrees, Longitude = 25.9186 degrees
+ siteAzm = -3.53735
+ Latitude = 40.3464 degrees, Longitude = 24.3818 degrees
+ siteAzm = -3.71152
+ Latitude = 36.9891 degrees, Longitude = 22.1282 degrees
+ siteAzm = -3.88154
+ Latitude = 33.9826 degrees, Longitude = 19.2933 degrees
+ siteAzm = -4.04913
+ Latitude = 31.4065 degrees, Longitude = 15.9892 degrees
+ siteAzm = -4.21546
+ Latitude = 29.3284 degrees, Longitude = 12.3151 degrees
+ siteAzm = -4.38123
+ Latitude = 27.8029 degrees, Longitude = 8.36433 degrees
+ siteAzm = -4.54682
+ Latitude = 26.8708 degrees, Longitude = 4.22859 degrees
+ siteAzm = 1.5708
+ Latitude = 26.5572 degrees, Longitude = 2.48155e-015 degrees
+ siteAzm = 1.40523
+ Latitude = 26.8708 degrees, Longitude = -4.22859 degrees
+ siteAzm = 1.23964
+ Latitude = 27.8029 degrees, Longitude = -8.36433 degrees
+ siteAzm = 1.07386
+ Latitude = 29.3284 degrees, Longitude = -12.3151 degrees
+ siteAzm = 0.90754
+ Latitude = 31.4065 degrees, Longitude = -15.9892 degrees
+ siteAzm = 0.739949
+ Latitude = 33.9826 degrees, Longitude = -19.2933 degrees
+ siteAzm = 0.56993
+ Latitude = 36.9891 degrees, Longitude = -22.1282 degrees
+ siteAzm = 0.395761
+ Latitude = 40.3464 degrees, Longitude = -24.3818 degrees
+ siteAzm = 0.215018
+ Latitude = 43.9613 degrees, Longitude = -25.9186 degrees
+ siteAzm = 0.024401
+ Latitude = 47.7243 degrees, Longitude = -26.5683 degrees
+ siteAzm = -0.180416
+ Latitude = 51.5028 degrees, Longitude = -26.1125 degrees
+ siteAzm = -0.404797
+ Latitude = 55.1322 degrees, Longitude = -24.2827 degrees
+ siteAzm = -0.65459
+ Latitude = 58.4042 degrees, Longitude = -20.7885 degrees
+ siteAzm = -0.934269
+ Latitude = 61.0626 degrees, Longitude = -15.4225 degrees
+ siteAzm = -1.24308
+ Latitude = 62.823 degrees, Longitude = -8.27985 degrees
+ siteAzm = -1.5708
+ Latitude = 69.3625 degrees, Longitude = 0 degrees
+ siteAzm = -1.98066
+ Latitude = 68.35 degrees, Longitude = 13.4424 degrees
+ siteAzm = -2.34052
+ Latitude = 65.59 degrees, Longitude = 23.9534 degrees
+ siteAzm = -2.6372
+ Latitude = 61.6571 degrees, Longitude = 30.7123 degrees
+ siteAzm = -2.88242
+ Latitude = 57.0682 degrees, Longitude = 34.3253 degrees
+ siteAzm = -3.09202
+ Latitude = 52.1841 degrees, Longitude = 35.6378 degrees
+ siteAzm = -3.27848
+ Latitude = 47.2462 degrees, Longitude = 35.3043 degrees
+ siteAzm = -3.45042
+ Latitude = 42.4255 degrees, Longitude = 33.7642 degrees
+ siteAzm = -3.61363
+ Latitude = 37.854 degrees, Longitude = 31.3041 degrees
+ siteAzm = -3.77199
+ Latitude = 33.6422 degrees, Longitude = 28.1153 degrees
+ siteAzm = -3.92812
+ Latitude = 29.8874 degrees, Longitude = 24.3332 degrees
+ siteAzm = -4.0837
+ Latitude = 26.6773 degrees, Longitude = 20.0643 degrees
+ siteAzm = -4.23971
+ Latitude = 24.0894 degrees, Longitude = 15.4025 degrees
+ siteAzm = -4.39655
+ Latitude = 22.1895 degrees, Longitude = 10.4398 degrees
+ siteAzm = -4.55423
+ Latitude = 21.0282 degrees, Longitude = 5.27203 degrees
+ siteAzm = 1.5708
+ Latitude = 20.6375 degrees, Longitude = 3.09283e-015 degrees
+ siteAzm = 1.41263
+ Latitude = 21.0282 degrees, Longitude = -5.27203 degrees
+ siteAzm = 1.25496
+ Latitude = 22.1895 degrees, Longitude = -10.4398 degrees
+ siteAzm = 1.09811
+ Latitude = 24.0894 degrees, Longitude = -15.4025 degrees
+ siteAzm = 0.942108
+ Latitude = 26.6773 degrees, Longitude = -20.0643 degrees
+ siteAzm = 0.786529
+ Latitude = 29.8874 degrees, Longitude = -24.3332 degrees
+ siteAzm = 0.630398
+ Latitude = 33.6422 degrees, Longitude = -28.1153 degrees
+ siteAzm = 0.472033
+ Latitude = 37.854 degrees, Longitude = -31.3041 degrees
+ siteAzm = 0.308828
+ Latitude = 42.4255 degrees, Longitude = -33.7642 degrees
+ siteAzm = 0.136889
+ Latitude = 47.2462 degrees, Longitude = -35.3043 degrees
+ siteAzm = -0.0495746
+ Latitude = 52.1841 degrees, Longitude = -35.6378 degrees
+ siteAzm = -0.259177
+ Latitude = 57.0682 degrees, Longitude = -34.3253 degrees
+ siteAzm = -0.504391
+ Latitude = 61.6571 degrees, Longitude = -30.7123 degrees
+ siteAzm = -0.801069
+ Latitude = 65.59 degrees, Longitude = -23.9534 degrees
+ siteAzm = -1.16093
+ Latitude = 68.35 degrees, Longitude = -13.4424 degrees
+ siteAzm = -1.5708
+ Latitude = 77.1824 degrees, Longitude = 0 degrees
+ siteAzm = -2.18434
+ Latitude = 75.2063 degrees, Longitude = 25.7017 degrees
+ siteAzm = -2.60748
+ Latitude = 70.4793 degrees, Longitude = 40.4152 degrees
+ siteAzm = -2.88838
+ Latitude = 64.5758 degrees, Longitude = 46.8206 degrees
+ siteAzm = -3.09627
+ Latitude = 58.2629 degrees, Longitude = 48.8039 degrees
+ siteAzm = -3.26729
+ Latitude = 51.885 degrees, Longitude = 48.3562 degrees
+ siteAzm = -3.41926
+ Latitude = 45.6305 degrees, Longitude = 46.4176 degrees
+ siteAzm = -3.56161
+ Latitude = 39.6303 degrees, Longitude = 43.4533 degrees
+ siteAzm = -3.69984
+ Latitude = 33.9934 degrees, Longitude = 39.7085 degrees
+ siteAzm = -3.83733
+ Latitude = 28.8216 degrees, Longitude = 35.3219 degrees
+ siteAzm = -3.97623
+ Latitude = 24.2146 degrees, Longitude = 30.3817 degrees
+ siteAzm = -4.11779
+ Latitude = 20.2709 degrees, Longitude = 24.9574 degrees
+ siteAzm = -4.26256
+ Latitude = 17.0841 degrees, Longitude = 19.1181 degrees
+ siteAzm = -4.41043
+ Latitude = 14.7385 degrees, Longitude = 12.9444 degrees
+ siteAzm = -4.56074
+ Latitude = 13.3016 degrees, Longitude = 6.53384 degrees
+ siteAzm = 1.5708
+ Latitude = 12.8176 degrees, Longitude = 3.8326e-015 degrees
+ siteAzm = 1.41915
+ Latitude = 13.3016 degrees, Longitude = -6.53384 degrees
+ siteAzm = 1.26884
+ Latitude = 14.7385 degrees, Longitude = -12.9444 degrees
+ siteAzm = 1.12097
+ Latitude = 17.0841 degrees, Longitude = -19.1181 degrees
+ siteAzm = 0.976197
+ Latitude = 20.2709 degrees, Longitude = -24.9574 degrees
+ siteAzm = 0.834633
+ Latitude = 24.2146 degrees, Longitude = -30.3817 degrees
+ siteAzm = 0.695735
+ Latitude = 28.8216 degrees, Longitude = -35.3219 degrees
+ siteAzm = 0.558244
+ Latitude = 33.9934 degrees, Longitude = -39.7085 degrees
+ siteAzm = 0.420018
+ Latitude = 39.6303 degrees, Longitude = -43.4533 degrees
+ siteAzm = 0.277665
+ Latitude = 45.6305 degrees, Longitude = -46.4176 degrees
+ siteAzm = 0.125702
+ Latitude = 51.885 degrees, Longitude = -48.3562 degrees
+ siteAzm = -0.0453257
+ Latitude = 58.2629 degrees, Longitude = -48.8039 degrees
+ siteAzm = -0.253214
+ Latitude = 64.5758 degrees, Longitude = -46.8206 degrees
+ siteAzm = -0.534117
+ Latitude = 70.4793 degrees, Longitude = -40.4152 degrees
+ siteAzm = -0.957257
+ Latitude = 75.2063 degrees, Longitude = -25.7017 degrees
+ siteAzm = -1.5708
+ Latitude = 87.5123 degrees, Longitude = 0 degrees
+ siteAzm = -2.92718
+ Latitude = 81.3463 degrees, Longitude = 69.0303 degrees
+ siteAzm = -3.14736
+ Latitude = 73.285 degrees, Longitude = 72.8697 degrees
+ siteAzm = -3.27586
+ Latitude = 65.2032 degrees, Longitude = 71.2718 degrees
+ siteAzm = -3.38242
+ Latitude = 57.2416 degrees, Longitude = 68.1366 degrees
+ siteAzm = -3.48245
+ Latitude = 49.4769 degrees, Longitude = 64.2466 degrees
+ siteAzm = -3.58179
+ Latitude = 41.9813 degrees, Longitude = 59.8314 degrees
+ siteAzm = -3.68348
+ Latitude = 34.8324 degrees, Longitude = 54.9593 degrees
+ siteAzm = -3.78952
+ Latitude = 28.1177 degrees, Longitude = 49.6386 degrees
+ siteAzm = -3.90137
+ Latitude = 21.9362 degrees, Longitude = 43.8551 degrees
+ siteAzm = -4.02005
+ Latitude = 16.3986 degrees, Longitude = 37.5918 degrees
+ siteAzm = -4.14612
+ Latitude = 11.6248 degrees, Longitude = 30.8436 degrees
+ siteAzm = -4.27955
+ Latitude = 7.73903 degrees, Longitude = 23.6311 degrees
+ siteAzm = -4.41958
+ Latitude = 4.85962 degrees, Longitude = 16.0123 degrees
+ siteAzm = -4.56462
+ Latitude = 3.08665 degrees, Longitude = 8.08837 degrees
+ siteAzm = 1.5708
+ Latitude = 2.48767 degrees, Longitude = 4.74585e-015 degrees
+ siteAzm = 1.42303
+ Latitude = 3.08665 degrees, Longitude = -8.08837 degrees
+ siteAzm = 1.27799
+ Latitude = 4.85962 degrees, Longitude = -16.0123 degrees
+ siteAzm = 1.13796
+ Latitude = 7.73903 degrees, Longitude = -23.6311 degrees
+ siteAzm = 1.00453
+ Latitude = 11.6248 degrees, Longitude = -30.8436 degrees
+ siteAzm = 0.878457
+ Latitude = 16.3986 degrees, Longitude = -37.5918 degrees
+ siteAzm = 0.75978
+ Latitude = 21.9362 degrees, Longitude = -43.8551 degrees
+ siteAzm = 0.647932
+ Latitude = 28.1177 degrees, Longitude = -49.6386 degrees
+ siteAzm = 0.541885
+ Latitude = 34.8324 degrees, Longitude = -54.9593 degrees
+ siteAzm = 0.440192
+ Latitude = 41.9813 degrees, Longitude = -59.8314 degrees
+ siteAzm = 0.340859
+ Latitude = 49.4769 degrees, Longitude = -64.2466 degrees
+ siteAzm = 0.240827
+ Latitude = 57.2416 degrees, Longitude = -68.1366 degrees
+ siteAzm = 0.134265
+ Latitude = 65.2032 degrees, Longitude = -71.2718 degrees
+ siteAzm = 0.00576597
+ Latitude = 73.285 degrees, Longitude = -72.8697 degrees
+ siteAzm = -0.214414
+ Latitude = 81.3463 degrees, Longitude = -69.0303 degrees
+ siteAzm = 1.5708
+ Latitude = 78.8421 degrees, Longitude = 180 degrees
+ siteAzm = -4.08353
+ Latitude = 75.5265 degrees, Longitude = 136.296 degrees
+ siteAzm = -3.81096
+ Latitude = 68.4851 degrees, Longitude = 112.905 degrees
+ siteAzm = -3.71554
+ Latitude = 60.3348 degrees, Longitude = 99.4603 degrees
+ siteAzm = -3.69385
+ Latitude = 51.8852 degrees, Longitude = 89.9251 degrees
+ siteAzm = -3.70916
+ Latitude = 43.4282 degrees, Longitude = 82.0744 degrees
+ siteAzm = -3.74718
+ Latitude = 35.1192 degrees, Longitude = 74.9564 degrees
+ siteAzm = -3.80191
+ Latitude = 27.0766 degrees, Longitude = 68.0796 degrees
+ siteAzm = -3.87091
+ Latitude = 19.4146 degrees, Longitude = 61.143 degrees
+ siteAzm = -3.9534
+ Latitude = 12.2574 degrees, Longitude = 53.9352 degrees
+ siteAzm = -4.04941
+ Latitude = 5.74716 degrees, Longitude = 46.2972 degrees
+ siteAzm = -4.15911
+ Latitude = 0.0462614 degrees, Longitude = 38.1147 degrees
+ siteAzm = -4.28224
+ Latitude = -4.66609 degrees, Longitude = 29.329 degrees
+ siteAzm = -4.41755
+ Latitude = -8.20636 degrees, Longitude = 19.9574 degrees
+ siteAzm = -4.56235
+ Latitude = -10.4094 degrees, Longitude = 10.1122 degrees
+ siteAzm = 1.5708
+ Latitude = -11.1579 degrees, Longitude = 5.94e-015 degrees
+ siteAzm = 1.42076
+ Latitude = -10.4094 degrees, Longitude = -10.1122 degrees
+ siteAzm = 1.27596
+ Latitude = -8.20636 degrees, Longitude = -19.9574 degrees
+ siteAzm = 1.14064
+ Latitude = -4.66609 degrees, Longitude = -29.329 degrees
+ siteAzm = 1.01751
+ Latitude = 0.0462614 degrees, Longitude = -38.1147 degrees
+ siteAzm = 0.907819
+ Latitude = 5.74716 degrees, Longitude = -46.2972 degrees
+ siteAzm = 0.81181
+ Latitude = 12.2574 degrees, Longitude = -53.9352 degrees
+ siteAzm = 0.729315
+ Latitude = 19.4146 degrees, Longitude = -61.143 degrees
+ siteAzm = 0.66032
+ Latitude = 27.0766 degrees, Longitude = -68.0796 degrees
+ siteAzm = 0.605586
+ Latitude = 35.1192 degrees, Longitude = -74.9564 degrees
+ siteAzm = 0.567564
+ Latitude = 43.4282 degrees, Longitude = -82.0744 degrees
+ siteAzm = 0.552253
+ Latitude = 51.8852 degrees, Longitude = -89.9251 degrees
+ siteAzm = 0.573943
+ Latitude = 60.3348 degrees, Longitude = -99.4603 degrees
+ siteAzm = 0.669363
+ Latitude = 68.4851 degrees, Longitude = -112.905 degrees
+ siteAzm = 0.941936
+ Latitude = 75.5265 degrees, Longitude = -136.296 degrees
+ siteAzm = 1.5708
+ Latitude = 60.8165 degrees, Longitude = 180 degrees
+ siteAzm = -4.42192
+ Latitude = 59.1146 degrees, Longitude = 157.064 degrees
+ siteAzm = -4.19406
+ Latitude = 54.5127 degrees, Longitude = 137.615 degrees
+ siteAzm = -4.04221
+ Latitude = 47.9987 degrees, Longitude = 122.312 degrees
+ siteAzm = -3.95103
+ Latitude = 40.388 degrees, Longitude = 110.16 degrees
+ siteAzm = -3.90326
+ Latitude = 32.2013 degrees, Longitude = 100.035 degrees
+ siteAzm = -3.88702
+ Latitude = 23.7635 degrees, Longitude = 91.0961 degrees
+ siteAzm = -3.89543
+ Latitude = 15.2981 degrees, Longitude = 82.7569 degrees
+ siteAzm = -3.92503
+ Latitude = 6.98518 degrees, Longitude = 74.5846 degrees
+ siteAzm = -3.97467
+ Latitude = -1.0032 degrees, Longitude = 66.2326 degrees
+ siteAzm = -4.04474
+ Latitude = -8.47864 degrees, Longitude = 57.3992 degrees
+ siteAzm = -4.1365
+ Latitude = -15.2188 degrees, Longitude = 47.8163 degrees
+ siteAzm = -4.25114
+ Latitude = -20.9575 degrees, Longitude = 37.2716 degrees
+ siteAzm = -4.38839
+ Latitude = -25.3908 degrees, Longitude = 25.6696 degrees
+ siteAzm = -4.54477
+ Latitude = -28.2124 degrees, Longitude = 13.121 degrees
+ siteAzm = 1.5708
+ Latitude = -29.1835 degrees, Longitude = 7.73236e-015 degrees
+ siteAzm = 1.40318
+ Latitude = -28.2124 degrees, Longitude = -13.121 degrees
+ siteAzm = 1.2468
+ Latitude = -25.3908 degrees, Longitude = -25.6696 degrees
+ siteAzm = 1.10954
+ Latitude = -20.9575 degrees, Longitude = -37.2716 degrees
+ siteAzm = 0.994907
+ Latitude = -15.2188 degrees, Longitude = -47.8163 degrees
+ siteAzm = 0.90315
+ Latitude = -8.47864 degrees, Longitude = -57.3992 degrees
+ siteAzm = 0.833077
+ Latitude = -1.0032 degrees, Longitude = -66.2326 degrees
+ siteAzm = 0.783437
+ Latitude = 6.98518 degrees, Longitude = -74.5846 degrees
+ siteAzm = 0.753839
+ Latitude = 15.2981 degrees, Longitude = -82.7569 degrees
+ siteAzm = 0.745429
+ Latitude = 23.7635 degrees, Longitude = -91.0961 degrees
+ siteAzm = 0.761663
+ Latitude = 32.2013 degrees, Longitude = -100.035 degrees
+ siteAzm = 0.809439
+ Latitude = 40.388 degrees, Longitude = -110.16 degrees
+ siteAzm = 0.900613
+ Latitude = 47.9987 degrees, Longitude = -122.312 degrees
+ siteAzm = 1.05247
+ Latitude = 54.5127 degrees, Longitude = -137.615 degrees
+ siteAzm = 1.28033
+ Latitude = 59.1146 degrees, Longitude = -157.064 degrees
+ siteAzm = 1.5708
+ Latitude = 37.0051 degrees, Longitude = 180 degrees
+ siteAzm = -4.52985
+ Latitude = 35.915 degrees, Longitude = 165.273 degrees
+ siteAzm = -4.36328
+ Latitude = 32.7754 degrees, Longitude = 151.377 degrees
+ siteAzm = -4.2227
+ Latitude = 27.9145 degrees, Longitude = 138.798 degrees
+ siteAzm = -4.11114
+ Latitude = 21.7279 degrees, Longitude = 127.608 degrees
+ siteAzm = -4.02728
+ Latitude = 14.5822 degrees, Longitude = 117.606 degrees
+ siteAzm = -3.96839
+ Latitude = 6.77876 degrees, Longitude = 108.478 degrees
+ siteAzm = -3.93214
+ Latitude = -1.44137 degrees, Longitude = 99.8807 degrees
+ siteAzm = -3.91746
+ Latitude = -9.87753 degrees, Longitude = 91.4631 degrees
+ siteAzm = -3.92501
+ Latitude = -18.3447 degrees, Longitude = 82.8565 degrees
+ siteAzm = -3.9576
+ Latitude = -26.6453 degrees, Longitude = 73.6393 degrees
+ siteAzm = -4.02064
+ Latitude = -34.5341 degrees, Longitude = 63.2957 degrees
+ siteAzm = -4.12233
+ Latitude = -41.6708 degrees, Longitude = 51.1907 degrees
+ siteAzm = -4.27206
+ Latitude = -47.565 degrees, Longitude = 36.6507 degrees
+ siteAzm = -4.47364
+ Latitude = -51.5619 degrees, Longitude = 19.3411 degrees
+ siteAzm = 1.5708
+ Latitude = -52.9949 degrees, Longitude = 1.15442e-014 degrees
+ siteAzm = 1.33205
+ Latitude = -51.5619 degrees, Longitude = -19.3411 degrees
+ siteAzm = 1.13046
+ Latitude = -47.565 degrees, Longitude = -36.6507 degrees
+ siteAzm = 0.980735
+ Latitude = -41.6708 degrees, Longitude = -51.1907 degrees
+ siteAzm = 0.879047
+ Latitude = -34.5341 degrees, Longitude = -63.2957 degrees
+ siteAzm = 0.816009
+ Latitude = -26.6453 degrees, Longitude = -73.6393 degrees
+ siteAzm = 0.78342
+ Latitude = -18.3447 degrees, Longitude = -82.8565 degrees
+ siteAzm = 0.775867
+ Latitude = -9.87753 degrees, Longitude = -91.4631 degrees
+ siteAzm = 0.790548
+ Latitude = -1.44137 degrees, Longitude = -99.8807 degrees
+ siteAzm = 0.826801
+ Latitude = 6.77876 degrees, Longitude = -108.478 degrees
+ siteAzm = 0.88569
+ Latitude = 14.5822 degrees, Longitude = -117.606 degrees
+ siteAzm = 0.969548
+ Latitude = 21.7279 degrees, Longitude = -127.608 degrees
+ siteAzm = 1.0811
+ Latitude = 27.9145 degrees, Longitude = -138.798 degrees
+ siteAzm = 1.22168
+ Latitude = 32.7754 degrees, Longitude = -151.377 degrees
+ siteAzm = 1.38826
+ Latitude = 35.915 degrees, Longitude = -165.273 degrees
+ siteAzm = 1.5708
+ Latitude = 5.55065 degrees, Longitude = 180 degrees
+ siteAzm = -4.5643
+ Latitude = 4.86417 degrees, Longitude = 170.728 degrees
+ siteAzm = -4.42029
+ Latitude = 2.83844 degrees, Longitude = 161.672 degrees
+ siteAzm = -4.28374
+ Latitude = -0.432847 degrees, Longitude = 153.006 degrees
+ siteAzm = -4.15692
+ Latitude = -4.81479 degrees, Longitude = 144.839 degrees
+ siteAzm = -4.04095
+ Latitude = -10.1534 degrees, Longitude = 137.205 degrees
+ siteAzm = -3.9361
+ Latitude = -16.2939 degrees, Longitude = 130.082 degrees
+ siteAzm = -3.84214
+ Latitude = -23.0926 degrees, Longitude = 123.4 degrees
+ siteAzm = -3.75877
+ Latitude = -30.4221 degrees, Longitude = 117.055 degrees
+ siteAzm = -3.68603
+ Latitude = -38.1718 degrees, Longitude = 110.909 degrees
+ siteAzm = -3.62488
+ Latitude = -46.2449 degrees, Longitude = 104.768 degrees
+ siteAzm = -3.57847
+ Latitude = -54.5528 degrees, Longitude = 98.3215 degrees
+ siteAzm = -3.55541
+ Latitude = -63.0031 degrees, Longitude = 90.9536 degrees
+ siteAzm = -3.58208
+ Latitude = -71.4606 degrees, Longitude = 81.04 degrees
+ siteAzm = -3.76871
+ Latitude = -79.5392 degrees, Longitude = 62.1589 degrees
+ siteAzm = -4.71239
+ Latitude = -84.4493 degrees, Longitude = 5.60144e-014 degrees
+ siteAzm = 0.627118
+ Latitude = -79.5392 degrees, Longitude = -62.1589 degrees
+ siteAzm = 0.440483
+ Latitude = -71.4606 degrees, Longitude = -81.04 degrees
+ siteAzm = 0.413816
+ Latitude = -63.0031 degrees, Longitude = -90.9536 degrees
+ siteAzm = 0.436873
+ Latitude = -54.5528 degrees, Longitude = -98.3215 degrees
+ siteAzm = 0.483289
+ Latitude = -46.2449 degrees, Longitude = -104.768 degrees
+ siteAzm = 0.544434
+ Latitude = -38.1718 degrees, Longitude = -110.909 degrees
+ siteAzm = 0.617178
+ Latitude = -30.4221 degrees, Longitude = -117.055 degrees
+ siteAzm = 0.700546
+ Latitude = -23.0926 degrees, Longitude = -123.4 degrees
+ siteAzm = 0.794503
+ Latitude = -16.2939 degrees, Longitude = -130.082 degrees
+ siteAzm = 0.899355
+ Latitude = -10.1534 degrees, Longitude = -137.205 degrees
+ siteAzm = 1.01533
+ Latitude = -4.81479 degrees, Longitude = -144.839 degrees
+ siteAzm = 1.14215
+ Latitude = -0.432847 degrees, Longitude = -153.006 degrees
+ siteAzm = 1.2787
+ Latitude = 2.83844 degrees, Longitude = -161.672 degrees
+ siteAzm = 1.42271
+ Latitude = 4.86417 degrees, Longitude = -170.728 degrees
+ siteAzm = -4.71239
+ Latitude = -36 degrees, Longitude = 180 degrees
+ siteAzm = -4.52925
+ Latitude = -36.1714 degrees, Longitude = 177.691 degrees
+ siteAzm = -4.3456
+ Latitude = -36.6802 degrees, Longitude = 175.449 degrees
+ siteAzm = -4.16089
+ Latitude = -37.5108 degrees, Longitude = 173.343 degrees
+ siteAzm = -3.97449
+ Latitude = -38.637 degrees, Longitude = 171.441 degrees
+ siteAzm = -3.78565
+ Latitude = -40.0229 degrees, Longitude = 169.81 degrees
+ siteAzm = -3.5935
+ Latitude = -41.6224 degrees, Longitude = 168.52 degrees
+ siteAzm = -3.397
+ Latitude = -43.3804 degrees, Longitude = 167.64 degrees
+ siteAzm = -3.19503
+ Latitude = -45.232 degrees, Longitude = 167.237 degrees
+ siteAzm = -2.98642
+ Latitude = -47.1034 degrees, Longitude = 167.375 degrees
+ siteAzm = -2.77008
+ Latitude = -48.9127 degrees, Longitude = 168.104 degrees
+ siteAzm = -2.54523
+ Latitude = -50.5715 degrees, Longitude = 169.453 degrees
+ siteAzm = -2.31166
+ Latitude = -51.9889 degrees, Longitude = 171.413 degrees
+ siteAzm = -2.07004
+ Latitude = -53.078 degrees, Longitude = 173.92 degrees
+ siteAzm = -1.82215
+ Latitude = -53.765 degrees, Longitude = 176.846 degrees
+ siteAzm = -1.5708
+ Latitude = -54 degrees, Longitude = 180 degrees
+ siteAzm = -1.31944
+ Latitude = -53.765 degrees, Longitude = -176.846 degrees
+ siteAzm = -1.07155
+ Latitude = -53.078 degrees, Longitude = -173.92 degrees
+ siteAzm = -0.829937
+ Latitude = -51.9889 degrees, Longitude = -171.413 degrees
+ siteAzm = -0.596366
+ Latitude = -50.5715 degrees, Longitude = -169.453 degrees
+ siteAzm = -0.371515
+ Latitude = -48.9127 degrees, Longitude = -168.104 degrees
+ siteAzm = -0.155177
+ Latitude = -47.1034 degrees, Longitude = -167.375 degrees
+ siteAzm = 0.053435
+ Latitude = -45.232 degrees, Longitude = -167.237 degrees
+ siteAzm = 0.255404
+ Latitude = -43.3804 degrees, Longitude = -167.64 degrees
+ siteAzm = 0.451903
+ Latitude = -41.6224 degrees, Longitude = -168.52 degrees
+ siteAzm = 0.644062
+ Latitude = -40.0229 degrees, Longitude = -169.81 degrees
+ siteAzm = 0.832901
+ Latitude = -38.637 degrees, Longitude = -171.441 degrees
+ siteAzm = 1.0193
+ Latitude = -37.5108 degrees, Longitude = -173.343 degrees
+ siteAzm = 1.20401
+ Latitude = -36.6802 degrees, Longitude = -175.449 degrees
+ siteAzm = 1.38766
+ Latitude = -36.1714 degrees, Longitude = -177.691 degrees
+ Total surface area = 3.79192e+013 m^2
+MEM_LatData template class init 
+../LatRunData/lat-90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-90/hidensity.txt
+../LatRunData/lat-85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-85/hidensity.txt
+../LatRunData/lat-80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-80/hidensity.txt
+../LatRunData/lat-75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-75/hidensity.txt
+../LatRunData/lat-70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-70/hidensity.txt
+../LatRunData/lat-65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-65/hidensity.txt
+../LatRunData/lat-60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-60/hidensity.txt
+../LatRunData/lat-55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-55/hidensity.txt
+../LatRunData/lat-50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-50/hidensity.txt
+../LatRunData/lat-45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-45/hidensity.txt
+../LatRunData/lat-40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-40/hidensity.txt
+../LatRunData/lat-35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-35/hidensity.txt
+../LatRunData/lat-30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-30/hidensity.txt
+../LatRunData/lat-25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-25/hidensity.txt
+../LatRunData/lat-20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-20/hidensity.txt
+../LatRunData/lat-15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-15/hidensity.txt
+../LatRunData/lat-10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-10/hidensity.txt
+../LatRunData/lat-5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-5/hidensity.txt
+../LatRunData/lat0/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat0/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat0/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat0/hidensity.txt
+../LatRunData/lat5/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat5/hidensity.txt
+../LatRunData/lat10/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat10/hidensity.txt
+../LatRunData/lat15/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat15/hidensity.txt
+../LatRunData/lat20/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat20/hidensity.txt
+../LatRunData/lat25/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat25/hidensity.txt
+../LatRunData/lat30/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat30/hidensity.txt
+../LatRunData/lat35/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat35/hidensity.txt
+../LatRunData/lat40/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat40/hidensity.txt
+../LatRunData/lat45/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat45/hidensity.txt
+../LatRunData/lat50/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat50/hidensity.txt
+../LatRunData/lat55/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat55/hidensity.txt
+../LatRunData/lat60/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat60/hidensity.txt
+../LatRunData/lat65/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat65/hidensity.txt
+../LatRunData/lat70/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat70/hidensity.txt
+../LatRunData/lat75/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat75/hidensity.txt
+../LatRunData/lat80/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat80/hidensity.txt
+../LatRunData/lat85/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat85/hidensity.txt
+../LatRunData/lat90/HiDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat90/hidensity.txt
+MEM_LatData template class init 
+../LatRunData/lat-90/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-90/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-90/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-90/lodensity.txt
+../LatRunData/lat-85/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-85/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-85/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-85/lodensity.txt
+../LatRunData/lat-80/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-80/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-80/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-80/lodensity.txt
+../LatRunData/lat-75/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-75/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-75/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-75/lodensity.txt
+../LatRunData/lat-70/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-70/lodensity.txt
+../LatRunData/lat-65/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-65/lodensity.txt
+../LatRunData/lat-60/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-60/lodensity.txt
+../LatRunData/lat-55/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-55/lodensity.txt
+../LatRunData/lat-50/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-50/lodensity.txt
+../LatRunData/lat-45/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-45/lodensity.txt
+../LatRunData/lat-40/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-40/lodensity.txt
+../LatRunData/lat-35/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-35/lodensity.txt
+../LatRunData/lat-30/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-30/lodensity.txt
+../LatRunData/lat-25/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-25/lodensity.txt
+../LatRunData/lat-20/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-20/lodensity.txt
+../LatRunData/lat-15/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-15/lodensity.txt
+../LatRunData/lat-10/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-10/lodensity.txt
+../LatRunData/lat-5/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat-5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat-5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat-5/lodensity.txt
+../LatRunData/lat0/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat0/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat0/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat0/lodensity.txt
+../LatRunData/lat5/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat5/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat5/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat5/lodensity.txt
+../LatRunData/lat10/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat10/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat10/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat10/lodensity.txt
+../LatRunData/lat15/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat15/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat15/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat15/lodensity.txt
+../LatRunData/lat20/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat20/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat20/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat20/lodensity.txt
+../LatRunData/lat25/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat25/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat25/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat25/lodensity.txt
+../LatRunData/lat30/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat30/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat30/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat30/lodensity.txt
+../LatRunData/lat35/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat35/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat35/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat35/lodensity.txt
+../LatRunData/lat40/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat40/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat40/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat40/lodensity.txt
+../LatRunData/lat45/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat45/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat45/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat45/lodensity.txt
+../LatRunData/lat50/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat50/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat50/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat50/lodensity.txt
+../LatRunData/lat55/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat55/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat55/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat55/lodensity.txt
+../LatRunData/lat60/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat60/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat60/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat60/lodensity.txt
+../LatRunData/lat65/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat65/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat65/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat65/lodensity.txt
+../LatRunData/lat70/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80
+132160
+../LatRunData/lat70/options.txt
+ angle res: 5 | vel res: 1
+ Nvel = 80 | Ntheta = 72 | Nphi = 36
+../LatRunData/lat70/options.txt
+ Grun minimum mass = 10^-6 g
+../LatRunData/lat70/lodensity.txt
+../LatRunData/lat75/LoDensity/igloo_avg.txt
+ rows = 1652
+ cols = 80

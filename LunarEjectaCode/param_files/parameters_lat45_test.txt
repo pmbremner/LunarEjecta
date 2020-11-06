@@ -1,8 +1,8 @@
 # This is a comment
 #/*  For ImpactSites_and_ROI */
-NDistance# 5
-Nazm#      16
-ROI_Lat#   0.0
+NDistance# 25
+Nazm#      30
+ROI_Lat#   45.0
 ROI_Lon#   0.0
 #
 #/* For MEM_LatData */

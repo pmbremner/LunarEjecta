@@ -577,7 +577,7 @@ private:
 	// a = cos(a_max) / (1 - cos(amax)), converted to half sin to avoid subtraction of possible close #'s
 	double a_power(double impactZenith, double x) {
 		double alpha_max = HH_zenithGeneral(impactZenith, x); // in units of radians
-		return sqrt(cos(alpha_max)/2.) / sin(alpha_max / 2.);
+		return sqrt(cos(alpha_max)/2.) / fabs(sin(alpha_max / 2.));
 		//return cos(alpha_max) / (2. * sqr(sin(alpha_max / 2.))); // forgot the sqrt...
 	}
 

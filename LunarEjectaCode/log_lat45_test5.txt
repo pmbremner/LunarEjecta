@@ -1,5 +1,5 @@
 ---lunarEjecta_InitializeInterface: Reading .\param_files\parameters_lat45_test.txt ...
-Line 3 | NDistance = 5
+Line 3 | NDistance = 20
 Line 4 | Nazm = 16
   Overriding Default value...
 Line 5 | ROI_Lat = 0
@@ -38,59 +38,266 @@ ROI latlon:
  Latitude = 0 degrees, Longitude = 0 degrees
 
 Dmin = 4923.71 m
-  D[0] = 0.00181455
-  D[1] = 0.00729877
-  D[2] = 0.0293583
-  D[3] = 0.11809
-  D[4] = 0.475
+  D[0] = 0.000638863
+  D[1] = 0.000904749
+  D[2] = 0.00128129
+  D[3] = 0.00181455
+  D[4] = 0.00256974
+  D[5] = 0.00363923
+  D[6] = 0.00515382
+  D[7] = 0.00729877
+  D[8] = 0.0103364
+  D[9] = 0.0146383
+  D[10] = 0.0207306
+  D[11] = 0.0293583
+  D[12] = 0.0415768
+  D[13] = 0.0588805
+  D[14] = 0.0833858
+  D[15] = 0.11809
+  D[16] = 0.167237
+  D[17] = 0.236839
+  D[18] = 0.335408
+  D[19] = 0.475
  ROIAzm = 4.71239
  siteAzm = -1.5708
- Latitude = 0.653238 degrees, Longitude = 0 degrees
+ Latitude = 0.229991 degrees, Longitude = 0 degrees
  ROIAzm = 4.31969
- siteAzm = -1.96352
- Latitude = 0.603511 degrees, Longitude = 0.249992 degrees
+ siteAzm = -1.9635
+ Latitude = 0.212484 degrees, Longitude = 0.088014 degrees
  ROIAzm = 3.92699
- siteAzm = -2.35623
- Latitude = 0.461904 degrees, Longitude = 0.461919 degrees
+ siteAzm = -2.3562
+ Latitude = 0.162628 degrees, Longitude = 0.162628 degrees
  ROIAzm = 3.53429
- siteAzm = -2.74892
- Latitude = 0.249979 degrees, Longitude = 0.603517 degrees
+ siteAzm = -2.7489
+ Latitude = 0.0880134 degrees, Longitude = 0.212484 degrees
  ROIAzm = 3.14159
  siteAzm = -3.14159
- Latitude = 3.99971e-017 degrees, Longitude = 0.653238 degrees
+ Latitude = 1.40824e-017 degrees, Longitude = 0.229991 degrees
  ROIAzm = 2.74889
- siteAzm = -3.53427
- Latitude = -0.249979 degrees, Longitude = 0.603517 degrees
+ siteAzm = -3.53429
+ Latitude = -0.0880134 degrees, Longitude = 0.212484 degrees
  ROIAzm = 2.35619
- siteAzm = -3.92696
- Latitude = -0.461904 degrees, Longitude = 0.461919 degrees
+ siteAzm = -3.92699
+ Latitude = -0.162628 degrees, Longitude = 0.162628 degrees
  ROIAzm = 1.9635
- siteAzm = -4.31967
- Latitude = -0.603511 degrees, Longitude = 0.249992 degrees
+ siteAzm = -4.31969
+ Latitude = -0.212484 degrees, Longitude = 0.088014 degrees
  ROIAzm = 1.5708
  siteAzm = 1.5708
- Latitude = -0.653238 degrees, Longitude = 7.99994e-017 degrees
+ Latitude = -0.229991 degrees, Longitude = 2.8165e-017 degrees
  ROIAzm = 1.1781
- siteAzm = 1.17807
- Latitude = -0.603511 degrees, Longitude = -0.249992 degrees
+ siteAzm = 1.17809
+ Latitude = -0.212484 degrees, Longitude = -0.088014 degrees
  ROIAzm = 0.785398
- siteAzm = 0.785366
- Latitude = -0.461904 degrees, Longitude = -0.461919 degrees
+ siteAzm = 0.785394
+ Latitude = -0.162628 degrees, Longitude = -0.162628 degrees
  ROIAzm = 0.392699
- siteAzm = 0.392676
- Latitude = -0.249979 degrees, Longitude = -0.603517 degrees
+ siteAzm = 0.392696
+ Latitude = -0.0880134 degrees, Longitude = -0.212484 degrees
  ROIAzm = 0
  siteAzm = 0
- Latitude = -1.19991e-016 degrees, Longitude = -0.653238 degrees
+ Latitude = -4.22471e-017 degrees, Longitude = -0.229991 degrees
  ROIAzm = -0.392699
+ siteAzm = -0.392696
+ Latitude = 0.0880134 degrees, Longitude = -0.212484 degrees
+ ROIAzm = -0.785398
+ siteAzm = -0.785394
+ Latitude = 0.162628 degrees, Longitude = -0.162628 degrees
+ ROIAzm = -1.1781
+ siteAzm = -1.17809
+ Latitude = 0.212484 degrees, Longitude = -0.088014 degrees
+ siteAzm = -1.5708
+ Latitude = 0.32571 degrees, Longitude = 0 degrees
+ siteAzm = -1.9635
+ Latitude = 0.300916 degrees, Longitude = 0.124645 degrees
+ siteAzm = -2.3562
+ Latitude = 0.230311 degrees, Longitude = 0.230313 degrees
+ siteAzm = -2.7489
+ Latitude = 0.124643 degrees, Longitude = 0.300917 degrees
+ siteAzm = -3.14159
+ Latitude = 1.99432e-017 degrees, Longitude = 0.32571 degrees
+ siteAzm = -3.53429
+ Latitude = -0.124643 degrees, Longitude = 0.300917 degrees
+ siteAzm = -3.92698
+ Latitude = -0.230311 degrees, Longitude = 0.230313 degrees
+ siteAzm = -4.31968
+ Latitude = -0.300916 degrees, Longitude = 0.124645 degrees
+ siteAzm = 1.5708
+ Latitude = -0.32571 degrees, Longitude = 3.9887e-017 degrees
+ siteAzm = 1.17809
+ Latitude = -0.300916 degrees, Longitude = -0.124645 degrees
+ siteAzm = 0.78539
+ Latitude = -0.230311 degrees, Longitude = -0.230313 degrees
+ siteAzm = 0.392693
+ Latitude = -0.124643 degrees, Longitude = -0.300917 degrees
+ siteAzm = 0
+ Latitude = -5.98296e-017 degrees, Longitude = -0.32571 degrees
+ siteAzm = -0.392693
+ Latitude = 0.124643 degrees, Longitude = -0.300917 degrees
+ siteAzm = -0.78539
+ Latitude = 0.230311 degrees, Longitude = -0.230313 degrees
+ siteAzm = -1.17809
+ Latitude = 0.300916 degrees, Longitude = -0.124645 degrees
+ siteAzm = -1.5708
+ Latitude = 0.461265 degrees, Longitude = 0 degrees
+ siteAzm = -1.96351
+ Latitude = 0.426153 degrees, Longitude = 0.176522 degrees
+ siteAzm = -2.35621
+ Latitude = 0.326162 degrees, Longitude = 0.326167 degrees
+ siteAzm = -2.74891
+ Latitude = 0.176517 degrees, Longitude = 0.426155 degrees
+ siteAzm = -3.14159
+ Latitude = 2.82431e-017 degrees, Longitude = 0.461265 degrees
+ siteAzm = -3.53428
+ Latitude = -0.176517 degrees, Longitude = 0.426155 degrees
+ siteAzm = -3.92697
+ Latitude = -0.326162 degrees, Longitude = 0.326167 degrees
+ siteAzm = -4.31968
+ Latitude = -0.426153 degrees, Longitude = 0.176522 degrees
+ siteAzm = 1.5708
+ Latitude = -0.461265 degrees, Longitude = 5.64881e-017 degrees
+ siteAzm = 1.17809
+ Latitude = -0.426153 degrees, Longitude = -0.176522 degrees
+ siteAzm = 0.785382
+ Latitude = -0.326162 degrees, Longitude = -0.326167 degrees
+ siteAzm = 0.392688
+ Latitude = -0.176517 degrees, Longitude = -0.426155 degrees
+ siteAzm = 0
+ Latitude = -8.47294e-017 degrees, Longitude = -0.461265 degrees
+ siteAzm = -0.392688
+ Latitude = 0.176517 degrees, Longitude = -0.426155 degrees
+ siteAzm = -0.785382
+ Latitude = 0.326162 degrees, Longitude = -0.326167 degrees
+ siteAzm = -1.17809
+ Latitude = 0.426153 degrees, Longitude = -0.176522 degrees
+ siteAzm = -1.5708
+ Latitude = 0.653238 degrees, Longitude = 0 degrees
+ siteAzm = -1.96352
+ Latitude = 0.603511 degrees, Longitude = 0.249992 degrees
+ siteAzm = -2.35623
+ Latitude = 0.461904 degrees, Longitude = 0.461919 degrees
+ siteAzm = -2.74892
+ Latitude = 0.249979 degrees, Longitude = 0.603517 degrees
+ siteAzm = -3.14159
+ Latitude = 3.99971e-017 degrees, Longitude = 0.653238 degrees
+ siteAzm = -3.53427
+ Latitude = -0.249979 degrees, Longitude = 0.603517 degrees
+ siteAzm = -3.92696
+ Latitude = -0.461904 degrees, Longitude = 0.461919 degrees
+ siteAzm = -4.31967
+ Latitude = -0.603511 degrees, Longitude = 0.249992 degrees
+ siteAzm = 1.5708
+ Latitude = -0.653238 degrees, Longitude = 7.99994e-017 degrees
+ siteAzm = 1.17807
+ Latitude = -0.603511 degrees, Longitude = -0.249992 degrees
+ siteAzm = 0.785366
+ Latitude = -0.461904 degrees, Longitude = -0.461919 degrees
+ siteAzm = 0.392676
+ Latitude = -0.249979 degrees, Longitude = -0.603517 degrees
+ siteAzm = 0
+ Latitude = -1.19991e-016 degrees, Longitude = -0.653238 degrees
  siteAzm = -0.392676
  Latitude = 0.249979 degrees, Longitude = -0.603517 degrees
- ROIAzm = -0.785398
  siteAzm = -0.785366
  Latitude = 0.461904 degrees, Longitude = -0.461919 degrees
- ROIAzm = -1.1781
  siteAzm = -1.17807
  Latitude = 0.603511 degrees, Longitude = -0.249992 degrees
+ siteAzm = -1.5708
+ Latitude = 0.925106 degrees, Longitude = 0 degrees
+ siteAzm = -1.96354
+ Latitude = 0.854681 degrees, Longitude = 0.354049 degrees
+ siteAzm = -2.35626
+ Latitude = 0.654135 degrees, Longitude = 0.654177 degrees
+ siteAzm = -2.74894
+ Latitude = 0.35401 degrees, Longitude = 0.854697 degrees
+ siteAzm = -3.14159
+ Latitude = 5.66421e-017 degrees, Longitude = 0.925106 degrees
+ siteAzm = -3.53425
+ Latitude = -0.35401 degrees, Longitude = 0.854697 degrees
+ siteAzm = -3.92693
+ Latitude = -0.654135 degrees, Longitude = 0.654177 degrees
+ siteAzm = -4.31964
+ Latitude = -0.854681 degrees, Longitude = 0.354049 degrees
+ siteAzm = 1.5708
+ Latitude = -0.925106 degrees, Longitude = 1.13299e-016 degrees
+ siteAzm = 1.17805
+ Latitude = -0.854681 degrees, Longitude = -0.354049 degrees
+ siteAzm = 0.785333
+ Latitude = -0.654135 degrees, Longitude = -0.654177 degrees
+ siteAzm = 0.392653
+ Latitude = -0.35401 degrees, Longitude = -0.854697 degrees
+ siteAzm = 0
+ Latitude = -1.69926e-016 degrees, Longitude = -0.925106 degrees
+ siteAzm = -0.392653
+ Latitude = 0.35401 degrees, Longitude = -0.854697 degrees
+ siteAzm = -0.785333
+ Latitude = 0.654135 degrees, Longitude = -0.654177 degrees
+ siteAzm = -1.17805
+ Latitude = 0.854681 degrees, Longitude = -0.354049 degrees
+ siteAzm = -1.5708
+ Latitude = 1.31012 degrees, Longitude = 0 degrees
+ siteAzm = -1.96359
+ Latitude = 1.21038 degrees, Longitude = 0.501437 degrees
+ siteAzm = -2.35633
+ Latitude = 0.926356 degrees, Longitude = 0.926477 degrees
+ siteAzm = -2.74899
+ Latitude = 0.501325 degrees, Longitude = 1.21043 degrees
+ siteAzm = -3.14159
+ Latitude = 8.02122e-017 degrees, Longitude = 1.31012 degrees
+ siteAzm = -3.5342
+ Latitude = -0.501325 degrees, Longitude = 1.21043 degrees
+ siteAzm = -3.92686
+ Latitude = -0.926356 degrees, Longitude = 0.926477 degrees
+ siteAzm = -4.3196
+ Latitude = -1.21038 degrees, Longitude = 0.501437 degrees
+ siteAzm = 1.5708
+ Latitude = -1.31012 degrees, Longitude = 1.60466e-016 degrees
+ siteAzm = 1.178
+ Latitude = -1.21038 degrees, Longitude = -0.501437 degrees
+ siteAzm = 0.785267
+ Latitude = -0.926356 degrees, Longitude = -0.926477 degrees
+ siteAzm = 0.392607
+ Latitude = -0.501325 degrees, Longitude = -1.21043 degrees
+ siteAzm = 0
+ Latitude = -2.40637e-016 degrees, Longitude = -1.31012 degrees
+ siteAzm = -0.392607
+ Latitude = 0.501325 degrees, Longitude = -1.21043 degrees
+ siteAzm = -0.785267
+ Latitude = 0.926356 degrees, Longitude = -0.926477 degrees
+ siteAzm = -1.178
+ Latitude = 1.21038 degrees, Longitude = -0.501437 degrees
+ siteAzm = -1.5708
+ Latitude = 1.85538 degrees, Longitude = 0 degrees
+ siteAzm = -1.96368
+ Latitude = 1.7141 degrees, Longitude = 0.710234 degrees
+ siteAzm = -2.35646
+ Latitude = 1.31183 degrees, Longitude = 1.31218 degrees
+ siteAzm = -2.74908
+ Latitude = 0.709916 degrees, Longitude = 1.71423 degrees
+ siteAzm = -3.14159
+ Latitude = 1.13585e-016 degrees, Longitude = 1.85538 degrees
+ siteAzm = -3.53411
+ Latitude = -0.709916 degrees, Longitude = 1.71423 degrees
+ siteAzm = -3.92673
+ Latitude = -1.31183 degrees, Longitude = 1.31218 degrees
+ siteAzm = -4.3195
+ Latitude = -1.7141 degrees, Longitude = 0.710234 degrees
+ siteAzm = 1.5708
+ Latitude = -1.85538 degrees, Longitude = 2.2729e-016 degrees
+ siteAzm = 1.17791
+ Latitude = -1.7141 degrees, Longitude = -0.710234 degrees
+ siteAzm = 0.785136
+ Latitude = -1.31183 degrees, Longitude = -1.31218 degrees
+ siteAzm = 0.392514
+ Latitude = -0.709916 degrees, Longitude = -1.71423 degrees
+ siteAzm = 0
+ Latitude = -3.40756e-016 degrees, Longitude = -1.85538 degrees
+ siteAzm = -0.392514
+ Latitude = 0.709916 degrees, Longitude = -1.71423 degrees
+ siteAzm = -0.785136
+ Latitude = 1.31183 degrees, Longitude = -1.31218 degrees
+ siteAzm = -1.17791
+ Latitude = 1.7141 degrees, Longitude = -0.710234 degrees
  siteAzm = -1.5708
  Latitude = 2.62756 degrees, Longitude = 0 degrees
  siteAzm = -1.96387
@@ -124,6 +331,102 @@ Dmin = 4923.71 m
  siteAzm = -1.17773
  Latitude = 2.42742 degrees, Longitude = -1.00613 degrees
  siteAzm = -1.5708
+ Latitude = 3.72111 degrees, Longitude = 0 degrees
+ siteAzm = -1.96424
+ Latitude = 3.4375 degrees, Longitude = 1.42572 degrees
+ siteAzm = -2.35725
+ Latitude = 2.6303 degrees, Longitude = 2.63307 degrees
+ siteAzm = -2.74964
+ Latitude = 1.42315 degrees, Longitude = 3.43857 degrees
+ siteAzm = -3.14159
+ Latitude = 2.27685e-016 degrees, Longitude = 3.72111 degrees
+ siteAzm = -3.53355
+ Latitude = -1.42315 degrees, Longitude = 3.43857 degrees
+ siteAzm = -3.92594
+ Latitude = -2.6303 degrees, Longitude = 2.63307 degrees
+ siteAzm = -4.31894
+ Latitude = -3.4375 degrees, Longitude = 1.42572 degrees
+ siteAzm = 1.5708
+ Latitude = -3.72111 degrees, Longitude = 4.56331e-016 degrees
+ siteAzm = 1.17735
+ Latitude = -3.4375 degrees, Longitude = -1.42572 degrees
+ siteAzm = 0.784343
+ Latitude = -2.6303 degrees, Longitude = -2.63307 degrees
+ siteAzm = 0.391953
+ Latitude = -1.42315 degrees, Longitude = -3.43857 degrees
+ siteAzm = 0
+ Latitude = -6.83054e-016 degrees, Longitude = -3.72111 degrees
+ siteAzm = -0.391953
+ Latitude = 1.42315 degrees, Longitude = -3.43857 degrees
+ siteAzm = -0.784343
+ Latitude = 2.6303 degrees, Longitude = -2.63307 degrees
+ siteAzm = -1.17735
+ Latitude = 3.4375 degrees, Longitude = -1.42572 degrees
+ siteAzm = -1.5708
+ Latitude = 5.26979 degrees, Longitude = 0 degrees
+ siteAzm = -1.965
+ Latitude = 4.86764 degrees, Longitude = 2.02153 degrees
+ siteAzm = -2.35831
+ Latitude = 3.72367 degrees, Longitude = 3.73156 degrees
+ siteAzm = -2.75039
+ Latitude = 2.01423 degrees, Longitude = 4.87066 degrees
+ siteAzm = -3.14159
+ Latitude = 3.22216e-016 degrees, Longitude = 5.26979 degrees
+ siteAzm = -3.5328
+ Latitude = -2.01423 degrees, Longitude = 4.87066 degrees
+ siteAzm = -3.92487
+ Latitude = -3.72367 degrees, Longitude = 3.73156 degrees
+ siteAzm = -4.31819
+ Latitude = -4.86764 degrees, Longitude = 2.02153 degrees
+ siteAzm = 1.5708
+ Latitude = -5.26979 degrees, Longitude = 6.47167e-016 degrees
+ siteAzm = 1.1766
+ Latitude = -4.86764 degrees, Longitude = -2.02153 degrees
+ siteAzm = 0.78328
+ Latitude = -3.72367 degrees, Longitude = -3.73156 degrees
+ siteAzm = 0.391204
+ Latitude = -2.01423 degrees, Longitude = -4.87066 degrees
+ siteAzm = 0
+ Latitude = -9.66648e-016 degrees, Longitude = -5.26979 degrees
+ siteAzm = -0.391204
+ Latitude = 2.01423 degrees, Longitude = -4.87066 degrees
+ siteAzm = -0.78328
+ Latitude = 3.72367 degrees, Longitude = -3.73156 degrees
+ siteAzm = -1.1766
+ Latitude = 4.86764 degrees, Longitude = -2.02153 degrees
+ siteAzm = -1.5708
+ Latitude = 7.463 degrees, Longitude = 0 degrees
+ siteAzm = -1.96651
+ Latitude = 6.89204 degrees, Longitude = 2.86983 degrees
+ siteAzm = -2.36045
+ Latitude = 5.26965 degrees, Longitude = 5.29208 degrees
+ siteAzm = -2.75189
+ Latitude = 2.84907 degrees, Longitude = 6.90061 degrees
+ siteAzm = -3.14159
+ Latitude = 4.55671e-016 degrees, Longitude = 7.463 degrees
+ siteAzm = -3.53129
+ Latitude = -2.84907 degrees, Longitude = 6.90061 degrees
+ siteAzm = -3.92274
+ Latitude = -5.26965 degrees, Longitude = 5.29208 degrees
+ siteAzm = -4.31667
+ Latitude = -6.89204 degrees, Longitude = 2.86983 degrees
+ siteAzm = 1.5708
+ Latitude = -7.463 degrees, Longitude = 9.19127e-016 degrees
+ siteAzm = 1.17508
+ Latitude = -6.89204 degrees, Longitude = -2.86983 degrees
+ siteAzm = 0.781145
+ Latitude = -5.26965 degrees, Longitude = -5.29208 degrees
+ siteAzm = 0.3897
+ Latitude = -2.84907 degrees, Longitude = -6.90061 degrees
+ siteAzm = 0
+ Latitude = -1.36701e-015 degrees, Longitude = -7.463 degrees
+ siteAzm = -0.3897
+ Latitude = 2.84907 degrees, Longitude = -6.90061 degrees
+ siteAzm = -0.781145
+ Latitude = 5.26965 degrees, Longitude = -5.29208 degrees
+ siteAzm = -1.17508
+ Latitude = 6.89204 degrees, Longitude = -2.86983 degrees
+ siteAzm = -1.5708
  Latitude = 10.569 degrees, Longitude = 0 degrees
  siteAzm = -1.96958
  Latitude = 9.75627 degrees, Longitude = 4.08416 degrees
@@ -156,6 +459,102 @@ Dmin = 4923.71 m
  siteAzm = -1.17201
  Latitude = 9.75627 degrees, Longitude = -4.08416 degrees
  siteAzm = -1.5708
+ Latitude = 14.9677 degrees, Longitude = 0 degrees
+ siteAzm = -1.97585
+ Latitude = 13.8047 degrees, Longitude = 5.84151 degrees
+ siteAzm = -2.37345
+ Latitude = 10.5228 degrees, Longitude = 10.7049 degrees
+ siteAzm = -2.76095
+ Latitude = 5.67221 degrees, Longitude = 13.874 degrees
+ siteAzm = -3.14159
+ Latitude = 9.06086e-016 degrees, Longitude = 14.9677 degrees
+ siteAzm = -3.52224
+ Latitude = -5.67221 degrees, Longitude = 13.874 degrees
+ siteAzm = -3.90974
+ Latitude = -10.5228 degrees, Longitude = 10.7049 degrees
+ siteAzm = -4.30734
+ Latitude = -13.8047 degrees, Longitude = 5.84151 degrees
+ siteAzm = 1.5708
+ Latitude = -14.9677 degrees, Longitude = 1.87582e-015 degrees
+ siteAzm = 1.16574
+ Latitude = -13.8047 degrees, Longitude = -5.84151 degrees
+ siteAzm = 0.768143
+ Latitude = -10.5228 degrees, Longitude = -10.7049 degrees
+ siteAzm = 0.380644
+ Latitude = -5.67221 degrees, Longitude = -13.874 degrees
+ siteAzm = 0
+ Latitude = -2.71826e-015 degrees, Longitude = -14.9677 degrees
+ siteAzm = -0.380644
+ Latitude = 5.67221 degrees, Longitude = -13.874 degrees
+ siteAzm = -0.768143
+ Latitude = 10.5228 degrees, Longitude = -10.7049 degrees
+ siteAzm = -1.16574
+ Latitude = 13.8047 degrees, Longitude = -5.84151 degrees
+ siteAzm = -1.5708
+ Latitude = 21.197 degrees, Longitude = 0 degrees
+ siteAzm = -1.98888
+ Latitude = 19.5149 degrees, Longitude = 8.44165 degrees
+ siteAzm = -2.39119
+ Latitude = 14.8134 degrees, Longitude = 15.335 degrees
+ siteAzm = -2.77305
+ Latitude = 7.95348 degrees, Longitude = 19.7123 degrees
+ siteAzm = -3.14159
+ Latitude = 1.26849e-015 degrees, Longitude = 21.197 degrees
+ siteAzm = -3.51014
+ Latitude = -7.95348 degrees, Longitude = 19.7123 degrees
+ siteAzm = -3.89199
+ Latitude = -14.8134 degrees, Longitude = 15.335 degrees
+ siteAzm = -4.29431
+ Latitude = -19.5149 degrees, Longitude = 8.44165 degrees
+ siteAzm = 1.5708
+ Latitude = -21.197 degrees, Longitude = 2.72109e-015 degrees
+ siteAzm = 1.15272
+ Latitude = -19.5149 degrees, Longitude = -8.44165 degrees
+ siteAzm = 0.750399
+ Latitude = -14.8134 degrees, Longitude = -15.335 degrees
+ siteAzm = 0.368544
+ Latitude = -7.95348 degrees, Longitude = -19.7123 degrees
+ siteAzm = 0
+ Latitude = -3.80548e-015 degrees, Longitude = -21.197 degrees
+ siteAzm = -0.368544
+ Latitude = 7.95348 degrees, Longitude = -19.7123 degrees
+ siteAzm = -0.750399
+ Latitude = 14.8134 degrees, Longitude = -15.335 degrees
+ siteAzm = -1.15272
+ Latitude = 19.5149 degrees, Longitude = -8.44165 degrees
+ siteAzm = -1.5708
+ Latitude = 30.0189 degrees, Longitude = 0 degrees
+ siteAzm = -2.017
+ Latitude = 27.5294 degrees, Longitude = 12.4681 degrees
+ siteAzm = -2.42796
+ Latitude = 20.7172 degrees, Longitude = 22.2229 degrees
+ siteAzm = -2.79723
+ Latitude = 11.0375 degrees, Longitude = 28.0937 degrees
+ siteAzm = -3.14159
+ Latitude = 1.75512e-015 degrees, Longitude = 30.0189 degrees
+ siteAzm = -3.48595
+ Latitude = -11.0375 degrees, Longitude = 28.0937 degrees
+ siteAzm = -3.85522
+ Latitude = -20.7172 degrees, Longitude = 22.2229 degrees
+ siteAzm = -4.26618
+ Latitude = -27.5294 degrees, Longitude = 12.4681 degrees
+ siteAzm = 1.5708
+ Latitude = -30.0189 degrees, Longitude = 4.05405e-015 degrees
+ siteAzm = 1.12459
+ Latitude = -27.5294 degrees, Longitude = -12.4681 degrees
+ siteAzm = 0.71363
+ Latitude = -20.7172 degrees, Longitude = -22.2229 degrees
+ siteAzm = 0.344361
+ Latitude = -11.0375 degrees, Longitude = -28.0937 degrees
+ siteAzm = 0
+ Latitude = -5.26536e-015 degrees, Longitude = -30.0189 degrees
+ siteAzm = -0.344361
+ Latitude = 11.0375 degrees, Longitude = -28.0937 degrees
+ siteAzm = -0.71363
+ Latitude = 20.7172 degrees, Longitude = -22.2229 degrees
+ siteAzm = -1.12459
+ Latitude = 27.5294 degrees, Longitude = -12.4681 degrees
+ siteAzm = -1.5708
  Latitude = 42.5123 degrees, Longitude = 0 degrees
  siteAzm = -2.08275
  Latitude = 38.6316 degrees, Longitude = 19.3317 degrees
@@ -187,6 +586,102 @@ Dmin = 4923.71 m
  Latitude = 28.5435 degrees, Longitude = -32.9523 degrees
  siteAzm = -1.05884
  Latitude = 38.6316 degrees, Longitude = -19.3317 degrees
+ siteAzm = -1.5708
+ Latitude = 60.2054 degrees, Longitude = 0 degrees
+ siteAzm = -2.2657
+ Latitude = 53.2979 degrees, Longitude = 33.7567 degrees
+ siteAzm = -2.68043
+ Latitude = 37.8529 degrees, Longitude = 51.0011 degrees
+ siteAzm = -2.93861
+ Latitude = 19.3961 degrees, Longitude = 58.2111 degrees
+ siteAzm = -3.14159
+ Latitude = 3.04449e-015 degrees, Longitude = 60.2054 degrees
+ siteAzm = -3.34458
+ Latitude = -19.3961 degrees, Longitude = 58.2111 degrees
+ siteAzm = -3.60275
+ Latitude = -37.8529 degrees, Longitude = 51.0011 degrees
+ siteAzm = -4.01749
+ Latitude = -53.2979 degrees, Longitude = 33.7567 degrees
+ siteAzm = 1.5708
+ Latitude = -60.2054 degrees, Longitude = 1.22541e-014 degrees
+ siteAzm = 0.875896
+ Latitude = -53.2979 degrees, Longitude = -33.7567 degrees
+ siteAzm = 0.461159
+ Latitude = -37.8529 degrees, Longitude = -51.0011 degrees
+ siteAzm = 0.202985
+ Latitude = -19.3961 degrees, Longitude = -58.2111 degrees
+ siteAzm = 0
+ Latitude = -9.13347e-015 degrees, Longitude = -60.2054 degrees
+ siteAzm = -0.202985
+ Latitude = 19.3961 degrees, Longitude = -58.2111 degrees
+ siteAzm = -0.461159
+ Latitude = 37.8529 degrees, Longitude = -51.0011 degrees
+ siteAzm = -0.875896
+ Latitude = 53.2979 degrees, Longitude = -33.7567 degrees
+ siteAzm = -1.5708
+ Latitude = 85.262 degrees, Longitude = 0 degrees
+ siteAzm = -2.94476
+ Latitude = 67.0319 degrees, Longitude = 77.7794 degrees
+ siteAzm = -3.05918
+ Latitude = 44.8045 degrees, Longitude = 83.3146 degrees
+ siteAzm = -3.10739
+ Latitude = 22.4189 degrees, Longitude = 84.8736 degrees
+ siteAzm = -3.14159
+ Latitude = 3.49625e-015 degrees, Longitude = 85.262 degrees
+ siteAzm = -3.17579
+ Latitude = -22.4189 degrees, Longitude = 84.8736 degrees
+ siteAzm = -3.22401
+ Latitude = -44.8045 degrees, Longitude = 83.3146 degrees
+ siteAzm = -3.33842
+ Latitude = -67.0319 degrees, Longitude = 77.7794 degrees
+ siteAzm = -4.71239
+ Latitude = -85.262 degrees, Longitude = 8.46554e-014 degrees
+ siteAzm = 0.196831
+ Latitude = -67.0319 degrees, Longitude = -77.7794 degrees
+ siteAzm = 0.0824125
+ Latitude = -44.8045 degrees, Longitude = -83.3146 degrees
+ siteAzm = 0.0342005
+ Latitude = -22.4189 degrees, Longitude = -84.8736 degrees
+ siteAzm = 0
+ Latitude = -1.04888e-014 degrees, Longitude = -85.262 degrees
+ siteAzm = -0.0342005
+ Latitude = 22.4189 degrees, Longitude = -84.8736 degrees
+ siteAzm = -0.0824125
+ Latitude = 44.8045 degrees, Longitude = -83.3146 degrees
+ siteAzm = -0.196831
+ Latitude = 67.0319 degrees, Longitude = -77.7794 degrees
+ siteAzm = 1.5708
+ Latitude = 59.2532 degrees, Longitude = 180 degrees
+ siteAzm = -4.03146
+ Latitude = 52.5622 degrees, Longitude = 147.246 degrees
+ siteAzm = -3.6142
+ Latitude = 37.4242 degrees, Longitude = 130.073 degrees
+ siteAzm = -3.35027
+ Latitude = 19.2015 degrees, Longitude = 122.776 degrees
+ siteAzm = -3.14159
+ Latitude = 3.0151e-015 degrees, Longitude = 120.747 degrees
+ siteAzm = -2.93291
+ Latitude = -19.2015 degrees, Longitude = 122.776 degrees
+ siteAzm = -2.66899
+ Latitude = -37.4242 degrees, Longitude = 130.073 degrees
+ siteAzm = -2.25173
+ Latitude = -52.5622 degrees, Longitude = 147.246 degrees
+ siteAzm = -1.5708
+ Latitude = -59.2532 degrees, Longitude = 180 degrees
+ siteAzm = -0.889864
+ Latitude = -52.5622 degrees, Longitude = -147.246 degrees
+ siteAzm = -0.472604
+ Latitude = -37.4242 degrees, Longitude = -130.073 degrees
+ siteAzm = -0.208682
+ Latitude = -19.2015 degrees, Longitude = -122.776 degrees
+ siteAzm = 0
+ Latitude = -9.0453e-015 degrees, Longitude = -120.747 degrees
+ siteAzm = 0.208682
+ Latitude = 19.2015 degrees, Longitude = -122.776 degrees
+ siteAzm = 0.472604
+ Latitude = 37.4242 degrees, Longitude = -130.073 degrees
+ siteAzm = 0.889864
+ Latitude = 52.5622 degrees, Longitude = -147.246 degrees
  siteAzm = -4.71239
  Latitude = 9 degrees, Longitude = 180 degrees
  siteAzm = -4.31529
@@ -1482,7 +1977,7 @@ vMin = 0.00000e+000 | vMax = 8.00000e+001
 ---- Computing Secondary Fluxes ----
 ------------------------------------
   flux_vs_D_filename = flux_vs_D.txt
- Ni (i_siteDist) = 5
+ Ni (i_siteDist) = 20
  Nj (j_siteAzm) = 16
  Nk (k_impactHorzAngle) = 18
  Nl (l_impactAzm) = 72
@@ -1490,7 +1985,496 @@ vMin = 0.00000e+000 | vMax = 8.00000e+001
  Nii (ii_ejectaAzm) = 36
  Njj (jj_ejectaAlt) = 9
  Nkk (kk_ejectaSpeed) = 12
-getDbeta: = 1.12613e+001
+getDbeta: = 2.24837e+001
+
+ incoming Azm at ROI, Dbeta = -90, 22.484
+
+ outgoing Azm at impact = 270
+ Site Latitude = 0.22999
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 0.00024113   1
+  run time = 0 minutes |  time remaining = 0 minutes
+
+ incoming Azm at ROI, Dbeta = -112.5, 22.484
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 0.21248
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 0.31274   8646589
+  run time = 0.46972 minutes |  time remaining = 149.72 minutes
+
+ incoming Azm at ROI, Dbeta = -135, 22.484
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.16263
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 0.62524   17293177
+  run time = 0.89798 minutes |  time remaining = 142.72 minutes
+
+ incoming Azm at ROI, Dbeta = -157.5, 22.484
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.088013
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 0.93774   25939765
+  run time = 1.3444 minutes |  time remaining = 142.02 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 22.484
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.4082e-017
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 1.2502   34586353
+  run time = 1.7443 minutes |  time remaining = 137.77 minutes
+
+ incoming Azm at ROI, Dbeta = -202.5, 22.484
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.088013
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 1.5627   43232941
+  run time = 2.178 minutes |  time remaining = 137.2 minutes
+
+ incoming Azm at ROI, Dbeta = -225, 22.484
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.16263
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 1.8752   51879529
+  run time = 2.5767 minutes |  time remaining = 134.83 minutes
+
+ incoming Azm at ROI, Dbeta = -247.5, 22.484
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -0.21248
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 2.1877   60526117
+  run time = 3.0192 minutes |  time remaining = 134.98 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 22.484
+
+ outgoing Azm at impact = 90
+ Site Latitude = -0.22999
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 2.5002   69172705
+  run time = 3.4244 minutes |  time remaining = 133.54 minutes
+
+ incoming Azm at ROI, Dbeta = 67.5, 22.484
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -0.21248
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 2.8127   77819293
+  run time = 3.8506 minutes |  time remaining = 133.05 minutes
+
+ incoming Azm at ROI, Dbeta = 45, 22.484
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.16263
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 3.1252   86465881
+  run time = 4.2454 minutes |  time remaining = 131.6 minutes
+
+ incoming Azm at ROI, Dbeta = 22.5, 22.484
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.088013
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 3.4377   95112469
+  run time = 4.6695 minutes |  time remaining = 131.16 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 22.484
+
+ outgoing Azm at impact = 0
+ Site Latitude = -4.2247e-017
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 3.7502   103759057
+  run time = 5.065 minutes |  time remaining = 129.99 minutes
+
+ incoming Azm at ROI, Dbeta = -22.5, 22.484
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.088013
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 4.0627   112405645
+  run time = 5.4883 minutes |  time remaining = 129.6 minutes
+
+ incoming Azm at ROI, Dbeta = -45, 22.484
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.16263
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 4.3752   121052233
+  run time = 5.8843 minutes |  time remaining = 128.61 minutes
+
+ incoming Azm at ROI, Dbeta = -67.5, 22.484
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 0.21248
+  Lat idx = 18
+ D0, D1 = 0.00018775 0.00109
+ D2, D3 = 0.99891 0.99981
+ Percent finished = 4.6877   129698821
+  run time = 6.3096 minutes |  time remaining = 128.29 minutes
+ Total flux in distance range D0 and D1 = 1.8522e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 18.403
+
+ incoming Azm at ROI, Dbeta = -90, 18.403
+
+ outgoing Azm at impact = 270
+ Site Latitude = 0.32571
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 5.0002   138345409
+  run time = 6.7038 minutes |  time remaining = 127.37 minutes
+
+ incoming Azm at ROI, Dbeta = -112.5, 18.403
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 0.30092
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 5.3127   146991997
+  run time = 7.1366 minutes |  time remaining = 127.19 minutes
+
+ incoming Azm at ROI, Dbeta = -135, 18.403
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.23031
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 5.6252   155638585
+  run time = 7.5469 minutes |  time remaining = 126.61 minutes
+
+ incoming Azm at ROI, Dbeta = -157.5, 18.403
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.12464
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 5.9377   164285173
+  run time = 7.9908 minutes |  time remaining = 126.59 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 18.403
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.9943e-017
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 6.2502   172931761
+  run time = 8.4047 minutes |  time remaining = 126.07 minutes
+
+ incoming Azm at ROI, Dbeta = -202.5, 18.403
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.12464
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 6.5627   181578349
+  run time = 8.85 minutes |  time remaining = 126 minutes
+
+ incoming Azm at ROI, Dbeta = -225, 18.403
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.23031
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 6.8752   190224937
+  run time = 9.2677 minutes |  time remaining = 125.53 minutes
+
+ incoming Azm at ROI, Dbeta = -247.5, 18.403
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -0.30092
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 7.1877   198871525
+  run time = 9.7125 minutes |  time remaining = 125.41 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 18.403
+
+ outgoing Azm at impact = 90
+ Site Latitude = -0.32571
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 7.5002   207518113
+  run time = 10.129 minutes |  time remaining = 124.92 minutes
+
+ incoming Azm at ROI, Dbeta = 67.5, 18.403
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -0.30092
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 7.8127   216164701
+  run time = 10.572 minutes |  time remaining = 124.74 minutes
+
+ incoming Azm at ROI, Dbeta = 45, 18.403
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.23031
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 8.1252   224811289
+  run time = 10.985 minutes |  time remaining = 124.21 minutes
+
+ incoming Azm at ROI, Dbeta = 22.5, 18.403
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.12464
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 8.4377   233457877
+  run time = 11.423 minutes |  time remaining = 123.96 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 18.403
+
+ outgoing Azm at impact = 0
+ Site Latitude = -5.983e-017
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 8.7502   242104465
+  run time = 11.839 minutes |  time remaining = 123.46 minutes
+
+ incoming Azm at ROI, Dbeta = -22.5, 18.403
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.12464
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 9.0627   250751053
+  run time = 12.279 minutes |  time remaining = 123.21 minutes
+
+ incoming Azm at ROI, Dbeta = -45, 18.403
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.23031
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 9.3752   259397641
+  run time = 12.692 minutes |  time remaining = 122.68 minutes
+
+ incoming Azm at ROI, Dbeta = -67.5, 18.403
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 0.30092
+  Lat idx = 18
+ D0, D1 = 0.00045363 0.0013559
+ D2, D3 = 0.99864 0.99955
+ Percent finished = 9.6877   268044229
+  run time = 13.13 minutes |  time remaining = 122.4 minutes
+ Total flux in distance range D0 and D1 = 2.4124e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 14.596
+
+ incoming Azm at ROI, Dbeta = -90, 14.596
+
+ outgoing Azm at impact = 270
+ Site Latitude = 0.46127
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 10   276690817
+  run time = 13.545 minutes |  time remaining = 121.9 minutes
+
+ incoming Azm at ROI, Dbeta = -112.5, 14.596
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 0.42615
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 10.313   285337405
+  run time = 13.984 minutes |  time remaining = 121.62 minutes
+
+ incoming Azm at ROI, Dbeta = -135, 14.596
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.32616
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 10.625   293983993
+  run time = 14.482 minutes |  time remaining = 121.81 minutes
+
+ incoming Azm at ROI, Dbeta = -157.5, 14.596
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.17652
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 10.938   302630581
+  run time = 14.928 minutes |  time remaining = 121.55 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 14.596
+
+ outgoing Azm at impact = 180
+ Site Latitude = 2.8243e-017
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 11.25   311277169
+  run time = 15.418 minutes |  time remaining = 121.63 minutes
+
+ incoming Azm at ROI, Dbeta = -202.5, 14.596
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.17652
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 11.563   319923757
+  run time = 15.861 minutes |  time remaining = 121.31 minutes
+
+ incoming Azm at ROI, Dbeta = -225, 14.596
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.32616
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 11.875   328570345
+  run time = 16.331 minutes |  time remaining = 121.19 minutes
+
+ incoming Azm at ROI, Dbeta = -247.5, 14.596
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -0.42615
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 12.188   337216933
+  run time = 16.796 minutes |  time remaining = 121.01 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 14.596
+
+ outgoing Azm at impact = 90
+ Site Latitude = -0.46127
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 12.5   345863521
+  run time = 17.287 minutes |  time remaining = 121 minutes
+
+ incoming Azm at ROI, Dbeta = 67.499, 14.596
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -0.42615
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 12.813   354510109
+  run time = 17.75 minutes |  time remaining = 120.78 minutes
+
+ incoming Azm at ROI, Dbeta = 44.999, 14.596
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.32616
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 13.125   363156697
+  run time = 18.211 minutes |  time remaining = 120.54 minutes
+
+ incoming Azm at ROI, Dbeta = 22.499, 14.596
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.17652
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 13.438   371803285
+  run time = 18.693 minutes |  time remaining = 120.42 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 14.596
+
+ outgoing Azm at impact = 0
+ Site Latitude = -8.4729e-017
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 13.75   380449873
+  run time = 19.176 minutes |  time remaining = 120.28 minutes
+
+ incoming Azm at ROI, Dbeta = -22.499, 14.596
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.17652
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 14.063   389096461
+  run time = 19.608 minutes |  time remaining = 119.83 minutes
+
+ incoming Azm at ROI, Dbeta = -44.999, 14.596
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.32616
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 14.375   397743049
+  run time = 20.098 minutes |  time remaining = 119.71 minutes
+
+ incoming Azm at ROI, Dbeta = -67.499, 14.596
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 0.42615
+  Lat idx = 18
+ D0, D1 = 0.00083018 0.0017324
+ D2, D3 = 0.99827 0.99917
+ Percent finished = 14.688   406389637
+  run time = 20.534 minutes |  time remaining = 119.27 minutes
+ Total flux in distance range D0 and D1 = 2.2475e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+getDbeta: = 11.261
 
  incoming Azm at ROI, Dbeta = -90, 11.261
 
@@ -1499,8 +2483,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 0.00096451   1
-  run time = 0 minutes |  time remaining = 0 minutes
+ Percent finished = 15   415036225
+  run time = 21.014 minutes |  time remaining = 119.08 minutes
 
  incoming Azm at ROI, Dbeta = -112.5, 11.261
 
@@ -1509,8 +2493,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 1.251   8646589
-  run time = 0.46983 minutes |  time remaining = 37.088 minutes
+ Percent finished = 15.313   423682813
+  run time = 21.489 minutes |  time remaining = 118.84 minutes
 
  incoming Azm at ROI, Dbeta = -135, 11.261
 
@@ -1519,8 +2503,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 2.501   17293177
-  run time = 0.97628 minutes |  time remaining = 38.06 minutes
+ Percent finished = 15.625   432329401
+  run time = 21.962 minutes |  time remaining = 118.59 minutes
 
  incoming Azm at ROI, Dbeta = -157.5, 11.261
 
@@ -1529,8 +2513,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 3.751   25939765
-  run time = 1.5022 minutes |  time remaining = 38.547 minutes
+ Percent finished = 15.938   440975989
+  run time = 22.407 minutes |  time remaining = 118.19 minutes
 
  incoming Azm at ROI, Dbeta = -180, 11.261
 
@@ -1539,8 +2523,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 5.001   34586353
-  run time = 1.9989 minutes |  time remaining = 37.971 minutes
+ Percent finished = 16.25   449622577
+  run time = 22.841 minutes |  time remaining = 117.72 minutes
 
  incoming Azm at ROI, Dbeta = -202.5, 11.261
 
@@ -1549,8 +2533,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 6.251   43232941
-  run time = 2.4594 minutes |  time remaining = 36.884 minutes
+ Percent finished = 16.563   458269165
+  run time = 23.279 minutes |  time remaining = 117.27 minutes
 
  incoming Azm at ROI, Dbeta = -225, 11.261
 
@@ -1559,8 +2543,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 7.501   51879529
-  run time = 2.9188 minutes |  time remaining = 35.993 minutes
+ Percent finished = 16.875   466915753
+  run time = 23.719 minutes |  time remaining = 116.84 minutes
 
  incoming Azm at ROI, Dbeta = -247.5, 11.261
 
@@ -1569,8 +2553,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 8.751   60526117
-  run time = 3.4038 minutes |  time remaining = 35.493 minutes
+ Percent finished = 17.188   475562341
+  run time = 24.167 minutes |  time remaining = 116.44 minutes
 
  incoming Azm at ROI, Dbeta = 90, 11.261
 
@@ -1579,8 +2563,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 10.001   69172705
-  run time = 3.8781 minutes |  time remaining = 34.899 minutes
+ Percent finished = 17.5   484208929
+  run time = 24.632 minutes |  time remaining = 116.12 minutes
 
  incoming Azm at ROI, Dbeta = 67.499, 11.261
 
@@ -1589,8 +2573,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 11.251   77819293
-  run time = 4.3323 minutes |  time remaining = 34.174 minutes
+ Percent finished = 17.813   492855517
+  run time = 25.104 minutes |  time remaining = 115.83 minutes
 
  incoming Azm at ROI, Dbeta = 44.998, 11.261
 
@@ -1599,8 +2583,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 12.501   86465881
-  run time = 4.7912 minutes |  time remaining = 33.535 minutes
+ Percent finished = 18.125   501502105
+  run time = 25.543 minutes |  time remaining = 115.38 minutes
 
  incoming Azm at ROI, Dbeta = 22.499, 11.261
 
@@ -1609,8 +2593,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 13.751   95112469
-  run time = 5.2388 minutes |  time remaining = 32.859 minutes
+ Percent finished = 18.438   510148693
+  run time = 26.015 minutes |  time remaining = 115.08 minutes
 
  incoming Azm at ROI, Dbeta = 0, 11.261
 
@@ -1619,8 +2603,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 15.001   103759057
-  run time = 5.7165 minutes |  time remaining = 32.391 minutes
+ Percent finished = 18.75   518795281
+  run time = 26.582 minutes |  time remaining = 115.19 minutes
 
  incoming Azm at ROI, Dbeta = -22.499, 11.261
 
@@ -1629,8 +2613,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 16.251   112405645
-  run time = 6.2007 minutes |  time remaining = 31.955 minutes
+ Percent finished = 19.063   527441869
+  run time = 27.228 minutes |  time remaining = 115.61 minutes
 
  incoming Azm at ROI, Dbeta = -44.998, 11.261
 
@@ -1639,8 +2623,8 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 17.501   121052233
-  run time = 6.7282 minutes |  time remaining = 31.717 minutes
+ Percent finished = 19.375   536088457
+  run time = 27.759 minutes |  time remaining = 115.51 minutes
 
  incoming Azm at ROI, Dbeta = -67.499, 11.261
 
@@ -1649,10 +2633,499 @@ getDbeta: = 1.12613e+001
   Lat idx = 18
  D0, D1 = 0.0013634 0.0022657
  D2, D3 = 0.99773 0.99864
- Percent finished = 18.751   129698821
-  run time = 7.2829 minutes |  time remaining = 31.557 minutes
- Total flux in distance range D0 and D1 = 5.2564e-007 kg/m^2/yr
- Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+ Percent finished = 19.688   544735045
+  run time = 28.218 minutes |  time remaining = 115.11 minutes
+ Total flux in distance range D0 and D1 = 1.9163e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 3.0786e-020 kg/m^2/yr
+getDbeta: = 8.4939
+
+ incoming Azm at ROI, Dbeta = -90, 8.4939
+
+ outgoing Azm at impact = 270
+ Site Latitude = 0.92511
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 20   553381633
+  run time = 28.751 minutes |  time remaining = 115 minutes
+
+ incoming Azm at ROI, Dbeta = -112.5, 8.4939
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 0.85468
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 20.313   562028221
+  run time = 29.214 minutes |  time remaining = 114.61 minutes
+
+ incoming Azm at ROI, Dbeta = -135, 8.4939
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.65413
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 20.625   570674809
+  run time = 29.708 minutes |  time remaining = 114.33 minutes
+
+ incoming Azm at ROI, Dbeta = -157.5, 8.4939
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.35401
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 20.938   579321397
+  run time = 30.119 minutes |  time remaining = 113.73 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 8.4939
+
+ outgoing Azm at impact = 180
+ Site Latitude = 5.6642e-017
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 21.25   587967985
+  run time = 30.663 minutes |  time remaining = 113.63 minutes
+
+ incoming Azm at ROI, Dbeta = -202.5, 8.4939
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.35401
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 21.563   596614573
+  run time = 31.062 minutes |  time remaining = 112.99 minutes
+
+ incoming Azm at ROI, Dbeta = -225, 8.4939
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.65413
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 21.875   605261161
+  run time = 31.485 minutes |  time remaining = 112.44 minutes
+
+ incoming Azm at ROI, Dbeta = -247.5, 8.4939
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -0.85468
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 22.188   613907749
+  run time = 31.909 minutes |  time remaining = 111.9 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 8.4939
+
+ outgoing Azm at impact = 90
+ Site Latitude = -0.92511
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 22.5   622554337
+  run time = 32.334 minutes |  time remaining = 111.37 minutes
+
+ incoming Azm at ROI, Dbeta = 67.497, 8.4939
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -0.85468
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 22.813   631200925
+  run time = 32.744 minutes |  time remaining = 110.79 minutes
+
+ incoming Azm at ROI, Dbeta = 44.996, 8.4939
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.65413
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 23.125   639847513
+  run time = 33.17 minutes |  time remaining = 110.27 minutes
+
+ incoming Azm at ROI, Dbeta = 22.497, 8.4939
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.35401
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 23.438   648494101
+  run time = 33.575 minutes |  time remaining = 109.68 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 8.4939
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.6993e-016
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 23.75   657140689
+  run time = 34.002 minutes |  time remaining = 109.16 minutes
+
+ incoming Azm at ROI, Dbeta = -22.497, 8.4939
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.35401
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 24.063   665787277
+  run time = 34.393 minutes |  time remaining = 108.54 minutes
+
+ incoming Azm at ROI, Dbeta = -44.996, 8.4939
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.65413
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 24.375   674433865
+  run time = 34.809 minutes |  time remaining = 108 minutes
+
+ incoming Azm at ROI, Dbeta = -67.497, 8.4939
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 0.85468
+  Lat idx = 18
+ D0, D1 = 0.0021186 0.0030209
+ D2, D3 = 0.99698 0.99788
+ Percent finished = 24.688   683080453
+  run time = 35.221 minutes |  time remaining = 107.44 minutes
+ Total flux in distance range D0 and D1 = 1.6188e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 4.5559e-020 kg/m^2/yr
+getDbeta: = 6.2943
+
+ incoming Azm at ROI, Dbeta = -90, 6.2943
+
+ outgoing Azm at impact = 270
+ Site Latitude = 1.3101
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 25   691727041
+  run time = 35.645 minutes |  time remaining = 106.93 minutes
+
+ incoming Azm at ROI, Dbeta = -112.51, 6.2943
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 1.2104
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 25.313   700373629
+  run time = 36.04 minutes |  time remaining = 106.34 minutes
+
+ incoming Azm at ROI, Dbeta = -135.01, 6.2943
+
+ outgoing Azm at impact = 225
+ Site Latitude = 0.92636
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 25.625   709020217
+  run time = 36.444 minutes |  time remaining = 105.77 minutes
+
+ incoming Azm at ROI, Dbeta = -157.51, 6.2943
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.50132
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 25.938   717666805
+  run time = 36.84 minutes |  time remaining = 105.19 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 6.2943
+
+ outgoing Azm at impact = 180
+ Site Latitude = 8.0212e-017
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 26.25   726313393
+  run time = 37.256 minutes |  time remaining = 104.67 minutes
+
+ incoming Azm at ROI, Dbeta = -202.49, 6.2943
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.50132
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 26.563   734959981
+  run time = 37.668 minutes |  time remaining = 104.14 minutes
+
+ incoming Azm at ROI, Dbeta = -224.99, 6.2943
+
+ outgoing Azm at impact = 135
+ Site Latitude = -0.92636
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 26.875   743606569
+  run time = 38.07 minutes |  time remaining = 103.58 minutes
+
+ incoming Azm at ROI, Dbeta = -247.49, 6.2943
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -1.2104
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 27.188   752253157
+  run time = 38.444 minutes |  time remaining = 102.96 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 6.2943
+
+ outgoing Azm at impact = 90
+ Site Latitude = -1.3101
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 27.5   760899745
+  run time = 38.809 minutes |  time remaining = 102.31 minutes
+
+ incoming Azm at ROI, Dbeta = 67.495, 6.2943
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -1.2104
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 27.813   769546333
+  run time = 39.179 minutes |  time remaining = 101.69 minutes
+
+ incoming Azm at ROI, Dbeta = 44.993, 6.2943
+
+ outgoing Azm at impact = 45
+ Site Latitude = -0.92636
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 28.125   778192921
+  run time = 39.549 minutes |  time remaining = 101.07 minutes
+
+ incoming Azm at ROI, Dbeta = 22.495, 6.2943
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.50132
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 28.438   786839509
+  run time = 39.92 minutes |  time remaining = 100.46 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 6.2943
+
+ outgoing Azm at impact = 0
+ Site Latitude = -2.4064e-016
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 28.75   795486097
+  run time = 40.334 minutes |  time remaining = 99.957 minutes
+
+ incoming Azm at ROI, Dbeta = -22.495, 6.2943
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.50132
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 29.063   804132685
+  run time = 40.843 minutes |  time remaining = 99.69 minutes
+
+ incoming Azm at ROI, Dbeta = -44.993, 6.2943
+
+ outgoing Azm at impact = -45
+ Site Latitude = 0.92636
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 29.375   812779273
+  run time = 41.23 minutes |  time remaining = 99.127 minutes
+
+ incoming Azm at ROI, Dbeta = -67.495, 6.2943
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 1.2104
+  Lat idx = 18
+ D0, D1 = 0.0031881 0.0040903
+ D2, D3 = 0.99591 0.99681
+ Percent finished = 29.688   821425861
+  run time = 41.614 minutes |  time remaining = 98.559 minutes
+ Total flux in distance range D0 and D1 = 1.3553e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 4.5259e-019 kg/m^2/yr
+getDbeta: = 4.6025
+
+ incoming Azm at ROI, Dbeta = -90, 4.6025
+
+ outgoing Azm at impact = 270
+ Site Latitude = 1.8554
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 30   830072449
+  run time = 41.991 minutes |  time remaining = 97.977 minutes
+
+ incoming Azm at ROI, Dbeta = -112.51, 4.6025
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 1.7141
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 30.313   838719037
+  run time = 42.348 minutes |  time remaining = 97.356 minutes
+
+ incoming Azm at ROI, Dbeta = -135.02, 4.6025
+
+ outgoing Azm at impact = 225
+ Site Latitude = 1.3118
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 30.625   847365625
+  run time = 42.711 minutes |  time remaining = 96.752 minutes
+
+ incoming Azm at ROI, Dbeta = -157.51, 4.6025
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 0.70992
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 30.938   856012213
+  run time = 43.073 minutes |  time remaining = 96.152 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 4.6025
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.1359e-016
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 31.25   864658801
+  run time = 43.435 minutes |  time remaining = 95.557 minutes
+
+ incoming Azm at ROI, Dbeta = -202.49, 4.6025
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -0.70992
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 31.563   873305389
+  run time = 43.798 minutes |  time remaining = 94.968 minutes
+
+ incoming Azm at ROI, Dbeta = -224.98, 4.6025
+
+ outgoing Azm at impact = 135
+ Site Latitude = -1.3118
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 31.875   881951977
+  run time = 44.162 minutes |  time remaining = 94.385 minutes
+
+ incoming Azm at ROI, Dbeta = -247.49, 4.6025
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -1.7141
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 32.188   890598565
+  run time = 44.522 minutes |  time remaining = 93.798 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 4.6025
+
+ outgoing Azm at impact = 90
+ Site Latitude = -1.8554
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 32.5   899245153
+  run time = 44.879 minutes |  time remaining = 93.209 minutes
+
+ incoming Azm at ROI, Dbeta = 67.489, 4.6025
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -1.7141
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 32.813   907891741
+  run time = 45.241 minutes |  time remaining = 92.636 minutes
+
+ incoming Azm at ROI, Dbeta = 44.985, 4.6025
+
+ outgoing Azm at impact = 45
+ Site Latitude = -1.3118
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 33.125   916538329
+  run time = 45.606 minutes |  time remaining = 92.071 minutes
+
+ incoming Azm at ROI, Dbeta = 22.489, 4.6025
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -0.70992
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 33.438   925184917
+  run time = 45.966 minutes |  time remaining = 91.502 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 4.6025
+
+ outgoing Azm at impact = 0
+ Site Latitude = -3.4076e-016
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 33.75   933831505
+  run time = 46.336 minutes |  time remaining = 90.956 minutes
+
+ incoming Azm at ROI, Dbeta = -22.489, 4.6025
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 0.70992
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 34.063   942478093
+  run time = 46.72 minutes |  time remaining = 90.439 minutes
+
+ incoming Azm at ROI, Dbeta = -44.985, 4.6025
+
+ outgoing Azm at impact = -45
+ Site Latitude = 1.3118
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 34.375   951124681
+  run time = 47.105 minutes |  time remaining = 89.927 minutes
+
+ incoming Azm at ROI, Dbeta = -67.489, 4.6025
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 1.7141
+  Lat idx = 18
+ D0, D1 = 0.0047027 0.0056049
+ D2, D3 = 0.9944 0.9953
+ Percent finished = 34.688   959771269
+  run time = 47.466 minutes |  time remaining = 89.371 minutes
+ Total flux in distance range D0 and D1 = 1.1227e-007 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 1.4902e-018 kg/m^2/yr
 getDbeta: = 3.3327
 
  incoming Azm at ROI, Dbeta = -90, 3.3327
@@ -1662,8 +3135,8 @@ getDbeta: = 3.3327
   Lat idx = 19
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 20.001   138345409
-  run time = 7.7981 minutes |  time remaining = 31.191 minutes
+ Percent finished = 35   968417857
+  run time = 47.822 minutes |  time remaining = 88.81 minutes
 
  incoming Azm at ROI, Dbeta = -112.52, 3.3327
 
@@ -1672,8 +3145,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 21.251   146987245
-  run time = 8.2148 minutes |  time remaining = 30.441 minutes
+ Percent finished = 35.313   977059693
+  run time = 48.179 minutes |  time remaining = 88.257 minutes
 
  incoming Azm at ROI, Dbeta = -135.03, 3.3327
 
@@ -1682,8 +3155,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 22.501   155633833
-  run time = 8.6776 minutes |  time remaining = 29.888 minutes
+ Percent finished = 35.625   985706281
+  run time = 48.519 minutes |  time remaining = 87.674 minutes
 
  incoming Azm at ROI, Dbeta = -157.52, 3.3327
 
@@ -1692,8 +3165,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 23.751   164280421
-  run time = 9.106 minutes |  time remaining = 29.234 minutes
+ Percent finished = 35.938   994352869
+  run time = 48.865 minutes |  time remaining = 87.106 minutes
 
  incoming Azm at ROI, Dbeta = -180, 3.3327
 
@@ -1702,8 +3175,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 25.001   172927009
-  run time = 9.5975 minutes |  time remaining = 28.791 minutes
+ Percent finished = 36.25   1002999457
+  run time = 49.217 minutes |  time remaining = 86.553 minutes
 
  incoming Azm at ROI, Dbeta = -202.48, 3.3327
 
@@ -1712,8 +3185,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 26.251   181573597
-  run time = 9.9721 minutes |  time remaining = 28.015 minutes
+ Percent finished = 36.563   1011646045
+  run time = 49.573 minutes |  time remaining = 86.01 minutes
 
  incoming Azm at ROI, Dbeta = -224.97, 3.3327
 
@@ -1722,8 +3195,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 27.501   190220185
-  run time = 10.413 minutes |  time remaining = 27.452 minutes
+ Percent finished = 36.875   1020292633
+  run time = 49.908 minutes |  time remaining = 85.436 minutes
 
  incoming Azm at ROI, Dbeta = -247.48, 3.3327
 
@@ -1732,8 +3205,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 28.751   198866773
-  run time = 10.804 minutes |  time remaining = 26.773 minutes
+ Percent finished = 37.188   1028939221
+  run time = 50.253 minutes |  time remaining = 84.88 minutes
 
  incoming Azm at ROI, Dbeta = 90, 3.3327
 
@@ -1742,8 +3215,8 @@ getDbeta: = 3.3327
   Lat idx = 17
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 30.001   207513361
-  run time = 11.233 minutes |  time remaining = 26.209 minutes
+ Percent finished = 37.5   1037585809
+  run time = 50.59 minutes |  time remaining = 84.317 minutes
 
  incoming Azm at ROI, Dbeta = 67.479, 3.3327
 
@@ -1752,8 +3225,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 31.251   216154873
-  run time = 11.606 minutes |  time remaining = 25.531 minutes
+ Percent finished = 37.813   1046227321
+  run time = 50.935 minutes |  time remaining = 83.768 minutes
 
  incoming Azm at ROI, Dbeta = 44.97, 3.3327
 
@@ -1762,8 +3235,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 32.501   224801461
-  run time = 12.037 minutes |  time remaining = 24.998 minutes
+ Percent finished = 38.125   1054873909
+  run time = 51.279 minutes |  time remaining = 83.222 minutes
 
  incoming Azm at ROI, Dbeta = 22.479, 3.3327
 
@@ -1772,8 +3245,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 33.751   233448049
-  run time = 12.413 minutes |  time remaining = 24.366 minutes
+ Percent finished = 38.438   1063520497
+  run time = 51.625 minutes |  time remaining = 82.683 minutes
 
  incoming Azm at ROI, Dbeta = 0, 3.3327
 
@@ -1782,8 +3255,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 35.001   242094637
-  run time = 12.849 minutes |  time remaining = 23.861 minutes
+ Percent finished = 38.75   1072167085
+  run time = 51.96 minutes |  time remaining = 82.13 minutes
 
  incoming Azm at ROI, Dbeta = -22.479, 3.3327
 
@@ -1792,8 +3265,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 36.251   250741225
-  run time = 13.228 minutes |  time remaining = 23.262 minutes
+ Percent finished = 39.063   1080813673
+  run time = 52.306 minutes |  time remaining = 81.597 minutes
 
  incoming Azm at ROI, Dbeta = -44.97, 3.3327
 
@@ -1802,8 +3275,8 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 37.501   259387813
-  run time = 13.659 minutes |  time remaining = 22.764 minutes
+ Percent finished = 39.375   1089460261
+  run time = 52.645 minutes |  time remaining = 81.055 minutes
 
  incoming Azm at ROI, Dbeta = -67.479, 3.3327
 
@@ -1812,10 +3285,499 @@ getDbeta: = 3.3327
   Lat idx = 18
  D0, D1 = 0.0068477 0.0077499
  D2, D3 = 0.99225 0.99315
- Percent finished = 38.751   268034401
-  run time = 14.031 minutes |  time remaining = 22.176 minutes
- Total flux in distance range D0 and D1 = 2.4512e-007 kg/m^2/yr
- Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+ Percent finished = 39.688   1098106849
+  run time = 52.99 minutes |  time remaining = 80.527 minutes
+ Total flux in distance range D0 and D1 = 9.4398e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 2.1607e-018 kg/m^2/yr
+getDbeta: = 2.3964
+
+ incoming Azm at ROI, Dbeta = -90, 2.3964
+
+ outgoing Azm at impact = 270
+ Site Latitude = 3.7211
+  Lat idx = 19
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 40   1106753437
+  run time = 53.327 minutes |  time remaining = 79.99 minutes
+
+ incoming Azm at ROI, Dbeta = -112.54, 2.3964
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 3.4375
+  Lat idx = 19
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 40.313   1115395273
+  run time = 53.637 minutes |  time remaining = 79.415 minutes
+
+ incoming Azm at ROI, Dbeta = -135.06, 2.3964
+
+ outgoing Azm at impact = 225
+ Site Latitude = 2.6303
+  Lat idx = 19
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 40.625   1124037109
+  run time = 53.95 minutes |  time remaining = 78.849 minutes
+
+ incoming Azm at ROI, Dbeta = -157.54, 2.3964
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 1.4232
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 40.938   1132678945
+  run time = 54.26 minutes |  time remaining = 78.283 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 2.3964
+
+ outgoing Azm at impact = 180
+ Site Latitude = 2.2768e-016
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 41.25   1141325533
+  run time = 54.575 minutes |  time remaining = 77.727 minutes
+
+ incoming Azm at ROI, Dbeta = -202.46, 2.3964
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -1.4232
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 41.563   1149972121
+  run time = 54.885 minutes |  time remaining = 77.168 minutes
+
+ incoming Azm at ROI, Dbeta = -224.94, 2.3964
+
+ outgoing Azm at impact = 135
+ Site Latitude = -2.6303
+  Lat idx = 17
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 41.875   1158618709
+  run time = 55.198 minutes |  time remaining = 76.618 minutes
+
+ incoming Azm at ROI, Dbeta = -247.46, 2.3964
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -3.4375
+  Lat idx = 17
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 42.188   1167260221
+  run time = 55.514 minutes |  time remaining = 76.074 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 2.3964
+
+ outgoing Azm at impact = 90
+ Site Latitude = -3.7211
+  Lat idx = 17
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 42.5   1175901733
+  run time = 55.827 minutes |  time remaining = 75.53 minutes
+
+ incoming Azm at ROI, Dbeta = 67.457, 2.3964
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -3.4375
+  Lat idx = 17
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 42.813   1184543245
+  run time = 56.138 minutes |  time remaining = 74.987 minutes
+
+ incoming Azm at ROI, Dbeta = 44.94, 2.3964
+
+ outgoing Azm at impact = 45
+ Site Latitude = -2.6303
+  Lat idx = 17
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 43.125   1193184757
+  run time = 56.451 minutes |  time remaining = 74.45 minutes
+
+ incoming Azm at ROI, Dbeta = 22.457, 2.3964
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -1.4232
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 43.438   1201826269
+  run time = 56.763 minutes |  time remaining = 73.914 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 2.3964
+
+ outgoing Azm at impact = 0
+ Site Latitude = -6.8305e-016
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 43.75   1210472857
+  run time = 57.089 minutes |  time remaining = 73.399 minutes
+
+ incoming Azm at ROI, Dbeta = -22.457, 2.3964
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 1.4232
+  Lat idx = 18
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 44.063   1219119445
+  run time = 57.399 minutes |  time remaining = 72.867 minutes
+
+ incoming Azm at ROI, Dbeta = -44.94, 2.3964
+
+ outgoing Azm at impact = -45
+ Site Latitude = 2.6303
+  Lat idx = 19
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 44.375   1227766033
+  run time = 57.724 minutes |  time remaining = 72.358 minutes
+
+ incoming Azm at ROI, Dbeta = -67.457, 2.3964
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 3.4375
+  Lat idx = 19
+ D0, D1 = 0.0098853 0.010788
+ D2, D3 = 0.98921 0.99011
+ Percent finished = 44.688   1236407869
+  run time = 58.034 minutes |  time remaining = 71.831 minutes
+ Total flux in distance range D0 and D1 = 7.539e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 2.3622e-017 kg/m^2/yr
+getDbeta: = 1.715
+
+ incoming Azm at ROI, Dbeta = -90, 1.715
+
+ outgoing Azm at impact = 270
+ Site Latitude = 5.2698
+  Lat idx = 19
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 45   1245049705
+  run time = 58.347 minutes |  time remaining = 71.312 minutes
+
+ incoming Azm at ROI, Dbeta = -112.59, 1.715
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 4.8676
+  Lat idx = 19
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 45.313   1253691541
+  run time = 58.635 minutes |  time remaining = 70.766 minutes
+
+ incoming Azm at ROI, Dbeta = -135.12, 1.715
+
+ outgoing Azm at impact = 225
+ Site Latitude = 3.7237
+  Lat idx = 19
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 45.625   1262333377
+  run time = 58.912 minutes |  time remaining = 70.209 minutes
+
+ incoming Azm at ROI, Dbeta = -157.59, 1.715
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 2.0142
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 45.938   1270975213
+  run time = 59.198 minutes |  time remaining = 69.668 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 1.715
+
+ outgoing Azm at impact = 180
+ Site Latitude = 3.2222e-016
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 46.25   1279621801
+  run time = 59.477 minutes |  time remaining = 69.121 minutes
+
+ incoming Azm at ROI, Dbeta = -202.41, 1.715
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -2.0142
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 46.563   1288268389
+  run time = 59.763 minutes |  time remaining = 68.586 minutes
+
+ incoming Azm at ROI, Dbeta = -224.88, 1.715
+
+ outgoing Azm at impact = 135
+ Site Latitude = -3.7237
+  Lat idx = 17
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 46.875   1296914977
+  run time = 60.039 minutes |  time remaining = 68.043 minutes
+
+ incoming Azm at ROI, Dbeta = -247.41, 1.715
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -4.8676
+  Lat idx = 17
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 47.188   1305556489
+  run time = 60.335 minutes |  time remaining = 67.527 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 1.715
+
+ outgoing Azm at impact = 90
+ Site Latitude = -5.2698
+  Lat idx = 17
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 47.5   1314198001
+  run time = 60.624 minutes |  time remaining = 67.004 minutes
+
+ incoming Azm at ROI, Dbeta = 67.414, 1.715
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -4.8676
+  Lat idx = 17
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 47.813   1322839513
+  run time = 60.921 minutes |  time remaining = 66.495 minutes
+
+ incoming Azm at ROI, Dbeta = 44.879, 1.715
+
+ outgoing Azm at impact = 45
+ Site Latitude = -3.7237
+  Lat idx = 17
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 48.125   1331481025
+  run time = 61.199 minutes |  time remaining = 65.967 minutes
+
+ incoming Azm at ROI, Dbeta = 22.414, 1.715
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -2.0142
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 48.438   1340122537
+  run time = 61.486 minutes |  time remaining = 65.453 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 1.715
+
+ outgoing Azm at impact = 0
+ Site Latitude = -9.6665e-016
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 48.75   1348769125
+  run time = 61.764 minutes |  time remaining = 64.931 minutes
+
+ incoming Azm at ROI, Dbeta = -22.414, 1.715
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 2.0142
+  Lat idx = 18
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 49.063   1357415713
+  run time = 62.052 minutes |  time remaining = 64.422 minutes
+
+ incoming Azm at ROI, Dbeta = -44.879, 1.715
+
+ outgoing Azm at impact = -45
+ Site Latitude = 3.7237
+  Lat idx = 19
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 49.375   1366062301
+  run time = 62.329 minutes |  time remaining = 63.906 minutes
+
+ incoming Azm at ROI, Dbeta = -67.414, 1.715
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 4.8676
+  Lat idx = 19
+ D0, D1 = 0.014187 0.015089
+ D2, D3 = 0.98491 0.98581
+ Percent finished = 49.688   1374704137
+  run time = 62.636 minutes |  time remaining = 63.424 minutes
+ Total flux in distance range D0 and D1 = 6.298e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 7.7844e-017 kg/m^2/yr
+getDbeta: = 1.2237
+
+ incoming Azm at ROI, Dbeta = -90, 1.2237
+
+ outgoing Azm at impact = 270
+ Site Latitude = 7.463
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 50   1383345973
+  run time = 63.148 minutes |  time remaining = 63.148 minutes
+
+ incoming Azm at ROI, Dbeta = -112.67, 1.2237
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 6.892
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 50.313   1391987809
+  run time = 63.543 minutes |  time remaining = 62.753 minutes
+
+ incoming Azm at ROI, Dbeta = -135.24, 1.2237
+
+ outgoing Azm at impact = 225
+ Site Latitude = 5.2697
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 50.625   1400629645
+  run time = 63.928 minutes |  time remaining = 62.348 minutes
+
+ incoming Azm at ROI, Dbeta = -157.67, 1.2237
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 2.8491
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 50.938   1409271481
+  run time = 64.264 minutes |  time remaining = 61.898 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 1.2237
+
+ outgoing Azm at impact = 180
+ Site Latitude = 4.5567e-016
+  Lat idx = 18
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 51.25   1417913317
+  run time = 64.623 minutes |  time remaining = 61.47 minutes
+
+ incoming Azm at ROI, Dbeta = -202.33, 1.2237
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -2.8491
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 51.563   1426559905
+  run time = 64.954 minutes |  time remaining = 61.016 minutes
+
+ incoming Azm at ROI, Dbeta = -224.76, 1.2237
+
+ outgoing Azm at impact = 135
+ Site Latitude = -5.2697
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 51.875   1435201417
+  run time = 65.285 minutes |  time remaining = 60.565 minutes
+
+ incoming Azm at ROI, Dbeta = -247.33, 1.2237
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -6.892
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 52.188   1443842929
+  run time = 65.615 minutes |  time remaining = 60.114 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 1.2237
+
+ outgoing Azm at impact = 90
+ Site Latitude = -7.463
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 52.5   1452484441
+  run time = 65.957 minutes |  time remaining = 59.674 minutes
+
+ incoming Azm at ROI, Dbeta = 67.327, 1.2237
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -6.892
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 52.813   1461125953
+  run time = 66.314 minutes |  time remaining = 59.251 minutes
+
+ incoming Azm at ROI, Dbeta = 44.756, 1.2237
+
+ outgoing Azm at impact = 45
+ Site Latitude = -5.2697
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 53.125   1469767465
+  run time = 66.669 minutes |  time remaining = 58.825 minutes
+
+ incoming Azm at ROI, Dbeta = 22.328, 1.2237
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -2.8491
+  Lat idx = 17
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 53.438   1478408977
+  run time = 67.012 minutes |  time remaining = 58.39 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 1.2237
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.367e-015
+  Lat idx = 18
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 53.75   1487050489
+  run time = 67.364 minutes |  time remaining = 57.964 minutes
+
+ incoming Azm at ROI, Dbeta = -22.328, 1.2237
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 2.8491
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 54.063   1495697077
+  run time = 67.711 minutes |  time remaining = 57.535 minutes
+
+ incoming Azm at ROI, Dbeta = -44.756, 1.2237
+
+ outgoing Azm at impact = -45
+ Site Latitude = 5.2697
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 54.375   1504338913
+  run time = 68.05 minutes |  time remaining = 57.099 minutes
+
+ incoming Azm at ROI, Dbeta = -67.327, 1.2237
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 6.892
+  Lat idx = 19
+ D0, D1 = 0.020279 0.021182
+ D2, D3 = 0.97882 0.97972
+ Percent finished = 54.688   1512980749
+  run time = 68.39 minutes |  time remaining = 56.665 minutes
+ Total flux in distance range D0 and D1 = 4.9373e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 6.3789e-016 kg/m^2/yr
 getDbeta: = 0.8721
 
  incoming Azm at ROI, Dbeta = -90, 0.8721
@@ -1825,8 +3787,8 @@ getDbeta: = 0.8721
   Lat idx = 20
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 40.001   276680989
-  run time = 14.462 minutes |  time remaining = 21.692 minutes
+ Percent finished = 55   1521622585
+  run time = 68.746 minutes |  time remaining = 56.246 minutes
 
  incoming Azm at ROI, Dbeta = -112.85, 0.8721
 
@@ -1835,8 +3797,8 @@ getDbeta: = 0.8721
   Lat idx = 20
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 41.251   285299929
-  run time = 14.67 minutes |  time remaining = 20.892 minutes
+ Percent finished = 55.313   1530241525
+  run time = 69.028 minutes |  time remaining = 55.768 minutes
 
  incoming Azm at ROI, Dbeta = -135.49, 0.8721
 
@@ -1845,8 +3807,8 @@ getDbeta: = 0.8721
   Lat idx = 19
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 42.501   293918869
-  run time = 14.869 minutes |  time remaining = 20.116 minutes
+ Percent finished = 55.625   1538860465
+  run time = 69.313 minutes |  time remaining = 55.294 minutes
 
  incoming Azm at ROI, Dbeta = -157.84, 0.8721
 
@@ -1855,8 +3817,8 @@ getDbeta: = 0.8721
   Lat idx = 19
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 43.751   302560705
-  run time = 15.073 minutes |  time remaining = 19.378 minutes
+ Percent finished = 55.938   1547502301
+  run time = 69.606 minutes |  time remaining = 54.828 minutes
 
  incoming Azm at ROI, Dbeta = -180, 0.8721
 
@@ -1865,8 +3827,8 @@ getDbeta: = 0.8721
   Lat idx = 18
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 45.001   311202541
-  run time = 15.272 minutes |  time remaining = 18.665 minutes
+ Percent finished = 56.25   1556144137
+  run time = 69.882 minutes |  time remaining = 54.352 minutes
 
  incoming Azm at ROI, Dbeta = -202.16, 0.8721
 
@@ -1875,8 +3837,8 @@ getDbeta: = 0.8721
   Lat idx = 17
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 46.251   319849129
-  run time = 15.477 minutes |  time remaining = 17.986 minutes
+ Percent finished = 56.563   1564790725
+  run time = 70.167 minutes |  time remaining = 53.885 minutes
 
  incoming Azm at ROI, Dbeta = -224.51, 0.8721
 
@@ -1885,8 +3847,8 @@ getDbeta: = 0.8721
   Lat idx = 17
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 47.501   328490641
-  run time = 15.678 minutes |  time remaining = 17.328 minutes
+ Percent finished = 56.875   1573432237
+  run time = 70.443 minutes |  time remaining = 53.412 minutes
 
  incoming Azm at ROI, Dbeta = -247.15, 0.8721
 
@@ -1895,8 +3857,8 @@ getDbeta: = 0.8721
   Lat idx = 16
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 48.751   337132153
-  run time = 15.884 minutes |  time remaining = 16.698 minutes
+ Percent finished = 57.188   1582073749
+  run time = 70.752 minutes |  time remaining = 52.967 minutes
 
  incoming Azm at ROI, Dbeta = 90, 0.8721
 
@@ -1905,8 +3867,8 @@ getDbeta: = 0.8721
   Lat idx = 16
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 50.001   345750985
-  run time = 16.083 minutes |  time remaining = 16.083 minutes
+ Percent finished = 57.5   1590692581
+  run time = 71.046 minutes |  time remaining = 52.512 minutes
 
  incoming Azm at ROI, Dbeta = 67.151, 0.8721
 
@@ -1915,8 +3877,8 @@ getDbeta: = 0.8721
   Lat idx = 16
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 51.251   354369817
-  run time = 16.289 minutes |  time remaining = 15.493 minutes
+ Percent finished = 57.813   1599311413
+  run time = 71.357 minutes |  time remaining = 52.071 minutes
 
  incoming Azm at ROI, Dbeta = 44.51, 0.8721
 
@@ -1925,8 +3887,8 @@ getDbeta: = 0.8721
   Lat idx = 17
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 52.501   362988649
-  run time = 16.487 minutes |  time remaining = 14.917 minutes
+ Percent finished = 58.125   1607930245
+  run time = 71.681 minutes |  time remaining = 51.64 minutes
 
  incoming Azm at ROI, Dbeta = 22.155, 0.8721
 
@@ -1935,8 +3897,8 @@ getDbeta: = 0.8721
   Lat idx = 17
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 53.751   371630161
-  run time = 16.693 minutes |  time remaining = 14.363 minutes
+ Percent finished = 58.438   1616571757
+  run time = 71.977 minutes |  time remaining = 51.192 minutes
 
  incoming Azm at ROI, Dbeta = 0, 0.8721
 
@@ -1945,8 +3907,8 @@ getDbeta: = 0.8721
   Lat idx = 18
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 55.001   380271673
-  run time = 16.892 minutes |  time remaining = 13.82 minutes
+ Percent finished = 58.75   1625213269
+  run time = 72.278 minutes |  time remaining = 50.748 minutes
 
  incoming Azm at ROI, Dbeta = -22.155, 0.8721
 
@@ -1955,8 +3917,8 @@ getDbeta: = 0.8721
   Lat idx = 19
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 56.251   388918261
-  run time = 17.096 minutes |  time remaining = 13.296 minutes
+ Percent finished = 59.063   1633859857
+  run time = 72.589 minutes |  time remaining = 50.312 minutes
 
  incoming Azm at ROI, Dbeta = -44.51, 0.8721
 
@@ -1965,8 +3927,8 @@ getDbeta: = 0.8721
   Lat idx = 19
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 57.501   397560097
-  run time = 17.298 minutes |  time remaining = 12.785 minutes
+ Percent finished = 59.375   1642501693
+  run time = 72.91 minutes |  time remaining = 49.885 minutes
 
  incoming Azm at ROI, Dbeta = -67.151, 0.8721
 
@@ -1975,10 +3937,499 @@ getDbeta: = 0.8721
   Lat idx = 20
  D0, D1 = 0.028907 0.029809
  D2, D3 = 0.97019 0.97109
- Percent finished = 58.751   406201933
-  run time = 17.508 minutes |  time remaining = 12.293 minutes
- Total flux in distance range D0 and D1 = 1.0201e-007 kg/m^2/yr
- Total flux in distance range D2 and D3 = 0 kg/m^2/yr
+ Percent finished = 59.688   1651143529
+  run time = 73.213 minutes |  time remaining = 49.447 minutes
+ Total flux in distance range D0 and D1 = 3.9178e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 3.1263e-015 kg/m^2/yr
+getDbeta: = 0.62218
+
+ incoming Azm at ROI, Dbeta = -90, 0.62218
+
+ outgoing Azm at impact = 270
+ Site Latitude = 14.968
+  Lat idx = 21
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 60   1659762469
+  run time = 73.538 minutes |  time remaining = 49.025 minutes
+
+ incoming Azm at ROI, Dbeta = -113.21, 0.62218
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 13.805
+  Lat idx = 21
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 60.313   1668344149
+  run time = 73.812 minutes |  time remaining = 48.57 minutes
+
+ incoming Azm at ROI, Dbeta = -135.99, 0.62218
+
+ outgoing Azm at impact = 225
+ Site Latitude = 10.523
+  Lat idx = 20
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 60.625   1676925829
+  run time = 74.077 minutes |  time remaining = 48.111 minutes
+
+ incoming Azm at ROI, Dbeta = -158.19, 0.62218
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 5.6722
+  Lat idx = 19
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 60.938   1685544769
+  run time = 74.326 minutes |  time remaining = 47.644 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.62218
+
+ outgoing Azm at impact = 180
+ Site Latitude = 9.0609e-016
+  Lat idx = 18
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 61.25   1694186605
+  run time = 74.582 minutes |  time remaining = 47.184 minutes
+
+ incoming Azm at ROI, Dbeta = -201.81, 0.62218
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -5.6722
+  Lat idx = 17
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 61.563   1702833193
+  run time = 74.825 minutes |  time remaining = 46.718 minutes
+
+ incoming Azm at ROI, Dbeta = -224.01, 0.62218
+
+ outgoing Azm at impact = 135
+ Site Latitude = -10.523
+  Lat idx = 16
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 61.875   1711474705
+  run time = 75.068 minutes |  time remaining = 46.254 minutes
+
+ incoming Azm at ROI, Dbeta = -246.79, 0.62218
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -13.805
+  Lat idx = 15
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 62.188   1720093537
+  run time = 75.318 minutes |  time remaining = 45.796 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.62218
+
+ outgoing Azm at impact = 90
+ Site Latitude = -14.968
+  Lat idx = 15
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 62.5   1728678565
+  run time = 75.617 minutes |  time remaining = 45.37 minutes
+
+ incoming Azm at ROI, Dbeta = 66.792, 0.62218
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -13.805
+  Lat idx = 15
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 62.813   1737263593
+  run time = 75.905 minutes |  time remaining = 44.938 minutes
+
+ incoming Azm at ROI, Dbeta = 44.011, 0.62218
+
+ outgoing Azm at impact = 45
+ Site Latitude = -10.523
+  Lat idx = 16
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 63.125   1745848621
+  run time = 76.159 minutes |  time remaining = 44.488 minutes
+
+ incoming Azm at ROI, Dbeta = 21.809, 0.62218
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -5.6722
+  Lat idx = 17
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 63.438   1754467453
+  run time = 76.419 minutes |  time remaining = 44.044 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.62218
+
+ outgoing Azm at impact = 0
+ Site Latitude = -2.7183e-015
+  Lat idx = 18
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 63.75   1763108965
+  run time = 76.669 minutes |  time remaining = 43.596 minutes
+
+ incoming Azm at ROI, Dbeta = -21.809, 0.62218
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 5.6722
+  Lat idx = 19
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 64.063   1771755553
+  run time = 76.913 minutes |  time remaining = 43.146 minutes
+
+ incoming Azm at ROI, Dbeta = -44.011, 0.62218
+
+ outgoing Azm at impact = -45
+ Site Latitude = 10.523
+  Lat idx = 20
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 64.375   1780397389
+  run time = 77.155 minutes |  time remaining = 42.697 minutes
+
+ incoming Azm at ROI, Dbeta = -66.792, 0.62218
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 13.805
+  Lat idx = 21
+ D0, D1 = 0.041126 0.042028
+ D2, D3 = 0.95797 0.95887
+ Percent finished = 64.688   1789016329
+  run time = 77.402 minutes |  time remaining = 42.253 minutes
+ Total flux in distance range D0 and D1 = 2.9603e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 1.5547e-014 kg/m^2/yr
+getDbeta: = 0.44588
+
+ incoming Azm at ROI, Dbeta = -90, 0.44588
+
+ outgoing Azm at impact = 270
+ Site Latitude = 21.197
+  Lat idx = 22
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 65   1797598009
+  run time = 77.649 minutes |  time remaining = 41.811 minutes
+
+ incoming Azm at ROI, Dbeta = -113.95, 0.44588
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 19.515
+  Lat idx = 22
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 65.313   1806130765
+  run time = 77.84 minutes |  time remaining = 41.34 minutes
+
+ incoming Azm at ROI, Dbeta = -137.01, 0.44588
+
+ outgoing Azm at impact = 225
+ Site Latitude = 14.813
+  Lat idx = 21
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 65.625   1814663521
+  run time = 78.03 minutes |  time remaining = 40.872 minutes
+
+ incoming Azm at ROI, Dbeta = -158.88, 0.44588
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 7.9535
+  Lat idx = 20
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 65.938   1823245201
+  run time = 78.238 minutes |  time remaining = 40.416 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.44588
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.2685e-015
+  Lat idx = 18
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 66.25   1831864141
+  run time = 78.442 minutes |  time remaining = 39.96 minutes
+
+ incoming Azm at ROI, Dbeta = -201.12, 0.44588
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -7.9535
+  Lat idx = 16
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 66.563   1840510729
+  run time = 78.652 minutes |  time remaining = 39.51 minutes
+
+ incoming Azm at ROI, Dbeta = -222.99, 0.44588
+
+ outgoing Azm at impact = 135
+ Site Latitude = -14.813
+  Lat idx = 15
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 66.875   1849129561
+  run time = 78.848 minutes |  time remaining = 39.055 minutes
+
+ incoming Azm at ROI, Dbeta = -246.05, 0.44588
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -19.515
+  Lat idx = 14
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 67.188   1857714589
+  run time = 79.041 minutes |  time remaining = 38.601 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.44588
+
+ outgoing Azm at impact = 90
+ Site Latitude = -21.197
+  Lat idx = 14
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 67.5   1866247561
+  run time = 79.238 minutes |  time remaining = 38.151 minutes
+
+ incoming Azm at ROI, Dbeta = 66.046, 0.44588
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -19.515
+  Lat idx = 14
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 67.813   1874780533
+  run time = 79.432 minutes |  time remaining = 37.702 minutes
+
+ incoming Azm at ROI, Dbeta = 42.995, 0.44588
+
+ outgoing Azm at impact = 45
+ Site Latitude = -14.813
+  Lat idx = 15
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 68.125   1883313505
+  run time = 79.633 minutes |  time remaining = 37.259 minutes
+
+ incoming Azm at ROI, Dbeta = 21.116, 0.44588
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -7.9535
+  Lat idx = 16
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 68.438   1891898533
+  run time = 79.826 minutes |  time remaining = 36.814 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.44588
+
+ outgoing Azm at impact = 0
+ Site Latitude = -3.8055e-015
+  Lat idx = 18
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 68.75   1900517365
+  run time = 80.028 minutes |  time remaining = 36.376 minutes
+
+ incoming Azm at ROI, Dbeta = -21.116, 0.44588
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 7.9535
+  Lat idx = 20
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 69.063   1909163953
+  run time = 80.232 minutes |  time remaining = 35.941 minutes
+
+ incoming Azm at ROI, Dbeta = -42.995, 0.44588
+
+ outgoing Azm at impact = -45
+ Site Latitude = 14.813
+  Lat idx = 21
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 69.375   1917782893
+  run time = 80.382 minutes |  time remaining = 35.484 minutes
+
+ incoming Azm at ROI, Dbeta = -66.046, 0.44588
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 19.515
+  Lat idx = 22
+ D0, D1 = 0.058429 0.059332
+ D2, D3 = 0.94067 0.94157
+ Percent finished = 69.688   1926364573
+  run time = 80.514 minutes |  time remaining = 35.022 minutes
+ Total flux in distance range D0 and D1 = 2.1542e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 7.9766e-014 kg/m^2/yr
+getDbeta: = 0.32303
+
+ incoming Azm at ROI, Dbeta = -90, 0.32303
+
+ outgoing Azm at impact = 270
+ Site Latitude = 30.019
+  Lat idx = 24
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 70   1934897329
+  run time = 80.64 minutes |  time remaining = 34.56 minutes
+
+ incoming Azm at ROI, Dbeta = -115.57, 0.32303
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 27.529
+  Lat idx = 24
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 70.313   1943284285
+  run time = 80.762 minutes |  time remaining = 34.099 minutes
+
+ incoming Azm at ROI, Dbeta = -139.11, 0.32303
+
+ outgoing Azm at impact = 225
+ Site Latitude = 20.717
+  Lat idx = 22
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 70.625   1951671241
+  run time = 80.875 minutes |  time remaining = 33.638 minutes
+
+ incoming Azm at ROI, Dbeta = -160.27, 0.32303
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 11.037
+  Lat idx = 20
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 70.938   1960203997
+  run time = 81.001 minutes |  time remaining = 33.185 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.32303
+
+ outgoing Azm at impact = 180
+ Site Latitude = 1.7551e-015
+  Lat idx = 18
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 71.25   1968822937
+  run time = 81.115 minutes |  time remaining = 32.73 minutes
+
+ incoming Azm at ROI, Dbeta = -199.73, 0.32303
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -11.037
+  Lat idx = 16
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 71.563   1977469525
+  run time = 81.237 minutes |  time remaining = 32.282 minutes
+
+ incoming Azm at ROI, Dbeta = -220.89, 0.32303
+
+ outgoing Azm at impact = 135
+ Site Latitude = -20.717
+  Lat idx = 14
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 71.875   1986088357
+  run time = 81.364 minutes |  time remaining = 31.838 minutes
+
+ incoming Azm at ROI, Dbeta = -244.43, 0.32303
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -27.529
+  Lat idx = 12
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 72.188   1994621329
+  run time = 81.491 minutes |  time remaining = 31.397 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.32303
+
+ outgoing Azm at impact = 90
+ Site Latitude = -30.019
+  Lat idx = 12
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 72.5   2003010769
+  run time = 81.625 minutes |  time remaining = 30.961 minutes
+
+ incoming Azm at ROI, Dbeta = 64.434, 0.32303
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -27.529
+  Lat idx = 12
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 72.813   2011400209
+  run time = 81.747 minutes |  time remaining = 30.523 minutes
+
+ incoming Azm at ROI, Dbeta = 40.888, 0.32303
+
+ outgoing Azm at impact = 45
+ Site Latitude = -20.717
+  Lat idx = 14
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 73.125   2019789649
+  run time = 81.872 minutes |  time remaining = 30.089 minutes
+
+ incoming Azm at ROI, Dbeta = 19.73, 0.32303
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -11.037
+  Lat idx = 16
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 73.438   2028322621
+  run time = 81.996 minutes |  time remaining = 29.658 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.32303
+
+ outgoing Azm at impact = 0
+ Site Latitude = -5.2654e-015
+  Lat idx = 18
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 73.75   2036941453
+  run time = 82.119 minutes |  time remaining = 29.228 minutes
+
+ incoming Azm at ROI, Dbeta = -19.73, 0.32303
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 11.037
+  Lat idx = 20
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 74.063   2045588041
+  run time = 82.253 minutes |  time remaining = 28.805 minutes
+
+ incoming Azm at ROI, Dbeta = -40.888, 0.32303
+
+ outgoing Azm at impact = -45
+ Site Latitude = 20.717
+  Lat idx = 22
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 74.375   2054206981
+  run time = 82.384 minutes |  time remaining = 28.384 minutes
+
+ incoming Azm at ROI, Dbeta = -64.434, 0.32303
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 27.529
+  Lat idx = 24
+ D0, D1 = 0.082935 0.083837
+ D2, D3 = 0.91616 0.91707
+ Percent finished = 74.688   2062739737
+  run time = 82.514 minutes |  time remaining = 27.965 minutes
+ Total flux in distance range D0 and D1 = 1.6527e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 5.2183e-013 kg/m^2/yr
 getDbeta: = 0.23959
 
  incoming Azm at ROI, Dbeta = -90, 0.23959
@@ -1988,8 +4439,8 @@ getDbeta: = 0.23959
   Lat idx = 27
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 60.001   414820873
-  run time = 17.715 minutes |  time remaining = 11.81 minutes
+ Percent finished = 75   2071126693
+  run time = 82.634 minutes |  time remaining = 27.544 minutes
 
  incoming Azm at ROI, Dbeta = -119.33, 0.23959
 
@@ -1998,8 +4449,8 @@ getDbeta: = 0.23959
   Lat idx = 26
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 61.251   422917417
-  run time = 17.8 minutes |  time remaining = 11.261 minutes
+ Percent finished = 75.313   2079223237
+  run time = 82.729 minutes |  time remaining = 27.118 minutes
 
  incoming Azm at ROI, Dbeta = -143.6, 0.23959
 
@@ -2008,8 +4459,8 @@ getDbeta: = 0.23959
   Lat idx = 24
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 62.501   431115157
-  run time = 17.886 minutes |  time remaining = 10.731 minutes
+ Percent finished = 75.625   2087420977
+  run time = 82.845 minutes |  time remaining = 26.702 minutes
 
  incoming Azm at ROI, Dbeta = -163.02, 0.23959
 
@@ -2018,8 +4469,8 @@ getDbeta: = 0.23959
   Lat idx = 21
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 63.751   439502113
-  run time = 17.971 minutes |  time remaining = 10.218 minutes
+ Percent finished = 75.938   2095807933
+  run time = 82.958 minutes |  time remaining = 26.287 minutes
 
  incoming Azm at ROI, Dbeta = -180, 0.23959
 
@@ -2028,8 +4479,8 @@ getDbeta: = 0.23959
   Lat idx = 18
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 65.001   448083793
-  run time = 18.057 minutes |  time remaining = 9.7223 minutes
+ Percent finished = 76.25   2104389613
+  run time = 83.073 minutes |  time remaining = 25.875 minutes
 
  incoming Azm at ROI, Dbeta = -196.98, 0.23959
 
@@ -2038,8 +4489,8 @@ getDbeta: = 0.23959
   Lat idx = 15
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 66.251   456730381
-  run time = 18.141 minutes |  time remaining = 9.2415 minutes
+ Percent finished = 76.563   2113036201
+  run time = 83.18 minutes |  time remaining = 25.463 minutes
 
  incoming Azm at ROI, Dbeta = -216.4, 0.23959
 
@@ -2048,8 +4499,8 @@ getDbeta: = 0.23959
   Lat idx = 12
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 67.501   465315409
-  run time = 18.228 minutes |  time remaining = 8.7758 minutes
+ Percent finished = 76.875   2121621229
+  run time = 83.291 minutes |  time remaining = 25.055 minutes
 
  incoming Azm at ROI, Dbeta = -240.67, 0.23959
 
@@ -2058,8 +4509,8 @@ getDbeta: = 0.23959
   Lat idx = 10
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 68.751   473704849
-  run time = 18.314 minutes |  time remaining = 8.324 minutes
+ Percent finished = 77.188   2130010669
+  run time = 83.398 minutes |  time remaining = 24.648 minutes
 
  incoming Azm at ROI, Dbeta = 90, 0.23959
 
@@ -2068,8 +4519,8 @@ getDbeta: = 0.23959
   Lat idx = 9
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 70.001   481903993
-  run time = 18.399 minutes |  time remaining = 7.885 minutes
+ Percent finished = 77.5   2138209813
+  run time = 83.507 minutes |  time remaining = 24.244 minutes
 
  incoming Azm at ROI, Dbeta = 60.667, 0.23959
 
@@ -2078,8 +4529,8 @@ getDbeta: = 0.23959
   Lat idx = 10
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 71.251   490002589
-  run time = 18.484 minutes |  time remaining = 7.4581 minutes
+ Percent finished = 77.813   2146308409
+  run time = 83.62 minutes |  time remaining = 23.843 minutes
 
  incoming Azm at ROI, Dbeta = 36.395, 0.23959
 
@@ -2088,8 +4539,8 @@ getDbeta: = 0.23959
   Lat idx = 12
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 72.501   498201733
-  run time = 18.57 minutes |  time remaining = 7.0435 minutes
+ Percent finished = 78.125   2154507553
+  run time = 83.728 minutes |  time remaining = 23.444 minutes
 
  incoming Azm at ROI, Dbeta = 16.979, 0.23959
 
@@ -2098,8 +4549,8 @@ getDbeta: = 0.23959
   Lat idx = 15
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 73.751   506591173
-  run time = 18.655 minutes |  time remaining = 6.6397 minutes
+ Percent finished = 78.438   2162896993
+  run time = 83.835 minutes |  time remaining = 23.046 minutes
 
  incoming Azm at ROI, Dbeta = 0, 0.23959
 
@@ -2108,8 +4559,8 @@ getDbeta: = 0.23959
   Lat idx = 18
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 75.001   515176201
-  run time = 18.742 minutes |  time remaining = 6.247 minutes
+ Percent finished = 78.75   2171482021
+  run time = 83.945 minutes |  time remaining = 22.652 minutes
 
  incoming Azm at ROI, Dbeta = -16.979, 0.23959
 
@@ -2118,8 +4569,8 @@ getDbeta: = 0.23959
   Lat idx = 21
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 76.251   523822789
-  run time = 18.827 minutes |  time remaining = 5.8639 minutes
+ Percent finished = 79.063   2180128609
+  run time = 84.053 minutes |  time remaining = 22.259 minutes
 
  incoming Azm at ROI, Dbeta = -36.395, 0.23959
 
@@ -2128,8 +4579,8 @@ getDbeta: = 0.23959
   Lat idx = 24
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 77.501   532404469
-  run time = 18.913 minutes |  time remaining = 5.4906 minutes
+ Percent finished = 79.375   2188710289
+  run time = 84.16 minutes |  time remaining = 21.868 minutes
 
  incoming Azm at ROI, Dbeta = -60.667, 0.23959
 
@@ -2138,10 +4589,499 @@ getDbeta: = 0.23959
   Lat idx = 26
  D0, D1 = 0.11764 0.11854
  D2, D3 = 0.88146 0.88236
- Percent finished = 78.751   540791425
-  run time = 18.998 minutes |  time remaining = 5.1261 minutes
- Total flux in distance range D0 and D1 = 2.2601e-008 kg/m^2/yr
- Total flux in distance range D2 and D3 = 1.7765e-020 kg/m^2/yr
+ Percent finished = 79.688   2197097245
+  run time = 84.271 minutes |  time remaining = 21.48 minutes
+ Total flux in distance range D0 and D1 = 1.2354e-008 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 2.4168e-012 kg/m^2/yr
+getDbeta: = 0.18684
+
+ incoming Azm at ROI, Dbeta = -90, 0.18684
+
+ outgoing Azm at impact = 270
+ Site Latitude = 60.205
+  Lat idx = 30
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 80   2205294985
+  run time = 84.381 minutes |  time remaining = 21.095 minutes
+
+ incoming Azm at ROI, Dbeta = -129.81, 0.18684
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 53.298
+  Lat idx = 29
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 80.313   2213059969
+  run time = 84.468 minutes |  time remaining = 20.706 minutes
+
+ incoming Azm at ROI, Dbeta = -153.58, 0.18684
+
+ outgoing Azm at impact = 225
+ Site Latitude = 37.853
+  Lat idx = 26
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 80.625   2220933061
+  run time = 84.563 minutes |  time remaining = 20.321 minutes
+
+ incoming Azm at ROI, Dbeta = -168.37, 0.18684
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 19.396
+  Lat idx = 22
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 80.938   2229130801
+  run time = 84.657 minutes |  time remaining = 19.938 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.18684
+
+ outgoing Azm at impact = 180
+ Site Latitude = 3.0445e-015
+  Lat idx = 18
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 81.25   2237663557
+  run time = 84.747 minutes |  time remaining = 19.557 minutes
+
+ incoming Azm at ROI, Dbeta = -191.63, 0.18684
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -19.396
+  Lat idx = 14
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 81.563   2246310145
+  run time = 84.839 minutes |  time remaining = 19.178 minutes
+
+ incoming Azm at ROI, Dbeta = -206.42, 0.18684
+
+ outgoing Azm at impact = 135
+ Site Latitude = -37.853
+  Lat idx = 10
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 81.875   2254843117
+  run time = 84.934 minutes |  time remaining = 18.802 minutes
+
+ incoming Azm at ROI, Dbeta = -230.19, 0.18684
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -53.298
+  Lat idx = 7
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 82.188   2263042261
+  run time = 85.027 minutes |  time remaining = 18.428 minutes
+
+ incoming Azm at ROI, Dbeta = 90, 0.18684
+
+ outgoing Azm at impact = 90
+ Site Latitude = -60.205
+  Lat idx = 6
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 82.5   2270916541
+  run time = 85.125 minutes |  time remaining = 18.057 minutes
+
+ incoming Azm at ROI, Dbeta = 50.185, 0.18684
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -53.298
+  Lat idx = 7
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 82.813   2278682821
+  run time = 85.221 minutes |  time remaining = 17.687 minutes
+
+ incoming Azm at ROI, Dbeta = 26.422, 0.18684
+
+ outgoing Azm at impact = 45
+ Site Latitude = -37.853
+  Lat idx = 10
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 83.125   2286557101
+  run time = 85.31 minutes |  time remaining = 17.318 minutes
+
+ incoming Azm at ROI, Dbeta = 11.63, 0.18684
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -19.396
+  Lat idx = 14
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 83.438   2294756245
+  run time = 85.395 minutes |  time remaining = 16.951 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.18684
+
+ outgoing Azm at impact = 0
+ Site Latitude = -9.1335e-015
+  Lat idx = 18
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 83.75   2303289217
+  run time = 85.486 minutes |  time remaining = 16.586 minutes
+
+ incoming Azm at ROI, Dbeta = -11.63, 0.18684
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 19.396
+  Lat idx = 22
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 84.063   2311935805
+  run time = 85.582 minutes |  time remaining = 16.225 minutes
+
+ incoming Azm at ROI, Dbeta = -26.422, 0.18684
+
+ outgoing Azm at impact = -45
+ Site Latitude = 37.853
+  Lat idx = 26
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 84.375   2320468561
+  run time = 85.683 minutes |  time remaining = 15.867 minutes
+
+ incoming Azm at ROI, Dbeta = -50.185, 0.18684
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 53.298
+  Lat idx = 29
+ D0, D1 = 0.16679 0.16769
+ D2, D3 = 0.83231 0.83321
+ Percent finished = 84.688   2328666301
+  run time = 85.768 minutes |  time remaining = 15.508 minutes
+ Total flux in distance range D0 and D1 = 7.8819e-009 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 1.0094e-011 kg/m^2/yr
+getDbeta: = 0.16292
+
+ incoming Azm at ROI, Dbeta = -90, 0.16292
+
+ outgoing Azm at impact = 270
+ Site Latitude = 85.262
+  Lat idx = 35
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 85   2336539393
+  run time = 85.865 minutes |  time remaining = 15.152 minutes
+
+ incoming Azm at ROI, Dbeta = -168.72, 0.16292
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 67.032
+  Lat idx = 31
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 85.313   2343864925
+  run time = 85.943 minutes |  time remaining = 14.796 minutes
+
+ incoming Azm at ROI, Dbeta = -175.28, 0.16292
+
+ outgoing Azm at impact = 225
+ Site Latitude = 44.805
+  Lat idx = 27
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 85.625   2351524933
+  run time = 86.018 minutes |  time remaining = 14.441 minutes
+
+ incoming Azm at ROI, Dbeta = -178.04, 0.16292
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 22.419
+  Lat idx = 22
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 85.938   2359621477
+  run time = 86.095 minutes |  time remaining = 14.088 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.16292
+
+ outgoing Azm at impact = 180
+ Site Latitude = 3.4963e-015
+  Lat idx = 18
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 86.25   2368154233
+  run time = 86.171 minutes |  time remaining = 13.737 minutes
+
+ incoming Azm at ROI, Dbeta = -181.96, 0.16292
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -22.419
+  Lat idx = 14
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 86.563   2376800821
+  run time = 86.251 minutes |  time remaining = 13.389 minutes
+
+ incoming Azm at ROI, Dbeta = -184.72, 0.16292
+
+ outgoing Azm at impact = 135
+ Site Latitude = -44.805
+  Lat idx = 9
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 86.875   2385333793
+  run time = 86.33 minutes |  time remaining = 13.042 minutes
+
+ incoming Azm at ROI, Dbeta = -191.28, 0.16292
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -67.032
+  Lat idx = 5
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 87.188   2393432389
+  run time = 86.404 minutes |  time remaining = 12.697 minutes
+
+ incoming Azm at ROI, Dbeta = -270, 0.16292
+
+ outgoing Azm at impact = 90
+ Site Latitude = -85.262
+  Lat idx = 1
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 87.5   2401091209
+  run time = 86.475 minutes |  time remaining = 12.353 minutes
+
+ incoming Azm at ROI, Dbeta = 11.278, 0.16292
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -67.032
+  Lat idx = 5
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 87.813   2408411881
+  run time = 86.552 minutes |  time remaining = 12.012 minutes
+
+ incoming Azm at ROI, Dbeta = 4.7219, 0.16292
+
+ outgoing Azm at impact = 45
+ Site Latitude = -44.805
+  Lat idx = 9
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 88.125   2416070701
+  run time = 86.63 minutes |  time remaining = 11.673 minutes
+
+ incoming Azm at ROI, Dbeta = 1.9595, 0.16292
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -22.419
+  Lat idx = 14
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 88.438   2424169297
+  run time = 86.702 minutes |  time remaining = 11.335 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.16292
+
+ outgoing Azm at impact = 0
+ Site Latitude = -1.0489e-014
+  Lat idx = 18
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 88.75   2432702269
+  run time = 86.775 minutes |  time remaining = 10.999 minutes
+
+ incoming Azm at ROI, Dbeta = -1.9595, 0.16292
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 22.419
+  Lat idx = 22
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 89.063   2441348857
+  run time = 86.847 minutes |  time remaining = 10.665 minutes
+
+ incoming Azm at ROI, Dbeta = -4.7219, 0.16292
+
+ outgoing Azm at impact = -45
+ Site Latitude = 44.805
+  Lat idx = 27
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 89.375   2449881613
+  run time = 86.923 minutes |  time remaining = 10.333 minutes
+
+ incoming Azm at ROI, Dbeta = -11.278, 0.16292
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 67.032
+  Lat idx = 31
+ D0, D1 = 0.23639 0.23729
+ D2, D3 = 0.76271 0.76361
+ Percent finished = 89.688   2457978157
+  run time = 86.994 minutes |  time remaining = 10.003 minutes
+ Total flux in distance range D0 and D1 = 6.1342e-009 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 6.2769e-011 kg/m^2/yr
+getDbeta: = 0.18928
+
+ incoming Azm at ROI, Dbeta = 90, 0.18928
+
+ outgoing Azm at impact = 270
+ Site Latitude = 59.253
+  Lat idx = 30
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 90   2465638165
+  run time = 87.066 minutes |  time remaining = 9.6737 minutes
+
+ incoming Azm at ROI, Dbeta = -230.99, 0.18928
+
+ outgoing Azm at impact = 247.5
+ Site Latitude = 52.562
+  Lat idx = 29
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 90.313   2473403149
+  run time = 87.125 minutes |  time remaining = 9.3453 minutes
+
+ incoming Azm at ROI, Dbeta = -207.08, 0.18928
+
+ outgoing Azm at impact = 225
+ Site Latitude = 37.424
+  Lat idx = 25
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 90.625   2481276241
+  run time = 87.184 minutes |  time remaining = 9.0188 minutes
+
+ incoming Azm at ROI, Dbeta = -191.96, 0.18928
+
+ outgoing Azm at impact = 202.5
+ Site Latitude = 19.201
+  Lat idx = 22
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 90.938   2489577337
+  run time = 87.257 minutes |  time remaining = 8.6955 minutes
+
+ incoming Azm at ROI, Dbeta = -180, 0.18928
+
+ outgoing Azm at impact = 180
+ Site Latitude = 3.0151e-015
+  Lat idx = 18
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 91.25   2498110093
+  run time = 87.322 minutes |  time remaining = 8.3731 minutes
+
+ incoming Azm at ROI, Dbeta = -168.04, 0.18928
+
+ outgoing Azm at impact = 157.5
+ Site Latitude = -19.201
+  Lat idx = 14
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 91.563   2506756681
+  run time = 87.383 minutes |  time remaining = 8.0521 minutes
+
+ incoming Azm at ROI, Dbeta = -152.92, 0.18928
+
+ outgoing Azm at impact = 135
+ Site Latitude = -37.424
+  Lat idx = 11
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 91.875   2515289653
+  run time = 87.452 minutes |  time remaining = 7.7336 minutes
+
+ incoming Azm at ROI, Dbeta = -129.01, 0.18928
+
+ outgoing Azm at impact = 112.5
+ Site Latitude = -52.562
+  Lat idx = 7
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 92.188   2523592261
+  run time = 87.51 minutes |  time remaining = 7.4159 minutes
+
+ incoming Azm at ROI, Dbeta = -90, 0.18928
+
+ outgoing Azm at impact = 90
+ Site Latitude = -59.253
+  Lat idx = 6
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 92.5   2531466541
+  run time = 87.576 minutes |  time remaining = 7.1005 minutes
+
+ incoming Azm at ROI, Dbeta = -50.985, 0.18928
+
+ outgoing Azm at impact = 67.5
+ Site Latitude = -52.562
+  Lat idx = 7
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 92.813   2539232821
+  run time = 87.634 minutes |  time remaining = 6.7863 minutes
+
+ incoming Azm at ROI, Dbeta = -27.078, 0.18928
+
+ outgoing Azm at impact = 45
+ Site Latitude = -37.424
+  Lat idx = 11
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 93.125   2547107101
+  run time = 87.693 minutes |  time remaining = 6.4738 minutes
+
+ incoming Azm at ROI, Dbeta = -11.957, 0.18928
+
+ outgoing Azm at impact = 22.5
+ Site Latitude = -19.201
+  Lat idx = 14
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 93.438   2555409709
+  run time = 87.754 minutes |  time remaining = 6.1631 minutes
+
+ incoming Azm at ROI, Dbeta = 0, 0.18928
+
+ outgoing Azm at impact = 0
+ Site Latitude = -9.0453e-015
+  Lat idx = 18
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 93.75   2563942681
+  run time = 87.82 minutes |  time remaining = 5.8544 minutes
+
+ incoming Azm at ROI, Dbeta = 11.957, 0.18928
+
+ outgoing Azm at impact = -22.5
+ Site Latitude = 19.201
+  Lat idx = 22
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 94.063   2572589269
+  run time = 87.885 minutes |  time remaining = 5.5473 minutes
+
+ incoming Azm at ROI, Dbeta = 27.078, 0.18928
+
+ outgoing Azm at impact = -45
+ Site Latitude = 37.424
+  Lat idx = 25
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 94.375   2581122025
+  run time = 87.949 minutes |  time remaining = 5.2418 minutes
+
+ incoming Azm at ROI, Dbeta = 50.985, 0.18928
+
+ outgoing Azm at impact = -67.5
+ Site Latitude = 52.562
+  Lat idx = 29
+ D0, D1 = 0.33496 0.33586
+ D2, D3 = 0.66414 0.66504
+ Percent finished = 94.688   2589423121
+  run time = 88.016 minutes |  time remaining = 4.938 minutes
+ Total flux in distance range D0 and D1 = 4.7127e-009 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 3.0713e-010 kg/m^2/yr
 getDbeta: = 1.0569
 
  incoming Azm at ROI, Dbeta = -270, 1.0569
@@ -2151,8 +5091,8 @@ getDbeta: = 1.0569
   Lat idx = 20
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 80.001   548989165
-  run time = 19.083 minutes |  time remaining = 4.7705 minutes
+ Percent finished = 95   2597296213
+  run time = 88.081 minutes |  time remaining = 4.6356 minutes
 
  incoming Azm at ROI, Dbeta = -247.25, 1.0569
 
@@ -2161,8 +5101,8 @@ getDbeta: = 1.0569
   Lat idx = 20
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 81.251   557608105
-  run time = 19.131 minutes |  time remaining = 4.4146 minutes
+ Percent finished = 95.313   2605915153
+  run time = 88.143 minutes |  time remaining = 4.3347 minutes
 
  incoming Azm at ROI, Dbeta = -224.65, 1.0569
 
@@ -2171,8 +5111,8 @@ getDbeta: = 1.0569
   Lat idx = 19
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 82.501   566227045
-  run time = 19.178 minutes |  time remaining = 4.0679 minutes
+ Percent finished = 95.625   2614534093
+  run time = 88.204 minutes |  time remaining = 4.0353 minutes
 
  incoming Azm at ROI, Dbeta = -202.25, 1.0569
 
@@ -2181,8 +5121,8 @@ getDbeta: = 1.0569
   Lat idx = 19
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 83.751   574868881
-  run time = 19.226 minutes |  time remaining = 3.7302 minutes
+ Percent finished = 95.938   2623175929
+  run time = 88.269 minutes |  time remaining = 3.7375 minutes
 
  incoming Azm at ROI, Dbeta = -180, 1.0569
 
@@ -2191,8 +5131,8 @@ getDbeta: = 1.0569
   Lat idx = 18
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 85.001   583510717
-  run time = 19.274 minutes |  time remaining = 3.401 minutes
+ Percent finished = 96.25   2631817765
+  run time = 88.336 minutes |  time remaining = 3.4414 minutes
 
  incoming Azm at ROI, Dbeta = -157.75, 1.0569
 
@@ -2201,8 +5141,8 @@ getDbeta: = 1.0569
   Lat idx = 17
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 86.251   592157305
-  run time = 19.322 minutes |  time remaining = 3.08 minutes
+ Percent finished = 96.563   2640464353
+  run time = 88.407 minutes |  time remaining = 3.1469 minutes
 
  incoming Azm at ROI, Dbeta = -135.35, 1.0569
 
@@ -2211,8 +5151,8 @@ getDbeta: = 1.0569
   Lat idx = 17
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 87.501   600798817
-  run time = 19.37 minutes |  time remaining = 2.767 minutes
+ Percent finished = 96.875   2649105865
+  run time = 88.473 minutes |  time remaining = 2.8538 minutes
 
  incoming Azm at ROI, Dbeta = -112.75, 1.0569
 
@@ -2221,8 +5161,8 @@ getDbeta: = 1.0569
   Lat idx = 16
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 88.751   609440329
-  run time = 19.418 minutes |  time remaining = 2.4612 minutes
+ Percent finished = 97.188   2657747377
+  run time = 88.539 minutes |  time remaining = 2.562 minutes
 
  incoming Azm at ROI, Dbeta = -90, 1.0569
 
@@ -2231,8 +5171,8 @@ getDbeta: = 1.0569
   Lat idx = 16
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 90.001   618059161
-  run time = 19.466 minutes |  time remaining = 2.1626 minutes
+ Percent finished = 97.5   2666366209
+  run time = 88.605 minutes |  time remaining = 2.2717 minutes
 
  incoming Azm at ROI, Dbeta = -67.248, 1.0569
 
@@ -2241,8 +5181,8 @@ getDbeta: = 1.0569
   Lat idx = 16
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 91.251   626677993
-  run time = 19.514 minutes |  time remaining = 1.871 minutes
+ Percent finished = 97.813   2674985041
+  run time = 88.667 minutes |  time remaining = 1.9827 minutes
 
  incoming Azm at ROI, Dbeta = -44.645, 1.0569
 
@@ -2251,8 +5191,8 @@ getDbeta: = 1.0569
   Lat idx = 17
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 92.501   635296825
-  run time = 19.562 minutes |  time remaining = 1.5859 minutes
+ Percent finished = 98.125   2683603873
+  run time = 88.728 minutes |  time remaining = 1.6952 minutes
 
  incoming Azm at ROI, Dbeta = -22.25, 1.0569
 
@@ -2261,8 +5201,8 @@ getDbeta: = 1.0569
   Lat idx = 17
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 93.751   643938337
-  run time = 19.61 minutes |  time remaining = 1.3071 minutes
+ Percent finished = 98.438   2692245385
+  run time = 88.789 minutes |  time remaining = 1.4091 minutes
 
  incoming Azm at ROI, Dbeta = 0, 1.0569
 
@@ -2271,8 +5211,8 @@ getDbeta: = 1.0569
   Lat idx = 18
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 95.001   652579849
-  run time = 19.658 minutes |  time remaining = 1.0344 minutes
+ Percent finished = 98.75   2700886897
+  run time = 88.85 minutes |  time remaining = 1.1245 minutes
 
  incoming Azm at ROI, Dbeta = 22.25, 1.0569
 
@@ -2281,8 +5221,8 @@ getDbeta: = 1.0569
   Lat idx = 19
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 96.251   661226437
-  run time = 19.707 minutes |  time remaining = 0.7676 minutes
+ Percent finished = 99.063   2709533485
+  run time = 88.911 minutes |  time remaining = 0.84121 minutes
 
  incoming Azm at ROI, Dbeta = 44.645, 1.0569
 
@@ -2291,8 +5231,8 @@ getDbeta: = 1.0569
   Lat idx = 19
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 97.501   669868273
-  run time = 19.754 minutes |  time remaining = 0.50632 minutes
+ Percent finished = 99.375   2718175321
+  run time = 88.976 minutes |  time remaining = 0.55938 minutes
 
  incoming Azm at ROI, Dbeta = 67.248, 1.0569
 
@@ -2301,10 +5241,10 @@ getDbeta: = 1.0569
   Lat idx = 20
  D0, D1 = 0.47455 0.47545
  D2, D3 = 0.52455 0.52545
- Percent finished = 98.751   678510109
-  run time = 19.802 minutes |  time remaining = 0.25046 minutes
- Total flux in distance range D0 and D1 = 2.2312e-010 kg/m^2/yr
- Total flux in distance range D2 and D3 = 3.0942e-011 kg/m^2/yr
- Total count = 103681
- Total count2 = 687129049
+ Percent finished = 99.688   2726817157
+  run time = 89.038 minutes |  time remaining = 0.2789 minutes
+ Total flux in distance range D0 and D1 = 4.7795e-009 kg/m^2/yr
+ Total flux in distance range D2 and D3 = 2.8295e-009 kg/m^2/yr
+ Total count = 414721
+ Total count2 = 2735436097
  Saving MassLimitedIglooIntegratedFlux to file: run_lat45_test5.txt
