@@ -131,8 +131,9 @@ public:
 	void computeSecondaryFlux()
 	{ // All the magic happens here!
 
-		const bool SKIP_EJECTA_LOOP  = 0;
-		const bool CONST_EJECTA_FLUX = 0;
+		const bool SKIP_EJECTA_LOOP   = 0;
+		const bool CONST_EJECTA_FLUX  = 0;
+		const bool CONST_PRIMARY_FLUX = 1;
 
 		double runtime, percentFinished;
 
@@ -320,9 +321,18 @@ public:
 ////  Error was in getting lat idx (need max -1)
 							// at this point, we can get specific MEM fluxes for high and low densities, and NEO's
 							// units of (kg/m^2/yr)
-							MEM_massfluxLo =  MEM_normLo * siteSA / ImpactSitesROILoc->getROI_SA() *  MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
-							MEM_massfluxHi =  MEM_normHi * siteSA / ImpactSitesROILoc->getROI_SA() *  MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
-							NEO_massflux   =  NEO_norm   * siteSA / ImpactSitesROILoc->getROI_SA() *  NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+
+							MEM_massfluxLo =  MEM_normLo * siteSA / ImpactSitesROILoc->getROI_SA();
+							MEM_massfluxHi =  MEM_normHi * siteSA / ImpactSitesROILoc->getROI_SA();
+							NEO_massflux   =  NEO_norm   * siteSA / ImpactSitesROILoc->getROI_SA();
+
+							if (!CONST_PRIMARY_FLUX)
+							{
+								MEM_massfluxLo *= MEMLatDataLo->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+								MEM_massfluxHi *= MEMLatDataHi->getFlux_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);
+								NEO_massflux   *= NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);	
+							}
+
 							sumMassFlux    =  MEM_massfluxLo + MEM_massfluxHi + NEO_massflux;
 ////
 							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';

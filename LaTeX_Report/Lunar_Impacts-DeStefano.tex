@@ -436,6 +436,8 @@ P_{\text{Moon}} = -A\frac{abx^{b-1}+cdx^{d-1}}{(ax^b+cx^d)^2}\exp\left(\frac{-1}
 \end{equation}
 where $A$ is the normalization constant. In theory, this should be equal to 1, but since we are not taking our particle size from 0 to infinity, we need to compute the value of $A$. If we assume the particle size can range from $0.001$ mm to $10$ mm, then $A = 1.02218$.
 
+
+\paragraph{Weighted by number and not mass:}
 In order to compare with NASA SP-8013 \citep{cour1969meteoroid}, we first must convert the distribution function normalized by number and not mass. We can then write
 \begin{equation}\label{eq:N_ej_carrier1}
 N_{ej}(x) \sim \int_{x}^{\infty}\frac{dx}{m(x)}\frac{d(C_{\text{Moon}}(x))}{dx},
@@ -858,6 +860,18 @@ For $\alpha_i\le \pi/3 = 60^\circ$, integrating over a small range $\Delta\beta 
 =& \frac{1}{2\pi}\left[\Delta\beta + \frac{3\alpha_i}{2\pi-3\alpha_i}\left[\sin(\beta_1-\beta_i) - \sin(\beta_0-\beta_i)\right]\right].
 \end{align}
 
+\paragraph{Alternative Oblique Impact Azimuth Distribution}
+In favor for a simpler implementation, we can opt for an azimuth distribution given by
+\begin{equation}\label{eq:alt-azm-dist_2}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)+1\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1+\cos(\beta-\beta_i)}{2\pi} \text{  for $\alpha_i > \pi/3$}
+\end{cases},
+\end{equation}
+which ignores the \textit{butterfly pattern}, but still includes information about a bias towards the downstream direction of the primary impact.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Speed Distribution Function}
 
@@ -902,6 +916,23 @@ v_{avg} &= \frac{v_0 + v_1}{2}.
 \end{align}
 
 
+\subsubsection{Speed Bin Centers}
+The speed bin centers of a bin defined by a minimum and maximum speed, $v_{min}$ and $v_{max}$, are not simply the average of the bin edges. The correct center is weighted by the speed distribution, which in this case is a power-law, see Equation \eqref{eq:vel_dist}. An additional weighting can be included, either by the momentum $\sim v$ or the energy $\sim v^2$, so that the bin centers are given by
+\begin{equation}
+v_M = \frac{\int_{v_{min}}^{v_{max}}dv\cdot vf(v)}{\int_{v_{min}}^{v_{max}}dv\cdot f(v)},
+\end{equation}
+weighted by the momentum, and
+\begin{equation}
+v_E = \sqrt{\frac{\int_{v_{min}}^{v_{max}}dv\cdot v^2f(v)}{\int_{v_{min}}^{v_{max}}dv\cdot f(v)}},
+\end{equation}
+weighted by the energy. Taking $f(v) = 3\mu v^{-(3\mu+1)}$, we have
+\begin{equation}
+v_M = \frac{3\mu}{3\mu-1}\frac{v_{min}^{-3\mu+1}-v_{max}^{-3\mu+1}}{v_{min}^{-3\mu}-v_{max}^{-3\mu}},
+\end{equation}
+and
+\begin{equation}
+v_E = \sqrt{\frac{3\mu}{2-3\mu}\frac{v_{max}^{-3\mu+2}-v_{min}^{-3\mu+2}}{v_{min}^{-3\mu}-v_{max}^{-3\mu}}}.
+\end{equation}
 
 \subsubsection{Normalization Term}
 
@@ -921,7 +952,7 @@ where $\mathcal{G}$ is given by ($x = \beta-\beta_i$)
 \end{align}
 where $\Delta\beta_{ez}$ and $a$ are given in Eq.\ \eqref{eq:delta_beta_ez} and Eq.\ \eqref{eq:a_exponent}, respectively. Recall, that $a$ is given by
 \begin{equation}
-a = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}} = \frac{\cos\alpha_{max}}{2\sin^2(\alpha_{max}/2)},
+a^2 = \frac{\cos\alpha_{max}}{1-\cos\alpha_{max}} = \frac{\cos\alpha_{max}}{2\sin^2(\alpha_{max}/2)},
 \end{equation}
 and where $\alpha_{max}$ is given by
 \begin{equation}
