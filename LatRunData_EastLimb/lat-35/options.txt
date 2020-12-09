@@ -1,0 +1,44 @@
+################################################################################
+# Input file for the command line version of MEM 3, must be named "options.txt"
+# The following files must be located in the same directory :
+#  - MEM3Windows.exe (Windows) or mem3cl (Mac or Linux)
+#  - bin*.dat (3 files)
+#  - de430
+#  - options.txt, rho1.txt, and rho2.txt
+# This file created by MEM3GUI version 3.0 
+################################################################################
+# This input file must contain the following lines
+# Line 1 - name of input file
+# Line 2 - input origin : (su)n, (ea)rth, (mo)on, (me)rcury, (ve)nus, (ma)rs
+# Line 3 - input axes : (eq)uatorial or (ec)liptic
+# Line 4 - use(a)ll state vectors, a(r)andom selection, or the(f)irst n
+# Line 5 - integer number of state vectors to be used(ignored if using all)
+# Line 6 - log10 of the desired minimum particle mass, within[-6, 1]
+# Line 7 - high fidelity run(y for yes)
+# Line 8 - directory within which results will be placed
+# Line 9 - run name(will be used to name results folder)
+# Line 10 - output origin : (su)n, (ea)rth, (mo)on, (me)rcury, (ve)nus, (ma)rs
+# Line 11 - output axes : (eq)uatorial, (ec)liptic, or (bo)dy - fixed
+# Line 12 - desired output resolution in degrees(1, 2, 3, 4, or 5)
+# Line 13 - desired output resolution in km / s(1 or 2)
+# Line 14 - output intermediate files(y for yes)
+# Line 15 - output igloo files(y for yes)
+# Line 16 - output standard deviation files(y for yes)
+#
+################################################################################
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData_EastLimb\MEM_input_Horizons MAJOR BODY #C(usr{-90.-35..600^G}@301)_T(301) (11).txt
+mo
+ec
+a
+0
+-6
+y high fidelity
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData_EastLimb
+lat-35
+mo
+bo
+5
+1
+n intermediate files
+y igloo files
+n standard deviations
