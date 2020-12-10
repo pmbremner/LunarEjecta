@@ -1,10 +1,10 @@
 Meteoroid Engineering Model (MEM) version 3.0.1
-Run started at 09:33:13 AM 12/08/20
+Run started at 10:38:05 AM 12/07/20
 
 ================================================================================
 INPUT FILES AND CHOICES
 
-User's input file:    C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData_EastLimb\MEM_input_Horizons MAJOR BODY #C(usr{-90.5..600^G}@301)_T(301) (11).txt
+User's input file:    C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData_WestLimb\MEM_input_Horizons MAJOR BODY #C(usr{90.5..600^G}@301)_T(301) (11).txt
 Limiting mass:        10^-6 grams
 State vectors used:   all 10001
 Output resolution:    5 degrees

@@ -1,5 +1,5 @@
 Meteoroid Engineering Model (MEM) version 3.0.1
-Run started at 09:38:25 AM 12/08/20
+Run started at 10:45:15 AM 12/07/20
 
 
 Execution terminated successfully

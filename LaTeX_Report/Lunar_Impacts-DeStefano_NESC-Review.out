@@ -1,0 +1,34 @@
+\BOOKMARK [1][-]{section.1}{Executive Summary}{}% 1
+\BOOKMARK [1][-]{section.2}{MEM3 Based Lunar Ejecta Modeling}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Assumptions and Simplifications}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Algorithm}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Near-Earth Object Environment}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Kinetic-Energy-Limited Flux}{subsection.2.3}% 6
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Mass-Limited Flux}{subsection.2.3}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Speed Distribution}{subsection.2.3}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Latitudinal Dependence of Primary \(sporadic meteoroids\) Flux}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.5}{Regolith Size Distribution}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.6}{Ejected Mass from an Impactor}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.7}{Ejecta Mass Distribution Function}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.7.1}{Zenith Distribution Function}{subsection.2.7}% 13
+\BOOKMARK [3][-]{subsubsection.2.7.2}{Azimuth Distribution Function}{subsection.2.7}% 14
+\BOOKMARK [3][-]{subsubsection.2.7.3}{Speed Distribution Function}{subsection.2.7}% 15
+\BOOKMARK [3][-]{subsubsection.2.7.4}{Speed Bin Centers}{subsection.2.7}% 16
+\BOOKMARK [3][-]{subsubsection.2.7.5}{Normalization Term}{subsection.2.7}% 17
+\BOOKMARK [2][-]{subsection.2.8}{Meteoroid Projectile Mass Distribution}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.9}{Meteoroid Projectile Density Distribution}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.10}{Meteoroid Projectile Speed and Angle Distribution}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.11}{Secondary Ejecta Distance, Speed, \046 Angle}{section.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.11.1}{Coriolis Force}{subsection.2.11}% 22
+\BOOKMARK [2][-]{subsection.2.12}{Distance and Bearing}{section.2}% 23
+\BOOKMARK [1][-]{section.3}{NASA SP-8013 Meteoroid Environment Model - 1969}{}% 24
+\BOOKMARK [2][-]{subsection.3.1}{Comparison of Scaling Laws of New and Old Ejecta Models}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{Analytic Study of Secondary Lunar Ejecta}{}% 26
+\BOOKMARK [2][-]{subsection.4.1}{Total Ejected Mass}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.2}{Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{section.4}% 28
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Isotropic Azimuth and 45 Zenith Distributions}{subsection.4.2}% 29
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Isotropic Azimuth and Zenith Distributions}{subsection.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.3}{Secondary Ejecta at a ROI vs. Distance}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.4}{Secondary Ejecta at a ROI vs. Speed and Distance}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.5}{Secondary Ejecta at a Satellite of the Moon}{section.4}% 33
+\BOOKMARK [1][-]{section*.31}{References}{}% 34

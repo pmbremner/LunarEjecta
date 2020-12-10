@@ -26,14 +26,14 @@
 # Line 16 - output standard deviation files(y for yes)
 #
 ################################################################################
-C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData_WestLimb\MEM_input_Horizons MAJOR BODY #C(usr{90.65..600^G}@301)_T(301) (11).txt
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LunarSurfaceEphemerisData_EastLimb\MEM_input_Horizons MAJOR BODY #C(usr{-90.65..600^G}@301)_T(301) (11).txt
 mo
 ec
 a
 0
 -6
 y high fidelity
-C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData_WestLimb
+C:\Users\adestefa\Documents\GitHub\LunarEjecta\LatRunData_EastLimb
 lat65
 mo
 bo

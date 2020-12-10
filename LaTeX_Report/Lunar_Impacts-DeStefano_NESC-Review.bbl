@@ -1,0 +1,144 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{\textit{Bjorkman and Christiansen}(2019)}]{bjorkman2019astronaut}
+Bjorkman, M.~D., and E.~L. Christiansen, An astronaut's risk of experiencing a
+  critical impact from lunar ejecta during lunar eva, \textit{First Int'l.
+  Orbital Debris Conf.}, 2019.
+
+\bibitem[{\textit{Bouley et~al.}(2012)}]{bouley2012power}
+Bouley, S., et~al., Power and duration of impact flashes on the moon:
+  Implication for the cause of radiation, \textit{Icarus}, \textit{218}(1),
+  115--124, 2012.
+
+\bibitem[{\textit{Brown et~al.}(2002)\textit{Brown, Spalding, ReVelle,
+  Tagliaferri, and Worden}}]{brown2002flux}
+Brown, P., R.~Spalding, D.~O. ReVelle, E.~Tagliaferri, and S.~Worden, The flux
+  of small near-earth objects colliding with the earth, \textit{Nature},
+  \textit{420}(6913), 294, 2002.
+
+\bibitem[{\textit{Carrier}(1973)}]{carrier1973lunar}
+Carrier, W.~D., Lunar soil grain size distribution, \textit{The moon},
+  \textit{6}(3-4), 250--263, 1973.
+
+\bibitem[{\textit{Carrier~III}(2003)}]{carrier2003particle}
+Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal
+  of Geotechnical and Geoenvironmental Engineering}, \textit{129}(10),
+  956--959, 2003.
+
+\bibitem[{\textit{Cour-Palais}(1969)}]{cour1969meteoroid}
+Cour-Palais, B.~G., Meteoroid environment model 1969 (near earth to lunar
+  surface), nasa sp-8013, \textit{National Aeronautics and Space
+  Administration, Washington, DC}, 1969.
+
+\bibitem[{\textit{Gault}(1974)}]{gault1974impact}
+Gault, D.~E., Impact cratering, in \textit{A primer in lunar geology}, 1974.
+
+\bibitem[{\textit{Gault and Wedekind}(1978)}]{gault1978experimental}
+Gault, D.~E., and J.~A. Wedekind, Experimental studies of oblique impact, in
+  \textit{Lunar and Planetary Science Conference Proceedings}, vol.~9, pp.
+  3843--3875, 1978.
+
+\bibitem[{\textit{Gault et~al.}(1963)\textit{Gault, Shoemaker, and
+  Moore}}]{gault1963spray}
+Gault, D.~E., E.~M. Shoemaker, and H.~J. Moore, \textit{NASA TN D-1767 Spray
+  ejected from the lunar surface by meteoroid impact}, National Aeronautics and
+  Space Administration, 1963.
+
+\bibitem[{\textit{Gr{\"u}n et~al.}(1985)\textit{Gr{\"u}n, Zook, Fechtig, and
+  Giese}}]{grun1985collisional}
+Gr{\"u}n, E., H.~Zook, H.~Fechtig, and R.~Giese, Collisional balance of the
+  meteoritic complex, \textit{Icarus}, \textit{62}(2), 244--272, 1985.
+
+\bibitem[{\textit{Holsapple}(1993)}]{holsapple1993scaling}
+Holsapple, K., The scaling of impact processes in planetary sciences,
+  \textit{Annual review of earth and planetary sciences}, \textit{21}(1),
+  333--373, 1993.
+
+\bibitem[{\textit{Hor{\'a}nyi et~al.}(2015)\textit{Hor{\'a}nyi, Szalay, Kempf,
+  Schmidt, Gr{\"u}n, Srama, and Sternovsky}}]{horanyi2015permanent}
+Hor{\'a}nyi, M., J.~Szalay, S.~Kempf, J.~Schmidt, E.~Gr{\"u}n, R.~Srama, and
+  Z.~Sternovsky, A permanent, asymmetric dust cloud around the moon,
+  \textit{Nature}, \textit{522}(7556), 324--326, 2015.
+
+\bibitem[{\textit{Hor{\'a}nyi et~al.}(2014)}]{horanyi2014lunar}
+Hor{\'a}nyi, M., et~al., The lunar dust experiment (ldex) onboard the lunar
+  atmosphere and dust environment explorer (ladee) mission, \textit{Space
+  Science Reviews}, \textit{185}(1-4), 93--113, 2014.
+
+\bibitem[{\textit{Housen and Holsapple}(2011)}]{housen2011ejecta}
+Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
+  \textit{Icarus}, \textit{211}(1), 856--875, 2011.
+
+\bibitem[{\textit{Koschny and Gr{\"u}n}(2001)}]{koschny2001impacts}
+Koschny, D., and E.~Gr{\"u}n, Impacts into ice--silicate mixtures: Crater
+  morphologies, volumes, depth-to-diameter ratios, and yield, \textit{Icarus},
+  \textit{154}(2), 391--401, 2001.
+
+\bibitem[{\textit{Krivov et~al.}(2003)\textit{Krivov, Srem{\v{c}}evi{\'c},
+  Spahn, Dikarev, and Kholshevnikov}}]{krivov2003impact}
+Krivov, A.~V., M.~Srem{\v{c}}evi{\'c}, F.~Spahn, V.~V. Dikarev, and K.~V.
+  Kholshevnikov, Impact-generated dust clouds around planetary satellites:
+  spherically symmetric case, \textit{Planetary and Space Science},
+  \textit{51}(3), 251--269, 2003.
+
+\bibitem[{\textit{Miller}(2017)}]{ESABASE2_DebrisRelease10.0}
+Miller, A., Esabase2 debris release 10.0 technical description, \textit{Tech.
+  Rep. 1.7}, ESA, 2017.
+
+\bibitem[{\textit{Moore et~al.}(1963)\textit{Moore, Gault, and
+  Lugn}}]{moore1963experimental}
+Moore, H., D.~Gault, and R.~Lugn, Experimental impact craters in basalt,
+  \textit{Trans. Min. Eng}, \textit{229}, 258--262, 1963.
+
+\bibitem[{\textit{Moorhead et~al.}(2019)\textit{Moorhead, Kingery, and
+  Ehlert}}]{moorhead2019nasa}
+Moorhead, A.~V., A.~Kingery, and S.~Ehlert, Nasa’s meteoroid engineering
+  model 3 and its ability to replicate spacecraft impact rates, \textit{Journal
+  of Spacecraft and Rockets}, pp. 1--17, 2019.
+
+\bibitem[{\textit{Moser et~al.}(2011)\textit{Moser, Suggs, Swift, Suggs, Cooke,
+  Diekmann, and Koehler}}]{moser2011luminous}
+Moser, D., R.~Suggs, W.~Swift, R.~Suggs, W.~Cooke, A.~Diekmann, and H.~Koehler,
+  Luminous efficiency of hypervelocity meteoroid impacts on the moon derived
+  from the 2006 geminids, 2007 lyrids, and 2008 taurids, \textit{Meteoroids:
+  The Smallest Solar System Bodies}, p. 142, 2011.
+
+\bibitem[{\textit{Moser et~al.}(2014)\textit{Moser, Suggs, and
+  Suggs}}]{moser2014large}
+Moser, D., R.~Suggs, and R.~Suggs, Large meteoroid impact on the moon on 17
+  march 2013, in \textit{Asteroids, Comets, Meteors 2014}, 2014.
+
+\bibitem[{\textit{Neukum et~al.}(2001)\textit{Neukum, Ivanov, and
+  Hartmann}}]{neukum2001cratering}
+Neukum, G., B.~A. Ivanov, and W.~K. Hartmann, Cratering records in the inner
+  solar system in relation to the lunar reference system, in \textit{Chronology
+  and evolution of Mars}, pp. 55--86, Springer, 2001.
+
+\bibitem[{\textit{Rival and Mandeville}(1999)}]{rival1999modeling}
+Rival, M., and J.~Mandeville, Modeling of ejecta produced upon hypervelocity
+  impacts, \textit{Space debris}, \textit{1}(1), 45--57, 1999.
+
+\bibitem[{\textit{Robinson et~al.}(2015)}]{robinson2015new}
+Robinson, M.~S., et~al., New crater on the moon and a swarm of secondaries,
+  \textit{Icarus}, \textit{252}, 229--235, 2015.
+
+\bibitem[{\textit{Shuvalov}(2011)}]{shuvalov2011ejecta}
+Shuvalov, V., Ejecta deposition after oblique impacts: An influence of impact
+  scale, \textit{Meteoritics \& Planetary Science}, \textit{46}(11),
+  1713--1718, 2011.
+
+\bibitem[{\textit{Vickery}(1986)}]{vickery1986size}
+Vickery, A., Size-velocity distribution of large ejecta fragments,
+  \textit{Icarus}, \textit{67}(2), 224--236, 1986.
+
+\bibitem[{\textit{Zook}(1967)}]{zook1967problem}
+Zook, H.~A., The problem of secondary ejecta near the lunar surface., in
+  \textit{Transactions of the 1967 National Symposium on Saturn V/Apollo and
+  Beyond}, vol.~I, pp. EN--8, 1967.
+
+\end{thebibliography}
