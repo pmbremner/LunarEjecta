@@ -8,14 +8,14 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Speed Distribution}{5}{subsubsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.4}Latitudinal Dependence of Primary (sporadic meteoroids) Flux}{6}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Regolith Size Distribution}{7}{subsection.2.5}%
-\contentsline {paragraph}{Weighted by number and not mass:}{9}{section*.6}%
+\contentsline {subsubsection}{\numberline {2.5.1}Weighted by number and not mass}{9}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}Ejected Mass from an Impactor}{11}{subsection.2.6}%
 \contentsline {subsection}{\numberline {2.7}Ejecta Mass Distribution Function}{12}{subsection.2.7}%
 \contentsline {subsubsection}{\numberline {2.7.1}Zenith Distribution Function}{12}{subsubsection.2.7.1}%
-\contentsline {paragraph}{Alternative Zenith Distribution:}{13}{section*.8}%
+\contentsline {paragraph}{Alternative Zenith Distribution:}{13}{section*.7}%
 \contentsline {subsubsection}{\numberline {2.7.2}Azimuth Distribution Function}{17}{subsubsection.2.7.2}%
-\contentsline {paragraph}{Alternative Azimuth Distribution:}{17}{section*.11}%
-\contentsline {paragraph}{Alternative Oblique Impact Azimuth Distribution}{18}{section*.12}%
+\contentsline {paragraph}{Alternative Azimuth Distribution:}{17}{section*.10}%
+\contentsline {paragraph}{Alternative Oblique Impact Azimuth Distribution}{18}{section*.11}%
 \contentsline {subsubsection}{\numberline {2.7.3}Speed Distribution Function}{19}{subsubsection.2.7.3}%
 \contentsline {subsubsection}{\numberline {2.7.4}Speed Bin Centers}{20}{subsubsection.2.7.4}%
 \contentsline {subsubsection}{\numberline {2.7.5}Normalization Term}{20}{subsubsection.2.7.5}%
@@ -32,16 +32,16 @@
 \contentsline {subsection}{\numberline {4.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{33}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{35}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Isotropic Azimuth and Zenith Distributions}{35}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{36}{section*.20}%
-\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{37}{section*.21}%
+\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{36}{section*.19}%
+\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{37}{section*.20}%
 \contentsline {subsection}{\numberline {4.3}Secondary Ejecta at a ROI vs.\ Distance}{39}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Secondary Ejecta at a ROI vs.\ Speed and Distance}{40}{subsection.4.4}%
-\contentsline {paragraph}{Ejecta distance distribution:}{42}{section*.23}%
+\contentsline {paragraph}{Ejecta distance distribution:}{42}{section*.22}%
 \contentsline {subsection}{\numberline {4.5}Secondary Ejecta at a Satellite of the Moon}{43}{subsection.4.5}%
-\contentsline {paragraph}{Satellite Angle from Periapsis}{43}{section*.25}%
-\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{44}{section*.26}%
-\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{44}{section*.27}%
-\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{44}{section*.28}%
-\contentsline {paragraph}{Ejecta Speed at Satellite}{44}{section*.29}%
-\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{45}{section*.30}%
-\contentsline {section}{References}{46}{section*.31}%
+\contentsline {paragraph}{Satellite Angle from Periapsis}{43}{section*.24}%
+\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{44}{section*.25}%
+\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{44}{section*.26}%
+\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{44}{section*.27}%
+\contentsline {paragraph}{Ejecta Speed at Satellite}{44}{section*.28}%
+\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{45}{section*.29}%
+\contentsline {section}{References}{46}{section*.30}%
