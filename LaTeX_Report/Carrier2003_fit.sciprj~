@@ -1,0 +1,220 @@
+SciDAVis 1.26.0 project file
+<scripting-lang>	muParser
+<windows>	2
+<table>
+7503
+<table creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="Table1" columns="2" rows="40"><comment><![CDATA[]]></comment><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">-2.4710513900000000e+00</row><row type="TypeDouble" index="1" invalid="no">-2.4208521599999999e+00</row><row type="TypeDouble" index="2" invalid="no">-2.3455419200000001e+00</row><row type="TypeDouble" index="3" invalid="no">-2.2702301299999998e+00</row><row type="TypeDouble" index="4" invalid="no">-2.1949253199999998e+00</row><row type="TypeDouble" index="5" invalid="no">-2.1196337299999999e+00</row><row type="TypeDouble" index="6" invalid="no">-2.0443547500000001e+00</row><row type="TypeDouble" index="7" invalid="no">-1.9690770399999999e+00</row><row type="TypeDouble" index="8" invalid="no">-1.8938136900000000e+00</row><row type="TypeDouble" index="9" invalid="no">-1.8185810800000000e+00</row><row type="TypeDouble" index="10" invalid="no">-1.7433481200000001e+00</row><row type="TypeDouble" index="11" invalid="no">-1.6702213100000001e+00</row><row type="TypeDouble" index="12" invalid="no">-1.6012850500000000e+00</row><row type="TypeDouble" index="13" invalid="no">-1.5302609599999999e+00</row><row type="TypeDouble" index="14" invalid="no">-1.4801857300000001e+00</row><row type="TypeDouble" index="15" invalid="no">-1.4300943399999999e+00</row><row type="TypeDouble" index="16" invalid="no">-1.3716190100000001e+00</row><row type="TypeDouble" index="17" invalid="no">-1.3173501900000000e+00</row><row type="TypeDouble" index="18" invalid="no">-1.2672614499999999e+00</row><row type="TypeDouble" index="19" invalid="no">-1.2150783700000001e+00</row><row type="TypeDouble" index="20" invalid="no">-1.1629111700000001e+00</row><row type="TypeDouble" index="21" invalid="no">-1.1086309599999999e+00</row><row type="TypeDouble" index="22" invalid="no">-1.0564414200000001e+00</row><row type="TypeDouble" index="23" invalid="no">-1.0063414900000001e+00</row><row type="TypeDouble" index="24" invalid="no">-9.4998111699999999e-01</row><row type="TypeDouble" index="25" invalid="no">-8.9360687500000002e-01</row><row type="TypeDouble" index="26" invalid="no">-8.3724136999999998e-01</row><row type="TypeDouble" index="27" invalid="no">-7.7459806899999994e-01</row><row type="TypeDouble" index="28" invalid="no">-7.1194814600000000e-01</row><row type="TypeDouble" index="29" invalid="no">-6.5348386500000000e-01</row><row type="TypeDouble" index="30" invalid="no">-5.8662642899999995e-01</row><row type="TypeDouble" index="31" invalid="no">-5.1139442800000001e-01</row><row type="TypeDouble" index="32" invalid="no">-4.3616915899999997e-01</row><row type="TypeDouble" index="33" invalid="no">-3.6092169099999999e-01</row><row type="TypeDouble" index="34" invalid="no">-2.8564526899999998e-01</row><row type="TypeDouble" index="35" invalid="no">-2.1035885400000001e-01</row><row type="TypeDouble" index="36" invalid="no">-1.3507049099999999e-01</row><row type="TypeDouble" index="37" invalid="no">-5.9791404100000001e-02</row><row type="TypeDouble" index="38" invalid="no">1.5483352600000000e-02</row><row type="TypeDouble" index="39" invalid="no">9.0770664700000003e-02</row></column><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">9.4823199999999996e-01</row><row type="TypeDouble" index="1" invalid="no">9.3906000000000001e-01</row><row type="TypeDouble" index="2" invalid="no">9.2722300000000002e-01</row><row type="TypeDouble" index="3" invalid="no">9.1564599999999996e-01</row><row type="TypeDouble" index="4" invalid="no">9.0289399999999997e-01</row><row type="TypeDouble" index="5" invalid="no">8.8791399999999998e-01</row><row type="TypeDouble" index="6" invalid="no">8.7080999999999997e-01</row><row type="TypeDouble" index="7" invalid="no">8.5348999999999997e-01</row><row type="TypeDouble" index="8" invalid="no">8.3375200000000005e-01</row><row type="TypeDouble" index="9" invalid="no">8.0883400000000005e-01</row><row type="TypeDouble" index="10" invalid="no">7.8397499999999998e-01</row><row type="TypeDouble" index="11" invalid="no">7.5705100000000003e-01</row><row type="TypeDouble" index="12" invalid="no">7.2966600000000004e-01</row><row type="TypeDouble" index="13" invalid="no">7.0125899999999997e-01</row><row type="TypeDouble" index="14" invalid="no">6.7119200000000001e-01</row><row type="TypeDouble" index="15" invalid="no">6.4385000000000003e-01</row><row type="TypeDouble" index="16" invalid="no">6.1791099999999999e-01</row><row type="TypeDouble" index="17" invalid="no">5.8881899999999998e-01</row><row type="TypeDouble" index="18" invalid="no">5.6103000000000003e-01</row><row type="TypeDouble" index="19" invalid="no">5.3331399999999995e-01</row><row type="TypeDouble" index="20" invalid="no">5.0292400000000004e-01</row><row type="TypeDouble" index="21" invalid="no">4.7575099999999998e-01</row><row type="TypeDouble" index="22" invalid="no">4.4912500000000000e-01</row><row type="TypeDouble" index="23" invalid="no">4.2321999999999999e-01</row><row type="TypeDouble" index="24" invalid="no">3.9373399999999997e-01</row><row type="TypeDouble" index="25" invalid="no">3.6658400000000002e-01</row><row type="TypeDouble" index="26" invalid="no">3.3796199999999998e-01</row><row type="TypeDouble" index="27" invalid="no">3.0868099999999998e-01</row><row type="TypeDouble" index="28" invalid="no">2.8051500000000001e-01</row><row type="TypeDouble" index="29" invalid="no">2.5271500000000002e-01</row><row type="TypeDouble" index="30" invalid="no">2.2786999999999999e-01</row><row type="TypeDouble" index="31" invalid="no">2.0284900000000000e-01</row><row type="TypeDouble" index="32" invalid="no">1.7669399999999999e-01</row><row type="TypeDouble" index="33" invalid="no">1.5428000000000000e-01</row><row type="TypeDouble" index="34" invalid="no">1.3674400000000000e-01</row><row type="TypeDouble" index="35" invalid="no">1.2089200000000000e-01</row><row type="TypeDouble" index="36" invalid="no">1.0536800000000000e-01</row><row type="TypeDouble" index="37" invalid="no">8.8281399999999996e-02</row><row type="TypeDouble" index="38" invalid="no">7.0465000000000000e-02</row><row type="TypeDouble" index="39" invalid="no">5.4764199999999999e-02</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
+geometry	0	0	589	448	
+
+</table>
+<multiLayer>
+Graph1	1	1	1/8/2021 4:26:40 PM
+geometry	589	0	500	400	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	416	236
+Alignement	0	0
+<graph>
+ggeometry	5	5	475	317
+PlotTitle	Title	#ff000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffffff	255
+Margin	0
+Border	0	#ff000000
+grid	0	0	0	0	#ff0000ff	0	0	#ffa0a0a4	2	0	#ff0000ff	0	0	#ffa0a0a4	2	0	0	0	2	0
+EnabledAxes	1	0	1	0	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#ff000000	#ff000000	#ff000000	#ff000000	
+AxesTitleAlignment	5124	4	5124	4
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesNumberColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffffff	255
+curve	Table1_1	Table1_2	2	1	#ff000000	0	1	7	1	#ff000000	#ff000000	0	#ff000000	14	1	0	64		2	0	0	39	1
+FunctionCurve	0,NonLinearFit1,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016224	1263159624	1
+<formula>
+m=-2.64855843880704
+s=1.78579693684684
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+</formula>
+FunctionCurve	0,NonLinearFit2,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016504	1263159624	1
+<formula>
+m=-2.64855839134105
+s=1.78579602962948
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+</formula>
+FunctionCurve	0,NonLinearFit3,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016424	841512050	1
+<formula>
+m=-2.64855839001876
+s=1.78579601133819
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+</formula>
+scale	0	0	1	0	8	5	0	0
+scale	1	0	1	0	8	5	0	0
+scale	2	-3	0.5	0	8	5	0	0
+scale	3	-3	0.5	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<legend>	-2.91860465116279	0.968051118210863	MS Shell Dlg 2	8	50	0	0	0	#ff000000	1	0	#ffffff	0	\c{1}Table1_2	\c{2}NonLinearFit1	\c{3}NonLinearFit2	\c{4}NonLinearFit3	</legend>
+</graph>
+</multiLayer>
+<log>
+[1/8/2021 4:28:28 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855843880704 +/- 0.00609025948651585
+s  = 1.78579693684684 +/- 0.00984229929566628
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769189428
+R^2 = 0.999544410805377
+---------------------------------------------------------------------------------------
+Iterations = 2
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:29 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839134105 +/- 0.006090257564391
+s  = 1.78579602962948 +/- 0.009842294597766
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153602
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:29 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025746355745
+s  = 1.78579601133819 +/- 0.00984229438640192
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:34 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:34 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:49 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:49 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:50 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:28:52 PM	Plot: '''']
+Non-linear fit of dataset: Table1_2, using function: A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.0907706647
+m  = -2.64855839001876 +/- 0.00609025749510561
+s  = 1.78579601133819 +/- 0.00984229477386677
+--------------------------------------------------------------------------------------
+Chi^2 = 0.00155758769153586
+R^2 = 0.999544410805482
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+</log>
