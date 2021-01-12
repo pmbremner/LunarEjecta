@@ -1,19 +1,408 @@
 SciDAVis 1.26.0 project file
 <scripting-lang>	muParser
-<windows>	2
+<windows>	6
 <table>
 7503
-<table creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="Table1" columns="2" rows="40"><comment><![CDATA[]]></comment><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">-2.4710513900000000e+00</row><row type="TypeDouble" index="1" invalid="no">-2.4208521599999999e+00</row><row type="TypeDouble" index="2" invalid="no">-2.3455419200000001e+00</row><row type="TypeDouble" index="3" invalid="no">-2.2702301299999998e+00</row><row type="TypeDouble" index="4" invalid="no">-2.1949253199999998e+00</row><row type="TypeDouble" index="5" invalid="no">-2.1196337299999999e+00</row><row type="TypeDouble" index="6" invalid="no">-2.0443547500000001e+00</row><row type="TypeDouble" index="7" invalid="no">-1.9690770399999999e+00</row><row type="TypeDouble" index="8" invalid="no">-1.8938136900000000e+00</row><row type="TypeDouble" index="9" invalid="no">-1.8185810800000000e+00</row><row type="TypeDouble" index="10" invalid="no">-1.7433481200000001e+00</row><row type="TypeDouble" index="11" invalid="no">-1.6702213100000001e+00</row><row type="TypeDouble" index="12" invalid="no">-1.6012850500000000e+00</row><row type="TypeDouble" index="13" invalid="no">-1.5302609599999999e+00</row><row type="TypeDouble" index="14" invalid="no">-1.4801857300000001e+00</row><row type="TypeDouble" index="15" invalid="no">-1.4300943399999999e+00</row><row type="TypeDouble" index="16" invalid="no">-1.3716190100000001e+00</row><row type="TypeDouble" index="17" invalid="no">-1.3173501900000000e+00</row><row type="TypeDouble" index="18" invalid="no">-1.2672614499999999e+00</row><row type="TypeDouble" index="19" invalid="no">-1.2150783700000001e+00</row><row type="TypeDouble" index="20" invalid="no">-1.1629111700000001e+00</row><row type="TypeDouble" index="21" invalid="no">-1.1086309599999999e+00</row><row type="TypeDouble" index="22" invalid="no">-1.0564414200000001e+00</row><row type="TypeDouble" index="23" invalid="no">-1.0063414900000001e+00</row><row type="TypeDouble" index="24" invalid="no">-9.4998111699999999e-01</row><row type="TypeDouble" index="25" invalid="no">-8.9360687500000002e-01</row><row type="TypeDouble" index="26" invalid="no">-8.3724136999999998e-01</row><row type="TypeDouble" index="27" invalid="no">-7.7459806899999994e-01</row><row type="TypeDouble" index="28" invalid="no">-7.1194814600000000e-01</row><row type="TypeDouble" index="29" invalid="no">-6.5348386500000000e-01</row><row type="TypeDouble" index="30" invalid="no">-5.8662642899999995e-01</row><row type="TypeDouble" index="31" invalid="no">-5.1139442800000001e-01</row><row type="TypeDouble" index="32" invalid="no">-4.3616915899999997e-01</row><row type="TypeDouble" index="33" invalid="no">-3.6092169099999999e-01</row><row type="TypeDouble" index="34" invalid="no">-2.8564526899999998e-01</row><row type="TypeDouble" index="35" invalid="no">-2.1035885400000001e-01</row><row type="TypeDouble" index="36" invalid="no">-1.3507049099999999e-01</row><row type="TypeDouble" index="37" invalid="no">-5.9791404100000001e-02</row><row type="TypeDouble" index="38" invalid="no">1.5483352600000000e-02</row><row type="TypeDouble" index="39" invalid="no">9.0770664700000003e-02</row></column><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">9.4823199999999996e-01</row><row type="TypeDouble" index="1" invalid="no">9.3906000000000001e-01</row><row type="TypeDouble" index="2" invalid="no">9.2722300000000002e-01</row><row type="TypeDouble" index="3" invalid="no">9.1564599999999996e-01</row><row type="TypeDouble" index="4" invalid="no">9.0289399999999997e-01</row><row type="TypeDouble" index="5" invalid="no">8.8791399999999998e-01</row><row type="TypeDouble" index="6" invalid="no">8.7080999999999997e-01</row><row type="TypeDouble" index="7" invalid="no">8.5348999999999997e-01</row><row type="TypeDouble" index="8" invalid="no">8.3375200000000005e-01</row><row type="TypeDouble" index="9" invalid="no">8.0883400000000005e-01</row><row type="TypeDouble" index="10" invalid="no">7.8397499999999998e-01</row><row type="TypeDouble" index="11" invalid="no">7.5705100000000003e-01</row><row type="TypeDouble" index="12" invalid="no">7.2966600000000004e-01</row><row type="TypeDouble" index="13" invalid="no">7.0125899999999997e-01</row><row type="TypeDouble" index="14" invalid="no">6.7119200000000001e-01</row><row type="TypeDouble" index="15" invalid="no">6.4385000000000003e-01</row><row type="TypeDouble" index="16" invalid="no">6.1791099999999999e-01</row><row type="TypeDouble" index="17" invalid="no">5.8881899999999998e-01</row><row type="TypeDouble" index="18" invalid="no">5.6103000000000003e-01</row><row type="TypeDouble" index="19" invalid="no">5.3331399999999995e-01</row><row type="TypeDouble" index="20" invalid="no">5.0292400000000004e-01</row><row type="TypeDouble" index="21" invalid="no">4.7575099999999998e-01</row><row type="TypeDouble" index="22" invalid="no">4.4912500000000000e-01</row><row type="TypeDouble" index="23" invalid="no">4.2321999999999999e-01</row><row type="TypeDouble" index="24" invalid="no">3.9373399999999997e-01</row><row type="TypeDouble" index="25" invalid="no">3.6658400000000002e-01</row><row type="TypeDouble" index="26" invalid="no">3.3796199999999998e-01</row><row type="TypeDouble" index="27" invalid="no">3.0868099999999998e-01</row><row type="TypeDouble" index="28" invalid="no">2.8051500000000001e-01</row><row type="TypeDouble" index="29" invalid="no">2.5271500000000002e-01</row><row type="TypeDouble" index="30" invalid="no">2.2786999999999999e-01</row><row type="TypeDouble" index="31" invalid="no">2.0284900000000000e-01</row><row type="TypeDouble" index="32" invalid="no">1.7669399999999999e-01</row><row type="TypeDouble" index="33" invalid="no">1.5428000000000000e-01</row><row type="TypeDouble" index="34" invalid="no">1.3674400000000000e-01</row><row type="TypeDouble" index="35" invalid="no">1.2089200000000000e-01</row><row type="TypeDouble" index="36" invalid="no">1.0536800000000000e-01</row><row type="TypeDouble" index="37" invalid="no">8.8281399999999996e-02</row><row type="TypeDouble" index="38" invalid="no">7.0465000000000000e-02</row><row type="TypeDouble" index="39" invalid="no">5.4764199999999999e-02</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
+<table creation_time="2021-08-01 16:26:16:000" caption_spec="%n%C{ - }%c" name="Table1" columns="2" rows="40"><comment><![CDATA[]]></comment><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">-2.4710513900000000e+00</row><row type="TypeDouble" index="1" invalid="no">-2.4208521599999999e+00</row><row type="TypeDouble" index="2" invalid="no">-2.3455419200000001e+00</row><row type="TypeDouble" index="3" invalid="no">-2.2702301299999998e+00</row><row type="TypeDouble" index="4" invalid="no">-2.1949253199999998e+00</row><row type="TypeDouble" index="5" invalid="no">-2.1196337299999999e+00</row><row type="TypeDouble" index="6" invalid="no">-2.0443547500000001e+00</row><row type="TypeDouble" index="7" invalid="no">-1.9690770399999999e+00</row><row type="TypeDouble" index="8" invalid="no">-1.8938136900000000e+00</row><row type="TypeDouble" index="9" invalid="no">-1.8185810800000000e+00</row><row type="TypeDouble" index="10" invalid="no">-1.7433481200000001e+00</row><row type="TypeDouble" index="11" invalid="no">-1.6702213100000001e+00</row><row type="TypeDouble" index="12" invalid="no">-1.6012850500000000e+00</row><row type="TypeDouble" index="13" invalid="no">-1.5302609599999999e+00</row><row type="TypeDouble" index="14" invalid="no">-1.4801857300000001e+00</row><row type="TypeDouble" index="15" invalid="no">-1.4300943399999999e+00</row><row type="TypeDouble" index="16" invalid="no">-1.3716190100000001e+00</row><row type="TypeDouble" index="17" invalid="no">-1.3173501900000000e+00</row><row type="TypeDouble" index="18" invalid="no">-1.2672614499999999e+00</row><row type="TypeDouble" index="19" invalid="no">-1.2150783700000001e+00</row><row type="TypeDouble" index="20" invalid="no">-1.1629111700000001e+00</row><row type="TypeDouble" index="21" invalid="no">-1.1086309599999999e+00</row><row type="TypeDouble" index="22" invalid="no">-1.0564414200000001e+00</row><row type="TypeDouble" index="23" invalid="no">-1.0063414900000001e+00</row><row type="TypeDouble" index="24" invalid="no">-9.4998111699999999e-01</row><row type="TypeDouble" index="25" invalid="no">-8.9360687500000002e-01</row><row type="TypeDouble" index="26" invalid="no">-8.3724136999999998e-01</row><row type="TypeDouble" index="27" invalid="no">-7.7459806899999994e-01</row><row type="TypeDouble" index="28" invalid="no">-7.1194814600000000e-01</row><row type="TypeDouble" index="29" invalid="no">-6.5348386500000000e-01</row><row type="TypeDouble" index="30" invalid="no">-5.8662642899999995e-01</row><row type="TypeDouble" index="31" invalid="no">-5.1139442800000001e-01</row><row type="TypeDouble" index="32" invalid="no">-4.3616915899999997e-01</row><row type="TypeDouble" index="33" invalid="no">-3.6092169099999999e-01</row><row type="TypeDouble" index="34" invalid="no">-2.8564526899999998e-01</row><row type="TypeDouble" index="35" invalid="no">-2.1035885400000001e-01</row><row type="TypeDouble" index="36" invalid="no">-1.3507049099999999e-01</row><row type="TypeDouble" index="37" invalid="no">-5.9791404100000001e-02</row><row type="TypeDouble" index="38" invalid="no">1.5483352600000000e-02</row><row type="TypeDouble" index="39" invalid="no">9.0770664700000003e-02</row></column><column creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:26:16:734" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">9.4823199999999996e-01</row><row type="TypeDouble" index="1" invalid="no">9.3906000000000001e-01</row><row type="TypeDouble" index="2" invalid="no">9.2722300000000002e-01</row><row type="TypeDouble" index="3" invalid="no">9.1564599999999996e-01</row><row type="TypeDouble" index="4" invalid="no">9.0289399999999997e-01</row><row type="TypeDouble" index="5" invalid="no">8.8791399999999998e-01</row><row type="TypeDouble" index="6" invalid="no">8.7080999999999997e-01</row><row type="TypeDouble" index="7" invalid="no">8.5348999999999997e-01</row><row type="TypeDouble" index="8" invalid="no">8.3375200000000005e-01</row><row type="TypeDouble" index="9" invalid="no">8.0883400000000005e-01</row><row type="TypeDouble" index="10" invalid="no">7.8397499999999998e-01</row><row type="TypeDouble" index="11" invalid="no">7.5705100000000003e-01</row><row type="TypeDouble" index="12" invalid="no">7.2966600000000004e-01</row><row type="TypeDouble" index="13" invalid="no">7.0125899999999997e-01</row><row type="TypeDouble" index="14" invalid="no">6.7119200000000001e-01</row><row type="TypeDouble" index="15" invalid="no">6.4385000000000003e-01</row><row type="TypeDouble" index="16" invalid="no">6.1791099999999999e-01</row><row type="TypeDouble" index="17" invalid="no">5.8881899999999998e-01</row><row type="TypeDouble" index="18" invalid="no">5.6103000000000003e-01</row><row type="TypeDouble" index="19" invalid="no">5.3331399999999995e-01</row><row type="TypeDouble" index="20" invalid="no">5.0292400000000004e-01</row><row type="TypeDouble" index="21" invalid="no">4.7575099999999998e-01</row><row type="TypeDouble" index="22" invalid="no">4.4912500000000000e-01</row><row type="TypeDouble" index="23" invalid="no">4.2321999999999999e-01</row><row type="TypeDouble" index="24" invalid="no">3.9373399999999997e-01</row><row type="TypeDouble" index="25" invalid="no">3.6658400000000002e-01</row><row type="TypeDouble" index="26" invalid="no">3.3796199999999998e-01</row><row type="TypeDouble" index="27" invalid="no">3.0868099999999998e-01</row><row type="TypeDouble" index="28" invalid="no">2.8051500000000001e-01</row><row type="TypeDouble" index="29" invalid="no">2.5271500000000002e-01</row><row type="TypeDouble" index="30" invalid="no">2.2786999999999999e-01</row><row type="TypeDouble" index="31" invalid="no">2.0284900000000000e-01</row><row type="TypeDouble" index="32" invalid="no">1.7669399999999999e-01</row><row type="TypeDouble" index="33" invalid="no">1.5428000000000000e-01</row><row type="TypeDouble" index="34" invalid="no">1.3674400000000000e-01</row><row type="TypeDouble" index="35" invalid="no">1.2089200000000000e-01</row><row type="TypeDouble" index="36" invalid="no">1.0536800000000000e-01</row><row type="TypeDouble" index="37" invalid="no">8.8281399999999996e-02</row><row type="TypeDouble" index="38" invalid="no">7.0465000000000000e-02</row><row type="TypeDouble" index="39" invalid="no">5.4764199999999999e-02</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
 geometry	0	0	589	448	
+
+</table>
+<table>
+7503
+<table creation_time="2021-08-01 16:30:07:000" caption_spec="%n%C{ - }%c" name="Table2" columns="2" rows="40"><comment><![CDATA[]]></comment><column creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">-2.4710513900000000e+00</row><row type="TypeDouble" index="1" invalid="no">-2.4208521620000001e+00</row><row type="TypeDouble" index="2" invalid="no">-2.3455419169999998e+00</row><row type="TypeDouble" index="3" invalid="no">-2.2702301349999998e+00</row><row type="TypeDouble" index="4" invalid="no">-2.1949253220000000e+00</row><row type="TypeDouble" index="5" invalid="no">-2.1196337310000000e+00</row><row type="TypeDouble" index="6" invalid="no">-2.0443547459999998e+00</row><row type="TypeDouble" index="7" invalid="no">-1.9690770430000000e+00</row><row type="TypeDouble" index="8" invalid="no">-1.8938136889999999e+00</row><row type="TypeDouble" index="9" invalid="no">-1.8185810819999999e+00</row><row type="TypeDouble" index="10" invalid="no">-1.7433481200000001e+00</row><row type="TypeDouble" index="11" invalid="no">-1.6702213150000000e+00</row><row type="TypeDouble" index="12" invalid="no">-1.6012850540000001e+00</row><row type="TypeDouble" index="13" invalid="no">-1.5302609560000000e+00</row><row type="TypeDouble" index="14" invalid="no">-1.4801857300000001e+00</row><row type="TypeDouble" index="15" invalid="no">-1.4300943399999999e+00</row><row type="TypeDouble" index="16" invalid="no">-1.3716190079999999e+00</row><row type="TypeDouble" index="17" invalid="no">-1.3173501930000000e+00</row><row type="TypeDouble" index="18" invalid="no">-1.2672614520000001e+00</row><row type="TypeDouble" index="19" invalid="no">-1.2150783730000001e+00</row><row type="TypeDouble" index="20" invalid="no">-1.1629111660000000e+00</row><row type="TypeDouble" index="21" invalid="no">-1.1086309630000000e+00</row><row type="TypeDouble" index="22" invalid="no">-1.0564414160000000e+00</row><row type="TypeDouble" index="23" invalid="no">-1.0063414930000001e+00</row><row type="TypeDouble" index="24" invalid="no">-9.4998111699999999e-01</row><row type="TypeDouble" index="25" invalid="no">-8.9360687500000002e-01</row><row type="TypeDouble" index="26" invalid="no">-8.3724136999999998e-01</row><row type="TypeDouble" index="27" invalid="no">-7.7459806899999994e-01</row><row type="TypeDouble" index="28" invalid="no">-7.1194814600000000e-01</row><row type="TypeDouble" index="29" invalid="no">-6.5348386500000000e-01</row><row type="TypeDouble" index="30" invalid="no">-5.8662642899999995e-01</row><row type="TypeDouble" index="31" invalid="no">-5.1139442800000001e-01</row><row type="TypeDouble" index="32" invalid="no">-4.3616915899999997e-01</row><row type="TypeDouble" index="33" invalid="no">-3.6092169099999999e-01</row><row type="TypeDouble" index="34" invalid="no">-2.8564526899999998e-01</row><row type="TypeDouble" index="35" invalid="no">-2.1035885400000001e-01</row><row type="TypeDouble" index="36" invalid="no">-1.3507049099999999e-01</row><row type="TypeDouble" index="37" invalid="no">-5.9791403999999999e-02</row><row type="TypeDouble" index="38" invalid="no">1.5483353000000000e-02</row><row type="TypeDouble" index="39" invalid="no">9.0770665000000000e-02</row></column><column creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-08-01 16:30:07:191" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">7.5074182210000000e+00</row><row type="TypeDouble" index="1" invalid="no">7.4385246690000004e+00</row><row type="TypeDouble" index="2" invalid="no">7.3345432150000001e+00</row><row type="TypeDouble" index="3" invalid="no">7.2298087469999999e+00</row><row type="TypeDouble" index="4" invalid="no">7.1243329019999999e+00</row><row type="TypeDouble" index="5" invalid="no">7.0181244679999999e+00</row><row type="TypeDouble" index="6" invalid="no">6.9111827010000004e+00</row><row type="TypeDouble" index="7" invalid="no">6.8034914579999999e+00</row><row type="TypeDouble" index="8" invalid="no">6.6950694170000000e+00</row><row type="TypeDouble" index="9" invalid="no">6.5859406199999997e+00</row><row type="TypeDouble" index="10" invalid="no">6.4760601729999996e+00</row><row type="TypeDouble" index="11" invalid="no">6.3685357140000001e+00</row><row type="TypeDouble" index="12" invalid="no">6.2665227220000004e+00</row><row type="TypeDouble" index="13" invalid="no">6.1607598899999996e+00</row><row type="TypeDouble" index="14" invalid="no">6.0857894280000000e+00</row><row type="TypeDouble" index="15" invalid="no">6.0104613530000002e+00</row><row type="TypeDouble" index="16" invalid="no">5.9221034389999998e+00</row><row type="TypeDouble" index="17" invalid="no">5.8396949879999998e+00</row><row type="TypeDouble" index="18" invalid="no">5.7632865270000000e+00</row><row type="TypeDouble" index="19" invalid="no">5.6833283110000004e+00</row><row type="TypeDouble" index="20" invalid="no">5.6030322809999999e+00</row><row type="TypeDouble" index="21" invalid="no">5.5190995870000004e+00</row><row type="TypeDouble" index="22" invalid="no">5.4380298539999998e+00</row><row type="TypeDouble" index="23" invalid="no">5.3598650230000002e+00</row><row type="TypeDouble" index="24" invalid="no">5.2715334150000004e+00</row><row type="TypeDouble" index="25" invalid="no">5.1827567390000002e+00</row><row type="TypeDouble" index="26" invalid="no">5.0935707350000001e+00</row><row type="TypeDouble" index="27" invalid="no">4.9939552169999999e+00</row><row type="TypeDouble" index="28" invalid="no">4.8938059720000000e+00</row><row type="TypeDouble" index="29" invalid="no">4.7998757630000002e+00</row><row type="TypeDouble" index="30" invalid="no">4.6919025059999999e+00</row><row type="TypeDouble" index="31" invalid="no">4.5696919530000004e+00</row><row type="TypeDouble" index="32" invalid="no">4.4467382369999999e+00</row><row type="TypeDouble" index="33" invalid="no">4.3229929330000001e+00</row><row type="TypeDouble" index="34" invalid="no">4.1984426289999996e+00</row><row type="TypeDouble" index="35" invalid="no">4.0731203830000000e+00</row><row type="TypeDouble" index="36" invalid="no">3.9470392950000002e+00</row><row type="TypeDouble" index="37" invalid="no">3.8202154670000001e+00</row><row type="TypeDouble" index="38" invalid="no">3.6926461229999998e+00</row><row type="TypeDouble" index="39" invalid="no">3.5642976790000001e+00</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
+geometry	589	0	769	449	
+
+</table>
+<table>
+16537
+<table creation_time="2021-11-01 16:04:57:979" caption_spec="%n%C{ - }%c" name="Table3" columns="2" rows="100"><comment><![CDATA[]]></comment><column creation_time="2021-11-01 16:04:57:979" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-11-01 16:04:57:979" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-11-01 16:04:57:979" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">-2.0000000000000000e+00</row><row type="TypeDouble" index="1" invalid="no">-1.9686868689999999e+00</row><row type="TypeDouble" index="2" invalid="no">-1.9373737369999999e+00</row><row type="TypeDouble" index="3" invalid="no">-1.9060606060000000e+00</row><row type="TypeDouble" index="4" invalid="no">-1.8747474749999999e+00</row><row type="TypeDouble" index="5" invalid="no">-1.8434343430000000e+00</row><row type="TypeDouble" index="6" invalid="no">-1.8121212120000001e+00</row><row type="TypeDouble" index="7" invalid="no">-1.7808080810000000e+00</row><row type="TypeDouble" index="8" invalid="no">-1.7494949490000000e+00</row><row type="TypeDouble" index="9" invalid="no">-1.7181818179999999e+00</row><row type="TypeDouble" index="10" invalid="no">-1.6868686870000000e+00</row><row type="TypeDouble" index="11" invalid="no">-1.6555555559999999e+00</row><row type="TypeDouble" index="12" invalid="no">-1.6242424240000000e+00</row><row type="TypeDouble" index="13" invalid="no">-1.5929292930000001e+00</row><row type="TypeDouble" index="14" invalid="no">-1.5616161620000000e+00</row><row type="TypeDouble" index="15" invalid="no">-1.5303030300000000e+00</row><row type="TypeDouble" index="16" invalid="no">-1.4989898989999999e+00</row><row type="TypeDouble" index="17" invalid="no">-1.4676767680000000e+00</row><row type="TypeDouble" index="18" invalid="no">-1.4363636360000001e+00</row><row type="TypeDouble" index="19" invalid="no">-1.4050505049999999e+00</row><row type="TypeDouble" index="20" invalid="no">-1.3737373740000001e+00</row><row type="TypeDouble" index="21" invalid="no">-1.3424242420000001e+00</row><row type="TypeDouble" index="22" invalid="no">-1.3111111110000000e+00</row><row type="TypeDouble" index="23" invalid="no">-1.2797979799999999e+00</row><row type="TypeDouble" index="24" invalid="no">-1.2484848479999999e+00</row><row type="TypeDouble" index="25" invalid="no">-1.2171717170000000e+00</row><row type="TypeDouble" index="26" invalid="no">-1.1858585859999999e+00</row><row type="TypeDouble" index="27" invalid="no">-1.1545454550000001e+00</row><row type="TypeDouble" index="28" invalid="no">-1.1232323230000001e+00</row><row type="TypeDouble" index="29" invalid="no">-1.0919191920000000e+00</row><row type="TypeDouble" index="30" invalid="no">-1.0606060610000001e+00</row><row type="TypeDouble" index="31" invalid="no">-1.0292929289999999e+00</row><row type="TypeDouble" index="32" invalid="no">-9.9797979800000003e-01</row><row type="TypeDouble" index="33" invalid="no">-9.6666666700000003e-01</row><row type="TypeDouble" index="34" invalid="no">-9.3535353499999996e-01</row><row type="TypeDouble" index="35" invalid="no">-9.0404040399999996e-01</row><row type="TypeDouble" index="36" invalid="no">-8.7272727299999997e-01</row><row type="TypeDouble" index="37" invalid="no">-8.4141414100000000e-01</row><row type="TypeDouble" index="38" invalid="no">-8.1010101000000001e-01</row><row type="TypeDouble" index="39" invalid="no">-7.7878787900000002e-01</row><row type="TypeDouble" index="40" invalid="no">-7.4747474700000005e-01</row><row type="TypeDouble" index="41" invalid="no">-7.1616161599999995e-01</row><row type="TypeDouble" index="42" invalid="no">-6.8484848499999995e-01</row><row type="TypeDouble" index="43" invalid="no">-6.5353535399999996e-01</row><row type="TypeDouble" index="44" invalid="no">-6.2222222199999999e-01</row><row type="TypeDouble" index="45" invalid="no">-5.9090909100000000e-01</row><row type="TypeDouble" index="46" invalid="no">-5.5959596000000000e-01</row><row type="TypeDouble" index="47" invalid="no">-5.2828282800000004e-01</row><row type="TypeDouble" index="48" invalid="no">-4.9696969699999999e-01</row><row type="TypeDouble" index="49" invalid="no">-4.6565656599999999e-01</row><row type="TypeDouble" index="50" invalid="no">-4.3434343399999997e-01</row><row type="TypeDouble" index="51" invalid="no">-4.0303030299999998e-01</row><row type="TypeDouble" index="52" invalid="no">-3.7171717199999998e-01</row><row type="TypeDouble" index="53" invalid="no">-3.4040404000000002e-01</row><row type="TypeDouble" index="54" invalid="no">-3.0909090900000002e-01</row><row type="TypeDouble" index="55" invalid="no">-2.7777777799999998e-01</row><row type="TypeDouble" index="56" invalid="no">-2.4646464600000001e-01</row><row type="TypeDouble" index="57" invalid="no">-2.1515151499999999e-01</row><row type="TypeDouble" index="58" invalid="no">-1.8383838399999999e-01</row><row type="TypeDouble" index="59" invalid="no">-1.5252525300000000e-01</row><row type="TypeDouble" index="60" invalid="no">-1.2121212100000001e-01</row><row type="TypeDouble" index="61" invalid="no">-8.9898989999999998e-02</row><row type="TypeDouble" index="62" invalid="no">-5.8585858999999997e-02</row><row type="TypeDouble" index="63" invalid="no">-2.7272727000000000e-02</row><row type="TypeDouble" index="64" invalid="no">4.0404040000000000e-03</row><row type="TypeDouble" index="65" invalid="no">3.5353534999999998e-02</row><row type="TypeDouble" index="66" invalid="no">6.6666666999999999e-02</row><row type="TypeDouble" index="67" invalid="no">9.7979798000000007e-02</row><row type="TypeDouble" index="68" invalid="no">1.2929292900000000e-01</row><row type="TypeDouble" index="69" invalid="no">1.6060606099999999e-01</row><row type="TypeDouble" index="70" invalid="no">1.9191919199999999e-01</row><row type="TypeDouble" index="71" invalid="no">2.2323232300000001e-01</row><row type="TypeDouble" index="72" invalid="no">2.5454545499999998e-01</row><row type="TypeDouble" index="73" invalid="no">2.8585858600000003e-01</row><row type="TypeDouble" index="74" invalid="no">3.1717171700000002e-01</row><row type="TypeDouble" index="75" invalid="no">3.4848484800000001e-01</row><row type="TypeDouble" index="76" invalid="no">3.7979797999999998e-01</row><row type="TypeDouble" index="77" invalid="no">4.1111111099999997e-01</row><row type="TypeDouble" index="78" invalid="no">4.4242424200000002e-01</row><row type="TypeDouble" index="79" invalid="no">4.7373737399999999e-01</row><row type="TypeDouble" index="80" invalid="no">5.0505050500000004e-01</row><row type="TypeDouble" index="81" invalid="no">5.3636363600000003e-01</row><row type="TypeDouble" index="82" invalid="no">5.6767676800000000e-01</row><row type="TypeDouble" index="83" invalid="no">5.9898989899999999e-01</row><row type="TypeDouble" index="84" invalid="no">6.3030302999999999e-01</row><row type="TypeDouble" index="85" invalid="no">6.6161616199999995e-01</row><row type="TypeDouble" index="86" invalid="no">6.9292929299999995e-01</row><row type="TypeDouble" index="87" invalid="no">7.2424242400000005e-01</row><row type="TypeDouble" index="88" invalid="no">7.5555555600000002e-01</row><row type="TypeDouble" index="89" invalid="no">7.8686868700000001e-01</row><row type="TypeDouble" index="90" invalid="no">8.1818181800000001e-01</row><row type="TypeDouble" index="91" invalid="no">8.4949494900000000e-01</row><row type="TypeDouble" index="92" invalid="no">8.8080808099999996e-01</row><row type="TypeDouble" index="93" invalid="no">9.1212121199999996e-01</row><row type="TypeDouble" index="94" invalid="no">9.4343434299999995e-01</row><row type="TypeDouble" index="95" invalid="no">9.7474747500000003e-01</row><row type="TypeDouble" index="96" invalid="no">1.0060606059999999e+00</row><row type="TypeDouble" index="97" invalid="no">1.0373737370000000e+00</row><row type="TypeDouble" index="98" invalid="no">1.0686868690000000e+00</row><row type="TypeDouble" index="99" invalid="no">1.1000000000000001e+00</row></column><column creation_time="2021-11-01 16:04:57:980" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2021-11-01 16:04:57:980" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2021-11-01 16:04:57:980" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">1.0129156670000000e+01</row><row type="TypeDouble" index="1" invalid="no">1.0050330510000000e+01</row><row type="TypeDouble" index="2" invalid="no">9.9708260610000004e+00</row><row type="TypeDouble" index="3" invalid="no">9.8906428809999998e+00</row><row type="TypeDouble" index="4" invalid="no">9.8097805489999992e+00</row><row type="TypeDouble" index="5" invalid="no">9.7282386530000000e+00</row><row type="TypeDouble" index="6" invalid="no">9.6460167860000006e+00</row><row type="TypeDouble" index="7" invalid="no">9.5631145530000001e+00</row><row type="TypeDouble" index="8" invalid="no">9.4795315620000000e+00</row><row type="TypeDouble" index="9" invalid="no">9.3952674330000008e+00</row><row type="TypeDouble" index="10" invalid="no">9.3103217919999999e+00</row><row type="TypeDouble" index="11" invalid="no">9.2246942720000007e+00</row><row type="TypeDouble" index="12" invalid="no">9.1383845130000001e+00</row><row type="TypeDouble" index="13" invalid="no">9.0513921629999992e+00</row><row type="TypeDouble" index="14" invalid="no">8.9637168769999995e+00</row><row type="TypeDouble" index="15" invalid="no">8.8753583159999998e+00</row><row type="TypeDouble" index="16" invalid="no">8.7863161460000008e+00</row><row type="TypeDouble" index="17" invalid="no">8.6965900430000005e+00</row><row type="TypeDouble" index="18" invalid="no">8.6061796850000007e+00</row><row type="TypeDouble" index="19" invalid="no">8.5150847600000006e+00</row><row type="TypeDouble" index="20" invalid="no">8.4233049579999992e+00</row><row type="TypeDouble" index="21" invalid="no">8.3308399790000003e+00</row><row type="TypeDouble" index="22" invalid="no">8.2376895250000004e+00</row><row type="TypeDouble" index="23" invalid="no">8.1438533050000004e+00</row><row type="TypeDouble" index="24" invalid="no">8.0493310349999998e+00</row><row type="TypeDouble" index="25" invalid="no">7.9541224320000001e+00</row><row type="TypeDouble" index="26" invalid="no">7.8582272220000000e+00</row><row type="TypeDouble" index="27" invalid="no">7.7616451340000001e+00</row><row type="TypeDouble" index="28" invalid="no">7.6643759039999999e+00</row><row type="TypeDouble" index="29" invalid="no">7.5664192699999999e+00</row><row type="TypeDouble" index="30" invalid="no">7.4677749770000004e+00</row><row type="TypeDouble" index="31" invalid="no">7.3684427729999999e+00</row><row type="TypeDouble" index="32" invalid="no">7.2684224119999996e+00</row><row type="TypeDouble" index="33" invalid="no">7.1677136480000003e+00</row><row type="TypeDouble" index="34" invalid="no">7.0663162489999998e+00</row><row type="TypeDouble" index="35" invalid="no">6.9642299730000001e+00</row><row type="TypeDouble" index="36" invalid="no">6.8614545990000000e+00</row><row type="TypeDouble" index="37" invalid="no">6.7579898930000004e+00</row><row type="TypeDouble" index="38" invalid="no">6.6538356319999998e+00</row><row type="TypeDouble" index="39" invalid="no">6.5489916060000004e+00</row><row type="TypeDouble" index="40" invalid="no">6.4434575909999996e+00</row><row type="TypeDouble" index="41" invalid="no">6.3372333870000004e+00</row><row type="TypeDouble" index="42" invalid="no">6.2303187729999996e+00</row><row type="TypeDouble" index="43" invalid="no">6.1227135549999998e+00</row><row type="TypeDouble" index="44" invalid="no">6.0144175469999999e+00</row><row type="TypeDouble" index="45" invalid="no">5.9054305200000003e+00</row><row type="TypeDouble" index="46" invalid="no">5.7957522890000002e+00</row><row type="TypeDouble" index="47" invalid="no">5.6853826600000001e+00</row><row type="TypeDouble" index="48" invalid="no">5.5743214529999996e+00</row><row type="TypeDouble" index="49" invalid="no">5.4625685390000003e+00</row><row type="TypeDouble" index="50" invalid="no">5.3501235879999998e+00</row><row type="TypeDouble" index="51" invalid="no">5.2369865610000002e+00</row><row type="TypeDouble" index="52" invalid="no">5.1231574249999996e+00</row><row type="TypeDouble" index="53" invalid="no">5.0086355009999997e+00</row><row type="TypeDouble" index="54" invalid="no">4.8934211799999998e+00</row><row type="TypeDouble" index="55" invalid="no">4.7775139900000001e+00</row><row type="TypeDouble" index="56" invalid="no">4.6609134049999996e+00</row><row type="TypeDouble" index="57" invalid="no">4.5436206700000001e+00</row><row type="TypeDouble" index="58" invalid="no">4.4256335609999997e+00</row><row type="TypeDouble" index="59" invalid="no">4.3069533900000003e+00</row><row type="TypeDouble" index="60" invalid="no">4.1875791099999997e+00</row><row type="TypeDouble" index="61" invalid="no">4.0675131889999996e+00</row><row type="TypeDouble" index="62" invalid="no">3.9467523290000002e+00</row><row type="TypeDouble" index="63" invalid="no">3.8252964060000001e+00</row><row type="TypeDouble" index="64" invalid="no">3.7031443259999999e+00</row><row type="TypeDouble" index="65" invalid="no">3.5803038439999999e+00</row><row type="TypeDouble" index="66" invalid="no">3.4567681580000000e+00</row><row type="TypeDouble" index="67" invalid="no">3.3325362580000002e+00</row><row type="TypeDouble" index="68" invalid="no">3.2076124680000002e+00</row><row type="TypeDouble" index="69" invalid="no">3.0819823070000001e+00</row><row type="TypeDouble" index="70" invalid="no">2.9556752089999998e+00</row><row type="TypeDouble" index="71" invalid="no">2.8286430239999998e+00</row><row type="TypeDouble" index="72" invalid="no">2.7009292330000001e+00</row><row type="TypeDouble" index="73" invalid="no">2.5725207490000002e+00</row><row type="TypeDouble" index="74" invalid="no">2.4434624420000000e+00</row><row type="TypeDouble" index="75" invalid="no">2.3136725039999999e+00</row><row type="TypeDouble" index="76" invalid="no">2.1831825980000001e+00</row><row type="TypeDouble" index="77" invalid="no">2.0520152810000001e+00</row><row type="TypeDouble" index="78" invalid="no">1.9200816890000001e+00</row><row type="TypeDouble" index="79" invalid="no">1.7873457150000001e+00</row><row type="TypeDouble" index="80" invalid="no">1.6539326710000000e+00</row><row type="TypeDouble" index="81" invalid="no">1.5205933920000001e+00</row><row type="TypeDouble" index="82" invalid="no">1.3851892219999999e+00</row><row type="TypeDouble" index="83" invalid="no">1.2495266199999999e+00</row><row type="TypeDouble" index="84" invalid="no">1.1148280460000000e+00</row><row type="TypeDouble" index="85" invalid="no">9.7652534800000002e-01</row><row type="TypeDouble" index="86" invalid="no">8.3779832700000001e-01</row><row type="TypeDouble" index="87" invalid="no">7.0182429099999999e-01</row><row type="TypeDouble" index="88" invalid="no">5.5951145800000002e-01</row><row type="TypeDouble" index="89" invalid="no">4.2561787899999998e-01</row><row type="TypeDouble" index="90" invalid="no">2.8428872599999999e-01</row><row type="TypeDouble" index="91" invalid="no">1.4806897899999999e-01</row><row type="TypeDouble" index="92" invalid="no">1.5443414000000001e-02</row><row type="TypeDouble" index="93" invalid="no">-1.3068462200000000e-01</row><row type="TypeDouble" index="94" invalid="no">-2.8558658199999998e-01</row><row type="TypeDouble" index="95" invalid="no">-4.3171461799999999e-01</row><row type="TypeDouble" index="96" invalid="no">-5.2862463100000001e-01</row><row type="TypeDouble" index="97" invalid="no">-6.5356336699999995e-01</row><row type="TypeDouble" index="98" invalid="no">-8.2965462599999995e-01</row><row type="TypeDouble" index="99" invalid="no">-1.1306846220000000e+00</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
+geometry	862	0	769	454	
 
 </table>
 <multiLayer>
 Graph1	1	1	1/8/2021 4:26:40 PM
-geometry	589	0	500	400	active
+geometry	33	17	500	400	
 WindowLabel		2
 Margins	5	5	5	5
 Spacing	5	5
 LayerCanvasSize	416	236
+Alignement	0	0
+<graph>
+ggeometry	5	5	476	318
+PlotTitle	Title	#ff000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffffff	255
+Margin	0
+Border	0	#ff000000
+grid	0	0	0	0	#ff0000ff	0	0	#ffa0a0a4	2	0	#ff0000ff	0	0	#ffa0a0a4	2	0	0	0	2	0
+EnabledAxes	1	0	1	0	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#ff000000	#ff000000	#ff000000	#ff000000	
+AxesTitleAlignment	5124	4	5124	4
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesNumberColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffffff	255
+curve	Table1_1	Table1_2	2	1	#ff000000	0	1	7	1	#ff000000	#ff000000	0	#ff000000	14	1	0	64		2	0	0	39	1
+FunctionCurve	0,NonLinearFit1,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107693944	3407928	1
+<formula>
+m=-2.64855843880704
+s=1.78579693684684
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+
+</formula>
+FunctionCurve	0,NonLinearFit2,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107696024	576	1
+<formula>
+m=-2.64855839134105
+s=1.78579602962948
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+
+</formula>
+FunctionCurve	0,NonLinearFit3,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107696464	3145776	1
+<formula>
+m=-2.64855839001876
+s=1.78579601133819
+
+A=1
+A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+
+</formula>
+scale	0	0	1	0	8	5	0	0
+scale	1	0	1	0	8	5	0	0
+scale	2	-3	0.5	0	8	5	0	0
+scale	3	-3	0.5	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<legend>	-2.91860465116279	0.968051118210863	MS Shell Dlg 2	8	50	0	0	0	#ff000000	1	0	#ffffff	0	\c{1}Table1_2	\c{2}NonLinearFit1	\c{3}NonLinearFit2	\c{4}NonLinearFit3</legend>
+</graph>
+</multiLayer>
+<multiLayer>
+Graph2	1	1	1/8/2021 4:35:21 PM
+geometry	1074	0	500	400	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	430	236
+Alignement	0	0
+<graph>
+ggeometry	5	5	476	318
+PlotTitle	Title	#ff000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffffff	255
+Margin	0
+Border	0	#ff000000
+grid	0	0	0	0	#ff0000ff	0	0	#ffa0a0a4	2	0	#ff0000ff	0	0	#ffa0a0a4	2	0	0	0	2	0
+EnabledAxes	1	0	1	0	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#ff000000	#ff000000	#ff000000	#ff000000	
+AxesTitleAlignment	5124	4	5124	4
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesNumberColors	#ff000000	#ff000000	#ff000000	#ff000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffffff	255
+curve	Table2_1	Table2_2	2	1	#ff000000	0	1	7	1	#ff000000	#ff000000	0	#ff000000	14	1	0	64		2	0	0	39	1
+FunctionCurve	0,NonLinearFit1,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107702024	0	1
+<formula>
+A=6584.31466317455
+a=2.87700934130544
+b=1.29013444847761
+d=1.78879449682641
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit2,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107699984	3604529	1
+<formula>
+A=6584.31466317455
+a=2.87700934130544
+b=1.29013444847761
+d=1.78879449682641
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit3,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107701264	3604529	1
+<formula>
+A=6584.31466317455
+a=2.87700934130544
+b=1.29013444847761
+d=1.78879449682641
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit4,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107702224	0	1
+<formula>
+A=6584.31466317455
+a=2.87700934130544
+b=1.29013444847761
+d=1.78879449682641
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit5,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107699904	108066848	1
+<formula>
+A=6585.96270185829
+a=1.56113365059672
+b=3.0215585283957
+d=1.51548462145316
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit6,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107702784	1263159624	1
+<formula>
+A=25739.8772395073
+a=0.466656437264268
+b=1.78879451295862
+d=1.29013446562019
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit7,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107701184	0	1
+<formula>
+A=25739.8789010082
+a=0.466656414675641
+b=1.78879450453561
+d=1.29013445645861
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit8,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107702584	0	1
+<formula>
+A=25739.8791352524
+a=0.466656411574171
+b=1.78879450352643
+d=1.29013445527279
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit9,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107704104	108065872	1
+<formula>
+A=25739.8785146351
+a=0.466656419899533
+b=1.78879450682153
+d=1.29013445870132
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit10,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107703384	0	1
+<formula>
+A=25739.8787218803
+a=0.466656417200932
+b=1.78879450534773
+d=1.29013445756404
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit11,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107703224	0	1
+<formula>
+A=25739.8791044444
+a=0.466656411891906
+b=1.78879450278553
+d=1.2901344557973
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit12,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107704144	3735600	1
+<formula>
+A=25739.8776106717
+a=0.466656432388309
+b=1.7887945105015
+d=1.29013446409562
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit13,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107704584	108066688	1
+<formula>
+A=25739.8781288897
+a=0.466656425228376
+b=1.78879450803645
+d=1.29013446085435
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit14,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107704944	3211317	1
+<formula>
+A=25739.8781176776
+a=0.46665642551153
+b=1.78879450823501
+d=1.29013446110913
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit15,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107704664	3211318	1
+<formula>
+A=25739.8780961501
+a=0.466656425653744
+b=1.78879450858998
+d=1.29013446100009
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit16,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107705144	3473459	1
+<formula>
+A=25739.8771341332
+a=0.466656438910087
+b=1.78879451293788
+d=1.29013446635693
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit17,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107705104	108066944	1
+<formula>
+A=25739.8783223188
+a=0.466656422689613
+b=1.78879450746091
+d=1.29013445979219
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit18,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107706504	0	1
+<formula>
+A=25739.8783704069
+a=0.466656422012374
+b=1.78879450714224
+d=1.29013445936317
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit19,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107705624	3735600	1
+<formula>
+A=25739.8788343644
+a=0.46665641576883
+b=1.78879450406735
+d=1.29013445709541
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit20,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107706624	0	1
+<formula>
+A=25739.878009188
+a=0.466656426872597
+b=1.78879451001555
+d=1.29013446113651
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit21,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107705744	3604537	1
+<formula>
+A=25739.8781514077
+a=0.466656424703749
+b=1.78879450760977
+d=1.29013446097939
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit22,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107706824	3342387	1
+<formula>
+A=25739.8776132298
+a=0.466656432361927
+b=1.78879451033074
+d=1.29013446388034
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit23,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107707984	0	1
+<formula>
+A=25739.8778340263
+a=0.466656429193885
+b=1.78879451033297
+d=1.29013446235623
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit24,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107707104	1263159624	1
+<formula>
+A=25739.8779835795
+a=0.46665642739385
+b=1.78879450852083
+d=1.29013446157152
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+FunctionCurve	0,NonLinearFit25,x,-2.47105139,0.090770665	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	0	64		2	0	107707024	0	1
+<formula>
+A=25739.8789514452
+a=0.466656413954168
+b=1.78879450366474
+d=1.29013445656134
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+
+</formula>
+scale	0	3	8	0	8	5	0	0
+scale	1	3	8	0	8	5	0	0
+scale	2	-3	0.5	0	8	5	0	0
+scale	3	-3	0.5	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<legend>	-2.92117117117117	7.84025559105431	MS Shell Dlg 2	8	50	0	0	0	#ff000000	1	0	#ffffff	0	\c{1}Table2_2	\c{2}NonLinearFit1	\c{3}NonLinearFit2	\c{4}NonLinearFit3	\c{5}NonLinearFit4	\c{6}NonLinearFit5	\c{7}NonLinearFit6	\c{8}NonLinearFit7	\c{9}NonLinearFit8	\c{10}NonLinearFit9	\c{11}NonLinearFit10	\c{12}NonLinearFit11	\c{13}NonLinearFit12	\c{14}NonLinearFit13	\c{15}NonLinearFit14	\c{16}NonLinearFit15	\c{17}NonLinearFit16	\c{18}NonLinearFit17	\c{19}NonLinearFit18	\c{20}NonLinearFit19	\c{21}NonLinearFit20	\c{22}NonLinearFit21	\c{23}NonLinearFit22	\c{24}NonLinearFit23	\c{25}NonLinearFit24	\c{26}NonLinearFit25</legend>
+</graph>
+</multiLayer>
+<multiLayer>
+Graph3	1	1	1/11/2021 4:06:40 PM
+geometry	533	54	500	400	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	421	236
 Alignement	0	0
 <graph>
 ggeometry	5	5	475	317
@@ -41,35 +430,83 @@ AxesColors	#ff000000	#ff000000	#ff000000	#ff000000
 AxesNumberColors	#ff000000	#ff000000	#ff000000	#ff000000
 AxesBaseline	0	0	0	0	
 CanvasBackground	#ffffffff	255
-curve	Table1_1	Table1_2	2	1	#ff000000	0	1	7	1	#ff000000	#ff000000	0	#ff000000	14	1	0	64		2	0	0	39	1
-FunctionCurve	0,NonLinearFit1,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016224	1263159624	1
+curve	Table3_1	Table3_2	2	1	#ff000000	0	1	7	1	#ff000000	#ff000000	0	#ff000000	14	1	0	64		2	0	0	99	1
+FunctionCurve	0,NonLinearFit1,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	73747616	1263159624	1
 <formula>
-m=-2.64855843880704
-s=1.78579693684684
+A=27695.894466454
+a=0.71258733302402
+b=4.30260102463465
+d=2.88489479345586
 
-A=1
-A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+log10( A/((10^x/a)^b + (10^x)^d) )
 </formula>
-FunctionCurve	0,NonLinearFit2,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016504	1263159624	1
+FunctionCurve	0,NonLinearFit2,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	73747176	1263159624	1
 <formula>
-m=-2.64855839134105
-s=1.78579602962948
+A=27695.8940985764
+a=0.712587335851713
+b=4.30260102484536
+d=2.88489479590698
 
-A=1
-A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+log10( A/((10^x/a)^b + (10^x)^d) )
 </formula>
-FunctionCurve	0,NonLinearFit3,x,-2.47105139,0.0907706647	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72016424	841512050	1
+FunctionCurve	0,NonLinearFit3,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	73747416	1263159624	1
 <formula>
-m=-2.64855839001876
-s=1.78579601133819
+A=27695.8936229439
+a=0.71258734136991
+b=4.30260103322114
+d=2.88489480095879
 
-A=1
-A*0.5*( 1-erf((x/log10(exp(1)) - m)/(sqrt(2)*s)) )
+log10( A/((10^x/a)^b + (10^x)^d) )
 </formula>
-scale	0	0	1	0	8	5	0	0
-scale	1	0	1	0	8	5	0	0
-scale	2	-3	0.5	0	8	5	0	0
-scale	3	-3	0.5	0	8	5	0	0
+FunctionCurve	0,NonLinearFit4,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	72776352	1263159624	1
+<formula>
+A=27695.8944656917
+a=0.712587333357181
+b=4.30260102497857
+d=2.88489479279035
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+</formula>
+FunctionCurve	0,NonLinearFit5,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	67994664	1263159624	1
+<formula>
+A=27695.8934634221
+a=0.712587342605663
+b=4.30260103408913
+d=2.88489480270323
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+</formula>
+FunctionCurve	0,NonLinearFit6,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	67994744	1263159624	1
+<formula>
+A=27695.8934634221
+a=0.712587342605663
+b=4.30260103408913
+d=2.88489480270323
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+</formula>
+FunctionCurve	0,NonLinearFit7,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	67994464	1263159624	1
+<formula>
+A=27695.8934634221
+a=0.712587342605663
+b=4.30260103408913
+d=2.88489480270323
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+</formula>
+FunctionCurve	0,NonLinearFit8,x,-2,1.1	100			0	1	#ffff0000	0	1	0	0	#ff000000	#ffa0a0a4	0	#ff000000	14	0	16	64		2	0	73737936	1263159624	1
+<formula>
+A=27695.8934634221
+a=0.712587342605663
+b=4.30260103408913
+d=2.88489480270323
+
+log10( A/((10^x/a)^b + (10^x)^d) )
+</formula>
+scale	0	-2	12	0	8	5	0	0
+scale	1	-2	12	0	8	5	0	0
+scale	2	-2.5	1.5	0	8	5	0	0
+scale	3	-2.5	1.5	0	8	5	0	0
 LabelsFormat	0	4	0	4	0	4	0	4	
 AxisType	0	0	0	0	
 MajorTicks	1	1	1	1	
@@ -78,7 +515,7 @@ TicksLength	5	9
 DrawAxesBackbone	1
 AxesLineWidth	1
 LabelsRotation	0	0
-<legend>	-2.91860465116279	0.968051118210863	MS Shell Dlg 2	8	50	0	0	0	#ff000000	1	0	#ffffff	0	\c{1}Table1_2	\c{2}NonLinearFit1	\c{3}NonLinearFit2	\c{4}NonLinearFit3	</legend>
+<legend>	-2.40804597701149	11.5527156549521	MS Shell Dlg 2	8	50	0	0	0	#ff000000	1	0	#ffffff	0	\c{1}Table3_2	\c{2}NonLinearFit1	\c{3}NonLinearFit2	\c{4}NonLinearFit3	\c{5}NonLinearFit4	\c{6}NonLinearFit5	\c{7}NonLinearFit6	\c{8}NonLinearFit7	\c{9}NonLinearFit8	</legend>
 </graph>
 </multiLayer>
 <log>
@@ -216,5 +653,1621 @@ R^2 = 0.999544410805482
 ---------------------------------------------------------------------------------------
 Iterations = 0
 Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:33 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,024.23637247333 +/- 153.843349390545
+a  = 8.9000138379672 +/- 0
+b  = 10.4097756613837 +/- 0
+d  = 1.53758680883668 +/- 0.00792977658635559
+--------------------------------------------------------------------------------------
+Chi^2 = 0.0478513074441393
+R^2 = 0.999043360433895
+---------------------------------------------------------------------------------------
+Iterations = 17
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:44 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,024.23637247333 +/- 153.875469203886
+a  = 8.9000138379672 +/- 0
+b  = 10.4097756613837 +/- 0
+d  = 1.53758680883668 +/- 0.00792986563088061
+--------------------------------------------------------------------------------------
+Chi^2 = 0.0478513074441393
+R^2 = 0.999043360433895
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:45 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,024.23637247333 +/- 153.875469203886
+a  = 8.9000138379672 +/- 0
+b  = 10.4097756613837 +/- 0
+d  = 1.53758680883668 +/- 0.00792986563088061
+--------------------------------------------------------------------------------------
+Chi^2 = 0.0478513074441393
+R^2 = 0.999043360433895
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:48 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,024.18641037047 +/- 245.524212684262
+a  = 1.68805521102996 +/- 0.291305181804166
+b  = 3.7662103144901 +/- 1.60913983620342
+d  = 1.53758818032704 +/- 0.0108185937633007
+--------------------------------------------------------------------------------------
+Chi^2 = 0.0332526284329419
+R^2 = 0.999335216073812
+---------------------------------------------------------------------------------------
+Iterations = 131
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:49 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8784471994 +/- 658.492377525831
+a  = 0.466656420944559 +/- 0.00896726909665506
+b  = 1.78879450638686 +/- 0.00360713759195204
+d  = 1.29013445907558 +/- 0.00358270154861626
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898364e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 686
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:50 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8782262476 +/- 676.058997298029
+a  = 0.466656424061153 +/- 0.00920863741429326
+b  = 1.78879450759732 +/- 0.00371386668071244
+d  = 1.29013446021262 +/- 0.00367261825109604
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898355e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:51 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8780531269 +/- 703.810363799305
+a  = 0.46665642644402 +/- 0.00958399940724626
+b  = 1.78879450885659 +/- 0.00388069950172792
+d  = 1.29013446111548 +/- 0.00381697061592455
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898368e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 137
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:52 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8783270297 +/- 685.94531993299
+a  = 0.466656422673699 +/- 0.00933914571849557
+b  = 1.78879450732189 +/- 0.00377085456351453
+d  = 1.29013445966706 +/- 0.00371698761584791
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289834e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:52 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8784936869 +/- 678.982240173801
+a  = 0.46665642024526 +/- 0.0092508474010627
+b  = 1.78879450593515 +/- 0.00372198831337922
+d  = 1.29013445902325 +/- 0.00368021995598773
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898355e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 139
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:53 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8782232523 +/- 637.065549472171
+a  = 0.466656424035293 +/- 0.00867298456129858
+b  = 1.78879450817391 +/- 0.00349469161156036
+d  = 1.29013446024946 +/- 0.00345101153897052
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898356e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:55 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8778794375 +/- 679.788589144217
+a  = 0.466656428835445 +/- 0.00925647413121983
+b  = 1.78879450991883 +/- 0.00374549502933993
+d  = 1.29013446202909 +/- 0.003684147464676
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898359e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 130
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:55 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8778758488 +/- 695.182973151847
+a  = 0.466656428667346 +/- 0.00946917116621205
+b  = 1.78879450973252 +/- 0.00376988994402292
+d  = 1.29013446227508 +/- 0.00378031888353749
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898366e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 132
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:56 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8786046562 +/- 670.702789749587
+a  = 0.466656418492386 +/- 0.00913121245577236
+b  = 1.7887945054318 +/- 0.00371665590377838
+d  = 1.29013445854627 +/- 0.0036307160462586
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898368e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:56 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8779777137 +/- 676.525491630886
+a  = 0.466656427242004 +/- 0.00920528398496761
+b  = 1.78879451058659 +/- 0.00371126159320005
+d  = 1.2901344613164 +/- 0.00367710740226582
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898371e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 131
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:31:57 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 706.484848161592
+a  = 0.466656432674565 +/- 0.00962680101502259
+b  = 1.78879451122685 +/- 0.00385476582402898
+d  = 1.29013446391457 +/- 0.00383820855689192
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898365e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 135
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:00 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:00 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:00 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:03 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:03 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:03 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877577621 +/- 695.59934186848
+a  = 0.466656432674565 +/- 0.00946529435107692
+b  = 1.78879451122685 +/- 0.00383618070384309
+d  = 1.29013446391457 +/- 0.00377463462264631
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:06 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8783444506 +/- 675.822788157756
+a  = 0.466656422273871 +/- 0.00920232947435152
+b  = 1.78879450696219 +/- 0.0037120932379858
+d  = 1.29013445988347 +/- 0.0036577970064096
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898348e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 153
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:06 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877685953 +/- 688.263677537311
+a  = 0.466656431392113 +/- 0.00937484289820852
+b  = 1.78879451112404 +/- 0.0037345069952822
+d  = 1.2901344629624 +/- 0.00374849944430642
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289837e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:06 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.877932843 +/- 683.659317097442
+a  = 0.466656427933933 +/- 0.00931207440829128
+b  = 1.78879450941368 +/- 0.00372402866647914
+d  = 1.29013446196373 +/- 0.00371537022057824
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898342e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 137
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:07 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8781557411 +/- 706.859032678178
+a  = 0.466656424837814 +/- 0.00961948729233364
+b  = 1.78879450849937 +/- 0.00389928248478556
+d  = 1.2901344607038 +/- 0.00383394427531984
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898346e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 138
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:07 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8782946616 +/- 656.143556314497
+a  = 0.466656422942608 +/- 0.0089320642800942
+b  = 1.78879450710118 +/- 0.00358153125788695
+d  = 1.29013446008537 +/- 0.00357406294728727
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898368e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:07 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8784075067 +/- 665.437874685997
+a  = 0.46665642150176 +/- 0.00906255144047256
+b  = 1.78879450635541 +/- 0.00368132734807483
+d  = 1.29013445949275 +/- 0.00359991934349387
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898379e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 132
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:08 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8779609715 +/- 673.755380775998
+a  = 0.466656427476136 +/- 0.00916751654674953
+b  = 1.78879450950392 +/- 0.003685420235345
+d  = 1.2901344616592 +/- 0.00366524258160835
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898354e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 143
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:08 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8775875922 +/- 686.014296626368
+a  = 0.4666564325185 +/- 0.00934632143828243
+b  = 1.7887945114404 +/- 0.00374798229059157
+d  = 1.29013446386948 +/- 0.00372851158821914
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898361e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 134
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:08 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8781428908 +/- 662.800387970829
+a  = 0.466656424941753 +/- 0.00902015768216138
+b  = 1.78879450835133 +/- 0.00362262356702219
+d  = 1.29013446108666 +/- 0.00360978536889617
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289837e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 138
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:09 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8787109042 +/- 660.664801761537
+a  = 0.466656417346797 +/- 0.00898905143302605
+b  = 1.78879450542837 +/- 0.00365174597900349
+d  = 1.2901344574912 +/- 0.00358101344836033
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289836e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 127
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:09 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8773357032 +/- 669.077539791583
+a  = 0.46665643616008 +/- 0.00911347459374084
+b  = 1.78879451301266 +/- 0.00365001301465446
+d  = 1.29013446487315 +/- 0.00364254273013644
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898384e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 138
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:10 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8777900429 +/- 685.198439068484
+a  = 0.466656429852567 +/- 0.00933236793834356
+b  = 1.78879451023839 +/- 0.00374464157410744
+d  = 1.29013446271908 +/- 0.00372433471483736
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898356e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 139
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:10 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8775425409 +/- 692.181787294281
+a  = 0.46665643316605 +/- 0.00942516346382314
+b  = 1.78879451171523 +/- 0.00378238465084792
+d  = 1.29013446399366 +/- 0.00376067828919431
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898351e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 135
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:13 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8777143571 +/- 656.942995992479
+a  = 0.466656430925612 +/- 0.00893957958022416
+b  = 1.78879450984506 +/- 0.00362534652627207
+d  = 1.29013446359928 +/- 0.00355165296612141
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898376e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 139
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:14 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8784911576 +/- 691.057144158112
+a  = 0.466656420187362 +/- 0.00940863831050642
+b  = 1.78879450701568 +/- 0.00378454328869184
+d  = 1.29013445863222 +/- 0.00375458864939004
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898366e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:32:14 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8777076803 +/- 651.116637910455
+a  = 0.466656431072324 +/- 0.00886426616718806
+b  = 1.78879451086795 +/- 0.00354455090857234
+d  = 1.29013446305557 +/- 0.0035501142883074
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289836e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 141
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:47 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.000800181607549898 +/- 2.12949602215177e-05
+a  = 0.466656183724622 +/- 0.00933213788537099
+b  = 1.78879441156311 +/- 0.00375591388082369
+d  = 1.29013436526507 +/- 0.00372059786111601
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490923301e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 148
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:48 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018103950708 +/- 2.12949204172496e-05
+a  = 0.46665643280479 +/- 0.00933213321048429
+b  = 1.788794511141 +/- 0.00375591174905194
+d  = 1.29013446384884 +/- 0.00372059392134257
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919605e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:49 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.000800181060562513 +/- 2.12949373224348e-05
+a  = 0.466656423587529 +/- 0.00933214014037663
+b  = 1.78879450738283 +/- 0.00375591491457625
+d  = 1.29013446021254 +/- 0.00372059657689592
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919608e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:49 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.000800181043755014 +/- 2.12949276795856e-05
+a  = 0.466656430940211 +/- 0.0093321362382604
+b  = 1.78879451040046 +/- 0.00375591338110944
+d  = 1.290134463114 +/- 0.00372059501772769
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919616e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:50 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949360625236e-05
+a  = 0.466656414731311 +/- 0.00933213909773539
+b  = 1.78879450394459 +/- 0.00375591440771072
+d  = 1.29013445667565 +/- 0.00372059631927321
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174949091961e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:50 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:51 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:53 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 84
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:54 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 84
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:54 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 84
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:56 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:57 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:57 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:59 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:59 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:33:59 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 0.00080018108075776 +/- 2.12949368939884e-05
+a  = 0.466656414731311 +/- 0.00933213930444436
+b  = 1.78879450394459 +/- 0.00375591505468857
+d  = 1.29013445667565 +/- 0.00372059638149725
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749490919595e-05
+R^2 = 0.999999576672087
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = cannot reach the specified tolerance in X
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:39 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 5,688.51155447637 +/- 78.8117259605218
+a  = 10.4713534118441 +/- 2.87072696042429
+b  = 1.12893173338496 +/- 0.0320057846199832
+d  = 1.69219756181812 +/- 0.0118344287327754
+--------------------------------------------------------------------------------------
+Chi^2 = 0.000701344968735055
+R^2 = 0.999985978766675
+---------------------------------------------------------------------------------------
+Iterations = 1000
+Status = the iteration has not converged yet
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:40 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,584.31466317455 +/- 42.0201288670231
+a  = 2.87700934130544 +/- 0.0819311979651084
+b  = 1.29013444847761 +/- 0.0037059652106756
+d  = 1.78879449682641 +/- 0.00373963282953561
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898664e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 539
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:41 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,584.31466317455 +/- 42.188239140301
+a  = 2.87700934130544 +/- 0.0823042113212902
+b  = 1.29013444847761 +/- 0.00372217870577616
+d  = 1.78879449682641 +/- 0.0037595967945123
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898667e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 128
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:42 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,584.31466317455 +/- 42.188239140301
+a  = 2.87700934130544 +/- 0.0823042113212902
+b  = 1.29013444847761 +/- 0.00372217870577616
+d  = 1.78879449682641 +/- 0.0037595967945123
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898667e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 128
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:43 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,584.31466317455 +/- 42.188239140301
+a  = 2.87700934130544 +/- 0.0823042113212902
+b  = 1.29013444847761 +/- 0.00372217870577616
+d  = 1.78879449682641 +/- 0.0037595967945123
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898667e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 128
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:55 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 6,585.96270185829 +/- 293.305421015501
+a  = 1.56113365059672 +/- 0.107762457092378
+b  = 3.0215585283957 +/- 0.558366730486076
+d  = 1.51548462145316 +/- 0.0107079770939169
+--------------------------------------------------------------------------------------
+Chi^2 = 0.0178617578547251
+R^2 = 0.999642909145085
+---------------------------------------------------------------------------------------
+Iterations = 280
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:57 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8772395073 +/- 703.811305381097
+a  = 0.466656437264268 +/- 0.0095840125524599
+b  = 1.78879451295862 +/- 0.00388070432403586
+d  = 1.29013446562019 +/- 0.00381697594065821
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898378e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 658
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:58 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8789010082 +/- 725.480491475417
+a  = 0.466656414675641 +/- 0.00987906424069735
+b  = 1.78879450453561 +/- 0.00394561256622068
+d  = 1.29013445645861 +/- 0.003938820546366
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898351e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:35:59 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8791352524 +/- 661.458682155509
+a  = 0.466656411574171 +/- 0.00900728679354953
+b  = 1.78879450352643 +/- 0.00365116381880661
+d  = 1.29013445527279 +/- 0.00357955322258909
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898371e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 132
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:00 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8785146351 +/- 684.134545078341
+a  = 0.466656419899533 +/- 0.00931952753997046
+b  = 1.78879450682153 +/- 0.00375766940386201
+d  = 1.29013445870132 +/- 0.00371601616245832
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898356e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 139
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:00 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8787218803 +/- 696.89358970931
+a  = 0.466656417200932 +/- 0.009495071715272
+b  = 1.78879450534773 +/- 0.00380227332840906
+d  = 1.29013445756404 +/- 0.00378796196066607
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898371e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:01 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8791044444 +/- 656.555220735371
+a  = 0.466656411891906 +/- 0.00894325658330064
+b  = 1.78879450278553 +/- 0.00362089037948552
+d  = 1.2901344557973 +/- 0.00355689766956755
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898383e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 133
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:02 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8776106717 +/- 697.078171765422
+a  = 0.466656432388309 +/- 0.00949545026219911
+b  = 1.7887945105015 +/- 0.00381888857286569
+d  = 1.29013446409562 +/- 0.0037862452312713
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898379e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 138
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:02 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8781288897 +/- 647.011859029251
+a  = 0.466656425228376 +/- 0.00880905515284757
+b  = 1.78879450803645 +/- 0.00358824261454096
+d  = 1.29013446085435 +/- 0.0035039131710885
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898381e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 137
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:03 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8781176776 +/- 674.000784586925
+a  = 0.46665642551153 +/- 0.00918008758439617
+b  = 1.78879450823501 +/- 0.00368426547475684
+d  = 1.29013446110913 +/- 0.00366629161534912
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898362e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 137
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:03 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8780961501 +/- 673.951133173308
+a  = 0.466656425653744 +/- 0.00917529490852583
+b  = 1.78879450858998 +/- 0.00374904702585871
+d  = 1.29013446100009 +/- 0.00363973597544163
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898348e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:04 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8771341332 +/- 677.185745754246
+a  = 0.466656438910087 +/- 0.00922005528926314
+b  = 1.78879451293788 +/- 0.00373138099584839
+d  = 1.29013446635693 +/- 0.00367640776053262
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898362e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 143
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:05 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8783223188 +/- 649.190397147448
+a  = 0.466656422689613 +/- 0.00884355479037354
+b  = 1.78879450746091 +/- 0.00356119071243955
+d  = 1.29013445979219 +/- 0.00352053653258543
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898339e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 140
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:06 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8783704069 +/- 673.727124901657
+a  = 0.466656422012374 +/- 0.00917153848956108
+b  = 1.78879450714224 +/- 0.00368794042312319
+d  = 1.29013445936317 +/- 0.00366445010337549
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898359e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 132
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:36:07 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8788343644 +/- 651.439238813687
+a  = 0.46665641576883 +/- 0.0088727788885185
+b  = 1.78879450406735 +/- 0.00360038179354468
+d  = 1.29013445709541 +/- 0.00352477454974111
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898366e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 141
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:31 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.878009188 +/- 697.003217119777
+a  = 0.466656426872597 +/- 0.00949253642529576
+b  = 1.78879451001555 +/- 0.00382074676200712
+d  = 1.29013446113651 +/- 0.00378478797089962
+--------------------------------------------------------------------------------------
+Chi^2 = 2.1174951289836e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 138
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:32 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8781514077 +/- 648.9025721982
+a  = 0.466656424703749 +/- 0.00884250148368446
+b  = 1.78879450760977 +/- 0.00360523292991953
+d  = 1.29013446097939 +/- 0.00350084143899195
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898395e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 134
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:32 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8776132298 +/- 712.916093380492
+a  = 0.466656432361927 +/- 0.00970880884031214
+b  = 1.78879451033074 +/- 0.0039121568946434
+d  = 1.29013446388034 +/- 0.00386675803737658
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898364e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:33 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8778340263 +/- 682.943847768886
+a  = 0.466656429193885 +/- 0.00929478226185119
+b  = 1.78879451033297 +/- 0.00375977110115909
+d  = 1.29013446235623 +/- 0.00370414586532894
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898351e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 134
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:33 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8779835795 +/- 669.979878743453
+a  = 0.46665642739385 +/- 0.00911660529800971
+b  = 1.78879450852083 +/- 0.00364113650487225
+d  = 1.29013446157152 +/- 0.0036508395813134
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898377e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 135
+Status = success
+---------------------------------------------------------------------------------------
+[1/8/2021 4:37:34 PM	Plot: '''']
+Non-linear fit of dataset: Table2_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 0.0001
+From x = -2.47105139 to x = 0.090770665
+A  = 25,739.8789514452 +/- 676.118336254951
+a  = 0.466656413954168 +/- 0.00921002020429707
+b  = 1.78879450366474 +/- 0.00368913697005603
+d  = 1.29013445656134 +/- 0.00367940071425182
+--------------------------------------------------------------------------------------
+Chi^2 = 2.11749512898382e-05
+R^2 = 0.999999576672043
+---------------------------------------------------------------------------------------
+Iterations = 136
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:06:55 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2 to x = 1.1
+A  = 27,698.4234500846 +/- 1,830.70289068922
+a  = 0.71256543142267 +/- 0.0161259790882301
+b  = 4.30258132686928 +/- 0.0186473255656174
+d  = 2.88486985086249 +/- 0.0185669695698919
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828100010997
+R^2 = 0.999884192684619
+---------------------------------------------------------------------------------------
+Iterations = 40
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:09 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2 to x = 1.1
+A  = 27,698.4234500846 +/- 1,815.738450546
+a  = 0.71256543142267 +/- 0.0160113249175922
+b  = 4.30258132686928 +/- 0.0185922249506539
+d  = 2.88486985086249 +/- 0.0184213146040292
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828100010997
+R^2 = 0.999884192684619
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:10 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 0.0001
+From x = -2 to x = 1.1
+A  = 27,698.4234500846 +/- 1,815.738450546
+a  = 0.71256543142267 +/- 0.0160113249175922
+b  = 4.30258132686928 +/- 0.0185922249506539
+d  = 2.88486985086249 +/- 0.0184213146040292
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828100010997
+R^2 = 0.999884192684619
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:14 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,698.4234500846 +/- 1,815.738450546
+a  = 0.71256543142267 +/- 0.0160113249175922
+b  = 4.30258132686928 +/- 0.0185922249506539
+d  = 2.88486985086249 +/- 0.0184213146040292
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828100010997
+R^2 = 0.999884192684619
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:15 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,698.4234500846 +/- 1,815.738450546
+a  = 0.71256543142267 +/- 0.0160113249175922
+b  = 4.30258132686928 +/- 0.0185922249506539
+d  = 2.88486985086249 +/- 0.0184213146040292
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828100010997
+R^2 = 0.999884192684619
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:17 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8932741776 +/- 1,822.13107434395
+a  = 0.712587345056208 +/- 0.0160412689587193
+b  = 4.30260104065318 +/- 0.0185689633630668
+d  = 2.88489480539585 +/- 0.0185226343388874
+--------------------------------------------------------------------------------------
+Chi^2 = 0.12282809802385
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 166
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:18 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8937608935 +/- 1,816.80089192228
+a  = 0.712587339093443 +/- 0.0160145136543879
+b  = 4.30260102885407 +/- 0.0185855603572886
+d  = 2.88489480055313 +/- 0.0184339946862248
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 155
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:18 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8936277553 +/- 1,838.37402782442
+a  = 0.712587340141678 +/- 0.0161833739980377
+b  = 4.30260102994514 +/- 0.0186738480472656
+d  = 2.88489480091814 +/- 0.0186625511035354
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 175
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:19 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8942211583 +/- 1,822.47611215942
+a  = 0.712587335110428 +/- 0.016065408998241
+b  = 4.30260102617579 +/- 0.0186235981982181
+d  = 2.88489479496884 +/- 0.0185257368223729
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 169
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:20 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8942621987 +/- 1,838.66693729028
+a  = 0.712587335435716 +/- 0.0161948125983188
+b  = 4.30260102654698 +/- 0.0186928946894575
+d  = 2.88489479503698 +/- 0.018667016279641
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 171
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:21 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.894466454 +/- 1,822.36787676989
+a  = 0.71258733302402 +/- 0.0160564583965699
+b  = 4.30260102463465 +/- 0.0186027154194513
+d  = 2.88489479345586 +/- 0.0185331903506978
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 165
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:21 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8940985764 +/- 1,826.46421322726
+a  = 0.712587335851713 +/- 0.0160878830301099
+b  = 4.30260102484536 +/- 0.0186189893585279
+d  = 2.88489479590698 +/- 0.0185284062809665
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 170
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:22 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8936229439 +/- 1,825.01310856472
+a  = 0.71258734136991 +/- 0.0160957144065997
+b  = 4.30260103322114 +/- 0.0186581312624516
+d  = 2.88489480095879 +/- 0.0185350490653661
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 164
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:22 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8944656917 +/- 1,827.62300097326
+a  = 0.712587333357181 +/- 0.0160957534200296
+b  = 4.30260102497857 +/- 0.018618444347848
+d  = 2.88489479279035 +/- 0.0185426176883396
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 159
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:25 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8944656917 +/- 1,824.61050626414
+a  = 0.712587333357181 +/- 0.0160726980047808
+b  = 4.30260102497857 +/- 0.018607609180274
+d  = 2.88489479279035 +/- 0.018515543767066
+--------------------------------------------------------------------------------------
+Chi^2 = 0.12282809802385
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:26 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Unscaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8944656917 +/- 1,824.61050626414
+a  = 0.712587333357181 +/- 0.0160726980047808
+b  = 4.30260102497857 +/- 0.018607609180274
+d  = 2.88489479279035 +/- 0.018515543767066
+--------------------------------------------------------------------------------------
+Chi^2 = 0.12282809802385
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:28 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8944656917 +/- 1,824.61050626414
+a  = 0.712587333357181 +/- 0.0160726980047808
+b  = 4.30260102497857 +/- 0.018607609180274
+d  = 2.88489479279035 +/- 0.018515543767066
+--------------------------------------------------------------------------------------
+Chi^2 = 0.12282809802385
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:28 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Scaled Levenberg-Marquardt algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8944656917 +/- 1,824.61050626414
+a  = 0.712587333357181 +/- 0.0160726980047808
+b  = 4.30260102497857 +/- 0.018607609180274
+d  = 2.88489479279035 +/- 0.018515543767066
+--------------------------------------------------------------------------------------
+Chi^2 = 0.12282809802385
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 0
+Status = iteration is not making progress towards solution
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:31 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8934634221 +/- 1,819.27399585738
+a  = 0.712587342605663 +/- 0.0160446776929097
+b  = 4.30260103408913 +/- 0.018618613217526
+d  = 2.88489480270323 +/- 0.0184550044357779
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 164
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:32 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8934634221 +/- 1,817.4181706089
+a  = 0.712587342605663 +/- 0.0160346498649553
+b  = 4.30260103408913 +/- 0.0186228120515172
+d  = 2.88489480270323 +/- 0.0184222565516011
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 174
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:32 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8934634221 +/- 1,817.4181706089
+a  = 0.712587342605663 +/- 0.0160346498649553
+b  = 4.30260103408913 +/- 0.0186228120515172
+d  = 2.88489480270323 +/- 0.0184222565516011
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 174
+Status = success
+---------------------------------------------------------------------------------------
+[1/11/2021 4:07:33 PM	Plot: '''']
+Non-linear fit of dataset: Table3_2, using function: log10( A/((10^x/a)^b + (10^x)^d) )
+Y standard errors: Unknown
+Nelder-Mead Simplex algorithm with tolerance = 1e-06
+From x = -2 to x = 1.1
+A  = 27,695.8934634221 +/- 1,817.4181706089
+a  = 0.712587342605663 +/- 0.0160346498649553
+b  = 4.30260103408913 +/- 0.0186228120515172
+d  = 2.88489480270323 +/- 0.0184222565516011
+--------------------------------------------------------------------------------------
+Chi^2 = 0.122828098023849
+R^2 = 0.999884192686492
+---------------------------------------------------------------------------------------
+Iterations = 174
+Status = success
 ---------------------------------------------------------------------------------------
 </log>
