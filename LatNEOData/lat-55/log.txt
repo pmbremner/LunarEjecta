@@ -1,5 +1,0 @@
-Meteoroid Engineering Model (MEM) version 3.0.1
-Run started at 15:31:20 PM 03/09/20
-
-
-Execution terminated successfully

@@ -1,0 +1,28 @@
+# This is a comment
+#/*  For ImpactSites_and_ROI */
+NDistance# 25
+Nazm#      30
+ROI_Lat#   45.0
+ROI_Lon#   0.0
+#
+#/* For MEM_LatData */
+MEMDirectoryName# ../../../../LatRunData_Meridian
+MEMLatMin#        -90.0
+MEMLatMax#        90.0
+MEMNLat#          37
+#
+#/* For lunarEjecta_NearEarthObjectFlux */
+NEOSpeedFName#    ../../../../NEA_Brown/vmass.txt
+NEODirectoryName# ../../../../LatNEOData_Meridian
+NEOLatMin#        -90.0
+NEOLatMax#        90.0
+NEONLat#          37
+#
+#/* For SecondaryFluxData */
+SecNx#        10
+SecNSetsXY#   12
+SecvMin#      0.1
+SecvMax#      2.37
+#/* For lunarEjecta_AdaptiveMesh */
+maxLevelMesh# 5
+maxLevelFractal# 1
