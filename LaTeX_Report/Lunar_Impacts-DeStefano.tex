@@ -437,7 +437,7 @@ P_{\text{Moon}} = -A\frac{abx^{b-1}+cdx^{d-1}}{(ax^b+cx^d)^2}\exp\left(\frac{-1}
 where $A$ is the normalization constant. In theory, this should be equal to 1, but since we are not taking our particle size from 0 to infinity, we need to compute the value of $A$. If we assume the particle size can range from $0.001$ mm to $10$ mm, then $A = 1.02218$.
 
 
-\paragraph{Weighted by number and not mass:}
+\subsubsection{Weighted by number and not mass:}
 In order to compare with NASA SP-8013 \citep{cour1969meteoroid}, we first must convert the distribution function normalized by number and not mass. We can then write
 \begin{equation}\label{eq:N_ej_carrier1}
 N_{ej}(x) \sim \int_{x}^{\infty}\frac{dx}{m(x)}\frac{d(C_{\text{Moon}}(x))}{dx},
@@ -516,6 +516,58 @@ Since the scales $a$ and $c$ are of the same order, the index $d$ is dominated b
 %V_{P_{moon}}(x_{0}) = \frac{4}{3}\pi \left[\frac{1}{22.96}\left(x_{max}^2 - x_{0}^2\right) - \frac{1}{232.6}\left(x_{max} - x_{0}\right)\right],
 %\end{equation}
 %where $V_{P_{moon}}(x_{min}) = 18.06377$ mm$^3$. Given the density of the regolith $\rho$, we can then compute the total mass of the particles from the PDF.
+
+
+\subsubsection{A relook at the Particle Size Distribution Function}
+
+In \cite{carrier2003particle}, they specifically call out that the mass-weighted CDF can be modeled by a log-normal distribution, so we will go ahead and make this assumption. By definition, a log-normal distribution is given by
+\begin{equation}
+	F_{\text{kg}}(>x) = 1 - F(<x)_{\text{kg}} = \frac{1}{2}\left[1 - \text{erf}\left(\frac{\ln x - \mu}{\sqrt{2}\sigma}\right)\right],
+\end{equation}
+where $x$ is the particle diameter size in units of mm, $\mu$ is the expected value of $\ln x$, and $\sigma$ is the standard deviation of $\ln x$.
+
+The PDF is then given by
+\begin{equation}
+	f_{\text{kg}}(x) = \frac{1}{\sigma\sqrt{2\pi}}\frac{1}{x}\exp\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right].
+\end{equation}
+
+In order to have the number-weighted PDF and CDF, we begin with $f_{\text{kg}}(x)$ and divide by the mass of a given particle size
+\begin{equation}
+	m(x) = \frac{\pi}{6}\rho x^3,
+\end{equation}
+so that we have (assuming $F_{\text{kg}}$ represents the CDF for 1 kg of regolith)
+\begin{equation}
+	f_{\text{number}}(x) = \frac{f_{\text{kg}}(x)}{m(x)} = \frac{6}{\pi\rho}\frac{1 \text{kg}}{1 \text{mm}^3}\frac{1}{\sigma\sqrt{2\pi}}
+	\frac{1}{x^4}\exp\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right],
+\end{equation}
+for the number-weighted PDF. To arrive at the number-weighted CFD, we then integrate over $f_{\text{number}}(x)$, such that
+\begin{equation}
+	F_{\text{number}}(>x) = \int_{x}^{\infty}dx' f_{\text{number}}(x').
+\end{equation}
+Solving the integral, the number-weighted CDF is given by
+\begin{equation}\label{eq:number_CFD_regolith}
+	F_{\text{number}}(>x) = \frac{6}{\pi\rho}\frac{1 \text{kg}}{1 \text{mm}^3}\frac{1}{\sigma\sqrt{2\pi}}
+	\left[1 - \text{erf}\left(\frac{\ln x - \mu + 3\sigma^2}{\sqrt{2}\sigma}\right)\right]\exp\left(-3\mu + \frac{9\sigma^2}{2}\right),
+\end{equation}
+which is the number of particles of diameter $x$ or greater in 1 kg of regolith. For $F_{\text{number}}(<x)$, flip the minus sign to a plus sign on the error function.
+
+Fitting the mass-weighted CDF $F(<x)$ to Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, we obtain the following parameters:
+\begin{align}
+	\mu &= -2.649,\\
+	\sigma &= 1.786,
+\end{align}
+where the mean, median, and mode particle size is
+\begin{align}
+	x_{\text{mean}} &= \exp\left(\mu + \frac{\sigma^2}{2}\right) = 34.8 \text{$\mu$m},\\
+	x_{\text{median}} &= \exp(\mu) = 7.07 \text{$\mu$m},\\
+	x_{\text{mode}} &=  \exp\left(\mu - \sigma^2\right) = 0.291 \text{$\mu$m}.
+\end{align}
+
+As an example, if we would like to know how many particles there are greater than 1 $\mu$g per 1 kg of regolith, then we could find the answer using Equation \eqref{eq:number_CFD_regolith} (assuming a regolith density of $\rho$ = 3.1 g / cm$^3$ such that $x(1 \mu\text{g}) = 8.509 \mu\text{m}$)
+\begin{equation}
+	F_{\text{number}}(> x = 8.509 \mu\text{m}) = 3.146\times 10^{-7} \text{ \# of particles per 1 kg of regolith},
+\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ejected Mass from an Impactor}\label{ssec:Ejected Mass from an Impactor}
