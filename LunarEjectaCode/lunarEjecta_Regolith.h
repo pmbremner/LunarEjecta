@@ -19,8 +19,14 @@ public:
 					     double new_avgDensity,
 						 double new_highDensity,
 						 double new_radius,
-						 double new_escapeSpeed);
+						 double new_escapeSpeed,
+						 double new_C04_mu,
+						 double new_C04_sigma,
+						 double new_C03_minMass);
 	~lunarEjecta_Regolith();
+
+	double mass2diameter(double  m);
+	double C03_numberWeightedCDF();
 	
 	inline double getHH11_porosity();
 	double getHH11_mu();
@@ -33,6 +39,9 @@ public:
 	double gethighDensity();
 	double getlunarRadius();
 	double getlunarEscapeSpeed();
+	double getC03_mu();
+	double getC03_sigma();
+	double getC03_minMass();
 
 private:
 	inline double H_calcHH11_C4();
@@ -50,5 +59,10 @@ private:
 
 	double lunarRadius; // m
 	double lunarEscapeSpeed; // m/s
+
+	// for log-normal distribution fit of Carrier 2003 Fig 1
+	double C03_mu;
+	double C03_sigma;
+	double C03_minMass;
 };
 #endif 

@@ -150,7 +150,7 @@ public:
 	// Used for all flux output types, and is the basis for igloo output
 	virtual void updateFlux(double flux, double alt, double azm, double speed) = 0;
 	
-	virtual void saveFluxToFile(string fn) = 0;
+	virtual void saveFluxToFile(string fn, int ft) = 0;
 
 	virtual int getNalt() = 0;
 	virtual int getNazm() = 0;
@@ -190,7 +190,7 @@ public:
 	~MassLimitedIntegralFluxVsMass();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
-	void saveFluxToFile(string fn);
+	void saveFluxToFile(string fn, int ft);
 
 	int getNalt();
 	int getNazm();
@@ -215,7 +215,7 @@ public:
 	~SizeLimitedIntegralFluxVsSpeed();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
-	void saveFluxToFile(string fn);
+	void saveFluxToFile(string fn, int ft);
 
 	int getNalt();
 	int getNazm();
@@ -240,7 +240,7 @@ public:
 	~MassLimitedIglooIntegratedFlux();
 
 	void updateFlux(double flux, double alt, double azm, double speed);
-	void saveFluxToFile(string fn);
+	void saveFluxToFile(string fn, int ft);
 
 	int getNalt();
 	int getNazm();
@@ -267,6 +267,8 @@ private:
 
 // //////////////////////////////////////
 
+
+enum fluxType {massFlux, numberFlux};
 
 // Note: a template class must be definied in the header file
 template <class genOutput> 
@@ -301,9 +303,9 @@ public:
 		fluxData[0]->updateFlux(flux, alt, azm, speed);
 	}
 
-	void saveFluxToFile()
+	void saveFluxToFile(int ejectaFluxType)
 	{
-		fluxData[0]->saveFluxToFile(filename);
+		fluxData[0]->saveFluxToFile(filename, ejectaFluxType);
 	}
 
 	void getOutputFilename() {

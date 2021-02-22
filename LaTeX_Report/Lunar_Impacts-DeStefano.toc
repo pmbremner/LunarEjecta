@@ -27,44 +27,44 @@
 \contentsline {subsection}{\numberline {6.5}Regolith Size Distribution}{11}{subsection.6.5}%
 \contentsline {subsubsection}{\numberline {6.5.1}Weighted by number and not mass:}{13}{subsubsection.6.5.1}%
 \contentsline {subsubsection}{\numberline {6.5.2}A relook at the Particle Size Distribution Function}{15}{subsubsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.6}Ejected Mass from an Impactor}{16}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Ejecta Mass Distribution Function}{17}{subsection.6.7}%
-\contentsline {subsubsection}{\numberline {6.7.1}Zenith Distribution Function}{17}{subsubsection.6.7.1}%
-\contentsline {paragraph}{Alternative Zenith Distribution:}{18}{section*.8}%
-\contentsline {subsubsection}{\numberline {6.7.2}Azimuth Distribution Function}{22}{subsubsection.6.7.2}%
-\contentsline {paragraph}{Alternative Azimuth Distribution:}{22}{section*.11}%
-\contentsline {paragraph}{Alternative Oblique Impact Azimuth Distribution}{23}{section*.12}%
-\contentsline {subsubsection}{\numberline {6.7.3}Speed Distribution Function}{24}{subsubsection.6.7.3}%
-\contentsline {subsubsection}{\numberline {6.7.4}Speed Bin Centers}{25}{subsubsection.6.7.4}%
-\contentsline {subsubsection}{\numberline {6.7.5}Normalization Term}{25}{subsubsection.6.7.5}%
-\contentsline {subsection}{\numberline {6.8}Meteoroid Projectile Mass Distribution}{26}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.6}Ejected Mass from an Impactor}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Ejecta Mass Distribution Function}{18}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Zenith Distribution Function}{18}{subsubsection.6.7.1}%
+\contentsline {paragraph}{Alternative Zenith Distribution:}{19}{section*.9}%
+\contentsline {subsubsection}{\numberline {6.7.2}Azimuth Distribution Function}{23}{subsubsection.6.7.2}%
+\contentsline {paragraph}{Alternative Azimuth Distribution:}{24}{section*.12}%
+\contentsline {paragraph}{Alternative Oblique Impact Azimuth Distribution}{25}{section*.13}%
+\contentsline {subsubsection}{\numberline {6.7.3}Speed Distribution Function}{25}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.4}Speed Bin Centers}{26}{subsubsection.6.7.4}%
+\contentsline {subsubsection}{\numberline {6.7.5}Normalization Term}{27}{subsubsection.6.7.5}%
+\contentsline {subsection}{\numberline {6.8}Meteoroid Projectile Mass Distribution}{27}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Meteoroid Projectile Density Distribution}{28}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Meteoroid Projectile Speed and Angle Distribution}{28}{subsection.6.10}%
-\contentsline {subsection}{\numberline {6.11}Secondary Ejecta Distance, Speed, \& Angle}{28}{subsection.6.11}%
-\contentsline {subsubsection}{\numberline {6.11.1}Coriolis Force}{33}{subsubsection.6.11.1}%
-\contentsline {subsection}{\numberline {6.12}Distance and Bearing}{33}{subsection.6.12}%
-\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{34}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{35}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{35}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{35}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{35}{subsection.7.4}%
-\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{35}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Comparison of Scaling Laws of New and Old Ejecta Models}{35}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Analytic Study of Secondary Lunar Ejecta}{37}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Total Ejected Mass}{38}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{39}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{41}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{41}{subsubsection.9.2.2}%
-\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{41}{section*.20}%
-\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{42}{section*.21}%
-\contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{44}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed and Distance}{45}{subsection.9.4}%
-\contentsline {paragraph}{Ejecta distance distribution:}{47}{section*.23}%
-\contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{48}{subsection.9.5}%
-\contentsline {paragraph}{Satellite Angle from Periapsis}{49}{section*.25}%
-\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{49}{section*.26}%
-\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{49}{section*.27}%
-\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{50}{section*.28}%
-\contentsline {paragraph}{Ejecta Speed at Satellite}{50}{section*.29}%
-\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{50}{section*.30}%
-\contentsline {section}{References}{51}{section*.31}%
+\contentsline {subsection}{\numberline {6.10}Meteoroid Projectile Speed and Angle Distribution}{29}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11}Secondary Ejecta Distance, Speed, \& Angle}{30}{subsection.6.11}%
+\contentsline {subsubsection}{\numberline {6.11.1}Coriolis Force}{34}{subsubsection.6.11.1}%
+\contentsline {subsection}{\numberline {6.12}Distance and Bearing}{35}{subsection.6.12}%
+\contentsline {section}{\numberline {7}Meteoroid Ejecta Environment Output}{36}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Integral Flux ($>m$) vs.\ Particle Ejecta Mass}{36}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Integral Flux ($>E_{crit}$) vs.\ Critical Energy}{36}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Integral Flux ($>d$) vs.\ Particle Ejecta Size}{36}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Igloo Distribution of Integral Flux ($>m$)}{36}{subsection.7.4}%
+\contentsline {section}{\numberline {8}NASA SP-8013 Meteoroid Environment Model - 1969}{36}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Comparison of Scaling Laws of New and Old Ejecta Models}{38}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Analytic Study of Secondary Lunar Ejecta}{39}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Total Ejected Mass}{39}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Estimated Secondary Ejecta at a ROI with Normally Impacting Primaries}{40}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Isotropic Azimuth and $45^\circ $ Zenith Distributions}{42}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Isotropic Azimuth and Zenith Distributions}{42}{subsubsection.9.2.2}%
+\contentsline {paragraph}{Minimum and Maximum Zenith Angles:}{43}{section*.21}%
+\contentsline {paragraph}{Integration of Isotropic Zenith Angle Distribution:}{44}{section*.22}%
+\contentsline {subsection}{\numberline {9.3}Secondary Ejecta at a ROI vs.\ Distance}{46}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Secondary Ejecta at a ROI vs.\ Speed and Distance}{47}{subsection.9.4}%
+\contentsline {paragraph}{Ejecta distance distribution:}{49}{section*.24}%
+\contentsline {subsection}{\numberline {9.5}Secondary Ejecta at a Satellite of the Moon}{50}{subsection.9.5}%
+\contentsline {paragraph}{Satellite Angle from Periapsis}{50}{section*.26}%
+\contentsline {paragraph}{Ejecta Local Zenith Angle at Satellite}{51}{section*.27}%
+\contentsline {paragraph}{Maximum Apoapsis of Ejecta}{51}{section*.28}%
+\contentsline {paragraph}{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}{51}{section*.29}%
+\contentsline {paragraph}{Ejecta Speed at Satellite}{51}{section*.30}%
+\contentsline {paragraph}{Geographic Distance between Impact Point and Satellite}{52}{section*.31}%
+\contentsline {section}{References}{53}{section*.32}%

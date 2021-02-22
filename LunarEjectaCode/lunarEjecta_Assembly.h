@@ -27,6 +27,9 @@ public:
 		double new_avgDensity,
 		double new_highDensity,
 	    double new_escapeSpeed, // m/s
+	    double new_C03_mu,
+	    double new_C03_sigma,
+	    double new_C03_minMass, // g, minimum ejecta mass
 
 		/*  For ImpactSites_and_ROI */
 		int new_ND,     // total number of distance increments
@@ -72,7 +75,7 @@ public:
 		cout << "----------------------------------------\n";
 
 		// init regolith
-		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity, new_radius, new_escapeSpeed);
+		RegolithProperties = new lunarEjecta_Regolith(HH11_targetMaterial, regolithDensType, new_lowDensity, new_avgDensity, new_highDensity, new_radius, new_escapeSpeed, new_C03_mu, new_C03_sigma, new_C03_minMass);
 
 		// init site and ROI locations
 		ImpactSitesROILoc = new ImpactSites_and_ROI(new_ND, new_Nazm, new_radius, new_ROI, 2.*sqr(1000.*new_vMin/new_escapeSpeed) * 0.8 /* units of radius, below this distance there will be no flux below vMin */);
@@ -170,6 +173,7 @@ public:
 		double totalFlux; // kg/m^2/yr
 		//double fluxAtNormal; // kg/m^2/yr
 		vector<double> Flux_vs_D;
+		double mass2numberFactor;
 
 		// units of MEM: kg , NEO 1
 		double MEM_normLo;
@@ -209,6 +213,12 @@ public:
 		cout << " Nkk (kk_ejectaSpeed) = " << Nkk << endl;
 
 		auto t1 = std::chrono::high_resolution_clock::now();
+
+		// compute factor for converting 1 kg of ejecta to # of particles greater than a minimum mass
+		mass2numberFactor = RegolithProperties->C03_numberWeightedCDF();
+
+		//cout << " 1 kg to # greater than " << RegolithProperties->getC03_minMass() << " g -> " << mass2numberFactor << endl;
+
 
 		// For each location, outer loop distance, inner loop azm
 		// Defines D0 and D1, given a ROI
@@ -413,7 +423,8 @@ public:
 		cout << " Total count = " << count << endl;
 		cout << " Total count2 = " << count2 << endl;
 		flux_vs_D_file.close();
-		SecFluxOutputData->saveFluxToFile();
+
+		SecFluxOutputData->saveFluxToFile(mass2numberFactor);
 	}
 
 

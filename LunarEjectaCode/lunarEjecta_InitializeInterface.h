@@ -40,6 +40,9 @@ public:
 		new_avgDensity   = 0.0;
 		new_highDensity  = 0.0;
 		new_escapeSpeed  = 2375.89; // m/s
+		new_C03_mu       = -2.649;
+		new_C03_sigma    = 1.786;
+		new_C03_minMass  = 1.E-6; // g
 		/*  For ImpactSites_and_ROI */
 		new_radius       = 1737.1E3; // m
 		/* For lunarEjecta_NearEarthObjectFlux */
@@ -65,6 +68,9 @@ public:
 		getParam("regAvgDensity"      , new_avgDensity     , isDefault);
 		getParam("regHighDensity"     , new_highDensity    , isDefault);
 		getParam("LunarEscapeSpeed"   , new_escapeSpeed    , isDefault);
+		getParam("C04_mu"             , new_C03_mu         , isDefault);
+		getParam("C04_sigma"          , new_C03_sigma      , isDefault);
+		getParam("C03_minMass"        , new_C03_minMass    , isDefault);
 
 		/*  For ImpactSites_and_ROI */
 		getParam("NDistance"    , new_ND     , noDefault);
@@ -133,6 +139,9 @@ public:
 				new_avgDensity,
 				new_highDensity,
 			    new_escapeSpeed, // m/s
+			    new_C03_mu,    // for log-normal fit of particle distribution
+			    new_C03_sigma, // for log-normal fit of particle distribution
+			    new_C03_minMass, // minimum mass of ejecta particles in grams
 
 				/*  For ImpactSites_and_ROI */
 				new_ND,     // total number of distance increments
@@ -259,6 +268,9 @@ private:
 	double new_avgDensity;
 	double new_highDensity;
     double new_escapeSpeed; // m/s
+    double new_C03_mu;
+    double new_C03_sigma;
+    double new_C03_minMass; // g
 
 	/*  For ImpactSites_and_ROI */
 	int new_ND;     // total number of distance increments

@@ -520,6 +520,12 @@ Since the scales $a$ and $c$ are of the same order, the index $d$ is dominated b
 
 \subsubsection{A relook at the Particle Size Distribution Function}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.1\textwidth]{Carrier2003_CDFs_PDFs.png}
+	\caption{Plots of the mass-weighted and number-weighted CDFs and PDFs derived from \cite{carrier2003particle}. Top left: the digitized data from Figure 1 of \cite{carrier2003particle} is shown with the log-normal distribution fit. Top right: The mass-weighted PDF * dx is shown to dictate what particle size dominates the contribution of mass. Bottom left: The number-weighted CDF showing number of particles in 1 kg of regolith greater than a size $x$. Bottom right: The number-weighted PDF is shown in units of mm$^{-1}$.}\label{fig:Carrier2003_CDFs_PDFs}
+\end{figure}
+
 In \cite{carrier2003particle}, they specifically call out that the mass-weighted CDF can be modeled by a log-normal distribution, so we will go ahead and make this assumption. By definition, a log-normal distribution is given by
 \begin{equation}
 	F_{\text{kg}}(>x) = 1 - F(<x)_{\text{kg}} = \frac{1}{2}\left[1 - \text{erf}\left(\frac{\ln x - \mu}{\sqrt{2}\sigma}\right)\right],
@@ -549,19 +555,33 @@ Solving the integral, the number-weighted CDF is given by
 	F_{\text{number}}(>x) = \frac{6}{\pi\rho}\frac{1 \text{kg}}{1 \text{mm}^3}\frac{1}{\sigma\sqrt{2\pi}}
 	\left[1 - \text{erf}\left(\frac{\ln x - \mu + 3\sigma^2}{\sqrt{2}\sigma}\right)\right]\exp\left(-3\mu + \frac{9\sigma^2}{2}\right),
 \end{equation}
-which is the number of particles of diameter $x$ or greater in 1 kg of regolith. For $F_{\text{number}}(<x)$, flip the minus sign to a plus sign on the error function.
+which is the number of particles of diameter $x$ or greater in 1 kg of regolith. For $F_{\text{number}}(<x)$, flip the minus sign to a plus sign on the error function. Note that $\text{erfc}(x) = 1- \text{erf}(x)$.
 
 Fitting the mass-weighted CDF $F(<x)$ to Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, we obtain the following parameters:
 \begin{align}
 	\mu &= -2.649,\\
 	\sigma &= 1.786,
 \end{align}
-where the mean, median, and mode particle size is
+where the mean, median, and mode particle size (weighted by mass) is
 \begin{align}
 	x_{\text{mean}} &= \exp\left(\mu + \frac{\sigma^2}{2}\right) = 34.8 \text{$\mu$m},\\
 	x_{\text{median}} &= \exp(\mu) = 7.07 \text{$\mu$m},\\
 	x_{\text{mode}} &=  \exp\left(\mu - \sigma^2\right) = 0.291 \text{$\mu$m}.
 \end{align}
+
+If we would like to know the mean, median, and mode particle size weighted by number, then the modified parameters are
+\begin{align}
+	\mu^\star &= \mu - 3\sigma^2 = -12.22,\\
+	\sigma^\star &= \sigma = 1.786,
+\end{align}
+giving the following (now weighted by number):
+\begin{align}
+	x^\star_{\text{mean}} &= \exp\left(\mu^\star + \frac{\sigma^{\star 2}}{2}\right) = 2.43 \text{ nm},\\
+	x^\star_{\text{median}} &= \exp(\mu^\star) = 0.494 \text{ nm},\\
+	x^\star_{\text{mode}} &=  \exp\left(\mu^\star - \sigma^{\star 2}\right) = 0.0203 \text{ nm}.
+\end{align}
+Note that these set of averages are outside the range of the data provided in \cite{carrier2003particle} and are only valid if the log-normal distribution holds for these very small particles. This regime is on the order of several atomic nuclei large.
+
 
 As an example, if we would like to know how many particles there are greater than 1 $\mu$g per 1 kg of regolith, then we could find the answer using Equation \eqref{eq:number_CFD_regolith} (assuming a regolith density of $\rho$ = 3.1 g / cm$^3$ such that $x(1 \mu\text{g}) = 8.509 \mu\text{m}$)
 \begin{equation}

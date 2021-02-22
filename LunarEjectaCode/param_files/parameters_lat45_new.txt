@@ -1,7 +1,10 @@
 # This is a comment
+#/*  For lunarEjecta_Regolith */
+C03_minMass# 1.E-6
+#
 #/*  For ImpactSites_and_ROI */
-NDistance# 25
-Nazm#      30
+NDistance# 3
+Nazm#      6
 ROI_Lat#   45.0
 ROI_Lon#   0.0
 #
@@ -24,6 +27,7 @@ SecNx#        10
 SecNSetsXY#   12
 SecvMin#      0.1
 SecvMax#      2.37
+#
 #/* For lunarEjecta_AdaptiveMesh */
 maxLevelMesh# 5
 maxLevelFractal# 1

@@ -458,7 +458,7 @@ MassLimitedIntegralFluxVsMass::MassLimitedIntegralFluxVsMass
 MassLimitedIntegralFluxVsMass::~MassLimitedIntegralFluxVsMass() {}
 
 
-void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn) {}
+void MassLimitedIntegralFluxVsMass::saveFluxToFile(string fn, int ft) {}
 
 // since we integrate out the altitude and azimuth,
 //  we just need a reasonable value here
@@ -515,7 +515,7 @@ SizeLimitedIntegralFluxVsSpeed::~SizeLimitedIntegralFluxVsSpeed() {}
 
 
 
-void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn) {}
+void SizeLimitedIntegralFluxVsSpeed::saveFluxToFile(string fn, int ft) {}
 
 // since we integrate out the altitude and azimuth,
 //  we just need a reasonable value here
@@ -601,13 +601,18 @@ MassLimitedIglooIntegratedFlux::~MassLimitedIglooIntegratedFlux() {}
 
 
 
-void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn)
+void MassLimitedIglooIntegratedFlux::saveFluxToFile(string fn, int ft)
 {
 	int i, j;
 	ofstream file;
 	file.open(fn);
 
 	cout << " Saving MassLimitedIglooIntegratedFlux to file: " << fn << endl;
+	if (ft == massFlux)
+		cout << " Flux type = mass flux\n";
+	else if (ft == numberFlux)
+		cout << " Flux type = number flux\n";
+
 
 	file << "#\n#\n#\n#\n#\n#\n#\n#\n"; // placeholder header
 
