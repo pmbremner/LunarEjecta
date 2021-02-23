@@ -3,8 +3,8 @@
 C03_minMass# 1.E-6
 #
 #/*  For ImpactSites_and_ROI */
-NDistance# 3
-Nazm#      6
+NDistance# 20
+Nazm#      7
 ROI_Lat#   45.0
 ROI_Lon#   0.0
 #

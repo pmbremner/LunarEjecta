@@ -125,18 +125,19 @@ lunarEjecta_Regolith::lunarEjecta_Regolith
 
 lunarEjecta_Regolith::~lunarEjecta_Regolith() {}
 
-double lunarEjecta_Regolith::mass2diameter(double m /* kg */) // in mm
+double lunarEjecta_Regolith::mass2diameter(double m /* g */) // in mm
 {
-	return pow(6.*m / (PI * avgDensity), 1./3.) * 1.E3;
+	return pow(6.E-3*m / (PI * avgDensity), 1./3.) * 1.E3;
 }
 
 double lunarEjecta_Regolith::C03_numberWeightedCDF()
 {
-	cout << "\n\nlunarEjecta_Regolith::C03_numberWeightedCDF\n";
-	cout << mass2diameter(C03_minMass) << " mm\n";
-	cout << "erfc arg = " << (log(mass2diameter(C03_minMass)) - C03_mu + 3.*sqr(C03_sigma)) / (sqrt(2.)*C03_sigma) << endl;
-	cout << "exp arg  = " << -3.*C03_mu + 9.*sqr(C03_sigma)/2. << endl;
-	cout << "coeff = " << 6.E9/(PI * avgDensity * C03_sigma * sqrt(2.*PI)) << endl;
+	// cout << "\n\nlunarEjecta_Regolith::C03_numberWeightedCDF\n";
+	// cout << mass2diameter(C03_minMass) << " mm\n";
+	// cout << "erfc arg = " << (log(mass2diameter(C03_minMass)) - C03_mu + 3.*sqr(C03_sigma)) / (sqrt(2.)*C03_sigma) << endl;
+	// cout << "exp arg  = " << -3.*C03_mu + 9.*sqr(C03_sigma)/2. << endl;
+	// cout << "coeff = " << 6.E9/(PI * avgDensity * C03_sigma * sqrt(2.*PI)) << endl;
+	
 	return 6.E9/(PI * avgDensity * C03_sigma * sqrt(2.*PI))
 		* erfc((log(mass2diameter(C03_minMass)) - C03_mu + 3.*sqr(C03_sigma)) / (sqrt(2.)*C03_sigma))
 		* exp(-3.*C03_mu + 9.*sqr(C03_sigma)/2.);

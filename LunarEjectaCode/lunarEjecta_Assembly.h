@@ -416,8 +416,8 @@ public:
 			flux_vs_D_file << D2 << ' ' << D3 << ' ' << Flux_vs_D[2*Ni - i_siteDist - 1] << endl;
 
 
-			cout << " Total flux in distance range D0 and D1 = " << Flux_vs_D[i_siteDist] << " kg/m^2/yr\n";
-			cout << " Total flux in distance range D2 and D3 = " << Flux_vs_D[2*Ni - i_siteDist - 1] << " kg/m^2/yr\n";
+			cout << " Total flux in distance range D0 and D1 = " << Flux_vs_D[i_siteDist] << " #/m^2/yr\n";
+			cout << " Total flux in distance range D2 and D3 = " << Flux_vs_D[2*Ni - i_siteDist - 1] << " #/m^2/yr\n";
 		} // END FOR, impact distance
 
 		cout << " Total count = " << count << endl;
