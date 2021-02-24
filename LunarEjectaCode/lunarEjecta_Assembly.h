@@ -89,7 +89,7 @@ public:
 	
 		NEOLatData = new lunarEjecta_NearEarthObjectFlux(NEOfn, new_m_min, new_m_max, densType, userDefDens, dn_NEO, lMin_NEO, lMax_NEO, NL_NEO);
 
-		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6" << endl;
+		cout << "H_compH11GrunMassFactor = \n" << this->H_compH11GrunMassFactor(100)*1E6 << " E-6 g" << endl;
 
 		cout << "H_compH11HiDensFactor = \n" << this->H_compH11HiDensFactor() << endl;
 		cout << "H_compH11LoDensFactor = \n" << this->H_compH11LoDensFactor() << endl << endl;
@@ -332,9 +332,9 @@ public:
 							// at this point, we can get specific MEM fluxes for high and low densities, and NEO's
 							// units of (kg/m^2/yr)
 
-							MEM_massfluxLo =  MEM_normLo * siteSA / ImpactSitesROILoc->getROI_SA();
-							MEM_massfluxHi =  MEM_normHi * siteSA / ImpactSitesROILoc->getROI_SA();
-							NEO_massflux   =  NEO_norm   * siteSA / ImpactSitesROILoc->getROI_SA();
+							MEM_massfluxLo =  MEM_normLo;
+							MEM_massfluxHi =  MEM_normHi;
+							NEO_massflux   =  NEO_norm;
 
 							if (!CONST_PRIMARY_FLUX)
 							{
@@ -343,7 +343,7 @@ public:
 								NEO_massflux   *= NEOLatData->getMassFluxNEO_atAngleVelLat(impactHorzAngle/DtoR, impactAzm/DtoR, impactSpeed, siteLat);	
 							}
 
-							sumMassFlux    =  MEM_massfluxLo + MEM_massfluxHi + NEO_massflux;
+							sumMassFlux = (MEM_massfluxLo + MEM_massfluxHi + NEO_massflux) * siteSA / ImpactSitesROILoc->getROI_SA();
 ////
 							// cout << " Alt, Azm, Vel = " << impactHorzAngle/DtoR << ' ' << impactAzm/DtoR << ' ';
 							// cout << impactSpeed << " | Lo, Hi, and NEO fluxes = " << scientific << MEM_massfluxLo << ", " << MEM_massfluxHi << ", " << NEO_massflux << endl;
@@ -656,7 +656,7 @@ private:
 		cout << " densNEA      = " << densNEA << endl;
 
 		// compute mass term, not dependent on speed or impact angle
-		massMEM = H_compH11GrunMassFactor(200); // units of kg
+		massMEM = H_compH11GrunMassFactor(200) / 1000.; // units of kg (function returns in units of grams)
 		massNEA = H_compH11NEAMassFactor(); // this is just 1, since we already incorporate it in the NEO flux (which is a mass flux)
 
 		cout << " massMEM = " << massMEM << endl;
