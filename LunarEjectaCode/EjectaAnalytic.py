@@ -44,7 +44,12 @@ for i in range(0,37):
 			for k in range(0, Nv):
 				speed = speedCenter[k]
 
-				sumLo += dataLoDens[9+k][j] * (speed * np.sin(phi))**(3. * 0.4)
-				sumHi += dataHiDens[9+k][j] * (speed * np.sin(phi))**(3. * 0.4)
+				# HH11
+				# sumLo += dataLoDens[9+k][j] * (speed * np.sin(phi))**(3. * 0.4)
+				# sumHi += dataHiDens[9+k][j] * (speed * np.sin(phi))**(3. * 0.4)
+
+				# KG01
+				sumLo += dataLoDens[9+k][j] * (speed * np.sin(phi))**(2. * 1.23)
+				sumHi += dataHiDens[9+k][j] * (speed * np.sin(phi))**(2. * 1.23)
 
 	print(int(lat[i]), sumLo, sumHi)

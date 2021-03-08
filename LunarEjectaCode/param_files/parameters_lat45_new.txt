@@ -5,8 +5,8 @@ C03_minMass# 1.E-6
 #/*  For ImpactSites_and_ROI */
 #NDistance# 20
 #Nazm#      7
-NDistance# 20
-Nazm#      13
+NDistance# 50
+Nazm#      30
 ROI_Lat#   45.0
 ROI_Lon#   0.0
 #
@@ -27,8 +27,8 @@ NEONLat#          37
 SecFluxFName# run_equator_test_Default.txt
 #SecNx#        10
 #SecNSetsXY#   12
-SecNx#        18
-SecNSetsXY#   10
+SecNx#        10
+SecNSetsXY#   12
 SecvMin#      0.1
 SecvMax#      2.37
 #
