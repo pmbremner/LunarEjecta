@@ -1284,7 +1284,7 @@ where $A = 1.63$ m/s$^{2,}$\footnote{Curiously, this is basically the accelerati
 \subsection{Distance and Bearing}\label{ssec:Distance_and_Bearing}
 % see https://www.movable-type.co.uk/scripts/latlong.html
 
-Given two latitude-longitude points on a sphere, $(\phi_1, \theta_1)$ and $(\phi_2, \theta_2)$, we can compute the distance and bearing following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
+Given two latitude-longitude points on a sphere, $(\phi_1, \lambda_1)$ and $(\phi_2, \lambda_2)$, we can compute the distance and bearing following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
 
 The distance D is given by the equation
 \begin{equation}\label{eq:shortdistance-between-latlon-points}
@@ -1294,7 +1294,7 @@ where $a$ is given by
 \begin{equation}
 a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
 \end{equation}
-for $\Delta\phi = \phi_2-\phi1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Solving for the distance and simplifying, we have
+for $\Delta\phi = \phi_2-\phi_1$ and $\Delta\lambda = \lambda_2-\lambda_1$. Solving for the distance and simplifying, we have
 \begin{equation}
 D = 2r_m\arcsin(\sqrt{a}),
 \end{equation}
@@ -1312,10 +1312,11 @@ Other useful expressions involving trigonometric functions of $D/r_m$ are
 
 Eq.\ \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
 \begin{equation}
-\tan\left(\pi-\frac{D}{2r_m}\right) = -\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}}.
+\tan\left(\pi-\frac{D}{2r_m}\right) = -\tan\left(\frac{D}{2r_m}\right) = -\sqrt{\frac{a}{1-a}}.
 \end{equation}
 
-The initial bearing $\theta$ (from due East) is given by the following equation (assuming the short-distance):
+The initial bearing $\theta$ %(from due East)
+(from due north) is given by the following equation (assuming the short-distance):
 \begin{equation}\label{eq:initial-bearing-shortdist}
 \tan\theta_{i(1,2)} = \frac{\sin\Delta\lambda\cos\phi_2}{\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda}.
 \end{equation}
@@ -1329,7 +1330,8 @@ In order to compute the initial and final bearing for the long-distance trajecto
 We can also get the final latitude and longitude if we are given the distance $D$ and bearing $\theta$ from the starting location. The latitude and longitude are given by
 \begin{align}
 \phi_2 &= \arcsin\left[\sin\phi_1\cos(D/r_m) + \cos\phi_1\sin(D/r_m)\cos\theta\right], \\
-\lambda_2 &= \lambda_1 + \arctan\left[\frac{\sin\theta\sin(D/r_m)\cos\phi_1}{\cos(D/r_m) - \sin\phi_1\sin\phi_2}\right].
+\lambda_2 &= \lambda_1 + \arctan\left[\frac{\sin\theta\sin(D/r_m)\cos\phi_1}{\cos(D/r_m) - \sin\phi_1\sin\phi_2}\right], \text{ or}\\
+&= \lambda_1 + \arctan\left[\frac{\sin\theta\sin(D/r_m)}{\cos(D/r_m)\cos\phi_1 - \sin(D/r_m)\sin\phi_1\cos\theta}\right].
 \end{align}
 
 

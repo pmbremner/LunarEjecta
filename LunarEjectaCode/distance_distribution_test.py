@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl # https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
 import sys
 import random as rd
 
@@ -11,10 +12,6 @@ D0    = float(sys.argv[2])
 D1    = float(sys.argv[3])
 dphi  = float(sys.argv[4]) * np.pi / 180.
 
-# N_ROI_r   = int(sys.argv[5])
-# N_ROI_phi = int(sys.argv[6])
-# N_arc_r   = int(sys.argv[7])
-# N_arc_phi = int(sys.argv[8])
 N_ROI   = int(sys.argv[5])
 N_arc   = int(sys.argv[6])
 
@@ -22,34 +19,6 @@ p_ROI_x = np.zeros(N_ROI)
 p_ROI_y = np.zeros(N_ROI)
 p_arc_x = np.zeros(N_arc)
 p_arc_y = np.zeros(N_arc)
-
-# #print("define ROI points x and y\n\n")
-# # define ROI points x and y
-# for i in range(0, N_ROI_r):
-# 	r = (i + 1) * r_ROI / float(N_ROI_r)
-# 	for j in range(0, N_ROI_phi):
-# 		phi = j * 2.*np.pi / float(N_ROI_phi)
-
-# 		idx = j + i * N_ROI_phi
-
-# 		p_ROI_x[idx] = r * np.cos(phi)
-# 		p_ROI_y[idx] = r * np.sin(phi)
-		
-# 		#print(p_ROI_x[idx], p_ROI_y[idx], np.sqrt(p_ROI_x[idx]**2 + p_ROI_y[idx]**2))
-
-# #print("define arc points x and y\n\n")
-# # define arc points x and y
-# for i in range(0, N_arc_r):
-# 	r = D0 + (D1 - D0) * i / float(N_arc_r-1.)
-# 	for j in range(0, N_arc_phi):
-# 		phi = dphi * j / float(N_arc_phi)
-
-# 		idx = j + i * N_arc_phi
-
-# 		p_arc_x[idx] = r * np.cos(phi)
-# 		p_arc_y[idx] = r * np.sin(phi)
-
-# 		#print(p_arc_x[idx], p_arc_y[idx], np.sqrt(p_arc_x[idx]**2 + p_arc_y[idx]**2))
 
 
 for i in range(0, N_ROI):
@@ -83,17 +52,17 @@ for i in range(0, N_ROI):
 		d = np.sqrt( x**2 + y**2 )
 		d_array[idx] = d
 
-		ang = np.mod(np.arctan2(y, x) + 2*np.pi, 2*np.pi)
+		ang = np.abs((np.mod(np.arctan2(y, x) + 2*np.pi, 2*np.pi) - dphi/2.)*180./np.pi - 180.)
 		ang_array[idx] = ang
 
 		#print(d, np.mod(ang + 2.*np.pi, 2*np.pi))
 
-ang_array = ang_array*180./np.pi - 180.
+#ang_array = ang_array*180./np.pi - 180.
 
-x_bins = np.linspace(np.min(d_array), np.max(d_array), 20) 
-y_bins = np.linspace(np.min(ang_array), np.max(ang_array), 20)
+x_bins = np.linspace(np.min(d_array), np.max(d_array), 50) 
+y_bins = np.linspace(np.min(ang_array), np.max(ang_array), 50)
 
-plt.hist2d(d_array, ang_array, bins =[x_bins, y_bins])
+plt.hist2d(d_array, ang_array, bins =[x_bins, y_bins], norm=mpl.colors.LogNorm())
 plt.figure()
 plt.hist(d_array)
 plt.figure()
