@@ -85,9 +85,13 @@ for i in range(0, N_ROI):
 
 		d_array[idx] = 2.*np.arcsin(np.sqrt(a))
 
+		# local azm from ROI to POI
 		ang_array[idx] = np.arctan2(np.sin(dlon)*np.cos(p_arc_lat[j]), np.cos(p_ROI_lat[i])*np.sin(p_arc_lat[j]) - np.sin(p_ROI_lat[i])*np.cos(p_arc_lat[j])*np.cos(dlon))
+		
+		# local azm from POI to ROI
+		#ang_array[idx] = np.arctan2(np.sin(-dlon)*np.cos(p_ROI_lat[i]), np.cos(p_arc_lat[j])*np.sin(p_ROI_lat[i]) - np.sin(p_arc_lat[j])*np.cos(p_ROI_lat[i])*np.cos(-dlon))
 
-ang_array = ang_array * 180./np.pi
+ang_array = np.mod(ang_array + 2.*np.pi, 2.*np.pi) * 180./np.pi
 
 
 x_N = 10 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
