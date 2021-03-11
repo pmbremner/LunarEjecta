@@ -1,0 +1,14 @@
+# This is a comment
+Nlat# 37
+Nlon# 4
+#
+MEMDirectoryName_0# ../LatRunData_Meridian
+MEMDirectoryName_90# ../LatRunData_EastLimb
+MEMDirectoryName_180# ../LatRunData_FarSide
+MEMDirectoryName_270# ../LatRunData_WestLimb
+#
+NEOvel_fn# ../NEA_Brown/vmass.txt
+# mass in grams
+NEO_mass_min# 10.
+# 1000 m diameter at 3 g/cc
+NEO_mass_max# 1.5708E15 
