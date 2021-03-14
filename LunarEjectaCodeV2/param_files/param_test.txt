@@ -12,3 +12,6 @@ NEOvel_fn# ../NEA_Brown/vmass.txt
 NEO_mass_min# 10.
 # 1000 m diameter at 3 g/cc
 NEO_mass_max# 1.5708E15 
+#
+N_D_perRegion# 10
+N_azm_perRegion# 10

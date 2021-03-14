@@ -94,8 +94,8 @@ for i in range(0, N_ROI):
 ang_array = np.mod(ang_array + 2.*np.pi, 2.*np.pi) * 180./np.pi
 
 
-x_N = 10 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
-y_N = 10#int((np.max(ang_array) - np.min(ang_array)) / dphi)
+x_N = 20 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
+y_N = 20 #int((np.max(ang_array) - np.min(ang_array)) / dphi)
 
 print(x_N, y_N)
 
