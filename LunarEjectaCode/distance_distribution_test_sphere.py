@@ -94,8 +94,8 @@ for i in range(0, N_ROI):
 ang_array = np.mod(ang_array + 2.*np.pi, 2.*np.pi) * 180./np.pi
 
 
-x_N = 20 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
-y_N = 20 #int((np.max(ang_array) - np.min(ang_array)) / dphi)
+x_N = 10 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
+y_N = 10 #int((np.max(ang_array) - np.min(ang_array)) / dphi)
 
 print(x_N, y_N)
 
@@ -103,7 +103,7 @@ print(x_N, y_N)
 x_bins = np.linspace(np.min(d_array), np.max(d_array), x_N) 
 y_bins = np.linspace(np.min(ang_array), np.max(ang_array), y_N)
 
-plt.hist2d(d_array, ang_array, bins =[x_bins, y_bins], norm=mpl.colors.LogNorm())
+plt.hist2d(d_array, ang_array, bins =[x_bins, y_bins])#, norm=mpl.colors.LogNorm())
 
 # lat lon coords
 x_bins = np.linspace(-np.pi/2, np.pi/2, 180) 

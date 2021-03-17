@@ -12,6 +12,8 @@ using namespace std;
 
 const double PI = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
+inline double sqr(double x) {return x*x;}
+
 enum primaryFluxType
 {
 	HiDensMEM, LoDensMEM, NEO
@@ -68,12 +70,18 @@ struct input
 	double ROI_radius;   // km
 	double ROI_lat; // rad
 	double ROI_lon; // rad
+	/////////////////////////////
+	int N_D_perRegion;
+	int N_azm_perRegion;
+	int ROI_sample_points;
+	int arc_sample_points;
 
 };
 
 void linspace(vector<double>& x, double xmin, double xmax, int Nx);
 void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int im);
 
+double rand_uniform(double min, double max);
 
 double NEO_integral_flux(double m); // m in grams
 double H_calcH11_C4(input* p);

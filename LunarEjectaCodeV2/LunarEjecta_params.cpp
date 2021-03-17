@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+#include <stdlib.h>     /* srand, rand */
 
 using namespace std;
 
@@ -23,6 +24,11 @@ void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int i
 		x[i-i0] = xmin * pow(xmax/xmin, double(i)/double(Nx-1.));
 		//cout << x[i-i0] << endl;
 	}
+}
+
+double rand_uniform(double min, double max)
+{
+	return min + (max - min) * rand() / double(RAND_MAX);
 }
 
 // input mass in units of grams, equation uses mass in kg
@@ -149,5 +155,12 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	cout << "HH11 C4 = " << p->HH11_C4 << endl;
 
 	//////////////////////
+
+	getParam(param_fn, "N_D_perRegion", p->N_D_perRegion, 0);
+	getParam(param_fn, "N_azm_perRegion", p->N_azm_perRegion, 0);
+	getParam(param_fn, "ROI_sample_points", p->ROI_sample_points, 0);
+	getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
+
+
 	return p;
 }

@@ -1,6 +1,7 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
 #include "LunarEjecta_scalinglaw.h"
+#include "LunarEjecta_azmdistmap.h"
 
 using namespace std;
 
@@ -52,14 +53,15 @@ int main(int argc, char const *argv[])
 
 	
 
-	// includes surface area of lat-lon locations, as well as scaling law stuff
+
 	scalingLaw *ejectaFactors = compute_constants_and_normalization(params);
 
-	/*
+	
 
-	// note: for each lat-lon location, there will be a map for each zenith angle bin
+	
 	hist2DSet *azmDistMap = init_azm_dist_map(params);
 	
+	/*
 
 	iglooSet *secondary_fluxes = compute_ejecta(params, primaryFluxes, azmDistMap, ejectaFactors);
 	save_igloo(params, secondary_fluxes, "secondaryEjecta");
