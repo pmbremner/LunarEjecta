@@ -1,5 +1,6 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
+#include "LunarEjecta_scalinglaw.h"
 
 using namespace std;
 
@@ -22,17 +23,25 @@ int main(int argc, char const *argv[])
 	input *params = init_input(param_fn, N_proc, i_proc);
 
 
-	
+	////////////////////////////////////////////
 	// HiDensMEM, LoDensMEM, NEO
-
+	// Read the MEM igloo files
+	////////////////////////////////////////////
 	iglooSet *MEM_hi_fluxes = read_igloo(params, HiDensMEM);
 	iglooSet *MEM_lo_fluxes = read_igloo(params, LoDensMEM);
 	iglooSet *NEO_fluxes;
 
-	iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
+	cout << "Total Surface Area for process = " << sumSA(params, MEM_hi_fluxes) / (4*PI) << " x 4pi r^2\n";
 
+	//iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
+	vector<iglooSet*> primaryFluxes;
+	primaryFluxes.push_back(MEM_hi_fluxes);
+	primaryFluxes.push_back(MEM_lo_fluxes);
+	primaryFluxes.push_back(NEO_fluxes);
 
-
+	////////////////////////////////////////////
+	// read or generate the NEO igloo fluxes
+	////////////////////////////////////////////
 	if (params->readNEO_files)
 		NEO_fluxes = read_igloo(params, NEO);
 	else {
@@ -41,13 +50,16 @@ int main(int argc, char const *argv[])
 			save_igloo(params, NEO_fluxes, NEO);
 	}
 
+	
+
+	// includes surface area of lat-lon locations, as well as scaling law stuff
+	scalingLaw *ejectaFactors = compute_constants_and_normalization(params);
+
 	/*
 
 	// note: for each lat-lon location, there will be a map for each zenith angle bin
 	hist2DSet *azmDistMap = init_azm_dist_map(params);
 	
-	// includes surface area of lat-lon locations, as well as scaling law stuff
-	scalingLaw *ejectaFactors = compute_constants_and_normalization(params);
 
 	iglooSet *secondary_fluxes = compute_ejecta(params, primaryFluxes, azmDistMap, ejectaFactors);
 	save_igloo(params, secondary_fluxes, "secondaryEjecta");

@@ -12,6 +12,11 @@ using namespace std;
 
 const double PI = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
+enum primaryFluxType
+{
+	HiDensMEM, LoDensMEM, NEO
+};
+
 struct input
 {
 	int N_proc; // total number of processes
@@ -35,6 +40,23 @@ struct input
 
 	string NEO_velDist_fn; // NEO velocity distribution filename
 
+	// density params
+	double MEM_hiDens_mu;    // log_e (not log_10)
+	double MEM_hiDens_sigma; // ''
+	double MEM_loDens_mu;    // ''
+	double MEM_loDens_sigma; // ''
+	double NEO_dens; // kg/m^3
+
+	// regolith params
+	double regolith_dens; // kg/m^3
+	double HH11_porosity;
+	double HH11_nu;
+	double HH11_mu;
+	double HH11_k;
+	double HH11_C1;
+	double HH11_C4;
+
+
 	double MEM_massMin; // minimum mass of MEM primaries, grams (cannot be lower than 1E-6 g)
 	double MEM_massMax; // maximum mass of MEM primaries, grams (cannot be higher than 10 g)
 	double NEO_massMin; // minimum mass of NEOs, grams
@@ -42,10 +64,19 @@ struct input
 	/////////////////////////////
 	double lunar_radius; // km
 	double lunar_escape_speed; // km/s
+	/////////////////////////////
 	double ROI_radius;   // km
+	double ROI_lat; // rad
+	double ROI_lon; // rad
 
 };
 
+void linspace(vector<double>& x, double xmin, double xmax, int Nx);
+void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int im);
+
+
+double NEO_integral_flux(double m); // m in grams
+double H_calcH11_C4(input* p);
 
 // https://www.cplusplus.com/doc/oldtutorial/templates/
 template <class paramType>

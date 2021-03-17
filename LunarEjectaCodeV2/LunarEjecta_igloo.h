@@ -5,10 +5,6 @@
 
 using namespace std;
 
-enum primaryFluxType
-{
-	HiDensMEM, LoDensMEM, NEO
-};
 
 struct iglooSet // for each location
 {
@@ -19,11 +15,14 @@ struct iglooSet // for each location
 
 	int N_rows; // number of rows in igloo data
 	int N_cols; // number of columns in igloo data
-	vector<double> iglooData;   // includes info columns and data
+	vector<double> iglooData;   // includes info columns (extra 9 columns) and data
 	vector<double> speedEdge;   // size = N_cols - 8
 	vector<double> speedCenter; // size = N_cols - 9
 };
 
+double sumSA(input* p, iglooSet* fluxes);
+void readVelDist(string vel_fn, vector<double>& velDist);
+double read_cube_zenith_flux(string cube_fn);
 void H_readInt_FromFile(ifstream& file, int& firstInt);
 void H_getRowCol_FromFile(string fileName, iglooSet& ig_data);
 void H_read_igloo(string igloo_fn, iglooSet& ig_data);

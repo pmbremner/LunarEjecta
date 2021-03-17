@@ -7,12 +7,12 @@ MEMDirectoryName_90# ../LatRunData_EastLimb
 MEMDirectoryName_180# ../LatRunData_FarSide
 MEMDirectoryName_270# ../LatRunData_WestLimb
 #
-NEOvel_fn# ../NEA_Brown/vmass.txt
+NEO_velDist_fn# ../NEA_Brown/vmass.txt
 # mass in grams
 NEO_mass_min# 10.
 # 1000 m diameter at 3 g/cc
 NEO_mass_max# 1.5708E15 
-readNEO_files# 0
+readNEO_files# 1
 saveNEO_files# 0
 #
 N_D_perRegion# 10
@@ -20,3 +20,8 @@ N_azm_perRegion# 10
 #
 # units of km
 ROI_radius# 5.
+ROI_lat# -30.
+ROI_lon# 25.
+# units of kg/m^3
+regolith_dens# 3100.
+regolith_type# sandFlyAsh
