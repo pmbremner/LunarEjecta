@@ -72,6 +72,7 @@ for i in range(0, N_arc):
 
 d_array = np.zeros(N_ROI * N_arc)
 ang_array = np.zeros(N_ROI * N_arc)
+POI_ang_array = np.zeros(N_ROI * N_arc)
 
 for i in range(0, N_ROI):
 	for j in range(0, N_arc):
@@ -89,21 +90,35 @@ for i in range(0, N_ROI):
 		ang_array[idx] = np.arctan2(np.sin(dlon)*np.cos(p_arc_lat[j]), np.cos(p_ROI_lat[i])*np.sin(p_arc_lat[j]) - np.sin(p_ROI_lat[i])*np.cos(p_arc_lat[j])*np.cos(dlon))
 		
 		# local azm from POI to ROI
-		#ang_array[idx] = np.arctan2(np.sin(-dlon)*np.cos(p_ROI_lat[i]), np.cos(p_arc_lat[j])*np.sin(p_ROI_lat[i]) - np.sin(p_arc_lat[j])*np.cos(p_ROI_lat[i])*np.cos(-dlon))
+		POI_ang_array[idx] = np.arctan2(np.sin(-dlon)*np.cos(p_ROI_lat[i]), np.cos(p_arc_lat[j])*np.sin(p_ROI_lat[i]) - np.sin(p_arc_lat[j])*np.cos(p_ROI_lat[i])*np.cos(-dlon))
 
 ang_array = np.mod(ang_array + 2.*np.pi, 2.*np.pi) * 180./np.pi
+POI_ang_array = np.mod(POI_ang_array + 2.*np.pi, 2.*np.pi) * 180./np.pi
 
+if(np.max(ang_array) - np.min(ang_array) > 355.):
+	ang_array[ang_array > 180.] = ang_array[ang_array > 180.] - 360.
 
-x_N = 10 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
-y_N = 10 #int((np.max(ang_array) - np.min(ang_array)) / dphi)
+if(np.max(POI_ang_array) - np.min(POI_ang_array) > 355.):
+	POI_ang_array[POI_ang_array > 180.] = POI_ang_array[POI_ang_array > 180.] - 360.
+
+x_N = 20 #int(radius*(np.max(d_array) - np.min(d_array)) / (D1-D0) * 5)
+y_N = 20 #int((np.max(ang_array) - np.min(ang_array)) / dphi)
 
 print(x_N, y_N)
 
 # bearing vs distance
 x_bins = np.linspace(np.min(d_array), np.max(d_array), x_N) 
-y_bins = np.linspace(np.min(ang_array), np.max(ang_array), y_N)
+#y_bins = np.linspace(np.min(ang_array), np.max(ang_array), y_N)
+y_bins = np.linspace(0., 360., 72)
 
 plt.hist2d(d_array, ang_array, bins =[x_bins, y_bins])#, norm=mpl.colors.LogNorm())
+
+# bearing vs distance
+plt.figure()
+x_bins = np.linspace(np.min(d_array), np.max(d_array), x_N) 
+y_bins = np.linspace(np.min(POI_ang_array), np.max(POI_ang_array), y_N)
+
+plt.hist2d(d_array, POI_ang_array, bins =[x_bins, y_bins])#, norm=mpl.colors.LogNorm())
 
 # lat lon coords
 x_bins = np.linspace(-np.pi/2, np.pi/2, 180) 
@@ -111,8 +126,12 @@ y_bins = np.linspace(-np.pi, np.pi, 360)
 
 plt.figure()
 plt.hist2d(np.concatenate([p_ROI_lon, p_arc_lon]), np.concatenate([p_ROI_lat, p_arc_lat]), bins =[y_bins, x_bins], norm=mpl.colors.LogNorm())
-# plt.figure()
-# plt.hist(d_array)
-# plt.figure()
-# plt.hist(ang_array)
+
+plt.figure()
+#x_bins = np.linspace(np.min(ang_array), np.max(ang_array), x_N) 
+x_bins = np.linspace(0., 360., 72) 
+y_bins = np.linspace(np.min(POI_ang_array), np.max(POI_ang_array), y_N)
+plt.hist2d(ang_array, POI_ang_array, bins =[x_bins, y_bins])#, norm=mpl.colors.LogNorm())
+
+
 plt.show()

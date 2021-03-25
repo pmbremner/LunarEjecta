@@ -13,6 +13,26 @@ using namespace std;
 const double PI = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
 inline double sqr(double x) {return x*x;}
+inline double min(double a, double b) {return (a < b ? a : b);}
+inline double max(double a, double b) {return (a > b ? a : b);}
+
+double vMax(vector<double>& v){
+	double max = -DBL_MAX;
+	for (int i = 0; i < v.size(); ++i)
+		if (v[i] > max)
+			max = v[i];
+
+	return max;
+}
+
+double vMin(vector<double>& v){
+	double min = DBL_MAX;
+	for (int i = 0; i < v.size(); ++i)
+		if (v[i] < min)
+			min = v[i];
+
+	return min;
+}
 
 enum primaryFluxType
 {
@@ -72,7 +92,8 @@ struct input
 	double ROI_lon; // rad
 	/////////////////////////////
 	int N_D_perRegion;
-	int N_azm_perRegion;
+	int N_bearing_POI;
+	int N_bearing_ROI;
 	int ROI_sample_points;
 	int arc_sample_points;
 

@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//  g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp .\LunarEjecta_scalinglaw.cpp .\LunarEjecta_azmdistmap.cpp -o ejecta.exe
+
 int main(int argc, char const *argv[])
 {
 
@@ -46,7 +48,7 @@ int main(int argc, char const *argv[])
 	if (params->readNEO_files)
 		NEO_fluxes = read_igloo(params, NEO);
 	else {
-		NEO_fluxes = generate_NEO_igloo(params, MEM_hi_fluxes);
+		NEO_fluxes = generate_NEO_igloo(params, MEM_lo_fluxes);
 		if (params->saveNEO_files)
 			save_igloo(params, NEO_fluxes, NEO);
 	}
