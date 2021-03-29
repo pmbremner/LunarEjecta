@@ -180,28 +180,33 @@ iglooSet* read_igloo(input* p, int fluxType)
 		// compute surface area of location
 		// all in rads
 
-		if(fabs(cur_lat - 90.) < 1E-4) // +90 lat
-		{
-			lat_max = PI/2.;
-			lat_min = lat_max - dlat/2.;
-		}
-		else if(fabs(cur_lat + 90.) < 1E-4) // -90 lat
-		{
-			lat_min = -PI/2.;
-			lat_max = lat_min + dlat/2.;
-		}
-		else
-		{
-			lat_min = ig[p->latlon_idx_proc].lat - dlat/2.;
-			lat_max = ig[p->latlon_idx_proc].lat + dlat/2.;
-		}
+		get_lat_min_max(ig[p->latlon_idx_proc].lat, dlat, lat_min, lat_max);
+
+		// if(fabs(cur_lat - 90.) < 1E-4) // +90 lat
+		// {
+		// 	lat_max = PI/2.;
+		// 	lat_min = lat_max - dlat/2.;
+		// }
+		// else if(fabs(cur_lat + 90.) < 1E-4) // -90 lat
+		// {
+		// 	lat_min = -PI/2.;
+		// 	lat_max = lat_min + dlat/2.;
+		// }
+		// else
+		// {
+		// 	lat_min = ig[p->latlon_idx_proc].lat - dlat/2.;
+		// 	lat_max = ig[p->latlon_idx_proc].lat + dlat/2.;
+		// }
 
 
 		// check for region that overlaps with equator
-		if (fabs(ig[p->latlon_idx_proc].lat) < dlat/2.)
-			ig[p->latlon_idx_proc].SA = dlon * (fabs(sin(lat_max)) + fabs(sin(lat_min)));
-		else
-			ig[p->latlon_idx_proc].SA = dlon * fabs(sin(lat_max) - sin(lat_min));
+		ig[p->latlon_idx_proc].SA = calcSA(ig[p->latlon_idx_proc].lat, lat_min, lat_max, dlat, dlon);
+
+
+		// if (fabs(ig[p->latlon_idx_proc].lat) < dlat/2.)
+		// 	ig[p->latlon_idx_proc].SA = dlon * (fabs(sin(lat_max)) + fabs(sin(lat_min)));
+		// else
+		// 	ig[p->latlon_idx_proc].SA = dlon * fabs(sin(lat_max) - sin(lat_min));
 		
 
 		cout << "lat dlat/min/max = " << dlat*180./PI << " | " << lat_min*180./PI << " | " << lat_max*180./PI << endl;

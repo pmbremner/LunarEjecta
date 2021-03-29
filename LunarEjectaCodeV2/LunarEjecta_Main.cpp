@@ -1,11 +1,11 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
 #include "LunarEjecta_scalinglaw.h"
-#include "LunarEjecta_azmdistmap.h"
+#include "LunarEjecta_bearingdistmap.h"
 
 using namespace std;
 
-//  g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp .\LunarEjecta_scalinglaw.cpp .\LunarEjecta_azmdistmap.cpp -o ejecta.exe
+ // g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp .\LunarEjecta_scalinglaw.cpp .\LunarEjecta_bearingdistmap.cpp -o ejecta.exe
 
 int main(int argc, char const *argv[])
 {
@@ -53,15 +53,35 @@ int main(int argc, char const *argv[])
 			save_igloo(params, NEO_fluxes, NEO);
 	}
 
-	
-
-
+	////////////////////////////////////////////
+	// compute constants and normalization of the scaling laws
+	////////////////////////////////////////////
 	scalingLaw *ejectaFactors = compute_constants_and_normalization(params);
 
-	
+
+	// for each lat-lon location that the process is responsible for
+	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
+	{
+		cout << "Process #: " << params->i_proc << " | Location #: " << params->latlon_idx_proc+1 << '/' << params->N_loc << endl;
+		params->latlon_idx_cur = params->latlon_idx_proc + params->latlon_idx_min;
+		////////////////////////////////////////////
+		// compute the bearing-distance map for the current location
+		////////////////////////////////////////////
+		hist3DSet *bearingDistMap = init_bearing_dist_map(params);
+
+		////////////////////////////////////////////
+		// compute the secondary fluxes for the current location
+		////////////////////////////////////////////
+
+		////////////////////////////////////////////
+		// save the secondary fluxes for the current location
+		////////////////////////////////////////////
+
+		delete bearingDistMap;
+	}
 
 	
-	hist2DSet *azmDistMap = init_azm_dist_map(params);
+	//hist2DSet *azmDistMap = init_azm_dist_map(params);
 	
 	/*
 

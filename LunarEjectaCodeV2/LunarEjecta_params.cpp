@@ -12,6 +12,31 @@
 using namespace std;
 
 
+double vMax(vector<double>& v){
+	double max = v[0];
+	for (int i = 1; i < v.size(); ++i)
+		if (v[i] > max)
+			max = v[i];
+
+	return max;
+}
+
+double vMin(vector<double>& v){
+	double min = v[0];
+	for (int i = 1; i < v.size(); ++i)
+		if (v[i] < min)
+			min = v[i];
+
+	return min;
+}
+
+void shiftAngle(vector<double>& v, double min_ang, double shift_ang)
+{
+	for (int i = 0; i < v.size(); ++i)
+		if (v[i] > min_ang)
+			v[i] -= shift_ang;
+}
+
 void linspace(vector<double>& x, double xmin, double xmax, int Nx) {
 	x.resize(Nx);
 	for (int i = 0; i < Nx; ++i)
@@ -30,6 +55,36 @@ double rand_uniform(double min, double max)
 {
 	return min + (max - min) * rand() / double(RAND_MAX);
 }
+
+
+double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, double dlon)
+{
+	if(fabs(cur_lat) < dlat/2.)
+		return dlon * (fabs(sin(lat_max)) + fabs(sin(lat_min)));
+	else
+		return dlon * fabs(sin(lat_max) - sin(lat_min));
+}
+
+// all in radians
+void get_lat_min_max(double cur_lat, double dlat, double& lat_min, double& lat_max)
+{
+	if(fabs(cur_lat - PI/2.) < 1E-4) // +90 lat
+	{
+		lat_max = PI/2.;
+		lat_min = lat_max - dlat/2.;
+	}
+	else if(fabs(cur_lat + PI/2.) < 1E-4) // -90 lat
+	{
+		lat_min = -PI/2.;
+		lat_max = lat_min + dlat/2.;
+	}
+	else
+	{
+		lat_min = cur_lat - dlat/2.;
+		lat_max = cur_lat + dlat/2.;
+	}
+}
+
 
 // input mass in units of grams, equation uses mass in kg
 double NEO_integral_flux(double m)
@@ -157,7 +212,8 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	//////////////////////
 
 	getParam(param_fn, "N_D_perRegion", p->N_D_perRegion, 0);
-	getParam(param_fn, "N_azm_perRegion", p->N_azm_perRegion, 0);
+	getParam(param_fn, "N_bearing_POI", p->N_bearing_POI, 0);
+	getParam(param_fn, "N_horizon_ROI", p->N_horizon_ROI, 0);
 	getParam(param_fn, "ROI_sample_points", p->ROI_sample_points, 0);
 	getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
 

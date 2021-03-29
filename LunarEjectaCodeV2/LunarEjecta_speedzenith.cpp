@@ -1,7 +1,7 @@
 #include "LunarEjecta_speedzenith.h"
 #include "LunarEjecta_params.h"
 
-#include <float.h>
+//#include <float.h>
 #include <cmath>
 
 using namespace std;
@@ -20,7 +20,7 @@ void push(vector<quad> &q, double x0, double x1, double y0, double y1, double w)
 	q[q.size()-1].x1 = x1;
 	q[q.size()-1].y0 = y0;
 	q[q.size()-1].y1 = y1;
-	q[q.size()-1].w = w;
+	q[q.size()-1].w  = w;
 }
 
 

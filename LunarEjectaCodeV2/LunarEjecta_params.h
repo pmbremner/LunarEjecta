@@ -6,33 +6,21 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+//#include <float.h> // DBL_MAX
 
 
 using namespace std;
 
 const double PI = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
+// inline functions must be defined in the header
 inline double sqr(double x) {return x*x;}
 inline double min(double a, double b) {return (a < b ? a : b);}
 inline double max(double a, double b) {return (a > b ? a : b);}
 
-double vMax(vector<double>& v){
-	double max = -DBL_MAX;
-	for (int i = 0; i < v.size(); ++i)
-		if (v[i] > max)
-			max = v[i];
-
-	return max;
-}
-
-double vMin(vector<double>& v){
-	double min = DBL_MAX;
-	for (int i = 0; i < v.size(); ++i)
-		if (v[i] < min)
-			min = v[i];
-
-	return min;
-}
+double vMax(vector<double>& v);
+double vMin(vector<double>& v);
+void shiftAngle(vector<double>& v, double min_ang, double shift_ang);
 
 enum primaryFluxType
 {
@@ -93,7 +81,8 @@ struct input
 	/////////////////////////////
 	int N_D_perRegion;
 	int N_bearing_POI;
-	int N_bearing_ROI;
+	int N_horizon_ROI;
+	//int N_bearing_ROI;
 	int ROI_sample_points;
 	int arc_sample_points;
 
@@ -103,6 +92,9 @@ void linspace(vector<double>& x, double xmin, double xmax, int Nx);
 void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int im);
 
 double rand_uniform(double min, double max);
+
+double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, double dlon);
+void get_lat_min_max(double cur_lat, double dlat, double& lat_min, double& lat_max);
 
 double NEO_integral_flux(double m); // m in grams
 double H_calcH11_C4(input* p);

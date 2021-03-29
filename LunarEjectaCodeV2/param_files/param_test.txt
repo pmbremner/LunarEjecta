@@ -12,12 +12,12 @@ NEO_velDist_fn# ../NEA_Brown/vmass.txt
 NEO_mass_min# 10.
 # 1000 m diameter at 3 g/cc
 NEO_mass_max# 1.5708E15 
-readNEO_files# 1
-saveNEO_files# 0
+readNEO_files# 0
+saveNEO_files# 1
 #
 N_D_perRegion# 10
 N_bearing_POI# 10
-N_bearing_ROI# 10
+N_horizon_ROI# 9
 ROI_sample_points# 1000
 arc_sample_points# 100
 #
