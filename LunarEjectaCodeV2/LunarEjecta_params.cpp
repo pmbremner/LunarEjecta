@@ -30,6 +30,7 @@ double vMin(vector<double>& v){
 	return min;
 }
 
+
 void shiftAngle(vector<double>& v, double min_ang, double shift_ang)
 {
 	for (int i = 0; i < v.size(); ++i)
@@ -63,6 +64,17 @@ double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, doubl
 		return dlon * (fabs(sin(lat_max)) + fabs(sin(lat_min)));
 	else
 		return dlon * fabs(sin(lat_max) - sin(lat_min));
+}
+
+// Nphi is the expected number of azimuth bins at the horizon
+void compute_igloo_azm_bin_number(vector<int> &phi, int Nphi)
+{
+	double dzen = PI/double(2.*phi.size());
+	for (int i = 0; i < phi.size(); ++i){
+		phi[i] = round(fabs(Nphi * ( sin(i*dzen) + sin((i+1.)*dzen) )/2.));
+
+		//cout << phi[i] << endl;
+	}
 }
 
 // all in radians
@@ -214,8 +226,11 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "N_D_perRegion", p->N_D_perRegion, 0);
 	getParam(param_fn, "N_bearing_POI", p->N_bearing_POI, 0);
 	getParam(param_fn, "N_horizon_ROI", p->N_horizon_ROI, 0);
+	getParam(param_fn, "N_bearing_ROI", p->N_bearing_ROI, 0);
 	getParam(param_fn, "ROI_sample_points", p->ROI_sample_points, 0);
-	getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
+	getParam(param_fn, "N_vel", p->N_vel, 0);
+	getParam(param_fn, "vel_min", p->vel_min, 0);
+	//getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
 
 
 	return p;

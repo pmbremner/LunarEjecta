@@ -25,6 +25,8 @@ struct hist3DSet
 	int N_bearing_POI;
 	int N_latlon;
 	int N_horizon_ROI;
+	int N_bins;
+	int N_bearing_ROI_tot;
 
 	double lat_min;
 	double lat_max;
@@ -36,7 +38,7 @@ struct hist3DSet
 	double bearing_POI_min;
 	double bearing_POI_max;
 	vector<int> N_bearing_ROI; // [horizon angle] 
-	vector<int> N_bearing_ROI_cum; // cummulative sum of N_bearing_ROI [horizon angle] 
+	vector<int> N_bearing_ROI_cum; // cummulative sum of N_bearing_ROI [horizon angle], starting with zero
 
 	vector<double> bin;
 	//vector<vector<vector<vector<vector<double>>>>> bin; // bin[horizon angle][distance][bearing POI][bearing ROI]
@@ -52,7 +54,7 @@ double get_lon_from_ROI(double D, double bearing, double lat_R, double lon_R);
 //void get_lat_min_max(double cur_lat, double d_lat, double& lat_min, double& lat_max);
 
 //hist2DSet* init_azm_dist_map(input* params);
-hist3DSet* init_bearing_dist_map(input* params);
+hist3DSet* init_bearing_dist_map(input* params, int ejectaDistType);
 
 
 #endif 

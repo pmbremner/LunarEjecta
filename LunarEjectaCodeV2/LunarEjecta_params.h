@@ -13,6 +13,9 @@ using namespace std;
 
 const double PI = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
+enum primaryFluxType{HiDensMEM, LoDensMEM, NEO, secEjecta};
+enum ejectaDistanceType{ejectaShort, ejectaFar};
+
 // inline functions must be defined in the header
 inline double sqr(double x) {return x*x;}
 inline double min(double a, double b) {return (a < b ? a : b);}
@@ -20,12 +23,24 @@ inline double max(double a, double b) {return (a > b ? a : b);}
 
 double vMax(vector<double>& v);
 double vMin(vector<double>& v);
-void shiftAngle(vector<double>& v, double min_ang, double shift_ang);
 
-enum primaryFluxType
+template <class paramType>
+void vCumLow(vector<paramType>& v, vector<paramType>& vCum)
 {
-	HiDensMEM, LoDensMEM, NEO
-};
+	vCum[0] = 0;
+	for (int i = 1; i < v.size(); ++i)
+		vCum[i] = vCum[i-1] + v[i-1];
+}
+
+template <class paramType>
+void vCumUp(vector<paramType>& v, vector<paramType>& vCum)
+{
+	vCum[0] = v[0];
+	for (int i = 1; i < v.size(); ++i)
+		vCum[i] = vCum[i-1] + v[i];
+}
+
+void shiftAngle(vector<double>& v, double min_ang, double shift_ang);
 
 struct input
 {
@@ -81,10 +96,14 @@ struct input
 	/////////////////////////////
 	int N_D_perRegion;
 	int N_bearing_POI;
-	int N_horizon_ROI;
-	//int N_bearing_ROI;
 	int ROI_sample_points;
-	int arc_sample_points;
+	//int arc_sample_points;
+	/////////////////////////////
+	int N_horizon_ROI; // secondary ejecta
+	int N_bearing_ROI; // secondary ejecta
+	int N_vel;         // secondary ejecta
+	double vel_min; // km/s
+
 
 };
 
@@ -94,6 +113,7 @@ void logspace(vector<double>& x, double xmin, double xmax, int Nx, int i0, int i
 double rand_uniform(double min, double max);
 
 double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, double dlon);
+void compute_igloo_azm_bin_number(vector<int> &phi, int Nphi);
 void get_lat_min_max(double cur_lat, double dlat, double& lat_min, double& lat_max);
 
 double NEO_integral_flux(double m); // m in grams

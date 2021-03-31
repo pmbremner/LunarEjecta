@@ -6,6 +6,7 @@ import matplotlib as mpl # https://stackoverflow.com/questions/23309272/matplotl
 import sys
 import random as rd
 
+# python .\distance_distribution_test_sphere.py 5. -30. 25. 2381. 2456. 90. -40. 200 1000 1737.
 
 def get_lat_from_equator(D, bearing):
 	return np.arcsin(np.sin(D) * np.cos(bearing))

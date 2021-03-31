@@ -1,12 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.17)  9 MAR 2021 16:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  30 MAR 2021 15:11
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-03> (hitec.cls
+L3 programming layer <2020-05-15> (hitec.cls
 Document Class: hitec 2001/08/22 v0.0(beta) Hi-tec style document class
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo
-"
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\size10.clo"
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \leftmarginwidth=\dimen134
@@ -25,42 +24,34 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphi
-cx.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphi
-cs.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.s
-ty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\gr
-aphics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pd
-ftex.def"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen139
 \Gin@req@width=\dimen140
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\lscape
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip49
 \LTright=\skip50
@@ -78,16 +69,13 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \c@LT@chunks=\count179
 \LT@p@ftn=\toks16
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\subcapt
-ion.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\subcaption.sty
 Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption
-.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption.sty
 Package: caption 2020/01/03 v3.4h Customizing captions (AR)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption
-3.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption3.sty
 Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen142
@@ -103,29 +91,24 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count181
 Package caption Info: longtable package is loaded.
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\ltcapti
-on.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 ))
 \c@subfigure=\count182
 \c@subtable=\count183
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grffile\grffile
-.sty"
+) (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/grffile\grffile.sty
 Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
 y)
 Package grffile Info: This package is an empty stub for compatibility on input 
 line 40.
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pdfpag
-es.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/pdfpages\pdfpages.sty
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty
-"
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count184
 \calc@Bcount=\count185
@@ -138,32 +121,26 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count186
 \calc@Cskip=\skip55
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic
-.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/atbegshi\atbe
-gshi.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/atbegshi\atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\inf
-warerr.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/infwarerr\infwarerr.s
+ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcm
-ds.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.s
-ty"
-Package: iftex 2019/11/07 v1.0c TeX engine tests
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor.s
-ty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/xcolor\xcolor.sty"
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\co
-lor.cfg"
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -180,8 +157,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 \AM@pagewidth=\dimen151
 \AM@pageheight=\dimen152
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pppdft
-ex.def"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box49
@@ -190,9 +166,7 @@ File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 \AM@toc@title=\toks18
 \c@AM@survey=\count188
 \AM@templatesizebox=\box50
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listin
-gs.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.sty"
 \lst@mode=\count189
 \lst@gtempboxa=\box51
 \lst@token=\toks19
@@ -206,43 +180,35 @@ gs.sty"
 \lst@lineno=\count194
 \lst@maxwidth=\dimen156
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmis
-c.sty"
-File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count195
 \lst@skipnumbers=\count196
 \lst@framebox=\box52
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listin
-gs.cfg"
-File: listings.cfg 2019/09/10 1.8c listings configuration
+("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.cfg"
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2019/09/10 1.8c (Carsten Heinz)
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip56
 
 For additional information on amsmath, use the `?' option.
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext
-.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.
-sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
 \ex@=\dimen157
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.
-sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen158
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.
-sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count197
@@ -283,52 +249,37 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csvsimple\csvsi
-mple.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/csvsimple\csvsimple.sty
 Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\p
-gfrcs.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfutil-common.tex"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common.tex"
 \pgfutil@everybye=\toks25
 \pgfutil@tempdima=\dimen166
 \pgfutil@tempdimb=\dimen167
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfutil-common-lists.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfutil-latex.def"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-latex.def"
 \pgfutil@abb=\box55
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi.sty
-"
+("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfrcs.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf\pgf.revis
-ion.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfrcs.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf\pgf.revision.tex")
 Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\p
-gfkeys.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfkeys.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex"
 \pgfkeys@pathtoks=\toks26
 \pgfkeys@temptoks=\toks27
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfkeysfiltered.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeysfiltered.code.te
+x"
 \pgfkeys@tmptoks=\toks28
-)))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etoolb
-ox.sty"
+))) ("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count275
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\shellesc.
-sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\shellesc.sty"
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 )
@@ -338,15 +289,13 @@ Package shellesc Info: Restricted shell escape enabled on input line 77.
 \c@csvcol=\count278
 \csv@out=\write3
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathabx\mathabx
-.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/mathabx\mathabx.sty
 Package: mathabx 2003/07/29 v0.0 Non-standard LaTeX package mathabx
 \symmatha=\mathgroup4
 \symmathb=\mathgroup5
 \symmathx=\mathgroup6
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/mathabx\matha
-bx.dcl"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/mathabx\mathabx.dcl
 LaTeX Font Info:    Redeclaring math symbol \cdotp on input line 25.
 LaTeX Font Info:    Redeclaring math symbol \times on input line 33.
 LaTeX Font Info:    Redeclaring math symbol \div on input line 34.
@@ -469,9 +418,8 @@ LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 907.
 LaTeX Font Info:    Redeclaring math symbol \braceru on input line 909.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 944.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
-))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titles
-ec.sty"
+)) (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/titlesec\titlesec.st
+y
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box56
 \beforetitleunit=\skip59
@@ -482,126 +430,110 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \titlewidth=\dimen171
 \titlewidthlast=\dimen172
 \titlewidthfirst=\dimen173
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperr
-ef.sty"
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdft
-excmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
 Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvs
-etkeys.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/kvsetkeys\kvsetkeys.s
+ty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\
-kvdefinekeys.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/kvdefinekeys\kvdefine
+keys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pdfescape\pdf
-escape.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/pdfescape\pdfescape.s
+ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hycolor\hycolor
-.sty"
+) (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/letltxmacro\let
-ltxmacro.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/letltxmacro\letltxmacro
+.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/auxhook\auxhook
-.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvopt
-ions.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen174
 \Hy@linkcounter=\count283
 \Hy@pagecounter=\count284
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc
-.def"
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/intcalc\intca
-lc.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/etexcmds\etex
-cmds.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count285
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count286
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen175
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bitset\bitset
-.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/bigintcalc\bi
-gintcalc.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/bigintcalc\bigintcalc
+.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count287
 \Field@Width=\dimen176
 \Fld@charsize=\dimen177
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 \Hy@abspage=\count288
 \c@Item=\count289
 \c@Hfootnote=\count290
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
+File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdfte
-x.def"
-File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/atveryend\atver
-yend.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/atveryend\atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
 \Fld@listcount=\count291
 \c@bookmark@seq@number=\count292
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/rerunfilecheck\
-rerunfilecheck.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/uniquecounter
-\uniquecounter.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/uniquecounter\uniquec
+ounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -609,8 +541,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip61
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumit
-em.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip62
 \enit@outerparindent=\dimen178
@@ -619,28 +550,20 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count293
 \enitdp@description=\count294
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgfplots\pgfplo
-ts.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.revision.tex")
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgfplots\pgfplots.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.revision.tex")
 Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlay
-er\tikz.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\
-pgf.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/frontendlayer\tikz.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf.sty"
 Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\
-pgfcore.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/systemlayer
-\pgfsys.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgfsys.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgfcore.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/systemlayer\pgfsys.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsys.code.tex"
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgfkeys.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex")
 \pgf@x=\dimen179
 \pgf@y=\dimen180
 \pgf@xa=\dimen181
@@ -662,42 +585,33 @@ Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 \t@pgf@tokc=\toks33
 \pgf@sys@id@count=\count299
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgf.cfg"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgf.cfg"
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgfsys-pdftex.def"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsys-pdftex.def"
 File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgfsys-common-pdf.def"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+"
 File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 )))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgfsyssoftpath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.t
+ex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfsyssoftpath@smallbuffer@items=\count300
 \pgfsyssoftpath@bigbuffer@items=\count301
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlay
-er\pgfsysprotocol.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/systemlayer\pgfsysprotocol.code.t
+ex"
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcore.code.tex"
+)) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcore.code.tex"
 Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-ath.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athcalc.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athutil.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athparser.code.tex"
+ ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathcalc.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathutil.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathparser.code.tex"
 \pgfmath@dimen=\dimen189
 \pgfmath@count=\count302
 \pgfmath@box=\box58
@@ -705,32 +619,29 @@ athparser.code.tex"
 \pgfmath@stack@operand=\toks35
 \pgfmath@stack@operation=\toks36
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.basic.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.trigonometric.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.random.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.comparison.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.base.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.round.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.misc.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfunctions.integerarithmetics.code.tex")))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-athfloat.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.misc.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfunctions.integerarit
+hmetics.code.tex")))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmathfloat.code.tex"
 \c@pgfmathroundto@lastzeros=\count303
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfi
-nt.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorepoints.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfint.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+"
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@picminx=\dimen190
 \pgf@picmaxx=\dimen191
@@ -747,129 +658,115 @@ File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@zx=\dimen258
 \pgf@zy=\dimen259
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorepathconstruct.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepathconstruct.c
+ode.tex"
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@path@lastx=\dimen260
 \pgf@path@lasty=\dimen261
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorepathusage.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepathusage.code.
+tex"
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@shorten@end@additional=\dimen262
 \pgf@shorten@start@additional=\dimen263
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorescopes.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+"
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
 \pgf@picture@serial@count=\count304
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoregraphicstate.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoregraphicstate.co
+de.tex"
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgflinewidth=\dimen264
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoretransformations.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoretransformations
+.code.tex"
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@pt@x=\dimen265
 \pgf@pt@y=\dimen266
 \pgf@pt@temp=\dimen267
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorequick.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorequick.code.tex"
 File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoreobjects.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreobjects.code.te
+x"
 File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorepathprocessing.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepathprocessing.
+code.tex"
 File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorearrows.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+"
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfarrowsep=\dimen268
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoreshade.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen269
 \pgf@sys@shading@range@num=\count305
 \pgf@shadingcount=\count306
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoreimage.code.tex"
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreimage.code.te
+x"
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoreexternal.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoreexternal.code.t
+ex"
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfexternal@startupbox=\box62
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorelayers.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+"
 File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcoretransparency.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcoretransparency.co
+de.tex"
 File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorepatterns.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorepatterns.code.t
+ex"
 File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclaye
-r\pgfcorerdf.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex"
 File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\p
-gfmoduleshapes.code.tex"
+))) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduleshapes.code.
+tex"
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfnodeparttextbox=\box63
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\p
-gfmoduleplot.code.tex"
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduleplot.code.tex"
 File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibili
-ty\pgfcomp-version-0-65.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-0-65.
+sty"
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@nodesepstart=\dimen270
 \pgf@nodesepend=\dimen271
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibili
-ty\pgfcomp-version-1-18.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-1-18.
+sty"
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
-))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\p
-gffor.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/math\pgfmat
-h.sty"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-ath.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities
-\pgffor.code.tex"
+)) ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgffor.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/math\pgfmath.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgffor.code.tex"
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfm
-ath.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex")
 \pgffor@iter=\dimen272
 \pgffor@skip=\dimen273
 \pgffor@stack=\toks37
 \pgffor@toks=\toks38
 ))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz\tikz.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex"
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries
-\pgflibraryplothandlers.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryplothandlers.
+code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@plot@mark@count=\count307
 \pgfplotmarksize=\dimen274
@@ -891,8 +788,7 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikznumberofcurrentchild=\count310
 \tikz@fig@count=\count311
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\p
-gfmodulematrix.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfmatrixcurrentrow=\count312
 \pgfmatrixcurrentcolumn=\count313
@@ -900,14 +796,12 @@ File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 \tikz@expandcount=\count315
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz/libraries\tikzlibrarytopaths.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
+librarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotscore.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotscore.code.tex"
 \t@pgfplots@toka=\toks39
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
@@ -915,73 +809,67 @@ lotscore.code.tex"
 \c@pgfplots@coordindex=\count316
 \c@pgfplots@scanlineindex=\count317
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/sys\
-pgfplotssysgeneric.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/libs
-\pgfplotslibrary.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/oldp
-gfcompatib\pgfplotsoldpgfsupp_loader.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries
-\pgflibraryfpu.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotsutil.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/list
-structure\pgfplotsliststructure.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/list
-structure\pgfplotsliststructureext.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/list
-structure\pgfplotsarray.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.
+tex"))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/libs\pgfplotslibrary.code.te
+x")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpg
+fsupp_loader.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryfpu.code.tex"
+)) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotsutil.code.te
+x"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotslistst
+ructure.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotslistst
+ructureext.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsarray.
+code.tex"
 \c@pgfplotsarray@tmp=\count318
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/list
-structure\pgfplotsmatrix.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/numt
-able\pgfplotstableshared.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsmatrix
+.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/numtable\pgfplotstableshared
+.code.tex"
 \c@pgfplotstable@counta=\count319
 \t@pgfplotstable@a=\toks42
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/list
-structure\pgfplotsdeque.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotsbinary.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotsbinary.data.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotsutil.verb.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/libs
-\pgflibrarypgfplots.surfshading.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/liststructure\pgfplotsdeque.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotsbinary.code.tex
+"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotsbinary.data.cod
+e.tex"))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotsutil.verb.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/libs\pgflibrarypgfplots.surf
+shading.code.tex"
 \c@pgfplotslibrarysurf@no=\count320
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/sys\
-pgflibrarypgfplots.surfshading.pgfsys-pdftex.def")))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotscolormap.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots/util
-\pgfplotscolor.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotsstackedplots.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotsplothandlers.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotsmeshplothandler.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotsmeshplotimage.code.tex")))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.scaling.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotscoordprocessing.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.errorbars.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.markers.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lotsticks.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgfplots\pgfp
-lots.paths.code.tex")
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz/libraries\tikzlibrarydecorations.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\p
-gfmoduledecorations.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfs
+hading.pgfsys-pdftex.def")))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotscolormap.code.t
+ex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots/util\pgfplotscolor.code.tex"
+))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsstackedplots.code.te
+x")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsplothandlers.code.te
+x"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsmeshplothandler.code
+.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsmeshplotimage.code.t
+ex")))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.scaling.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotscoordprocessing.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.errorbars.code.tex"
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.markers.code.tex"
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplotsticks.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgfplots\pgfplots.paths.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
+librarydecorations.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduledecorations.code
+.tex"
 \pgfdecoratedcompleteddistance=\dimen284
 \pgfdecoratedremainingdistance=\dimen285
 \pgfdecoratedinputsegmentcompleteddistance=\dimen286
@@ -993,14 +881,14 @@ gfmoduledecorations.code.tex"
 )
 \tikz@lib@dec@box=\box68
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries
-/decorations\pgflibrarydecorations.pathmorphing.code.tex"))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries
-/decorations\pgflibrarydecorations.pathreplacing.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
+librarydecorations.pathmorphing.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries/decorations\pgflibraryd
+ecorations.pathmorphing.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
+librarydecorations.pathreplacing.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries/decorations\pgflibraryd
+ecorations.pathreplacing.code.tex"))
 \pgfplots@numplots=\count322
 \pgfplots@xmin@reg=\dimen291
 \pgfplots@xmax@reg=\dimen292
@@ -1009,16 +897,15 @@ ayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
 \pgfplots@zmin@reg=\dimen295
 \pgfplots@zmax@reg=\dimen296
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendl
-ayer/tikz/libraries\tikzlibraryplotmarks.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikz
+libraryplotmarks.code.tex"
 File: tikzlibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries
-\pgflibraryplotmarks.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryplotmarks.cod
+e.tex"
 File: pgflibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/natbib\natbib.s
-ty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip63
 \bibsep=\skip64
@@ -1028,12 +915,12 @@ LaTeX Info: Redefining \cite on input line 694.
 Package hyperref Info: Option `colorlinks' set `true' on input line 35.
 \c@subsubsubsection=\count324
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3bac
-kend-pdfmode.def"
-File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count325
 \l__pdf_internal_box=\box69
-) (Lunar_Impacts-DeStefano.aux)
+)
+(Lunar_Impacts-DeStefano.aux)
 \openout1 = `Lunar_Impacts-DeStefano.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -1055,33 +942,10 @@ LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
 4.
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.f
-d"
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 21.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 24.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 27.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 47.
-
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\sup
-p-pdf.mkii"
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count326
 \scratchdimen=\dimen297
@@ -1094,9 +958,7 @@ p-pdf.mkii"
 \MPnumerator=\count330
 \makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks44
-)
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\ep
-stopdf-base.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
@@ -1107,8 +969,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box71
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdflscape\pdfls
-cape.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
@@ -1116,16 +977,14 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
  ABD: EveryShipout initializing macros
 Package hyperref Info: Link coloring ON on input line 74.
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\namere
-f.sty"
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/refcount\refcou
-nt.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/generic/gettitlestrin
-g\gettitlestring.sty"
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/generic/gettitlestring\gettit
+lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count333
@@ -1133,8 +992,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 74.
 LaTeX Info: Redefining \pageref on input line 74.
 LaTeX Info: Redefining \nameref on input line 74.
- (Lunar_Impacts-DeStefano.out)
-(Lunar_Impacts-DeStefano.out)
+ (Lunar_Impacts-DeStefano.out) (Lunar_Impacts-DeStefano.out)
 \@outlinefile=\write5
 \openout5 = `Lunar_Impacts-DeStefano.out'.
 
@@ -1147,7 +1005,7 @@ your preamble.
 
 (Lunar_Impacts-DeStefano.toc [1
 
-{C:/Users/adestefa/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
 \tf@toc=\write6
 \openout6 = `Lunar_Impacts-DeStefano.toc'.
 
@@ -1196,40 +1054,23 @@ re-la-tion with the Vir-ginid me-teor shower com-plex (EVI/NVI)
  []
 
 [2 <./simpleExcavationCrater-Holsapple.jpg>]
-(README-HowToCompileSpheralLocally.txt [3]
+(README-HowToCompileSpheralLocally.txt
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
-5.
+.
 
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1phv.f
-d"
-File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 17.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 20.
-
-
-LaTeX Warning: Font shape declaration has incorrect series value `mc'.
-               It should not contain an `m'! Please correct it.
-               Found on input line 34.
-
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
+[3]
 LaTeX Font Info:    Trying to load font information for OML+phv on input line 3
 5.
-
-("C:\Users\adestefa\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlphv.f
-d"
+ (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\omlphv.fd
 File: omlphv.fd 
 )
 LaTeX Font Info:    Font shape `OML/phv/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 35.
-) [4]
+)
+[4]
 Overfull \hbox (1.91225pt too wide) in paragraph at lines 188--189
 []\OT1/cmss/m/n/10 srun -n $\U/matha/m/n/10  $\OT1/cmss/m/n/10 # of CPUs, max 3
 6 per node$\U/matha/m/n/10 ¡$ \OT1/cmss/m/n/10 -p pde-bug python -i $\U/matha/m
@@ -1495,10 +1336,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 [42] [43] [44] [45] [46] [47]
 Package epstopdf Info: Source file: <speed_dist.eps>
-(epstopdf)                    date: 2020-08-18 09:17:59
-(epstopdf)                    size: 98534 bytes
+(epstopdf)                    date: 2020-08-17 17:51:23
+(epstopdf)                    size: 96883 bytes
 (epstopdf)             Output file: <speed_dist-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-08-18 09:17:59
+(epstopdf)                    date: 2020-08-17 17:51:53
 (epstopdf)                    size: 34314 bytes
 (epstopdf)             Command: <epstopdf --outfile=speed_dist-eps-converted-to
 .pdf speed_dist.eps>
@@ -1518,10 +1359,10 @@ Package pdftex.def Info: speed_dist-eps-converted-to.pdf  used on input line 17
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <speed_dist_2.eps>
-(epstopdf)                    date: 2020-10-27 18:13:11
-(epstopdf)                    size: 92256 bytes
+(epstopdf)                    date: 2020-10-26 15:42:19
+(epstopdf)                    size: 90656 bytes
 (epstopdf)             Output file: <speed_dist_2-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-27 18:13:11
+(epstopdf)                    date: 2020-10-27 10:53:39
 (epstopdf)                    size: 32084 bytes
 (epstopdf)             Command: <epstopdf --outfile=speed_dist_2-eps-converted-
 to.pdf speed_dist_2.eps>
@@ -1561,47 +1402,42 @@ Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 (rerunfilecheck)             Checksum: B8B794F7CCB918847D7F11ECD38DEDA4;4861.
  ) 
 Here is how much of TeX's memory you used:
- 33210 strings out of 481292
- 762272 string characters out of 2906380
- 1190096 words of memory out of 3000000
- 47628 multiletter control sequences out of 15000+200000
+ 33203 strings out of 480799
+ 753796 string characters out of 2905519
+ 1191620 words of memory out of 3000000
+ 48116 multiletter control sequences out of 15000+200000
  565811 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,98p,962b,1805s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\adestefa\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
-pi420\mathx10.pk> <C:\Users\adestefa\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/p
-ublic/mathabx/dpi600\matha12.pk> <C:\Users\adestefa\AppData\Local\MiKTeX\2.9\fo
-nts/pk/ljfour/public/mathabx/dpi600\matha5.pk> <C:\Users\adestefa\AppData\Local
-\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\adestefa
+ <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
+pi420\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/p
+ublic/mathabx/dpi600\matha12.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fo
+nts/pk/ljfour/public/mathabx/dpi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local
+\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\AMD-Y500
 \AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:
-\Users\adestefa\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\
-mathb7.pk> <C:\Users\adestefa\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/m
-athabx/dpi600\matha7.pk> <C:\Users\adestefa\AppData\Local\MiKTeX\2.9\fonts/pk/l
-jfour/public/mathabx/dpi600\matha10.pk>{C:/Users/adestefa/AppData/Local/Program
-s/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/adestefa/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/adestefa/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
-ers/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi5.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmmi6.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/adestefa/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/adestefa/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
-adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.
-pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr6.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/adestefa/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/adestef
-a/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C
-:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmtt10.pfb><C:/Users/adestefa/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/adestefa/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/adestefa/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/ades
-tefa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (58 pages, 1815606 bytes).
+\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\
+mathb7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/m
+athabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/l
+jfour/public/mathabx/dpi600\matha10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/d
+vips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/f
+onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.
+9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX
+/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Lunar_Impacts-DeStefano.pdf (58 pages, 1815460 bytes).
 PDF statistics:
  1702 PDF objects out of 1728 (max. 8388607)
  489 named destinations out of 1000 (max. 500000)
