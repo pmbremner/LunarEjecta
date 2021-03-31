@@ -82,7 +82,8 @@ int main(int argc, char const *argv[])
 		////////////////////////////////////////////
 		// save the secondary fluxes for the current location
 		////////////////////////////////////////////
-		//save_igloo(params, secondary_fluxes, secEjecta);
+		save_igloo(params, secondary_fluxes_short, secEjecta);
+		save_igloo(params, secondary_fluxes_far, secEjecta);
 
 		delete bearingDistMap_short, bearingDistMap_far;
 		delete secondary_fluxes_short, secondary_fluxes_far;
