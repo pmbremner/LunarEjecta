@@ -51,6 +51,8 @@ double get_lon_from_pole(double D, double bearing);
 double get_lat_from_ROI(double D, double bearing, double lat_R, double lon_R);
 double get_lon_from_ROI(double D, double bearing, double lat_R, double lon_R);
 
+int idx_bin(hist3DSet *b, int j_zenith, int idx_D, int idx_b_POI, int idx_b_ROI);
+
 //void get_lat_min_max(double cur_lat, double d_lat, double& lat_min, double& lat_max);
 
 //hist2DSet* init_azm_dist_map(input* params);

@@ -14,10 +14,10 @@ struct iglooSet // for each location
 	double SA;  // surface area of location on Moon
 
 	int N_rows; // number of rows in igloo data
-	int N_cols; // number of columns in igloo data
+	int N_cols; // number of columns in igloo data (not including the info columns, 9 large)
 	vector<double> iglooData;   // includes info columns (extra 9 columns) and data
-	vector<double> speedEdge;   // size = N_cols - 8
-	vector<double> speedCenter; // size = N_cols - 9
+	vector<double> speedEdge;   // size = N_cols + 1
+	vector<double> speedCenter; // size = N_cols
 };
 
 double sumSA(input* p, iglooSet* fluxes);

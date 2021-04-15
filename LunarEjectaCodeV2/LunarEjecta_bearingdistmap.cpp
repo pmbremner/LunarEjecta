@@ -131,6 +131,11 @@ int idx_bin(hist3DSet *b, int j_zenith, double D, double bearing_POI, double bea
 	return idx_b_ROI + idx_b_POI * b->N_bearing_ROI[j_zenith] + idx_D * b->N_bearing_ROI[j_zenith] * b->N_bearing_POI + b->N_bearing_ROI_cum[j_zenith] * b->N_bearing_POI * b->N_D;
 }
 
+int idx_bin(hist3DSet *b, int j_zenith, int idx_D, int idx_b_POI, int idx_b_ROI)
+{
+	return idx_b_ROI + idx_b_POI * b->N_bearing_ROI[j_zenith] + idx_D * b->N_bearing_ROI[j_zenith] * b->N_bearing_POI + b->N_bearing_ROI_cum[j_zenith] * b->N_bearing_POI * b->N_D;
+}
+
 void tally_hist(hist3DSet *b, vector<double> &D, vector<double> &bearing_POI, vector<double> &bearing_ROI)
 {
 	int i, j, idx;

@@ -42,6 +42,11 @@ void vCumUp(vector<paramType>& v, vector<paramType>& vCum)
 
 void shiftAngle(vector<double>& v, double min_ang, double shift_ang);
 
+
+// https://www.learncpp.com/cpp-tutorial/function-pointers/
+using RHS_func = double(*)(double, vector<double>&);
+double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars);
+
 struct input
 {
 	int N_proc; // total number of processes
@@ -80,6 +85,13 @@ struct input
 	double HH11_k;
 	double HH11_C1;
 	double HH11_C4;
+
+	double HH11_p;
+	double HH11_n1;
+	double HH11_n2s; // for strength dominated
+	double HH11_n2g; // for gravity dominated
+	double HH11_H1;  // for strength dominated
+	double HH11_H2;  // for gravity dominated
 
 
 	double MEM_massMin; // minimum mass of MEM primaries, grams (cannot be lower than 1E-6 g)

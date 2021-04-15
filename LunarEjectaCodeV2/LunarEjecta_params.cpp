@@ -170,6 +170,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 
 	p->HH11_nu = 0.4; // see footnote 5 of Housen Holsapple 2011
+	p->HH11_n1 = 1.2;
+	p->HH11_n2s = 1.;
+
+	
 
 	if (temp_s == "rock")
 	{
@@ -177,6 +181,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.55;
 		p->HH11_C1       = 1.5;
 		p->HH11_k        = 0.3;
+		p->HH11_p        = 0.5;
+		p->HH11_n2g      = 1.5;
+		p->HH11_H1       = 0.68; // estimate, using from water
+		p->HH11_H2       = 1.1;
 	}
 	else if (temp_s == "weaklyCementedBasalt")
 	{
@@ -184,6 +192,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.46;
 		p->HH11_C1       = 0.18;
 		p->HH11_k        = 0.3;
+		p->HH11_p        = 0.3;
+		p->HH11_n2g      = 1.3;
+		p->HH11_H1       = 0.5; // estimate, no value given
+		p->HH11_H2       = 0.38;
 	}
 	else if (temp_s == "sand")
 	{
@@ -191,6 +203,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.41;
 		p->HH11_C1       = 0.55;
 		p->HH11_k        = 0.3;
+		p->HH11_p        = 0.3;
+		p->HH11_n2g      = 1.3;
+		p->HH11_H1       = 0.59;
+		p->HH11_H2       = 0.4; // estimate, using from SFA
 	}
 	else if (temp_s == "glassMicroSpheres")
 	{
@@ -198,6 +214,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.45;
 		p->HH11_C1       = 1.0;
 		p->HH11_k        = 0.5;
+		p->HH11_p        = 0.3;
+		p->HH11_n2g      = 1.3;
+		p->HH11_H1       = 0.8;
+		p->HH11_H2       = 0.96; // estimate, between rock and PS
 	}
 	else if (temp_s == "sandFlyAsh")
 	{
@@ -205,6 +225,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.4;
 		p->HH11_C1       = 0.55;
 		p->HH11_k        = 0.3;
+		p->HH11_p        = 0.3;
+		p->HH11_n2g      = 1.2; // estimate, no value given
+		p->HH11_H1       = 0.59; // estimate, using from sand
+		p->HH11_H2       = 0.4;
 	}
 	else if (temp_s == "perliteSandMixture")
 	{
@@ -212,6 +236,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_mu       = 0.35;
 		p->HH11_C1       = 0.6;
 		p->HH11_k        = 0.32;
+		p->HH11_p        = 0.2;
+		p->HH11_n2g      = 1.2; // estimate, no value given
+		p->HH11_H1       = 0.59; // estimate, using from sand
+		p->HH11_H2       = 0.81;
 	}
 	else
 	{
@@ -234,4 +262,44 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 
 	return p;
+}
+
+// Modified False Position, Chapter 4.5 of Numerical Methods for Scientists and Engineers
+double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars)
+{
+	double fa = RHS(a, vars) - LHS;
+	double fb = RHS(b, vars) - LHS;
+	double fx, x;
+	int count = 0;
+	
+	do{
+		x = (a*fb - b*fa) / (fb - fa);
+		fx = RHS(x, vars) - LHS;
+
+		//cout << a << ' ' << b << ' ' << x << ' ' << fa << ' ' << fb << ' ' << fx << endl;
+
+		if (fa*fx < 0)
+		{
+			b = x;
+			fb = fx;
+			fa /= 2.;
+		}
+		else if (fa*fx > 0)
+		{
+			a = x;
+			fa = fx;
+			fb /= 2.;
+		}
+		else
+		{
+			return x;
+		}
+		count++;
+
+	} while (fabs(2*(a-b)/(a+b)) > 1.E-8);
+	
+	//cout << endl;
+	//cout << count << ' ';
+
+	return x;
 }

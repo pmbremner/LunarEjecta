@@ -6,7 +6,7 @@
 
 using namespace std;
 
- // g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp .\LunarEjecta_scalinglaw.cpp .\LunarEjecta_bearingdistmap.cpp .\LunarEjecta_secondaryejecta.cpp -o ejecta.exe
+ // g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp .\LunarEjecta_scalinglaw.cpp .\LunarEjecta_bearingdistmap.cpp .\LunarEjecta_secondaryejecta.cpp .\LunarEjecta_speedzenith.cpp -o ejecta.exe
 
 int main(int argc, char const *argv[])
 {
