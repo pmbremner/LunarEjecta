@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  30 MAR 2021 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  12 MAY 2021 13:57
 entering extended mode
 **./Lunar_Impacts-DeStefano.tex
 (Lunar_Impacts-DeStefano.tex
@@ -1390,22 +1390,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1797--1798
 df>] [50] [51] [52] (Lunar_Impacts-DeStefano.bbl [53
 
 ]) [54]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1915.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1915.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1919.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1919.
 
 (Lunar_Impacts-DeStefano.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1915.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1915.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1919.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1919.
 
 Package rerunfilecheck Info: File `Lunar_Impacts-DeStefano.out' has not changed
 .
 (rerunfilecheck)             Checksum: B8B794F7CCB918847D7F11ECD38DEDA4;4861.
  ) 
 Here is how much of TeX's memory you used:
- 33203 strings out of 480799
- 753796 string characters out of 2905519
+ 33204 strings out of 480799
+ 753815 string characters out of 2905519
  1191620 words of memory out of 3000000
- 48116 multiletter control sequences out of 15000+200000
+ 48117 multiletter control sequences out of 15000+200000
  565811 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,98p,962b,1805s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1437,9 +1437,9 @@ e1/public/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.
 9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX
 /2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Lunar_Impacts-DeStefano.pdf (58 pages, 1815460 bytes).
+Output written on Lunar_Impacts-DeStefano.pdf (58 pages, 1815668 bytes).
 PDF statistics:
- 1702 PDF objects out of 1728 (max. 8388607)
+ 1703 PDF objects out of 1728 (max. 8388607)
  489 named destinations out of 1000 (max. 500000)
  577 words of extra memory for PDF output out of 10000 (max. 10000000)
 

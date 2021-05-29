@@ -1828,12 +1828,16 @@ We will define the $p$-subscripts by the particle ejecta location and the $s$-su
 \paragraph{Satellite Angle from Periapsis}
 The satellite location with respect to the perilune $\beta_s$ has a similar structure to that of the location of the ejecta $\beta_p$, given by
 \begin{equation}\label{eq:Satellite Angle from Periapsis}
-\tan\beta_s = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p}{2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p-1}F_s(r_s,v_p,\gamma_p),
+\tan\beta_s = \frac{2\frac{v_p^2}{v_{esc}^2}\frac{r_m}{r_s}\sin\gamma_p\cos\gamma_p}{2\frac{v_p^2}{v_{esc}^2}\frac{r_m}{r_s}\sin^2\gamma_p-1}F_s(r_s,v_p,\gamma_p),
 \end{equation}
 where the factor $F_s$ is given by
 \begin{equation}
-F_s(r_s,v_p,\gamma_p) = \sqrt{1 + \frac{1-\frac{r_m}{r_s}}{\cos^2\gamma_p}\left[\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)-\frac{v_{esc}^2}{v_p^2}\right]}.
+F_s(r_s,v_p,\gamma_p) = \sqrt{1 + 
+	\frac{\frac{r_s}{r_m}-1}{\cos^2\gamma_p}\left[1+\frac{r_s}{r_m}\left(1-\frac{v_{esc}^2}{v_p^2}\right)\right]}.
 \end{equation}
+%\begin{equation}
+%F_s(r_s,v_p,\gamma_p) = \sqrt{1 + \frac{1-\frac{r_m}{r_s}}{\cos^2\gamma_p}\left[\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)-\frac{v_{esc}^2}{v_p^2}\right]}.
+%\end{equation}
 
 \paragraph{Ejecta Local Zenith Angle at Satellite}
 The local zenith angle of the ejecta at the satellite $\gamma_s$ starts from
@@ -1844,23 +1848,23 @@ where
 \begin{align}
 e\cos\beta_s &= \frac{a}{r_s}(1-e^2) - 1\\ &= 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p-1,\\
 e\sin\beta_s &= \sqrt{e^2 - (e\cos\beta_s)^2}\\
- &= 2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p
+ &= 2\frac{v_p^2}{v_{esc}^2}\frac{r_m}{r_s}\sin\gamma_p\cos\gamma_p
 F_s(r_s,v_p,\gamma_p),
 \end{align}
 such that
 \begin{equation}
-\cot\gamma_s = \frac{r_s}{r_m}\cot\gamma_p F_s(r_s,v_p,\gamma_p).
+\cot\gamma_s = \cot\gamma_p F_s(r_s,v_p,\gamma_p).
 \end{equation}
 
 %The minimum ejecta speed $v_{p,\text{min}}$ for a given ejecta zenith angle $\gamma_{p,\text{min}}$ to reach the orbit of a satellite at radius $r_s$
 \paragraph{Maximum Apoapsis of Ejecta}
 The maximum height $r_{\text{max}}$ (i.e., the apoapsis) the ejecta of speed $v_p$ and zenith angle $\gamma_p$ is given by (fixing the typo in Equation 16 of \cite{gault1963spray})
-\begin{equation}
+\begin{equation}\label{eq:rmax_satellite}
 \frac{r_{\text{max}}}{r_m} = \frac{1 + \sqrt{1 - 4\frac{v_{p}^2}{v_{esc}^2}\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)\sin^2\gamma_p}}{2\left(1-\frac{v_{p}^2}{v_{esc}^2}\right)}
 \end{equation}
 
 \paragraph{Restriction of Ejecta Speed for known Satellite Height and Ejecta Angle}
-To reach a particular satellite radius $r_s=r_{\text{max}}$ for a given ejecta angle $\gamma_p$, we have the following condition on the ejecta speed $v_p$:
+To reach a particular satellite radius $r_s=r_{\text{max}}$ for a given ejecta angle $\gamma_p$, we have the following condition on the ejecta speed $v_p$ (solving for $v_p$ in Equation \eqref{eq:rmax_satellite}):
 %\begin{equation}
 %\frac{v_p^2}{v_{esc}^2} \ge \frac{\left(1-\frac{r_m}{r_s}\right)(\cot^2\gamma_p-1)}{\cot^2\gamma_p-\left(1-\frac{r_m^2}{r_s^2}\right)},
 %\end{equation}
