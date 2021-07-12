@@ -6,7 +6,7 @@
 #include <time.h>
 #include <algorithm> // max(a,b)
 //#include <mpi.h>
-#include <stdlib.h> // rand()
+#include <stdlib.h> // rand(), atof()
 
 using namespace std;
 
@@ -14,6 +14,7 @@ using namespace std;
 #define VERBOSE_INIT 0 // 0 = no output, 1 = all but tracks, 2 = all
 #define HELP_INIT 0
 
+const double PI = 3.14159;
 const double gm = 1.625;    // m/s^2 at Moon's surface
 const double Rm = 1737.1E3; // m, lunar radius
 const double vesc = 2.38E3; // m/s, Moon escape speed
@@ -260,14 +261,17 @@ int main(int argc, char const *argv[])
 {
 	srand(time(0));
 
+	double vmag = atof(argv[1]);
+	double zang = atof(argv[2]);
+
 	RK45VarsPosVel RK45Vars;
 	trackVars track_i;
 	init_trackVars(track_i,
 	/* x0 */       Rm,
 	/* y0 */       0.0,
 	/* z0 */       0.0,
-	/* u0 */       0.8*vesc,
-	/* v0 */       0.5*vesc,
+	/* u0 */       vmag * cos(zang*PI/180.)*vesc, //0.8*vesc,
+	/* v0 */       vmag * sin(zang*PI/180.)*vesc,//0.5*vesc,
 	/* w0 */       0.,
 	/* h  */       60.);
 
