@@ -19,6 +19,7 @@ const double gm = 1.625;    // m/s^2 at Moon's surface
 const double Rm = 1737.1E3; // m, lunar radius
 const double vesc = 2.38E3; // m/s, Moon escape speed
 const double EPS = 1E-4;
+const int NMAX = 1E4;
 
 inline double sqr(double a) {return a*a;}
 
@@ -47,9 +48,10 @@ struct trackVars
 	// double Fy;
 
 	double h; // timestep
+	double dxmin; // minimum distance
 };
 
-void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, double v0, double w0, double h)
+void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, double v0, double w0, double h, double dx0)
 {
 	tv.x0 = x0;
 	tv.y0 = y0;
@@ -68,6 +70,7 @@ void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, d
 	// tv.Fx = 0.0;
 	// tv.Fy = 0.0;
 	tv.h = h;
+	tv.dxmin = dx0;
 
 	if(VERBOSE_INIT > 1){
 		cout << "Initializing trackVars paramerters:\n";
@@ -81,23 +84,23 @@ void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, d
 	}
 }
 
-void print_track(trackVars& tv)
-{
-	cout << "Track info:\n";
-	cout << "  x0 = " << tv.x0 << " m\n";
-	cout << "  y0 = " << tv.y0 << " m\n";
-	cout << "  u0 = " << tv.u0 << " m/s\n";
-	cout << "  v0 = " << tv.v0 << " m/s\n";
-	cout << "  xi = " << tv.xi << " m\n";
-	cout << "  yi = " << tv.yi << " m\n";
-	cout << "  ui = " << tv.ui << " m/s\n";
-	cout << "  vi = " << tv.vi << " m/s\n";
-	// cout << "  dpx = " << tv.dpx << " kg*m\n";
-	// cout << "  dpy = " << tv.dpy << " kg*m\n";
-	// cout << "  Fx = " << tv.Fx << " N/m\n";
-	// cout << "  Fy = " << tv.Fy << " N/m\n";
-	cout << "  h  = " << tv.h << " s\n\n";
-}
+// void print_track(trackVars& tv)
+// {
+// 	cout << "Track info:\n";
+// 	cout << "  x0 = " << tv.x0 << " m\n";
+// 	cout << "  y0 = " << tv.y0 << " m\n";
+// 	cout << "  u0 = " << tv.u0 << " m/s\n";
+// 	cout << "  v0 = " << tv.v0 << " m/s\n";
+// 	cout << "  xi = " << tv.xi << " m\n";
+// 	cout << "  yi = " << tv.yi << " m\n";
+// 	cout << "  ui = " << tv.ui << " m/s\n";
+// 	cout << "  vi = " << tv.vi << " m/s\n";
+// 	// cout << "  dpx = " << tv.dpx << " kg*m\n";
+// 	// cout << "  dpy = " << tv.dpy << " kg*m\n";
+// 	// cout << "  Fx = " << tv.Fx << " N/m\n";
+// 	// cout << "  Fy = " << tv.Fy << " N/m\n";
+// 	cout << "  h  = " << tv.h << " s\n\n";
+// }
 
 // doesn't need to be initialized. Overridden during runtime
 struct RK45VarsPosVel
@@ -154,14 +157,30 @@ void grav_a(double& ax, double& ay, double& az, double x, double y, double z)
 	az = grav_coeff * z;
 }
 
+struct cylinder
+{
+	double distance; // from impact point to center of lander, m
+	double radius; // m
+	double height; // starting from surface of Moon, m
+};
+
+void init_cylinder(cylinder& c, double d, double r, double h)
+{
+	c.distance = d;
+	c.radius   = r;
+	c.height   = h;
+}
+
 // functions ///////////////////////////////////////
 // see https://math.okstate.edu/people/yqwang/teaching/math4513_fall11/Notes/rungekutta.pdf
 void RK45UpdatePosVel(trackVars& t,
 	                  RK45VarsPosVel& r,
-	                  const double c[][6])
+	                  const double c[][6], cylinder& ll)
 {
 	int i, j;
 	double ax, ay, az, rcur, xcur, ycur, zcur, vcur, ucur, wcur, maxR;
+
+	double t_dot_c, c_x0, c_z0, ht, st, dt_temp, rt;
 
 	do {
 		for (i = 0; i < 6; ++i) // RK45 steps 1-6
@@ -222,6 +241,24 @@ void RK45UpdatePosVel(trackVars& t,
 		maxR = max(max(r.Rx, r.Ry), r.Rz);
 		t.h *= (maxR > 0.0 ? 0.84 * pow(EPS / maxR, 0.25) : 1.2);
 
+
+		c_x0 = sin(ll.distance/Rm);
+		c_z0 = cos(ll.distance/Rm);
+
+		//t_dot_c = t.xi * c_x0 + t.zi * c_z0;
+
+		// height of traj wrt cylinder
+		//ht = t_dot_c - Rm;
+
+		// cylindrical radius wrt cylinder
+		//st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
+
+		rt = (mag_s(t.xi - c_x0*Rm, 0.0, t.zi - c_z0*Rm) - 0.9*ll.radius)/10.;
+
+		dt_temp = rt / mag_s(t.ui, t.vi, t.wi);
+
+		t.h = (dt_temp < t.h ? dt_temp : t.h);
+
 		if(DEBUG > 1){
 			cout << "Rx = " << r.Rx << endl;
 			cout << "Ry = " << r.Ry << endl;
@@ -256,35 +293,153 @@ void RK45UpdatePosVel(trackVars& t,
 
 
 
+void printTrack(ofstream& file, trackVars& tv)
+{
+	double dist = atan2(tv.xi, tv.zi); // units of lunar radius
+	double speed = mag_s(tv.u0, 0.0, tv.w0) / vesc; // units of escape speed
+	double zang = atan2(tv.u0, tv.w0);
+	file << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang << endl;
+}
+
+bool checkCollision(trackVars& t, cylinder& c)
+{
+	double t_dot_c;
+
+	double c_x0 = sin(c.distance/Rm);
+	double c_z0 = cos(c.distance/Rm);
+
+	t_dot_c = t.xi * c_x0 + t.zi * c_z0;
+
+	// height of traj wrt cylinder
+	double ht = t_dot_c - Rm;
+
+	// cylindrical radius wrt cylinder
+	double st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
+
+	//cout << "ht = " << ht << " | st = " << st << endl;
+
+	if (ht > 0. && ht <= c.height && st <= c.radius)
+		return 1;
+	return 0;
+}
+
+struct sums
+{
+	long double sum_miss;
+	long double sum_hit;
+	long long int N_miss;
+	long long int N_hit;
+};
+
+void init_sums(sums& s)
+{
+	s.sum_miss = 0.0;
+	s.sum_hit  = 0.0;
+	s.N_miss = 0.;
+	s.N_hit  = 0.;
+}
 
 int main(int argc, char const *argv[])
 {
 	srand(time(0));
 
-	double vmag = atof(argv[1]);
-	double zang = atof(argv[2]);
+	double vmag, zang, dist;
+
+	int N = atoi(argv[1]);
+	dist  = atof(argv[2]);
+	int proc = atoi(argv[3]);
 
 	RK45VarsPosVel RK45Vars;
 	trackVars track_i;
-	init_trackVars(track_i,
-	/* x0 */       Rm,
-	/* y0 */       0.0,
-	/* z0 */       0.0,
-	/* u0 */       vmag * cos(zang*PI/180.)*vesc, //0.8*vesc,
-	/* v0 */       vmag * sin(zang*PI/180.)*vesc,//0.5*vesc,
-	/* w0 */       0.,
-	/* h  */       60.);
 
-	for (int i = 0; i < 1000.; ++i)
+	sums n;
+	init_sums(n);
+
+	cylinder lunarLander;
+	bool hit = 0;
+
+	init_cylinder(lunarLander,
+	/* distance*/ dist,//Rm/252.3,
+	/* radius  */ 4.5, // Rm/40000., // m
+	/* height  */ 50.); // Rm/5000.);// m
+
+	string sdist(to_string(proc));
+
+	ofstream trackFile, distFile;
+	//trackFile.open("tracks_" + sdist + ".txt");
+	distFile.open("dists_" + sdist + ".txt");
+
+	while(n.N_hit < N)
 	{
-		RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff);
+		vmag = rand()/double(RAND_MAX);
+		zang = 2*(rand()/double(RAND_MAX) - 0.5) * PI / 2.;
 
-		cout << track_i.xi << ' ' << track_i.yi << ' ' << track_i.zi << endl;
-		if(mag_s(track_i.xi, track_i.yi, track_i.zi) < Rm)
-			i = 1001;
+		//cout << "vmag = " << vmag << " | zang = " << zang << endl;
 
+		init_trackVars(track_i,
+		/* x0 */       0.0,
+		/* y0 */       0.0,
+		/* z0 */       Rm,
+		/* u0 */       vmag * sin(zang)*vesc,//0.5*vesc,
+		/* v0 */       0.0,
+		/* w0 */       vmag * cos(zang)*vesc, //0.8*vesc,,
+		/* h  */       1e-4,
+		/* dxmin */    lunarLander.radius/1000.);
+
+
+		//printTrack(trackFile, track_i);
+
+		for (int i = 0; i < NMAX; ++i)
+		{
+			RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, lunarLander);
+
+			hit = checkCollision(track_i, lunarLander);
+
+			//printTrack(trackFile, track_i);
+			if(mag_s(track_i.xi, track_i.yi, track_i.zi) < Rm || hit)
+				i = NMAX+1;
+
+		}
+
+		if (hit)
+		{
+			n.N_hit++;
+			init_trackVars(track_i,
+			/* x0 */       0.0,
+			/* y0 */       0.0,
+			/* z0 */       Rm,
+			/* u0 */       vmag * sin(zang)*vesc,//0.5*vesc,
+			/* v0 */       0.0,
+			/* w0 */       vmag * cos(zang)*vesc, //0.8*vesc,,
+			/* h  */       1.e-4,
+			/* dxmin */    lunarLander.radius/1000.);
+
+			//printTrack(trackFile, track_i);
+
+			for (int i = 0; i < NMAX; ++i)
+			{
+				RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, lunarLander);
+
+				hit = checkCollision(track_i, lunarLander);
+
+				//printTrack(trackFile, track_i);
+				if(mag_s(track_i.xi, track_i.yi, track_i.zi) < Rm || hit)
+					i = NMAX+1;
+
+			}
+			//cout << "hit #: " << n.N_hit << " out of " << n.N_hit + n.N_miss << endl;
+			printTrack(distFile, track_i);
+		}
+		else
+		{
+			n.N_miss++;
+		}
+		
 	}
-	
 
+	
+	
+	//trackFile.close();
+	distFile.close();
 	return 0;
 }
