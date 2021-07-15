@@ -20,6 +20,7 @@ const double Rm = 1737.1E3; // m, lunar radius
 const double vesc = 2.38E3; // m/s, Moon escape speed
 const double EPS = 1E-4;
 const int NMAX = 1E4;
+const double mu_HH11 = 0.4;
 
 inline double sqr(double a) {return a*a;}
 
@@ -291,14 +292,51 @@ void RK45UpdatePosVel(trackVars& t,
 }
 
 
+struct sums
+{
+	long double sum_miss;
+	long double sum_hit;
+	long long int N_miss;
+	long long int N_hit;
+};
+
+void init_sums(sums& s)
+{
+	s.sum_miss = 0.0;
+	s.sum_hit  = 0.0;
+	s.N_miss = 0.;
+	s.N_hit  = 0.;
+}
+
+double ejecta_distribution(trackVars& t)
+{
+	return pow(mag_s(t.u0, t.v0, t.w0), -(3.*mu_HH11 + 1.)) * fabs(sin(atan2(t.u0, t.w0)));
+}
+
+void inc_miss(sums& s, trackVars& t)
+{
+	s.N_miss++;
+
+	// using Housen Holsapple 2011 speed distribution with isotropic term
+	s.sum_miss += ejecta_distribution(t);
+}
+
+void inc_hit(sums& s, trackVars& t)
+{
+	s.N_hit++;
+
+	// using Housen Holsapple 2011 speed distribution with isotropic term
+	s.sum_hit += ejecta_distribution(t);
+}
 
 
-void printTrack(ofstream& file, trackVars& tv)
+void printTrack(ofstream& file, trackVars& tv, sums& s)
 {
 	double dist = atan2(tv.xi, tv.zi); // units of lunar radius
 	double speed = mag_s(tv.u0, 0.0, tv.w0) / vesc; // units of escape speed
 	double zang = atan2(tv.u0, tv.w0);
-	file << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang << endl;
+	file << scientific << setprecision(14) << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang
+		 << ' ' << s.sum_miss << ' ' << s.sum_hit << ' ' << s.N_miss << ' ' << s.N_hit << endl;
 }
 
 bool checkCollision(trackVars& t, cylinder& c)
@@ -323,21 +361,9 @@ bool checkCollision(trackVars& t, cylinder& c)
 	return 0;
 }
 
-struct sums
-{
-	long double sum_miss;
-	long double sum_hit;
-	long long int N_miss;
-	long long int N_hit;
-};
 
-void init_sums(sums& s)
-{
-	s.sum_miss = 0.0;
-	s.sum_hit  = 0.0;
-	s.N_miss = 0.;
-	s.N_hit  = 0.;
-}
+
+
 
 int main(int argc, char const *argv[])
 {
@@ -345,9 +371,14 @@ int main(int argc, char const *argv[])
 
 	double vmag, zang, dist;
 
-	int N = atoi(argv[1]);
-	dist  = atof(argv[2]);
+	int N    = atoi(argv[1]);
+	dist     = atof(argv[2]);
 	int proc = atoi(argv[3]);
+	double lander_radius = atof(argv[4]);
+	double lander_height = atof(argv[5]);
+	double vmin = atof(argv[6]); // m/s
+
+	cout << "lander_radius = " << lander_radius << " m | lander_height = " << lander_height << " m | vmin = " << vmin << " m/s\n";
 
 	RK45VarsPosVel RK45Vars;
 	trackVars track_i;
@@ -360,8 +391,8 @@ int main(int argc, char const *argv[])
 
 	init_cylinder(lunarLander,
 	/* distance*/ dist,//Rm/252.3,
-	/* radius  */ 4.5, // Rm/40000., // m
-	/* height  */ 50.); // Rm/5000.);// m
+	/* radius  */ lander_radius, // 4.5, // m
+	/* height  */ lander_height); // 50.);// m
 
 	string sdist(to_string(proc));
 
@@ -371,8 +402,13 @@ int main(int argc, char const *argv[])
 
 	while(n.N_hit < N)
 	{
-		vmag = rand()/double(RAND_MAX);
-		zang = 2*(rand()/double(RAND_MAX) - 0.5) * PI / 2.;
+		do{
+			vmag = vmin/vesc + (1. - vmin/vesc) * rand()/double(RAND_MAX);
+		} while(vmag == 0. || vmag == 1.);
+
+		do {
+			zang = 2*(rand()/double(RAND_MAX) - 0.5) * PI / 2.;
+		} while(zang == -PI/2. || zang == PI/2. || zang == 0.);
 
 		//cout << "vmag = " << vmag << " | zang = " << zang << endl;
 
@@ -403,7 +439,7 @@ int main(int argc, char const *argv[])
 
 		if (hit)
 		{
-			n.N_hit++;
+			inc_hit(n, track_i);
 			init_trackVars(track_i,
 			/* x0 */       0.0,
 			/* y0 */       0.0,
@@ -428,11 +464,11 @@ int main(int argc, char const *argv[])
 
 			}
 			//cout << "hit #: " << n.N_hit << " out of " << n.N_hit + n.N_miss << endl;
-			printTrack(distFile, track_i);
+			printTrack(distFile, track_i, n);
 		}
 		else
 		{
-			n.N_miss++;
+			inc_miss(n, track_i);
 		}
 		
 	}
