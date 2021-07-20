@@ -21,11 +21,17 @@ const double vesc = 2.38E3; // m/s, Moon escape speed
 const double EPS = 1E-4;
 const int NMAX = 1E4;
 const double mu_HH11 = 0.4;
+const double AA = sqrt(1. + sqrt(2.)); // for 45 degrees peak in beta distribution for zenith angle
 
 inline double sqr(double a) {return a*a;}
 
 inline double mag_s(double x, double y, double z) {return sqrt(sqr(x) + sqr(y) + sqr(z));}
 inline double mag2(double x, double y, double z) {return sqr(x) + sqr(y) + sqr(z);}
+
+double Beta(double a, double b) {
+	// helps to avoid overflow errors doing it this way
+	return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
+}
 
 struct trackVars
 {
@@ -298,19 +304,49 @@ struct sums
 	long double sum_hit;
 	long long int N_miss;
 	long long int N_hit;
+	int zang_dist_type;
+	double zmax;
 };
 
-void init_sums(sums& s)
+void init_sums(sums& s, int zadt, double zmax)
 {
 	s.sum_miss = 0.0;
 	s.sum_hit  = 0.0;
 	s.N_miss = 0.;
 	s.N_hit  = 0.;
+	s.zang_dist_type = zadt;
+	s.zmax           = zmax;
 }
 
-double ejecta_distribution(trackVars& t)
+double isotropic(double zang)
 {
-	return pow(mag_s(t.u0, t.v0, t.w0), -(3.*mu_HH11 + 1.)) * fabs(sin(atan2(t.u0, t.w0)));
+	return fabs(sin(zang));
+}
+
+double beta_45(double zang)
+{
+	return isotropic(zang) * pow(1. - fabs(cos(zang)), 1./AA) * pow(fabs(cos(zang)), AA) / Beta(1./AA + 1., AA + 1.);
+}
+
+double beta_gen(double zang, double zmax)
+{
+	double a = sqrt( cos(zmax) / (2. * sqr(sin(zmax/2.))) );
+	return isotropic(zang) * pow(1. - fabs(cos(zang)), 1./a) * pow(fabs(cos(zang)), a) / Beta(1./a + 1., a + 1.);
+}
+
+
+double ejecta_distribution(trackVars& t, sums& s)
+{
+	double vterm = pow(mag_s(t.u0, t.v0, t.w0), -(3.*mu_HH11 + 1.));
+	double zang = atan2(t.u0, t.w0);
+
+	if (s.zang_dist_type == 1)
+		return vterm * beta_45(zang);
+	else if (s.zang_dist_type == 2)
+		return vterm * beta_gen(zang, s.zmax);
+	else
+		return vterm * isotropic(zang);
+
 }
 
 void inc_miss(sums& s, trackVars& t)
@@ -318,7 +354,7 @@ void inc_miss(sums& s, trackVars& t)
 	s.N_miss++;
 
 	// using Housen Holsapple 2011 speed distribution with isotropic term
-	s.sum_miss += ejecta_distribution(t);
+	s.sum_miss += ejecta_distribution(t, s);
 }
 
 void inc_hit(sums& s, trackVars& t)
@@ -326,15 +362,15 @@ void inc_hit(sums& s, trackVars& t)
 	s.N_hit++;
 
 	// using Housen Holsapple 2011 speed distribution with isotropic term
-	s.sum_hit += ejecta_distribution(t);
+	s.sum_hit += ejecta_distribution(t, s);
 }
 
 
 void printTrack(ofstream& file, trackVars& tv, sums& s)
 {
-	double dist = atan2(tv.xi, tv.zi); // units of lunar radius
 	double speed = mag_s(tv.u0, 0.0, tv.w0) / vesc; // units of escape speed
 	double zang = atan2(tv.u0, tv.w0);
+	double dist = (zang > 0. ? atan2(tv.xi, tv.zi) : 2.*PI - atan2(tv.xi, tv.zi)); // units of lunar radius
 	file << scientific << setprecision(14) << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang
 		 << ' ' << s.sum_miss << ' ' << s.sum_hit << ' ' << s.N_miss << ' ' << s.N_hit << endl;
 }
@@ -376,15 +412,17 @@ int main(int argc, char const *argv[])
 	int proc = atoi(argv[3]);
 	double lander_radius = atof(argv[4]);
 	double lander_height = atof(argv[5]);
-	double vmin = atof(argv[6]); // m/s
+	double vmin        = atof(argv[6]); // m/s
+	int zang_dist_type = atoi(argv[7]); // 0 = iso, 1 = 45 beta, 2 = user-def beta
+	double zang_max    = atof(argv[8]); // only used if above option is 2
 
-	cout << "lander_radius = " << lander_radius << " m | lander_height = " << lander_height << " m | vmin = " << vmin << " m/s\n";
+	cout << "lander_radius = " << lander_radius << " m | lander_height = " << lander_height << " m | vmin = " << vmin << " m/s | zang type = " << zang_dist_type << endl;
 
 	RK45VarsPosVel RK45Vars;
 	trackVars track_i;
 
 	sums n;
-	init_sums(n);
+	init_sums(n, zang_dist_type, zang_max);
 
 	cylinder lunarLander;
 	bool hit = 0;

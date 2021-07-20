@@ -3,6 +3,7 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 import glob
 
@@ -10,12 +11,15 @@ import glob
 
 ##fig, (ax1, ax2) = plt.subplots(1, 2)
 
-
+Rm = 1737.1E3
 
 dist_array = np.loadtxt('batch_run.bat', unpack=True, skiprows=1, usecols=(2))
 
 N_run = np.shape(dist_array)[0]
 hits_array = np.zeros(N_run)
+
+track_array = np.array([])
+speed_array = np.array([])
 
 print('N_run = ', N_run)
 
@@ -32,6 +36,10 @@ for filename in glob.glob('dists*.txt'):
 	N_tot = N_miss + N_hit
 
 	hits_array[Ni] = sum_hit[-1]/N_tot[-1]
+
+	### track_array = np.append(track_array, track_dist)
+	### speed_array = np.append(speed_array, track_init_speed)
+
 	# plt.plot(moon_x, moon_z)
 	# plt.plot(track_x, track_z, 'o', markersize=1)
 
@@ -51,6 +59,7 @@ for filename in glob.glob('dists*.txt'):
 plt.figure()
 
 np.savetxt('FractionEjecta_vs_ImpactDistance.txt', np.c_[dist_array, hits_array])
+###np.savetxt('distance_vs_speed.txt', np.c_[track_array, speed_array])
 
 
 plt.loglog(dist_array-4.5, hits_array, linestyle='-', marker='o')
@@ -58,4 +67,12 @@ plt.xlabel('Impact Distance (m)')
 plt.ylabel('Fraction of total ejecta')
 plt.grid(b=True, which='both')
 plt.savefig('Fraction_vs_dist.png', dpi=800, bbox_inches='tight', pad_inches=0.1)
-plt.show()
+
+# plt.figure()
+# plt.hist2d(track_array*Rm-4.5, speed_array, norm=mpl.colors.LogNorm(), bins=35)
+# plt.xlabel('Impact Distance (m)')
+# plt.ylabel(r'Ejecta Speed (v$_{esc}$)')
+# plt.grid(b=True, which='both')
+# plt.savefig('distance_vs_speed.png', dpi=800, bbox_inches='tight', pad_inches=0.1)
+
+#plt.show()

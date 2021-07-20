@@ -1,0 +1,25 @@
+cd .\a-45-0000mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0001mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0003mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0010mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0031mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0100mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-0316mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+cd .\a-45-1000mps-h050.m-r4.5m\
+python ../plotTraj.py
+cd ../
+python plotFraction.py a-45*
