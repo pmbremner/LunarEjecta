@@ -14,14 +14,6 @@ using namespace std;
 #define VERBOSE_INIT 0 // 0 = no output, 1 = all but tracks, 2 = all
 #define HELP_INIT 0
 
-const double PI = 3.14159;
-const double gm = 1.625;    // m/s^2 at Moon's surface
-const double Rm = 1737.1E3; // m, lunar radius
-const double vesc = 2.38E3; // m/s, Moon escape speed
-const double EPS = 1E-4;
-const int NMAX = 1E4;
-const double mu_HH11 = 0.4;
-const double AA = sqrt(1. + sqrt(2.)); // for 45 degrees peak in beta distribution for zenith angle
 
 inline double sqr(double a) {return a*a;}
 
@@ -32,6 +24,16 @@ double Beta(double a, double b) {
 	// helps to avoid overflow errors doing it this way
 	return exp(lgamma(a) + lgamma(b) - lgamma(a + b));
 }
+
+const double PI = 3.14159;
+const double gm = 1.625;    // m/s^2 at Moon's surface
+const double Rm = 1737.1E3; // m, lunar radius
+const double vesc = 2.38E3; // m/s, Moon escape speed
+const double EPS = 1E-4;
+const int NMAX = 1E4;
+const double mu_HH11 = 0.4;
+const double AA = sqrt(1. + sqrt(2.)); // for 45 degrees peak in beta distribution for zenith angle
+const double BETA_AA = Beta(1./AA + 1., AA + 1.);
 
 struct trackVars
 {
@@ -325,7 +327,7 @@ double isotropic(double zang)
 
 double beta_45(double zang)
 {
-	return isotropic(zang) * pow(1. - fabs(cos(zang)), 1./AA) * pow(fabs(cos(zang)), AA) / Beta(1./AA + 1., AA + 1.);
+	return isotropic(zang) * pow(1. - fabs(cos(zang)), 1./AA) * pow(fabs(cos(zang)), AA) / BETA_AA;
 }
 
 double beta_gen(double zang, double zmax)
