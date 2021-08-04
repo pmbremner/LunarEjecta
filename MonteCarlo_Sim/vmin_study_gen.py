@@ -24,6 +24,7 @@ Nv            = int(sys.argv[10])
 zang_dist_type  = sys.argv[11] # 0 = iso, 1 = 45 beta, 2 = user-def beta
 zang_max        = sys.argv[12]
 run_name      = sys.argv[13]
+Nr            = sys.argv[14]
 
 v = np.logspace(np.log10(vmin), np.log10(vmax), Nv)
 v_cur = 0.
@@ -40,7 +41,7 @@ with open(run_name + '_study_run.bat', 'w') as bat_file:
 
 		print('mkdir ' + dir_name, file=bat_file)
 		print('cd ./' + dir_name, file=bat_file)
-		print('python ../gen_bat.py ' + N_dist + ' ' + dmin + ' ' + dmax + ' ' + N_integrate + ' ' + N_procs + ' ' + lander_radius + ' ' + lander_height + ' ' + str(v_cur) + ' ' + zang_dist_type + ' ' + zang_max, file=bat_file)
+		print('python ../gen_bat.py ' + N_dist + ' ' + dmin + ' ' + dmax + ' ' + N_integrate + ' ' + N_procs + ' ' + lander_radius + ' ' + lander_height + ' ' + str(v_cur) + ' ' + zang_dist_type + ' ' + zang_max + ' ' + Nr, file=bat_file)
 
 		for j in range(int(N_procs)):
 			print('start batch_run' + str(j) + '.bat', file=bat_file)
