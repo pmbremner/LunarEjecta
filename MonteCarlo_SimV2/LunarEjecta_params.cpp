@@ -11,6 +11,7 @@
 
 using namespace std;
 
+
 double Beta(double a, double b) {
 	// helps to avoid overflow errors doing it this way
 	return exp(lgamma(a) + lgamma(b) - lgamma(a + b));

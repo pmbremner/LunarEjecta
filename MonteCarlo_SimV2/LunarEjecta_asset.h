@@ -1,6 +1,7 @@
 #ifndef LUNAREJECTA_ASSET_H
 #define LUNAREJECTA_ASSET_H
 
+#include "LunarEjecta_params.h"
 #include "LunarEjecta_trajectory.h"
 
 #include <vector>
@@ -8,25 +9,19 @@
 
 using namespace std;
 
-struct vec3
-{
-	double x[3];
-};
-
-struct mat3x3
-{
-	vec3 col[3];
-};
-
 
 struct shape
 {
-	vec3 origin_offset; // m, offset from asset main origin
+	vec3 origin_offset_nom; // m, offset from asset main origin, with no rotations
+	// origin_offset_rot = rot_m_asset * origin_offset_nom
+	vec3 origin_offset_rot; // m, offset from asset main origin, with asset rotations
 
 	double z_axis_tilt_theta; // rad, angle from asset z-axis to local z-axis
 	double z_axis_tilt_phi;   // rad, angle from asset x-axis to local x-axis
 
-	mat3x3 rot_m_shape; // rotation matrix 3x3, columns first, only shape
+	// rot_m_tot.col[0] = x'' axis
+	// rot_m_tot.col[1] = y'' axis
+	// rot_m_tot.col[2] = z'' axis
 	mat3x3 rot_m_tot; // rotation matrix 3x3, columns first, both asset and shape together
 };
 
@@ -68,13 +63,22 @@ struct asset
 	double z_axis_tilt_theta; // rad, angle from global z-axis to asset z-axis
 	double z_axis_tilt_phi;   // rad, angle from glabal z-axis to asset x-axis
 
+	// rot_m_asset.col[0] = x' axis
+	// rot_m_asset.col[1] = y' axis
+	// rot_m_asset.col[2] = z' axis
 	mat3x3 rot_m_asset; // rotation matrix 3x3, columns first, only asset
 }
 
-// prod = left_m * right_m
-void matrix_matrix_multiply(mat3x3 &prod_m, mat3x3 &left_m, mat3x3 &right_m);
-void matrix_vector_multiply(vec3 &prod_v, mat3x3 &left_m, vec3 &right_v);
-void rot_m_from_angs(mat3x3 &rot_m, double theta, double phi);
+// prod_m = left_m * right_m
+void h_matrix_matrix_multiply(mat3x3 &prod_m, mat3x3 &left_m, mat3x3 &right_m);
+// prod_v = left_m * right_v
+void h_matrix_vector_multiply(vec3 &prod_v, mat3x3 &left_m, vec3 &right_v);
+// wrt global axis
+void h_rot_m_from_angs(mat3x3 &rot_m, double theta, double phi);
+// wrt to asset axis, u
+void h_rot_m_from_ang_axis(mat3x3 &rot_m, double alpha, vec3 &u);
+// wrt to asset axes, u and v
+void h_rot_m_from_angs_axes(mat3x3 &rot_m, double alpha, vec3 &u, double beta, vec3 &v);
 
 // read asset definition from file and initialize the asset data, compute shape rot_m
 void init_asset(asset &a, string asset_fn);

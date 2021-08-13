@@ -24,6 +24,17 @@ inline double max(double a, double b) {return (a > b ? a : b);}
 inline double mag_s(double x, double y, double z) {return sqrt(sqr(x) + sqr(y) + sqr(z));}
 inline double mag2(double x, double y, double z) {return sqr(x) + sqr(y) + sqr(z);}
 
+
+struct vec3
+{
+	double x[3];
+};
+
+struct mat3x3
+{
+	vec3 col[3];
+};
+
 double Beta(double a, double b);
 
 double vMax(vector<double>& v);
