@@ -15,6 +15,12 @@ NEO_mass_max# 1.5708E15
 readNEO_files# 1
 saveNEO_files# 0
 #
+N_hit# 1000
+alpha_search# 0.25
+lifetime_max# 100
+lifetime_rate# 0.75
+dx_rate# 0.5
+#
 N_D_perRegion# 10
 N_bearing_POI# 10
 # 18 and 72 to match a res of 5

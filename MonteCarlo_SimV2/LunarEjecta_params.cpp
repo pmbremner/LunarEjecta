@@ -255,6 +255,12 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	cout << "HH11 C4 = " << p->HH11_C4 << endl;
 
 	//////////////////////
+	getParam(param_fn, "N_hit", p->N_hit, 0);
+	getParam(param_fn, "alpha_search", p->alpha_search, 0);
+	getParam(param_fn, "lifetime_max", p->lifetime_max, 0);
+	getParam(param_fn, "lifetime_rate", p->lifetime_rate, 0);
+	getParam(param_fn, "dx_rate", p->dx_rate, 0);
+
 
 	getParam(param_fn, "N_D_perRegion", p->N_D_perRegion, 0);
 	getParam(param_fn, "N_bearing_POI", p->N_bearing_POI, 0);

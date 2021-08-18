@@ -1,7 +1,11 @@
 #ifndef LUNAREJECTA_TRACK_H
 #define LUNAREJECTA_TRACK_H
 
+#include "LunarEjecta_params.h"
+#include "LunarEjecta_asset.h"
 
+
+using namespace std;
 
 struct trackVars
 {
@@ -104,15 +108,23 @@ const double RK45Coeff[8][6] =
 		{16./135.   , 0.          , 6656./12825., 28561./56430., -9./50. , 2./55.}
 	};
 
-
+// Gravitational force function
 void grav_a(double& ax, double& ay, double& az, double x, double y, double z);
 
+// Used to update the track by one time step
 void RK45UpdatePosVel(trackVars& t,
 	                  RK45VarsPosVel& r,
 	                  const double c[][6], asset_geometry& ag);
 
 void printTrack(ofstream& file, trackVars& tv, sums& s);
 
+// After each step update, a collision check is made
+// First, we check if the track is within a certain radius,
+// if so, then we further check each asset shape against the track location
 bool checkCollision(trackVars& t, asset_geometry& ag);
+
+// To be passed to the BMC makeShotAndTally function
+// loc = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
+bool checkEjectaHitAsset(vec3 &loc, asset_geometry& ag);
 
 #endif 

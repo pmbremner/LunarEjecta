@@ -1,12 +1,13 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
+#include "LunarEjecta_battleshipMonteCarlo.h"
 // #include "LunarEjecta_scalinglaw.h"
 // #include "LunarEjecta_bearingdistmap.h"
 // #include "LunarEjecta_secondaryejecta.h"
 
 using namespace std;
 
- // g++ -O2 .\LunarEjecta_Main.cpp .\LunarEjecta_params.cpp .\LunarEjecta_igloo.cpp -o ejecta.exe
+ // g++ -O2 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarlo.cpp -o ejecta.exe
 
 int main(int argc, char const *argv[])
 {
@@ -31,8 +32,8 @@ int main(int argc, char const *argv[])
 	// HiDensMEM, LoDensMEM, NEO
 	// Read the MEM igloo files
 	////////////////////////////////////////////
-	iglooSet *MEM_hi_fluxes = read_igloo(params, HiDensMEM);
-	iglooSet *MEM_lo_fluxes = read_igloo(params, LoDensMEM);
+	iglooSet *MEM_hi_fluxes = read_igloo(params, HiDensMEM); // size p->N_loc
+	iglooSet *MEM_lo_fluxes = read_igloo(params, LoDensMEM); // size p->N_loc
 	iglooSet *NEO_fluxes;
 
 	cout << "Total Surface Area for process = " << sumSA(params, MEM_hi_fluxes) / (4*PI) << " x 4pi r^2\n";
@@ -55,6 +56,39 @@ int main(int argc, char const *argv[])
 		if (params->saveNEO_files)
 			save_igloo(params, NEO_fluxes, NEO);
 	}
+
+
+	// for each lat-lon location that the process is responsible for
+	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
+	{
+		cout << "\n\n    Process #: " << params->i_proc << " | Location #: " << params->latlon_idx_proc+1 << '/' << params->N_loc << endl;
+		params->latlon_idx_cur = params->latlon_idx_proc + params->latlon_idx_min;
+
+		////////////////////////////////////////////
+		// generate list of hit shots
+		////////////////////////////////////////////
+		int hit_count = 0;
+		double weight;
+		vec3 shot_ph_loc; // [speed (m/s), zenith (rad), azimuth (rad)]
+
+		radar_scanner search_scanner, destroy_scanner;
+
+		initRadar(search_scanner , params->alpha_search     , params->lifetime_max, -1., -1.);
+		initRadar(destroy_scanner, 1. - params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate);
+
+		while (hit_count < params->N_hit)
+		{
+
+			weight = getShotWeightAndLocation(search_scanner, destroy_scanner, shot_ph_loc);
+
+			hit_count++;
+		}
+
+
+	}
+
+
+
 
 	// ////////////////////////////////////////////
 	// // compute constants and normalization of the scaling laws
