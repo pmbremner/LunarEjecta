@@ -2,7 +2,7 @@
 #define LUNAREJECTA_ASSET_H
 
 #include "LunarEjecta_params.h"
-#include "LunarEjecta_trajectory.h"
+//#include "LunarEjecta_trajectory.h"
 
 #include <vector>
 #include <string>
@@ -67,7 +67,7 @@ struct asset
 	// rot_m_asset.col[1] = y' axis
 	// rot_m_asset.col[2] = z' axis
 	mat3x3 rot_m_asset; // rotation matrix 3x3, columns first, only asset
-}
+};
 
 // prod_m = left_m * right_m
 void h_matrix_matrix_multiply(mat3x3 &prod_m, mat3x3 &left_m, mat3x3 &right_m);
@@ -85,7 +85,7 @@ void init_asset(asset &a, string asset_fn);
 
 // set asset origin and orientation, compute rot_m for asset and tot in each shape
 // Note: Not now, but may be possible to read new asset as a function of trajectory
-void set_asset_trajectory_state(asset &a, trajectory &t, int i);
+////void set_asset_trajectory_state(asset &a, trajectory &t, int i);
 
 
 bool check_collision_rect_prism(rect_prism &rp, vec3 &pos);

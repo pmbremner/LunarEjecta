@@ -1,0 +1,109 @@
+\documentclass{hitec}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{subcaption} 
+\usepackage[space]{grffile}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{amsmath}
+%https://tex.stackexchange.com/questions/54241/change-the-type-of-equation-numbering-in-document-class-article
+\numberwithin{equation}{section}
+%https://texblog.org/2012/05/30/generate-latex-tables-from-csv-files-excel/
+\usepackage{csvsimple}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\lstset{  breaklines=true, numbers=left, numberstyle=\tiny\color{mygray}, keepspaces=true }
+
+\usepackage{mathabx} % for moon character
+
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\usepackage{enumitem} %https://www.latex-tutorial.com/tutorials/lists/
+
+\usepackage{pgfplots} % https://www.tug.org/TUGboat/tb31-1/tb97wright-pgfplots.pdf
+
+\usepackage{natbib}
+
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={blue!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+\title{Lunar Impact Ejecta Benchmark and Models}
+\author{Anthony M. DeStefano}
+\company{NASA, MSFC, EV44}
+\confidential{\textbf{-- For internal NASA use only --}}
+\usepackage{hyperref} 
+\begin{document}
+\maketitle
+\pagenumbering{roman}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+
+
+%\section*{Contributing Author List}
+%\addcontentsline{toc}{section}{Contributing Author List}
+
+
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{BattleshipMonteCarlo.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{References}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{agu}
+\bibliography{report}
+
+\end{document}

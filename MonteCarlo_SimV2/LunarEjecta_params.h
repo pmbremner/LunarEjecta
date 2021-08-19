@@ -77,6 +77,12 @@ struct input
 	int Nlat; // total number of latitudes
 	int Nlon; // total number of longitudes
 	int Nlatlon_tot; // Nlat*Nlon = total number of locations
+
+	int N_hit; // total number of secondary hits required for statistics
+	double alpha_search; // from 0 to 1, percentage of search. Destroy rate is 1-alpha
+	int lifetime_max; // lifetime in iterations of a hit region
+	double lifetime_rate;
+	double dx_rate;
 	/////////////////////////////
 	//bool initError; // 0 = no error, 1 = error
 	bool readNEO_files; // 0 = generate the NEOs and save them, 1 = read from file
