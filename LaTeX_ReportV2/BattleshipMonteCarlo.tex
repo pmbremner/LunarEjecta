@@ -1,7 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
 \section{Battleship Monte Carlo}
 
 The random sampling of the ejecta initial state (speed, zenith angle, and azimuth angle) to find a hit can be extremely laborious, especially when the asset is far from the point-of-impact. For simple cases, the set of hits can be found analytically. However, for the general case of complicated asset geometry or an asset that is above the lunar surface (e.g., in lunar orbit), it becomes difficult to solve these directly. Therefore, a Monte Carlo type method is needed to abstract away these complications.
 
-In this section, the Battleship Monte Carlo method is introduced. Various ideas in the common literature are used, such as importance sampling and simulated annealing, but are done so in a dynamic way based on previously sampled points. The simple way Battleship Monte Carlo works is there are two strategies working together, a search method and a destroy method. The search method draws from a uniform distribution that covers the entire domain, for each dimension. Once hits are found, the destroy method kicks in to scan near previous hit locations, using a localized uniform distribution. As more hits are found, there are more choices for the destroy method to choose from in order to make a new shot. On average, the destroy method will find hits more efficiently than the search method, but may struggle with expanding to unknown territories. Hence, there should be a balance with searching and destroying. One possible technique to take advantage of both methods would be to start off with heavily searching and then over time switch to the destroy method once a sufficient number of hits are found over the entire domain in order to quickly fill in any valid hits (i.e., ejecta initial states).
+In this section, the Battleship Monte Carlo (BMC) method is introduced. Various ideas in the common literature are used, such as importance sampling and simulated annealing, but are done so in a dynamic way based on previously sampled points. The simple way Battleship Monte Carlo works is there are two strategies working together, a search method and a destroy method. The search method draws from a uniform distribution that covers the entire domain, for each dimension. Once hits are found, the destroy method kicks in to scan near previous hit locations, using a localized uniform distribution. As more hits are found, there are more choices for the destroy method to choose from in order to make a new shot. On average, the destroy method will find hits more efficiently than the search method, but may struggle with expanding to unknown territories. Hence, there should be a balance with searching and destroying. One possible technique to take advantage of both methods would be to start off with heavily searching and then over time switch to the destroy method once a sufficient number of hits are found over the entire domain in order to quickly fill in any valid hits (i.e., ejecta initial states).
 
-The difficulty with changing the probability distribution function (PDF) every iteration, in terms of importance sampling, is that there needs to be a concise way to track this PDF and keep it normalized correctly.
+\subsection{Standard Importance Sampling}
+
+The difficulty with changing the probability distribution function (PDF) every iteration, in terms of importance sampling, is that there needs to be a concise way to track this PDF and keep it normalized correctly. Starting with the definition of importance sampling, and without loss of generality, only working with 1 dimension,
+\begin{equation}
+\int_{x_{min}}^{x_{max}}f(x)dx \sim \sum_{i=0}^{N-1}\frac{f(x_i)}{\rho(x_i)} + \mathcal{O}(N^{-1/2}),
+\end{equation}
+where $x_i$ is pulled from the probability density function $\rho(x)$, given that
+\begin{equation}
+\int_{x_{min}}^{x_{max}}\rho(x)dx = 1.
+\end{equation}
+
+\subsection{Dynamic Importance Sampling with Annealing}
+
+Next, the set of probability densities that had a hit are given by $\rho_k^H$, multiplied by the lifetime mask $L_{k,i}^H$ and domain mask $D_k^H(x_i)$ such that the effective probability density for the BMC method is given by
+\begin{equation}
+\rho(x_i) =
+\begin{cases}
+1 \text{ , if $N_H = 0$, else}\\
+\alpha\rho_0 + \frac{1-\alpha}{N_H-k_0}\sum_{k=\text{max}(0, N_H-N_p)}^{N_H}\rho_k^H L_{k,i}^H D_k^H(x_i)
+\end{cases},
+\end{equation}
+where $N_H$ is the total number of hits so far, $N_p$ is the maximum number of hits to consider (to avoid biasing the first hits), and the individual probability densities are given by
+\begin{equation}
+\rho_k^H = \frac{1}{\triangle x_k}.
+\end{equation}
+The probability density of the entire domain is given by
+\begin{equation}
+\rho_0 = \frac{1}{x_{max} - x_{min}}.
+\end{equation}
+The lifetime mask is defined as
+\begin{equation}
+L_{k,i}^H =
+\begin{cases}
+1 \text{ , if $L_k < i - i_k$, else}\\
+0
+\end{cases},
+\end{equation}
+where $i_k$ is the iteration at when the $k$-th hit was made, and the domain mask is defined as
+\begin{equation}
+D_k^H(x_i) =
+\begin{cases}
+1 \text{ , if $|x_k - x_i| \le \triangle x_k/2$, else}\\
+0
+\end{cases},
+\end{equation}
+where $\triangle x_k$ is the width of the uniform PDF, centered on $x_k$.
+
+When pulling a new sample $x_i$, first a uniform random number $r_0$ from $0$ to $1$ is pulled and compared with $\alpha$.
+\begin{itemize}
+	\item If $r_0 \le \alpha$ (i.e., the search method), then $x_i$ is sampled from a uniform distribution that spans the entire domain, $x_{min} \le x_i \le x_{max}$.
+	\item Otherwise, if $r_0 > \alpha$ (i.e., the destroy method), then a previous hit location $x_k$ is chosen at random with equal probability, such that $x_i$ is sampled from a uniform distribution\footnote{Both a triangular and parabolic region were considered. Difficulties arise when the boundaries of $D_k^H$ go outside of the overall main domain. In this case, $D_k^H$ must be reduced to fit inside of the main domain, which causes the normalization of a triangular region amounts to solving a quadratic equation and the parabolic region amounts to solving a cubic equation. In general, this can be computationally expensive, so a uniform distribution is trivial when finding the normalization constant, which is just the inverse of the width of the region.} spanning $x_k - \triangle x_k/2 \le x_i \le x_k + \triangle x_k/2$.
+\end{itemize}
+ 
+The new lifetime $L_{N_H+1}$ can be computed as
+\begin{equation}\label{eq:new_lifetime}
+L_{N_H+1} = \beta L_k,  
+\end{equation}
+where $0 \le \beta \le 1$ is the lifetime reduction rate. This helps to not bias a certain early population of hit points by setting the new lifetime as the max lifetime. If the new hit originated from the search method, then the lifetime would be set as the max. Any hits found from the destroy method would follow Equation \eqref{eq:new_lifetime}.
+
+Here, $\alpha$ could in principle change by iteration i.e., simulated annealing. One strategy could be to start with a larger $\alpha_0$, giving more searching, and slowly bring the percentage to a final value $\alpha_f$, changing to more destroy, multiplying by a rate $\gamma$ following
+\begin{equation}
+\alpha_i = \gamma(\alpha_{i-1}-\alpha_f) + \alpha_f,
+\end{equation}
+such that for large $i$, $\alpha_i \sim \alpha_f$.
+
+
+\end{document}
+

@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+\section{Geometry and Coordinates}
+
+In this section, the geometry of the asset and Moon are discussed as well as the coordinated systems used. The asset is made of a combination of basic shapes, instead of a surface of arbitrary polygons. Using basic shapes provides a quicker way at computing collisions\footnote{I did not want to spend a lot of time on game engine dynamics...}, especially when various curvatures are needed. The basic shapes used so far are 1-parameter spheres (Section \ref{sssec:Sphere}), 2-parameter cylinders (Section \ref{sssec:Cylinder}), and 3-parameter rectangular prisms (Section \ref{sssec:RectangularPrism}). The asset can be made of any number of shapes equal to or greater than one (Section \ref{ssec:AssetGeometry}), where the shapes can overlap.
+
+There are three levels of coordinate systems, at the individual shape level (Section~\ref{ssec:ShapeCoordinates}), at the asset level (Section~\ref{ssec:AssetCoordinates}), and at the planetary level (Section~\ref{ssec:PlanetaryCoordinates}). The ejecta secondaries are transported in planetary level coordinate system, so when computing collisions, the ejecta position must be translated into the coordinate system of each shape separately. To avoid computing collisions at each time step for each shape, a bounding radius is defined around the asset (see Section \ref{ssec:AssetGeometry} for more details). If the ejecta position is outside of the bounding radius, collision detection is skipped for that trajectory time step.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Shapes}
+
+
+
+
+\subsubsection{Sphere}
+\label{sssec:Sphere}
+
+
+\subsubsection{Cylinder}
+\label{sssec:Cylinder}
+
+
+
+\subsubsection{Rectangular Prism}
+\label{sssec:RectangularPrism}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Shape Coordinates}
+\label{ssec:ShapeCoordinates}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asset Geometry}
+\label{ssec:AssetGeometry}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asset Coordinates}
+\label{ssec:AssetCoordinates}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Planetary Geometry}
+\label{ssec:PlanetaryGeometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Planetary Coordinates}
+\label{ssec:PlanetaryCoordinates}
+
+
+
+\end{document}

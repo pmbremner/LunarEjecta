@@ -36,6 +36,8 @@ struct radar_scanner
 
 void initRadar(radar_scanner &rs, double alpha, int lt_max, double lt_rate, double dx_rate);
 
+//void insertScanPoint(radar_scanner &rs, vec3 &ph_loc, )
+
 
 // get shot weight at location in phase space, weight is returned
 double getShotWeightAndLocation(radar_scanner &rs_s, radar_scanner &rs_d, vec3 &shot_ph_loc);

@@ -1,13 +1,13 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
-#include "LunarEjecta_battleshipMonteCarlo.h"
+#include "LunarEjecta_battleshipMonteCarloV2.h"
 // #include "LunarEjecta_scalinglaw.h"
 // #include "LunarEjecta_bearingdistmap.h"
 // #include "LunarEjecta_secondaryejecta.h"
 
 using namespace std;
 
- // g++ -O2 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarlo.cpp -o ejecta.exe
+ // g++ -O2 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarloV2.cpp -o ejecta.exe
 
 int main(int argc, char const *argv[])
 {
@@ -57,6 +57,10 @@ int main(int argc, char const *argv[])
 			save_igloo(params, NEO_fluxes, NEO);
 	}
 
+	vector<int> func_ID;
+	func_ID.push_back(0); // speed, const
+	func_ID.push_back(1); // zenith, sin
+	func_ID.push_back(0); // azimuth, const
 
 	// for each lat-lon location that the process is responsible for
 	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
@@ -69,17 +73,28 @@ int main(int argc, char const *argv[])
 		////////////////////////////////////////////
 		int hit_count = 0;
 		double weight;
-		vec3 shot_ph_loc; // [speed (m/s), zenith (rad), azimuth (rad)]
 
-		radar_scanner search_scanner, destroy_scanner;
+		// Define the domain ranges
+		vector<double> ph, ph_i; // [speed (m/s), zenith (rad), azimuth (rad)]
+		vector<double> dph; // [speed (m/s), zenith (rad), azimuth (rad)]
 
-		initRadar(search_scanner , params->alpha_search     , params->lifetime_max, -1., -1.);
-		initRadar(destroy_scanner, 1. - params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate);
+		ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
+		ph.push_back(0.);  // center of zenith range
+		ph.push_back(0.);  // center of azimuth range
+
+		dph.push_back(params->lunar_escape_speed);  // center of speed range
+		dph.push_back(PI);  // center of zenith range
+		dph.push_back(PI);  // center of azimuth range
+
+
+		radar_scanner scanner;
+
+		initRadar(scanner, params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate, ph, dph, func_ID);
 
 		while (hit_count < params->N_hit)
 		{
 
-			weight = getShotWeightAndLocation(search_scanner, destroy_scanner, shot_ph_loc);
+			weight = getSampleScan(scanner, ph_i);
 
 			hit_count++;
 		}
