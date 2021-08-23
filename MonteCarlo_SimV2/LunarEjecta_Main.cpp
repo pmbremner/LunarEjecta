@@ -58,9 +58,13 @@ int main(int argc, char const *argv[])
 	}
 
 	vector<int> func_ID;
-	func_ID.push_back(0); // speed, const
-	func_ID.push_back(1); // zenith, sin
-	func_ID.push_back(0); // azimuth, const
+	// func_ID.push_back(0); // speed, const
+	// func_ID.push_back(1); // zenith, sin
+	// func_ID.push_back(0); // azimuth, const
+
+	//// test
+	func_ID.push_back(0);
+	func_ID.push_back(0);
 
 	// for each lat-lon location that the process is responsible for
 	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
@@ -71,20 +75,27 @@ int main(int argc, char const *argv[])
 		////////////////////////////////////////////
 		// generate list of hit shots
 		////////////////////////////////////////////
-		int hit_count = 0;
-		double weight;
+		int hit_count = 0, tot_tries = 0;
+		bool hit = 0;
+		double weight, sum = 0.;
 
 		// Define the domain ranges
 		vector<double> ph, ph_i; // [speed (m/s), zenith (rad), azimuth (rad)]
 		vector<double> dph; // [speed (m/s), zenith (rad), azimuth (rad)]
 
-		ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
-		ph.push_back(0.);  // center of zenith range
-		ph.push_back(0.);  // center of azimuth range
+		// ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
+		// ph.push_back(0.);  // center of zenith range
+		// ph.push_back(0.);  // center of azimuth range
 
-		dph.push_back(params->lunar_escape_speed);  // center of speed range
-		dph.push_back(PI);  // center of zenith range
-		dph.push_back(PI);  // center of azimuth range
+		// dph.push_back(params->lunar_escape_speed);  // center of speed range
+		// dph.push_back(PI);  // center of zenith range
+		// dph.push_back(PI);  // center of azimuth range
+
+		//// test
+		ph.push_back(0.5);
+		ph.push_back(0.5);
+		dph.push_back(10.);
+		dph.push_back(10.);
 
 
 		radar_scanner scanner;
@@ -93,13 +104,31 @@ int main(int argc, char const *argv[])
 
 		while (hit_count < params->N_hit)
 		{
-
+			//cout << endl << endl;
 			weight = getSampleScan(scanner, ph_i);
 
-			hit_count++;
+			// test hit function
+			//hit = (sqr(ph_i[0]) + sqr(ph_i[1]) <= 1. ? 1 : 0);
+			//hit = (ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0]) ? 1 : 0);
+			hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
+
+			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
+
+			tallyScan(scanner, hit);
+
+			//cout << "weight = " << weight << endl;
+
+			if (hit){
+				hit_count++;
+				sum += weight;
+			}
+			tot_tries++;
 		}
 
+		sum /= double(tot_tries);
+		cout << " Sum = " << sum << endl;
 
+		printHitMissReport(scanner);
 	}
 
 

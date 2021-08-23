@@ -30,8 +30,9 @@ struct scan
 struct radar_scanner
 {
 	list<scan>           scan_props; // list of scan properties
+	list<scan>::iterator idx_search;   // search scan, DO NOT MODIFY
+
 	list<scan>::iterator idx_scan;   // current scan sampled from
-	list<scan>::iterator idx_search;   // search scan
 	vector<double>       ph_scan;    // current scan phase space location
 	double               net_prob_dens; // net probability density of ph_scan
 
@@ -39,6 +40,7 @@ struct radar_scanner
 	vector<double> ph_min; // minimum boundary of phase space
 	vector<double> ph_max; // maximum boundary of phase space
 
+	int Ngen; // number of generations
 	vector<long long unsigned> miss_count; // miss count for each generation
 	vector<long long unsigned> hit_count;  // hit count for each generation
 
@@ -56,7 +58,7 @@ double constDens(double a, double b);
 double zenithDens(double a, double b);
 
 
-
+void printHitMissReport(radar_scanner &rs);
 void printScan(scan &s, bool HRO);
 
 double getLocalProbDens(radar_scanner &rs, vector<double> &ph, vector<double> &dph);
