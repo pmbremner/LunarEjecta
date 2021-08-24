@@ -15,9 +15,10 @@ NEO_mass_max# 1.5708E15
 readNEO_files# 1
 saveNEO_files# 0
 #
-N_hit# 100000
-alpha_search# 0.25
-lifetime_max# 200
+N_hit# 1000
+N_max# 100000
+alpha_search# 0.05
+lifetime_max# 100
 lifetime_rate# 1.5
 dx_rate# 0.5
 #
@@ -27,8 +28,9 @@ N_bearing_POI# 10
 N_horizon_ROI# 18
 N_bearing_ROI# 72
 N_vel# 10
-# units of km/s
-vel_min# 0.1
+# units of m/s
+vel_min# 100.
+vel_max# 3600.
 ROI_sample_points# 400
 #
 # units of km

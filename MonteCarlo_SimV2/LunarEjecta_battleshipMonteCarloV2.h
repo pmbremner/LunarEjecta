@@ -44,7 +44,10 @@ struct radar_scanner
 	vector<long long unsigned> miss_count; // miss count for each generation
 	vector<long long unsigned> hit_count;  // hit count for each generation
 
-	double gen_zero_prob; // the alpha value, all other gens get 1-alpha 
+    int N_max; // maximum amount of scans
+	double gen_zero_prob; // the alpha value, all other gens get 1-alpha
+	double gen_zero_prob_f; // final alpha value
+	double max_lifetime;
 	double lifetime_rate; // value between 0 and 1, new loc lifetime based on old * this rate, if from gen zero, just inherit the lt
 	double dx_rate;       // value between 0 and 1, new loc dx based on old * this rate
 
@@ -71,7 +74,7 @@ void setupPhaseSpaceBoundary(radar_scanner &rs, vector<double> &ph, vector<doubl
 
 
 // Init the radar, the zeroth gen is started with no decrement in lifetime, spanning the entire domain
-void initRadar(radar_scanner &rs, double alpha, int lt_max, double lt_rate, double dx_rate, vector<double> &ph, vector<double> &dph, vector<int> &dens_func_id);
+void initRadar(radar_scanner &rs, int N_max, double alpha, int lt_max, double lt_rate, double dx_rate, vector<double> &ph, vector<double> &dph, vector<int> &dens_func_id);
 
 // the radar gets a scan sample from all potential scan locations, returns the weight of the scan
 double getSampleScan(radar_scanner &rs, vector<double> &ph_scan);

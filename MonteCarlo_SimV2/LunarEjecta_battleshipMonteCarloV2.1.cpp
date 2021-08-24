@@ -126,7 +126,7 @@ double getLocalProbDens(radar_scanner &rs, vector<double> &ph_min, vector<double
 
 double getNetProbDens(radar_scanner &rs)
 {
-	rs.net_prob_dens = 0.;
+	double dens = 0.;
 	bool flag_domain;
 	int Nscan = rs.scan_props.size(), j;
 	int Ndim = rs.ph_scan.size();
@@ -144,11 +144,11 @@ double getNetProbDens(radar_scanner &rs)
 
 		// if in domain, count the probability density
 		if (flag_domain)
-			rs.net_prob_dens += (*itr).prob_dens / (itr != rs.scan_props.begin() ? double(Nscan-1.) : 1.);
+			dens += (*itr).prob_dens / (itr != rs.scan_props.begin() ? double(Nscan-1.) : 1.);
 
-		//cout << "net_prob_dens = " << rs.net_prob_dens << endl;
+		//cout << "dens = " << dens << endl;
 	}
-	return rs.net_prob_dens;
+	return dens;
 }
 
 
@@ -228,7 +228,6 @@ void initRadar(radar_scanner &rs, int N_max, double alpha, int lt_max, double lt
 
 	rs.N_max         = N_max;
 	rs.gen_zero_prob = alpha;
-	rs.max_lifetime  = lt_max;
 	rs.lifetime_rate = lt_rate;
 	rs.dx_rate       = dx_rate;
 
@@ -369,15 +368,16 @@ void tallyScan(radar_scanner &rs, bool hit)
 	if (hit)
 	{
 
-		// give extra life if the hit rate is near 60%, randomly
-		if (rs.idx_scan != rs.idx_search && total_scans_in_gen > 0 && 1. - 3.*fabs(rs.hit_count[cur_gen] / total_scans_in_gen - 0.60) >= uniform(rs.rng, 0., 1.) )
-			(*rs.idx_scan).lifetime += 2. * rs.max_lifetime / 200.;
+		// give extra life if the hit rate is near 50%, randomly
+		// if (rs.idx_scan != rs.idx_search && total_scans_in_gen > 0 && 1. - 2.*fabs(rs.hit_count[cur_gen] / total_scans_in_gen - 0.50) >= uniform(rs.rng, 0., 1.) )
+		// 	(*rs.idx_scan).lifetime += 2. * rs.max_lifetime / 200.;
 
-		// if too densly populated, remove life
-		if (rs.idx_scan != rs.idx_search && log10((*rs.idx_search).prob_dens / rs.net_prob_dens) <= uniform(rs.rng, -5., 0.) )
-			(*rs.idx_scan).lifetime -= 5. * rs.max_lifetime / 200.;
-		// else if(rs.idx_scan != rs.idx_search)
-		//  	(*rs.idx_scan).lifetime += 1;
+		// // if too densly populated, remove life
+		// if (rs.idx_scan != rs.idx_search && log10((*rs.idx_search).prob_dens / rs.net_prob_dens) <= uniform(rs.rng, -5., 0.) )
+		// 	(*rs.idx_scan).lifetime -= 5. * rs.max_lifetime / 200.;
+		// // else if(rs.idx_scan != rs.idx_search)
+		// //  	(*rs.idx_scan).lifetime += 1;
+
 
 		// tally the hit in the current gen
 		rs.hit_count[cur_gen]++;
@@ -385,8 +385,8 @@ void tallyScan(radar_scanner &rs, bool hit)
 		// create new scan point
 		// set up dph, dfactor gets a boast going from gen 0 to 1, helps with making dph small enough to be efficient
 		vector<double> dph = (*rs.idx_scan).dph;
-		//double dfactor = (cur_gen == 0 ? pow(rs.dx_rate, 5) : rs.dx_rate);
-		double dfactor = rs.dx_rate;
+		//double dfactor = (cur_gen == 0 ? pow(rs.dx_rate, 2) : rs.dx_rate);
+		double dfactor =  rs.dx_rate;
 
 		for (int i = 0; i < dph.size(); ++i)
 			dph[i] *= dfactor;
@@ -404,10 +404,6 @@ void tallyScan(radar_scanner &rs, bool hit)
 	}
 	else // miss
 	{
-		// remove life if there's a miss, randomly
-		// if (uniform(rs.rng, 0., 1.) < 0.5)
-		// 	(*rs.idx_scan).lifetime --;
-
 		// tally the miss in the current gen
 		rs.miss_count[cur_gen]++;
 	}

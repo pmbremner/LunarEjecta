@@ -129,8 +129,8 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->NEO_massMin = 10.; // g
 	p->NEO_massMax = 1.5708E15; // g, 1000 m diameter at 3 g/cc
 
-	p->lunar_radius = 1737.4; // km
-	p->lunar_escape_speed = 2.38; // km/s
+	p->lunar_radius = 1737.4E3; // m (suggested by NESC)
+	p->lunar_escape_speed = 2.38E3; // m/s
 
 	p->MEM_hiDens_mu    = 8.241; // log_e (not log_10)
 	p->MEM_hiDens_sigma = 0.214;
@@ -256,6 +256,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 	//////////////////////
 	getParam(param_fn, "N_hit", p->N_hit, 0);
+	getParam(param_fn, "N_max", p->N_max, 0);
 	getParam(param_fn, "alpha_search", p->alpha_search, 0);
 	getParam(param_fn, "lifetime_max", p->lifetime_max, 0);
 	getParam(param_fn, "lifetime_rate", p->lifetime_rate, 0);
@@ -269,6 +270,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "ROI_sample_points", p->ROI_sample_points, 0);
 	getParam(param_fn, "N_vel", p->N_vel, 0);
 	getParam(param_fn, "vel_min", p->vel_min, 0);
+	getParam(param_fn, "vel_max", p->vel_max, 0);
 	//getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
 
 
