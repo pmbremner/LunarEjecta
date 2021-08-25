@@ -16,9 +16,9 @@ readNEO_files# 1
 saveNEO_files# 0
 #
 N_hit# 1000
-N_max# 100000
-alpha_search# 0.05
-lifetime_max# 100
+N_max# 1000000
+alpha_search# 0.15
+lifetime_max# 10
 lifetime_rate# 1.5
 dx_rate# 0.5
 #

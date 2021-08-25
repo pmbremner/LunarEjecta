@@ -60,6 +60,12 @@ double errDens(double a, double b);
 double constDens(double a, double b);
 double zenithDens(double a, double b);
 
+inline double uniform(mt19937& rng, double a, double b);
+
+// returns an int from a to b-1
+inline int uniformInt(mt19937& rng, int a, int b);
+
+void uniformLatLon(mt19937& rng, vector<double> &lat_lon, vector<double> &lat_lon_cart, double r, double lat_min, double lat_max, double lon_min, double lon_max);
 
 void printHitMissReport(radar_scanner &rs);
 void printScan(scan &s, bool HRO);

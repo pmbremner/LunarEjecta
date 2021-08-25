@@ -88,7 +88,7 @@ int main(int argc, char const *argv[])
 		vector<double> dph; // [speed (m/s), zenith (rad), azimuth (rad)]
 
 		// position of impact point in lat-lon region
-		vector<double> loc_latlon; // [lat (deg), lon (deg)]
+		vector<double> loc_latlon; // [lat (rad), lon (rad)]
 		vector<double> loc_cart;   // [x (m), y (m), z (m)]
 
 		//// need to take into account vmin and vmax***
@@ -103,16 +103,33 @@ int main(int argc, char const *argv[])
 		//// test
 		ph.push_back(0.);
 		ph.push_back(0.);
-		dph.push_back(2.);
-		dph.push_back(2.);
+		dph.push_back(20.);
+		dph.push_back(20.);
 
 
 		radar_scanner scanner;
 
 		initRadar(scanner, params->N_max, params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate, ph, dph, func_ID);
 
+		
+
+
 		while (hit_count < params->N_hit && tot_tries < params->N_max)
 		{
+			// randomly pull lat-lon position in lat-lon region, in terms of rad and cartesian meters
+			uniformLatLon(scanner.rng,
+				          loc_latlon, // rad
+				          loc_cart,   // m
+				          params->lunar_radius, // m
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				           - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				           + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.);
+			
+			//cout << "latlon location = " << loc_latlon[0] * 180./PI << ' ' << loc_latlon[1] * 180./PI << endl;
+
 			//cout << endl << endl;
 			weight = getSampleScan(scanner, ph_i);
 
@@ -121,7 +138,7 @@ int main(int argc, char const *argv[])
 			//hit = ((ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0])) || (ph_i[1] - 4. >= sqr(ph_i[0]-7.) && ph_i[1] -3.75 <= sqrt(ph_i[0]-7.)) ? 1 : 0);
 			//hit = (ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0]) ? 1 : 0);
 			//hit =  (sqr(ph_i[0] - 4.) + sqr(ph_i[1] - 2.5) <= 1. ? 1 : 0);
-			hit =  (sqr(ph_i[0] - 0.) + sqr(ph_i[1] - 0.) <= 1. ? 1 : 0);
+			hit =  (sqr(ph_i[0] + 3.) + sqr(ph_i[1] - 2.) <= 1. ? 1 : 0);
 			//hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
 
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
