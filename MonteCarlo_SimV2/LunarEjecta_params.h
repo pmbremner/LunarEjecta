@@ -79,6 +79,7 @@ struct input
 	int Nlatlon_tot; // Nlat*Nlon = total number of locations
 
 	int N_hit; // total number of secondary hits required for statistics
+	int N_max; // total number of tries, hits and miss
 	double alpha_search; // from 0 to 1, percentage of search. Destroy rate is 1-alpha
 	int lifetime_max; // lifetime in iterations of a hit region
 	double lifetime_rate;
@@ -121,8 +122,8 @@ struct input
 	double NEO_massMin; // minimum mass of NEOs, grams
 	double NEO_massMax; // maximum mass of NEOs, grams (cannot go to infinity, need a finite cutoff)
 	/////////////////////////////
-	double lunar_radius; // km
-	double lunar_escape_speed; // km/s
+	double lunar_radius; // m
+	double lunar_escape_speed; // m/s
 	/////////////////////////////
 	double ROI_radius;   // km
 	double ROI_lat; // rad
@@ -136,7 +137,8 @@ struct input
 	int N_horizon_ROI; // secondary ejecta
 	int N_bearing_ROI; // secondary ejecta
 	int N_vel;         // secondary ejecta
-	double vel_min; // km/s
+	double vel_min; // m/s
+	double vel_max; // m/s
 
 
 };

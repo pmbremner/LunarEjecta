@@ -66,6 +66,10 @@ int main(int argc, char const *argv[])
 	func_ID.push_back(0);
 	func_ID.push_back(0);
 
+	ofstream phase_hit_file, phase_miss_file;
+	phase_hit_file.open("phase_hit_file.txt");
+	phase_miss_file.open("phase_miss_file.txt");
+
 	// for each lat-lon location that the process is responsible for
 	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
 	{
@@ -83,6 +87,11 @@ int main(int argc, char const *argv[])
 		vector<double> ph, ph_i; // [speed (m/s), zenith (rad), azimuth (rad)]
 		vector<double> dph; // [speed (m/s), zenith (rad), azimuth (rad)]
 
+		// position of impact point in lat-lon region
+		vector<double> loc_latlon; // [lat (rad), lon (rad)]
+		vector<double> loc_cart;   // [x (m), y (m), z (m)]
+
+		//// need to take into account vmin and vmax***
 		// ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
 		// ph.push_back(0.);  // center of zenith range
 		// ph.push_back(0.);  // center of azimuth range
@@ -92,36 +101,72 @@ int main(int argc, char const *argv[])
 		// dph.push_back(PI);  // center of azimuth range
 
 		//// test
-		ph.push_back(0.5);
-		ph.push_back(0.5);
-		dph.push_back(10.);
-		dph.push_back(10.);
+		ph.push_back(0.);
+		ph.push_back(0.);
+		dph.push_back(20.);
+		dph.push_back(20.);
 
 
 		radar_scanner scanner;
 
-		initRadar(scanner, params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate, ph, dph, func_ID);
+		initRadar(scanner, params->N_max, params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate, ph, dph, func_ID);
 
-		while (hit_count < params->N_hit)
+		
+
+
+		while (hit_count < params->N_hit && tot_tries < params->N_max)
 		{
+			// randomly pull lat-lon position in lat-lon region, in terms of rad and cartesian meters
+			uniformLatLon(scanner.rng,
+				          loc_latlon, // rad
+				          loc_cart,   // m
+				          params->lunar_radius, // m
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				           - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.,
+				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				           + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.);
+			
+			//cout << "latlon location = " << loc_latlon[0] * 180./PI << ' ' << loc_latlon[1] * 180./PI << endl;
+
 			//cout << endl << endl;
 			weight = getSampleScan(scanner, ph_i);
 
 			// test hit function
-			//hit = (sqr(ph_i[0]) + sqr(ph_i[1]) <= 1. ? 1 : 0);
+			
+			//hit = ((ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0])) || (ph_i[1] - 4. >= sqr(ph_i[0]-7.) && ph_i[1] -3.75 <= sqrt(ph_i[0]-7.)) ? 1 : 0);
 			//hit = (ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0]) ? 1 : 0);
-			hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
+			//hit =  (sqr(ph_i[0] - 4.) + sqr(ph_i[1] - 2.5) <= 1. ? 1 : 0);
+			hit =  (sqr(ph_i[0] + 3.) + sqr(ph_i[1] - 2.) <= 1. ? 1 : 0);
+			//hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
 
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
 
 			tallyScan(scanner, hit);
+
+			// print hit information to file to read for next section
+
+
+			 
 
 			//cout << "weight = " << weight << endl;
 
 			if (hit){
 				hit_count++;
 				sum += weight;
+
+				for (int i = 0; i < ph.size(); ++i)
+					phase_hit_file << scanner.ph_scan[i] << ' ';
+				phase_hit_file << (*scanner.idx_scan).generation << endl;
+			} else
+			{
+				for (int i = 0; i < ph.size(); ++i)
+					phase_miss_file << scanner.ph_scan[i] << ' ';
+				phase_miss_file << (*scanner.idx_scan).generation << endl;
 			}
+
+
 			tot_tries++;
 		}
 
@@ -130,6 +175,8 @@ int main(int argc, char const *argv[])
 
 		printHitMissReport(scanner);
 	}
+	phase_hit_file.close();
+	phase_miss_file.close();
 
 
 

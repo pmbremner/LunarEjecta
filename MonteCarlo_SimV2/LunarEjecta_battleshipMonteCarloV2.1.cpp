@@ -10,33 +10,6 @@
 using namespace std;
 
 
-
-// struct scan
-// {
-// 	vector<double> ph;   // phase space center location
-// 	vector<double> dph;  // phase space width
-// 	double         prob_dens; // probability density in the phase space domain
-// 	int            lifetime;  // current lifetime of scan, in # of iterations
-// 	int            lt_dec;    // decrement amount applied to lifetime for each new iteration
-// 							  // if zero, the scan will live during the entire simulation
-// 	int            generation; // # of generation, base gen is 0 (which will be the search method, lt_dec = 0 usually)
-// };
-
-
-// struct radar_scanner
-// {
-// 	list<scan>           scan_props; // list of scan properties
-// 	list<scan>::iterator idx_scan;   // current scan sampled from
-// 	vector<double>       ph_scan;    // current scan phase space location
-// 	double               net_prob_dens; // net probability density of ph_scan
-
-// 	vector<long long unsigned> miss_count; // miss count for each generation
-// 	vector<long long unsigned> hit_count;  // hit count for each generation
-
-// 	double gen_zero_prob; // the alpha value, all other gens get 1-alpha 
-// 	double lifetime_rate; // value between 0 and 1, new loc lifetime based on old * this rate, if from gen zero, just inherit the lt
-// 	double dx_rate;       // value between 0 and 1, new loc dx based on old * this rate
-// }
 double errDens(double a, double b)
 {
 	return 0.;
@@ -126,7 +99,7 @@ double getLocalProbDens(radar_scanner &rs, vector<double> &ph_min, vector<double
 
 double getNetProbDens(radar_scanner &rs)
 {
-	rs.net_prob_dens = 0.;
+	double dens = 0.;
 	bool flag_domain;
 	int Nscan = rs.scan_props.size(), j;
 	int Ndim = rs.ph_scan.size();
@@ -144,11 +117,11 @@ double getNetProbDens(radar_scanner &rs)
 
 		// if in domain, count the probability density
 		if (flag_domain)
-			rs.net_prob_dens += (*itr).prob_dens / (itr != rs.scan_props.begin() ? double(Nscan-1.) : 1.);
+			dens += (*itr).prob_dens / (itr != rs.scan_props.begin() ? double(Nscan-1.) : 1.);
 
-		//cout << "net_prob_dens = " << rs.net_prob_dens << endl;
+		//cout << "dens = " << dens << endl;
 	}
-	return rs.net_prob_dens;
+	return dens;
 }
 
 
@@ -228,7 +201,6 @@ void initRadar(radar_scanner &rs, int N_max, double alpha, int lt_max, double lt
 
 	rs.N_max         = N_max;
 	rs.gen_zero_prob = alpha;
-	rs.max_lifetime  = lt_max;
 	rs.lifetime_rate = lt_rate;
 	rs.dx_rate       = dx_rate;
 
@@ -252,6 +224,24 @@ inline double uniform(mt19937& rng, double a, double b){
 // returns an int from a to b-1
 inline int uniformInt(mt19937& rng, int a, int b){
 	return int(floor(a + (b - a) * rng() / double(rng.max()+1.)));
+}
+
+void uniformLatLon(mt19937& rng, vector<double> &lat_lon, vector<double> &lat_lon_cart, double r, double lat_min, double lat_max, double lon_min, double lon_max)
+{
+	// force an empty vector
+	lat_lon.clear();
+	lat_lon_cart.clear();
+
+	// generate sampled lat over range
+	double U_min = (cos(lat_max + PI/2.) + 1.) / 2.;
+	double U_max = (cos(lat_min + PI/2.) + 1.) / 2.;
+
+	lat_lon.push_back( acos( 2.*uniform(rng, U_min, U_max) - 1. ) - PI/2.); // lat point, rad
+	lat_lon.push_back( uniform(rng, lon_min, lon_max) ); // lon point, rad
+
+	lat_lon_cart.push_back( r * sin(PI/2. - lat_lon[0]) * cos(lat_lon[1]) ); // x
+	lat_lon_cart.push_back( r * sin(PI/2. - lat_lon[0]) * sin(lat_lon[1]) ); // y
+	lat_lon_cart.push_back( r * cos(PI/2. - lat_lon[0]) );                   // z
 }
 
 // THIS FUNCTION IS NOT WORKING, using advance instead
@@ -369,15 +359,16 @@ void tallyScan(radar_scanner &rs, bool hit)
 	if (hit)
 	{
 
-		// give extra life if the hit rate is near 60%, randomly
-		if (rs.idx_scan != rs.idx_search && total_scans_in_gen > 0 && 1. - 3.*fabs(rs.hit_count[cur_gen] / total_scans_in_gen - 0.60) >= uniform(rs.rng, 0., 1.) )
+		//give extra life if the hit rate is near 50%, randomly
+		if (rs.idx_scan != rs.idx_search && total_scans_in_gen > 0 && 1. - 2.*fabs(rs.hit_count[cur_gen] / total_scans_in_gen - 0.50) >= uniform(rs.rng, 0., 1.) )
 			(*rs.idx_scan).lifetime += 2. * rs.max_lifetime / 200.;
 
 		// if too densly populated, remove life
 		if (rs.idx_scan != rs.idx_search && log10((*rs.idx_search).prob_dens / rs.net_prob_dens) <= uniform(rs.rng, -5., 0.) )
 			(*rs.idx_scan).lifetime -= 5. * rs.max_lifetime / 200.;
-		// else if(rs.idx_scan != rs.idx_search)
-		//  	(*rs.idx_scan).lifetime += 1;
+		// // else if(rs.idx_scan != rs.idx_search)
+		// //  	(*rs.idx_scan).lifetime += 1;
+
 
 		// tally the hit in the current gen
 		rs.hit_count[cur_gen]++;
@@ -385,8 +376,8 @@ void tallyScan(radar_scanner &rs, bool hit)
 		// create new scan point
 		// set up dph, dfactor gets a boast going from gen 0 to 1, helps with making dph small enough to be efficient
 		vector<double> dph = (*rs.idx_scan).dph;
-		//double dfactor = (cur_gen == 0 ? pow(rs.dx_rate, 5) : rs.dx_rate);
-		double dfactor = rs.dx_rate;
+		//double dfactor = (cur_gen == 0 ? pow(rs.dx_rate, 2) : rs.dx_rate);
+		double dfactor =  rs.dx_rate;
 
 		for (int i = 0; i < dph.size(); ++i)
 			dph[i] *= dfactor;
@@ -404,10 +395,6 @@ void tallyScan(radar_scanner &rs, bool hit)
 	}
 	else // miss
 	{
-		// remove life if there's a miss, randomly
-		// if (uniform(rs.rng, 0., 1.) < 0.5)
-		// 	(*rs.idx_scan).lifetime --;
-
 		// tally the miss in the current gen
 		rs.miss_count[cur_gen]++;
 	}
