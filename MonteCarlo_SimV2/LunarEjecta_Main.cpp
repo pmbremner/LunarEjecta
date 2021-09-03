@@ -1,13 +1,18 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
 #include "LunarEjecta_battleshipMonteCarloV2.h"
+
+#include "LunarEjecta_track.h"
+#include "LunarEjecta_asset.h"
+
 // #include "LunarEjecta_scalinglaw.h"
 // #include "LunarEjecta_bearingdistmap.h"
 // #include "LunarEjecta_secondaryejecta.h"
 
 using namespace std;
 
- // g++ -O2 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarloV2.cpp -o ejecta.exe
+ // g++ -O2 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarloV2.1.cpp -o ejecta.exe
+ // g++ -O2 -std=c++17 LunarEjecta_Main.cpp LunarEjecta_params.cpp LunarEjecta_igloo.cpp LunarEjecta_battleshipMonteCarloV2.1.cpp LunarEjecta_track.cpp LunarEjecta_asset.cpp -o ejecta.exe
 
 int main(int argc, char const *argv[])
 {
@@ -116,6 +121,7 @@ int main(int argc, char const *argv[])
 
 		while (hit_count < params->N_hit && tot_tries < params->N_max)
 		{
+
 			// randomly pull lat-lon position in lat-lon region, in terms of rad and cartesian meters
 			uniformLatLon(scanner.rng,
 				          loc_latlon, // rad
@@ -142,6 +148,9 @@ int main(int argc, char const *argv[])
 			//hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
 
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
+
+			// check if the particle trajectory hits the asset or the moon/out of bounds (i.e., a miss)
+
 
 			tallyScan(scanner, hit);
 

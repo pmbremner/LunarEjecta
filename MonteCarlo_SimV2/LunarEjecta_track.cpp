@@ -1,9 +1,40 @@
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_track.h"
+#include "LunarEjecta_asset.h"
 
 using namespace std;
 
-void grav_a(double& ax, double& ay, double& az, double x, double y, double z)
+void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, double v0, double w0, double h, double dx0)
+{
+	tv.x0 = x0;
+	tv.y0 = y0;
+	tv.z0 = z0;
+	tv.u0 = u0;
+	tv.v0 = v0;
+	tv.w0 = w0;
+	tv.xi = x0;
+	tv.yi = y0;
+	tv.zi = z0;
+	tv.ui = u0;
+	tv.vi = v0;
+	tv.wi = w0;
+
+	tv.h = h;
+	tv.dxmin = dx0;
+
+	// if(VERBOSE_INIT > 1){
+	// 	cout << "Initializing trackVars paramerters:\n";
+	// 	cout << "  x0 = " << x0 << " m\n";
+	// 	cout << "  y0 = " << y0 << " m\n";
+	// 	cout << "  z0 = " << z0 << " m\n";
+	// 	cout << "  u0 = " << u0 << " m/s\n";
+	// 	cout << "  v0 = " << v0 << " m/s\n";
+	// 	cout << "  w0 = " << w0 << " m/s\n";
+	// 	cout << "  h  = " << h << " s\n\n"; 
+	// }
+}
+
+void grav_a(double& ax, double& ay, double& az, double x, double y, double z, double Rm, double gm)
 {
 	double grav_coeff = -gm * sqr(Rm) * pow(mag2(x, y, z), -1.5);
 
@@ -15,7 +46,9 @@ void grav_a(double& ax, double& ay, double& az, double x, double y, double z)
 // see https://math.okstate.edu/people/yqwang/teaching/math4513_fall11/Notes/rungekutta.pdf
 void RK45UpdatePosVel(trackVars& t,
 	                  RK45VarsPosVel& r,
-	                  const double c[][6], asset_geometry& ag)
+	                  const double c[][6], asset& ag,
+	                  double Rm,
+	                  double gm)
 {
 	int i, j;
 	double ax, ay, az, rcur, xcur, ycur, zcur, vcur, ucur, wcur, maxR;
@@ -44,7 +77,7 @@ void RK45UpdatePosVel(trackVars& t,
 			r.ky[i] *= t.h;
 			r.kz[i] *= t.h;
 
-			grav_a(ax, ay, az, xcur, ycur, zcur);
+			grav_a(ax, ay, az, xcur, ycur, zcur, Rm, gm);
 
 			r.ku[i] = t.h * ax;
 			r.kv[i] = t.h * ay;
@@ -82,33 +115,43 @@ void RK45UpdatePosVel(trackVars& t,
 		t.h *= (maxR > 0.0 ? 0.84 * pow(EPS / maxR, 0.25) : 1.2);
 
 
-		c_x0 = sin(ll.distance/Rm);
-		c_z0 = cos(ll.distance/Rm);
+		// Check if within boundary sphere
 
-		//t_dot_c = t.xi * c_x0 + t.zi * c_z0;
 
-		// height of traj wrt cylinder
-		//ht = t_dot_c - Rm;
+		// If outside sphere limit dt to slighlty half of distance to sphere
 
-		// cylindrical radius wrt cylinder
-		//st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
 
-		rt = (mag_s(t.xi - c_x0*Rm, 0.0, t.zi - c_z0*Rm) - 0.9*ll.radius)/10.;
+		// If inside sphere, limit dt to a few percent of the boundary sphere size
 
-		dt_temp = rt / mag_s(t.ui, t.vi, t.wi);
 
-		t.h = (dt_temp < t.h ? dt_temp : t.h);
 
-		if(DEBUG > 1){
-			cout << "Rx = " << r.Rx << endl;
-			cout << "Ry = " << r.Ry << endl;
-			cout << "Rz = " << r.Rz << endl;
-			cout << "Ru = " << r.Ru << endl;
-			cout << "Rv = " << r.Rv << endl;
-			cout << "Rw = " << r.Rw << endl;
-			cout << "timestep = " << t.h << endl;
-			cout << "maxR = " << maxR << ' ' << EPS << endl << endl;
-		}
+		// c_x0 = sin(ll.distance/Rm);
+		// c_z0 = cos(ll.distance/Rm);
+
+		// //t_dot_c = t.xi * c_x0 + t.zi * c_z0;
+
+		// // height of traj wrt cylinder
+		// //ht = t_dot_c - Rm;
+
+		// // cylindrical radius wrt cylinder
+		// //st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
+
+		// rt = (mag_s(t.xi - c_x0*Rm, 0.0, t.zi - c_z0*Rm) - 0.9*ll.radius)/10.;
+
+		// dt_temp = rt / mag_s(t.ui, t.vi, t.wi);
+
+		// t.h = (dt_temp < t.h ? dt_temp : t.h);
+
+		// if(DEBUG > 1){
+		// 	cout << "Rx = " << r.Rx << endl;
+		// 	cout << "Ry = " << r.Ry << endl;
+		// 	cout << "Rz = " << r.Rz << endl;
+		// 	cout << "Ru = " << r.Ru << endl;
+		// 	cout << "Rv = " << r.Rv << endl;
+		// 	cout << "Rw = " << r.Rw << endl;
+		// 	cout << "timestep = " << t.h << endl;
+		// 	cout << "maxR = " << maxR << ' ' << EPS << endl << endl;
+		// }
 
 	} while(maxR > EPS);
 
@@ -120,45 +163,122 @@ void RK45UpdatePosVel(trackVars& t,
 	t.vi = r.vi1[0];
 	t.wi = r.wi1[0];
 
-	if(DEBUG > 1) {
-		cout << "xi = " << t.xi << endl;
-		cout << "yi = " << t.yi << endl;
-		cout << "zi = " << t.zi << endl;
-		cout << "ui = " << t.ui << endl;
-		cout << "vi = " << t.vi << endl;
-		cout << "wi = " << t.wi << endl << endl;
+	// if(DEBUG > 1) {
+	// 	cout << "xi = " << t.xi << endl;
+	// 	cout << "yi = " << t.yi << endl;
+	// 	cout << "zi = " << t.zi << endl;
+	// 	cout << "ui = " << t.ui << endl;
+	// 	cout << "vi = " << t.vi << endl;
+	// 	cout << "wi = " << t.wi << endl << endl;
+	// }
+}
+
+
+
+// void printTrack(ofstream& file, trackVars& tv, sums& s)
+// {
+// 	double speed = mag_s(tv.u0, 0.0, tv.w0) / vesc; // units of escape speed
+// 	double zang = atan2(tv.u0, tv.w0);
+// 	double dist = (zang > 0. ? atan2(tv.xi, tv.zi) : 2.*PI - atan2(tv.xi, tv.zi)); // units of lunar radius
+// 	file << scientific << setprecision(14) << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang
+// 		 << ' ' << s.sum_miss << ' ' << s.sum_hit << ' ' << s.N_miss << ' ' << s.N_hit << endl;
+// }
+
+bool checkCollision(trackVars& t, asset& ag)
+{
+	// double t_dot_c;
+
+	// double c_x0 = sin(c.distance/Rm);
+	// double c_z0 = cos(c.distance/Rm);
+
+	// t_dot_c = t.xi * c_x0 + t.zi * c_z0;
+
+	// // height of traj wrt cylinder
+	// double ht = t_dot_c - Rm;
+
+	// // cylindrical radius wrt cylinder
+	// double st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
+
+	// //cout << "ht = " << ht << " | st = " << st << endl;
+
+	// if (ht > 0. && ht <= c.height && st <= c.radius)
+	// 	return 1;
+	return 0;
+}
+
+void unpackFinalLoc(trackVars& track_i, vector<double> &loc_f)
+{
+	loc_f.clear();
+	loc_f[0] = track_i.xi;
+	loc_f[1] = track_i.yi;
+	loc_f[2] = track_i.zi;
+}
+
+
+void unpackFinalPh(trackVars& track_i, vector<double> &ph_f)
+{
+	ph_f.clear();
+	ph_f[0] = track_i.ui;
+	ph_f[1] = track_i.vi;
+	ph_f[2] = track_i.wi;
+}
+
+
+// loc = physical location in global cartesian coordinates
+// ph  = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
+// 
+bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm)
+{
+	// init track and RK45 vars
+	RK45VarsPosVel RK45Vars;
+	trackVars track_i;
+	bool moon_hit_flag = 0, asset_hit_flag = 0, escape_flag = 0;
+
+	init_trackVars(track_i,
+	/* x0 */       loc[0], // m
+	/* y0 */       loc[1], // m
+	/* z0 */       loc[2], // m
+	/* u0 */       ph[0] * cos(ph[2]) * sin(ph[1]), // m/s
+	/* v0 */       ph[0] * sin(ph[2]) * sin(ph[1]), // m/s
+	/* w0 */       ph[0] * cos(ph[1]), // m/s
+	/* h  */       1e-4, // initial dt, s
+	/* dxmin */    -1.); // not used at the moment
+
+
+	/// step through trajectory
+	while (1)
+	{
+		// update position and velocity
+		RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, ag, Rm, gm);
+
+		// check for collision with moon
+		moon_hit_flag  = check_collision_moon(Rm, track_i.xi, track_i.yi, track_i.zi);
+
+		if (moon_hit_flag){
+			unpackFinalLoc(track_i, loc_f);
+			unpackFinalPh(track_i, ph_f);
+			return 0; // missed asset
+		}
+
+		// if speed greater than escape speed and position is beyond asset origin + sphere boundary
+		escape_flag    = check_escape(ag, vesc, track_i.xi, track_i.yi, track_i.zi, track_i.ui, track_i.vi, track_i.wi);
+
+		if (escape_flag){
+			unpackFinalLoc(track_i, loc_f);
+			unpackFinalPh(track_i, ph_f);
+			return 0; // missed asset, won't return to hit moon
+		}
+
+		// if pos is outside boundary radius, don't check asset, otherwise check asset
+		asset_hit_flag = check_collision_asset(ag, track_i.xi, track_i.yi, track_i.zi);
+
+		if (asset_hit_flag){
+			unpackFinalLoc(track_i, loc_f);
+			unpackFinalPh(track_i, ph_f);
+			return 1; // hit the asset
+		}
 	}
-}
+	
 
-
-
-void printTrack(ofstream& file, trackVars& tv, sums& s)
-{
-	double speed = mag_s(tv.u0, 0.0, tv.w0) / vesc; // units of escape speed
-	double zang = atan2(tv.u0, tv.w0);
-	double dist = (zang > 0. ? atan2(tv.xi, tv.zi) : 2.*PI - atan2(tv.xi, tv.zi)); // units of lunar radius
-	file << scientific << setprecision(14) << tv.xi  << ' ' << tv.zi << ' ' << dist << ' ' << speed << ' ' << zang
-		 << ' ' << s.sum_miss << ' ' << s.sum_hit << ' ' << s.N_miss << ' ' << s.N_hit << endl;
-}
-
-bool checkCollision(trackVars& t, asset_geometry& ag)
-{
-	double t_dot_c;
-
-	double c_x0 = sin(c.distance/Rm);
-	double c_z0 = cos(c.distance/Rm);
-
-	t_dot_c = t.xi * c_x0 + t.zi * c_z0;
-
-	// height of traj wrt cylinder
-	double ht = t_dot_c - Rm;
-
-	// cylindrical radius wrt cylinder
-	double st = mag_s(t.xi - t_dot_c * c_x0, 0., t.zi - t_dot_c * c_z0);
-
-	//cout << "ht = " << ht << " | st = " << st << endl;
-
-	if (ht > 0. && ht <= c.height && st <= c.radius)
-		return 1;
 	return 0;
 }

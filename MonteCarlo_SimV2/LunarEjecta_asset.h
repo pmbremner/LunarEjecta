@@ -93,9 +93,11 @@ bool check_collision_cylinder(cylinder &cy,     vec3 &pos);
 bool check_collision_sphere(sphere &sp,         vec3 &pos);
 
 // loops through each shape of the asset to check collisions, will stop early if collision detected
-bool check_collision_asset(asset &a, vec3 &pos);
+bool check_collision_asset(asset &a, double x, double y, double z);
 
+bool check_collision_moon(double r, double x, double y, double z);
 
+bool check_escape(asset &a, double vesc, double x, double y, double z, double u, double v, double w);
 
 
 #endif 

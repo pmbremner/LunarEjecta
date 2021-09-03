@@ -17,14 +17,6 @@ const double PI = 3.141592653589793238462643383279502884197169399375105820974944
 enum primaryFluxType{HiDensMEM, LoDensMEM, NEO, secEjecta};
 enum ejectaDistanceType{ejectaShort, ejectaFar};
 
-// inline functions must be defined in the header
-inline double sqr(double x) {return x*x;}
-inline double min(double a, double b) {return (a < b ? a : b);}
-inline double max(double a, double b) {return (a > b ? a : b);}
-inline double mag_s(double x, double y, double z) {return sqrt(sqr(x) + sqr(y) + sqr(z));}
-inline double mag2(double x, double y, double z) {return sqr(x) + sqr(y) + sqr(z);}
-
-
 struct vec3
 {
 	double x[3];
@@ -34,6 +26,18 @@ struct mat3x3
 {
 	vec3 col[3];
 };
+
+// inline functions must be defined in the header
+inline double sqr(double x) {return x*x;}
+inline double min(double a, double b) {return (a < b ? a : b);}
+inline double max(double a, double b) {return (a > b ? a : b);}
+inline double mag_s(double x, double y, double z) {return sqrt(sqr(x) + sqr(y) + sqr(z));}
+inline double mag2(double x, double y, double z) {return sqr(x) + sqr(y) + sqr(z);}
+
+inline double mag_s(vec3& v) { return mag_s(v.x[0], v.x[1], v.x[2]);}
+inline double mag2(vec3& v)  { return mag2(v.x[0], v.x[1], v.x[2]);}
+
+
 
 double Beta(double a, double b);
 

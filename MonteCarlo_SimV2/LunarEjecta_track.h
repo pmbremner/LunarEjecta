@@ -7,6 +7,8 @@
 
 using namespace std;
 
+const double EPS = 1.E-4;
+
 struct trackVars
 {
 	double x0;
@@ -32,35 +34,10 @@ struct trackVars
 	double dxmin; // minimum distance
 };
 
-void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, double v0, double w0, double h, double dx0)
-{
-	tv.x0 = x0;
-	tv.y0 = y0;
-	tv.z0 = z0;
-	tv.u0 = u0;
-	tv.v0 = v0;
-	tv.w0 = w0;
-	tv.xi = x0;
-	tv.yi = y0;
-	tv.zi = z0;
-	tv.ui = u0;
-	tv.vi = v0;
-	tv.wi = w0;
+void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, double v0, double w0, double h, double dx0);
 
-	tv.h = h;
-	tv.dxmin = dx0;
-
-	// if(VERBOSE_INIT > 1){
-	// 	cout << "Initializing trackVars paramerters:\n";
-	// 	cout << "  x0 = " << x0 << " m\n";
-	// 	cout << "  y0 = " << y0 << " m\n";
-	// 	cout << "  z0 = " << z0 << " m\n";
-	// 	cout << "  u0 = " << u0 << " m/s\n";
-	// 	cout << "  v0 = " << v0 << " m/s\n";
-	// 	cout << "  w0 = " << w0 << " m/s\n";
-	// 	cout << "  h  = " << h << " s\n\n"; 
-	// }
-}
+void unpackFinalLoc(trackVars& track_i, vector<double> &loc_f);
+void unpackFinalPh(trackVars& track_i, vector<double> &ph_f);
 
 
 // doesn't need to be initialized. Overridden during runtime
@@ -114,17 +91,21 @@ void grav_a(double& ax, double& ay, double& az, double x, double y, double z);
 // Used to update the track by one time step
 void RK45UpdatePosVel(trackVars& t,
 	                  RK45VarsPosVel& r,
-	                  const double c[][6], asset_geometry& ag);
+	                  const double c[][6], asset& ag,
+	                  double Rm,
+	                  double gm);
 
-void printTrack(ofstream& file, trackVars& tv, sums& s);
+//void printTrack(ofstream& file, trackVars& tv, sums& s);
 
 // After each step update, a collision check is made
 // First, we check if the track is within a certain radius,
 // if so, then we further check each asset shape against the track location
-bool checkCollision(trackVars& t, asset_geometry& ag);
+bool checkCollision(trackVars& t, asset& ag);
 
-// To be passed to the BMC makeShotAndTally function
-// loc = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
-bool checkEjectaHitAsset(vec3 &loc, asset_geometry& ag);
+
+// loc = physical location in global cartesian coordinates
+// ph  = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
+// 
+bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm);
 
 #endif 
