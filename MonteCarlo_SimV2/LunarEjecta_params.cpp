@@ -131,6 +131,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 	p->lunar_radius = 1737.4E3; // m (suggested by NESC)
 	p->lunar_escape_speed = 2.38E3; // m/s
+	p->lunar_acceleration = 1.625;    // m/s^2 at Moon's surface
 
 	p->MEM_hiDens_mu    = 8.241; // log_e (not log_10)
 	p->MEM_hiDens_sigma = 0.214;

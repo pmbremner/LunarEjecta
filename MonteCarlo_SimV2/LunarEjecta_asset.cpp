@@ -13,6 +13,11 @@ using namespace std;
 // };
 
 
+void init_asset(asset &a, string fn)
+{
+
+}
+
 
 //// Helper functions
 // prod_m = left_m * right_m

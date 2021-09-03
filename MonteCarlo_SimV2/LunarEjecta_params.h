@@ -128,6 +128,7 @@ struct input
 	/////////////////////////////
 	double lunar_radius; // m
 	double lunar_escape_speed; // m/s
+	double lunar_acceleration; // m/s^2
 	/////////////////////////////
 	double ROI_radius;   // km
 	double ROI_lat; // rad

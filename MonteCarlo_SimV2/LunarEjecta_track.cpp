@@ -246,7 +246,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 
 
 	/// step through trajectory
-	while (1)
+	while (!(moon_hit_flag || escape_flag || asset_hit_flag))
 	{
 		// update position and velocity
 		RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, ag, Rm, gm);

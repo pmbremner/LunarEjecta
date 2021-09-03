@@ -13,12 +13,13 @@ In this section, the Battleship Monte Carlo (BMC) method is introduced. Various 
 
 The difficulty with changing the probability distribution function (PDF) every iteration, in terms of importance sampling, is that there needs to be a concise way to track this PDF and keep it normalized correctly. Starting with the definition of importance sampling, and without loss of generality, only working with 1 dimension,
 \begin{equation}
-\int_{x_{min}}^{x_{max}}f(x)dx \sim \sum_{i=0}^{N-1}\frac{f(x_i)}{\rho(x_i)} + \mathcal{O}(N^{-1/2}),
+\int_{x_{min}}^{x_{max}}f(x)dx \sim \sum_{i=0}^{N-1}\frac{f(x_i)}{\rho(x_i)} + \mathcal{O}(N^{-1/2}) \text{ as $N\to\infty$},
 \end{equation}
 where $x_i$ is pulled from the probability density function $\rho(x)$, given that
 \begin{equation}
 \int_{x_{min}}^{x_{max}}\rho(x)dx = 1.
 \end{equation}
+The strength in using Monte Carlo is the error term $\mathcal{O}(N^{-1/2})$ does not depend on the dimensionality of $x$, whereas a brute force method has an error term that depends on this dimensionality.
 
 \subsection{Dynamic Importance Sampling with Annealing}
 

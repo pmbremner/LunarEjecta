@@ -75,6 +75,13 @@ int main(int argc, char const *argv[])
 	phase_hit_file.open("phase_hit_file.txt");
 	phase_miss_file.open("phase_miss_file.txt");
 
+	// init asset
+	asset lunarLander;
+	string asset_fn = "asset_tallCylinder.txt";
+
+	init_asset(lunarLander, asset_fn);
+
+
 	// for each lat-lon location that the process is responsible for
 	for (params->latlon_idx_proc = 0; params->latlon_idx_proc < params->N_loc; params->latlon_idx_proc++)
 	{
@@ -89,12 +96,12 @@ int main(int argc, char const *argv[])
 		double weight, sum = 0.;
 
 		// Define the domain ranges
-		vector<double> ph, ph_i; // [speed (m/s), zenith (rad), azimuth (rad)]
+		vector<double> ph, ph_i, ph_f; // [speed (m/s), zenith (rad), azimuth (rad)]
 		vector<double> dph; // [speed (m/s), zenith (rad), azimuth (rad)]
 
 		// position of impact point in lat-lon region
 		vector<double> loc_latlon; // [lat (rad), lon (rad)]
-		vector<double> loc_cart;   // [x (m), y (m), z (m)]
+		vector<double> loc_cart, loc_f;   // [x (m), y (m), z (m)]
 
 		//// need to take into account vmin and vmax***
 		// ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
@@ -150,6 +157,7 @@ int main(int argc, char const *argv[])
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
 
 			// check if the particle trajectory hits the asset or the moon/out of bounds (i.e., a miss)
+			runTraj_checkHit(loc_cart, ph_i, loc_f, ph_f, lunarLander, params->lunar_radius, params->lunar_escape_speed, params->lunar_acceleration);
 
 
 			tallyScan(scanner, hit);
