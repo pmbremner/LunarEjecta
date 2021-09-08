@@ -18,4 +18,10 @@
 \BOOKMARK [1][-]{section.3}{Battleship Monte Carlo}{}% 18
 \BOOKMARK [2][-]{subsection.3.1}{Standard Importance Sampling}{section.3}% 19
 \BOOKMARK [2][-]{subsection.3.2}{Dynamic Importance Sampling with Annealing}{section.3}% 20
-\BOOKMARK [1][-]{section*.1}{References}{}% 21
+\BOOKMARK [1][-]{section.4}{Secondary Flux Environment}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Scaling Laws}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Ejecta Distribution}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Speed Distribution}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Zenith Distribution}{subsection.4.2}% 25
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Azimuth Distribution}{subsection.4.2}% 26
+\BOOKMARK [1][-]{section*.1}{References}{}% 27

@@ -11,21 +11,24 @@ There are three levels of coordinate systems, at the individual shape level (Sec
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Shapes}
-
+The asset can be defined by any number shapes with at least one shape chosen. Currently, the valid shapes that can be used are a sphere (Section \ref{sssec:Sphere}), cylinder (Section \ref{sssec:Cylinder}), or rectangular prism (Section \ref{sssec:RectangularPrism}). The basic shapes can be of any size, location, and orientation. The greater the number of shapes, the more collision checking must be done once inside the bounding sphere.
 
 
 
 \subsubsection{Sphere}
 \label{sssec:Sphere}
+The sphere is defined by only one parameter, the radius $r$. Rotations are obviously not necessary for the sphere due to rotational symmetry in both axes.
 
 
 \subsubsection{Cylinder}
 \label{sssec:Cylinder}
+The cylinder is defined by two parameters, the radius $s$ and the height $h$. Rotation about the z-axis of the cylinder is not necessary due to rotational symmetry about this axis.
 
 
 
 \subsubsection{Rectangular Prism}
 \label{sssec:RectangularPrism}
+The rectangular prism is the most generalized shape having three parameters, length~$x$, width $y$, and height $z$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

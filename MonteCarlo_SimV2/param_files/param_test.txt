@@ -28,9 +28,9 @@ N_bearing_POI# 10
 N_horizon_ROI# 18
 N_bearing_ROI# 72
 N_vel# 10
-# units of m/s
+# units of m/s 3600.
 vel_min# 100.
-vel_max# 3600.
+vel_max# 2000.
 ROI_sample_points# 400
 #
 # units of km

@@ -23,14 +23,14 @@ void init_trackVars(trackVars& tv, double x0, double y0, double z0, double u0, d
 	tv.dxmin = dx0;
 
 	// if(VERBOSE_INIT > 1){
-	// 	cout << "Initializing trackVars paramerters:\n";
-	// 	cout << "  x0 = " << x0 << " m\n";
-	// 	cout << "  y0 = " << y0 << " m\n";
-	// 	cout << "  z0 = " << z0 << " m\n";
-	// 	cout << "  u0 = " << u0 << " m/s\n";
-	// 	cout << "  v0 = " << v0 << " m/s\n";
-	// 	cout << "  w0 = " << w0 << " m/s\n";
-	// 	cout << "  h  = " << h << " s\n\n"; 
+		// cout << "Initializing trackVars paramerters:\n";
+		// cout << "  x0 = " << x0 << " m\n";
+		// cout << "  y0 = " << y0 << " m\n";
+		// cout << "  z0 = " << z0 << " m\n";
+		// cout << "  u0 = " << u0 << " m/s\n";
+		// cout << "  v0 = " << v0 << " m/s\n";
+		// cout << "  w0 = " << w0 << " m/s\n";
+		// cout << "  h  = " << h << " s\n\n"; 
 	// }
 }
 
@@ -107,9 +107,9 @@ void RK45UpdatePosVel(trackVars& t,
 		r.Rx = fabs(r.xi1[1] - r.xi1[0]) / t.h;
 		r.Ry = fabs(r.yi1[1] - r.yi1[0]) / t.h;
 		r.Rz = fabs(r.zi1[1] - r.zi1[0]) / t.h;
-		r.Ru = fabs(r.ui1[1] - r.ui1[0]) / t.h;
-		r.Rv = fabs(r.vi1[1] - r.vi1[0]) / t.h;
-		r.Rw = fabs(r.wi1[1] - r.wi1[0]) / t.h;
+		// r.Ru = fabs(r.ui1[1] - r.ui1[0]) / t.h;
+		// r.Rv = fabs(r.vi1[1] - r.vi1[0]) / t.h;
+		// r.Rw = fabs(r.wi1[1] - r.wi1[0]) / t.h;
 
 		maxR = max(max(r.Rx, r.Ry), r.Rz);
 		t.h *= (maxR > 0.0 ? 0.84 * pow(EPS / maxR, 0.25) : 1.2);
@@ -209,18 +209,18 @@ bool checkCollision(trackVars& t, asset& ag)
 void unpackFinalLoc(trackVars& track_i, vector<double> &loc_f)
 {
 	loc_f.clear();
-	loc_f[0] = track_i.xi;
-	loc_f[1] = track_i.yi;
-	loc_f[2] = track_i.zi;
+	loc_f.push_back(track_i.xi);
+	loc_f.push_back(track_i.yi);
+	loc_f.push_back(track_i.zi);
 }
 
 
 void unpackFinalPh(trackVars& track_i, vector<double> &ph_f)
 {
 	ph_f.clear();
-	ph_f[0] = track_i.ui;
-	ph_f[1] = track_i.vi;
-	ph_f[2] = track_i.wi;
+	ph_f.push_back(track_i.ui);
+	ph_f.push_back(track_i.vi);
+	ph_f.push_back(track_i.wi);
 }
 
 
@@ -234,13 +234,30 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 	trackVars track_i;
 	bool moon_hit_flag = 0, asset_hit_flag = 0, escape_flag = 0;
 
+	// define velocity vector and init
+	// vel_before_rot = velocity as if at the north pole
+	// rot_m = rotation matrix to move velocity vectory from pole to lat-lon location
+	// vel_after_rot = velocity in the local frame at the lat-lon location
+	mat3x3 rot_m;
+	vec3 vel_before_rot, vel_after_rot;
+	vel_before_rot.x[0] = ph[0] * cos(ph[2]) * sin(ph[1]);
+	vel_before_rot.x[1] = ph[0] * sin(ph[2]) * sin(ph[1]);
+	vel_before_rot.x[2] = ph[0] * cos(ph[1]);
+
+	h_rot_m_from_angs( rot_m, atan2(sqrt(sqr(loc[0]) + sqr(loc[1])), loc[2]), atan2(loc[1], loc[0]) );
+
+	h_matrix_vector_multiply(vel_after_rot, rot_m, vel_before_rot);
+
+
+	//cout << " vel mag before and after rot = " << mag_s(vel_before_rot) << " | " << mag_s(vel_after_rot) << endl;
+
 	init_trackVars(track_i,
 	/* x0 */       loc[0], // m
 	/* y0 */       loc[1], // m
 	/* z0 */       loc[2], // m
-	/* u0 */       ph[0] * cos(ph[2]) * sin(ph[1]), // m/s
-	/* v0 */       ph[0] * sin(ph[2]) * sin(ph[1]), // m/s
-	/* w0 */       ph[0] * cos(ph[1]), // m/s
+	/* u0 */       vel_after_rot.x[0], // m/s
+	/* v0 */       vel_after_rot.x[1], // m/s
+	/* w0 */       vel_after_rot.x[2], // m/s
 	/* h  */       1e-4, // initial dt, s
 	/* dxmin */    -1.); // not used at the moment
 
@@ -250,6 +267,8 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 	{
 		// update position and velocity
 		RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, ag, Rm, gm);
+		//cout.precision(12);
+		//cout <<  track_i.xi/Rm << ' ' << track_i.yi/Rm << ' ' << track_i.zi/Rm << ' ' << track_i.h << endl;
 
 		// check for collision with moon
 		moon_hit_flag  = check_collision_moon(Rm, track_i.xi, track_i.yi, track_i.zi);
@@ -261,7 +280,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 		}
 
 		// if speed greater than escape speed and position is beyond asset origin + sphere boundary
-		escape_flag    = check_escape(ag, vesc, track_i.xi, track_i.yi, track_i.zi, track_i.ui, track_i.vi, track_i.wi);
+		//escape_flag    = check_escape(ag, vesc, track_i.xi, track_i.yi, track_i.zi, track_i.ui, track_i.vi, track_i.wi);
 
 		if (escape_flag){
 			unpackFinalLoc(track_i, loc_f);
@@ -270,7 +289,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 		}
 
 		// if pos is outside boundary radius, don't check asset, otherwise check asset
-		asset_hit_flag = check_collision_asset(ag, track_i.xi, track_i.yi, track_i.zi);
+		//asset_hit_flag = check_collision_asset(ag, track_i.xi, track_i.yi, track_i.zi);
 
 		if (asset_hit_flag){
 			unpackFinalLoc(track_i, loc_f);

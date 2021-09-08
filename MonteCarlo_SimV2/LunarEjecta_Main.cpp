@@ -63,13 +63,13 @@ int main(int argc, char const *argv[])
 	}
 
 	vector<int> func_ID;
-	// func_ID.push_back(0); // speed, const
-	// func_ID.push_back(1); // zenith, sin
-	// func_ID.push_back(0); // azimuth, const
+	func_ID.push_back(0); // speed, const
+	func_ID.push_back(1); // zenith, sin
+	func_ID.push_back(0); // azimuth, const
 
 	//// test
-	func_ID.push_back(0);
-	func_ID.push_back(0);
+	// func_ID.push_back(0);
+	// func_ID.push_back(0);
 
 	ofstream phase_hit_file, phase_miss_file;
 	phase_hit_file.open("phase_hit_file.txt");
@@ -104,19 +104,19 @@ int main(int argc, char const *argv[])
 		vector<double> loc_cart, loc_f;   // [x (m), y (m), z (m)]
 
 		//// need to take into account vmin and vmax***
-		// ph.push_back(0.5 * params->lunar_escape_speed); // center of speed range
-		// ph.push_back(0.);  // center of zenith range
-		// ph.push_back(0.);  // center of azimuth range
+		ph.push_back(0.5 * (params->vel_min + params->vel_max) ); // center of speed range
+		ph.push_back(PI/4.);  // center of zenith range
+		ph.push_back(PI);  // center of azimuth range
 
-		// dph.push_back(params->lunar_escape_speed);  // center of speed range
-		// dph.push_back(PI);  // center of zenith range
-		// dph.push_back(PI);  // center of azimuth range
+		dph.push_back(params->vel_max - params->vel_min);  // length of speed range
+		dph.push_back(PI/2.);  // length of zenith range
+		dph.push_back(2.*PI);  // length of azimuth range
 
 		//// test
-		ph.push_back(0.);
-		ph.push_back(0.);
-		dph.push_back(20.);
-		dph.push_back(20.);
+		// ph.push_back(0.);
+		// ph.push_back(0.);
+		// dph.push_back(20.);
+		// dph.push_back(20.);
 
 
 		radar_scanner scanner;

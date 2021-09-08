@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  3 SEP 2021 15:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  8 SEP 2021 15:33
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1008,56 +1008,60 @@ your preamble.
  on input line 76.
 
 \docmute@nestinglevel=\count334
-(LunarMeteoroidEjectaEngineeringModel.toc)
+(LunarMeteoroidEjectaEngineeringModel.toc [1
+
+{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
 \tf@toc=\write6
 \openout6 = `LunarMeteoroidEjectaEngineeringModel.toc'.
 
-
-(LunarMeteoroidEjectaEngineeringModel.lof)
+ (LunarMeteoroidEjectaEngineeringModel.lof)
 \tf@lof=\write7
 \openout7 = `LunarMeteoroidEjectaEngineeringModel.lof'.
-
 
 (LunarMeteoroidEjectaEngineeringModel.lot)
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
- [1
-
-{C:/Users/AMD-Y500/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 83.
  [2] (PrimaryFluxEnvironment.tex)
-(GeometryAndCoordinates.tex) (BattleshipMonteCarlo.tex [1
+(GeometryAndCoordinates.tex [1
 
-] [2]
+]
+Overfull \hbox (4.76317pt too wide) in paragraph at lines 31--32
+\OT1/phv/m/n/10 The rect-an-gu-lar prism is the most gen-er-al-ized shape hav-i
+ng three pa-ram-e-ters, length $\OML/cmm/m/it/10 x$\OT1/phv/m/n/10 ,
+ []
+
+) (BattleshipMonteCarlo.tex [2]
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6
 2.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-[3]) [4] (LunarMeteoroidEjectaEngineeringModel.bbl
+[3]) (SecondaryFluxEnvironment.tex) [4]
+(LunarMeteoroidEjectaEngineeringModel.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
 ) [5
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
  (LunarMeteoroidEjectaEngineeringModel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 123ED1DC93FEEE340DC7EBAC35FB0523;1447.
+(rerunfilecheck)             Checksum: 0001BDBC77F24311B6CE30CC7160C163;1877.
  ) 
 Here is how much of TeX's memory you used:
- 32091 strings out of 480799
- 736740 string characters out of 2905519
+ 32107 strings out of 480799
+ 737110 string characters out of 2905519
  1133794 words of memory out of 3000000
- 47486 multiletter control sequences out of 15000+200000
+ 47493 multiletter control sequences out of 15000+200000
  556253 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,12n,98p,1289b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1077,10 +1081,10 @@ msfonts/cm/cmsy10.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1
 /urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/ty
 pe1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts
 /type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 149523 byt
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 155746 byt
 es).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 295 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
