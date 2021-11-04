@@ -5,7 +5,6 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <cmath>
 #include <stdlib.h>     /* srand, rand */
 
@@ -121,6 +120,9 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 	p->N_proc = N_proc;
 	p->i_proc = i_proc;
+
+	cout << "--------------------------------\n";
+	cout << "Reading... " << param_fn << endl;
 
 	//////////////////////
 	// Default parameters
@@ -274,7 +276,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "vel_max", p->vel_max, 0);
 	//getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
 
-
+	cout << "--------------------------------\n";
 	return p;
 }
 

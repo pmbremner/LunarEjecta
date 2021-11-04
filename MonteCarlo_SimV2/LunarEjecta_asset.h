@@ -46,10 +46,10 @@ struct sphere : shape
 
 struct asset
 {
-	unsigned int N_shapes; // number of shapes that define the asset
+	int N_shapes; // number of shapes that define the asset
 	
-	vector<unsigned int> shapes; // id of shape, 0 = sphere, 1 = cylinder, 2 = rect_prism
-	vector<unsigned int> shape_idx; // index of particular shape in the sphere, cylinder, or rect_prism vectors
+	vector<int> shapes; // id of shape, 0 = sphere, 1 = cylinder, 2 = rect_prism
+	vector<int> shape_idx; // index of particular shape in the sphere, cylinder, or rect_prism vectors
 
 	vector<sphere> sp;
 	vector<cylinder> cy;
@@ -81,6 +81,9 @@ void h_rot_m_from_angs(mat3x3 &rot_m, double theta, double phi);
 void h_rot_m_from_ang_axis(mat3x3 &rot_m, double alpha, vec3 &u);
 // wrt to asset axes, u and v
 void h_rot_m_from_angs_axes(mat3x3 &rot_m, double alpha, vec3 &u, double beta, vec3 &v);
+
+
+
 
 // read asset definition from file and initialize the asset data, compute shape rot_m
 void init_asset(asset &a, string asset_fn);

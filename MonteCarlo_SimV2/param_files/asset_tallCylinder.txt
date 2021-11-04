@@ -1,0 +1,7 @@
+# Total number of shapes and number of each shape separately
+N_shapes# 1
+N_sphere# 0
+N_cylinder# 1
+N_rect_prism# 0
+
+

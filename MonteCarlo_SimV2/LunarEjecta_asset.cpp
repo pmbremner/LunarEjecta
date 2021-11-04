@@ -15,7 +15,12 @@ using namespace std;
 
 void init_asset(asset &a, string fn)
 {
+	cout << "--------------------------------\n";
+	cout << "Reading... " << fn << endl;
 
+	getParam(fn, "N_shapes", a.N_shapes, 0);
+
+	cout << "--------------------------------\n";
 }
 
 
