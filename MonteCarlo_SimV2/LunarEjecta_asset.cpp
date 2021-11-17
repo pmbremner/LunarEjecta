@@ -15,10 +15,90 @@ using namespace std;
 
 void init_asset(asset &a, string fn)
 {
+	int N_sphere, N_cylinder, N_rect_prism, i, n;
+	double asset_lon, asset_lat, asset_height;
+
 	cout << "--------------------------------\n";
 	cout << "Reading... " << fn << endl;
 
-	getParam(fn, "N_shapes", a.N_shapes, 0);
+	//getParam(fn, "N_shapes", a.N_shapes, 0);
+	
+	getParam(fn, "asset_lat", asset_lat, 0);
+	getParam(fn, "asset_lon", asset_lon, 0);
+	getParam(fn, "asset_height", asset_height, 0);
+ 
+	// get asset orientation 
+	getParam(fn, "orientation", a.orientation, 0);
+
+	if (a.orientation == 1)
+	{ // z axis is user defined wrt global frame
+		getParam(fn, "z_axis_tilt_theta", a.z_axis_tilt_theta, 0);
+		getParam(fn, "z_axis_tilt_phi", a.z_axis_tilt_phi, 0);
+
+
+	}
+	else if (a.orientation == 2)
+	{ // z axis is user defined wrt local surface plane
+		getParam(fn, "z_axis_tilt_theta", a.z_axis_tilt_theta, 0);
+		getParam(fn, "z_axis_tilt_phi", a.z_axis_tilt_phi, 0);
+
+
+	}
+	else // assuming a.orientation == 0
+	{ // z axis is normal to the local surface
+		if (a.orientation != 0)
+			cout << "WARNING: Assuming asset orientation to be normal to local surface!\n";
+
+
+	}
+
+	// temp get number of each shape and sum to N_shapes
+	getParam(fn, "N_sphere", N_sphere, 0);
+	getParam(fn, "N_cylinder", N_cylinder, 0);
+	getParam(fn, "N_rect_prism", N_rect_prism, 0);
+
+	a.N_shapes = N_sphere + N_cylinder + N_rect_prism;
+
+	// start with fresh vectors
+	a.shapes.clear();
+	a.shape_idx.clear();
+	a.sp.clear();
+	a.cy.clear();
+	a.rp.clear();
+
+	// allocate space for vectors, still need to init values in them
+	a.shapes.resize(a.N_shapes);
+	a.shape_idx.resize(a.N_shapes);
+	a.sp.resize(N_sphere);
+	a.cy.resize(N_cylinder);
+	a.rp.resize(N_rect_prism);
+
+	n = 0;
+	for (i = 0; i < N_sphere; ++i)
+	{
+		a.shapes[n] = 0;
+
+		a.shape_idx[n] = i;
+		n++;
+	}
+
+	for (i = 0; i < N_cylinder; ++i)
+	{
+		a.shapes[n] = 1;
+
+		a.shape_idx[n] = i;
+		n++;
+	}
+
+	for (i = 0; i < N_rect_prism; ++i)
+	{
+		a.shapes[n] = 2;
+
+		a.shape_idx[n] = i;
+		n++;
+	}
+
+
 
 	cout << "--------------------------------\n";
 }

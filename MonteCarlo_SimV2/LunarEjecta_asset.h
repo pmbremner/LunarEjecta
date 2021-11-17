@@ -47,6 +47,7 @@ struct sphere : shape
 struct asset
 {
 	int N_shapes; // number of shapes that define the asset
+	int orientation; // 0 = normal to local surface, 1 = user defined
 	
 	vector<int> shapes; // id of shape, 0 = sphere, 1 = cylinder, 2 = rect_prism
 	vector<int> shape_idx; // index of particular shape in the sphere, cylinder, or rect_prism vectors
@@ -57,7 +58,7 @@ struct asset
 
 	//// asset origin and orientation are defined by current state of the trajectory
 	// asset main origin
-	vec3 origin; // m, from global origin
+	vec3 origin; // m, from global origin (input will be lon-lat, then convert to cartesian)
 	double collision_radius_boundary; // m, only check collisions if within this radius
 	
 	double z_axis_tilt_theta; // rad, angle from global z-axis to asset z-axis

@@ -30,7 +30,7 @@ N_bearing_ROI# 72
 N_vel# 10
 # units of m/s 3600.
 vel_min# 100.
-vel_max# 2000.
+vel_max# 2300.
 ROI_sample_points# 400
 #
 # units of km

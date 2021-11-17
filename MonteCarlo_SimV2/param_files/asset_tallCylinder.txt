@@ -1,7 +1,14 @@
-# Total number of shapes and number of each shape separately
-N_shapes# 1
+# Total number of each shape separately
 N_sphere# 0
 N_cylinder# 1
 N_rect_prism# 0
+# asset orientation can be defined as normal to local surface or user-defined
+# 0 = normal to local surface, 1 = user defined wrt global frame, 2 = user defined wrt local surface plane
+# if 1, need to define z_axis_tilt_theta and z_axis_tilt_phi
+orientation# 0
+# asset_height = 0 puts asset on the surface of the Moon, assuming no shape protrude below the assets x-y plane
+asset_lat# -85.
+asset_lon# -90.
+asset_height# 0.
 
 
