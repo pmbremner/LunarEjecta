@@ -17,40 +17,57 @@ void init_asset(asset &a, string fn)
 {
 	int N_sphere, N_cylinder, N_rect_prism, i, n;
 	double asset_lon, asset_lat, asset_height;
+	mat3x3 temp_rot_m_asset, temp_rot_m_asset_latlon;
 
 	cout << "--------------------------------\n";
 	cout << "Reading... " << fn << endl;
 
 	//getParam(fn, "N_shapes", a.N_shapes, 0);
 	
-	getParam(fn, "asset_lat", asset_lat, 0);
-	getParam(fn, "asset_lon", asset_lon, 0);
-	getParam(fn, "asset_height", asset_height, 0);
+	getParam(fn, "asset_lat", asset_lat, 0); // deg
+	getParam(fn, "asset_lon", asset_lon, 0); // deg
+	getParam(fn, "asset_height", asset_height, 0); // m
+
+	getParam(fn, "collision_radius_boundary", a.collision_radius_boundary, 0); // m
+	
  
-	// get asset orientation 
+	//// get asset orientation 
 	getParam(fn, "orientation", a.orientation, 0);
 
 	if (a.orientation == 1)
 	{ // z axis is user defined wrt global frame
-		getParam(fn, "z_axis_tilt_theta", a.z_axis_tilt_theta, 0);
-		getParam(fn, "z_axis_tilt_phi", a.z_axis_tilt_phi, 0);
+		getParam(fn, "y_axis_rot_theta", a.y_axis_rot_theta, 0);
+		getParam(fn, "z_axis_rot_phi", a.z_axis_rot_phi, 0);
 
+		// compute asset rot matrix directly
+		h_rot_m_from_angs(a.rot_m_asset, a.y_axis_rot_theta, a.z_axis_rot_phi);
 
 	}
 	else if (a.orientation == 2)
 	{ // z axis is user defined wrt local surface plane
-		getParam(fn, "z_axis_tilt_theta", a.z_axis_tilt_theta, 0);
-		getParam(fn, "z_axis_tilt_phi", a.z_axis_tilt_phi, 0);
+		getParam(fn, "y_axis_rot_theta", a.y_axis_rot_theta, 0);
+		getParam(fn, "z_axis_rot_phi", a.z_axis_rot_phi, 0);
 
-
+		// compute asset temp rot matrix of asset, then lat-lon contribution, and then put together
+		h_rot_m_from_angs(temp_rot_m_asset, a.y_axis_rot_theta, a.z_axis_rot_phi);
+		h_rot_m_from_angs(temp_rot_m_asset_latlon, PI/2. - asset_lat, asset_lon);
+		h_matrix_matrix_multiply(a.rot_m_asset, temp_rot_m_asset_latlon, temp_rot_m_asset);
 	}
 	else // assuming a.orientation == 0
 	{ // z axis is normal to the local surface
 		if (a.orientation != 0)
 			cout << "WARNING: Assuming asset orientation to be normal to local surface!\n";
 
+		a.y_axis_rot_theta = 0.;
+		a.z_axis_rot_phi = 0.;
 
+		h_rot_m_from_angs(a.rot_m_asset, PI/2. - asset_lat, asset_lon);
 	}
+
+	//// compute asset origin
+	a.origin.x[0] = asset_height * sin(PI/2. - asset_lat) * cos(asset_lon);
+	a.origin.x[1] = asset_height * sin(PI/2. - asset_lat) * sin(asset_lon);
+	a.origin.x[2] = asset_height * cos(PI/2. - asset_lat);
 
 	// temp get number of each shape and sum to N_shapes
 	getParam(fn, "N_sphere", N_sphere, 0);
