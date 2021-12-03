@@ -121,7 +121,15 @@ int main(int argc, char const *argv[])
 
 		radar_scanner scanner;
 
-		initRadar(scanner, params->N_max, params->alpha_search, params->lifetime_max, params->lifetime_rate, params->dx_rate, ph, dph, func_ID);
+		initRadar(scanner,
+			      params->N_max,
+			      params->alpha_search,
+			      params->lifetime_max,
+			      params->lifetime_rate,
+			      params->dx_rate,
+			      ph,
+			      dph,
+			      func_ID);
 
 		
 
@@ -157,7 +165,14 @@ int main(int argc, char const *argv[])
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
 
 			// check if the particle trajectory hits the asset or the moon/out of bounds (i.e., a miss)
-			runTraj_checkHit(loc_cart, ph_i, loc_f, ph_f, lunarLander, params->lunar_radius, params->lunar_escape_speed, params->lunar_acceleration);
+			runTraj_checkHit(loc_cart,
+				             ph_i,
+				             loc_f,
+				             ph_f,
+				             lunarLander,
+				             params->lunar_radius,
+				             params->lunar_escape_speed,
+				             params->lunar_acceleration);
 
 
 			tallyScan(scanner, hit);

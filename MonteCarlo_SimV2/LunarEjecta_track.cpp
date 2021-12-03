@@ -261,14 +261,14 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 	/* h  */       1e-4, // initial dt, s
 	/* dxmin */    -1.); // not used at the moment
 
-
+	cout << endl << endl;
 	/// step through trajectory
 	while (!(moon_hit_flag || escape_flag || asset_hit_flag))
 	{
 		// update position and velocity
 		RK45UpdatePosVel(track_i, RK45Vars, RK45Coeff, ag, Rm, gm);
-		//cout.precision(12);
-		//cout <<  track_i.xi/Rm << ' ' << track_i.yi/Rm << ' ' << track_i.zi/Rm << ' ' << track_i.h << endl;
+		// cout.precision(12);
+		// cout <<  track_i.xi/Rm << ' ' << track_i.yi/Rm << ' ' << track_i.zi/Rm << ' ' << mag_s(track_i.xi/Rm, track_i.yi/Rm, track_i.zi/Rm) << ' ' << track_i.h << endl;
 
 		// check for collision with moon
 		moon_hit_flag  = check_collision_moon(Rm, track_i.xi, track_i.yi, track_i.zi);
