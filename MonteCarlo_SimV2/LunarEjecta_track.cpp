@@ -261,7 +261,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 	/* h  */       1e-4, // initial dt, s
 	/* dxmin */    -1.); // not used at the moment
 
-	cout << endl << endl;
+	//cout << endl << endl;
 	/// step through trajectory
 	while (!(moon_hit_flag || escape_flag || asset_hit_flag))
 	{

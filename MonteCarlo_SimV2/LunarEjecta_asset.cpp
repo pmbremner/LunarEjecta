@@ -12,6 +12,20 @@ using namespace std;
 // 	vec3 col[3];
 // };
 
+string gen_string_with_counter(string pre, string post, int counter, int digits)
+{
+	string s_counter;
+
+	//cout << counter << ' ' <<  max(floor(log10(counter+0.1)), 0) << endl;
+
+	for (int i = max(floor(log10(counter+0.1)), 0); i < digits - 1; ++i)
+		s_counter.append("0");
+
+	s_counter.append(to_string(counter));
+
+	return pre + s_counter + post;
+}
+
 
 void init_asset(asset &a, string fn)
 {
@@ -86,6 +100,7 @@ void init_asset(asset &a, string fn)
 	// allocate space for vectors, still need to init values in them
 	a.shapes.resize(a.N_shapes);
 	a.shape_idx.resize(a.N_shapes);
+
 	a.sp.resize(N_sphere);
 	a.cy.resize(N_cylinder);
 	a.rp.resize(N_rect_prism);
@@ -96,6 +111,24 @@ void init_asset(asset &a, string fn)
 		a.shapes[n] = 0;
 
 		a.shape_idx[n] = i;
+
+		getParam(fn, gen_string_with_counter("sphere_", "_y_axis_rot_theta", i, 3), a.sp[i].y_axis_rot_theta, 0);
+		getParam(fn, gen_string_with_counter("sphere_", "_z_axis_rot_phi", i, 3), a.sp[i].z_axis_rot_phi, 0);
+
+		// compute rotation of shape in asset frame
+		h_rot_m_from_angs(a.sp[i].rot_m_s, a.sp[i].y_axis_rot_theta, a.sp[i].z_axis_rot_phi);
+
+		// combine rotation from global origin to asset and then asset to shape
+		h_matrix_matrix_multiply(a.sp[i].rot_m_tot, a.sp[i].rot_m_s, a.rot_m_asset);
+
+		// get the shape origin in the asset frame
+		getParam(fn, gen_string_with_counter("sphere_", "_origin_x", i, 3), a.sp[i].origin_offset_nom.x[0], 0);
+		getParam(fn, gen_string_with_counter("sphere_", "_origin_y", i, 3), a.sp[i].origin_offset_nom.x[1], 0);
+		getParam(fn, gen_string_with_counter("sphere_", "_origin_z", i, 3), a.sp[i].origin_offset_nom.x[2], 0);
+
+		// next, get the shape size parameters
+		getParam(fn, gen_string_with_counter("sphere_", "_radius", i, 3), a.sp[i].r_radius, 0);
+
 		n++;
 	}
 
@@ -104,6 +137,25 @@ void init_asset(asset &a, string fn)
 		a.shapes[n] = 1;
 
 		a.shape_idx[n] = i;
+
+		getParam(fn, gen_string_with_counter("cylinder_", "_y_axis_rot_theta", i, 3), a.cy[i].y_axis_rot_theta, 0);
+		getParam(fn, gen_string_with_counter("cylinder_", "_z_axis_rot_phi", i, 3), a.cy[i].z_axis_rot_phi, 0);
+
+		// compute rotation of shape in asset frame
+		h_rot_m_from_angs(a.cy[i].rot_m_s, a.cy[i].y_axis_rot_theta, a.cy[i].z_axis_rot_phi);
+
+		// combine rotation from global origin to asset and then asset to shape
+		h_matrix_matrix_multiply(a.cy[i].rot_m_tot, a.cy[i].rot_m_s, a.rot_m_asset);
+
+		// get the shape origin in the asset frame
+		getParam(fn, gen_string_with_counter("cylinder_", "_origin_x", i, 3), a.cy[i].origin_offset_nom.x[0], 0);
+		getParam(fn, gen_string_with_counter("cylinder_", "_origin_y", i, 3), a.cy[i].origin_offset_nom.x[1], 0);
+		getParam(fn, gen_string_with_counter("cylinder_", "_origin_z", i, 3), a.cy[i].origin_offset_nom.x[2], 0);
+
+		// next, get the shape size parameters
+		getParam(fn, gen_string_with_counter("cylinder_", "_height", i, 3), a.cy[i].z_height, 0);
+		getParam(fn, gen_string_with_counter("cylinder_", "_radius", i, 3), a.cy[i].s_radius, 0);
+
 		n++;
 	}
 
@@ -112,10 +164,28 @@ void init_asset(asset &a, string fn)
 		a.shapes[n] = 2;
 
 		a.shape_idx[n] = i;
+
+		getParam(fn, gen_string_with_counter("rectprism_", "_y_axis_rot_theta", i, 3), a.rp[i].y_axis_rot_theta, 0);
+		getParam(fn, gen_string_with_counter("rectprism_", "_z_axis_rot_phi", i, 3), a.rp[i].z_axis_rot_phi, 0);
+
+		// compute rotation of shape in asset frame
+		h_rot_m_from_angs(a.rp[i].rot_m_s, a.rp[i].y_axis_rot_theta, a.rp[i].z_axis_rot_phi);
+
+		// combine rotation from global origin to asset and then asset to shape
+		h_matrix_matrix_multiply(a.rp[i].rot_m_tot, a.rp[i].rot_m_s, a.rot_m_asset);
+
+		// get the shape origin in the asset frame
+		getParam(fn, gen_string_with_counter("rectprism_", "_origin_x", i, 3), a.rp[i].origin_offset_nom.x[0], 0);
+		getParam(fn, gen_string_with_counter("rectprism_", "_origin_y", i, 3), a.rp[i].origin_offset_nom.x[1], 0);
+		getParam(fn, gen_string_with_counter("rectprism_", "_origin_z", i, 3), a.rp[i].origin_offset_nom.x[2], 0);
+
+		// next, get the shape size parameters
+		getParam(fn, gen_string_with_counter("rectprism", "_x", i, 3), a.rp[i].x_width, 0);
+		getParam(fn, gen_string_with_counter("rectprism", "_y", i, 3), a.rp[i].y_width, 0);
+		getParam(fn, gen_string_with_counter("rectprism", "_z", i, 3), a.rp[i].z_width, 0);
+
 		n++;
 	}
-
-
 
 	cout << "--------------------------------\n";
 }
