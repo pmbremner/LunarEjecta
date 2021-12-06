@@ -27,7 +27,7 @@ string gen_string_with_counter(string pre, string post, int counter, int digits)
 }
 
 
-void init_asset(asset &a, string fn)
+void init_asset(asset &a, string fn, input* p)
 {
 	int N_sphere, N_cylinder, N_rect_prism, i, n;
 	double asset_lon, asset_lat, asset_height;
@@ -39,7 +39,11 @@ void init_asset(asset &a, string fn)
 	//getParam(fn, "N_shapes", a.N_shapes, 0);
 	
 	getParam(fn, "asset_lat", asset_lat, 0); // deg
+	asset_lat *= PI/180.; // rad
+
 	getParam(fn, "asset_lon", asset_lon, 0); // deg
+	asset_lon *= PI/180.; // rad
+	
 	getParam(fn, "asset_height", asset_height, 0); // m
 
 	getParam(fn, "collision_radius_boundary", a.collision_radius_boundary, 0); // m
@@ -79,9 +83,9 @@ void init_asset(asset &a, string fn)
 	}
 
 	//// compute asset origin
-	a.origin.x[0] = asset_height * sin(PI/2. - asset_lat) * cos(asset_lon);
-	a.origin.x[1] = asset_height * sin(PI/2. - asset_lat) * sin(asset_lon);
-	a.origin.x[2] = asset_height * cos(PI/2. - asset_lat);
+	a.origin.x[0] = (p->lunar_radius + asset_height) * sin(PI/2. - asset_lat) * cos(asset_lon);
+	a.origin.x[1] = (p->lunar_radius + asset_height) * sin(PI/2. - asset_lat) * sin(asset_lon);
+	a.origin.x[2] = (p->lunar_radius + asset_height) * cos(PI/2. - asset_lat);
 
 	// temp get number of each shape and sum to N_shapes
 	getParam(fn, "N_sphere", N_sphere, 0);
@@ -273,7 +277,25 @@ void h_rot_m_from_angs_axes(mat3x3 &rot_m, double alpha, vec3 &u, double beta, v
 
 bool check_collision_asset(asset &a, double x, double y, double z)
 {
-	return 0;
+	// position in asset frame (no rotation)
+	double x_a = x - a.origin.x[0];
+	double y_a = y - a.origin.x[1];
+	double z_a = z - a.origin.x[2];
+
+	//cout << a.origin.x[0] << ' ' << a.origin.x[1] << ' ' << a.origin.x[2] << endl;
+
+	//cout << mag_s(x_a, y_a, z_a) << ' ' << a.collision_radius_boundary << endl;
+
+	// is position within collision boundary?
+	if (mag_s(x_a, y_a, z_a) <= a.collision_radius_boundary)
+	{
+		return 1;
+	}
+	else // outside of boundary, no need to check asset shapes
+	{
+		return 0;
+	}
+
 }
 
 bool check_collision_moon(double r, double x, double y, double z)

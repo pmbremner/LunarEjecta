@@ -71,7 +71,7 @@ struct asset
 	mat3x3 rot_m_asset; // rotation matrix 3x3, columns first, only asset
 };
 
-void init_asset(asset &a, string fn);
+void init_asset(asset &a, string fn, input* p);
 
 // prod_m = left_m * right_m
 void h_matrix_matrix_multiply(mat3x3 &prod_m, mat3x3 &left_m, mat3x3 &right_m);

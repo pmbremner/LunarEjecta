@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
 	asset lunarLander;
 	string asset_fn = "asset_tallCylinder.txt";
 
-	init_asset(lunarLander, asset_fn);
+	init_asset(lunarLander, asset_fn, params);
 
 
 	// for each lat-lon location that the process is responsible for
@@ -159,13 +159,13 @@ int main(int argc, char const *argv[])
 			//hit = ((ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0])) || (ph_i[1] - 4. >= sqr(ph_i[0]-7.) && ph_i[1] -3.75 <= sqrt(ph_i[0]-7.)) ? 1 : 0);
 			//hit = (ph_i[1] >= sqr(ph_i[0]) && ph_i[1] <= sqrt(ph_i[0]) ? 1 : 0);
 			//hit =  (sqr(ph_i[0] - 4.) + sqr(ph_i[1] - 2.5) <= 1. ? 1 : 0);
-			hit =  (sqr(ph_i[0] + 3.) + sqr(ph_i[1] - 2.) <= 1. ? 1 : 0);
+			////hit =  (sqr(ph_i[0] + 3.) + sqr(ph_i[1] - 2.) <= 1. ? 1 : 0);
 			//hit = (fabs(ph_i[0] - 0.3) < 0.01 && fabs(ph_i[1] - 0.25) < 0.25 ? 1 : 0); 
 
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
 
 			// check if the particle trajectory hits the asset or the moon/out of bounds (i.e., a miss)
-			runTraj_checkHit(loc_cart,
+			hit = runTraj_checkHit(loc_cart,
 				             ph_i,
 				             loc_f,
 				             ph_f,
@@ -177,10 +177,15 @@ int main(int argc, char const *argv[])
 
 			tallyScan(scanner, hit);
 
+			if (hit)
+			{
+				cout << "ph_i [(m/s), zen, azm (deg)] = " << ph_i[0] << " , " << ph_i[1]/PI*180. <<  " , " << ph_i[2]/PI*180. << " | ";
+				//cout << loc_f[0] << ' ' << loc_f[1] << ' ' << loc_f[2]
+				cout << " | lat =  " << (PI/2. - atan2(sqrt(sqr(loc_f[0]) + sqr(loc_f[1])), loc_f[2]))*180./PI <<  endl;
+			}
+
+
 			// print hit information to file to read for next section
-
-
-			 
 
 			//cout << "weight = " << weight << endl;
 

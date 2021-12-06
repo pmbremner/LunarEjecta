@@ -52,6 +52,7 @@ void RK45UpdatePosVel(trackVars& t,
 {
 	int i, j;
 	double ax, ay, az, rcur, xcur, ycur, zcur, vcur, ucur, wcur, maxR;
+	double x_a, y_a, z_a;
 
 	double t_dot_c, c_x0, c_z0, ht, st, dt_temp, rt;
 
@@ -115,8 +116,24 @@ void RK45UpdatePosVel(trackVars& t,
 		t.h *= (maxR > 0.0 ? 0.84 * pow(EPS / maxR, 0.25) : 1.2);
 
 
-		// Check if within boundary sphere
+		// shift position to asset frame (no rotation)
+		x_a = r.xi1[0] - ag.origin.x[0];
+		y_a = r.yi1[0] - ag.origin.x[1];
+		z_a = r.zi1[0] - ag.origin.x[2];
 
+		// distance from asset origin divided by speed
+		dt_temp = mag_s(x_a, y_a, z_a) / mag_s(r.ui1[0], r.vi1[0], r.wi1[0]); 
+
+		// if position is within collision boundary, reduce timestep to 2% of the radius
+		// otherize, reduce timestep by 50%
+		dt_temp /= (mag_s(x_a, y_a, z_a) <= ag.collision_radius_boundary ? 50. : 2.);
+
+		// replace timestep to not overstep the asset
+		t.h = (dt_temp < t.h ? dt_temp : t.h);
+
+
+		////////// OLD CODE ////////////////
+		// Check if within boundary sphere
 
 		// If outside sphere limit dt to slighlty half of distance to sphere
 
@@ -152,6 +169,7 @@ void RK45UpdatePosVel(trackVars& t,
 		// 	cout << "timestep = " << t.h << endl;
 		// 	cout << "maxR = " << maxR << ' ' << EPS << endl << endl;
 		// }
+		///// END OF OLD CODE /////////
 
 	} while(maxR > EPS);
 
@@ -280,7 +298,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 		}
 
 		// if speed greater than escape speed and position is beyond asset origin + sphere boundary
-		//escape_flag    = check_escape(ag, vesc, track_i.xi, track_i.yi, track_i.zi, track_i.ui, track_i.vi, track_i.wi);
+		escape_flag    = check_escape(ag, vesc, track_i.xi, track_i.yi, track_i.zi, track_i.ui, track_i.vi, track_i.wi);
 
 		if (escape_flag){
 			unpackFinalLoc(track_i, loc_f);
@@ -289,7 +307,7 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 		}
 
 		// if pos is outside boundary radius, don't check asset, otherwise check asset
-		//asset_hit_flag = check_collision_asset(ag, track_i.xi, track_i.yi, track_i.zi);
+		asset_hit_flag = check_collision_asset(ag, track_i.xi, track_i.yi, track_i.zi);
 
 		if (asset_hit_flag){
 			unpackFinalLoc(track_i, loc_f);
