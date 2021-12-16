@@ -103,14 +103,62 @@ int main(int argc, char const *argv[])
 		vector<double> loc_latlon; // [lat (rad), lon (rad)]
 		vector<double> loc_cart, loc_f;   // [x (m), y (m), z (m)]
 
-		//// need to take into account vmin and vmax***
+		// For lat-lon region, need to find azimuth FOV range that intersects the collision sphere
+		/// Take the four corners of the lat-lon region and compute the bearing and the FOV
+		/// For each corner, take the bearing +/- FOV/2, and then take the min and max of all to get the range
+		int i;
+		double lat_i[5], lon_i[5];
+		double azm_i[5], fov_i[5];
+		double fov_max = 0.; // half of total FOV
+
+		// define the four corners
+		lat_i[0] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin;
+		lat_i[1] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin;
+		lat_i[2] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax;
+		lat_i[3] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax;
+		lat_i[4] = (primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin
+			     + primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax)/2.;
+
+		lon_i[0] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				 - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.;
+		lon_i[1] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				 + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.;
+		lon_i[2] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				 - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.;
+		lon_i[3] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+				 + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.;
+		lon_i[4] = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon;
+
+		for (i = 0; i < 5; ++i)
+		{
+			azm_i[i] = bearing(lunarLander.lat, lunarLander.lon, lat_i[i], lon_i[i]);
+
+			fov_i[i] = dbeta(lat_i[i], lon_i[i], lunarLander.lat, lunarLander.lon, lunarLander.collision_radius_boundary / params->lunar_radius);
+		
+			cout << "Azimuth, FOV = " << azm_i[i]/PI*180. << ", " << fov_i[i]/PI*180. << endl;
+		}
+
+		for (i = 0; i < 4; i++){
+			fov_max = max(fov_max, fabs(azm_i[4] - azm_i[i]) + fov_i[i]/2.);
+		}
+		cout << "FOV max = " << fov_max/PI*180. << endl;
+	
+		//// need to take into account vmin and vmax*** check
 		ph.push_back(0.5 * (params->vel_min + params->vel_max) ); // center of speed range
 		ph.push_back(PI/4.);  // center of zenith range
 		ph.push_back(PI);  // center of azimuth range
 
+		// ph.push_back(0.);  // center of zenith range
+		// ph.push_back(azm_i[4]);  // center of azimuth range
+
+
+
 		dph.push_back(params->vel_max - params->vel_min);  // length of speed range
 		dph.push_back(PI/2.);  // length of zenith range
 		dph.push_back(2.*PI);  // length of azimuth range
+
+		// dph.push_back(PI);  // length of zenith range
+		// dph.push_back(min(2.*fov_i[4], 2.*PI));  // length of azimuth range
 
 		//// test
 		// ph.push_back(0.);
@@ -138,16 +186,28 @@ int main(int argc, char const *argv[])
 		{
 
 			// randomly pull lat-lon position in lat-lon region, in terms of rad and cartesian meters
+			// uniformLatLon(scanner.rng,
+			// 	          loc_latlon, // rad
+			// 	          loc_cart,   // m
+			// 	          params->lunar_radius, // m
+			// 	          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin,
+			// 	          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax,
+			// 	          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+			// 	           - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.,
+			// 	          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
+			// 	           + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.);
+
+			// just use the center of the lat-lon region for now
 			uniformLatLon(scanner.rng,
-				          loc_latlon, // rad
-				          loc_cart,   // m
-				          params->lunar_radius, // m
-				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin,
-				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax,
-				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
-				           - primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.,
-				          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon
-				           + primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon/2.);
+			          loc_latlon, // rad
+			          loc_cart,   // m
+			          params->lunar_radius, // m
+			          (primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin
+			     	+ primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax)/2.,
+			          (primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin
+			     	+ primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax)/2.,
+			          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon,
+			          primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon);
 			
 			//cout << "latlon location = " << loc_latlon[0] * 180./PI << ' ' << loc_latlon[1] * 180./PI << endl;
 
@@ -165,14 +225,15 @@ int main(int argc, char const *argv[])
 			//cout << "ph_i = " << ph_i[0] << " , " << ph_i[1] << " | " << hit << endl;
 
 			// check if the particle trajectory hits the asset or the moon/out of bounds (i.e., a miss)
-			hit = runTraj_checkHit(loc_cart,
-				             ph_i,
-				             loc_f,
-				             ph_f,
-				             lunarLander,
-				             params->lunar_radius,
-				             params->lunar_escape_speed,
-				             params->lunar_acceleration);
+			hit =   runTraj_checkHit(loc_latlon,
+									 loc_cart,
+						             ph_i,
+						             loc_f,
+						             ph_f,
+						             lunarLander,
+						             params->lunar_radius,
+						             params->lunar_escape_speed,
+						             params->lunar_acceleration);
 
 
 			tallyScan(scanner, hit);

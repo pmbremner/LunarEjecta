@@ -3,11 +3,11 @@
 # if 1, need to define z_axis_tilt_theta and z_axis_tilt_phi
 orientation# 0
 # asset_height = 0 puts asset on the surface of the Moon, assuming no shape protrude below the assets x-y plane
-asset_lat# -70.
-asset_lon# 0.0
+asset_lat# -84.
+asset_lon# 10.
 asset_height# 0.
 # units of m
-collision_radius_boundary# 1000.
+collision_radius_boundary# 100.
 #
 #
 # Total number of each shape separately

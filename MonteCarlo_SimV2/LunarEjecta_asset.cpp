@@ -30,7 +30,7 @@ string gen_string_with_counter(string pre, string post, int counter, int digits)
 void init_asset(asset &a, string fn, input* p)
 {
 	int N_sphere, N_cylinder, N_rect_prism, i, n;
-	double asset_lon, asset_lat, asset_height;
+	//double asset_lon, asset_lat, asset_height;
 	mat3x3 temp_rot_m_asset, temp_rot_m_asset_latlon;
 
 	cout << "--------------------------------\n";
@@ -38,13 +38,13 @@ void init_asset(asset &a, string fn, input* p)
 
 	//getParam(fn, "N_shapes", a.N_shapes, 0);
 	
-	getParam(fn, "asset_lat", asset_lat, 0); // deg
-	asset_lat *= PI/180.; // rad
+	getParam(fn, "asset_lat", a.lat, 0); // deg
+	a.lat *= PI/180.; // rad
 
-	getParam(fn, "asset_lon", asset_lon, 0); // deg
-	asset_lon *= PI/180.; // rad
-	
-	getParam(fn, "asset_height", asset_height, 0); // m
+	getParam(fn, "asset_lon", a.lon, 0); // deg
+	a.lon *= PI/180.; // rad
+
+	getParam(fn, "asset_height", a.height, 0); // m
 
 	getParam(fn, "collision_radius_boundary", a.collision_radius_boundary, 0); // m
 	
@@ -68,7 +68,7 @@ void init_asset(asset &a, string fn, input* p)
 
 		// compute asset temp rot matrix of asset, then lat-lon contribution, and then put together
 		h_rot_m_from_angs(temp_rot_m_asset, a.y_axis_rot_theta, a.z_axis_rot_phi);
-		h_rot_m_from_angs(temp_rot_m_asset_latlon, PI/2. - asset_lat, asset_lon);
+		h_rot_m_from_angs(temp_rot_m_asset_latlon, PI/2. - a.lat, a.lon);
 		h_matrix_matrix_multiply(a.rot_m_asset, temp_rot_m_asset_latlon, temp_rot_m_asset);
 	}
 	else // assuming a.orientation == 0
@@ -79,13 +79,13 @@ void init_asset(asset &a, string fn, input* p)
 		a.y_axis_rot_theta = 0.;
 		a.z_axis_rot_phi = 0.;
 
-		h_rot_m_from_angs(a.rot_m_asset, PI/2. - asset_lat, asset_lon);
+		h_rot_m_from_angs(a.rot_m_asset, PI/2. - a.lat, a.lon);
 	}
 
 	//// compute asset origin
-	a.origin.x[0] = (p->lunar_radius + asset_height) * sin(PI/2. - asset_lat) * cos(asset_lon);
-	a.origin.x[1] = (p->lunar_radius + asset_height) * sin(PI/2. - asset_lat) * sin(asset_lon);
-	a.origin.x[2] = (p->lunar_radius + asset_height) * cos(PI/2. - asset_lat);
+	a.origin.x[0] = (p->lunar_radius + a.height) * sin(PI/2. - a.lat) * cos(a.lon);
+	a.origin.x[1] = (p->lunar_radius + a.height) * sin(PI/2. - a.lat) * sin(a.lon);
+	a.origin.x[2] = (p->lunar_radius + a.height) * cos(PI/2. - a.lat);
 
 	// temp get number of each shape and sum to N_shapes
 	getParam(fn, "N_sphere", N_sphere, 0);

@@ -243,9 +243,9 @@ void unpackFinalPh(trackVars& track_i, vector<double> &ph_f)
 
 
 // loc = physical location in global cartesian coordinates
-// ph  = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
+// ph  = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and bearing angle)
 // 
-bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm)
+bool runTraj_checkHit(vector<double> &lat_lon, vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm)
 {
 	// init track and RK45 vars
 	RK45VarsPosVel RK45Vars;
@@ -258,11 +258,12 @@ bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &l
 	// vel_after_rot = velocity in the local frame at the lat-lon location
 	mat3x3 rot_m;
 	vec3 vel_before_rot, vel_after_rot;
-	vel_before_rot.x[0] = ph[0] * cos(ph[2]) * sin(ph[1]);
+	vel_before_rot.x[0] = -ph[0] * cos(ph[2]) * sin(ph[1]); // bearing angle introduces a minus sign here
 	vel_before_rot.x[1] = ph[0] * sin(ph[2]) * sin(ph[1]);
 	vel_before_rot.x[2] = ph[0] * cos(ph[1]);
 
-	h_rot_m_from_angs( rot_m, atan2(sqrt(sqr(loc[0]) + sqr(loc[1])), loc[2]), atan2(loc[1], loc[0]) );
+	//h_rot_m_from_angs( rot_m, atan2(sqrt(sqr(loc[0]) + sqr(loc[1])), loc[2]), atan2(loc[1], loc[0]) );
+	h_rot_m_from_angs( rot_m, PI/2. - lat_lon[0], lat_lon[1] );
 
 	h_matrix_vector_multiply(vel_after_rot, rot_m, vel_before_rot);
 

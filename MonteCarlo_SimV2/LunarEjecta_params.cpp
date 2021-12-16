@@ -319,3 +319,33 @@ double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars)
 
 	return x;
 }
+
+
+
+// https://www.movable-type.co.uk/scripts/latlong.html
+// bearing is due north and goes clock-wise, rads
+// To convert to azimuth, take azm = pi/2 - bearing
+double bearing(double lat1, double lon1, double lat2, double lon2)
+{
+	return atan2(sin(lon1-lon2)*cos(lat2), cos(lat1)*sin(lat2) - sin(lat1)*cos(lat2)*cos(lon1-lon2));
+}
+
+
+
+
+double h_a(double lat1, double lon1, double lat2, double lon2)
+{
+	return sqr(sin((lat1-lat2)/2.)) + cos(lat1)*cos(lat2)*sqr(sin((lon1-lon2)/2.));
+}
+
+double h_sind(double a)
+{
+	return 2.*sqrt(a*(1.-a));
+}
+
+// FOV from [lat1, lon1] to a sphere projected at [lat2, lon2] of radius r
+// r_over_moon, radius of collision sphere divided by lunar radius
+double dbeta(double lat1, double lon1, double lat2, double lon2, double r_over_moon)
+{
+	return	r_over_moon / (2. * h_sind(h_a(lat1, lon1, lat2, lon2)));
+}

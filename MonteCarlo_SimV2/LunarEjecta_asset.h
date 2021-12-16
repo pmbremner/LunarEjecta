@@ -60,6 +60,9 @@ struct asset
 	//// asset origin and orientation are defined by current state of the trajectory
 	// asset main origin
 	vec3 origin; // m, from global origin (input will be lon-lat, then convert to cartesian)
+	double lat; // rad
+	double lon; // lon
+	double height; // m, from planetary center
 	double collision_radius_boundary; // m, only check collisions if within this radius
 	
 	double y_axis_rot_theta; // rad, angle from global z-axis to asset z-axis
