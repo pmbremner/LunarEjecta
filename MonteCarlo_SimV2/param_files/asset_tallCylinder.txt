@@ -1,7 +1,31 @@
-# Total number of shapes and number of each shape separately
-N_shapes# 1
+# asset orientation can be defined as normal to local surface or user-defined
+# 0 = normal to local surface, 1 = user defined wrt global frame, 2 = user defined wrt local surface plane
+# if 1, need to define z_axis_tilt_theta and z_axis_tilt_phi
+orientation# 0
+# asset_height = 0 puts asset on the surface of the Moon, assuming no shape protrude below the assets x-y plane
+asset_lat# -84.
+asset_lon# 10.
+asset_height# 0.
+# units of m
+collision_radius_boundary# 100.
+#
+#
+# Total number of each shape separately
 N_sphere# 0
 N_cylinder# 1
 N_rect_prism# 0
 
+# Define the rotation of each cylinder in the asset coords
+cylinder_000_y_axis_rot_theta# 0.0
+cylinder_000_z_axis_rot_phi# 0.0
 
+
+# Define origin for each cylinder in the asset coords
+cylinder_000_origin_x# 0.0
+cylinder_000_origin_y# 0.0
+cylinder_000_origin_z# 0.0
+
+#
+# Define the cylinder size, units of m
+cylinder_000_height# 10.0
+cylinder_000_radius# 3.0

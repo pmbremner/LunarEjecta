@@ -106,6 +106,6 @@ bool checkCollision(trackVars& t, asset& ag);
 // loc = physical location in global cartesian coordinates
 // ph  = location of initial ejecta conditions in phase space (i.e., ejecta speed, zenith angle, and azimuth angle)
 // 
-bool runTraj_checkHit(vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm);
+bool runTraj_checkHit(vector<double> &lat_lon, vector<double> &loc, vector<double> &ph, vector<double> &loc_f, vector<double> &ph_f, asset &ag, double Rm, double vesc, double gm);
 
 #endif 

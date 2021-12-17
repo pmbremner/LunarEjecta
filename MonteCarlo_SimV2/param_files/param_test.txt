@@ -16,11 +16,11 @@ readNEO_files# 1
 saveNEO_files# 0
 #
 N_hit# 10
-N_max# 1000000
+N_max# 10000000
 alpha_search# 0.15
-lifetime_max# 10
+lifetime_max# 5000
 lifetime_rate# 1.5
-dx_rate# 0.5
+dx_rate# 0.15
 #
 N_D_perRegion# 10
 N_bearing_POI# 10
@@ -30,7 +30,7 @@ N_bearing_ROI# 72
 N_vel# 10
 # units of m/s 3600.
 vel_min# 100.
-vel_max# 2000.
+vel_max# 2300.
 ROI_sample_points# 400
 #
 # units of km

@@ -210,6 +210,9 @@ void getParam(string param_fn, string paramLabel, paramType& param, bool default
 
 input* init_input(string param_fn, int N_proc, int i_proc);
 
+double bearing(double lat1, double lon1, double lat2, double lon2);
+double dbeta(double lat1, double lon1, double lat2, double lon2, double r_over_moon);
+
 
 
 #endif 

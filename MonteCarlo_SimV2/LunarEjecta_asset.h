@@ -13,16 +13,17 @@ using namespace std;
 struct shape
 {
 	vec3 origin_offset_nom; // m, offset from asset main origin, with no rotations
-	// origin_offset_rot = rot_m_asset * origin_offset_nom
-	vec3 origin_offset_rot; // m, offset from asset main origin, with asset rotations
+	// origin_offset_rot = rot_m_s * origin_offset_nom
+	vec3 origin_offset_rot; // m, offset from asset main origin, with shape rotations
 
-	double z_axis_tilt_theta; // rad, angle from asset z-axis to local z-axis
-	double z_axis_tilt_phi;   // rad, angle from asset x-axis to local x-axis
+	double y_axis_rot_theta; // rad, angle from asset z-axis to shape z-axis
+	double z_axis_rot_phi;   // rad, angle from asset x-axis to shape x-axis
 
 	// rot_m_tot.col[0] = x'' axis
 	// rot_m_tot.col[1] = y'' axis
 	// rot_m_tot.col[2] = z'' axis
 	mat3x3 rot_m_tot; // rotation matrix 3x3, columns first, both asset and shape together
+	mat3x3 rot_m_s;   // rotation matrix 3x3, columns first, shape only
 };
 
 struct rect_prism : shape
@@ -47,6 +48,7 @@ struct sphere : shape
 struct asset
 {
 	int N_shapes; // number of shapes that define the asset
+	int orientation; // 0 = normal to local surface, 1 = user defined
 	
 	vector<int> shapes; // id of shape, 0 = sphere, 1 = cylinder, 2 = rect_prism
 	vector<int> shape_idx; // index of particular shape in the sphere, cylinder, or rect_prism vectors
@@ -57,11 +59,14 @@ struct asset
 
 	//// asset origin and orientation are defined by current state of the trajectory
 	// asset main origin
-	vec3 origin; // m, from global origin
+	vec3 origin; // m, from global origin (input will be lon-lat, then convert to cartesian)
+	double lat; // rad
+	double lon; // lon
+	double height; // m, from planetary center
 	double collision_radius_boundary; // m, only check collisions if within this radius
 	
-	double z_axis_tilt_theta; // rad, angle from global z-axis to asset z-axis
-	double z_axis_tilt_phi;   // rad, angle from glabal z-axis to asset x-axis
+	double y_axis_rot_theta; // rad, angle from global z-axis to asset z-axis
+	double z_axis_rot_phi;   // rad, angle from global x-axis to asset x-axis
 
 	// rot_m_asset.col[0] = x' axis
 	// rot_m_asset.col[1] = y' axis
@@ -69,7 +74,7 @@ struct asset
 	mat3x3 rot_m_asset; // rotation matrix 3x3, columns first, only asset
 };
 
-void init_asset(asset &a, string fn);
+void init_asset(asset &a, string fn, input* p);
 
 // prod_m = left_m * right_m
 void h_matrix_matrix_multiply(mat3x3 &prod_m, mat3x3 &left_m, mat3x3 &right_m);

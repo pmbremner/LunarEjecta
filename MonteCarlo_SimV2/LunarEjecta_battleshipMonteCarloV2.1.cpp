@@ -349,7 +349,7 @@ void ageScan(list<scan> &ls)
 }
 
 // The hit or miss is tallied in generation of the current scan
-// If hit = 1, a new scan is generated at the scan spot based on the previos scan props
+// If hit = 1, a new scan is generated at the scan spot based on the previous scan props
 // Also, loop through all scans to apply lt_dec, and remove scans with lifetime = 0
 void tallyScan(radar_scanner &rs, bool hit)
 {
