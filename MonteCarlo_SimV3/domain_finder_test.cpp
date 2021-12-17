@@ -87,6 +87,13 @@ void linspace(vector<double>& v, double vmin, double vmax, int Nv)
 		v.push_back(vmin + (vmax - vmin) * i / double(Nv-1.));
 }
 
+void logspace(vector<double>& v, double pmin, double pmax, int Nv)
+{
+	v.clear();
+	for (int i = 0; i < Nv; ++i)
+		v.push_back( pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) );
+}
+
 // https://www.learncpp.com/cpp-tutorial/function-pointers/
 using RHS_func = double(*)(double, vector<double>&);
 //double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars);
@@ -403,51 +410,92 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 		stratified_count[sample_idx[i]]++;
 	}
 
+	// ofstream file;
+	// file.open("samples.txt");
+
 	// after finishing all the samples, we need to divide the weights by the number of counts in each region, NOT the total number of counts overall
 	for (int i = 0; i < N_sample; ++i){
 		sample_weight[i] /= double(stratified_count[sample_idx[i]]);
 
-		cout << sample_zenith[i] << ' ' << sample_speed[i] << ' ' << sample_weight[i] << endl;
+		//file << sample_zenith[i] << ' ' << sample_speed[i] << ' ' << sample_weight[i] << endl;
 	}
-
+	//file.close();
 }
 
 
 
 int main(int argc, char const *argv[])
 {
-	
+	//int N_proc = atoi(argv[2])
 	vector<double> zenith, vminv, vmaxv;
 
+	// double vlow = 0.0;
+	// double vmax = 5.;
+	// double h = 0.22;
+	// double d = 0.56;//0.287;
+	// double r = 0.21;
+
+	// double dg = 0.1;
+	// double dv = 0.05;
+	const double Rm = 1737E3; // m
+
 	double vlow = 0.0;
-	double vmax = 5.;
-	double h = 0.22;
-	double d = 0.56;//0.287;
-	double r = 0.21;
+	double vmax = 1.;
+	double h = 120./Rm;
+	double d = 1000./Rm;//0.287;
+	double r = 4.5/Rm;
 
-	double dg = 0.1;
-	double dv = 0.05;	
+	double dg = 0.01;
+	double dv = 0.005;	
 
-	get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, vmax, h, d, r, dg, dv);
-	//get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, 2.*PI-d, r, dg, dv);
+	int Nd = 100;
 
+	vector<double> d_vec;
+	logspace(d_vec, log10(10./Rm), log10(2.*PI-10./Rm), Nd);
 
-	// for (int i = 0; i < vminv.size(); ++i)
+	// for (int i = 0; i < d_vec.size(); ++i)
 	// {
-	// 	vminv[i] = 0.;
-	// 	vmaxv[i] = 10.;
+	// 	cout << d_vec[i] << endl;
 	// }
+	ofstream ejecta_vs_dist_file;
+	ejecta_vs_dist_file.open("ejecta_vs_dist.txt");
 
-	// CDF is normalized, starting from 0 to 1
-	// will be used in conjunction with a uniform number generator that ranges from 0 to 1
-	vector<double> cdf, pdf;
-	get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
+	for (int i = 0; i < Nd; ++i)
+	{
+		d = d_vec[i];
 
-	// Next, we need to take samples from the CDF
-	vector<double> sample_zenith, sample_speed, sample_weight;
-	int N_sample = 1000;
-	get_samples(zenith, vminv, vmaxv, cdf, sample_zenith, sample_speed, sample_weight, N_sample);
+		// The zenith grid points are at most dg and are made smaller if the speed is changing a lot
+		// over a small zenith change. The speed change is limited to at most dv
+		// All for corners of a cross-section (r-theta plane) of a wedge are used, but are ignored if the speed is above vmax
+		// For each zenith grid point, the minimum and maximum speed extent is computed as well (vminv, and vmaxv)
+		// The wedge has a height h, starting at zero (I need to change this so I can modify the low point for orbits)
+		// d is the distance to the center of the wedge, with a thickness 2*r, r in each direction
+		get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, vmax, h, d, r, dg, dv);
+		//get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, 2.*PI-d, r, dg, dv);
 
+
+		// for (int i = 0; i < vminv.size(); ++i)
+		// {
+		// 	vminv[i] = 0.;
+		// 	vmaxv[i] = 10.;
+		// }
+
+		// CDF is normalized, starting from 0 to 1
+		// will be used in conjunction with a uniform number generator that ranges from 0 to 1
+		vector<double> cdf, pdf;
+		get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
+
+		// Next, we need to take samples from the CDF
+		vector<double> sample_zenith, sample_speed, sample_weight;
+		int N_sample = 100000;
+		get_samples(zenith, vminv, vmaxv, cdf, sample_zenith, sample_speed, sample_weight, N_sample);
+
+		ejecta_vs_dist_file << d << ' ' << vSum(sample_weight) << endl;
+
+		cout << "d = " << d << " | " << 100.*(i+1.)/double(Nd) << "% finished | sum = " << vSum(sample_weight) << "\r";
+	}
+
+	ejecta_vs_dist_file.close();
 
 	return 0;
 }
