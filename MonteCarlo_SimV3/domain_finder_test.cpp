@@ -115,10 +115,13 @@ double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars
 		// compute a weighted average dg so as not to overshoot intended result
 		// (due to taking a linear approximation of the derivative)
 		// alpha ranges from 0 to 1, aim for alpha ~ 0.3, possibly higher
-		dg_1 = dg_1 * dv / fabs(f1 - f0) * alpha + dg_1 * (1. - alpha);
+		dg_1 *= dv / fabs(f1 - f0) * alpha + (1. - alpha);
 
 		// if the proposed dg is too large, keep the original dg
 		dg_1 = (dg_1 < dg ? dg_1 : dg);
+
+		vars[0] = g + dg_1;
+		f1 = findX(0., Fspeed_v, 0., vmax, vars);
 
 	// do while the proposed dv is too large
 	} while (fabs(f1 - f0) > dv*(1. + eps));
@@ -127,24 +130,26 @@ double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars
 }
 
 // For given g, h, d, r, compute the dg which is the minimum dg of the four corners of the wedge
-double find_dg_wedge(double g, double dg, double dv, double vmax, vector<double>& vars, double h, double d, double r)
+double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, vector<double>& vars, double h, double d, double r)
 {
 	int i, j;
-	double dg_min = PI/2.;
+	double dg_min = dg;
 
 	for (i = 0; i < 2; ++i)
 		for (j = 0; j < 2; ++j)
 		{
+			vars[0] = g;
 			vars[1] = h * j;
 			vars[2] = d + r*(2.*i - 1);
 
-			dg_min = min(find_dg(g, dg, dv, vmax, vars), dg_min);
+			if(findX(0., Fspeed_v, vlow, vmax, vars) < vmax*0.9999)
+				dg_min = min(find_dg(g, dg, dv, vmax, vars), dg_min);
 		}
 
 	return dg_min;
 }
 
-void find_min_max_v(double g, double& vmin, double& vmax, double vlim, vector<double>& vars, double h, double d, double r)
+void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vlim, vector<double>& vars, double h, double d, double r)
 {
 	int i, j;
 	double f;
@@ -160,95 +165,91 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlim, vector<do
 			vars[1] = h * j;
 			vars[2] = d + r*(2.*i - 1);
 
-			f = findX(0., Fspeed_v, 0., vlim, vars);
+			f = findX(0., Fspeed_v, vlow, vlim, vars);
 
 			vmin = min(f, vmin);
 			vmax = max(f, vmax);
 		}
-	// force vmin to be at least 0, and vmax to be at most vlim
-	vmin = max(0., vmin);
-	vmax = min(vlim, vmax);
+	// force vmin to be at least vlow, and vmax to be at most vlim
+	vmin = max(vlow, vmin);
+	vmax = max(min(vlim, vmax), vlow);
 }
+
+
+// zenith in units of rads in (0,Pi/2]
+// vmin and vmax in units of vesc in (0, vlim]
+// h is the height of the wedge
+// d is the distance of the wedge, center
+// r is the radius of the wedge (front and back)
+// the wedge enscribes a sphere-like shape (h can be controlled, so really it's an ellipsoid)
+// dg and dv are the maximum grid spacing for the zenith and speed dimensions, respectively
+void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<double>& vmax, double vlow, double vlim, double h, double d, double r, double dg, double dv)
+{
+	zenith.clear();
+	vmin.clear();
+	vmax.clear();
+
+	vector<double> vars(3, 0.); // size of 3, filled with zeros
+
+	// First, find the smallest zenith angle at the closest point
+	vars[0] = vlim;
+	vars[1] = 0.;
+	vars[2] = d-r;
+
+	double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
+
+	// compute the grid
+	double g_cur, v0, v1, dg_new;
+
+	// the first point
+	g_cur = g_min;
+	find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, h, d, r);
+	cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
+
+	// the rest of the points
+	while (g_cur < PI/2.)
+	{
+		// First, find the dg amount, limited by each corner
+		vars[1] = h;
+		vars[2] = d;
+		dg_new = find_dg_wedge(g_cur, dg, dv, vlow, vlim, vars, h, d, r);
+
+		g_cur += dg_new;
+		g_cur = (g_cur > PI/2. ? PI/2. : g_cur);
+
+		// Next, find the minimum and maximum speeds of the corners
+		find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, h, d, r);
+
+		cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
+
+		zenith.push_back(g_cur);
+		vmin.push_back(v0);
+		vmax.push_back(v1);
+	}
+
+}
+
 
 
 
 int main(int argc, char const *argv[])
 {
 	
-	vector<double> g, vars;
-	int N = 20, i, j;
+	vector<double> zenith, vminv, vmaxv;
 
-	double v = 1.;
-	double h = 0.051;
-	double d = 0.025;//0.287;
-	double r = 0.005;
-	vars.resize(3);
+	double vlow = 0.0;
+	double v = 5.;
+	double h = 0.22;
+	double d = 0.56;//0.287;
+	double r = 0.21;
 
-	linspace(g, 0.001, PI/2., N);
-
-
-	vars[0] = v;
-	vars[1] = h;
-	vars[2] = d;
-
-	double g_min = findX(0., Fspeed_g, 0.0001, PI/2., vars);
-	double dg = 0.1, g_cur = g_min, dg_new, dg_next, vmin, vmax;
-	double dv = 0.05;//, P0, P1;
-	//double alpha = 0.3;
-
-	// vars[0] = g_cur;
-	// vars[1] = h;
-	// vars[2] = d;
-	// cout << g_cur << ' ';
-
-	// for (i = 0; i < 2; ++i)
-	// 	for (j = 0; j < 2; ++j)
-	// 	{
-	// 		vars[1] = h * j;
-	// 		vars[2] = d + r*(2.*i - 1);
-
-	// 		cout << findX(0., Fspeed_v, 0., v, vars) << ' ';
-	// 	}
-	// cout << endl;
-
+	double dg = 0.1;
+	double dv = 0.05;
 	
-	
-	while (g_cur < PI/2.)
-	{
-		vars[1] = h;
-		vars[2] = d;
-		dg_new = find_dg_wedge(g_cur, dg, dv, v, vars, h, d, r);
-		//dg_new = find_dg(g_cur, dg, dv, v, vars);
 
-		g_cur += dg_new;
-		g_cur = (g_cur > PI/2. ? PI/2. : g_cur);
-
-		find_min_max_v(g_cur, vmin, vmax, v, vars, h, d, r);
-
-		cout << g_cur << ' ' << vmin << ' ' << vmax << endl;
-
-		// for (i = 0; i < 2; ++i)
-		// 	for (j = 0; j < 2; ++j)
-		// 	{
-		// 		vars[1] = h * j;
-		// 		vars[2] = d + r*(2.*i - 1);
-
-		// 		cout << findX(0., Fspeed_v, 0., v, vars) << ' ';
-		// 	}
-		// cout << endl;
-	}
+	get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, d, r, dg, dv);
+	//get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, 2.*PI-d, r, dg, dv);
 
 
-/*
-
-	for (int i = 0; i < N; ++i)
-	{
-		vars[0] = g[i];
-		vars[1] = h;
-		vars[2] = d;
-
-		cout << g[i] << ' ' << findX(0., Fspeed_v, 0., 2., vars) << endl;
-	}
-*/
 	return 0;
 }
