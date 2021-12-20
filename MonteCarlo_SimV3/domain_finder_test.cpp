@@ -199,7 +199,7 @@ double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars
 }
 
 // For given g, h, d, r, compute the dg which is the minimum dg of the four corners of the wedge
-double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, vector<double>& vars, double h, double d, double r)
+double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, vector<double>& vars, double a, double h, double d, double r)
 {
 	int i, j;
 	double dg_min = dg;
@@ -207,9 +207,9 @@ double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, v
 	for (i = 0; i < 2; ++i)
 		for (j = 0; j < 2; ++j)
 		{
-			vars[0] = g;
-			vars[1] = h * j;
-			vars[2] = d + r*(2.*i - 1);
+			vars[0] = g; // zenith angle
+			vars[1] = a + h * j; // height
+			vars[2] = d + r*(2.*i - 1); // width
 
 			if(findX(0., Fspeed_v, vlow, vmax, vars) < vmax*0.9999)
 				dg_min = min(find_dg(g, dg, dv, vmax, vars), dg_min);
@@ -218,7 +218,7 @@ double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, v
 	return dg_min;
 }
 
-void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vlim, vector<double>& vars, double h, double d, double r)
+void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vlim, vector<double>& vars, double a, double h, double d, double r)
 {
 	int i, j;
 	double f;
@@ -231,8 +231,8 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vl
 	for (i = 0; i < 2; ++i)
 		for (j = 0; j < 2; ++j)
 		{
-			vars[1] = h * j;
-			vars[2] = d + r*(2.*i - 1);
+			vars[1] = a + h * j; // height
+			vars[2] = d + r*(2.*i - 1); // width
 
 			f = findX(0., Fspeed_v, vlow, vlim, vars);
 
@@ -242,6 +242,13 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vl
 	// force vmin to be at least vlow, and vmax to be at most vlim
 	vmin = max(vlow, vmin);
 	vmax = max(min(vlim, vmax), vlow);
+
+	// if both vmin and vmax are very close to the maximum speed, vlim, then force them to be to avoid sampling noisy unphysical values
+	if (fabs(vlim - vmin) < 1E-4 && fabs(vlim - vmax)  < 1E-4)
+	{
+		vmin = vlim;
+		vmax = vlim;
+	}
 }
 
 
@@ -252,7 +259,7 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vl
 // r is the radius of the wedge (front and back)
 // the wedge enscribes a sphere-like shape (h can be controlled, so really it's an ellipsoid)
 // dg and dv are the maximum grid spacing for the zenith and speed dimensions, respectively
-void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<double>& vmax, double vlow, double vlim, double h, double d, double r, double dg, double dv)
+void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<double>& vmax, double vlow, double vlim, double a, double h, double d, double r, double dg, double dv)
 {
 	zenith.clear();
 	vmin.clear();
@@ -275,7 +282,7 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// the first point
 	g_cur = g_min;
-	find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, h, d, r);
+	find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, a, h, d, r);
 	////cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
 
 	// the rest of the points
@@ -284,13 +291,13 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 		// First, find the dg amount, limited by each corner
 		vars[1] = h;
 		vars[2] = d;
-		dg_new = find_dg_wedge(g_cur, dg, dv, vlow, vlim, vars, h, d, r);
+		dg_new = find_dg_wedge(g_cur, dg, dv, vlow, vlim, vars, a, h, d, r);
 
 		g_cur += dg_new;
 		g_cur = (g_cur > PI/2. ? PI/2. : g_cur);
 
 		// Next, find the minimum and maximum speeds of the corners
-		find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, h, d, r);
+		find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, a, h, d, r);
 
 		////cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
 
@@ -378,7 +385,7 @@ int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vect
 
 
 // Using Stratified Importance Sampling
-void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, vector<double>& cdf, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_weight, int N_sample)
+void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_weight, int N_sample)
 {
 	//init the random generator
 	// https://stackoverflow.com/questions/24334012/best-way-to-seed-mt19937-64-for-monte-carlo-simulations
@@ -415,7 +422,7 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 	// after finishing all the samples, we need to divide the weights by the number of counts in each region, NOT the total number of counts overall
 	for (int i = 0; i < N_sample; ++i){
-		sample_weight[i] /= double(stratified_count[sample_idx[i]]);
+		sample_weight[i] /= double(stratified_count[sample_idx[i]]) * PI/2. * (vmax - vlow);
 
 		//file << sample_zenith[i] << ' ' << sample_speed[i] << ' ' << sample_weight[i] << endl;
 	}
@@ -440,29 +447,50 @@ int main(int argc, char const *argv[])
 	const double Rm = 1737E3; // m
 
 	double vlow = 0.0;
-	double vmax = 1.;
-	double h = 120./Rm;
-	double d = 1000./Rm;//0.287;
-	double r = 4.5/Rm;
+	double vmax = 5.;
+	double a = atof(argv[1])/Rm; // altitude above lunar surface 
+	double h = atof(argv[2])/Rm;//120./Rm;
+	double d; //= //1000./Rm;//0.287;
+	double r = atof(argv[3])/Rm;//4.5/Rm;
 
-	double dg = 0.01;
-	double dv = 0.005;	
+	double dg = 0.005;
+	double dv = 0.01;	
 
-	int Nd = 100;
+	int Nd = 50;
 
 	vector<double> d_vec;
-	logspace(d_vec, log10(10./Rm), log10(2.*PI-10./Rm), Nd);
+	logspace(d_vec, log10(r + 10./Rm), log10(2.*PI - (2.*r + 10./Rm)), Nd);
 
-	// for (int i = 0; i < d_vec.size(); ++i)
-	// {
-	// 	cout << d_vec[i] << endl;
-	// }
+	for (int i = 0; i < d_vec.size(); ++i)
+	{
+		cout << i << ' ' << d_vec[i] << endl;
+	}
 	ofstream ejecta_vs_dist_file;
-	ejecta_vs_dist_file.open("ejecta_vs_dist.txt");
+	string file_pre("ejecta_vs_dist_");
+    string file_post("_.txt");
+    string file_label(to_string(a*Rm) + "_" + to_string(h*Rm) + "_" + to_string(r*Rm));
+	ejecta_vs_dist_file.open(file_pre + file_label + file_post);
+
+	cout << file_pre + file_label + file_post << endl;
+
+
+	ofstream speed_angle_dist_file;
+	string file_pre2("_speed_vs_angle");
+
+
+	vector<double> sample_zenith, sample_speed, sample_weight;
+	int N_sample = 5000;
 
 	for (int i = 0; i < Nd; ++i)
 	{
 		d = d_vec[i];
+		//string file_label2(to_string(d*Rm));
+		string scount;
+		scount = to_string(i);
+		auto new_str = string(3 - min(3, scount.length()), '0') + scount;
+
+		speed_angle_dist_file.open(new_str + file_pre2 + file_post);
+
 
 		// The zenith grid points are at most dg and are made smaller if the speed is changing a lot
 		// over a small zenith change. The speed change is limited to at most dv
@@ -470,29 +498,42 @@ int main(int argc, char const *argv[])
 		// For each zenith grid point, the minimum and maximum speed extent is computed as well (vminv, and vmaxv)
 		// The wedge has a height h, starting at zero (I need to change this so I can modify the low point for orbits)
 		// d is the distance to the center of the wedge, with a thickness 2*r, r in each direction
-		get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, vmax, h, d, r, dg, dv);
+		get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, vmax, a, h, d, r, dg, dv);
 		//get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, 2.*PI-d, r, dg, dv);
 
+		if (zenith.size() == 0)
+		{
+			cout << "No grid found for d = " << d << endl;
+		
+		}
+		else
+		{
+			// for (int i = 0; i < vminv.size(); ++i)
+			// {
+			// 	vminv[i] = 0.;
+			// 	vmaxv[i] = 10.;
+			// }
 
-		// for (int i = 0; i < vminv.size(); ++i)
-		// {
-		// 	vminv[i] = 0.;
-		// 	vmaxv[i] = 10.;
-		// }
+			// CDF is normalized, starting from 0 to 1
+			// will be used in conjunction with a uniform number generator that ranges from 0 to 1
+			vector<double> cdf, pdf;
+			get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
 
-		// CDF is normalized, starting from 0 to 1
-		// will be used in conjunction with a uniform number generator that ranges from 0 to 1
-		vector<double> cdf, pdf;
-		get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
+			// Next, we need to take samples from the CDF
+			get_samples(zenith, vminv, vmaxv, vlow, vmax, cdf, sample_zenith, sample_speed, sample_weight, N_sample);
 
-		// Next, we need to take samples from the CDF
-		vector<double> sample_zenith, sample_speed, sample_weight;
-		int N_sample = 100000;
-		get_samples(zenith, vminv, vmaxv, cdf, sample_zenith, sample_speed, sample_weight, N_sample);
+			for (int j = 0; j < sample_zenith.size(); ++j)
+				speed_angle_dist_file << sample_zenith[j] << ' ' << sample_speed[j] << ' ' << sample_weight[j] << endl; 
 
-		ejecta_vs_dist_file << d << ' ' << vSum(sample_weight) << endl;
+			ejecta_vs_dist_file << d - r << ' ' << vSum(sample_weight) << endl;
 
-		cout << "d = " << d << " | " << 100.*(i+1.)/double(Nd) << "% finished | sum = " << vSum(sample_weight) << "\r";
+			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
+
+			cout << "d = " << d -r << " | " << 100.*(i+1.)/double(Nd) << "% finished | sum = " << vSum(sample_weight);
+			cout << " | grid size = " << zenith.size() << "                     \r";
+		}
+		speed_angle_dist_file.close();
+		
 	}
 
 	ejecta_vs_dist_file.close();
