@@ -9,6 +9,9 @@
 #include <algorithm>  // lower_bound
 //#include <float.h> // DBL_MAX
 
+// note, -march=native is to allow for vectorization, if possible
+
+//  g++ -O2 -std=c++17 -march=native .\domain_finder_test.cpp
 
 using namespace std;
 
@@ -211,6 +214,7 @@ double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, v
 			vars[1] = a + h * j; // height
 			vars[2] = d + r*(2.*i - 1); // width
 
+			// ignore contribution to speed-zenith curves that go aboce vmax
 			if(findX(0., Fspeed_v, vlow, vmax, vars) < vmax*0.9999)
 				dg_min = min(find_dg(g, dg, dv, vmax, vars), dg_min);
 		}
@@ -294,7 +298,7 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 		dg_new = find_dg_wedge(g_cur, dg, dv, vlow, vlim, vars, a, h, d, r);
 
 		g_cur += dg_new;
-		g_cur = (g_cur > PI/2. ? PI/2. : g_cur);
+		g_cur = (g_cur > PI/2. ? PI/2. : g_cur); // for last grid point
 
 		// Next, find the minimum and maximum speeds of the corners
 		find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, a, h, d, r);
@@ -421,6 +425,7 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 	// file.open("samples.txt");
 
 	// after finishing all the samples, we need to divide the weights by the number of counts in each region, NOT the total number of counts overall
+	// to normalize the total speed-zenith area to 1, need to divide by the lengths in both dimensions
 	for (int i = 0; i < N_sample; ++i){
 		sample_weight[i] /= double(stratified_count[sample_idx[i]]) * PI/2. * (vmax - vlow);
 
@@ -444,7 +449,7 @@ int main(int argc, char const *argv[])
 
 	// double dg = 0.1;
 	// double dv = 0.05;
-	const double Rm = 1737E3; // m
+	const double Rm = 1737.E3; // m
 
 	double vlow = 0.0;
 	double vmax = 5.;
@@ -502,7 +507,7 @@ int main(int argc, char const *argv[])
 		//get_zenith_speed_grid(zenith, vminv, vmaxv, vlow, v, h, 2.*PI-d, r, dg, dv);
 
 		if (zenith.size() == 0)
-		{
+		{ // need to check to avoid errors with a zero-sized array
 			cout << "No grid found for d = " << d << endl;
 		
 		}
