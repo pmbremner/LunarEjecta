@@ -19,12 +19,12 @@ int main(int argc, char const *argv[])
 
 	double vmin = 0.0;
 	double vmax = 3.;
-	double a = atof(argv[4])/Rm + 1.; // altitude above lunar surface 
+	double a = atof(argv[4])/Rm + 1.; // altitude above lunar center 
 	double h = atof(argv[5])/Rm;//120./Rm;
 	double r = atof(argv[6])/Rm;//4.5/Rm;
 
-	double dg = 0.05;
-	double dv = 0.05;
+	double dg = 0.05; // [rad]
+	double dv = 0.05; // [rm]
 
 	int N_azm_lat_lon = 100;
 	int N_zenith_speed = 100;
