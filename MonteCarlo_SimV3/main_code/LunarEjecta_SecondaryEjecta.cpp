@@ -52,6 +52,85 @@ double Fspeed_g(double g, vector<double>& vars)
 
 
 
+// R and D in units of rm
+double azm_FOV(double R, double D)
+{
+	double denom = sqr(sin(D+R)) - sqr(sin(R));
+
+	if (denom >= 0.)
+		return 2. * atan2(sin(R), sqrt(denom));
+	else
+		return PI;
+}
+
+
+double azm_bearing(double lat1, double lon1, double lat2, double lon2, bool short_far_flag)
+{
+	double phase_shift = (short_far_flag == 0 ? 0. : PI);
+
+	return atan2(sin(lon1 - lon2) * cos(lat1 - lat2) , cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(lon1 - lon2)) + phase_shift;
+}
+
+
+// return distance in units of rm
+double lat_lon_dist(double lat1, double lon1, double lat2, double lon2, bool short_far_flag)
+{
+	double a = sqr( sin((lat1 - lat2) / 2.) ) + cos(lat1) * cos(lat2) * sqr( sin((lon1 - lon2) / 2.) );
+	double pm = (short_far_flag == 0 ? 1. : -1.);
+
+	return 2. * atan2(pm * sqrt(a), sqrt(1. - a));
+}
+
+
+// returns lat2
+// d in units of rm
+double destination_lat(double lat1, double d, double azm)
+{
+	return asin(sin(lat1) * cos(d) + cos(lat1) * sin(d) * cos(azm));
+}
+
+// returns lon2, needs lat2
+// d in units of rm
+double destination_lon(double lat1, double lon1, double lat2, double d, double azm)
+{
+	return lon1 + atan2(sin(azm) * sin(d) * cos(lat1), cos(d) - sin(lat1) * sin(lat2));
+}
+
+
+// final speed at asset
+/// a is the asset altitude in units of rm, vp is the ejecta speed at primary impact in units of escape speed
+/// returns ejecta speed at asset in units of escape speed
+double final_speed(double a, double vp)
+{
+	return sqrt(1./a + sqr(vp) - 1.);
+}
+
+
+
+// final zenith at asset (as seen from the asset)
+/// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
+/// return ejecta zenith at asset in units of radians
+double final_zenith(double d, double vp, double g)
+{
+	return -atan2((sqr(vp) * (cos(d-2.*g) - cos(d)) + cos(d) - 1.), (sqr(vp) * (sin(d-2.*g) - sin(d)) + sin(d)));
+}
+
+
+// the smallest zenith angle to reach asset at ~ escape speed
+/// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
+/// return ejecta zenith, at ejecta point, in radians
+double min_zenith_at_escape(double a, double d_rm)
+{
+	double x = (1./a - cos(d_rm)) / (1. - cos(d_rm));
+
+	double sqrt_discr = sqrt( 2.*(x-1.) + sqr( 1./cos(d_rm/2.) ) );
+
+	return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + fabs(1./tan(d_rm/2.))*sqrt_discr) / 2.;
+}
+
+
+
+
 
 // if |f(g+dg) - f(g)| > dv, then find dg such that |f(g+dg) - f(g)| = dv, else keep dg
 // i.e., sample the zenith angle finer for when the function is steeper
@@ -180,7 +259,7 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 	//double g_min = min_zenith_at_escape(a, d)*1.001;
 
 
-	cout << "g_min = " << g_min << endl;
+	//cout << "g_min = " << g_min << endl;
 
 	// compute the grid
 	double g_cur, v0, v1, dg_new;
@@ -418,7 +497,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 		get_zenith_speed_grid(zenith, vminv, vmaxv, vmin, vmax, a, h, d, r, dg, dv);
 
 
-		cout << i_zll << " of " << N_azm_lat_lon << " | d, azm, dazm = " << d << ' ' << azm_center << ' ' << dazm << endl;
+		////cout << i_zll << " of " << N_azm_lat_lon << " | d, azm, dazm = " << d << ' ' << azm_center << ' ' << dazm << endl;
 
 		if (zenith.size() == 0)
 		{ // need to check to avoid errors with a zero-sized array
@@ -441,8 +520,8 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
 
-			cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
-			cout << " | grid size = " << zenith.size() << endl;//<< "                     \r";
+			// cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
+			// cout << " | grid size = " << zenith.size() << endl;//<< "                     \r";
 		
 
 			// transfer i-th sample set to the main array
