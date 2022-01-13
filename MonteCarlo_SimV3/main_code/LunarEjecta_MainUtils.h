@@ -104,5 +104,11 @@ double final_speed(double a, double vp);
 double final_zenith(double d, double vp, double g);
 
 
+// the smallest zenith angle to reach asset at ~ escape speed
+/// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
+/// return ejecta zenith, at ejecta point, in radians
+double min_zenith_at_escape(double a, double d_rm);
+
+
 
 #endif 

@@ -29,6 +29,13 @@ double Fspeed(double g, double a_rm, double d_rm)
 	return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
 }
 
+double Fspeed_direct(double g, double a_rm, double d_rm, double vmax)
+{
+	double v_sqr = Fspeed(g, a_rm, d_rm);
+
+	return (v_sqr > 0. ? sqrt(v_sqr) : vmax);
+}
+
 
 double Fspeed_v(double v, vector<double>& vars)
 {
@@ -40,6 +47,9 @@ double Fspeed_g(double g, vector<double>& vars)
 {
 	return Fspeed(g, vars[1], vars[2]) - sqr(vars[0]);
 }
+
+
+
 
 
 
@@ -58,10 +68,13 @@ double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars
 	{
 		// compute the function at g and g+dg
 		vars[0] = g;
-		f0 = findX(0., Fspeed_v, 0., vmax, vars);
+
+		//f0 = findX(0., Fspeed_v, 0., vmax, vars);
+		f0 = Fspeed_direct(vars[0], vars[1], vars[2], vmax);
 
 		vars[0] = g + dg_1;
-		f1 = findX(0., Fspeed_v, 0., vmax, vars);
+		//f1 = findX(0., Fspeed_v, 0., vmax, vars);
+		f1 = Fspeed_direct(vars[0], vars[1], vars[2], vmax);
 
 		// compute a weighted average dg so as not to overshoot intended result
 		// (due to taking a linear approximation of the derivative)
@@ -72,7 +85,8 @@ double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars
 		dg_1 = (dg_1 < dg ? dg_1 : dg);
 
 		vars[0] = g + dg_1;
-		f1 = findX(0., Fspeed_v, 0., vmax, vars);
+		//f1 = findX(0., Fspeed_v, 0., vmax, vars);
+		f1 = Fspeed_direct(vars[0], vars[1], vars[2], vmax);
 
 	// do while the proposed dv is too large
 	} while (fabs(f1 - f0) > dv*(1. + eps));
@@ -94,8 +108,9 @@ double find_dg_wedge(double g, double dg, double dv, double vlow, double vmax, v
 			//vars[2] = d + r*(2.*i - 1); // width
 			vars[2] = d + r*2.*i; // width
 
-			// ignore contribution to speed-zenith curves that go aboce vmax
-			if(findX(0., Fspeed_v, vlow, vmax, vars) < vmax*0.9999)
+			// ignore contribution to speed-zenith curves that go above vmax
+			//if(findX(0., Fspeed_v, vlow, vmax, vars) < vmax*0.9999)
+			if(Fspeed_direct(vars[0], vars[1], vars[2], vmax) < vmax*0.9999)
 				dg_min = min(find_dg(g, dg, dv, vmax, vars), dg_min);
 		}
 
@@ -119,7 +134,8 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vl
 			//vars[2] = d + r*(2.*i - 1); // width
 			vars[2] = d + r*2.*i; // width
 
-			f = findX(0., Fspeed_v, vlow, vlim, vars);
+			//f = findX(0., Fspeed_v, vlow, vlim, vars);
+			f = Fspeed_direct(vars[0], vars[1], vars[2], vmax);
 
 			vmin = min(f, vmin);
 			vmax = max(f, vmax);
@@ -153,16 +169,18 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 	vector<double> vars(3, 0.); // size of 3, filled with zeros
 
 	// First, find the smallest zenith angle at the closest point
-	vars[0] = vlim;
-	vars[1] = 0.;
-	//vars[2] = d-r;
-	vars[2] = d;
+	// vars[0] = vlim;
+	// vars[1] = 0.;
+	// //vars[2] = d-r;
+	// vars[2] = d;
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	double g_min =  1.01*d/4.;
+	double g_min =  1.001*d/4.; // works
+	//double g_min = min_zenith_at_escape(a, d)*1.001;
 
-	//cout << "g_min = " << g_min << endl;
+
+	cout << "g_min = " << g_min << endl;
 
 	// compute the grid
 	double g_cur, v0, v1, dg_new;

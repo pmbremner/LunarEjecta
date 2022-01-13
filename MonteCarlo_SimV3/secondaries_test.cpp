@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
 
 
 	get_samples_with_azm_lat_lon( 17 / 180. * PI,   // primary latitude center
-	                              110. / 180. * PI,   // primary longitude center
+	                              -110. / 180. * PI,   // primary longitude center
 	                              0.005 / 180. * PI,  // primary latitude range
 	                              0.005 / 180. * PI,  // primary longitude range
 	                              15.01 / 180. * PI,   // satellite (asset) latitude center

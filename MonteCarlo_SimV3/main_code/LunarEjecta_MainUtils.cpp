@@ -151,3 +151,16 @@ double final_zenith(double d, double vp, double g)
 {
 	return -atan2((sqr(vp) * (cos(d-2.*g) - cos(d)) + cos(d) - 1.), (sqr(vp) * (sin(d-2.*g) - sin(d)) + sin(d)));
 }
+
+
+// the smallest zenith angle to reach asset at ~ escape speed
+/// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
+/// return ejecta zenith, at ejecta point, in radians
+double min_zenith_at_escape(double a, double d_rm)
+{
+	double x = (1./a - cos(d_rm)) / (1. - cos(d_rm));
+
+	double sqrt_discr = sqrt( 2.*(x-1.) + sqr( 1./cos(d_rm/2.) ) );
+
+	return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + fabs(1./tan(d_rm/2.))*sqrt_discr) / 2.;
+}
