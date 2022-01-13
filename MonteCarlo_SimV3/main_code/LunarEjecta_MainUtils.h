@@ -80,8 +80,29 @@ double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars)
 
 double azm_FOV(double R, double D);
 
+// returns azm1, either forward or reverse, depending on short_far_flag
 double azm_bearing(double lat1, double lon1, double lat2, double lon2, bool short_far_flag);
 
+// returns distance, d
 double lat_lon_dist(double lat1, double lon1, double lat2, double lon2, bool short_far_flag);
+
+// returns lat2
+double destination_lat(double lat1, double d, double azm);
+
+// returns lon2, needs lat2
+double destination_lon(double lat1, double lon1, double lat2, double d, double azm);
+
+
+// final speed at asset
+/// a is the asset altitude in units of rm, vp is the ejecta speed at primary impact in units of escape speed
+/// returns ejecta speed at asset in units of escape speed
+double final_speed(double a, double vp);
+
+// final zenith at asset (as seen from the asset)
+/// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
+/// return ejecta zenith at asset in units of radians
+double final_zenith(double d, double vp, double g);
+
+
 
 #endif 

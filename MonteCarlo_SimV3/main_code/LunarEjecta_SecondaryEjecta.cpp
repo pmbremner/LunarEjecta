@@ -15,11 +15,16 @@
 using namespace std;
 
 
+// double Fspeed(double g, double h_rm, double d_rm)
+// {
+// 	double x = 1. - (h_rm / (1. + h_rm)) / (1. - cos(d_rm)); // for h = 0, x = 1
 
+// 	return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
+// }
 
-double Fspeed(double g, double h_rm, double d_rm)
+double Fspeed(double g, double a_rm, double d_rm)
 {
-	double x = 1. - (h_rm / (1. + h_rm)) / (1. - cos(d_rm)); // for h = 0, x = 1
+	double x = (1./a_rm - cos(d_rm)) / (1. - cos(d_rm)); // for a = 1, x = 1
 
 	return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
 }
@@ -155,7 +160,7 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	double g_min = 1.01*d/4.;
+	double g_min =  1.01*d/4.;
 
 	//cout << "g_min = " << g_min << endl;
 
@@ -316,19 +321,19 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 
 
-void get_samples_with_azm_lat_lon(double latp,   // primary latitude center
-	                              double lonp,   // primary longitude center
-	                              double dlatp,  // primary latitude range
-	                              double dlonp,  // primary longitude range
-	                              double lats,   // satellite (asset) latitude center
-	                              double lons,   // satellite (asset) longitude center
-	                              double a,      // satellite (asset) altitude
-	                              double h,      // satellite (asset) height
-	                              double r,      // satellite (asset) radius
-	                              double vmin,   // minimum ejecta speed
-	                              double vmax,   // maximum ejecta speed
-	                              double dg,     // maximum zenith grid width
-	                              double dv,     // maximum speed grid width
+void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [radians]
+	                              double lonp,   // primary longitude center [radians]
+	                              double dlatp,  // primary latitude range [radians]
+	                              double dlonp,  // primary longitude range [radians]
+	                              double lats,   // satellite (asset) latitude center [radians]
+	                              double lons,   // satellite (asset) longitude center [radians]
+	                              double a,      // satellite (asset) altitude [rm]
+	                              double h,      // satellite (asset) height [rm]
+	                              double r,      // satellite (asset) radius [rm]
+	                              double vmin,   // minimum ejecta speed [vesc]
+	                              double vmax,   // maximum ejecta speed [vesc]
+	                              double dg,     // maximum zenith grid width [radians]
+	                              double dv,     // maximum speed grid width [vesc]
 	                              vector<double>& sample_latp,       // primary latitude center
 	                              vector<double>& sample_lonp,       // primary longitude center
 	                              vector<double>& sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
@@ -353,10 +358,23 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center
 	speed_angle_dist_file.open("speed_vs_angle.txt");
 
 	vector<double> zenith, vminv, vmaxv;
-	double dazm, d, latp_i, lonp_i, azm_i, azm_center;
+	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
+	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i;
+	int j, i_zll, zll_count = 0, cur_i;
+
+	// init output arrays
+	sample_latp.clear();      
+    sample_lonp.clear();     
+    sample_azimuth_0.clear(); 
+    sample_zenith_0.clear();
+    sample_speed_0.clear();
+    sample_azimuth_f.clear();  
+    sample_zenith_f.clear();
+    sample_speed_f.clear();
+    sample_weight.clear();
 
 
-	for (int i_zll = 0; i_zll < N_azm_lat_lon; ++i_zll)
+	for (i_zll = 0; i_zll < N_azm_lat_lon; ++i_zll)
 	{
 		do
 		{ // make sure primary impact point is not underneath asset
@@ -397,18 +415,60 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center
 			get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
 
 			// Next, we need to take samples from the CDF
-			get_samples(zenith, vminv, vmaxv, vmin, vmax, cdf, sample_zenith_0, sample_speed_0, sample_weight, N_zenith_speed);
+			get_samples(zenith, vminv, vmaxv, vmin, vmax, cdf, sample_zenith_0_i, sample_speed_0_i, sample_weight_i, N_zenith_speed);
 
-			for (int j = 0; j < sample_zenith_0.size(); ++j)
-				speed_angle_dist_file << sample_zenith_0[j] << ' ' << sample_speed_0[j] << ' ' << sample_weight[j] << endl; 
+			
 
 			// speed_angle_dist_file << d - r << ' ' << vSum(sample_weight) << endl;
 
 			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
 
-			cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight);
+			cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
 			cout << " | grid size = " << zenith.size() << endl;//<< "                     \r";
+		
+
+			// transfer i-th sample set to the main array
+			zll_count++; // used to normalize after i_zll loop
+
+			for (j = 0; j < N_zenith_speed; ++j)
+			{
+				// lat, lon, and azm will be the same for the i_zll-th speed-zenith sample
+				sample_latp.push_back(latp_i);
+				sample_lonp.push_back(lonp_i);
+				sample_azimuth_0.push_back(azm_i);
+
+				// copy from get_samples() output
+		    	sample_zenith_0.push_back(sample_zenith_0_i[j]);
+		    	sample_speed_0.push_back(sample_speed_0_i[j]);
+		    	sample_weight.push_back(sample_weight_i[j]);
+
+		    	// compute final azimuth (bearing), zenith angle, and speed of secondary as seen from asset
+		    	/// For azm, need to compute the exact lat-lon impact given the azm_i sample
+		    	lats_i = destination_lat(latp_i, d, azm_i);
+		    	lons_i = destination_lon(latp_i, lonp_i, lats_i, d, azm_i);
+
+		    	// final bearing (from asset to primary impact location)
+				sample_azimuth_f.push_back( azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) );
+
+				// final zenith (as seen from asset, similar to wind direction)
+				sample_zenith_f.push_back( final_zenith(d, sample_speed_0_i[j], sample_zenith_0_i[j]) );
+
+				// final speed at asset, approximate as hitting mid-height of asset
+				/// later, when we do the actual trajectory, we can know the exact height
+				sample_speed_f.push_back( final_speed(a + h/2., sample_speed_0_i[j]) );
+
+				cur_i = sample_latp.size()-1;
+				
+				speed_angle_dist_file << sample_latp[cur_i] << ' ' << sample_lonp[cur_i] << ' ' << sample_azimuth_0[cur_i] << ' '; 
+				speed_angle_dist_file << sample_zenith_0[cur_i] << ' ' << sample_speed_0[cur_i] << ' ' << sample_weight[cur_i] << ' '; 
+				speed_angle_dist_file << sample_azimuth_f[cur_i] << ' ' << sample_zenith_f[cur_i] << ' ' << sample_speed_f[cur_i] << endl; 
+
+			}
+
+
 		}
+
+
 
 	}
 

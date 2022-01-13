@@ -117,3 +117,37 @@ double lat_lon_dist(double lat1, double lon1, double lat2, double lon2, bool sho
 
 	return 2. * atan2(pm * sqrt(a), sqrt(1. - a));
 }
+
+
+// returns lat2
+// d in units of rm
+double destination_lat(double lat1, double d, double azm)
+{
+	return asin(sin(lat1) * cos(d) + cos(lat1) * sin(d) * cos(azm));
+}
+
+// returns lon2, needs lat2
+// d in units of rm
+double destination_lon(double lat1, double lon1, double lat2, double d, double azm)
+{
+	return lon1 + atan2(sin(azm) * sin(d) * cos(lat1), cos(d) - sin(lat1) * sin(lat2));
+}
+
+
+// final speed at asset
+/// a is the asset altitude in units of rm, vp is the ejecta speed at primary impact in units of escape speed
+/// returns ejecta speed at asset in units of escape speed
+double final_speed(double a, double vp)
+{
+	return sqrt(1./a + sqr(vp) - 1.);
+}
+
+
+
+// final zenith at asset (as seen from the asset)
+/// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
+/// return ejecta zenith at asset in units of radians
+double final_zenith(double d, double vp, double g)
+{
+	return -atan2((sqr(vp) * (cos(d-2.*g) - cos(d)) + cos(d) - 1.), (sqr(vp) * (sin(d-2.*g) - sin(d)) + sin(d)));
+}

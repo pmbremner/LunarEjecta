@@ -26,8 +26,8 @@ int main(int argc, char const *argv[])
 	const double Rm = 1737.E3; // m
 
 	double vmin = 0.0;
-	double vmax = 1.;
-	double a = atof(argv[1])/Rm; // altitude above lunar surface 
+	double vmax = 3.;
+	double a = atof(argv[1])/Rm + 1.; // altitude above lunar surface 
 	double h = atof(argv[2])/Rm;//120./Rm;
 	//double d; //= //1000./Rm;//0.287;
 	double r = atof(argv[3])/Rm;//4.5/Rm;
@@ -59,20 +59,20 @@ int main(int argc, char const *argv[])
 
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
-	int N_azm_lat_lon = 10000, N_zenith_speed = 1000;
+	int N_azm_lat_lon = 100, N_zenith_speed = 100;
 
 
-	get_samples_with_azm_lat_lon( 0. / 180. * PI,   // primary latitude center
-	                              0. / 180. * PI,   // primary longitude center
-	                              180. / 180. * PI,  // primary latitude range
-	                              360. / 180. * PI,  // primary longitude range
+	get_samples_with_azm_lat_lon( 17 / 180. * PI,   // primary latitude center
+	                              110. / 180. * PI,   // primary longitude center
+	                              0.005 / 180. * PI,  // primary latitude range
+	                              0.005 / 180. * PI,  // primary longitude range
 	                              15.01 / 180. * PI,   // satellite (asset) latitude center
 	                              110.01 / 180. * PI,   // satellite (asset) longitude center
-	                              a,      // satellite (asset) altitude
-	                              h,      // satellite (asset) height
-	                              r,      // satellite (asset) radius
-	                              vmin,   // minimum ejecta speed
-	                              vmax,   // maximum ejecta speed
+	                              a,      // satellite (asset) altitude [rm]
+	                              h,      // satellite (asset) height [rm]
+	                              r,      // satellite (asset) radius [rm]
+	                              vmin,   // minimum ejecta speed [vesc]
+	                              vmax,   // maximum ejecta speed [vesc]
 	                              dg,     // maximum zenith grid width
 	                              dv,     // maximum speed grid width
 	                              sample_latp,       // primary latitude center
