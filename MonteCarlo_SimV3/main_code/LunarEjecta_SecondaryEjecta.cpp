@@ -565,7 +565,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 		}
 
-
+		// need to divide the sample_weight by the number of azm_lat_lon pulls, not counting ones with no grid found
 
 	}
 

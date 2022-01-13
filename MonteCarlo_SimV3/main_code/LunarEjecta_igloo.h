@@ -15,6 +15,7 @@ struct iglooSet // for each location
 	double latmin; // radians
 	double latmax; // radians
 	double SA;  // surface area of location on Moon
+	double netFlux; // [#/m^2/yr]
 
 	int N_rows; // number of rows in igloo data
 	int N_cols; // number of columns in igloo data (not including the info columns, 9 large)
@@ -32,6 +33,8 @@ void H_read_igloo(string igloo_fn, iglooSet& ig_data);
 iglooSet* read_igloo(input* p, int fluxType);
 iglooSet* generate_NEO_igloo(input* p, iglooSet* hiDens);
 void save_igloo(input* p, iglooSet* fluxes, int fluxType);
+
+void net_flux(iglooSet& fluxes);
 
 
 #endif 

@@ -184,32 +184,9 @@ iglooSet* read_igloo(input* p, int fluxType)
 
 		get_lat_min_max(ig[p->latlon_idx_proc].lat, dlat, ig[p->latlon_idx_proc].latmin, ig[p->latlon_idx_proc].latmax);
 
-		// if(fabs(cur_lat - 90.) < 1E-4) // +90 lat
-		// {
-		// 	lat_max = PI/2.;
-		// 	lat_min = lat_max - dlat/2.;
-		// }
-		// else if(fabs(cur_lat + 90.) < 1E-4) // -90 lat
-		// {
-		// 	lat_min = -PI/2.;
-		// 	lat_max = lat_min + dlat/2.;
-		// }
-		// else
-		// {
-		// 	lat_min = ig[p->latlon_idx_proc].lat - dlat/2.;
-		// 	lat_max = ig[p->latlon_idx_proc].lat + dlat/2.;
-		// }
-
-
 		// check for region that overlaps with equator
 		ig[p->latlon_idx_proc].SA = calcSA(ig[p->latlon_idx_proc].lat, ig[p->latlon_idx_proc].latmin, ig[p->latlon_idx_proc].latmax, dlat, ig[p->latlon_idx_proc].dlon);
 
-
-		// if (fabs(ig[p->latlon_idx_proc].lat) < dlat/2.)
-		// 	ig[p->latlon_idx_proc].SA = dlon * (fabs(sin(lat_max)) + fabs(sin(lat_min)));
-		// else
-		// 	ig[p->latlon_idx_proc].SA = dlon * fabs(sin(lat_max) - sin(lat_min));
-		
 
 		cout << "lat dlat/min/max = " << dlat*180./PI << " | " << ig[p->latlon_idx_proc].latmin*180./PI << " | " << ig[p->latlon_idx_proc].latmax*180./PI << endl;
 		cout << "SA = " << ig[p->latlon_idx_proc].SA / (4.*PI) << " x 4pi r^2\n";
@@ -231,6 +208,9 @@ iglooSet* read_igloo(input* p, int fluxType)
 		ig[p->latlon_idx_proc].filename = cur_filename;
 
 		H_read_igloo(cur_filename, ig[p->latlon_idx_proc]);
+
+		net_flux(ig[p->latlon_idx_proc]);
+
 	}
 
 	return ig;
@@ -357,4 +337,28 @@ void save_igloo(input* p, iglooSet* fluxes, int fluxType)
 		igloo_file.close();
 	}
 	
+}
+
+
+// computes the net flux of the igloo set, and stores it in the igloo set params
+void net_flux(iglooSet& fluxes)
+{
+	int i, j, idx;
+	double sum = 0.;
+	double partial_sum = 0.;
+
+	for (i = 0; i < fluxes.N_rows; ++i)
+	{
+		partial_sum = 0;
+		for (j = 0; j < fluxes.N_cols; ++j)
+		{
+			idx = 9 + j + i * (fluxes.N_cols + 9);
+
+			partial_sum += fluxes.iglooData[idx];
+		}
+		sum += partial_sum;
+	}
+
+	fluxes.netFlux = sum; // note, this should correspond to the total cross-sectional flux in the cube_avg file
+	cout << "Net flux = " << sum << " #/m^2/yr\n";
 }

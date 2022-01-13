@@ -2,11 +2,13 @@
 #include "LunarEjecta_SecondaryEjecta.h"
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
+#include "LunarEjecta_PrimaryImpactor.h"
+
 
 
 // note, -march=native is to allow for vectorization, if possible
 
-//  g++ -O2 -std=c++17 -march=native primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
+//  g++ -O2 -std=c++17 -march=native primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 
 using namespace std;
 
@@ -26,11 +28,12 @@ int main(int argc, char const *argv[])
 	double dg = 0.05; // [rad]
 	double dv = 0.05; // [rm]
 
-	int N_azm_lat_lon = 100;
+	int N_azm_lat_lon  = 100;
 	int N_zenith_speed = 100;
+	int N_p_sample     = 10000;
 	// end of move to param file
 
-
+	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
 	double lat_center, lon_center, dlat, dlon;
@@ -67,7 +70,7 @@ int main(int argc, char const *argv[])
 
 	//iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
 	vector<iglooSet*> primaryFluxes;
-	primaryFluxes.push_back(MEM_hi_fluxes);
+	primaryFluxes.push_back(MEM_hi_fluxes); // pushing in the order is very important!
 	primaryFluxes.push_back(MEM_lo_fluxes);
 	primaryFluxes.push_back(NEO_fluxes);
 
@@ -126,6 +129,26 @@ int main(int argc, char const *argv[])
 		                              sample_weight,
 		                              N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
 		                              N_zenith_speed); // number of pulls in zenith-speed sets
+
+
+		// Next, generate primary impactor samples
+		/// We need to construct a CDF for the 3 types, MEM_LO, MEM_HI, and NEO.
+		/// First, the net flux for each type is computed and a uniform random number can choose which type to pull from
+		/// Then, we take the CDF of that type and pull from using a new unifrom random number
+		/// This pull will define the speed, zenith, azimuth, and flux.
+		//// Then, we need to sample the density and mass (separately, they don't depend on each other)
+
+		get_primary_samples(params,                // need info on density distributions and mass distributions
+							primaryFluxes,         // the set of fluxes, MEM_HI, MEM_LO, and NEO
+						 	params->latlon_idx_proc,            // the igloo set index
+							p_sample_azimuth,      // primary azimuth, at impact [rad]
+							p_sample_zenith,       // primary zenith, at impact [rad] (nominally horizon angle in igloo files)
+							p_sample_speed,        // primary speed, [km/s]
+							p_sample_flux_weight,  // flux weight, [#/m^2/yr]
+							p_sample_density,      // primary density [kg/m^3]
+							p_sample_mass,         // primary mass [g]
+							N_p_sample );          // number of pulls in igloo-density-mass sets
+							
 
 	}
 
