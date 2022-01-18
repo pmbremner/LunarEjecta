@@ -109,8 +109,8 @@ int main(int argc, char const *argv[])
 		                              lon_center,   // primary longitude center
 		                              dlat,  // primary latitude range
 		                              dlon,  // primary longitude range
-		                              15.01 / 180. * PI,   // satellite (asset) latitude center
-		                              110.01 / 180. * PI,   // satellite (asset) longitude center
+		                              -88.01 / 180. * PI,   // satellite (asset) latitude center
+		                              0.01 / 180. * PI,   // satellite (asset) longitude center
 		                              a,      // satellite (asset) altitude [rm]
 		                              h,      // satellite (asset) height [rm]
 		                              r,      // satellite (asset) radius [rm]
