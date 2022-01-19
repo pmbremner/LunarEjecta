@@ -29,8 +29,8 @@ void get_primary_samples(input* p,                               // need info on
 						 int N_p_sample )                       // number of pulls in igloo-density-mass sets
 {
 
-	// compute net flux for each MEM_LO, MEM_HI, and NEO.
 	
+
 
 	// generate CDF for the MEM_LO, MEM_HI, and NEO
 
