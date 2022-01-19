@@ -480,7 +480,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 			latp_i = uniform(rng, latp - dlatp/2., latp + dlatp/2.);
 			lonp_i = uniform(rng, lonp - dlonp/2., lonp + dlonp/2.);
 
-			// compute distance between primary and asset (units of rm)
+			// compute distance between primary and asset (units of rm), (not to the center, but the edge of the asset)
 			d = lat_lon_dist(latp_i, lonp_i, lats, lons, 0);
 		} while(d <= r);
 
