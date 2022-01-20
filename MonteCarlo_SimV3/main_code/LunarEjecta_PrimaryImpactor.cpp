@@ -52,13 +52,13 @@ int get_type_sample(mt19937_64& rng_64, vector<long long int>& cdf_type)
 }
 
 
-void get_primary_sample_i(mt19937&        rng,
-	                      vector<double>& p_cdf,
-	                      iglooSet*       primaryFluxes,
-	                      double& p_sample_azimuth,
-	                      double& p_sample_zenith,
-	                      double& p_sample_speed,
-	                      double& p_sample_flux_weight)
+void get_primary_igloo_sample_i(mt19937&        rng,
+	                            vector<double>& p_cdf,
+	                            iglooSet*       primaryFluxes,
+	                            double& p_sample_azimuth,
+	                            double& p_sample_zenith,
+	                            double& p_sample_speed,
+	                            double& p_sample_flux_weight)
 {
 	do { // do-while the sample is coming from below the horizon
 		// pull sample from uniform distribution
@@ -121,7 +121,7 @@ void get_primary_sample_i(mt19937&        rng,
 //// Then, we need to sample the density and mass (separately, they don't depend on each other)
 // Note:
 // iglooSet *primaryFluxes[3] = {HiDensMEM, LoDensMEM, NEO};
-void get_primary_samples(input* p,                               // need info on density distributions and mass distributions
+void get_primary_samples(input* params,                          // need info on density distributions and mass distributions
 						 vector<iglooSet*> primaryFluxes,        // the set of fluxes, MEM_HI, MEM_LO, and NEO
 						 int i_iglooSet,                         // the igloo set index
 						 vector<double>&  p_sample_azimuth,      // primary azimuth, at impact [rad]
@@ -204,22 +204,38 @@ void get_primary_samples(input* p,                               // need info on
 
 	for (idx_sample = 0; idx_sample < N_p_sample; ++idx_sample)
 	{
-		p_sample_type[idx_sample] = get_type_sample(rng_64, cdf_type); // will be either 0, 1, or 2 for HiDensMEM, LoDensMEM, or NEO
+		// will be either 0, 1, or 2 for HiDensMEM, LoDensMEM, or NEO
+		// using the relative weights provided in cdf_type
+		p_sample_type[idx_sample] = get_type_sample(rng_64, cdf_type); 
 		p_type = p_sample_type[idx_sample]; // temp var w/ shorter name
 
 
-		get_primary_sample_i(rng,
-			                 p_cdf[p_type],
-			                 primaryFluxes[p_type],
-			                 p_sample_azimuth[idx_sample],
-			                 p_sample_zenith[idx_sample],
-			                 p_sample_speed[idx_sample],
-			                 p_sample_flux_weight[idx_sample]);
+		get_primary_igloo_sample_i(rng,
+			                       p_cdf[p_type],
+			                       primaryFluxes[p_type],
+			                       p_sample_azimuth[idx_sample],
+			                       p_sample_zenith[idx_sample],
+			                       p_sample_speed[idx_sample],
+			                       p_sample_flux_weight[idx_sample]);
 
 		// normalize the weight by the number of samples
 		p_sample_flux_weight[idx_sample] /= double(N_p_sample);
 
-		primary_sample_file << p_type << ' ' << p_sample_azimuth[idx_sample] * 180./PI << ' ' << p_sample_zenith[idx_sample] * 180./PI << ' ' << p_sample_speed[idx_sample] << ' ' << p_sample_flux_weight[idx_sample] << endl;
+		// get the density sample
+		get_primary_density_sample_i(rng, params, p_type, p_sample_density[idx_sample]);
+
+		// get the mass sample
+		get_primary_mass_sample_i(rng, params, p_type, p_sample_mass[idx_sample]);
+
+
+
+		primary_sample_file << p_type << ' '
+		                    << p_sample_azimuth[idx_sample] * 180./PI << ' '
+		                    << p_sample_zenith[idx_sample] * 180./PI << ' '
+		                    << p_sample_speed[idx_sample] << ' '
+		                    << p_sample_flux_weight[idx_sample] << ' '
+		                    << p_sample_density[idx_sample] << ' '
+		                    << p_sample_mass[idx_sample] << endl;
 
 	}
 	primary_sample_file.close();
