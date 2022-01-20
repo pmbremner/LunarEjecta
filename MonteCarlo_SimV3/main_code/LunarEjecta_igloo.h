@@ -24,6 +24,8 @@ struct iglooSet // for each location
 	vector<double> speedCenter; // size = N_cols
 };
 
+int ig_idx(int row, int col, int N_col);
+
 double sumSA(input* p, iglooSet* fluxes);
 void readVelDist(string vel_fn, vector<double>& velDist);
 double read_cube_zenith_flux(string cube_fn);

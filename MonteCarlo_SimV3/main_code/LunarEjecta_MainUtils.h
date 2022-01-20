@@ -33,13 +33,15 @@ inline double trapezoid_area(double width, double height0, double height1)
 	return 0.5 * width * (height0 + height1);
 }
 
-inline double uniform(mt19937& rng, double a, double b){
+template <class rng_type>
+inline double uniform(rng_type& rng, double a, double b){
 	return a + (b - a) * rng() / double(rng.max());
 }
 
-// returns an int from a to b-1
-inline int uniformInt(mt19937& rng, int a, int b){
-	return int(floor(a + (b - a) * rng() / double(rng.max()+1.)));
+// returns an int from a to b
+template <class rng_type, class int_type>
+inline int_type uniformInt(rng_type& rng, int_type a, int_type b){
+	return a + rng() % (b - a);
 }
 
 double vMax(vector<double>& v);

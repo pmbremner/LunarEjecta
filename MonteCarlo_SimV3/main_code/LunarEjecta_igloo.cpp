@@ -10,6 +10,11 @@
 
 using namespace std;
 
+// N_col doesn't take into account the first 9 columns, need to do that here
+int ig_idx(int row, int col, int N_col)
+{
+	return col + (N_col + 9) * row;
+}
 
 double sumSA(input* p, iglooSet* fluxes)
 {
@@ -309,7 +314,7 @@ void save_igloo(input* p, iglooSet* fluxes, int fluxType)
 		// header info
 		igloo_file << "# " << fluxes[p->latlon_idx_proc].N_rows << " rows of flux data\n";
 		igloo_file << "# " << fluxes[p->latlon_idx_proc].N_cols << " columns of flux data\n";
-		igloo_file << "# File generated from MeMoSeE code\n";
+		igloo_file << "# File generated from LMEEM code\n";
 		igloo_file << "# flux is distributed by angle and speed:\n";
 		igloo_file << "# angle values give boundaries and center of angular bin (degrees)\n";
 		igloo_file << "# numeric column labels give midpoint of speed range (km/s)\n";
@@ -352,7 +357,9 @@ void net_flux(iglooSet& fluxes)
 		partial_sum = 0;
 		for (j = 0; j < fluxes.N_cols; ++j)
 		{
-			idx = 9 + j + i * (fluxes.N_cols + 9);
+
+			idx = ig_idx(i, 9 + j, fluxes.N_cols);
+			//idx = 9 + j + i * (fluxes.N_cols + 9);
 
 			partial_sum += fluxes.iglooData[idx];
 		}

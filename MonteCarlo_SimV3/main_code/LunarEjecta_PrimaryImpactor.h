@@ -18,6 +18,7 @@ void get_primary_samples(input* p,                               // need info on
 						 vector<double>&  p_sample_flux_weight,  // flux weight, [#/m^2/yr]
 						 vector<double>&  p_sample_density,      // primary density [kg/m^3]
 						 vector<double>&  p_sample_mass,         // primary mass [g]
+						 vector<int>&  p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
 						 int N_p_sample );                       // number of pulls in igloo-density-mass sets
 
 

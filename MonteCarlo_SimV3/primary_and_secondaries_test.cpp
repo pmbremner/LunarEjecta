@@ -7,8 +7,9 @@
 
 
 // note, -march=native is to allow for vectorization, if possible
+// -Wno-narrowing is to ignore warning about convering a double to a long long int
 
-//  g++ -O2 -std=c++17 -march=native primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
+//  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 
 using namespace std;
 
@@ -34,6 +35,7 @@ int main(int argc, char const *argv[])
 	// end of move to param file
 
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
+	vector<int> p_sample_type;
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
 	double lat_center, lon_center, dlat, dlon;
@@ -68,12 +70,6 @@ int main(int argc, char const *argv[])
 
 	cout << "Total Surface Area for process = " << sumSA(params, MEM_hi_fluxes) / (4*PI) << " x 4pi r^2\n";
 
-	//iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
-	vector<iglooSet*> primaryFluxes;
-	primaryFluxes.push_back(MEM_hi_fluxes); // pushing in the order is very important!
-	primaryFluxes.push_back(MEM_lo_fluxes);
-	primaryFluxes.push_back(NEO_fluxes);
-
 	//cout << primaryFluxes[HiDensMEM][0].filename << endl;
 
 	////////////////////////////////////////////
@@ -86,6 +82,13 @@ int main(int argc, char const *argv[])
 		if (params->saveNEO_files)
 			save_igloo(params, NEO_fluxes, NEO);
 	}
+
+	//iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
+	vector<iglooSet*> primaryFluxes;
+	primaryFluxes.push_back(MEM_hi_fluxes); // pushing in the order is very important!
+	primaryFluxes.push_back(MEM_lo_fluxes);
+	primaryFluxes.push_back(NEO_fluxes); // need to push AFTER init of the NEO fluxes
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -147,6 +150,7 @@ int main(int argc, char const *argv[])
 							p_sample_flux_weight,  // flux weight, [#/m^2/yr]
 							p_sample_density,      // primary density [kg/m^3]
 							p_sample_mass,         // primary mass [g]
+							p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
 							N_p_sample );          // number of pulls in igloo-density-mass sets
 							
 
