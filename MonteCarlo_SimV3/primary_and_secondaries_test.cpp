@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 
 	int N_azm_lat_lon  = 100;
 	int N_zenith_speed = 100;
-	int N_p_sample     = 10000;
+	int N_p_sample     = 1E3;//1E7;
 	// end of move to param file
 
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;

@@ -70,6 +70,7 @@ void vCumLow(vector<paramType>& v, vector<paramType>& vCum)
 void linspace(vector<double>& v, double vmin, double vmax, int Nv);
 
 void logspace(vector<double>& v, double pmin, double pmax, int Nv);
+void rlogspace(vector<double>& v, double pmin, double pmax, int Nv);
 
 // https://www.learncpp.com/cpp-tutorial/function-pointers/
 using RHS_func = double(*)(double, vector<double>&);
@@ -80,6 +81,8 @@ using RHS_func = double(*)(double, vector<double>&);
 double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars);
 
 
-
+// use the cdf to convert a uniform random number in [0,1] to match the corresponding pdf
+int sample_pdf_idx(mt19937& rng, vector<double>& cdf);
+int sample_pdf_idx(mt19937& rng, vector<double>& cdf, double& u);
 
 #endif 

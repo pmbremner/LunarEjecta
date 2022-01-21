@@ -69,6 +69,34 @@ double NEO_integral_flux(double m)
 	return 2.89E-11 * pow(m/1000., -0.9); // units of #/m^2/yr
 }
 
+// mass m is in units of grams
+// returns flux [#/m^2/yr]
+// See Grun et al 1985, eq A3
+double MEM_mass_grun(double m)
+{
+	const double sec_per_yr = 60.*60.*24.*365.;
+
+	const double c4  = 2.2E3;
+	const double c5  = 15.;
+	const double c6  = 1.3E-9;
+	const double c7  = 1.E11;
+	const double c8  = 1.E27;
+	const double c9  = 1.3E-16;
+	const double c10 = 1.E6;
+
+	const double g4  = 0.306; 
+	const double g5  = -4.38;
+	const double g6  = 2.;
+	const double g7  = 4.;
+	const double g8  = -0.36;  
+	const double g9  = 2.;
+	const double g10 = -0.85;
+
+	return (pow(c4 * pow(m, g4) + c5, g5)
+		   + c6 * pow(m + c7 * pow(m, g6) + c8 * pow(m, g7), g8)
+		   + c9 * pow(m + c10 * pow(m, g9), g10) ) * sec_per_yr;
+}
+
 double H_calcH11_C4(input* p)
 {
 	return 3.*p->HH11_k/(4.*PI) * pow(p->HH11_C1, 3.*p->HH11_mu);

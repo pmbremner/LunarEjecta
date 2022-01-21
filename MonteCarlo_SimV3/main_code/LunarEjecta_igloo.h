@@ -22,6 +22,17 @@ struct iglooSet // for each location
 	vector<double> iglooData;   // includes info columns (extra 9 columns) and data
 	vector<double> speedEdge;   // size = N_cols + 1
 	vector<double> speedCenter; // size = N_cols
+
+	// If MEM, from dens files, if NEO, just a single value
+	vector<double> dens_left;
+	vector<double> dens_right;
+	vector<double> dens_pdf;
+	vector<double> dens_cdf; // the first value will always be zero, so the size is one larger than dens_pdf
+
+	// mass cdf, MEM uses Grun and NEO uses Moorhead
+	vector<double> mass_edge; // starts high and goes low
+	vector<double> mass_cdf;
+
 };
 
 int ig_idx(int row, int col, int N_col);
@@ -36,7 +47,8 @@ iglooSet* read_igloo(input* p, int fluxType);
 iglooSet* generate_NEO_igloo(input* p, iglooSet* hiDens);
 void save_igloo(input* p, iglooSet* fluxes, int fluxType);
 
-void net_flux(iglooSet& fluxes);
+void H_read_dens(string dens_fn, iglooSet& ig_data);
 
+void net_flux(iglooSet& fluxes);
 
 #endif 

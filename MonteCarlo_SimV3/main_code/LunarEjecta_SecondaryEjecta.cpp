@@ -333,20 +333,8 @@ void get_CDF_PDF_from_trapdens(vector<double>& zenith, vector<double>& vminv, ve
 int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, vector<double>& cdf, double& g_sample, double& v_sample, double& weight)
 {
 	//// Find the zenith sample ///////
-	// pull sample from uniform distribution
-	double u = uniform(rng, 0., 1.);
-
-	// find index (iterator in this case) of the corresponding location in the cdf
-	vector<double>::iterator idx_iter;
-	int idx;
-
-	// Find the index such that cdf(idx-1) <= u <= cdf(idx)
-	// If u = 0, use upper_bound, otherwise use lower_bound (both binary search algorithms, logN time)
-	//  effectively, this inverts the cdf
-	// This guarantees that *(idx_iter-1) <= u <= *(idx_iter) for all values of u in [0,1]
-	idx_iter = (u == 0. ? upper_bound(cdf.begin(), cdf.end(), u) : lower_bound(cdf.begin(), cdf.end(), u));
-
-	idx = idx_iter - cdf.begin();
+	double u;
+	int idx = sample_pdf_idx(rng, cdf, u);
 
 	// cout << cdf.size() << " | ";
 	// cout << idx << ' ' << (*(idx_iter-1)) << ' ' << u << ' ' << (*(idx_iter)) << endl;

@@ -44,6 +44,14 @@ void logspace(vector<double>& v, double pmin, double pmax, int Nv)
 		v.push_back( pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) );
 }
 
+
+void rlogspace(vector<double>& v, double pmin, double pmax, int Nv)
+{
+	v.clear();
+	for (int i = Nv-1; i >= 0; i--)
+		v.push_back( pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) );
+}
+
 // https://www.learncpp.com/cpp-tutorial/function-pointers/
 using RHS_func = double(*)(double, vector<double>&);
 //double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars);
@@ -87,4 +95,35 @@ double findX(double LHS, RHS_func RHS, double a, double b, vector<double>& vars)
 	//cout << count << ' ';
 
 	return x;
+}
+
+
+// use the cdf to convert a uniform random number in [0,1] to match the corresponding pdf
+int sample_pdf_idx(mt19937& rng, vector<double>& cdf)
+{
+	// pull sample from uniform distribution
+	double u = uniform(rng, 0., 1.);
+
+	// find index (iterator in this case) of the corresponding location in the cdf
+
+	// Find the index such that cdf(idx-1) <= u <= cdf(idx)
+	// If u = 0, use upper_bound, otherwise use lower_bound (both binary search algorithms, logN time)
+	//  effectively, this inverts the cdf
+	// This guarantees that *(idx_iter-1) <= u <= *(idx_iter) for all values of u in [0,1]
+	return (u == 0. ? upper_bound(cdf.begin(), cdf.end(), u) : lower_bound(cdf.begin(), cdf.end(), u)) - cdf.begin();
+}
+
+// copy of above, but with returning u as well
+int sample_pdf_idx(mt19937& rng, vector<double>& cdf, double& u)
+{
+	// pull sample from uniform distribution
+	u = uniform(rng, 0., 1.);
+
+	// find index (iterator in this case) of the corresponding location in the cdf
+
+	// Find the index such that cdf(idx-1) <= u <= cdf(idx)
+	// If u = 0, use upper_bound, otherwise use lower_bound (both binary search algorithms, logN time)
+	//  effectively, this inverts the cdf
+	// This guarantees that *(idx_iter-1) <= u <= *(idx_iter) for all values of u in [0,1]
+	return (u == 0. ? upper_bound(cdf.begin(), cdf.end(), u) : lower_bound(cdf.begin(), cdf.end(), u)) - cdf.begin();
 }

@@ -1,6 +1,7 @@
 #ifndef LUNAREJECTA_PARAMS_H
 #define LUNAREJECTA_PARAMS_H
 
+// https://gist.github.com/halcarleton/9695817 to get lines of code
 
 #include <string>
 #include <vector>
@@ -121,6 +122,7 @@ double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, doubl
 void compute_igloo_azm_bin_number(vector<int> &phi, int Nphi);
 void get_lat_min_max(double cur_lat, double dlat, double& lat_min, double& lat_max);
 
+double MEM_mass_grun(double m); // m in grams
 double NEO_integral_flux(double m); // m in grams
 double H_calcH11_C4(input* p);
 

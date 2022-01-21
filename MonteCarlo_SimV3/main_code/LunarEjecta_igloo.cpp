@@ -155,10 +155,122 @@ void H_read_igloo(string igloo_fn, iglooSet& ig_data)
 	file.close();
 
 }
+void H_read_dens(string dens_fn, iglooSet& ig_data)
+{
+	int i;
+	const int N_rows = 158;
+
+	ifstream file;
+
+	file.open(dens_fn);
+	cout << "reading: " << dens_fn << endl;
+
+	// skip header
+	for (i = 0; i < 2; ++i)
+		file.ignore(4096, '\n');
+
+	ig_data.dens_left.clear();
+	ig_data.dens_right.clear();
+	ig_data.dens_pdf.clear();
+	ig_data.dens_cdf.clear();
+
+	ig_data.dens_left.resize(N_rows, 0.);
+	ig_data.dens_right.resize(N_rows, 0.);
+	ig_data.dens_pdf.resize(N_rows, 0.);
+	ig_data.dens_cdf.resize(N_rows+1, 0.);
+
+
+	for (i = 0; i < N_rows; ++i)
+	{
+		file >> ig_data.dens_left[i];
+		file >> ig_data.dens_right[i];
+		file >> ig_data.dens_pdf[i]; 
+		ig_data.dens_cdf[i+1] = ig_data.dens_cdf[i] + ig_data.dens_pdf[i];
+	}
+
+	// make sure the cdf is normalized to 1
+	for (i = 0; i < N_rows+1; ++i){
+		ig_data.dens_cdf[i] /= ig_data.dens_cdf[N_rows];
+
+		// if (i < N_rows)
+		// 	cout << ig_data.dens_left[i] << ' '
+		// 	     << ig_data.dens_right[i] << ' '
+		// 	     << ig_data.dens_cdf[i] << ' '
+		// 	     << ig_data.dens_pdf[i] << endl;
+	}
+	// cout << ig_data.dens_left[N_rows-1] << ' '
+	//      << ig_data.dens_right[N_rows-1] << ' '
+	//      << ig_data.dens_cdf[N_rows] << ' '
+	//      << ig_data.dens_pdf[N_rows-1] << endl;
+
+	file.close();
+}
+
+void H_set_NEO_dens(input* p, iglooSet& ig_data)
+{
+	const int N_rows = 1;
+
+	ig_data.dens_left.clear();
+	ig_data.dens_right.clear();
+	ig_data.dens_pdf.clear();
+	ig_data.dens_cdf.clear();
+
+	ig_data.dens_left.resize(N_rows);
+	ig_data.dens_right.resize(N_rows);
+	ig_data.dens_pdf.resize(N_rows);
+	ig_data.dens_cdf.resize(N_rows+1, 0.);
+
+	ig_data.dens_left[0]   = p->NEO_dens;
+	ig_data.dens_right[0]  = p->NEO_dens;
+	ig_data.dens_pdf[0] = 1.;
+	ig_data.dens_cdf[1] = 1.;
+
+	cout << ig_data.dens_left[0] << ' '
+	     << ig_data.dens_right[0] << ' '
+	     << ig_data.dens_cdf[1] << ' '
+	     << ig_data.dens_pdf[0] << endl;
+}
+
+
+
+void H_gen_mass_cdf(input* p, iglooSet& ig_data, int fluxType)
+{
+	const int N = 1000;
+	int i;
+
+	ig_data.mass_edge.clear();
+	ig_data.mass_cdf.clear();
+
+	ig_data.mass_edge.resize(N);
+	ig_data.mass_cdf.resize(N);
+
+	if (fluxType == HiDensMEM || fluxType == LoDensMEM){
+
+		rlogspace(ig_data.mass_edge, log10(p->MEM_massMin), log10(p->MEM_massMax), N);
+
+		for (i = 0; i < N; ++i)
+			ig_data.mass_cdf[i] = ( MEM_mass_grun(ig_data.mass_edge[i]) - MEM_mass_grun(ig_data.mass_edge[0]) ) / ( MEM_mass_grun(ig_data.mass_edge[N-1]) - MEM_mass_grun(ig_data.mass_edge[0]) );
+
+	}
+	else{ // fluxType == NEO
+
+		rlogspace(ig_data.mass_edge, log10(p->NEO_massMin), log10(p->NEO_massMax), N);
+
+		for (i = 0; i < N; ++i)
+			ig_data.mass_cdf[i] = ( NEO_integral_flux(ig_data.mass_edge[i]) - NEO_integral_flux(ig_data.mass_edge[0]) ) / ( NEO_integral_flux(ig_data.mass_edge[N-1]) - NEO_integral_flux(ig_data.mass_edge[0]) );
+
+	}
+	// Force the end points to be correct (fixing floating point errors in above calcs)
+	ig_data.mass_cdf[0] = 0.;
+	ig_data.mass_cdf[N-1] = 1.;
+	// for (int i = 0; i < N; ++i)
+	// 	cout << ig_data.mass_edge[i] << ' ' << ig_data.mass_cdf[i] << endl;
+}
+
 
 iglooSet* read_igloo(input* p, int fluxType)
 {
-	string cur_filename;
+	string cur_filename, dens_filename;
 	int idx_lon, cur_lat;
 	//double lat_min, lat_max;
 	iglooSet* ig = new iglooSet[p->N_loc];
@@ -199,16 +311,26 @@ iglooSet* read_igloo(input* p, int fluxType)
 		// generate filename for igloo file to read
 		if (fluxType == HiDensMEM)
 		{
-			cur_filename = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/HiDensity/igloo_avg.txt";
+			cur_filename  = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/HiDensity/igloo_avg.txt";
+			dens_filename = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/hidensity.txt";
+
+			H_read_dens(dens_filename, ig[p->latlon_idx_proc]);
 		}
 		else if (fluxType == LoDensMEM)
 		{
-			cur_filename = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/LoDensity/igloo_avg.txt";
+			cur_filename  = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/LoDensity/igloo_avg.txt";
+			dens_filename = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/lodensity.txt";
+
+			H_read_dens(dens_filename, ig[p->latlon_idx_proc]);
 		}
 		else if (fluxType == NEO)
 		{
 			cur_filename = p->lon_directory[idx_lon] + "/lat" + to_string(cur_lat) + "/NEO_igloo_avg.txt";
+
+			H_set_NEO_dens(p, ig[p->latlon_idx_proc]);
 		}
+
+		H_gen_mass_cdf(p, ig[p->latlon_idx_proc], fluxType);
 
 		ig[p->latlon_idx_proc].filename = cur_filename;
 

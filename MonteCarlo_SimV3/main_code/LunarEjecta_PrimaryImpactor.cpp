@@ -61,24 +61,12 @@ void get_primary_igloo_sample_i(mt19937&        rng,
 	                            double& p_sample_flux_weight)
 {
 	do { // do-while the sample is coming from below the horizon
-		// pull sample from uniform distribution
-		double u = uniform(rng, 0., 1.);
 
-		// find index (iterator in this case) of the corresponding location in the cdf
-		vector<double>::iterator idx_iter;
-		int idx, row, col;
-
-		// Find the index such that cdf(idx-1) <= u <= cdf(idx)
-		// If u = 0, use upper_bound, otherwise use lower_bound (both binary search algorithms, logN time)
-		//  effectively, this inverts the cdf
-		// This guarantees that *(idx_iter-1) <= u <= *(idx_iter) for all values of u in [0,1]
-		idx_iter = (u == 0. ? upper_bound(p_cdf.begin(), p_cdf.end(), u) : lower_bound(p_cdf.begin(), p_cdf.end(), u));
-
-		idx = idx_iter - p_cdf.begin();
+		int idx = sample_pdf_idx(rng, p_cdf);
 
 		// https://stackoverflow.com/questions/7070346/c-best-way-to-get-integer-division-and-remainder
-		row = (int)idx / primaryFluxes->N_cols;
-		col = idx % primaryFluxes->N_cols;
+		int row = (int)idx / primaryFluxes->N_cols;
+		int col = idx % primaryFluxes->N_cols;
 
 		// update index to take into account the info columns (there are 9 of them)
 		idx = ig_idx(row, col + 9, primaryFluxes->N_cols);
@@ -98,7 +86,6 @@ void get_primary_igloo_sample_i(mt19937&        rng,
 
 		p_sample_zenith = uniform(rng, zenith_min, zenith_max);
 		
-
 		// get the speed sample
 		//cout << primaryFluxes->speedEdge[0] << ' ' << primaryFluxes->speedEdge[primaryFluxes->N_cols] << endl;
 		speed_min = primaryFluxes->speedEdge[col];
@@ -111,6 +98,42 @@ void get_primary_igloo_sample_i(mt19937&        rng,
 	} while (p_sample_zenith >= PI/2.); // we don't want primaries hitting from below the horizon x.x
 
 }
+
+
+void get_primary_density_sample_i(mt19937&  rng,
+	                              input*    params,
+	                              int       p_type,
+	                              iglooSet* primaryFluxes,
+	                              double&   p_sample_density)
+{
+	int idx = sample_pdf_idx(rng, primaryFluxes->dens_cdf);
+
+	double dens_min, dens_max;
+
+	dens_min = primaryFluxes->dens_left[idx];
+	dens_max = primaryFluxes->dens_right[idx];
+
+	p_sample_density = uniform(rng, dens_min, dens_max);
+}
+
+
+void get_primary_mass_sample_i(mt19937&  rng,
+	                           input*    params,
+	                           int       p_type,
+	                           iglooSet* primaryFluxes,
+	                           double&   p_sample_mass)
+{
+
+	int idx = sample_pdf_idx(rng, primaryFluxes->mass_cdf);
+
+	double mass_min, mass_max;
+
+	mass_min = primaryFluxes->mass_edge[idx];
+	mass_max = primaryFluxes->mass_edge[idx-1];
+
+	p_sample_mass = uniform(rng, mass_min, mass_max);
+}
+
 
 
 // Next, generate primary impactor samples
@@ -222,10 +245,10 @@ void get_primary_samples(input* params,                          // need info on
 		p_sample_flux_weight[idx_sample] /= double(N_p_sample);
 
 		// get the density sample
-		get_primary_density_sample_i(rng, params, p_type, p_sample_density[idx_sample]);
+		get_primary_density_sample_i(rng, params, p_type, primaryFluxes[p_type], p_sample_density[idx_sample]);
 
 		// get the mass sample
-		get_primary_mass_sample_i(rng, params, p_type, p_sample_mass[idx_sample]);
+		get_primary_mass_sample_i(rng, params, p_type, primaryFluxes[p_type], p_sample_mass[idx_sample]);
 
 
 
@@ -239,4 +262,5 @@ void get_primary_samples(input* params,                          // need info on
 
 	}
 	primary_sample_file.close();
+
 }
