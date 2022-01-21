@@ -52,12 +52,6 @@ struct input
 	int Nlon; // total number of longitudes
 	int Nlatlon_tot; // Nlat*Nlon = total number of locations
 
-	int N_hit; // total number of secondary hits required for statistics
-	int N_max; // total number of tries, hits and miss
-	double alpha_search; // from 0 to 1, percentage of search. Destroy rate is 1-alpha
-	int lifetime_max; // lifetime in iterations of a hit region
-	double lifetime_rate;
-	double dx_rate;
 	/////////////////////////////
 	//bool initError; // 0 = no error, 1 = error
 	bool readNEO_files; // 0 = generate the NEOs and save them, 1 = read from file
@@ -76,6 +70,7 @@ struct input
 
 	// regolith params
 	double regolith_dens; // kg/m^3
+	double regolith_tensile_strength; // Pa = kg/m/s^2
 	double HH11_porosity;
 	double HH11_nu;
 	double HH11_mu;
@@ -90,7 +85,6 @@ struct input
 	double HH11_H1;  // for strength dominated
 	double HH11_H2;  // for gravity dominated
 
-
 	double MEM_massMin; // minimum mass of MEM primaries, grams (cannot be lower than 1E-6 g)
 	double MEM_massMax; // maximum mass of MEM primaries, grams (cannot be higher than 10 g)
 	double NEO_massMin; // minimum mass of NEOs, grams
@@ -100,20 +94,16 @@ struct input
 	double lunar_escape_speed; // m/s
 	double lunar_acceleration; // m/s^2
 	/////////////////////////////
-	double ROI_radius;   // km
-	double ROI_lat; // rad
-	double ROI_lon; // rad
+	double asset_radius;   // m converted to rm
+	double asset_altitude;   //  m converted to rm
+	double asset_height;   //  m converted to rm
+	double asset_lat; // rad
+	double asset_lon; // rad
 	/////////////////////////////
-	int N_D_perRegion;
-	int N_bearing_POI;
-	int ROI_sample_points;
-	//int arc_sample_points;
-	/////////////////////////////
-	int N_horizon_ROI; // secondary ejecta
-	int N_bearing_ROI; // secondary ejecta
-	int N_vel;         // secondary ejecta
-	double vel_min; // m/s
-	double vel_max; // m/s
+	double vel_min; // m/s, converted to vesc
+	double vel_max; // m/s, converted to vesc
+	double dg_max;
+	double dv_max;
 
 
 };

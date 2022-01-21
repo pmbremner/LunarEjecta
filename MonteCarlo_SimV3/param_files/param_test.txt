@@ -14,29 +14,21 @@ NEO_mass_min# 10.
 NEO_mass_max# 1.5708E15 
 readNEO_files# 1
 saveNEO_files# 0
-#
-N_hit# 10
-N_max# 10000000
-alpha_search# 0.15
-lifetime_max# 5000
-lifetime_rate# 1.5
-dx_rate# 0.15
-#
-N_D_perRegion# 10
-N_bearing_POI# 10
-# 18 and 72 to match a res of 5
-N_horizon_ROI# 18
-N_bearing_ROI# 72
-N_vel# 10
-# units of m/s 3600.
+# units of m/s converted to units of escape speed
 vel_min# 100.
 vel_max# 2300.
-ROI_sample_points# 400
+# above surface, converted to above center of Moon
+# units of meters, converted to rm
+asset_altitude# 0.
+asset_height# 50.
+asset_radius# 4.5
+dg_max# 0.05
+dv_max# 0.05
 #
-# units of km
-ROI_radius# 5.
-ROI_lat# -30.
-ROI_lon# 25.
+asset_lat# -30.
+asset_lon# 25.
 # units of kg/m^3
 regolith_dens# 3100.
+# units in Pa
+regolith_tensile_strength# 3.3E6
 regolith_type# sandFlyAsh

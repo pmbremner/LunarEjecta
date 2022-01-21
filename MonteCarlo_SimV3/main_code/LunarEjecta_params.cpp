@@ -156,14 +156,26 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "readNEO_files", p->readNEO_files, 0);
 	getParam(param_fn, "saveNEO_files", p->saveNEO_files, 0);
 
-	getParam(param_fn, "ROI_radius", p->ROI_radius, 0); // km
-	getParam(param_fn, "ROI_lat", p->ROI_lat, 0); // read in degrees
-	p->ROI_lat *= PI/180.;
-	getParam(param_fn, "ROI_lon", p->ROI_lon, 0); // read in degrees
-	p->ROI_lon *= PI/180.;
+	getParam(param_fn, "asset_radius", p->asset_radius, 0); // m to rm
+	getParam(param_fn, "asset_altitude", p->asset_altitude, 0); // m to rm
+	getParam(param_fn, "asset_height", p->asset_height, 0); // m to rm
+
+	p->asset_radius /= p->lunar_radius;
+	p->asset_altitude /= p->lunar_radius;
+	p->asset_height /= p->lunar_radius;
+
+	getParam(param_fn, "asset_lat", p->asset_lat, 0); // read in degrees
+	p->asset_lat *= PI/180.;
+	getParam(param_fn, "asset_lon", p->asset_lon, 0); // read in degrees
+	p->asset_lon *= PI/180.;
 
 	getParam(param_fn, "regolith_dens", p->regolith_dens, 0);
+	getParam(param_fn, "regolith_tensile_strength", p->regolith_tensile_strength, 0);
 	getParam(param_fn, "regolith_type", temp_s, 0);
+
+
+	getParam(param_fn, "dg_max", p->dg_max, 0);
+	getParam(param_fn, "dv_max", p->dv_max, 0);
 
 
 	p->HH11_nu = 0.4; // see footnote 5 of Housen Holsapple 2011
@@ -246,24 +258,14 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->HH11_C4       = H_calcH11_C4(p);
 	cout << "HH11 C4 = " << p->HH11_C4 << endl;
 
-	//////////////////////
-	getParam(param_fn, "N_hit", p->N_hit, 0);
-	getParam(param_fn, "N_max", p->N_max, 0);
-	getParam(param_fn, "alpha_search", p->alpha_search, 0);
-	getParam(param_fn, "lifetime_max", p->lifetime_max, 0);
-	getParam(param_fn, "lifetime_rate", p->lifetime_rate, 0);
-	getParam(param_fn, "dx_rate", p->dx_rate, 0);
 
-
-	getParam(param_fn, "N_D_perRegion", p->N_D_perRegion, 0);
-	getParam(param_fn, "N_bearing_POI", p->N_bearing_POI, 0);
-	getParam(param_fn, "N_horizon_ROI", p->N_horizon_ROI, 0);
-	getParam(param_fn, "N_bearing_ROI", p->N_bearing_ROI, 0);
-	getParam(param_fn, "ROI_sample_points", p->ROI_sample_points, 0);
-	getParam(param_fn, "N_vel", p->N_vel, 0);
 	getParam(param_fn, "vel_min", p->vel_min, 0);
 	getParam(param_fn, "vel_max", p->vel_max, 0);
-	//getParam(param_fn, "arc_sample_points", p->arc_sample_points, 0);
+
+	p->vel_min /= p->lunar_escape_speed;
+	p->vel_max /= p->lunar_escape_speed;
+	
+
 
 	cout << "--------------------------------\n";
 	return p;

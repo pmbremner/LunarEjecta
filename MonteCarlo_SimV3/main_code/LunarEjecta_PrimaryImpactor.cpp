@@ -204,8 +204,8 @@ void get_primary_samples(input* params,                          // need info on
 	mt19937 rng; // for picking igloo sample
 	unsigned seed_0, seed_1; 
 
-	seed_0 = random_device{}() * chrono::system_clock::now().time_since_epoch().count();
-	seed_1 = random_device{}() * chrono::system_clock::now().time_since_epoch().count() * PI;
+	seed_0 = random_device{}() * chrono::system_clock::now().time_since_epoch().count() * params->i_proc;
+	seed_1 = random_device{}() * chrono::system_clock::now().time_since_epoch().count() * params->i_proc * PI;
 	rng_64.seed(seed_0);
 	rng.seed(seed_1);
 
@@ -260,6 +260,9 @@ void get_primary_samples(input* params,                          // need info on
 		                    << p_sample_density[idx_sample] << ' '
 		                    << p_sample_mass[idx_sample] << endl;
 
+		if (idx_sample%10000 == 0){
+			cout << "Generating primary samples... " << 100.*(idx_sample)/double(N_p_sample) << "% finished\r";
+		}
 	}
 	primary_sample_file.close();
 

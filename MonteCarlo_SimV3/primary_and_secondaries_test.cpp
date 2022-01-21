@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 
 	int N_azm_lat_lon  = 100;
 	int N_zenith_speed = 100;
-	int N_p_sample     = 1E3;//1E7;
+	int N_p_sample     = 1E6;//1E7;
 	// end of move to param file
 
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
@@ -108,19 +108,20 @@ int main(int argc, char const *argv[])
 		dlon       = primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon;
 
 
+
 		get_samples_with_azm_lat_lon( lat_center,   // primary latitude center
 		                              lon_center,   // primary longitude center
 		                              dlat,  // primary latitude range
 		                              dlon,  // primary longitude range
-		                              -88.01 / 180. * PI,   // satellite (asset) latitude center
-		                              0.01 / 180. * PI,   // satellite (asset) longitude center
-		                              a,      // satellite (asset) altitude [rm]
-		                              h,      // satellite (asset) height [rm]
-		                              r,      // satellite (asset) radius [rm]
-		                              vmin,   // minimum ejecta speed [vesc]
-		                              vmax,   // maximum ejecta speed [vesc]
-		                              dg,     // maximum zenith grid width
-		                              dv,     // maximum speed grid width
+		                              params->asset_lat,   // satellite (asset) latitude center
+		                              params->asset_lon,   // satellite (asset) longitude center
+		                              params->asset_altitude,      // satellite (asset) altitude [rm]
+		                              params->asset_height,      // satellite (asset) height [rm]
+		                              params->asset_radius,      // satellite (asset) radius [rm]
+		                              params->vel_min,   // minimum ejecta speed [vesc]
+		                              params->vel_max,   // maximum ejecta speed [vesc]
+		                              params->dg_max,     // maximum zenith grid width
+		                              params->dv_max,     // maximum speed grid width
 		                              sample_latp,       // primary latitude center
 		                              sample_lonp,       // primary longitude center
 		                              sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
@@ -153,6 +154,37 @@ int main(int argc, char const *argv[])
 							p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
 							N_p_sample );          // number of pulls in igloo-density-mass sets
 							
+
+
+		// Finally, we convolute the secondaries and the primaries to get the ejected mass
+		get_ejecta_environment(params,
+							   // secondary ejecta 
+							   sample_latp,       // primary latitude center
+                               sample_lonp,       // primary longitude center
+                               sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
+                               sample_zenith_0,
+                               sample_speed_0,
+                               sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
+                               sample_zenith_f,
+                               sample_speed_f,
+                               sample_weight,
+                               N_azm_lat_lon * N_zenith_speed, // N_s_sample
+
+                               // primary impactors
+                               primaryFluxes,         // the set of fluxes, MEM_HI, MEM_LO, and NEO
+							   params->latlon_idx_proc,            // the igloo set index
+							   p_sample_azimuth,      // primary azimuth, at impact [rad]
+							   p_sample_zenith,       // primary zenith, at impact [rad] (nominally horizon angle in igloo files)
+							   p_sample_speed,        // primary speed, [km/s]
+							   p_sample_flux_weight,  // flux weight, [#/m^2/yr]
+							   p_sample_density,      // primary density [kg/m^3]
+							   p_sample_mass,         // primary mass [g]
+							   p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
+							   N_p_sample,
+
+							   // ejecta environment
+							   
+			                   );
 
 	}
 
