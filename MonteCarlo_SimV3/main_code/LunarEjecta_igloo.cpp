@@ -235,34 +235,51 @@ void H_set_NEO_dens(input* p, iglooSet& ig_data)
 
 void H_gen_mass_cdf(input* p, iglooSet& ig_data, int fluxType)
 {
-	const int N = 1000;
+	const int N = 100;
 	int i;
 
 	ig_data.mass_edge.clear();
 	ig_data.mass_cdf.clear();
 
 	ig_data.mass_edge.resize(N);
-	ig_data.mass_cdf.resize(N);
+	ig_data.mass_cdf.resize(N, 0.);
 
 	if (fluxType == HiDensMEM || fluxType == LoDensMEM){
 
 		rlogspace(ig_data.mass_edge, log10(p->MEM_massMin), log10(p->MEM_massMax), N);
 
-		for (i = 0; i < N; ++i)
-			ig_data.mass_cdf[i] = ( MEM_mass_grun(ig_data.mass_edge[i]) - MEM_mass_grun(ig_data.mass_edge[0]) ) / ( MEM_mass_grun(ig_data.mass_edge[N-1]) - MEM_mass_grun(ig_data.mass_edge[0]) );
+		for (i = 1; i < N; ++i){
+			// ig_data.mass_cdf[i] = ( MEM_mass_grun(ig_data.mass_edge[i]) - MEM_mass_grun(ig_data.mass_edge[0]) )
+		 //                        / ( MEM_mass_grun(ig_data.mass_edge[N-1]) - MEM_mass_grun(ig_data.mass_edge[0]) );
+			//ig_data.mass_cdf[i] = ig_data.mass_cdf[i-1] + MEM_mass_grun(ig_data.mass_edge[i]);
+			ig_data.mass_cdf[i] = ig_data.mass_cdf[i-1]
+			                    + (MEM_mass_grun(ig_data.mass_edge[i]) - MEM_mass_grun(ig_data.mass_edge[i-1])) * ig_data.mass_edge[i];
+		}
 
 	}
 	else{ // fluxType == NEO
 
 		rlogspace(ig_data.mass_edge, log10(p->NEO_massMin), log10(p->NEO_massMax), N);
 
-		for (i = 0; i < N; ++i)
-			ig_data.mass_cdf[i] = ( NEO_integral_flux(ig_data.mass_edge[i]) - NEO_integral_flux(ig_data.mass_edge[0]) ) / ( NEO_integral_flux(ig_data.mass_edge[N-1]) - NEO_integral_flux(ig_data.mass_edge[0]) );
+		cout << " min and max NEO mass = " << p->NEO_massMin << ' ' << p->NEO_massMax << endl;
+
+		for (i = 1; i < N; ++i){
+			// ig_data.mass_cdf[i] = ( NEO_integral_flux(ig_data.mass_edge[i]) - NEO_integral_flux(ig_data.mass_edge[0]) ) 
+			// 					/ ( NEO_integral_flux(ig_data.mass_edge[N-1]) - NEO_integral_flux(ig_data.mass_edge[0]) );
+			//ig_data.mass_cdf[i] = ig_data.mass_cdf[i-1] + NEO_integral_flux(ig_data.mass_edge[i]);
+			ig_data.mass_cdf[i] = ig_data.mass_cdf[i-1]
+			                    + (NEO_integral_flux(ig_data.mass_edge[i]) - NEO_integral_flux(ig_data.mass_edge[i-1]));// * ig_data.mass_edge[i];
+			//cout << i << ' ' << NEO_integral_flux(ig_data.mass_edge[i]) - NEO_integral_flux(ig_data.mass_edge[i-1]) << endl;
+		}
 
 	}
-	// Force the end points to be correct (fixing floating point errors in above calcs)
-	ig_data.mass_cdf[0] = 0.;
-	ig_data.mass_cdf[N-1] = 1.;
+	// normalize cdf
+	for (i = 0; i < N; ++i)
+		ig_data.mass_cdf[i] /= ig_data.mass_cdf[N-1];
+
+	// // Force the end points to be correct (fixing floating point errors in above calcs)
+	// ig_data.mass_cdf[0] = 0.;
+	// ig_data.mass_cdf[N-1] = 1.;
 	// for (int i = 0; i < N; ++i)
 	// 	cout << ig_data.mass_edge[i] << ' ' << ig_data.mass_cdf[i] << endl;
 }

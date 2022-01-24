@@ -11,7 +11,7 @@ NEO_velDist_fn# ../NEA_Brown/vmass.txt
 # mass in grams
 NEO_mass_min# 10.
 # 1000 m diameter at 3 g/cc
-NEO_mass_max# 1.5708E15 
+NEO_mass_max# 5524. 
 readNEO_files# 1
 saveNEO_files# 0
 # units of m/s converted to units of escape speed
@@ -22,11 +22,20 @@ vel_max# 2300.
 asset_altitude# 0.
 asset_height# 50.
 asset_radius# 4.5
-dg_max# 0.05
-dv_max# 0.05
+dg_max# 0.01
+dv_max# 0.01
 #
-asset_lat# -30.
-asset_lon# 25.
+N_azm_lat_lon# 100
+N_zenith_speed# 100
+N_primary_sample# 1000000
+#
+N_env_v# 10
+N_env_zen# 19
+N_env_azm# 24
+N_env_size# 21
+#
+asset_lat# 0.
+asset_lon# 0.
 # units of kg/m^3
 regolith_dens# 3100.
 # units in Pa

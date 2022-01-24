@@ -113,7 +113,11 @@ void get_primary_density_sample_i(mt19937&  rng,
 	dens_min = primaryFluxes->dens_left[idx];
 	dens_max = primaryFluxes->dens_right[idx];
 
-	p_sample_density = uniform(rng, dens_min, dens_max);
+	if (p_type == HiDensMEM || p_type == LoDensMEM)
+		p_sample_density = uniform(rng, dens_min, dens_max);
+	else
+		p_sample_density = params->NEO_dens;
+	
 }
 
 
@@ -190,7 +194,7 @@ void get_primary_samples(input* params,                          // need info on
 
 		get_primary_cdf(primaryFluxes[i], cdf_i);
 
-		p_cdf.push_back(cdf_i);
+		p_cdf.emplace_back(cdf_i);
 	}
 
 
@@ -212,18 +216,23 @@ void get_primary_samples(input* params,                          // need info on
 	// figure out relative ratios between flux types
 	vector<long long int> cdf_type(3, 0); // not normalized, will use uniform random int from 0 to cdf_type[2]
 
-	double flux_min = min(min(primaryFluxes[HiDensMEM]->netFlux, primaryFluxes[LoDensMEM]->netFlux), primaryFluxes[NEO]->netFlux);
+	double flux_min = min(min(params->MEM_massMin * primaryFluxes[HiDensMEM]->netFlux, params->MEM_massMin * primaryFluxes[LoDensMEM]->netFlux), params->NEO_massMin * primaryFluxes[NEO]->netFlux);
 
 	// -Wno-narrowing to get rid of warning, we are assuming these fit into the long long int correctly
-	for (i = 0; i < 3; ++i){
-		if (i == 0)
-			cdf_type[i] = primaryFluxes[i]->netFlux / flux_min;
-		else
-			cdf_type[i] = cdf_type[i-1] + primaryFluxes[i]->netFlux / flux_min;
+	// for (i = 0; i < 3; ++i){
+	// 	if (i == 0)
+	// 		cdf_type[i] = primaryFluxes[i]->netFlux / flux_min;
+	// 	else
+	// 		cdf_type[i] = cdf_type[i-1] + primaryFluxes[i]->netFlux / flux_min;
 
-		//cout << cdf_type[i] << ' ';
-	}
+	// 	//cout << cdf_type[i] << ' ';
+	// }
 	//cout << endl;
+	cdf_type[HiDensMEM] = params->MEM_massMin * primaryFluxes[HiDensMEM]->netFlux / flux_min;
+	cdf_type[LoDensMEM] = cdf_type[HiDensMEM] + params->MEM_massMin * primaryFluxes[LoDensMEM]->netFlux / flux_min;
+	cdf_type[NEO]       = cdf_type[LoDensMEM] + params->NEO_massMin * primaryFluxes[NEO]->netFlux / flux_min;
+
+	cout << "cdf type weights: " << cdf_type[0] << ' ' << cdf_type[1] << ' ' << cdf_type[2] << endl;
 
 	for (idx_sample = 0; idx_sample < N_p_sample; ++idx_sample)
 	{
@@ -250,6 +259,13 @@ void get_primary_samples(input* params,                          // need info on
 		// get the mass sample
 		get_primary_mass_sample_i(rng, params, p_type, primaryFluxes[p_type], p_sample_mass[idx_sample]);
 
+		// divide by mass (MEM only), importance sampling 
+		/// * params->MEM_massMin / p_sample_mass
+		// Also, need to divide all NEO types by 1E7 = params->NEO_massMin / params->MEM_massMin
+		if (p_type == HiDensMEM || p_type == LoDensMEM)
+			p_sample_flux_weight[idx_sample] *= params->MEM_massMin / p_sample_mass[idx_sample];
+		else
+			p_sample_flux_weight[idx_sample] *= params->MEM_massMin / params->NEO_massMin;
 
 
 		primary_sample_file << p_type << ' '

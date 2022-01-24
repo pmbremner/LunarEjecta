@@ -125,7 +125,8 @@ double min_zenith_at_escape(double a, double d_rm)
 
 	double sqrt_discr = sqrt( 2.*(x-1.) + sqr( 1./cos(d_rm/2.) ) );
 
-	return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + fabs(1./tan(d_rm/2.))*sqrt_discr) / 2.;
+	//return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + fabs(1./tan(d_rm/2.))*sqrt_discr) / 2.;
+	return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + (1./tan(d_rm/2.))*sqrt_discr) / 2.;
 }
 
 
@@ -255,8 +256,8 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	double g_min =  1.001*d/4.; // works
-	//double g_min = min_zenith_at_escape(a, d)*1.001;
+	//double g_min =  d/4.; // works, need to do better
+	double g_min = min_zenith_at_escape(a, d);
 
 
 	//cout << "g_min = " << g_min << endl;
@@ -267,7 +268,11 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 	// the first point
 	g_cur = g_min;
 	find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, a, h, d, r);
-	////cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
+	///cout << g_cur << ' ' << v0 << ' ' << v1 << ' ' << v1-v0 << endl;
+
+	zenith.emplace_back(g_cur);
+	vmin.emplace_back(v0);
+	vmax.emplace_back(v1);
 
 	// the rest of the points
 	while (g_cur < PI/2.)
@@ -283,12 +288,13 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 		// Next, find the minimum and maximum speeds of the corners
 		find_min_max_v(g_cur, v0, v1, vlow, vlim, vars, a, h, d, r);
 
-		////cout << g_cur << ' ' << v0 << ' ' << v1 << endl;
+		///cout << g_cur << ' ' << v0 << ' ' << v1 << ' ' << v1-v0 << endl;
 
-		zenith.push_back(g_cur);
-		vmin.push_back(v0);
-		vmax.push_back(v1);
+		zenith.emplace_back(g_cur);
+		vmin.emplace_back(v0);
+		vmax.emplace_back(v1);
 	}
+	///cout << endl << endl;
 
 }
 
@@ -444,7 +450,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 	vector<double> zenith, vminv, vmaxv;
 	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
-	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i;
+	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i, u_min, u_max;
 	int j, i_zll, zll_count = 0, cur_i;
 
 	// init output arrays
@@ -464,9 +470,17 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 		do
 		{ // make sure primary impact point is not underneath asset
 			// randomly sample azimuth, latitude, and longitude
-			/// Note, the full range of latitude should be within +/- pi/2
-			latp_i = uniform(rng, latp - dlatp/2., latp + dlatp/2.);
+			/// Note, the full range of latitude should be within +/- pi/2, and should be sampled uniformly on a sphere
+			u_min = (cos(latp + dlatp/2. + PI/2.) + 1.) / 2.;
+			u_max = (cos(latp - dlatp/2. + PI/2.) + 1.) / 2.;
+
+			//cout << u_min << ' ' << u_max << endl;
+
+			latp_i = acos( 2.*uniform(rng, u_min, u_max) - 1. ) - PI/2.;
+			//latp_i = uniform(rng, latp - dlatp/2., latp + dlatp/2.);
 			lonp_i = uniform(rng, lonp - dlonp/2., lonp + dlonp/2.);
+
+			//cout << latp - dlatp/2. << ' ' << latp + dlatp/2. << ' ' << latp_i << ' ' << lonp_i << endl;
 
 			// compute distance between primary and asset (units of rm), (not to the center, but the edge of the asset)
 			d = lat_lon_dist(latp_i, lonp_i, lats, lons, 0);
@@ -518,14 +532,14 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 			for (j = 0; j < N_zenith_speed; ++j)
 			{
 				// lat, lon, and azm will be the same for the i_zll-th speed-zenith sample
-				sample_latp.push_back(latp_i);
-				sample_lonp.push_back(lonp_i);
-				sample_azimuth_0.push_back(azm_i);
+				sample_latp.emplace_back(latp_i);
+				sample_lonp.emplace_back(lonp_i);
+				sample_azimuth_0.emplace_back(azm_i);
 
 				// copy from get_samples() output
-		    	sample_zenith_0.push_back(sample_zenith_0_i[j]);
-		    	sample_speed_0.push_back(sample_speed_0_i[j]);
-		    	sample_weight.push_back(sample_weight_i[j]);
+		    	sample_zenith_0.emplace_back(sample_zenith_0_i[j]);
+		    	sample_speed_0.emplace_back(sample_speed_0_i[j]);
+		    	sample_weight.emplace_back(sample_weight_i[j]);
 
 		    	// compute final azimuth (bearing), zenith angle, and speed of secondary as seen from asset
 		    	/// For azm, need to compute the exact lat-lon impact given the azm_i sample
@@ -533,14 +547,14 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 		    	lons_i = destination_lon(latp_i, lonp_i, lats_i, d, azm_i);
 
 		    	// final bearing (from asset to primary impact location)
-				sample_azimuth_f.push_back( azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) );
+				sample_azimuth_f.emplace_back( azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) );
 
 				// final zenith (as seen from asset, similar to wind direction)
-				sample_zenith_f.push_back( final_zenith(d, sample_speed_0_i[j], sample_zenith_0_i[j]) );
+				sample_zenith_f.emplace_back( final_zenith(d, sample_speed_0_i[j], sample_zenith_0_i[j]) );
 
 				// final speed at asset, approximate as hitting mid-height of asset
 				/// later, when we do the actual trajectory, we can know the exact height
-				sample_speed_f.push_back( final_speed(a + h/2., sample_speed_0_i[j]) );
+				sample_speed_f.emplace_back( final_speed(a + h/2., sample_speed_0_i[j]) );
 
 				cur_i = sample_latp.size()-1;
 				

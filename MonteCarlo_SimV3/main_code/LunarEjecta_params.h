@@ -104,8 +104,16 @@ struct input
 	double vel_max; // m/s, converted to vesc
 	double dg_max;
 	double dv_max;
-
-
+	/////////////////////////////
+	int N_azm_lat_lon;
+	int N_zenith_speed;
+	int N_primary_sample;
+	
+	int N_env_v;
+	int N_env_zen;
+	int N_env_azm;
+	int N_env_size;
+	long long int N_env_flux; // will be N_env_v * N_env_zen * N_env_azm * N_env_size
 };
 
 double calcSA(double cur_lat, double lat_min, double lat_max, double dlat, double dlon);

@@ -118,7 +118,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->MEM_massMin = 1.E-6; // g
 	p->MEM_massMax = 10.; // g
 	p->NEO_massMin = 10.; // g
-	p->NEO_massMax = 1.5708E15; // g, 1000 m diameter at 3 g/cc
+	p->NEO_massMax = 5524.; // g, mass of a 0.1% chance of hitting the moon in 11 years
 
 	p->lunar_radius = 1737.4E3; // m (suggested by NESC)
 	p->lunar_escape_speed = 2.38E3; // m/s
@@ -164,6 +164,8 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->asset_altitude /= p->lunar_radius;
 	p->asset_height /= p->lunar_radius;
 
+	p->asset_altitude += 1.; // input was height above surface, need distance from center of Moon
+
 	getParam(param_fn, "asset_lat", p->asset_lat, 0); // read in degrees
 	p->asset_lat *= PI/180.;
 	getParam(param_fn, "asset_lon", p->asset_lon, 0); // read in degrees
@@ -176,6 +178,19 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 	getParam(param_fn, "dg_max", p->dg_max, 0);
 	getParam(param_fn, "dv_max", p->dv_max, 0);
+
+
+	getParam(param_fn, "N_azm_lat_lon", p->N_azm_lat_lon, 0);
+	getParam(param_fn, "N_zenith_speed", p->N_zenith_speed, 0);
+	getParam(param_fn, "N_primary_sample", p->N_primary_sample, 0);
+
+
+	getParam(param_fn, "N_env_v", p->N_env_v, 0);
+	getParam(param_fn, "N_env_zen", p->N_env_zen, 0);
+	getParam(param_fn, "N_env_azm", p->N_env_azm, 0);
+	getParam(param_fn, "N_env_size", p->N_env_size, 0);
+
+	p->N_env_flux = p->N_env_v * p->N_env_zen * p->N_env_azm * p->N_env_size;
 
 
 	p->HH11_nu = 0.4; // see footnote 5 of Housen Holsapple 2011
@@ -264,7 +279,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 
 	p->vel_min /= p->lunar_escape_speed;
 	p->vel_max /= p->lunar_escape_speed;
-	
+
 
 
 	cout << "--------------------------------\n";

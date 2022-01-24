@@ -8,6 +8,9 @@ import os
 
 flux_type, azm, zenith, speed, flux, dens, mass = np.loadtxt('primary_samples.txt', unpack=True)
 
+#print(np.sum(flux_type[flux_type == 2]/2.))
+print(np.sum(flux))
+
 fig, axs = plt.subplots(3, 2)
 
 axs[0, 0].hist((90 - azm)%360., 50, label='azimuth')

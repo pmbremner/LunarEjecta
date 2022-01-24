@@ -1,15 +1,16 @@
 #include "LunarEjecta_MainUtils.h"
-#include "LunarEjecta_SecondaryEjecta.h"
 #include "LunarEjecta_params.h"
 #include "LunarEjecta_igloo.h"
+#include "LunarEjecta_SecondaryEjecta.h"
 #include "LunarEjecta_PrimaryImpactor.h"
+#include "LunarEjecta_Environment.h"
 
 
 
 // note, -march=native is to allow for vectorization, if possible
 // -Wno-narrowing is to ignore warning about convering a double to a long long int
 
-//  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
+//  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 
 using namespace std;
 
@@ -18,20 +19,20 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	// Need to move to param file
-	const double Rm = 1737.E3; // m
+	//const double Rm = 1737.E3; // m
 
-	double vmin = 0.0;
-	double vmax = 3.;
-	double a = atof(argv[4])/Rm + 1.; // altitude above lunar center 
-	double h = atof(argv[5])/Rm;//120./Rm;
-	double r = atof(argv[6])/Rm;//4.5/Rm;
+	// double vmin = 0.0;
+	// double vmax = 3.;
+	// double a = atof(argv[4])/Rm + 1.; // altitude above lunar center 
+	// double h = atof(argv[5])/Rm;//120./Rm;
+	// double r = atof(argv[6])/Rm;//4.5/Rm;
 
-	double dg = 0.05; // [rad]
-	double dv = 0.05; // [rm]
+	// double dg = 0.05; // [rad]
+	// double dv = 0.05; // [rm]
 
-	int N_azm_lat_lon  = 100;
-	int N_zenith_speed = 100;
-	int N_p_sample     = 1E6;//1E7;
+	// int N_azm_lat_lon  = 100;
+	// int N_zenith_speed = 100;
+	// int N_p_sample     = 1E6;//1E7;
 	// end of move to param file
 
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
@@ -39,6 +40,8 @@ int main(int argc, char const *argv[])
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
 	double lat_center, lon_center, dlat, dlon;
+
+	vector<double> ejecta_env_speed, ejecta_env_zenith, ejecta_env_azimuth, ejecta_env_size, ejecta_env_flux;
 
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////
@@ -131,8 +134,8 @@ int main(int argc, char const *argv[])
 		                              sample_zenith_f,
 		                              sample_speed_f,
 		                              sample_weight,
-		                              N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
-		                              N_zenith_speed); // number of pulls in zenith-speed sets
+		                              params->N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
+		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
 
 
 		// Next, generate primary impactor samples
@@ -152,7 +155,7 @@ int main(int argc, char const *argv[])
 							p_sample_density,      // primary density [kg/m^3]
 							p_sample_mass,         // primary mass [g]
 							p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
-							N_p_sample );          // number of pulls in igloo-density-mass sets
+							params->N_primary_sample );          // number of pulls in igloo-density-mass sets
 							
 
 
@@ -168,7 +171,7 @@ int main(int argc, char const *argv[])
                                sample_zenith_f,
                                sample_speed_f,
                                sample_weight,
-                               N_azm_lat_lon * N_zenith_speed, // N_s_sample
+                               params->N_azm_lat_lon * params->N_zenith_speed, // N_s_sample
 
                                // primary impactors
                                primaryFluxes,         // the set of fluxes, MEM_HI, MEM_LO, and NEO
@@ -180,10 +183,14 @@ int main(int argc, char const *argv[])
 							   p_sample_density,      // primary density [kg/m^3]
 							   p_sample_mass,         // primary mass [g]
 							   p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
-							   N_p_sample,
+							   params->N_primary_sample,
 
-							   // ejecta environment
-							   
+							   // ejecta environment, at asset, sizes of each dimension are in params
+							   ejecta_env_speed,    // km/s, all at asset
+							   ejecta_env_zenith,   // rad
+							   ejecta_env_azimuth,  // rad
+							   ejecta_env_size,     // m, diameter
+							   ejecta_env_flux      // #/m^2/yr (> size_i)
 			                   );
 
 	}

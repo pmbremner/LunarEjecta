@@ -41,7 +41,7 @@ inline double uniform(rng_type& rng, double a, double b){
 // returns an int from a to b
 template <class rng_type, class int_type>
 inline int_type uniformInt(rng_type& rng, int_type a, int_type b){
-	return a + rng() % (b - a);
+	return a + rng() % (b - a + 1);
 }
 
 double vMax(vector<double>& v);
