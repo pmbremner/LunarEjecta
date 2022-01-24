@@ -256,8 +256,8 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	//double g_min =  d/4.; // works, need to do better
-	double g_min = min_zenith_at_escape(a, d);
+	double g_min =  d/4.; // works, need to do better
+	//double g_min = min_zenith_at_escape(a, d);
 
 
 	//cout << "g_min = " << g_min << endl;

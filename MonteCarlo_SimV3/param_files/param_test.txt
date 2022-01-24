@@ -19,7 +19,7 @@ vel_min# 100.
 vel_max# 2300.
 # above surface, converted to above center of Moon
 # units of meters, converted to rm
-asset_altitude# 0.
+asset_altitude# 10000000.
 asset_height# 50.
 asset_radius# 4.5
 dg_max# 0.01

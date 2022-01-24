@@ -11,6 +11,7 @@
 // -Wno-narrowing is to ignore warning about convering a double to a long long int
 
 //  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
+//  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\adestefa\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 
 using namespace std;
 
