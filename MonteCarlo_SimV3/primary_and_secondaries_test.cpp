@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
 	vector<int> p_sample_type;
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
-	double lat_center, lon_center, dlat, dlon;
+	double lat_center, lon_center, dlat, dlon, d, N_all_weight;
 
 	vector<double> ejecta_env_speed, ejecta_env_zenith, ejecta_env_azimuth, ejecta_env_size, ejecta_env_flux;
 
@@ -89,7 +89,7 @@ int main(int argc, char const *argv[])
 
 	//iglooSet *primaryFluxes[3] = {MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes};
 	vector<iglooSet*> primaryFluxes;
-	primaryFluxes.push_back(MEM_hi_fluxes); // pushing in the order is very important!
+	primaryFluxes.push_back(MEM_hi_fluxes); // pushing in this order is very important!
 	primaryFluxes.push_back(MEM_lo_fluxes);
 	primaryFluxes.push_back(NEO_fluxes); // need to push AFTER init of the NEO fluxes
 
@@ -111,6 +111,10 @@ int main(int argc, char const *argv[])
 		lon_center = primaryFluxes[HiDensMEM][params->latlon_idx_proc].lon;
 		dlon       = primaryFluxes[HiDensMEM][params->latlon_idx_proc].dlon;
 
+
+		d = lat_lon_dist(lat_center, lon_center, params->asset_lat, params->asset_lon, 0);
+
+		N_all_weight = pow(0.05 + d/4., -(3./2.*params->HH11_mu + 1));
 
 
 		get_samples_with_azm_lat_lon( lat_center,   // primary latitude center
@@ -135,7 +139,7 @@ int main(int argc, char const *argv[])
 		                              sample_zenith_f,
 		                              sample_speed_f,
 		                              sample_weight,
-		                              params->N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
+		                              (params->N_azm_lat_lon * N_all_weight),   // number of pulls in azimuth-lat-lon sets
 		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
 
 

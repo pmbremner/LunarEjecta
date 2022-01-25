@@ -19,15 +19,15 @@ vel_min# 100.
 vel_max# 5000.
 # above surface, converted to above center of Moon
 # units of meters, converted to rm
-asset_altitude# 10000.
+asset_altitude# 1000000.
 asset_height# 50.
 asset_radius# 4.5
-dg_max# 0.001
-dv_max# 0.001
+dg_max# 0.01
+dv_max# 0.005
 #
-N_azm_lat_lon# 1000
+N_azm_lat_lon# 100
 N_zenith_speed# 100
-N_primary_sample# 1000000
+N_primary_sample# 100000
 #
 N_env_v# 10
 N_env_zen# 19

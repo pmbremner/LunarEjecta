@@ -28,7 +28,8 @@ double Fspeed(double g, double a_rm, double d_rm)
 
 	// return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
 
-	double x =  1. - (1. - 1./a_rm) / (2.*sqr(sin(d_rm/2.)));
+	//double x =  1. - (1. - 1./a_rm) / (2.*sqr(sin(d_rm/2.)));
+	double x =  (1./a_rm - cos(d_rm)) / (2.*sqr(sin(d_rm/2.)));
 
 	return 1. / (2.*x*sqr(sin(g)) + sin(2.*g)/tan(d_rm/2.));
 }
@@ -142,7 +143,7 @@ double min_zenith_at_escape(double a, double d_rm)
 // Note: make sure vars[1] = h and vars[2] = d before this function call, both in units of lunar radii
 double find_dg(double g, double dg, double dv, double vmax, vector<double>& vars)
 {
-	const double alpha = 0.3;
+	const double alpha = 0.2;
 	const double eps   = 1.E-3;
 
 	double f0, f1;
@@ -229,7 +230,7 @@ void find_min_max_v(double g, double& vmin, double& vmax, double vlow, double vl
 	vmax = max(min(vlim, vmax), vlow);
 
 	// if both vmin and vmax are very close to the maximum speed, vlim, then force them to be to avoid sampling noisy unphysical values
-	if (fabs(vlim - vmin) < 1E-4 && fabs(vlim - vmax)  < 1E-4)
+	if (fabs(vlim - vmin) < 1E-2 && fabs(vlim - vmax)  < 1E-2)
 	{
 		vmin = vlim;
 		vmax = vlim;
@@ -260,7 +261,7 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	double g_min =  d/4.; // works, need to do better
+	double g_min =  d/4.; // works, need to do better ?
 	//double g_min = min_zenith_at_escape(a, d);
 
 
@@ -455,7 +456,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 	vector<double> zenith, vminv, vmaxv;
 	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
 	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i, u_min, u_max;
-	int j, i_zll, zll_count = 0, cur_i;
+	int i, j, i_zll, zll_count = 0, cur_i;
 
 	// init output arrays
 	sample_latp.clear();      
@@ -468,6 +469,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
     sample_speed_f.clear();
     sample_weight.clear();
 
+    cout << "Azm-lat-lon sample size = " << N_azm_lat_lon << endl;
 
 	for (i_zll = 0; i_zll < N_azm_lat_lon; ++i_zll)
 	{
@@ -526,8 +528,8 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
 
-			// cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
-			// cout << " | grid size = " << zenith.size() << endl;//<< "                     \r";
+			cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
+			cout << " | grid size = " << zenith.size() << "                     \r";
 		
 
 			// transfer i-th sample set to the main array
@@ -561,18 +563,18 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 				sample_speed_f.emplace_back( final_speed(a + h/2., sample_speed_0_i[j]) );
 
 				cur_i = sample_latp.size()-1;
-				
-				speed_angle_dist_file << sample_latp[cur_i] << ' ' << sample_lonp[cur_i] << ' ' << sample_azimuth_0[cur_i] << ' '; 
-				speed_angle_dist_file << sample_zenith_0[cur_i] << ' ' << sample_speed_0[cur_i] << ' ' << sample_weight[cur_i] << ' '; 
-				speed_angle_dist_file << sample_azimuth_f[cur_i] << ' ' << sample_zenith_f[cur_i] << ' ' << sample_speed_f[cur_i] << endl; 
 
 			}
-
-
 		}
+	}
 
-		// need to divide the sample_weight by the number of azm_lat_lon pulls, not counting ones with no grid found
+	// need to divide the sample_weight by the number of azm_lat_lon pulls, not counting ones with no grid found
+	for (i = 0; i < sample_latp.size(); ++i){
+		sample_weight[i] /= double(zll_count); // ~Stratified Sampling
 
+		speed_angle_dist_file << sample_latp[i] << ' ' << sample_lonp[i] << ' ' << sample_azimuth_0[i] << ' '; 
+		speed_angle_dist_file << sample_zenith_0[i] << ' ' << sample_speed_0[i] << ' ' << sample_weight[i] << ' '; 
+		speed_angle_dist_file << sample_azimuth_f[i] << ' ' << sample_zenith_f[i] << ' ' << sample_speed_f[i] << endl; 
 	}
 
 	speed_angle_dist_file.close();
