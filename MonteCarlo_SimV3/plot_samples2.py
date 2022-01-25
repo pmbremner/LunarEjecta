@@ -14,14 +14,14 @@ for file in glob.glob("*speed_vs_angle*.txt"):
 	if os.stat(file).st_size > 0:
 		sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0, sample_weight, sample_azimuth_f, sample_zenith_f, sample_speed_f = np.loadtxt(file, unpack=True)
 		
-		idx = sample_speed_0 < 0.8
+		#idx = sample_speed_0 < 0.8
 
-		print(sample_zenith_f[idx], sample_speed_f[idx])
+		#print(sample_zenith_f[idx], sample_speed_f[idx])
 
 		plt.xlim(0., np.pi)
 		plt.ylim(0., 3.)
-		plt.scatter(sample_zenith_0[idx], sample_speed_0[idx], s=1, color='red')
-		plt.scatter(sample_zenith_f[idx], sample_speed_f[idx], s=1, color='blue')
+		plt.scatter(sample_zenith_0, sample_speed_0, s=1, color='red')
+		plt.scatter(sample_zenith_f, sample_speed_f, s=1, color='blue')
 		plt.xlabel("Zenith Angle (rad)")
 		plt.ylabel("Ejecta Speed (v_esc)")
 		plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python

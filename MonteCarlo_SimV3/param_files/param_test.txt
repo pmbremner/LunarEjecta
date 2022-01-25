@@ -16,16 +16,16 @@ readNEO_files# 1
 saveNEO_files# 0
 # units of m/s converted to units of escape speed
 vel_min# 100.
-vel_max# 2300.
+vel_max# 5000.
 # above surface, converted to above center of Moon
 # units of meters, converted to rm
-asset_altitude# 10000000.
+asset_altitude# 10000.
 asset_height# 50.
 asset_radius# 4.5
-dg_max# 0.01
-dv_max# 0.01
+dg_max# 0.001
+dv_max# 0.001
 #
-N_azm_lat_lon# 100
+N_azm_lat_lon# 1000
 N_zenith_speed# 100
 N_primary_sample# 1000000
 #

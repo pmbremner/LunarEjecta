@@ -24,9 +24,13 @@ using namespace std;
 
 double Fspeed(double g, double a_rm, double d_rm)
 {
-	double x = (1./a_rm - cos(d_rm)) / (1. - cos(d_rm)); // for a = 1, x = 1
+	// double x = (1./a_rm - cos(d_rm)) / (1. - cos(d_rm)); // for a = 1, x = 1
 
-	return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
+	// return 1. / (x * (1. - cos(2.*g)) + sin(2.*g)/tan(d_rm/2.));
+
+	double x =  1. - (1. - 1./a_rm) / (2.*sqr(sin(d_rm/2.)));
+
+	return 1. / (2.*x*sqr(sin(g)) + sin(2.*g)/tan(d_rm/2.));
 }
 
 double Fspeed_direct(double g, double a_rm, double d_rm, double vmax)
