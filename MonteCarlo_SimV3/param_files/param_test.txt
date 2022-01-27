@@ -19,13 +19,13 @@ vel_min# 100.
 vel_max# 5000.
 # above surface, converted to above center of Moon
 # units of meters, converted to rm
-asset_altitude# 1000000.
+asset_altitude# 100000.
 asset_height# 50.
 asset_radius# 4.5
 dg_max# 0.01
 dv_max# 0.005
 #
-N_azm_lat_lon# 100
+N_azm_lat_lon# 10
 N_zenith_speed# 100
 N_primary_sample# 100000
 #
@@ -38,6 +38,7 @@ asset_lat# 0.
 asset_lon# 0.
 # units of kg/m^3
 regolith_dens# 3100.
+regolith_porosity# 0.4
 # units in Pa
 regolith_tensile_strength# 3.3E6
 regolith_type# sandFlyAsh
