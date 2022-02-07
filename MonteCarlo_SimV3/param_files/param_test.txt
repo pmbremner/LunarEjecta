@@ -10,7 +10,7 @@ MEMDirectoryName_270# ../LatRunData_WestLimb
 NEO_velDist_fn# ../NEA_Brown/vmass.txt
 # mass in grams
 NEO_mass_min# 10.
-# 1000 m diameter at 3 g/cc
+# 
 NEO_mass_max# 5524. 
 readNEO_files# 1
 saveNEO_files# 0
@@ -19,20 +19,20 @@ vel_min# 100.
 vel_max# 5000.
 # above surface, converted to above center of Moon
 # units of meters, converted to rm
-asset_altitude# 100000.
+asset_altitude# 0.
 asset_height# 50.
 asset_radius# 4.5
 dg_max# 0.01
 dv_max# 0.005
 #
-N_azm_lat_lon# 1
+N_azm_lat_lon# 10
 N_zenith_speed# 100
-N_primary_sample# 1000000
+N_primary_sample# 10000
 #
-N_env_v# 10
-N_env_zen# 19
-N_env_azm# 24
-N_env_size# 21
+N_env_v# 50
+N_env_zen# 50
+N_env_azm# 5
+N_env_size# 5
 #
 asset_lat# 0.
 asset_lon# 0.
@@ -42,3 +42,6 @@ regolith_porosity# 0.4
 # units in Pa
 regolith_tensile_strength# 3.3E6
 regolith_type# sandFlyAsh
+# units of m, diameter
+reg_min_size# 1.0E-6
+reg_max_size# 1.0E-1

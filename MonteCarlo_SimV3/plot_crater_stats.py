@@ -7,7 +7,7 @@ import matplotlib as mpl
 # https://stackoverflow.com/questions/2507808/how-to-check-whether-a-file-is-empty-or-not
 import os
 
-p_r, p_m, R, vmax, M, p_type = np.loadtxt('crater_stats.txt', unpack=True)
+p_r, p_m, R, vmax, M, p_type, s_m = np.loadtxt('crater_stats.txt', unpack=True)
 
 # Creating bins
 x_min = np.log10(np.min(vmax))
@@ -34,8 +34,8 @@ x_max = np.log10(np.max(R))
 y_min = np.log10(np.min(M))
 y_max = np.log10(np.max(M))
   
-x_bins = np.logspace(x_min, x_max, 1000)
-y_bins = np.logspace(y_min, y_max, 1000)
+x_bins = np.logspace(x_min, x_max, 500)
+y_bins = np.logspace(y_min, y_max, 500)
 
 # https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
 plt.hist2d(R, M, bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
@@ -54,6 +54,65 @@ plt.ylabel('Total ejecta mass (units of impactor mass)')
 plt.yscale('log')
 plt.xscale('log')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+
+plt.figure()
+# Creating bins
+x_min = np.log10(np.min(s_m[s_m > 0]))
+x_max = np.log10(np.max(s_m))
+
+x_bins = np.logspace(x_min, x_max, 100)
+
+plt.hist(s_m, x_bins)
+plt.yscale('log')
+plt.xscale('log')
+plt.xlabel('fraction of ejected mass')
+
+plt.figure()
+# Creating bins
+x_min = np.log10(np.min(p_r))
+x_max = np.log10(np.max(p_r))
+  
+y_min = np.log10(np.min(s_m[s_m > 0]))
+y_max = np.log10(np.max(s_m))
+  
+x_bins = np.logspace(x_min, x_max, 100)
+y_bins = np.logspace(y_min, y_max, 100)
+
+# https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
+plt.hist2d(p_r[p_type==0], s_m[p_type==0], bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
+plt.xlabel('Impactor radius')
+plt.ylabel('Fraction of ejected mass (high density MEM)')
+plt.yscale('log')
+plt.xscale('log')
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+
+plt.figure()
+# https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
+plt.hist2d(p_r[p_type==1], s_m[p_type==1], bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
+plt.xlabel('Impactor radius')
+plt.ylabel('Fraction of ejected mass (low density MEM)')
+plt.yscale('log')
+plt.xscale('log')
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+
+plt.figure()
+# https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
+plt.hist2d(p_r[p_type==2], s_m[p_type==2], bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
+plt.xlabel('Impactor radius')
+plt.ylabel('Fraction of ejected mass (NEO)')
+plt.yscale('log')
+plt.xscale('log')
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+
+plt.figure()
+# https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
+plt.hist2d(p_r, s_m, bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
+plt.xlabel('Impactor radius')
+plt.ylabel('Fraction of ejected mass (all)')
+plt.yscale('log')
+plt.xscale('log')
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+
 
 
 plt.show()

@@ -130,6 +130,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->MEM_loDens_sigma = 0.292;
 
 	p->NEO_dens = 3000.; // kg/m^3
+
+	// fit from Carrier 2003
+	p->reg_size_mu    = -2.649;
+	p->reg_size_sigma = 1.786;
 	//////////////////////
 
 	//////////////////////
@@ -175,6 +179,10 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "regolith_porosity", p->regolith_porosity, 0);
 	getParam(param_fn, "regolith_tensile_strength", p->regolith_tensile_strength, 0);
 	getParam(param_fn, "regolith_type", temp_s, 0);
+	getParam(param_fn, "reg_min_size", p->reg_min_size, 0);
+	getParam(param_fn, "reg_max_size", p->reg_max_size, 0);
+	
+
 
 
 	getParam(param_fn, "dg_max", p->dg_max, 0);
@@ -192,6 +200,8 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	getParam(param_fn, "N_env_size", p->N_env_size, 0);
 
 	p->N_env_flux = p->N_env_v * p->N_env_zen * p->N_env_azm * p->N_env_size;
+
+
 
 
 	p->HH11_nu = 0.4; // see footnote 5 of Housen Holsapple 2011

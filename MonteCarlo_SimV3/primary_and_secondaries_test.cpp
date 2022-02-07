@@ -134,10 +134,10 @@ int main(int argc, char const *argv[])
 		                              sample_lonp,       // primary longitude center
 		                              sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
 		                              sample_zenith_0,
-		                              sample_speed_0,
+		                              sample_speed_0,    // [vesc]
 		                              sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
 		                              sample_zenith_f,
-		                              sample_speed_f,
+		                              sample_speed_f,    // [vesc]
 		                              sample_weight,
 		                              (params->N_azm_lat_lon * N_all_weight),   // number of pulls in azimuth-lat-lon sets
 		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
@@ -171,10 +171,10 @@ int main(int argc, char const *argv[])
                                sample_lonp,       // primary longitude center
                                sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
                                sample_zenith_0,
-                               sample_speed_0,
+                               sample_speed_0,    // [vesc]
                                sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
                                sample_zenith_f,
-                               sample_speed_f,
+                               sample_speed_f,    // [vesc]
                                sample_weight,
                                params->N_azm_lat_lon * params->N_zenith_speed, // N_s_sample
 

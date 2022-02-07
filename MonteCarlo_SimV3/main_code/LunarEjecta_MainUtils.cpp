@@ -33,23 +33,29 @@ double vSum(vector<double>& v)
 void linspace(vector<double>& v, double vmin, double vmax, int Nv)
 {
 	v.clear();
+	v.resize(Nv);
 	for (int i = 0; i < Nv; ++i)
-		v.push_back(vmin + (vmax - vmin) * i / double(Nv-1.));
+		v[i] = vmin + (vmax - vmin) * i / double(Nv-1.);
 }
 
 void logspace(vector<double>& v, double pmin, double pmax, int Nv)
 {
 	v.clear();
-	for (int i = 0; i < Nv; ++i)
-		v.push_back( pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) );
+	v.resize(Nv);
+	//cout << endl <<  pmin << ' ' << pmax << endl;
+	for (int i = 0; i < Nv; ++i){
+		v[i] = pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) ;
+		//cout << v[i] << endl;
+	}
 }
 
 
 void rlogspace(vector<double>& v, double pmin, double pmax, int Nv)
 {
 	v.clear();
+	v.resize(Nv);
 	for (int i = Nv-1; i >= 0; i--)
-		v.push_back( pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) );
+		v[i] =  pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) ;
 }
 
 // https://www.learncpp.com/cpp-tutorial/function-pointers/

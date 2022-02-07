@@ -28,6 +28,11 @@ inline double mag_s(double x, double y, double z) {return sqrt(sqr(x) + sqr(y) +
 inline double mag2(double x, double y, double z) {return sqr(x) + sqr(y) + sqr(z);}
 
 
+inline int get_idx(double x, vector<double>& v)
+{
+	return (x == 0. ? upper_bound(v.begin(), v.end(), x) : lower_bound(v.begin(), v.end(), x)) - v.begin();
+}
+
 inline double trapezoid_area(double width, double height0, double height1)
 {
 	return 0.5 * width * (height0 + height1);

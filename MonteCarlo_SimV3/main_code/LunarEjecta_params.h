@@ -72,6 +72,12 @@ struct input
 	double regolith_dens; // kg/m^3
 	double regolith_porosity; // fraction, 0 to 1
 	double regolith_tensile_strength; // Pa = kg/m/s^2
+	double reg_min_size; // m, diameter
+	double reg_max_size; // m, diameter
+	double reg_size_mu;    // expectation value of ln(x[mm]) of particle size dist
+	double reg_size_sigma; // standard deviation of particle size dist
+
+
 	double HH11_porosity;
 	double HH11_nu;
 	double HH11_mu;
