@@ -22,7 +22,7 @@ double get_crater_radius(input* p,
 	// gravity regime radius, unitless scale of (rho/m)^(1/3)
 	double r_grav_norm = p->HH11_H1
 	                   * pow(p_sample_density / reg_bulk_dens, (2. + p->HH11_mu - 6.*p->HH11_nu) / (3.*(2. + p->HH11_mu)))
-	                   * pow(p->lunar_acceleration * impactor_r / sqr(p_sample_speed * 1000. /* km/s -> m/s*/), -p->HH11_mu / (2. + p->HH11_mu));
+	                   * pow(p->lunar_acceleration * impactor_r / sqr(p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/), -p->HH11_mu / (2. + p->HH11_mu));
 
 	// crater length scale [m]
 	double length_scale = pow(p_sample_density / (p_sample_mass / 1000. /* g -> kg */), -1./3.);
@@ -37,7 +37,7 @@ double get_crater_radius(input* p,
 	{
 		double r_stng_norm = p->HH11_H2
 		                   * pow(p_sample_density / reg_bulk_dens, (1. - 3.*p->HH11_nu) / 3.)
-		                   * pow(p->regolith_tensile_strength / (p_sample_density * sqr(p_sample_speed * 1000. /* km/s -> m/s*/)), -p->HH11_mu/2.);
+		                   * pow(p->regolith_tensile_strength / (p_sample_density * sqr(p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/)), -p->HH11_mu/2.);
 		
 		if (r_stng_norm < r_grav_norm)
 		{ // in strength regime
@@ -69,11 +69,11 @@ double get_crater_max_speed(input*  p,
 	// regolith bulk density [kg/m^3]
 	double reg_bulk_dens = p->regolith_dens * p->regolith_porosity;
 
-	m_crater_max = p_sample_mass * 3. * p->HH11_k / (4.*PI)
+	m_crater_max = (p_sample_mass / 1000. /* g -> kg */) * 3. * p->HH11_k / (4.*PI)
 	             * (p_sample_density / reg_bulk_dens)
 	             * (pow(((regime_type == 0 ? p->HH11_n2s : p->HH11_n2g) * crater_r) / (impactor_r), 3) - pow(p->HH11_n1, 3));
 
-	return p_sample_speed * 1000. /* km/s -> m/s*/ * p->HH11_C1
+	return p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/ * p->HH11_C1
 		 * pow(p->HH11_n1 * pow(p_sample_density / reg_bulk_dens, p->HH11_nu), -1./p->HH11_mu)
 		 * pow(1. - (p->HH11_n1 * impactor_r) / ((regime_type == 0 ? p->HH11_n2s : p->HH11_n2g) * crater_r), p->HH11_p);
 }
@@ -109,14 +109,17 @@ void get_ejecta_environment(input*  params,
 					        vector<double>& ejecta_env_speed,    // km/s, all at asset
 					        vector<double>& ejecta_env_zenith,   // rad
 					        vector<double>& ejecta_env_azimuth,  // rad
-					        vector<double>& ejecta_env_size,     // m, diameter
+					        vector<double>& ejecta_env_size,     // m, diameter <--- need to check if it's dia or radius *********
 					        vector<double>& ejecta_env_flux      // #/m^2/yr (> size_i)
 	                        )
 {
-	int i_p, i_s, crater_regime;
+	ofstream file;
+	file.open("crater_stats.txt");
+
+	int i_p, i_s, j_s_size, crater_regime;
 	double crater_r, impactor_r; // [m]
 	double v_crater_max; // maximum speed the crater ejects [m/s]
-	double m_crater_max; // maximum mass the crater ejects [kg]
+	double m_crater_max, ejected_mass; // maximum mass the crater ejects [kg]
 
 	// init ejecta vectors (ejecta_env_flux is 4d flattened to 1d, {speed, zenith, azimuth, particle size: #/m^2/yr > particle size i})
 	ejecta_env_speed.clear();
@@ -135,7 +138,7 @@ void get_ejecta_environment(input*  params,
 
     for (i_p = 0; i_p < N_p_sample; ++i_p) // for a given primary impact
     {
-    	//
+    	// compute impactor radius [m]
     	impactor_r = pow(3.*(p_sample_mass[i_p]/1000. /* g- > kg */) / (4.*PI * p_sample_density[i_p]), 1./3.);
 
     	//compute crater radius [m], and crater_regime (0 = strength, 1 = grav)
@@ -160,25 +163,49 @@ void get_ejecta_environment(input*  params,
 	    		                            crater_regime,
 	    		                            m_crater_max);
    
-    	cout << "impactor radius & mass: crater radius, max speed & mass: " << impactor_r << " m | " << p_sample_mass[i_p] / 1000. << " kg : " << crater_r/impactor_r << " r | " << v_crater_max << " m/s | " << m_crater_max/(p_sample_mass[i_p] / 1000.) << " mass\n";
-
-    	// if (v_crater_max <= 0) // no ejecta created by impact
-    	// {
+    	//cout << "impactor radius & mass: crater radius, max speed & mass: " << impactor_r << " m | " << p_sample_mass[i_p] / 1000. << " kg : " << crater_r/impactor_r << " r | " << v_crater_max << " m/s | " << m_crater_max/(p_sample_mass[i_p] / 1000.) << " yield\n";
+    	if (m_crater_max > 0) // ejecta is created by impact (equivalent to checking if the max speed is >= 0)
+    	{
+    		file << impactor_r << ' ' << p_sample_mass[i_p] / 1000. << " " << crater_r/impactor_r << " " << v_crater_max << " " << m_crater_max/(p_sample_mass[i_p] / 1000.) << ' ' << p_sample_type[i_p] << endl;
     	
-    	// }
-    	// else // ejecta is created by impact
-    	// {
-    	// 	// for each secondary created by the i_p'th primary impact, compute fraction of ejected mass and bin it
-    	// 	for (i_s = 0; i_s < N_s_sample; ++i_s)
-    	// 	{
-    			
 
 
+			// for each secondary created by the i_p'th primary impact, compute fraction of ejected mass and bin it
+    		for (i_s = 0; i_s < N_s_sample; ++i_s)
+    		{
 
-    	// 	}
-    	// }
+    			if (ejecta_env_speed[i_s] < v_crater_max)
+    			{
+    				// compute mass ejected (total for all sizes)
+	    			ejected_mass = get_ejected_mass(params,
+	    				                            impactor_r,
+	    				                            crater_r,
+	    				                            ejecta_env_speed[i_s]);
+
+	    			// bin ejecta, looping over cumulative sizes
+	    			for (j_s_size = 0; j_s_size < params->N_env_size; ++j_s_size)
+	    			{
+	    				// compute cumulative # of particles > j_s_size-th size
+	    				// if ejecta size is greater than impactor size, reject it (no ejecta)
+	    				if ( )
+	    				{
+	    					/* code */
+	    				}
+
+	    			}
+
+
+    			} // no else, if the ejecta speed is greater than the max ejected speed, there is no ejecta
+    		
+    		}
+
+    	}
+    	else // no ejecta created by impact
+    	{
+
+    	}
 
 
     }
-
+    file.close();
 }
