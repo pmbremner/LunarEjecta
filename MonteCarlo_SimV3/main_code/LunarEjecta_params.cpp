@@ -172,6 +172,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	p->asset_lon *= PI/180.;
 
 	getParam(param_fn, "regolith_dens", p->regolith_dens, 0);
+	getParam(param_fn, "regolith_porosity", p->regolith_porosity, 0);
 	getParam(param_fn, "regolith_tensile_strength", p->regolith_tensile_strength, 0);
 	getParam(param_fn, "regolith_type", temp_s, 0);
 

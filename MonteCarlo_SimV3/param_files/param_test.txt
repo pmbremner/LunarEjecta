@@ -25,9 +25,9 @@ asset_radius# 4.5
 dg_max# 0.01
 dv_max# 0.005
 #
-N_azm_lat_lon# 10
+N_azm_lat_lon# 1
 N_zenith_speed# 100
-N_primary_sample# 100000
+N_primary_sample# 100
 #
 N_env_v# 10
 N_env_zen# 19

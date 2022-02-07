@@ -70,6 +70,7 @@ struct input
 
 	// regolith params
 	double regolith_dens; // kg/m^3
+	double regolith_porosity; // fraction, 0 to 1
 	double regolith_tensile_strength; // Pa = kg/m/s^2
 	double HH11_porosity;
 	double HH11_nu;
@@ -82,8 +83,8 @@ struct input
 	double HH11_n1;
 	double HH11_n2s; // for strength dominated
 	double HH11_n2g; // for gravity dominated
-	double HH11_H1;  // for strength dominated
-	double HH11_H2;  // for gravity dominated
+	double HH11_H1;  // for gravity dominated
+	double HH11_H2;  // for strength dominated
 
 	double MEM_massMin; // minimum mass of MEM primaries, grams (cannot be lower than 1E-6 g)
 	double MEM_massMax; // maximum mass of MEM primaries, grams (cannot be higher than 10 g)
@@ -108,7 +109,7 @@ struct input
 	int N_azm_lat_lon;
 	int N_zenith_speed;
 	int N_primary_sample;
-	
+
 	int N_env_v;
 	int N_env_zen;
 	int N_env_azm;
