@@ -25,8 +25,9 @@ double vMin(vector<double>& v){
 double vSum(vector<double>& v)
 {
 	double sum = 0.;
-	for (int i = 0; i < v.size(); ++i)
+	for (int i = 0; i < v.size(); ++i){
 		sum += v[i];
+	}
 	return sum;
 }
 
@@ -34,8 +35,11 @@ void linspace(vector<double>& v, double vmin, double vmax, int Nv)
 {
 	v.clear();
 	v.resize(Nv);
-	for (int i = 0; i < Nv; ++i)
+	//cout << endl <<  vmin << ' ' << vmax << endl;
+	for (int i = 0; i < Nv; ++i){
 		v[i] = vmin + (vmax - vmin) * i / double(Nv-1.);
+		//cout << v[i] << endl;
+	}
 }
 
 void logspace(vector<double>& v, double pmin, double pmax, int Nv)
@@ -54,8 +58,9 @@ void rlogspace(vector<double>& v, double pmin, double pmax, int Nv)
 {
 	v.clear();
 	v.resize(Nv);
-	for (int i = Nv-1; i >= 0; i--)
+	for (int i = Nv-1; i >= 0; i--){
 		v[i] =  pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) ;
+	}
 }
 
 // https://www.learncpp.com/cpp-tutorial/function-pointers/

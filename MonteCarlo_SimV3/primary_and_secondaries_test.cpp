@@ -19,22 +19,16 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	// Need to move to param file
-	//const double Rm = 1737.E3; // m
+	// timers
+	// see https://www.cplusplus.com/reference/chrono/steady_clock/
+	chrono::steady_clock::time_point gen_secondaries_time_0;
+	chrono::steady_clock::time_point gen_secondaries_time_1;
 
-	// double vmin = 0.0;
-	// double vmax = 3.;
-	// double a = atof(argv[4])/Rm + 1.; // altitude above lunar center 
-	// double h = atof(argv[5])/Rm;//120./Rm;
-	// double r = atof(argv[6])/Rm;//4.5/Rm;
+	chrono::steady_clock::time_point gen_primaries_time_0;
+	chrono::steady_clock::time_point gen_primaries_time_1;
 
-	// double dg = 0.05; // [rad]
-	// double dv = 0.05; // [rm]
-
-	// int N_azm_lat_lon  = 100;
-	// int N_zenith_speed = 100;
-	// int N_p_sample     = 1E6;//1E7;
-	// end of move to param file
+	chrono::steady_clock::time_point gen_environment_time_0;
+	chrono::steady_clock::time_point gen_environment_time_1;
 
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
 	vector<int> p_sample_type;
@@ -114,10 +108,12 @@ int main(int argc, char const *argv[])
 
 		d = lat_lon_dist(lat_center, lon_center, params->asset_lat, params->asset_lon, 0);
 
-		N_all_weight = pow(0.05 + d/4., -(3./2.*params->HH11_mu + 1));
+		N_all_weight = 1.;//pow(0.05 + d/4., -(3./2.*params->HH11_mu + 1));
 
+		gen_secondaries_time_0 = chrono::steady_clock::now();
 
-		get_samples_with_azm_lat_lon( lat_center,   // primary latitude center
+		get_samples_with_azm_lat_lon( params,
+		                              lat_center,   // primary latitude center
 		                              lon_center,   // primary longitude center
 		                              dlat,  // primary latitude range
 		                              dlon,  // primary longitude range
@@ -142,6 +138,9 @@ int main(int argc, char const *argv[])
 		                              (params->N_azm_lat_lon * N_all_weight),   // number of pulls in azimuth-lat-lon sets
 		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
 
+		gen_secondaries_time_1 = chrono::steady_clock::now();
+		chrono::duration<double> gen_secondaries_time_elapse = chrono::duration_cast<chrono::duration<double>>(gen_secondaries_time_1 - gen_secondaries_time_0);
+		cout << endl << "Total time to generate secondaries = " << gen_secondaries_time_elapse.count() << "s\n\n";
 
 		// Next, generate primary impactor samples
 		/// We need to construct a CDF for the 3 types, MEM_LO, MEM_HI, and NEO.
@@ -149,6 +148,8 @@ int main(int argc, char const *argv[])
 		/// Then, we take the CDF of that type and pull from using a new unifrom random number
 		/// This pull will define the speed, zenith, azimuth, and flux.
 		//// Then, we need to sample the density and mass (separately, they don't depend on each other)
+
+		gen_primaries_time_0 = chrono::steady_clock::now();
 
 		get_primary_samples(params,                // need info on density distributions and mass distributions
 							primaryFluxes,         // the set of fluxes, MEM_HI, MEM_LO, and NEO
@@ -161,10 +162,14 @@ int main(int argc, char const *argv[])
 							p_sample_mass,         // primary mass [g]
 							p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
 							params->N_primary_sample );          // number of pulls in igloo-density-mass sets
-							
 
+		gen_primaries_time_1 = chrono::steady_clock::now();				
+		chrono::duration<double> gen_primaries_time_elapse = chrono::duration_cast<chrono::duration<double>>(gen_primaries_time_1 - gen_primaries_time_0);
+		cout << endl << "Total time to generate primaries = " << gen_primaries_time_elapse.count() << "s\n\n";
 
 		// Finally, we convolute the secondaries and the primaries to get the ejected mass
+		gen_environment_time_0 = chrono::steady_clock::now();	
+
 		get_ejecta_environment(params,
 							   // secondary ejecta 
 							   sample_latp,       // primary latitude center
@@ -198,7 +203,9 @@ int main(int argc, char const *argv[])
 							   ejecta_env_flux      // #/m^2/yr (> size_i)
 			                   );
 
-
+		gen_environment_time_1 = chrono::steady_clock::now();
+		chrono::duration<double> gen_environment_time_elapse = chrono::duration_cast<chrono::duration<double>>(gen_environment_time_1 - gen_environment_time_0);
+		cout << endl << "Total time to generate environment = " << gen_environment_time_elapse.count() << "s\n\n";
 
 	}
 

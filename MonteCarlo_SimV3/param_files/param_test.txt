@@ -26,13 +26,13 @@ dg_max# 0.01
 dv_max# 0.005
 #
 N_azm_lat_lon# 10
-N_zenith_speed# 100
-N_primary_sample# 10000
+N_zenith_speed# 10
+N_primary_sample# 1000000
 #
-N_env_v# 50
-N_env_zen# 50
-N_env_azm# 5
-N_env_size# 5
+N_env_v# 70
+N_env_zen# 70
+N_env_azm# 3
+N_env_size# 50
 #
 asset_lat# 0.
 asset_lon# 0.

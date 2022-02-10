@@ -318,6 +318,7 @@ void get_CDF_PDF_from_trapdens(vector<double>& zenith, vector<double>& vminv, ve
 	pdf.resize(N-1);
 
 	// compute the trapezoidal area of each section
+	// So that the density of sampled points is the same no matter the size of the region
 	for (i = 0; i < N-1; ++i)
 		pdf[i] = trapezoid_area(zenith[i+1] - zenith[i], vmaxv[i] - vminv[i], vmaxv[i+1] - vminv[i+1]);//0.5 * (zenith[i+1] - zenith[i]) * (vmaxv[i] - vminv[i] + vmaxv[i+1] - vminv[i+1]);
 
@@ -361,6 +362,7 @@ int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vect
 
 	v_sample = uniform(rng, vlow, vhigh);
 
+	// associated with the area of the region (i.e., the normalization factor)
 	weight = trapezoid_area(zenith[idx] - zenith[idx-1], vmaxv[idx-1] - vminv[idx-1], vmaxv[idx] - vminv[idx]);
 
 	return idx-1;
@@ -406,7 +408,10 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 	// after finishing all the samples, we need to divide the weights by the number of counts in each region, NOT the total number of counts overall
 	// to normalize the total speed-zenith area to 1, need to divide by the lengths in both dimensions
 	for (int i = 0; i < N_sample; ++i){
-		sample_weight[i] /= double(stratified_count[sample_idx[i]]) * PI/2. * (vmax - vlow);
+		// divide by the overall total area, to normalize available area to 1
+		// so that later when the ejecta distribution function is taken into account,
+		// the area element comes into play there, Or just take into account here, and normalize the ejecta distribution
+		sample_weight[i] /= double(stratified_count[sample_idx[i]]);// * PI/2. * (vmax - vlow); 
 
 		//file << sample_zenith[i] << ' ' << sample_speed[i] << ' ' << sample_weight[i] << endl;
 	}
@@ -417,7 +422,8 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 
 
-void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [radians]
+void get_samples_with_azm_lat_lon(input* p,
+                                  double latp,   // primary latitude center [radians]
 	                              double lonp,   // primary longitude center [radians]
 	                              double dlatp,  // primary latitude range [radians]
 	                              double dlonp,  // primary longitude range [radians]
@@ -456,7 +462,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 	vector<double> zenith, vminv, vmaxv;
 	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
 	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i, u_min, u_max;
-	int i, j, i_zll, zll_count = 0, cur_i;
+	int i, j, i_zll, zll_count = 0;//, cur_i;
 
 	// init output arrays
 	sample_latp.clear();      
@@ -488,9 +494,11 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 			//cout << latp - dlatp/2. << ' ' << latp + dlatp/2. << ' ' << latp_i << ' ' << lonp_i << endl;
 
-			// compute distance between primary and asset (units of rm), (not to the center, but the edge of the asset)
+			// compute distance between primary and asset (units of rm), to center of asset
 			d = lat_lon_dist(latp_i, lonp_i, lats, lons, 0);
 		} while(d <= r);
+
+		d -= r; // shift d to be distance to edge, not center of asset
 
 		// compute azimuth width, distances in units of rm
 		dazm = azm_FOV(r, d);
@@ -516,6 +524,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 		{
 			// CDF is normalized, starting from 0 to 1
 			// will be used in conjunction with a uniform number generator that ranges from 0 to 1
+			// Note: when pulling from the pdf, the points will have a uniform density
 			vector<double> cdf, pdf;
 			get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
 
@@ -528,7 +537,7 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 
 			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
 
-			cout << "d = " << d -r << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
+			cout << "d = " << d << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
 			cout << " | grid size = " << zenith.size() << "                     \r";
 		
 
@@ -552,17 +561,17 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 		    	lats_i = destination_lat(latp_i, d, azm_i);
 		    	lons_i = destination_lon(latp_i, lonp_i, lats_i, d, azm_i);
 
-		    	// final bearing (from asset to primary impact location)
-				sample_azimuth_f.emplace_back( azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) );
+		    	// final bearing (from asset to primary impact location), force to be from 0 to 2PI
+				sample_azimuth_f.emplace_back( fmod(azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) + 2.*PI, 2.*PI) );
 
-				// final zenith (as seen from asset, similar to wind direction)
+				// final zenith (as seen from asset, similar to wind direction), should be from 0 to PI (PI/2 to PI is pointing below the horizon)
 				sample_zenith_f.emplace_back( final_zenith(d, sample_speed_0_i[j], sample_zenith_0_i[j]) );
 
 				// final speed at asset, approximate as hitting mid-height of asset
 				/// later, when we do the actual trajectory, we can know the exact height
 				sample_speed_f.emplace_back( final_speed(a + h/2., sample_speed_0_i[j]) );
 
-				cur_i = sample_latp.size()-1;
+				//cur_i = sample_latp.size()-1;
 
 			}
 		}
@@ -571,6 +580,8 @@ void get_samples_with_azm_lat_lon(double latp,   // primary latitude center [rad
 	// need to divide the sample_weight by the number of azm_lat_lon pulls, not counting ones with no grid found
 	for (i = 0; i < sample_latp.size(); ++i){
 		sample_weight[i] /= double(zll_count); // ~Stratified Sampling
+		sample_weight[i] *= p->lunar_escape_speed; // since vmin and vmax were in units of vesc
+
 
 		speed_angle_dist_file << sample_latp[i] << ' ' << sample_lonp[i] << ' ' << sample_azimuth_0[i] << ' '; 
 		speed_angle_dist_file << sample_zenith_0[i] << ' ' << sample_speed_0[i] << ' ' << sample_weight[i] << ' '; 

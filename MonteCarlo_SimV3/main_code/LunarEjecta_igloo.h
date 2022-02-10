@@ -14,7 +14,7 @@ struct iglooSet // for each location
 	double dlon; // radians, lonmin = lon - dlon/2, lonmax = lon + dlon/2
 	double latmin; // radians
 	double latmax; // radians
-	double SA;  // surface area of location on Moon
+	double SA;  // surface area of location on Moon, units of r^2
 	double netFlux; // [#/m^2/yr]
 
 	int N_rows; // number of rows in igloo data

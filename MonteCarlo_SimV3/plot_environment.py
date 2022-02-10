@@ -12,29 +12,49 @@ N_env_v, N_env_zen, N_env_azm, N_env_size = np.loadtxt('ejecta_environment_flux.
 
 
 
-flux = np.loadtxt('ejecta_environment_flux.txt', unpack=True, skiprows=1)
+idx, flux = np.loadtxt('ejecta_environment_flux.txt', unpack=True, skiprows=1)
 
 # these are just index arrays
-v = np.arange(N_env_v)
-g = np.arange(N_env_zen)
-b = np.arange(N_env_azm)
-a = np.arange(N_env_size)
+v = np.linspace(100, 5000., N_env_v)
+g = np.linspace(0., np.pi, N_env_zen)
+b = np.linspace(0., 2.*np.pi, N_env_azm)
+a = np.logspace(-6, -1, N_env_size)
 
-gg, vv = np.meshgrid(g, v)
+print(np.sum(flux))
 
-zz = gg * 0;
+#gg, vv = np.meshgrid(g, v)
 
-print(np.shape(flux))
+#zz = gg * 0;
 
-for i in range(N_env_v):
-	for j in range(N_env_zen):
-		for k in range(N_env_azm):
-			for l in range(N_env_size):
-				idx = l + N_env_size * (k + N_env_azm * (j + N_env_zen * i))
+flux1 = flux.reshape(N_env_v, N_env_zen, N_env_azm, N_env_size)
 
-				zz[i][j] += flux[idx]*1E10
+flux_sum = np.sum(flux1, axis=2)
+flux_sum = np.sum(flux_sum, axis=2)
 
 
+plt.imshow(flux_sum, cmap = plt.cm.nipy_spectral, origin='lower')#, norm=mpl.colors.LogNorm())#, norm=mpl.colors.LogNorm()) # norm=mpl.colors.LogNorm()
 
-plt.imshow(zz, cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm(), origin='lower')
+# azimuth
+flux1 = flux.reshape(N_env_v, N_env_zen, N_env_azm, N_env_size)
+
+flux_sum = np.sum(flux1, axis=3)
+flux_sum = np.sum(flux_sum, axis=1)
+flux_sum = np.sum(flux_sum, axis=0)
+
+plt.figure()
+plt.semilogy(b, flux_sum)
+
+
+
+# size
+flux1 = flux.reshape(N_env_v, N_env_zen, N_env_azm, N_env_size)
+
+flux_sum = np.sum(flux1, axis=2)
+flux_sum = np.sum(flux_sum, axis=1)
+flux_sum = np.sum(flux_sum, axis=0)
+
+plt.figure()
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+plt.loglog(a, flux_sum)
+
 plt.show()

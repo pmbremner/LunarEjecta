@@ -34,8 +34,8 @@ x_max = np.log10(np.max(R))
 y_min = np.log10(np.min(M))
 y_max = np.log10(np.max(M))
   
-x_bins = np.logspace(x_min, x_max, 500)
-y_bins = np.logspace(y_min, y_max, 500)
+x_bins = np.logspace(x_min, x_max, 1000)
+y_bins = np.logspace(y_min, y_max, 1000)
 
 # https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
 plt.hist2d(R, M, bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())

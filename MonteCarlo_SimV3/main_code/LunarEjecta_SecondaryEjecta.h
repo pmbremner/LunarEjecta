@@ -1,6 +1,8 @@
 #ifndef LUNAREJECTA_SECONDARYEJECTA_H
 #define LUNAREJECTA_SECONDARYEJECTA_H
 
+#include "LunarEjecta_params.h"
+
 #include <vector>
 #include <random>     // mt19937
 
@@ -81,7 +83,8 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 // For a given lat-lon, compute samples both in close and far directions in azimuth, assuming a wedge
 //void get_samples_with_azm(double latp, double lonp, double lats, double lons, double a, double h, double r);
-void get_samples_with_azm_lat_lon(double latp,   // primary latitude center
+void get_samples_with_azm_lat_lon(input* p,
+                                  double latp,   // primary latitude center
 	                              double lonp,   // primary longitude center
 	                              double dlatp,  // primary latitude range
 	                              double dlonp,  // primary longitude range

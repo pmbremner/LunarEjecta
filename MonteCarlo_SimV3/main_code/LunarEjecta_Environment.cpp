@@ -10,7 +10,7 @@ using namespace std;
 double get_crater_radius(input* p,  
 	                     double impactor_r,       // [m]
 	                     double p_sample_zenith,  // [rad]
-	                     double p_sample_speed,   // [km/s]
+	                     double p_norm_speed,     // [m/s]
 	                     double p_sample_density, // [kg/m^3]
 	                     double p_sample_mass,    // [g]
 	                     double p_sample_type,
@@ -20,7 +20,7 @@ double get_crater_radius(input* p,
 	// gravity regime radius, unitless scale of (rho/m)^(1/3)
 	double r_grav_norm = p->HH11_H1
 	                   * pow(p_sample_density / reg_bulk_dens, (2. + p->HH11_mu - 6.*p->HH11_nu) / (3.*(2. + p->HH11_mu)))
-	                   * pow(p->lunar_acceleration * impactor_r / sqr(p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/), -p->HH11_mu / (2. + p->HH11_mu));
+	                   * pow(p->lunar_acceleration * impactor_r / sqr(p_norm_speed), -p->HH11_mu / (2. + p->HH11_mu));
 
 	// crater length scale [m]
 	double length_scale = pow(p_sample_density / (p_sample_mass / 1000. /* g -> kg */), -1./3.);
@@ -35,7 +35,7 @@ double get_crater_radius(input* p,
 	{
 		double r_stng_norm = p->HH11_H2
 		                   * pow(p_sample_density / reg_bulk_dens, (1. - 3.*p->HH11_nu) / 3.)
-		                   * pow(p->regolith_tensile_strength / (p_sample_density * sqr(p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/)), -p->HH11_mu/2.);
+		                   * pow(p->regolith_tensile_strength / (p_sample_density * sqr(p_norm_speed)), -p->HH11_mu/2.);
 		
 		if (r_stng_norm < r_grav_norm)
 		{ // in strength regime
@@ -56,7 +56,7 @@ double get_crater_radius(input* p,
 double get_crater_max_speed(input*  p,
     		                double  impactor_r,       // [m]
     		                double  p_sample_zenith,  // [rad]
-	    		            double  p_sample_speed,   // [km/s]
+	    		            double  p_norm_speed,     // [m/s]
 	    		            double  p_sample_density, // [kg/m^3]
 	    		            double  p_sample_mass,    // [g]
 	    		            double  p_sample_type,
@@ -69,7 +69,7 @@ double get_crater_max_speed(input*  p,
 	             * (p_sample_density / reg_bulk_dens)
 	             * (pow(((regime_type == 0 ? p->HH11_n2s : p->HH11_n2g) * crater_r) / (impactor_r), 3) - pow(p->HH11_n1, 3));
 
-	return p_sample_speed * cos(p_sample_zenith) * 1000. /* km/s -> m/s*/ * p->HH11_C1
+	return p_norm_speed * p->HH11_C1
 		 * pow(p->HH11_n1 * pow(p_sample_density / reg_bulk_dens, p->HH11_nu), -1./p->HH11_mu)
 		 * pow(1. - (p->HH11_n1 * impactor_r) / ((regime_type == 0 ? p->HH11_n2s : p->HH11_n2g) * crater_r), p->HH11_p);
 }
@@ -144,8 +144,9 @@ double get_ejected_mass(input*  p,
 	//cout << ejecta_env_speed[idx-1] << ' ' << ejecta_env_speed[idx] << ' ';
 
 	// return the ejected mass in the given speed range
-	return cum_ejected_mass(p, crater_regime, reg_bulk_dens, impactor_r, crater_r, p_sample_density, p_norm_speed, p_m, ejecta_env_speed[idx-1])
-	     - cum_ejected_mass(p, crater_regime, reg_bulk_dens, impactor_r, crater_r, p_sample_density, p_norm_speed, p_m, ejecta_env_speed[idx]);
+	return ( cum_ejected_mass(p, crater_regime, reg_bulk_dens, impactor_r, crater_r, p_sample_density, p_norm_speed, p_m, ejecta_env_speed[idx-1])
+	       - cum_ejected_mass(p, crater_regime, reg_bulk_dens, impactor_r, crater_r, p_sample_density, p_norm_speed, p_m, ejecta_env_speed[idx]) )
+	       / (ejecta_env_speed[idx] - ejecta_env_speed[idx-1]);
 }
 
 
@@ -200,6 +201,9 @@ void get_ejecta_environment(input*  params,
 	ofstream file;
 	file.open("crater_stats.txt");
 
+	///ofstream idx_file;
+    ///idx_file.open("idx.txt");
+
 	double vesc = params->lunar_escape_speed;
 
 	int i_p, i_s, j_s_size, crater_regime;
@@ -217,7 +221,6 @@ void get_ejecta_environment(input*  params,
     // 	     params->N_env_v);
 
     linspace(ejecta_env_speed , params->vel_min * vesc, params->vel_max * vesc, params->N_env_v);
-    
 
     linspace(ejecta_env_zenith , 0., PI   , params->N_env_zen);
     linspace(ejecta_env_azimuth, 0., 2.*PI, params->N_env_azm);
@@ -239,22 +242,24 @@ void get_ejecta_environment(input*  params,
     	// compute impactor radius [m]
     	impactor_r = pow(3.*(p_sample_mass[i_p]/1000. /* g- > kg */) / (4.*PI * p_sample_density[i_p]), 1./3.);
 
+    	p_norm_speed = p_sample_speed[i_p] * 1000. * cos(p_sample_zenith[i_p]);// ;// ; // m/s
+
     	//compute crater radius [m], and crater_regime (0 = strength, 1 = grav)
     	crater_r = get_crater_radius(params,
     		                         impactor_r,
     		                         p_sample_zenith[i_p],
-    		                         p_sample_speed[i_p],
+    		                         p_norm_speed, // m/s
     		                         p_sample_density[i_p],
     		                         p_sample_mass[i_p],
     		                         p_sample_type[i_p],
     		                         crater_regime,
     		                         reg_bulk_dens);
 
-    	// compute maximum speed ejected by the primary impact [m/s], and max mass [kg]
+    	// compute maximum speed ejected by the primary impact [m/s], and total mass [kg]
     	v_crater_max = get_crater_max_speed(params,
     		                                impactor_r,
     		                                p_sample_zenith[i_p],
-	    		                            p_sample_speed[i_p],
+	    		                            p_norm_speed, // m/s
 	    		                            p_sample_density[i_p],
 	    		                            p_sample_mass[i_p],
 	    		                            p_sample_type[i_p],
@@ -263,7 +268,6 @@ void get_ejecta_environment(input*  params,
 	    		                            reg_bulk_dens,
 	    		                            m_crater_max);
 
-    	p_norm_speed = p_sample_speed[i_p] * cos(p_sample_zenith[i_p]) * 1000.; // m/s
    
     	//cout << "impactor radius & mass: crater radius, max speed & mass: " << impactor_r << " m | " << p_sample_mass[i_p] / 1000. << " kg : " << crater_r/impactor_r << " r | " << v_crater_max << " m/s | " << m_crater_max/(p_sample_mass[i_p] / 1000.) << " yield\n";
     	if (m_crater_max > 0) // ejecta is created by impact (equivalent to checking if the max speed is >= 0)
@@ -273,7 +277,7 @@ void get_ejecta_environment(input*  params,
 
     		for (i_s = 0; i_s < N_s_sample; ++i_s)
     		{
-
+    			// the sample ejecta speed must be less than the maximum possible ejected speed and also within the binning bounds
     			if (sample_speed_0[i_s] * vesc < v_crater_max && sample_speed_f[i_s] >= params->vel_min && sample_speed_f[i_s] <= params->vel_max)
     			{
     				// compute indices idx_v, idx_g, idx_b;
@@ -281,7 +285,12 @@ void get_ejecta_environment(input*  params,
     				idx_g = get_idx(sample_zenith_f[i_s]      , ejecta_env_zenith );
     				idx_b = get_idx(sample_azimuth_f[i_s]     , ejecta_env_azimuth);
 
-    				// compute mass ejected (total for all sizes)
+
+    				// cout << ejecta_env_speed[idx_v-1] << ' ' << sample_speed_f[i_s] * vesc << ' ' << ejecta_env_speed[idx_v] << endl;
+    				// cout << ejecta_env_zenith[idx_g-1] << ' ' << sample_zenith_f[i_s]<< ' ' << ejecta_env_zenith[idx_g] << endl;
+    				// cout << ejecta_env_azimuth[idx_b-1] << ' ' << sample_azimuth_f[i_s]<< ' ' << ejecta_env_azimuth[idx_b] << endl;
+
+    				// compute mass ejected (total for all sizes) [kg]
 	    			ejected_mass = get_ejected_mass(params,
 	    				                            crater_regime, // 0 = strength, 1 = gravity
 	    				                            reg_bulk_dens,
@@ -305,9 +314,20 @@ void get_ejecta_environment(input*  params,
 	    					// compute index into flux array
 	    					idx_f = j_s_size + params->N_env_size * (idx_b + params->N_env_azm * (idx_g + params->N_env_zen * idx_v) );
 
-	    					//cout << idx_f << ' ' << j_s_size << ' ' << idx_b << ' ' << idx_g << ' ' << idx_v << ' ' << number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens) << ' ' << ejecta_env_size[j_s_size] << endl;
 
-	    					ejecta_env_flux[idx_f] += ejected_mass * sample_weight[i_s] * p_sample_flux_weight[i_p] * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens);
+	    					///idx_file << idx_f << ' ' << j_s_size << ' ' << idx_b << ' ' << idx_g << ' ' << idx_v << ' ' << ejected_mass * sample_weight[i_s] * p_sample_flux_weight[i_p] * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens);
+	    					///idx_file << ' ' << sample_azimuth_f[i_s] << ' ' << sample_zenith_f[i_s] << ' ' << sample_speed_f[i_s] * vesc << endl;
+	    					// cout << idx_f << ' ' << j_s_size << ' ' << idx_b << ' ' << idx_g << ' ' << idx_v << ' ' << number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens);
+	    					// cout << ' ' << ejected_mass << ' ' << sample_weight[i_s] * p_sample_flux_weight[i_p] << ' ' << ejecta_env_size[j_s_size] << endl;
+
+	    					// overall units = #-ejecta/yr
+	    					ejecta_env_flux[idx_f] += ejected_mass // kg-ejecta / #-impactor
+	    					                          * sample_weight[i_s]  // fraction of total ejecta --- still need to include ejecta distribution
+	    					                          * p_sample_flux_weight[i_p] // #-impactor/m^2/yr
+	    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens) // #-ejecta/kg-ejecta
+	    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
+	    				
+	    					// cout << ejecta_env_flux[idx_f] << endl;
 	    				}
 
 	    			}
@@ -325,7 +345,9 @@ void get_ejecta_environment(input*  params,
     	// {
 
     	// }
-
+    	if (i_p%5 == 0){
+			cout << "Generating Environment... " << 100.*(i_p+1.)/double(N_p_sample) << "% finished\r";
+		}
 
     }
 
@@ -336,9 +358,11 @@ void get_ejecta_environment(input*  params,
 
 	ej_env_file << params->N_env_v << ' ' << params->N_env_zen << ' ' << params->N_env_azm << ' ' << params->N_env_size << endl;
 
-    for (idx_f = 0; idx_f < params->N_env_flux; ++idx_f)
-    	ej_env_file << ejecta_env_flux[idx_f] << endl;
+    for (idx_f = 0; idx_f < params->N_env_flux; ++idx_f){
+    	ej_env_file << idx_f << ' ' << ejecta_env_flux[idx_f] << endl;
+    }
     ej_env_file.close();
+    ///idx_file.close();
 
 
     file.close();
