@@ -57,4 +57,15 @@ plt.figure()
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 plt.loglog(a, flux_sum)
 
+
+
+# particle size for each speed range
+flux1 = flux.reshape(N_env_v, N_env_zen, N_env_azm, N_env_size)
+
+flux_sum = np.sum(flux1, axis=2)
+flux_sum = np.sum(flux_sum, axis=1)
+
+plt.figure()
+plt.loglog(a, flux_sum.T)
+
 plt.show()

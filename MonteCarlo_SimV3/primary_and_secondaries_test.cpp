@@ -157,7 +157,7 @@ int main(int argc, char const *argv[])
 							p_sample_azimuth,      // primary azimuth, at impact [rad]
 							p_sample_zenith,       // primary zenith, at impact [rad] (nominally horizon angle in igloo files)
 							p_sample_speed,        // primary speed, [km/s]
-							p_sample_flux_weight,  // flux weight, [#/m^2/yr]
+							p_sample_flux_weight,  // flux weight, [#-impactors/m^2/yr]
 							p_sample_density,      // primary density [kg/m^3]
 							p_sample_mass,         // primary mass [g]
 							p_sample_type,         // (MEM_hi_fluxes, MEM_lo_fluxes, NEO_fluxes)
@@ -180,7 +180,7 @@ int main(int argc, char const *argv[])
                                sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
                                sample_zenith_f,
                                sample_speed_f,    // [vesc]
-                               sample_weight,
+                               sample_weight,    
                                params->N_azm_lat_lon * params->N_zenith_speed, // N_s_sample
 
                                // primary impactors
@@ -200,7 +200,7 @@ int main(int argc, char const *argv[])
 							   ejecta_env_zenith,   // rad
 							   ejecta_env_azimuth,  // rad
 							   ejecta_env_size,     // m, diameter
-							   ejecta_env_flux      // #/m^2/yr (> size_i)
+							   ejecta_env_flux      // #-ejecta/yr (> size_i)
 			                   );
 
 		gen_environment_time_1 = chrono::steady_clock::now();

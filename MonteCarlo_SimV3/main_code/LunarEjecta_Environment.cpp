@@ -149,7 +149,8 @@ double get_ejected_mass(input*  p,
 	       / (ejecta_env_speed[idx] - ejecta_env_speed[idx-1]);
 }
 
-
+// returns # of particles in 1kg of regolith greater than size 'diameter'
+// This is derived from Carrier 2003, assuming a log-normal distribution for the mass-weighted PDF
 double number_weighted_regolith_CDF(input* p,
 	                                double diameter, // m
 	                                double density)  // kg/m^3
@@ -231,11 +232,29 @@ void get_ejecta_environment(input*  params,
     	     params->N_env_size);
     
     // indices
-    int idx_v, idx_g, idx_b;
-    long long int idx_f;
+    vector<int> idx_v(N_s_sample, 0.);
+    vector<int> idx_g(N_s_sample, 0.);
+    vector<int> idx_b(N_s_sample, 0.);
+    vector<long long int> idx_f(N_s_sample * params->N_env_size, 0.);
+
+    // We save N_p_sample-1 x recomputing the indices by precomputing them
+    // precompute the index into the flux array
+    for (i_s = 0; i_s < N_s_sample; ++i_s)
+    {
+    	// precompute indices idx_v, idx_g, idx_b;
+		idx_v[i_s] = get_idx(sample_speed_f[i_s] * vesc, ejecta_env_speed  );
+		idx_g[i_s] = get_idx(sample_zenith_f[i_s]      , ejecta_env_zenith );
+		idx_b[i_s] = get_idx(sample_azimuth_f[i_s]     , ejecta_env_azimuth);
+
+		for (j_s_size = 0; j_s_size < params->N_env_size; ++j_s_size)
+		{
+			idx_f[i_s*params->N_env_size + j_s_size] = j_s_size + params->N_env_size * (idx_b[i_s] + params->N_env_azm * (idx_g[i_s] + params->N_env_zen * idx_v[i_s]) );
+		}
+		
+    }
 
     // regolith bulk density [kg/m^3]
-	double reg_bulk_dens = params->regolith_dens * params->regolith_porosity;
+	double reg_bulk_dens = params->regolith_dens * (1. - params->regolith_porosity);
 
     for (i_p = 0; i_p < N_p_sample; ++i_p) // for a given primary impact
     {
@@ -250,7 +269,7 @@ void get_ejecta_environment(input*  params,
     		                         p_sample_zenith[i_p],
     		                         p_norm_speed, // m/s
     		                         p_sample_density[i_p],
-    		                         p_sample_mass[i_p],
+    		                         p_sample_mass[i_p], // g
     		                         p_sample_type[i_p],
     		                         crater_regime,
     		                         reg_bulk_dens);
@@ -261,7 +280,7 @@ void get_ejecta_environment(input*  params,
     		                                p_sample_zenith[i_p],
 	    		                            p_norm_speed, // m/s
 	    		                            p_sample_density[i_p],
-	    		                            p_sample_mass[i_p],
+	    		                            p_sample_mass[i_p], // g
 	    		                            p_sample_type[i_p],
 	    		                            crater_r,
 	    		                            crater_regime,
@@ -280,10 +299,7 @@ void get_ejecta_environment(input*  params,
     			// the sample ejecta speed must be less than the maximum possible ejected speed and also within the binning bounds
     			if (sample_speed_0[i_s] * vesc < v_crater_max && sample_speed_f[i_s] >= params->vel_min && sample_speed_f[i_s] <= params->vel_max)
     			{
-    				// compute indices idx_v, idx_g, idx_b;
-    				idx_v = get_idx(sample_speed_f[i_s] * vesc, ejecta_env_speed  );
-    				idx_g = get_idx(sample_zenith_f[i_s]      , ejecta_env_zenith );
-    				idx_b = get_idx(sample_azimuth_f[i_s]     , ejecta_env_azimuth);
+    				
 
 
     				// cout << ejecta_env_speed[idx_v-1] << ' ' << sample_speed_f[i_s] * vesc << ' ' << ejecta_env_speed[idx_v] << endl;
@@ -311,20 +327,13 @@ void get_ejecta_environment(input*  params,
 	    				// if ejecta size is greater than impactor size, reject it (no ejecta)
 	    				if (ejecta_env_size[j_s_size]/2. < impactor_r)
 	    				{
-	    					// compute index into flux array
-	    					idx_f = j_s_size + params->N_env_size * (idx_b + params->N_env_azm * (idx_g + params->N_env_zen * idx_v) );
-
-
-	    					///idx_file << idx_f << ' ' << j_s_size << ' ' << idx_b << ' ' << idx_g << ' ' << idx_v << ' ' << ejected_mass * sample_weight[i_s] * p_sample_flux_weight[i_p] * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens);
-	    					///idx_file << ' ' << sample_azimuth_f[i_s] << ' ' << sample_zenith_f[i_s] << ' ' << sample_speed_f[i_s] * vesc << endl;
-	    					// cout << idx_f << ' ' << j_s_size << ' ' << idx_b << ' ' << idx_g << ' ' << idx_v << ' ' << number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens);
-	    					// cout << ' ' << ejected_mass << ' ' << sample_weight[i_s] * p_sample_flux_weight[i_p] << ' ' << ejecta_env_size[j_s_size] << endl;
-
+	    				
 	    					// overall units = #-ejecta/yr
-	    					ejecta_env_flux[idx_f] += ejected_mass // kg-ejecta / #-impactor
+	    					ejecta_env_flux[idx_f[i_s*params->N_env_size + j_s_size]]
+	    					                        += ejected_mass // kg-ejecta / #-impactor
 	    					                          * sample_weight[i_s]  // fraction of total ejecta --- still need to include ejecta distribution
 	    					                          * p_sample_flux_weight[i_p] // #-impactor/m^2/yr
-	    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], reg_bulk_dens) // #-ejecta/kg-ejecta
+	    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], params->regolith_dens) // #-ejecta/kg-ejecta, we care about the particle density here, not bulk density
 	    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
 	    				
 	    					// cout << ejecta_env_flux[idx_f] << endl;
@@ -358,8 +367,8 @@ void get_ejecta_environment(input*  params,
 
 	ej_env_file << params->N_env_v << ' ' << params->N_env_zen << ' ' << params->N_env_azm << ' ' << params->N_env_size << endl;
 
-    for (idx_f = 0; idx_f < params->N_env_flux; ++idx_f){
-    	ej_env_file << idx_f << ' ' << ejecta_env_flux[idx_f] << endl;
+    for (int idx_f_i = 0; idx_f_i < params->N_env_flux; ++idx_f_i){
+    	ej_env_file << idx_f_i << ' ' << ejecta_env_flux[idx_f_i] << endl;
     }
     ej_env_file.close();
     ///idx_file.close();

@@ -19,6 +19,8 @@ x_bins = np.logspace(x_min, x_max, 100)
 plt.hist(vmax, bins=x_bins)
 plt.yscale('log')
 plt.xscale('log')
+plt.xlabel('Maximum ejecta speed [m/s]')
+plt.vlines(2374., 0, 1E5, color='red')
 plt.figure()
 
 p_r = p_r[vmax > 0]
@@ -34,8 +36,8 @@ x_max = np.log10(np.max(R))
 y_min = np.log10(np.min(M))
 y_max = np.log10(np.max(M))
   
-x_bins = np.logspace(x_min, x_max, 1000)
-y_bins = np.logspace(y_min, y_max, 1000)
+x_bins = np.logspace(x_min, x_max, 100)
+y_bins = np.logspace(y_min, y_max, 100)
 
 # https://stackoverflow.com/questions/23309272/matplotlib-log-transform-counts-in-hist2d
 plt.hist2d(R, M, bins =[x_bins, y_bins], cmap = plt.cm.nipy_spectral, norm=mpl.colors.LogNorm())
