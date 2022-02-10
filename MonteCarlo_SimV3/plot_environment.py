@@ -57,7 +57,7 @@ m = 4./3.*np.pi*((10**a)/2.)**3*3100./1000.
 #
 
 plt.figure()
-plt.xlabel('Ejecta particle mass [g]')
+plt.xlabel('Ejecta particle diameter [m]')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 plt.loglog(a, flux_sum)
 #plt.loglog(a, 10.**-11.88*(m**-1.2))
