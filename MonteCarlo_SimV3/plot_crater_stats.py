@@ -48,13 +48,14 @@ plt.xscale('log')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 plt.figure()
-plt.scatter(R[p_type==0], M[p_type==0], s=1, color='red')
-plt.scatter(R[p_type==1], M[p_type==1], s=1, color='green')
-plt.scatter(R[p_type==2], M[p_type==2], s=1, color='blue')
+plt.scatter(R[p_type==0], M[p_type==0], s=1, color='red', label='MEM HI')
+plt.scatter(R[p_type==1], M[p_type==1], s=1, color='green', label='MEM LO')
+plt.scatter(R[p_type==2], M[p_type==2], s=1, color='blue', label='NEO')
 plt.xlabel('Crater radius (units of impactor radius)')
 plt.ylabel('Total ejecta mass (units of impactor mass)')
 plt.yscale('log')
 plt.xscale('log')
+plt.legend()
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 plt.figure()
