@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Lunar Regolith Properties}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Porosity}
+
+The lunar regolith porosity is related to the amount of free space between individual grains. The greater the porosity, the more void space is present. Table 3.4.2.3.4-1 of the DSNE gives values of the porosity as a function of depth down to $60$ cm derived from Apollo core measurements (copied from Table 9.5 of the Lunar Sourcebook) and shown here in Table \ref{tab:porosity}.
+
+
+\begin{table}[h!]
+	\begin{center}
+		\caption{Porosity for various depths.}
+		\label{tab:porosity}
+		\begin{tabular}{c c}
+			\hline
+			Depth Range (cm)  & Average Porosity, n (\%)  \\
+			\hline
+			$0$ -- $15$  & $52\pm 2$  \\
+			$0$ -- $30$  & $49\pm 2$   \\
+			$30$ -- $60$ & $44\pm 2$   \\
+			$0$ -- $6$0  & $46\pm 2$  \\\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Density}
+
+The bulk density ($\rho$) of the lunar regolith is defined as the mass of material in a given volume, which relates the particle density ($\rho_p$) and porosity ($n$) to the bulk density as (see Section 3.4.2.3.1 of the DSNE or Chapter 9 of the Lunar Sourcebook)
+\begin{equation}
+\rho = \rho_p(1-n).
+\end{equation}
+
+The DSNE suggests using $\rho_p = 3.1$ g/cm$^3$ for the average particle density over the entire Moon. Otherwise, the typical highlands particle density is $\rho_p = 2.75\pm 0.1$ g/cm$^3$ whereas the typical mare particle density is $\rho_p = 3.35\pm 0.1$ g/cm$^3$.
+
+The bulk density\footnote{Found to follow the average particle density of $3.1$ g/cm$^3$ for all depths with a porosity depth dependence following Table \ref{tab:porosity}.} as a function of depth, fit to Apollo data, is given by
+\begin{equation}
+\rho(z) = 1.92\frac{z+12.2}{z+18},
+\end{equation}
+where $z$ is the depth in cm and $\rho$ is in units of g/cm$^3$. At the surface ($z=0$), the density is $1.30$ g/cm$^3$, and increases to $1.92$ g/cm$^3$ for large depths. This expression is fairly reasonable down to $3$ m (the limit reached by Apollo drill core samples). In order to get an up-to-depth average of the bulk density, take
+\begin{equation}
+\rho_{avg}(z) = \frac{1}{z}\int_{0}^{z}dz'\rho(z'), 
+\end{equation}
+which gives
+\begin{equation}
+\rho_{avg}(z) = 1.92\left[1 + \frac{5.8\ln\left(\frac{18}{z + 18}\right)}{z}\right].
+\end{equation}
+For example, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg}(60)$ = $1.65$ g/cm$^3$. This expression is useful for computing the ejected mass from a crater, given a crater depth $z$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Strength}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Particle Size Distribution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Scaling Law Properties}
+
+
+
+\end{document}
