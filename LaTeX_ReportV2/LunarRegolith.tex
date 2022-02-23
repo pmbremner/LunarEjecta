@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Lunar Regolith Properties}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Porosity}
+
+The lunar regolith porosity is related to the amount of free space between individual grains. The greater the porosity, the more void space is present. Table 3.4.2.3.4-1 of the DSNE gives values of the porosity as a function of depth down to $60$ cm derived from Apollo core measurements (copied from Table 9.5 of the Lunar Sourcebook) and shown here in Table \ref{tab:porosity}.
+
+
+\begin{table}[h!]
+	\begin{center}
+		\caption{Porosity for various depths.}
+		\label{tab:porosity}
+		\begin{tabular}{c c}
+			\hline
+			Depth Range (cm)  & Average Porosity, n (\%)  \\
+			\hline
+			$0$ -- $15$  & $52\pm 2$  \\
+			$0$ -- $30$  & $49\pm 2$   \\
+			$30$ -- $60$ & $44\pm 2$   \\
+			$0$ -- $60$  & $46\pm 2$  \\\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Density}
+
+The bulk density ($\rho$) of the lunar regolith is defined as the mass of material in a given volume, which relates the particle density ($\rho_p$) and porosity ($n$) to the bulk density as (see Section 3.4.2.3.1 of the DSNE or Chapter 9 of the Lunar Sourcebook)
+\begin{equation}
+\rho = \rho_p(1-n).
+\end{equation}
+
+The DSNE suggests using $\rho_p = 3.1$ g/cm$^3$ for the average particle density over the entire Moon. Otherwise, the typical highlands particle density is $\rho_p = 2.75\pm 0.1$ g/cm$^3$ whereas the typical mare particle density is $\rho_p = 3.35\pm 0.1$ g/cm$^3$.
+
+The bulk density\footnote{Follows the average particle density of $3.1$ g/cm$^3$ for all depths with a porosity depth dependence following Table \ref{tab:porosity}, see the \textit{porosity of lunar soil} paragraph on page 492 in the Lunar Sourcebook.} as a function of depth, fit to Apollo data, is given by
+\begin{equation}\label{eq:regolith density vs depth}
+\rho(z) = 1.92\frac{z+12.2}{z+18},
+\end{equation}
+where $z$ is the depth in cm and $\rho$ is in units of g/cm$^3$. At the surface ($z=0$), the density is $1.30$ g/cm$^3$, and increases to $1.92$ g/cm$^3$ for large depths. This expression is fairly reasonable down to $3$ m (the limit reached by Apollo drill core samples). In order to get an up-to-depth average of the bulk density, take
+\begin{equation}
+\rho_{avg, depth}(z) = \frac{1}{z}\int_{0}^{z}dz'\rho(z'), 
+\end{equation}
+which gives (compare with the equation for $d_m$ on page 494 of the Lunar Sourcebook)
+\begin{equation}\label{eq:density depth averaged}
+\rho_{avg, depth}(z) = 1.92\left[1 - \frac{5.8\ln\left(\frac{z + 18}{18}\right)}{z}\right].
+\end{equation}
+For example, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, depth}(60)$ = $1.65$ g/cm$^3$.
+
+For a higher-fidelity estimate of the average bulk density sampled by the crater, a volume-average can be used instead of a depth-average, given by
+\begin{equation}\label{eq:density volume averaged def}
+\rho_{avg, volume}(z) = \frac{\int dV \rho(z')}{\int dV}.
+\end{equation}
+Expanding the integral in a cylindrical coordinate system, Equation \eqref{eq:density volume averaged def} becomes
+\begin{align}
+\rho_{avg, volume}(z) &= \frac{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz' \rho(z')}{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz'}\\\label{eq:density volume averaged}
+&= \frac{1.92}{4z^3}\left[z(6ab - 6b^2 - 3az + 3bz + 4z^2) + 6(a-b)(b^2-z^2)\ln\left(\frac{b}{z + b}\right)\right],
+\end{align}
+for the volume-averaged density in g/cm$^3$ with $z$ in cm, where $a = 12.2$ and $b = 18$. Following the example from earlier, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, volume}(60)$ = $1.60$ g/cm$^3$, which is $\sim 3\%$ less than $\rho_{avg, depth}(60) = 1.65$ g/cm$^3$. The expression given in Equation \eqref{eq:density volume averaged} is useful for computing the ejected mass from a crater\footnote{In an iterative fashion, since the crater radius depends on the regolith density.}, given a crater depth $z$.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{regolith_density_vs_depth.png}
+	\caption{A comparison of the regolith bulk density for a certain depth depth (blue), the depth-averaged bulk density (orange), and the volume-averaged bulk density (green). See also, Figure 9.16 of the Lunar Sourcebook.}
+	\label{fig:regolith_density_vs_depth}
+\end{figure}
+
+
+The expressions for the regolith density at a certain depth $z$, weighted by depth, and weighted by crater volume are given by Equations \eqref{eq:regolith density vs depth}, \eqref{eq:density depth averaged}, and \eqref{eq:density volume averaged}, respectively, are compared in Figure \ref{fig:regolith_density_vs_depth}. The crater volume is approximated as a half-ellipsoid with two of the dimensions scaled by the crater radius $R$ and one dimension scaled by the crater depth $z$, sliced such that the half-ellipsoid is symmetric about the surface normal. For a given crater, more of the volume is near the surface so that more weight is given by bulk densities that originate near the surface. In contrast, the depth-averaged bulk density takes the bulk density at each depth equally. This results in the volume-averaged bulk density to be slightly less than the depth-averaged bulk density, as shown in Figure \ref{fig:regolith_density_vs_depth}
+.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Strength}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Particle Size Distribution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Scaling Law Properties}
+
+
+
+\end{document}
