@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  18 FEB 2022 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  22 FEB 2022 18:48
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1014,21 +1014,43 @@ your preamble.
 \tf@toc=\write6
 \openout6 = `LunarMeteoroidEjectaEngineeringModel.toc'.
 
- (LunarMeteoroidEjectaEngineeringModel.lof)
+ (LunarMeteoroidEjectaEngineeringModel.lof
+Overfull \hbox (14.57042pt too wide) in paragraph at lines 1--1
+ \OT1/phv/m/n/10 (blue), the depth-averaged bulk den-sity (or-ange), and the vo
+lume-averaged 
+ []
+
+)
 \tf@lof=\write7
 \openout7 = `LunarMeteoroidEjectaEngineeringModel.lof'.
 
-(LunarMeteoroidEjectaEngineeringModel.lot)
+ (LunarMeteoroidEjectaEngineeringModel.lot)
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 83.
  [2] (ExecutiveSummary.tex)
-(LunarRegolith.tex [1
+(LunarRegolith.tex
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 42.
+ [1
 
-]) (PrimaryFluxEnvironment.tex)
-(SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex) [2] [3]
+]
+Overfull \hbox (5.51378pt too wide) detected at line 64
+[]
+ []
+
+<regolith_density_vs_depth.png, id=223, 555.7563pt x 460.3599pt>
+File: regolith_density_vs_depth.png Graphic file (type png)
+<use regolith_density_vs_depth.png>
+Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 70.
+(pdftex.def)             Requested size: 375.0pt x 310.63116pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (PrimaryFluxEnvironment.tex) (SecondaryFluxEnvironment.tex)
+(EnvironmentGeneration.tex) [2] [3 <./regolith_density_vs_depth.png>]
 Overfull \vbox (72.68279pt too high) has occurred while \output is active []
 
 
@@ -1046,34 +1068,36 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 7792271057D8BB139222A40ADD7CEA1D;2558.
+(rerunfilecheck)             Checksum: 3340DFD42DBABFA51891894A6CB950D8;2558.
  ) 
 Here is how much of TeX's memory you used:
- 32085 strings out of 480799
- 736838 string characters out of 2905519
- 1133794 words of memory out of 3000000
- 47469 multiletter control sequences out of 15000+200000
- 555334 words of font info for 67 fonts, out of 3000000 for 9000
+ 32106 strings out of 480799
+ 737299 string characters out of 2905519
+ 1138794 words of memory out of 3000000
+ 47482 multiletter control sequences out of 15000+200000
+ 557220 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,98p,804b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,12n,98p,1056b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
-pi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
-blic/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fon
-ts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/Program Files/MiKTeX 2.9/font
-s/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX
-/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiK
-TeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/
-MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 129752 byt
+pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
+blic/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\
+MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AMD-Y500/AppData/Roaming/Mi
+KTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming
+/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roam
+ing/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 193463 byt
 es).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 293 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 
