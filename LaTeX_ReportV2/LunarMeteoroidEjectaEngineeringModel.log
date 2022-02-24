@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  22 FEB 2022 18:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  23 FEB 2022 19:56
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1015,9 +1015,18 @@ your preamble.
 \openout6 = `LunarMeteoroidEjectaEngineeringModel.toc'.
 
  (LunarMeteoroidEjectaEngineeringModel.lof
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 1.
+
 Overfull \hbox (14.57042pt too wide) in paragraph at lines 1--1
  \OT1/phv/m/n/10 (blue), the depth-averaged bulk den-sity (or-ange), and the vo
 lume-averaged 
+ []
+
+
+Overfull \hbox (9.66685pt too wide) in paragraph at lines 3--3
+ \OT1/phv/m/n/10 volume-averaged shear strength (red) as-sumes a parabolic-shap
+ed crater 
  []
 
 )
@@ -1028,8 +1037,6 @@ lume-averaged
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 83.
  [2] (ExecutiveSummary.tex)
 (LunarRegolith.tex
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
@@ -1037,47 +1044,55 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
  [1
 
 ]
-Overfull \hbox (5.51378pt too wide) detected at line 64
+<regolith_density_vs_depth.png, id=238, 412.78215pt x 314.01315pt>
+File: regolith_density_vs_depth.png Graphic file (type png)
+<use regolith_density_vs_depth.png>
+Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
+(pdftex.def)             Requested size: 375.0pt x 285.29242pt.
+
+Overfull \hbox (9.72598pt too wide) detected at line 73
 []
  []
 
-<regolith_density_vs_depth.png, id=223, 555.7563pt x 460.3599pt>
-File: regolith_density_vs_depth.png Graphic file (type png)
-<use regolith_density_vs_depth.png>
-Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 70.
-(pdftex.def)             Requested size: 375.0pt x 310.63116pt.
+[2 <./regolith_density_vs_depth.png>]
+<ratio_of_avg_bulk_density.png, id=266, 412.78215pt x 327.26265pt>
+File: ratio_of_avg_bulk_density.png Graphic file (type png)
+<use ratio_of_avg_bulk_density.png>
+Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 92.
+(pdftex.def)             Requested size: 375.0pt x 297.33008pt.
+ [3]
+<shear_strength_vs_depth.png, id=285, 426.03165pt x 312.56775pt>
+File: shear_strength_vs_depth.png Graphic file (type png)
+<use shear_strength_vs_depth.png>
+Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 123.
+(pdftex.def)             Requested size: 375.0pt x 275.1463pt.
+ [4 <./ratio_of_avg_bulk_density.png>] [5 <./shear_strength_vs_depth.png>]) (Pr
+imaryFluxEnvironment.tex)
+(SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex) [6] [7]
+Overfull \vbox (52.22447pt too high) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (PrimaryFluxEnvironment.tex) (SecondaryFluxEnvironment.tex)
-(EnvironmentGeneration.tex) [2] [3 <./regolith_density_vs_depth.png>]
-Overfull \vbox (72.68279pt too high) has occurred while \output is active []
-
-
-[4] (LunarMeteoroidEjectaEngineeringModel.bbl
-
-Package natbib Warning: Empty `thebibliography' environment on input line 8.
-
-) [5
+[8] (LunarMeteoroidEjectaEngineeringModel.bbl) [9
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
- (LunarMeteoroidEjectaEngineeringModel.aux)
+
+(LunarMeteoroidEjectaEngineeringModel.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 3340DFD42DBABFA51891894A6CB950D8;2558.
+(rerunfilecheck)             Checksum: 0A1CF6A0E0BFF5CE877ADEE5EBD967EA;2572.
  ) 
 Here is how much of TeX's memory you used:
- 32106 strings out of 480799
- 737299 string characters out of 2905519
- 1138794 words of memory out of 3000000
- 47482 multiletter control sequences out of 15000+200000
- 557220 words of font info for 69 fonts, out of 3000000 for 9000
+ 32148 strings out of 480799
+ 738246 string characters out of 2905519
+ 1136794 words of memory out of 3000000
+ 47508 multiletter control sequences out of 15000+200000
+ 557826 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,98p,1056b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,12n,98p,1515b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
 pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
 blic/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
@@ -1094,10 +1109,10 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
 KTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming
 /MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roam
 ing/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 193463 byt
-es).
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (11 pages, 1242049 b
+ytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 298 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 421 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 308 words of extra memory for PDF output out of 10000 (max. 10000000)
 

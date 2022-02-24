@@ -4,48 +4,46 @@ The top-level auxiliary file: LunarMeteoroidEjectaEngineeringModel.aux
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 The style file: agu.bst
 Reallocating 'name_of_file' (item size: 1) to 7 items.
-I found no \citation commands---while reading file LunarMeteoroidEjectaEngineeringModel.aux
 Database file #1: report.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 0 entries,
+You've used 3 entries,
             3075 wiz_defined-function locations,
-            1062 strings with 9314 characters,
-and the built_in function-call counts, 29 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 8
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+            1083 strings with 9851 characters,
+and the built_in function-call counts, 3041 in all, are:
+= -- 350
+> -- 87
+< -- 1
++ -- 52
+- -- 21
+* -- 181
+:= -- 261
+add.period$ -- 3
+call.type$ -- 3
+change.case$ -- 15
+chr.to.int$ -- 3
+cite$ -- 9
+duplicate$ -- 332
+empty$ -- 171
+format.name$ -- 28
+if$ -- 607
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 7
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 30
+newline$ -- 16
+num.names$ -- 12
+pop$ -- 115
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 13
 quote$ -- 0
-skip$ -- 1
+skip$ -- 226
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 141
+swap$ -- 285
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 24
 warning$ -- 0
-while$ -- 0
+while$ -- 14
 width$ -- 0
-write$ -- 6
-(There was 1 error message)
+write$ -- 38
