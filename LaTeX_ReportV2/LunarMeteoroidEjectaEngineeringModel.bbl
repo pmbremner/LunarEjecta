@@ -1,14 +1,31 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
+\bibitem[{\textit{Carrier}(1973)}]{carrier1973lunar}
+Carrier, W.~D., Lunar soil grain size distribution, \textit{The moon},
+  \textit{6}(3-4), 250--263, 1973.
+
+\bibitem[{\textit{Carrier~III}(2003)}]{carrier2003particle}
+Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal
+  of Geotechnical and Geoenvironmental Engineering}, \textit{129}(10),
+  956--959, 2003.
+
 \bibitem[{\textit{Heiken et~al.}(1991)\textit{Heiken, Vaniman, and
   French}}]{heiken1991lunar}
 Heiken, G.~H., D.~T. Vaniman, and B.~M. French, \textit{Lunar Sourcebook, a
   user's guide to the Moon}, Cambridge University Press, 1991.
+
+\bibitem[{\textit{Housen and Holsapple}(2011)}]{housen2011ejecta}
+Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
+  \textit{Icarus}, \textit{211}(1), 856--875, 2011.
+
+\bibitem[{\textit{Koschny and Gr{\"u}n}(2001)}]{koschny2001impacts_mass}
+Koschny, D., and E.~Gr{\"u}n, Impacts into ice--silicate mixtures: Ejecta mass
+  and size distributions, \textit{Icarus}, \textit{154}(2), 402--411, 2001.
 
 \bibitem[{\textit{Singer et~al.}(2020)\textit{Singer, Jolliff, and
   McKinnon}}]{singer2020lunar}

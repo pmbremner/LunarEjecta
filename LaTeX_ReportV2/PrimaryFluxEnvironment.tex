@@ -11,6 +11,48 @@
 \subsection{Space-Time Dependence of Environment}
 
 
+The primary flux of sporadic meteoroids onto the surface of the Moon changes depending on the selenographic location on the Moon. Because of this effect, ephemeris data\footnote{Horizons Ephemeris System $<$horizons@ssd.jpl.nasa.gov$>$.} was generated for different latitudes and longitudes on the Moon in 5-degree increments from pole to pole, and in 90-degree increments in longitude. A time frame of 19 years was chosen, or a Metonic cycle, which takes into account many different Sun-Earth-Moon geometries.
+
+\begin{figure}[h!]
+	\begin{subfigure}{.485\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.85\linewidth]{../LoDensity018_lat0.png}  
+		\caption{Low density population impacting at the equator.}
+		\label{fig:sub-LoDensity018_lat0}
+	\end{subfigure}
+	\begin{subfigure}{.485\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.85\linewidth]{../LoDensity036_lat90.png}  
+		\caption{Low density population impacting at the north pole.}
+		\label{fig:sub-LoDensity036_lat90}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}{.485\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.85\linewidth]{../HiDensity018_lat0.png}  
+		\caption{High density population impacting at the equator.}
+		\label{fig:sub-HiDensity018_lat0}
+	\end{subfigure}
+	\begin{subfigure}{.485\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.85\linewidth]{../HiDensity036_lat90.png}  
+		\caption{High density population impacting at the north pole.}
+		\label{fig:sub-HiDensity036_lat90}
+	\end{subfigure}
+	\caption{Fluxes at the meridional plane (as a function of impact speed and angle from the horizon) of the low density population (a) and (b), and the high density population (c) and (d) impacting the Moon at the equator (a) and (c), and the north/south pole (b) and (d).}
+	\label{fig:latitudinal_dependence}
+\end{figure}
+
+As an example, in Figure \ref{fig:latitudinal_dependence}, the speed-angle flux distribution is shown at the equator and at the poles for the low and high density MEM populations. Note that the fluxes in the northern and southern hemispheres are symmetric about the equator. It can be seen from Figure \ref{fig:latitudinal_dependence} that the impact angles and speeds are highly dependent on the impact latitude on the Moon and hence warrant a more sophisticated approach to computing the secondary fluxes. It cannot be assumed that most impacts are at 45~degrees or are not highly oblique.% How this latitude dependence affects the secondary flux is not entirely clear, except for the fact that we hypothesize that the secondary fluxes will be themselves dependent on latitude.
+%\clearpage
+
+Other time frames may be simulated, such a week, a month, or a year, and can also vary as a function of time. In the current model output, a 19-year averaged flux is used.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Ephemeris Definition}
 

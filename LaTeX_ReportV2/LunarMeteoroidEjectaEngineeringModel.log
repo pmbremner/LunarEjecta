@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  23 FEB 2022 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  25 FEB 2022 14:46
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1033,18 +1033,18 @@ ed crater
 \tf@lof=\write7
 \openout7 = `LunarMeteoroidEjectaEngineeringModel.lof'.
 
- (LunarMeteoroidEjectaEngineeringModel.lot)
+ (LunarMeteoroidEjectaEngineeringModel.lot [2])
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
- [2] (ExecutiveSummary.tex)
+ [3] (ExecutiveSummary.tex)
 (LunarRegolith.tex
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 42.
  [1
 
 ]
-<regolith_density_vs_depth.png, id=238, 412.78215pt x 314.01315pt>
+<regolith_density_vs_depth.png, id=281, 412.78215pt x 314.01315pt>
 File: regolith_density_vs_depth.png Graphic file (type png)
 <use regolith_density_vs_depth.png>
 Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
@@ -1055,24 +1055,69 @@ Overfull \hbox (9.72598pt too wide) detected at line 73
  []
 
 [2 <./regolith_density_vs_depth.png>]
-<ratio_of_avg_bulk_density.png, id=266, 412.78215pt x 327.26265pt>
+<ratio_of_avg_bulk_density.png, id=309, 412.78215pt x 327.26265pt>
 File: ratio_of_avg_bulk_density.png Graphic file (type png)
 <use ratio_of_avg_bulk_density.png>
 Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 92.
 (pdftex.def)             Requested size: 375.0pt x 297.33008pt.
  [3]
-<shear_strength_vs_depth.png, id=285, 426.03165pt x 312.56775pt>
+<shear_strength_vs_depth.png, id=328, 426.03165pt x 312.56775pt>
 File: shear_strength_vs_depth.png Graphic file (type png)
 <use shear_strength_vs_depth.png>
 Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 123.
 (pdftex.def)             Requested size: 375.0pt x 275.1463pt.
- [4 <./ratio_of_avg_bulk_density.png>] [5 <./shear_strength_vs_depth.png>]) (Pr
-imaryFluxEnvironment.tex)
-(SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex) [6] [7]
-Overfull \vbox (52.22447pt too high) has occurred while \output is active []
+ [4 <./ratio_of_avg_bulk_density.png>] [5 <./shear_strength_vs_depth.png>]
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=349, 889.07156pt x 624.081
+56pt>
+File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
+<use Carrier2003_Fig1_particle-size-distribution.PNG>
+Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
+on input line 155.
+(pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
+<Carrier2003_CDFs_PDFs.png, id=366, 1149.8157pt x 840.5001pt>
+File: Carrier2003_CDFs_PDFs.png Graphic file (type png)
+<use Carrier2003_CDFs_PDFs.png>
+Package pdftex.def Info: Carrier2003_CDFs_PDFs.png  used on input line 168.
+(pdftex.def)             Requested size: 412.50229pt x 301.52815pt.
+
+Overfull \hbox (37.50229pt too wide) in paragraph at lines 168--169
+ [][] 
+ []
 
 
-[8] (LunarMeteoroidEjectaEngineeringModel.bbl) [9
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./Carrier2003_Fig1_particle-size-distribution.PNG>] [7] [8 <./Carrier2003_C
+DFs_PDFs.png>] [9]
+Overfull \hbox (22.29764pt too wide) in paragraph at lines 246--266
+ [] 
+ []
+
+) (PrimaryFluxEnvironment.tex [10]
+<../LoDensity018_lat0.png, id=448, 462.528pt x 346.896pt>
+File: ../LoDensity018_lat0.png Graphic file (type png)
+<use ../LoDensity018_lat0.png>
+Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 20.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../LoDensity036_lat90.png, id=449, 462.528pt x 346.896pt>
+File: ../LoDensity036_lat90.png Graphic file (type png)
+<use ../LoDensity036_lat90.png>
+Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 27.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../HiDensity018_lat0.png, id=450, 462.528pt x 346.896pt>
+File: ../HiDensity018_lat0.png Graphic file (type png)
+<use ../HiDensity018_lat0.png>
+Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 35.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../HiDensity036_lat90.png, id=451, 462.528pt x 346.896pt>
+File: ../HiDensity036_lat90.png Graphic file (type png)
+<use ../HiDensity036_lat90.png>
+Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 42.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+ [11 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity018_la
+t0.png> <../HiDensity036_lat90.png>])
+(SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex) [12] [13]
+(LunarMeteoroidEjectaEngineeringModel.bbl) [14
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
@@ -1083,36 +1128,38 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 0A1CF6A0E0BFF5CE877ADEE5EBD967EA;2572.
+(rerunfilecheck)             Checksum: 08C6F211C1634E22B69AAB922911D0EB;2573.
  ) 
 Here is how much of TeX's memory you used:
- 32148 strings out of 480799
- 738246 string characters out of 2905519
- 1136794 words of memory out of 3000000
- 47508 multiletter control sequences out of 15000+200000
- 557826 words of font info for 70 fonts, out of 3000000 for 9000
+ 32270 strings out of 480799
+ 741108 string characters out of 2905519
+ 1142794 words of memory out of 3000000
+ 47585 multiletter control sequences out of 15000+200000
+ 559586 words of font info for 72 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,98p,1515b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,13n,98p,1515b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
-pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
-blic/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
+pi600\matha8.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
+blic/mathabx/dpi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
 s/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\
-MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AMD-Y500/AppData/Roaming/Mi
-KTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming
-/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roam
-ing/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (11 pages, 1242049 b
+MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/P
+rogram Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AMD-Y500/AppData/Roami
+ng/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Ro
+aming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData
+/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (17 pages, 1660184 b
 ytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
+ 338 words of extra memory for PDF output out of 10000 (max. 10000000)
 
