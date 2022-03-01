@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -14,6 +14,11 @@ Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal
   of Geotechnical and Geoenvironmental Engineering}, \textit{129}(10),
   956--959, 2003.
 
+\bibitem[{\textit{Gr{\"u}n et~al.}(1985)\textit{Gr{\"u}n, Zook, Fechtig, and
+  Giese}}]{grun1985collisional}
+Gr{\"u}n, E., H.~Zook, H.~Fechtig, and R.~Giese, Collisional balance of the
+  meteoritic complex, \textit{Icarus}, \textit{62}(2), 244--272, 1985.
+
 \bibitem[{\textit{Heiken et~al.}(1991)\textit{Heiken, Vaniman, and
   French}}]{heiken1991lunar}
 Heiken, G.~H., D.~T. Vaniman, and B.~M. French, \textit{Lunar Sourcebook, a
@@ -26,6 +31,12 @@ Housen, K.~R., and K.~A. Holsapple, Ejecta from impact craters,
 \bibitem[{\textit{Koschny and Gr{\"u}n}(2001)}]{koschny2001impacts_mass}
 Koschny, D., and E.~Gr{\"u}n, Impacts into ice--silicate mixtures: Ejecta mass
   and size distributions, \textit{Icarus}, \textit{154}(2), 402--411, 2001.
+
+\bibitem[{\textit{Moorhead et~al.}(2019)\textit{Moorhead, Kingery, and
+  Ehlert}}]{moorhead2019nasa}
+Moorhead, A.~V., A.~Kingery, and S.~Ehlert, Nasa’s meteoroid engineering
+  model 3 and its ability to replicate spacecraft impact rates, \textit{Journal
+  of Spacecraft and Rockets}, pp. 1--17, 2019.
 
 \bibitem[{\textit{Singer et~al.}(2020)\textit{Singer, Jolliff, and
   McKinnon}}]{singer2020lunar}
