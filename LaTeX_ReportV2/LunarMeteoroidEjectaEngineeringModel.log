@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  22 FEB 2022 18:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  1 MAR 2022 15:27
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -544,6 +544,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/docmute\docmute.sty
 Package: docmute 2012/03/22 v1.4 Input stand-alone documents
 )
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip62
@@ -915,7 +918,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count323
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 37.
+Package hyperref Info: Option `colorlinks' set `true' on input line 39.
 \c@subsubsubsection=\count324
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
@@ -926,24 +929,24 @@ File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 (LunarMeteoroidEjectaEngineeringModel.aux)
 \openout1 = `LunarMeteoroidEjectaEngineeringModel.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
-6.
+8.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -978,7 +981,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count332
  ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring ON on input line 76.
+Package hyperref Info: Link coloring ON on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -992,9 +995,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count333
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
  (LunarMeteoroidEjectaEngineeringModel.out)
 (LunarMeteoroidEjectaEngineeringModel.out)
 \@outlinefile=\write5
@@ -1005,7 +1008,7 @@ LaTeX Info: Redefining \nameref on input line 76.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 76.
+ on input line 78.
 
 \docmute@nestinglevel=\count334
 (LunarMeteoroidEjectaEngineeringModel.toc [1
@@ -1015,12 +1018,21 @@ your preamble.
 \openout6 = `LunarMeteoroidEjectaEngineeringModel.toc'.
 
  (LunarMeteoroidEjectaEngineeringModel.lof
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 1.
+
 Overfull \hbox (14.57042pt too wide) in paragraph at lines 1--1
  \OT1/phv/m/n/10 (blue), the depth-averaged bulk den-sity (or-ange), and the vo
 lume-averaged 
  []
 
-)
+
+Overfull \hbox (9.66685pt too wide) in paragraph at lines 3--3
+ \OT1/phv/m/n/10 volume-averaged shear strength (red) as-sumes a parabolic-shap
+ed crater 
+ []
+
+[2])
 \tf@lof=\write7
 \openout7 = `LunarMeteoroidEjectaEngineeringModel.lof'.
 
@@ -1028,76 +1040,289 @@ lume-averaged
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 83.
- [2] (ExecutiveSummary.tex)
+
+(LunarMeteoroidEjectaEngineeringModel.lol)
+\tf@lol=\write9
+\openout9 = `LunarMeteoroidEjectaEngineeringModel.lol'.
+
+ [3] (ExecutiveSummary.tex)
 (LunarRegolith.tex
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 42.
  [1
 
 ]
-Overfull \hbox (5.51378pt too wide) detected at line 64
+<regolith_density_vs_depth.png, id=325, 412.78215pt x 314.01315pt>
+File: regolith_density_vs_depth.png Graphic file (type png)
+<use regolith_density_vs_depth.png>
+Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
+(pdftex.def)             Requested size: 375.0pt x 285.29242pt.
+
+Overfull \hbox (9.72598pt too wide) detected at line 73
 []
  []
 
-<regolith_density_vs_depth.png, id=223, 555.7563pt x 460.3599pt>
-File: regolith_density_vs_depth.png Graphic file (type png)
-<use regolith_density_vs_depth.png>
-Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 70.
-(pdftex.def)             Requested size: 375.0pt x 310.63116pt.
+[2 <./regolith_density_vs_depth.png>]
+<ratio_of_avg_bulk_density.png, id=353, 412.78215pt x 327.26265pt>
+File: ratio_of_avg_bulk_density.png Graphic file (type png)
+<use ratio_of_avg_bulk_density.png>
+Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 92.
+(pdftex.def)             Requested size: 375.0pt x 297.33008pt.
+ [3]
+<shear_strength_vs_depth.png, id=372, 426.03165pt x 312.56775pt>
+File: shear_strength_vs_depth.png Graphic file (type png)
+<use shear_strength_vs_depth.png>
+Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 123.
+(pdftex.def)             Requested size: 375.0pt x 275.1463pt.
+ [4 <./ratio_of_avg_bulk_density.png>] [5 <./shear_strength_vs_depth.png>]
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=393, 889.07156pt x 624.081
+56pt>
+File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
+<use Carrier2003_Fig1_particle-size-distribution.PNG>
+Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
+on input line 155.
+(pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
+<Carrier2003_CDFs_PDFs.png, id=410, 1149.8157pt x 840.5001pt>
+File: Carrier2003_CDFs_PDFs.png Graphic file (type png)
+<use Carrier2003_CDFs_PDFs.png>
+Package pdftex.def Info: Carrier2003_CDFs_PDFs.png  used on input line 168.
+(pdftex.def)             Requested size: 412.50229pt x 301.52815pt.
+
+Overfull \hbox (37.50229pt too wide) in paragraph at lines 168--169
+ [][] 
+ []
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (PrimaryFluxEnvironment.tex) (SecondaryFluxEnvironment.tex)
-(EnvironmentGeneration.tex) [2] [3 <./regolith_density_vs_depth.png>]
-Overfull \vbox (72.68279pt too high) has occurred while \output is active []
+[6 <./Carrier2003_Fig1_particle-size-distribution.PNG>] [7] [8 <./Carrier2003_C
+DFs_PDFs.png>] [9]
+Overfull \hbox (22.29764pt too wide) in paragraph at lines 246--266
+ [] 
+ []
 
+) (PrimaryFluxEnvironment.tex [10] (example_email_jpl_horizons.txt
+LaTeX Font Info:    Trying to load font information for OML+phv on input line 1
+.
 
-[4] (LunarMeteoroidEjectaEngineeringModel.bbl
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\omlphv.fd
+File: omlphv.fd 
+)
+LaTeX Font Info:    Font shape `OML/phv/m/n' in size <9> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 5
+.
 
-Package natbib Warning: Empty `thebibliography' environment on input line 8.
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+)
+[11]) ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(../LunarSurfaceEphemerisData_Meridian/ephemeris_parser.py
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <8> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 6.
+LaTeX Font Info:    Trying to load font information for OMS+phv on input line 1
+9.
 
-) [5
+(C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\omsphv.fd
+File: omsphv.fd 
+)
+LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
+LaTeX Font Info:    Font shape `OML/phv/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 25.
+)
+[12]
+<../LoDensity018_lat0.png, id=575, 462.528pt x 346.896pt>
+File: ../LoDensity018_lat0.png Graphic file (type png)
+<use ../LoDensity018_lat0.png>
+Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 44.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../LoDensity036_lat90.png, id=576, 462.528pt x 346.896pt>
+File: ../LoDensity036_lat90.png Graphic file (type png)
+<use ../LoDensity036_lat90.png>
+Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 51.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../HiDensity018_lat0.png, id=577, 462.528pt x 346.896pt>
+File: ../HiDensity018_lat0.png Graphic file (type png)
+<use ../HiDensity018_lat0.png>
+Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 59.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+<../HiDensity036_lat90.png, id=578, 462.528pt x 346.896pt>
+File: ../HiDensity036_lat90.png Graphic file (type png)
+<use ../HiDensity036_lat90.png>
+Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 66.
+(pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
+ [13 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity018_la
+t0.png> <../HiDensity036_lat90.png>]
+<../mollweide_LatRunDataLoDensity000_lat-90.png, id=596, 405.1938pt x 238.2501p
+t>
+File: ../mollweide_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
+<use ../mollweide_LatRunDataLoDensity000_lat-90.png>
+Package pdftex.def Info: ../mollweide_LatRunDataLoDensity000_lat-90.png  used o
+n input line 92.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataLoDensity000_lat-90.png, id=597, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
+<use ../polar_LatRunDataLoDensity000_lat-90.png>
+Package pdftex.def Info: ../polar_LatRunDataLoDensity000_lat-90.png  used on in
+put line 99.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+<../mollweide_LatRunDataHiDensity000_lat-90.png, id=598, 405.1938pt x 238.2501p
+t>
+File: ../mollweide_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
+<use ../mollweide_LatRunDataHiDensity000_lat-90.png>
+Package pdftex.def Info: ../mollweide_LatRunDataHiDensity000_lat-90.png  used o
+n input line 107.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataHiDensity000_lat-90.png, id=599, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
+<use ../polar_LatRunDataHiDensity000_lat-90.png>
+Package pdftex.def Info: ../polar_LatRunDataHiDensity000_lat-90.png  used on in
+put line 114.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+<../mollweide_LatRunDataLoDensity009_lat-45.png, id=600, 405.1938pt x 238.2501p
+t>
+File: ../mollweide_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
+<use ../mollweide_LatRunDataLoDensity009_lat-45.png>
+Package pdftex.def Info: ../mollweide_LatRunDataLoDensity009_lat-45.png  used o
+n input line 126.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataLoDensity009_lat-45.png, id=601, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
+<use ../polar_LatRunDataLoDensity009_lat-45.png>
+Package pdftex.def Info: ../polar_LatRunDataLoDensity009_lat-45.png  used on in
+put line 133.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+<../mollweide_LatRunDataHiDensity009_lat-45.png, id=602, 405.1938pt x 238.2501p
+t>
+File: ../mollweide_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
+<use ../mollweide_LatRunDataHiDensity009_lat-45.png>
+Package pdftex.def Info: ../mollweide_LatRunDataHiDensity009_lat-45.png  used o
+n input line 141.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataHiDensity009_lat-45.png, id=603, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
+<use ../polar_LatRunDataHiDensity009_lat-45.png>
+Package pdftex.def Info: ../polar_LatRunDataHiDensity009_lat-45.png  used on in
+put line 148.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+<../mollweide_LatRunDataLoDensity018_lat0.png, id=604, 405.1938pt x 238.2501pt>
+
+File: ../mollweide_LatRunDataLoDensity018_lat0.png Graphic file (type png)
+<use ../mollweide_LatRunDataLoDensity018_lat0.png>
+Package pdftex.def Info: ../mollweide_LatRunDataLoDensity018_lat0.png  used on 
+input line 160.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataLoDensity018_lat0.png, id=605, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataLoDensity018_lat0.png Graphic file (type png)
+<use ../polar_LatRunDataLoDensity018_lat0.png>
+Package pdftex.def Info: ../polar_LatRunDataLoDensity018_lat0.png  used on inpu
+t line 167.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+<../mollweide_LatRunDataHiDensity018_lat0.png, id=606, 405.1938pt x 238.2501pt>
+
+File: ../mollweide_LatRunDataHiDensity018_lat0.png Graphic file (type png)
+<use ../mollweide_LatRunDataHiDensity018_lat0.png>
+Package pdftex.def Info: ../mollweide_LatRunDataHiDensity018_lat0.png  used on 
+input line 175.
+(pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
+<../polar_LatRunDataHiDensity018_lat0.png, id=607, 327.3831pt x 358.4592pt>
+File: ../polar_LatRunDataHiDensity018_lat0.png Graphic file (type png)
+<use ../polar_LatRunDataHiDensity018_lat0.png>
+Package pdftex.def Info: ../polar_LatRunDataHiDensity018_lat0.png  used on inpu
+t line 182.
+(pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
+ [14] [15 <../mollweide_LatRunDataLoDensity000_lat-90.png> <../polar_LatRunData
+LoDensity000_lat-90.png> <../mollweide_LatRunDataHiDensity000_lat-90.png> <../p
+olar_LatRunDataHiDensity000_lat-90.png>] [16 <../mollweide_LatRunDataLoDensity0
+09_lat-45.png> <../polar_LatRunDataLoDensity009_lat-45.png> <../mollweide_LatRu
+nDataHiDensity009_lat-45.png> <../polar_LatRunDataHiDensity009_lat-45.png>] [17
+ <../mollweide_LatRunDataLoDensity018_lat0.png> <../polar_LatRunDataLoDensity01
+8_lat0.png> <../mollweide_LatRunDataHiDensity018_lat0.png> <../polar_LatRunData
+HiDensity018_lat0.png>]
+<MEM_UG_Fig2.5_density-distribution.PNG, id=642, 694.84593pt x 472.76625pt>
+File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.5_density-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
+line 206.
+(pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
+<Fit-to-MEM_low_dens.PNG, id=647, 432.86719pt x 157.33781pt>
+File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
+<use Fit-to-MEM_low_dens.PNG>
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 214.
+(pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
+<Fit-to-MEM_high_dens.PNG, id=652, 432.11438pt x 155.83218pt>
+File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
+<use Fit-to-MEM_high_dens.PNG>
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 220.
+(pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
+ [18
+
+ <./MEM_UG_Fig2.5_density-distribution.PNG>] [19 <./Fit-to-MEM_low_dens.PNG> <.
+/Fit-to-MEM_high_dens.PNG>]
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=672, 428.35031pt x 321.45094pt
+>
+File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
+<use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
+Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
+nput line 237.
+(pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
+) (SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex)
+[20
+
+ <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>] [21]
+(LunarMeteoroidEjectaEngineeringModel.bbl) [22
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
- (LunarMeteoroidEjectaEngineeringModel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
+
+(LunarMeteoroidEjectaEngineeringModel.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 3340DFD42DBABFA51891894A6CB950D8;2558.
+(rerunfilecheck)             Checksum: 3136138B9D7BB885E31C39C0FCEC218E;2493.
  ) 
 Here is how much of TeX's memory you used:
- 32106 strings out of 480799
- 737299 string characters out of 2905519
- 1138794 words of memory out of 3000000
- 47482 multiletter control sequences out of 15000+200000
- 557220 words of font info for 69 fonts, out of 3000000 for 9000
+ 33051 strings out of 480799
+ 754391 string characters out of 2905519
+ 1487591 words of memory out of 3000000
+ 48228 multiletter control sequences out of 15000+200000
+ 566007 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,98p,1056b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,13n,98p,1515b,1858s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
-pi600\matha5.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
-blic/mathabx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
-s/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\AMD-Y500\AppData\Local\
-MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha10.pk>{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/AMD-Y500/AppData/Roaming/Mi
-KTeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming
-/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roam
-ing/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (7 pages, 193463 byt
-es).
+pi600\matha9.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
+blic/mathabx/dpi600\matha6.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\AMD-Y500\AppData\Local\M
+iKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha5.pk> <C:\Users\AMD-Y500\A
+ppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\U
+sers\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\ma
+tha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mat
+habx/dpi600\matha10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
+}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmtt10.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fo
+nts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9
+/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/
+2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (25 pages, 5622491 b
+ytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 298 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 859 PDF objects out of 1000 (max. 8388607)
+ 183 named destinations out of 1000 (max. 500000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 

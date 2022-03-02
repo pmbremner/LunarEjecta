@@ -3,33 +3,32 @@
 \contentsline {subsection}{\numberline {2.1}Porosity}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Density}{1}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Strength}{4}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Particle Size Distribution}{4}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Scaling Law Properties}{4}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Primary Flux Environment}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Space-Time Dependence of Environment}{4}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Ephemeris Definition}{4}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Selenographic Extent}{4}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Sporadic Meteoroid Complex}{4}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular Distribution}{4}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Density Distribution}{4}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Mass Distribution}{4}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Near-Earth Objects}{4}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Speed Distribution}{4}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Mass Distribution}{4}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Meteoroid Showers}{4}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Secondary Flux Environment}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Ejecta Distribution}{4}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Speed Distribution}{4}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Zenith Distribution}{4}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Azimuth Distribution}{4}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Mass Distribution}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Orbital Mechanics}{4}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Crater on Surface to Observer at Surface}{4}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Crater on Surface to Observer at or above Surface}{4}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Selenographic Distance \& Bearing}{4}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Scaling Laws}{4}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{4}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Minimum \& Maximum Ejected Speed}{4}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Maximum Ejected Particle Mass}{4}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Mass Ejected from Crater}{4}{subsection.5.4}%
-\contentsline {section}{References}{5}{section*.3}%
+\contentsline {subsection}{\numberline {2.4}Particle Size Distribution}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Scaling Law Parameters}{10}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Primary Flux Environment}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Space-Time Dependence of Environment}{11}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Ephemeris Definition}{11}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Sporadic Meteoroid Complex}{13}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular Distribution}{14}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Density Distribution}{18}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Mass Distribution}{20}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Near-Earth Objects}{21}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Speed Distribution}{21}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Mass Distribution}{21}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Meteoroid Showers}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Secondary Flux Environment}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ejecta Distribution}{21}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Speed Distribution}{21}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Zenith Distribution}{21}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Azimuth Distribution}{21}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Mass/Particle Size Distribution}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Orbital Mechanics}{21}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Crater on Surface to Observer at Surface}{21}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Crater on Surface to Observer at or above Surface}{21}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Selenographic Distance \& Bearing}{21}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Scaling Laws}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{21}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Minimum \& Maximum Ejected Speed}{21}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Maximum Ejected Particle Mass}{21}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Mass Ejected from Crater}{21}{subsection.5.4}%
+\contentsline {section}{References}{22}{section*.18}%

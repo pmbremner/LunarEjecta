@@ -9,10 +9,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Porosity}
 
-The lunar regolith porosity is related to the amount of free space between individual grains. The greater the porosity, the more void space is present. Table 3.4.2.3.4-1 of the DSNE gives values of the porosity as a function of depth down to $60$ cm derived from Apollo core measurements (copied from Table 9.5 of the Lunar Sourcebook) and shown here in Table \ref{tab:porosity}.
+The lunar regolith porosity is related to the amount of free space between individual grains. The greater the porosity, the more void space is present. Table 3.4.2.3.4-1 of the DSNE gives values of the porosity as a function of depth down to $60$ cm derived from Apollo core measurements (copied from Table 9.5 of the Lunar Sourcebook, \cite{heiken1991lunar}) and shown here in Table \ref{tab:porosity}.
 
 
-\begin{table}[h!]
+\begin{table}[!htb]
 	\begin{center}
 		\caption{Porosity for various depths.}
 		\label{tab:porosity}
@@ -53,41 +53,222 @@ which gives (compare with the equation for $d_m$ on page 494 of the Lunar Source
 \end{equation}
 For example, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, depth}(60)$ = $1.65$ g/cm$^3$.
 
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\linewidth]{regolith_density_vs_depth.png}
+	\caption{A comparison of the regolith bulk density for a certain depth depth (blue), the depth-averaged bulk density (orange), and the volume-averaged bulk density (green). See also, Figure 9.16 of the Lunar Sourcebook \citep{heiken1991lunar}.}
+	\label{fig:regolith_density_vs_depth}
+\end{figure}
+
 For a higher-fidelity estimate of the average bulk density sampled by the crater, a volume-average can be used instead of a depth-average, given by
 \begin{equation}\label{eq:density volume averaged def}
 \rho_{avg, volume}(z) = \frac{\int dV \rho(z')}{\int dV}.
 \end{equation}
-Expanding the integral in a cylindrical coordinate system, Equation \eqref{eq:density volume averaged def} becomes
+Expanding the integral in a cylindrical coordinate system and assuming an ellipsoidal crater shape, Equation \eqref{eq:density volume averaged def} becomes
 \begin{align}
-\rho_{avg, volume}(z) &= \frac{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz' \rho(z')}{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz'}\\\label{eq:density volume averaged}
+\rho_{avg, ellipsoid}(z) &= \frac{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz' \rho(z')}{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'^2/z^2}}\int_{0}^{2\pi}d\phi rdr dz'}\\\label{eq:density volume averaged}
 &= \frac{1.92}{4z^3}\left[z(6ab - 6b^2 - 3az + 3bz + 4z^2) + 6(a-b)(b^2-z^2)\ln\left(\frac{b}{z + b}\right)\right],
 \end{align}
-for the volume-averaged density in g/cm$^3$ with $z$ in cm, where $a = 12.2$ and $b = 18$. Following the example from earlier, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, volume}(60)$ = $1.60$ g/cm$^3$, which is $\sim 3\%$ less than $\rho_{avg, depth}(60) = 1.65$ g/cm$^3$. The expression given in Equation \eqref{eq:density volume averaged} is useful for computing the ejected mass from a crater\footnote{In an iterative fashion, since the crater radius depends on the regolith density.}, given a crater depth $z$.
+for the volume-averaged density in g/cm$^3$ with $z$ in cm, where $a = 12.2$ and $b = 18$. Following the example from earlier, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, ellipsoid}(60)$ = $1.60$ g/cm$^3$, which is $\sim 3\%$ less than $\rho_{avg, depth}(60) = 1.65$ g/cm$^3$.
+
+On the other hand, if a paraboloid crater shape is assumed, Equation \eqref{eq:density volume averaged def} becomes
+\begin{align}
+\rho_{avg, paraboloid}(z) &= \frac{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'/z}}\int_{0}^{2\pi}d\phi rdr dz' \rho(z')}{\int_{0}^{z}\int_{0}^{R\sqrt{1-z'/z}}\int_{0}^{2\pi}d\phi rdr dz'}\\\label{eq:density volume averaged_para}
+&= \frac{1.92}{z/2}\left[b-a + \frac{z}{2} - \frac{(a-b)(b+z)\ln\left(\frac{b}{z+b}\right)}{z}\right],
+\end{align}
+using the same values for $a$ and $b$ as before. Again, with the prior example, the average bulk density of the regolith with a depth range of $0$ -- $60$ cm would be $\rho_{avg, paraboloid}(60)$ = $1.58$ g/cm$^3$, which is $\sim 4\%$ less than $\rho_{avg, depth}(60) = 1.65$ g/cm$^3$, see Figure \ref{fig:ratio_of_avg_bulk_density}. The expression given in Equation \eqref{eq:density volume averaged_para} is useful for computing the ejected mass from a crater\footnote{In an iterative fashion, since the crater radius depends on the regolith density.}, given a crater depth $z$.
 
 
-\begin{figure}[h!]
+
+
+
+The expressions for the regolith density at a certain depth $z$, weighted by depth, and weighted by crater volume (ellipsoid and paraboloid) are given by Equations \eqref{eq:regolith density vs depth}, \eqref{eq:density depth averaged}, and \eqref{eq:density volume averaged}, \eqref{eq:density volume averaged_para}, respectively, are compared in Figure \ref{fig:regolith_density_vs_depth}. The crater volume is approximated as a half-ellipsoid with two of the dimensions scaled by the crater radius $R$ and one dimension scaled by the crater depth $z$, sliced such that the half-ellipsoid is symmetric about the surface normal for Equation \eqref{eq:density volume averaged}. On the other hand, a paraboloid-shaped crater is used for Equation \eqref{eq:density volume averaged_para}. For a given crater, more of the volume is near the surface so that more weight is given by bulk densities that originate near the surface. In contrast, the depth-averaged bulk density takes the bulk density at each depth equally. This results in the volume-averaged bulk density to be slightly less than the depth-averaged bulk density, as shown in Figure \ref{fig:regolith_density_vs_depth}. In addition, comparing an ellipsoidal crater vs.\ a parabolic crater, the parabolic crater (typically used in literature, see \cite{singer2020lunar}) exhibits the softest increase of the average bulk density as a function of depth.
+
+
+\begin{figure}[!htb]
 	\centering
-	\includegraphics[width=\linewidth]{regolith_density_vs_depth.png}
-	\caption{A comparison of the regolith bulk density for a certain depth depth (blue), the depth-averaged bulk density (orange), and the volume-averaged bulk density (green). See also, Figure 9.16 of the Lunar Sourcebook.}
-	\label{fig:regolith_density_vs_depth}
+	\includegraphics[width=\linewidth]{ratio_of_avg_bulk_density.png}
+	\caption{Relative error of using the density at a certain depth (blue) and using the depth-weighted average (orange) of the regolith bulk density.}
+	\label{fig:ratio_of_avg_bulk_density}
 \end{figure}
-
-
-The expressions for the regolith density at a certain depth $z$, weighted by depth, and weighted by crater volume are given by Equations \eqref{eq:regolith density vs depth}, \eqref{eq:density depth averaged}, and \eqref{eq:density volume averaged}, respectively, are compared in Figure \ref{fig:regolith_density_vs_depth}. The crater volume is approximated as a half-ellipsoid with two of the dimensions scaled by the crater radius $R$ and one dimension scaled by the crater depth $z$, sliced such that the half-ellipsoid is symmetric about the surface normal. For a given crater, more of the volume is near the surface so that more weight is given by bulk densities that originate near the surface. In contrast, the depth-averaged bulk density takes the bulk density at each depth equally. This results in the volume-averaged bulk density to be slightly less than the depth-averaged bulk density, as shown in Figure \ref{fig:regolith_density_vs_depth}
-.
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Strength}
 
+The strength of the regolith can be measured in different ways, depending on the use. In the case of modeling impacts, the shear strength of loose regolith and tensile strength of solid rock can be used. The top $10$ m or so consists of fine-grained material called regolith. From $10$ m to about $2$ km is the large scale ejecta that is course grained and ballistically transported (Fig 4.22 of the Lunar Sourcebook, \cite{heiken1991lunar}). All of the impacts studied in this model will create craters less than $2$ km, so it is expected that the shear strength will be used for the loose regolith and large scale ejecta material.
+
+The shear strength of the lunar soil increases with the depth. As an example, both Figure 9.26 of the Lunar Sourcebook, reproduced in Figure \ref{fig:shear_strength_vs_depth}, and Table 12 of \cite{slyuta2014physical} depict this characteristic, shown in Table \ref{tab:shear_strength}.
+
+\begin{table}[!htb]
+	\begin{center}
+		\caption{The change of the shear strength of the lunar soil with depth.}
+		\label{tab:shear_strength}
+		\begin{tabular}{c c}
+			\hline
+			Depth (cm)  & Shear strength (kPa)  \\
+			\hline
+			$5$  & $0.1$ -- $2.5$  \\
+			$50$  & $1$ -- $3.5$   \\
+			$100$ & $2$ -- $4$  \\
+			$200$  & $4$ -- $8$  \\\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\linewidth]{shear_strength_vs_depth.png}
+	\caption{The range of regolith shear strength as a function of depth below the lunar surface taken from Figure 9.26 of the Lunar Sourcebook. The average shear strength is also calculated (green). Points that are extrapolated beyond what is available are shown by the dashed lines. The volume-averaged shear strength (red) assumes a parabolic-shaped crater of depth $z$.}
+	\label{fig:shear_strength_vs_depth}
+\end{figure}
+
+The average shear strength (green curve) in Figure \ref{fig:shear_strength_vs_depth} can be expressed by the piece-wise form
+\begin{equation}\label{eq:shear strength}
+\tau(z) =
+\begin{cases}
+\frac{z}{45.55} + 1.288,\text{   $0 \le z < 50$ cm}\\
+\frac{z}{40.21} + 1.144,\text{   $50$ cm $\le z < 250$ cm}\\
+\frac{z}{46.06} + 1.942,\text{   $z \ge 250$ cm}
+\end{cases}.
+\end{equation}
+Assuming the crater has a parabolic shape and that the effective shear strength is the volume-average (similar approach to Equation \eqref{eq:density volume averaged def}), Equation \eqref{eq:shear strength} becomes (as shown by the red curve in Figure \ref{fig:shear_strength_vs_depth})
+\begin{equation}\label{eq:shear strength_avg_para}
+\tau(z) =
+\begin{cases}
+\frac{z}{136.65} + 1.288,\text{   $0 \le z < 50$ cm}\\
+\frac{z}{120.63} + 1.144 + \frac{7.163}{z} - \frac{118.33}{z^2},\text{   $50$ cm $\le z < 250$ cm}\\
+\frac{z}{138.18} + 1.942 - \frac{194.81}{z} + \frac{16902}{z^2},\text{   $z \ge 250$ cm}
+\end{cases}.
+\end{equation}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Particle Size Distribution}
 
+The cumulative distribution function (CDF) of the regolith particle sizes\footnote{In the context here, particle size is defined as the particle diameter of a spherical-shaped particle. Other sections may define size by the radius.} are fit to several Apollo samples, as shown in Figure~\ref{fig:Carrier2003_Fig1_particle-size-distribution}. During an impact, the particle size distribution may become modified and are organized depending on the ejected speed (see Section \ref{ssec:Mass/Particle Size Distribution}). However, the unmodified regolith size distribution is given in this section for reference.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{Carrier2003_Fig1_particle-size-distribution.PNG}
+	\caption{Geotechnical particle size distribution: middle curve showing the average distribution; left-hand and right-hand curves showing $\pm$1 standard deviation \citep{carrier2003particle}. Note, that the percent passing is normalized by mass and not particle number \citep[see][]{carrier1973lunar}.}\label{fig:Carrier2003_Fig1_particle-size-distribution}
+\end{figure}
+The digitized data from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution} is shown in Table \ref{tab:Carrier2003}.
+\begin{table}
+	\centering
+	\caption{Digitized data points from Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, see \cite{carrier2003particle}.}\label{tab:Carrier2003}
+	\csvautotabular{Carrier2003_digitized.csv}
+\end{table}
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.1\textwidth]{Carrier2003_CDFs_PDFs.png}
+	\caption{Plots of the mass-weighted and number-weighted CDFs and PDFs derived from \cite{carrier2003particle}. Top left: the digitized data from Figure 1 of \cite{carrier2003particle} is shown with the log-normal distribution fit. Top right: The mass-weighted PDF * dx is shown to dictate what particle size dominates the contribution of mass. Bottom left: The number-weighted CDF showing number of particles in 1 kg of regolith greater than a size $x$. Bottom right: The number-weighted PDF is shown in units of mm$^{-1}$.}\label{fig:Carrier2003_CDFs_PDFs}
+\end{figure}
+
+In \cite{carrier2003particle}, they specifically call out that the mass-weighted CDF can be modeled by a log-normal distribution, so this assumption is made below. By definition, a log-normal distribution is given by
+\begin{equation}
+F_{\text{kg}}(>x) = 1 - F(<x)_{\text{kg}} = \frac{1}{2}\left[1 - \text{erf}\left(\frac{\ln x - \mu}{\sqrt{2}\sigma}\right)\right],
+\end{equation}
+where $x$ is the particle diameter size in units of mm, $\mu$ is the expected value of $\ln x$, and $\sigma$ is the standard deviation of $\ln x$.
+
+The PDF is then given by
+\begin{equation}
+f_{\text{kg}}(x) = \frac{1}{\sigma\sqrt{2\pi}}\frac{1}{x}\exp\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right].
+\end{equation}
+
+In order to have the number-weighted PDF and CDF, we begin with $f_{\text{kg}}(x)$ and divide by the mass of a given particle size (diameter), \citep[e.g., Equation (7) of~][]{koschny2001impacts_mass}
+\begin{equation}
+m(x) = \frac{\pi}{6}\rho x^3,
+\end{equation}
+so that we have (assuming $F_{\text{kg}}$ represents the CDF for 1 kg of regolith)
+\begin{equation}
+f_{\text{number}}(x) = \frac{f_{\text{kg}}(x)}{m(x)} = \frac{6}{\pi\rho}\frac{1 \text{kg}}{1 \text{mm}^3}\frac{1}{\sigma\sqrt{2\pi}}
+\frac{1}{x^4}\exp\left[-\frac{(\ln x - \mu)^2}{2\sigma^2}\right],
+\end{equation}
+for the number-weighted PDF. To arrive at the number-weighted CFD, integration over $f_{\text{number}}(x)$ is done such that
+\begin{equation}
+F_{\text{number}}(>x) = \int_{x}^{\infty}dx' f_{\text{number}}(x').
+\end{equation}
+Solving the integral, the number-weighted CDF is given by
+\begin{equation}\label{eq:number_CFD_regolith}
+F_{\text{number}}(>x) = \frac{6}{\pi\rho}\frac{1 \text{kg}}{1 \text{mm}^3}\frac{1}{\sigma\sqrt{2\pi}}
+\left[1 - \text{erf}\left(\frac{\ln x - \mu + 3\sigma^2}{\sqrt{2}\sigma}\right)\right]\exp\left(-3\mu + \frac{9\sigma^2}{2}\right),
+\end{equation}
+which is the number of particles of diameter $x$ or greater in 1 kg of regolith. For $F_{\text{number}}(<x)$, flip the minus sign to a plus sign on the error function. Note that $\text{erfc}(x) = 1- \text{erf}(x)$.
+
+Fitting the mass-weighted CDF $F(<x)$ to Figure \ref{fig:Carrier2003_Fig1_particle-size-distribution}, the following parameters are obtained:
+\begin{align}
+\mu &= -2.649,\\
+\sigma &= 1.786,
+\end{align}
+where the mean, median, and mode particle size (weighted by mass) is
+\begin{align}
+x_{\text{mean}} &= \exp\left(\mu + \frac{\sigma^2}{2}\right) = 34.8 \text{$\mu$m},\\
+x_{\text{median}} &= \exp(\mu) = 7.07 \text{$\mu$m},\\
+x_{\text{mode}} &=  \exp\left(\mu - \sigma^2\right) = 0.291 \text{$\mu$m}.
+\end{align}
+
+If the mean, median, and mode particle size weighted by number are needed, then the modified parameters are
+\begin{align}
+\mu^\star &= \mu - 3\sigma^2 = -12.22,\\
+\sigma^\star &= \sigma = 1.786,
+\end{align}
+giving the following (now weighted by number):
+\begin{align}
+x^\star_{\text{mean}} &= \exp\left(\mu^\star + \frac{\sigma^{\star 2}}{2}\right) = 2.43 \text{ nm},\\
+x^\star_{\text{median}} &= \exp(\mu^\star) = 0.494 \text{ nm},\\
+x^\star_{\text{mode}} &=  \exp\left(\mu^\star - \sigma^{\star 2}\right) = 0.0203 \text{ nm}.
+\end{align}
+Note that these set of averages are outside the range of the data provided in \cite{carrier2003particle} and are only valid if the log-normal distribution holds for these very small particles. This regime is on the order of several atomic nuclei large.
+
+
+As an example, if the number of particles greater than 1 $\mu$g per 1 kg of regolith are needed, then use Equation \eqref{eq:number_CFD_regolith} (assuming a regolith density of $\rho$ = 3.1 g / cm$^3$ such that $x(1 \mu\text{g}) = 8.509 \mu\text{m}$)
+\begin{equation}
+F_{\text{number}}(> x = 8.509 \mu\text{m}) = 3.146\times 10^{7} \text{ \# of particles per 1 kg of regolith}.
+\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Scaling Law Properties}
+\subsection{Scaling Law Parameters}\label{ssec:Scaling Law Parameters}
+In the meteoroid ejecta model described in this document, the scaling laws from \cite{housen2011ejecta} are employed. In this section, the parameters of various material types used in fits to the scaling laws are summarized. The specific scaling law equations are discussed in Section \ref{sec:Scaling Laws}.
+
+The various sets of parameters for different target materials are given in Table 3 of \cite{housen2011ejecta} with most of them copied here in Table \ref{tab:scaling law parameters}, with undefined values filled in that are best represented by either solid, semi-solid, or fine material where applicable. If a material has zero strength, the crater scaling is automatically in the gravity regime and there is no strength regime (and no need for $H_2$ to be defined).
+
+
+\begin{table}[!htb]
+	\begin{center}
+		\caption{Summary of constants used in the \cite{housen2011ejecta} ejecta model.}
+		\label{tab:scaling law parameters}
+		\begin{tabular}{l l l l l l l l l}
+			\hline
+			Curve no.\ & C1    & C2   & C3  & C4   & C5   & C6  & C7  & C8  \\
+			\hline
+			Target     & Water & Rock & WCB & Sand & Sand & GMS & SFA & PS\\
+			Porosity   & $\sim 0$ & $\sim 0$ & $20\%$ & $35\pm 5\%$ & $35\pm 5\%$ & $36\%$ & $45\%$ & $60\%$\\
+			$\mu$ & $0.55$ & $0.55$ & $0.46$ & $0.41$ & $0.41$ & $0.45$ & $0.4$ & $0.35$\\
+			$C_1$ & $1.5$ & $1.5$ & $0.18$ & $0.55$ & $0.55$ & $1.0$ & $0.55$ & $0.6$ \\
+			$k$ & $0.2$ & $0.3$ & $0.3$ & $0.3$ & $0.3$ & $0.5$ & $0.3$ & $0.32$\\ 
+			$H_1$ & $0.68$ & $0.68^{*1}$ & $0.5^{*2}$ & $0.59$ & $0.59$ & $0.8$ & $0.59^{*3}$ & $0.59^{*3}$\\
+			$H_2$ & -- & $1.2$ & $0.38$ & -- & -- & -- & $0.4$ & $0.81$\\
+			$n_{2,G}$ & $1.5$ & $1.5$ & $1.3^{*3}$ & $1.3$ & $1.3$ & $1.3$ & $1.2^{*2}$ & $1.2^{*2}$\\
+			$p$ & $0.5$ & $0.5$ & $0.3$ & $0.3$ & $0.3$ & $0.3$ & $0.3$ & $0.2$\\
+			$Y$ (MPa) & $0$ & $30$ & $0.45$ & $0$ & $0$ & $0$ & $4\times 10^{-3}$ & $2\times 10^{-3}$\\
+			\hline
+			\multicolumn{9}{l}{\footnotesize Note: WCB = weakly cemented basalt, GMS = glass micro-spheres, PS = perlite/sand mixture,} \\
+			\multicolumn{9}{l}{\footnotesize SFA = sand/fly ash. All cases shown in this table used: $\nu=0.4$, $n_1=1.2$, $n_{2,S} = 1$, $g=9.81$ m/s$^2$.} \\
+			\multicolumn{9}{l}{\footnotesize $*1$ from water, $*2$ no value given, $*3$ from sand.}\\
+			 
+		\end{tabular}
+	\end{center}
+\end{table}
+
+The average regolith porosity from $0$ -- $60$ cm is $46\pm 2 \%$ (see Table \ref{tab:porosity}), so the set of parameters that define SFA (sand/fly ash) are adopted. For a higher fidelity strength, Equation \eqref{eq:shear strength_avg_para} can be used instead of $Y = 4$ kPa.
+
+
 
 
 

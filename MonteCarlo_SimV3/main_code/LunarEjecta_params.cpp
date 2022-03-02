@@ -228,7 +228,7 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 		p->HH11_C1       = 0.18;
 		p->HH11_k        = 0.3;
 		p->HH11_p        = 0.3;
-		p->HH11_n2g      = 1.3;
+		p->HH11_n2g      = 1.3; // estimate, using from sand
 		p->HH11_H1       = 0.5; // estimate, no value given
 		p->HH11_H2       = 0.38;
 	}
