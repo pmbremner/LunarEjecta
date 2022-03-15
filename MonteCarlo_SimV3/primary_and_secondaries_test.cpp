@@ -76,7 +76,7 @@ int main(int argc, char const *argv[])
 	if (params->readNEO_files)
 		NEO_fluxes = read_igloo(params, NEO);
 	else {
-		NEO_fluxes = generate_NEO_igloo(params, MEM_lo_fluxes);
+		NEO_fluxes = generate_NEO_igloo(params, MEM_hi_fluxes); // NESC wants LO, MEM_lo_fluxes
 		if (params->saveNEO_files)
 			save_igloo(params, NEO_fluxes, NEO);
 	}

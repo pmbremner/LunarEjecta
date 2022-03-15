@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  1 MAR 2022 15:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  13 MAR 2022 19:37
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1161,78 +1161,78 @@ t>
 File: ../mollweide_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity000_lat-90.png  used o
-n input line 92.
+n input line 94.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataLoDensity000_lat-90.png, id=597, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity000_lat-90.png  used on in
-put line 99.
+put line 101.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
 <../mollweide_LatRunDataHiDensity000_lat-90.png, id=598, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity000_lat-90.png  used o
-n input line 107.
+n input line 109.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataHiDensity000_lat-90.png, id=599, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity000_lat-90.png  used on in
-put line 114.
+put line 116.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
 <../mollweide_LatRunDataLoDensity009_lat-45.png, id=600, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity009_lat-45.png  used o
-n input line 126.
+n input line 128.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataLoDensity009_lat-45.png, id=601, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity009_lat-45.png  used on in
-put line 133.
+put line 135.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
 <../mollweide_LatRunDataHiDensity009_lat-45.png, id=602, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity009_lat-45.png  used o
-n input line 141.
+n input line 143.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataHiDensity009_lat-45.png, id=603, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity009_lat-45.png  used on in
-put line 148.
+put line 150.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
 <../mollweide_LatRunDataLoDensity018_lat0.png, id=604, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity018_lat0.png  used on 
-input line 160.
+input line 162.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataLoDensity018_lat0.png, id=605, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity018_lat0.png  used on inpu
-t line 167.
+t line 169.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
 <../mollweide_LatRunDataHiDensity018_lat0.png, id=606, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity018_lat0.png  used on 
-input line 175.
+input line 177.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
 <../polar_LatRunDataHiDensity018_lat0.png, id=607, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity018_lat0.png  used on inpu
-t line 182.
+t line 184.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
  [14] [15 <../mollweide_LatRunDataLoDensity000_lat-90.png> <../polar_LatRunData
 LoDensity000_lat-90.png> <../mollweide_LatRunDataHiDensity000_lat-90.png> <../p
@@ -1246,17 +1246,17 @@ HiDensity018_lat0.png>]
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
-line 206.
+line 208.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
 <Fit-to-MEM_low_dens.PNG, id=647, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 214.
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 216.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
 <Fit-to-MEM_high_dens.PNG, id=652, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 220.
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 222.
 (pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
  [18
 
@@ -1267,7 +1267,7 @@ Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 220.
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
-nput line 237.
+nput line 239.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
 ) (SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex)
 [20
@@ -1287,11 +1287,11 @@ s not changed.
 (rerunfilecheck)             Checksum: 3136138B9D7BB885E31C39C0FCEC218E;2493.
  ) 
 Here is how much of TeX's memory you used:
- 33051 strings out of 480799
- 754391 string characters out of 2905519
- 1487591 words of memory out of 3000000
- 48228 multiletter control sequences out of 15000+200000
- 566007 words of font info for 87 fonts, out of 3000000 for 9000
+ 33064 strings out of 480799
+ 754654 string characters out of 2905519
+ 1487820 words of memory out of 3000000
+ 48237 multiletter control sequences out of 15000+200000
+ 566175 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,98p,1515b,1858s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
@@ -1315,14 +1315,15 @@ r6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmtt10.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fo
-nts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9
-/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/
-2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (25 pages, 5622491 b
+/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1
+/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts
+/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (25 pages, 5631761 b
 ytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 183 named destinations out of 1000 (max. 500000)
+ 876 PDF objects out of 1000 (max. 8388607)
+ 186 named destinations out of 1000 (max. 500000)
  410 words of extra memory for PDF output out of 10000 (max. 10000000)
 

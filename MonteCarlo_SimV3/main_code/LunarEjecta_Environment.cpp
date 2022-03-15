@@ -325,8 +325,8 @@ void get_ejecta_environment(input*  params,
 	    			{
 	    				// compute cumulative # of particles > j_s_size-th size
 	    				// if ejecta size is greater than impactor size, reject it (no ejecta)
-	    				if (ejecta_env_size[j_s_size]/2. < impactor_r)
-	    				{
+	    				///if (ejecta_env_size[j_s_size]/2. < impactor_r)
+	    				///{
 	    				
 	    					// overall units = #-ejecta/yr
 	    					ejecta_env_flux[idx_f[i_s*params->N_env_size + j_s_size]]
@@ -337,7 +337,7 @@ void get_ejecta_environment(input*  params,
 	    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
 	    				
 	    					// cout << ejecta_env_flux[idx_f] << endl;
-	    				}
+	    				///}
 
 	    			}
 
