@@ -84,6 +84,11 @@ The angular distribution of the primary fluxes can be viewed in a Mollweide and 
 
 The fluxes from the low- and high-density components seem to originate from opposing locations in the sky \citep[e.g., see Figure 2.2 of][]{moorhead2019nasa}. The shift is due to the high-density population meteoroids coming from mainly the ecliptic plane (helion and anti-helion sources) while the low-density population tends to come from higher inclinations (toroidal and apex sources).
 
+The figures that follow show a departure from a purely isotropic flux source and the effect on the impact angle on the planetary surface. As shown in \cite{pierazzo2000understanding}, the probability of hitting a planetary body, regardless of the target's gravitational field, is given by
+\begin{equation}
+dP = 2\sin\alpha\cos\alpha d\alpha,
+\end{equation}
+where $\alpha$ is the angle from zenith. This equation shows that the most probable impact angle is at $45^\circ$, which is not supported by the sporadic meteoroid fluxes, implying a non-isotropic origin -- known to be the helion/anti-helion, toroidal, and apex sources.
 
 
 
@@ -249,15 +254,44 @@ The near-Earth objects (NEOs) described in this model consist of the small aster
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Speed Distribution}\label{sssec:NEO:Speed Distribution}
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.45]{../NEA_Brown/vmass.png}
+	\caption{Mass-limited speed distribution at the lunar surface.}\label{fig:vmass}
+\end{figure}
+The speed distribution of NEO's is shown in Figure \ref{fig:vmass}. The values (fraction of flux per bin) in each bin are midpoint values, where the bins have a size of 2 km s$^{-1}$. Note also that because the flux is a power law, this speed distribution is independent of limiting mass.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mass Distribution}\label{sssec:NEO:Mass Distribution}
 
 
+The mass-limited flux at the lunar surface can be shown to be \citep[see,][]{moorhead2020memo}
+\begin{equation}\label{eq:NEO_mass_factor_int}
+g_\leftmoon (m) = 2.89\times 10^{-11} \text{m}^{-2}\text{yr}^{-1}\cdot m^{-0.9},
+\end{equation}
+where $m$ is the mass of the impactor in kg. Since the mass-limited flux has a power-law index greater than $-1$, a maximum impactor size should be defined. An example of quantifying the largest size could be by computing the size that would have an $n-\%$ chance of hitting the Moon in $Y$ years. If $n = 5\%$ and $Y = 10$ years, then the largest size would be
+\begin{align}
+m_{max, kg} &= \left(\frac{2.89 \times 10^{-11} \text{m}^{-2}\text{yr}^{-1} \cdot 3.793\times 10^{13} \text{m}^{-2} \cdot 10 \text{yr}}{0.05}\right)^{1/0.9}\nonumber\\
+&= 2.4\times 10^5 \text{ kg}.
+\end{align}
 
+If the NEO density is assumed to be $3.0$ g/cm$^2$ (which is the assumption used throughout the model), then this corresponds to a diameter of $5.3$ m.
 
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Meteoroid Showers}\label{ssec:Meteoroid Showers}
 
-	
+The primary fluxes that originate from meteoroid showers can also produce ejecta. However, each different meteoroid shower has its own strength, duration, and time of year at which they occur. A prediction of the meteoroid shower fluxes as a function of time are compared to the sporadic meteoroids at different limiting energies, shown in Figure \ref{fig:2021_forecast_showers_southpole_moon} \citep{moorhead2020southpoleshower}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{../ShowerForecast/2021_forecast_showers_southpole_moon.PNG}
+	\caption{Meteor shower flux (variable lines) and sporadic meteoroid flux (horizontal lines) over the course of 2021. Fluxes are quoted to four limiting particle kinetic energies; these kinetic energies correspond to particles with diameters of $0.04$ cm, $0.1$ cm, $0.3$ cm, and $1$ cm, assuming a density of $1$ g cm$^{-3}$ and a speed of $20$ km s$^{-1}$, \citep[see Figure 1,][]{moorhead2020southpoleshower}.}\label{fig:2021_forecast_showers_southpole_moon}
+\end{figure}
+
+At this time, it is assumed that the ejecta produced by meteoroid showers is small compared to the ejecta produced by the sporadic meteoroids. Further investigation may be warranted, however, short-term ejecta environments may need to include meteoroid showers during a particularly strong shower. These operational environments would be created on an as-need basis for lunar surface EVAs, similar to forecasts for meteoroid showers for ISS EVAs.
+
+\clearpage
 \end{document}

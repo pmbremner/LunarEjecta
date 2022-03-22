@@ -199,6 +199,15 @@ void get_ejecta_environment(input*  params,
 					        vector<double>& ejecta_env_flux      // [#/m^2/yr (> size_i)]
 	                        )
 {
+	chrono::steady_clock::time_point gen_environment_time_0;
+	chrono::steady_clock::time_point gen_environment_time_1;
+
+	chrono::duration<double> gen_environment_time_elapse;
+
+	double etime;
+
+	gen_environment_time_0 = chrono::steady_clock::now();
+
 	ofstream file;
 	file.open("crater_stats.txt");
 
@@ -355,7 +364,11 @@ void get_ejecta_environment(input*  params,
 
     	// }
     	if (i_p%5 == 0){
-			cout << "Generating Environment... " << 100.*(i_p+1.)/double(N_p_sample) << "% finished\r";
+    		gen_environment_time_1 = chrono::steady_clock::now();
+			gen_environment_time_elapse = chrono::duration_cast<chrono::duration<double>>(gen_environment_time_1 - gen_environment_time_0);
+			etime = gen_environment_time_elapse.count();
+
+			cout << "Generating Environment... " << 100.*(i_p+1.)/double(N_p_sample) << "% finished | time remaining = " << etime * (double(N_p_sample)/(i_p+1.) - 1.)/60. << " min\r";
 		}
 
     }

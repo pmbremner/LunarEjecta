@@ -59,6 +59,9 @@ plt.legend()
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 plt.figure()
+
+print("NEO samples to total: ", np.shape(R[p_type==2])[0], np.shape(R)[0], np.shape(R[p_type==2])[0]/np.shape(R)[0])
+
 # Creating bins
 x_min = np.log10(np.min(s_m[s_m > 0]))
 x_max = np.log10(np.max(s_m))

@@ -5,50 +5,45 @@ Reallocating 'name_of_file' (item size: 1) to 4 items.
 The style file: agu.bst
 Reallocating 'name_of_file' (item size: 1) to 7 items.
 Database file #1: report.bib
-Repeated entry---line 309 of file report.bib
- :  @article{brown2002flux
- :                        ,
-I'm skipping whatever remains of this entry
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-You've used 11 entries,
+You've used 16 entries,
             3075 wiz_defined-function locations,
-            1138 strings with 11020 characters,
-and the built_in function-call counts, 10623 in all, are:
-= -- 1214
-> -- 323
-< -- 7
-+ -- 186
-- -- 78
-* -- 634
-:= -- 923
-add.period$ -- 11
-call.type$ -- 11
-change.case$ -- 59
-chr.to.int$ -- 11
-cite$ -- 33
-duplicate$ -- 1158
-empty$ -- 594
-format.name$ -- 107
-if$ -- 2131
+            1170 strings with 11854 characters,
+and the built_in function-call counts, 14882 in all, are:
+= -- 1685
+> -- 447
+< -- 14
++ -- 254
+- -- 108
+* -- 895
+:= -- 1302
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 85
+chr.to.int$ -- 16
+cite$ -- 48
+duplicate$ -- 1620
+empty$ -- 842
+format.name$ -- 156
+if$ -- 2992
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 111
-newline$ -- 40
-num.names$ -- 44
-pop$ -- 464
+missing$ -- 160
+newline$ -- 55
+num.names$ -- 64
+pop$ -- 666
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 68
 quote$ -- 0
-skip$ -- 707
+skip$ -- 967
 stack$ -- 0
-substring$ -- 462
-swap$ -- 982
-text.length$ -- 1
+substring$ -- 633
+swap$ -- 1360
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
+type$ -- 141
 warning$ -- 0
-while$ -- 59
+while$ -- 84
 width$ -- 0
-write$ -- 126
-(There was 1 error message)
+write$ -- 181

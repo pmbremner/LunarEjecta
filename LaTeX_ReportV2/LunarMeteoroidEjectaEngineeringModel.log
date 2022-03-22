@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  13 MAR 2022 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  22 MAR 2022 17:23
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1045,14 +1045,16 @@ ed crater
 \tf@lol=\write9
 \openout9 = `LunarMeteoroidEjectaEngineeringModel.lol'.
 
- [3] (ExecutiveSummary.tex)
-(LunarRegolith.tex
+ [3] [4] (ExecutiveSummary.tex
+[1
+
+]) (LunarRegolith.tex
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 42.
- [1
+ [2
 
 ]
-<regolith_density_vs_depth.png, id=325, 412.78215pt x 314.01315pt>
+<regolith_density_vs_depth.png, id=353, 412.78215pt x 314.01315pt>
 File: regolith_density_vs_depth.png Graphic file (type png)
 <use regolith_density_vs_depth.png>
 Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
@@ -1062,27 +1064,28 @@ Overfull \hbox (9.72598pt too wide) detected at line 73
 []
  []
 
-[2 <./regolith_density_vs_depth.png>]
-<ratio_of_avg_bulk_density.png, id=353, 412.78215pt x 327.26265pt>
+[3 <./regolith_density_vs_depth.png>]
+<ratio_of_avg_bulk_density.png, id=385, 412.78215pt x 327.26265pt>
 File: ratio_of_avg_bulk_density.png Graphic file (type png)
 <use ratio_of_avg_bulk_density.png>
 Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 92.
 (pdftex.def)             Requested size: 375.0pt x 297.33008pt.
- [3]
-<shear_strength_vs_depth.png, id=372, 426.03165pt x 312.56775pt>
+ [4]
+<shear_strength_vs_depth.png, id=400, 426.03165pt x 312.56775pt>
 File: shear_strength_vs_depth.png Graphic file (type png)
 <use shear_strength_vs_depth.png>
 Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 123.
 (pdftex.def)             Requested size: 375.0pt x 275.1463pt.
- [4 <./ratio_of_avg_bulk_density.png>] [5 <./shear_strength_vs_depth.png>]
-<Carrier2003_Fig1_particle-size-distribution.PNG, id=393, 889.07156pt x 624.081
+ [5 <./ratio_of_avg_bulk_density.png>]
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=414, 889.07156pt x 624.081
 56pt>
 File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
 <use Carrier2003_Fig1_particle-size-distribution.PNG>
 Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
 on input line 155.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
-<Carrier2003_CDFs_PDFs.png, id=410, 1149.8157pt x 840.5001pt>
+[6 <./shear_strength_vs_depth.png>]
+<Carrier2003_CDFs_PDFs.png, id=438, 1149.8157pt x 840.5001pt>
 File: Carrier2003_CDFs_PDFs.png Graphic file (type png)
 <use Carrier2003_CDFs_PDFs.png>
 Package pdftex.def Info: Carrier2003_CDFs_PDFs.png  used on input line 168.
@@ -1095,13 +1098,13 @@ Overfull \hbox (37.50229pt too wide) in paragraph at lines 168--169
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./Carrier2003_Fig1_particle-size-distribution.PNG>] [7] [8 <./Carrier2003_C
-DFs_PDFs.png>] [9]
+[7 <./Carrier2003_Fig1_particle-size-distribution.PNG>] [8] [9 <./Carrier2003_C
+DFs_PDFs.png>] [10]
 Overfull \hbox (22.29764pt too wide) in paragraph at lines 246--266
  [] 
  []
 
-) (PrimaryFluxEnvironment.tex [10] (example_email_jpl_horizons.txt
+) (PrimaryFluxEnvironment.tex [11] (example_email_jpl_horizons.txt
 LaTeX Font Info:    Trying to load font information for OML+phv on input line 1
 .
 
@@ -1115,11 +1118,11 @@ LaTeX Font Info:    Trying to load font information for TS1+phv on input line 5
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
-)
-[11]) ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-(../LunarSurfaceEphemerisData_Meridian/ephemeris_parser.py
+(../LunarSurfaceEphemerisData_Meridian/ephemeris_parser.py [12]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <8> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 6.
 LaTeX Font Info:    Trying to load font information for OMS+phv on input line 1
@@ -1133,147 +1136,178 @@ LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <8> not available
 LaTeX Font Info:    Font shape `OML/phv/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 25.
 )
-[12]
-<../LoDensity018_lat0.png, id=575, 462.528pt x 346.896pt>
+<../LoDensity018_lat0.png, id=558, 462.528pt x 346.896pt>
 File: ../LoDensity018_lat0.png Graphic file (type png)
 <use ../LoDensity018_lat0.png>
 Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 44.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../LoDensity036_lat90.png, id=576, 462.528pt x 346.896pt>
+<../LoDensity036_lat90.png, id=559, 462.528pt x 346.896pt>
 File: ../LoDensity036_lat90.png Graphic file (type png)
 <use ../LoDensity036_lat90.png>
 Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 51.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity018_lat0.png, id=577, 462.528pt x 346.896pt>
+<../HiDensity018_lat0.png, id=560, 462.528pt x 346.896pt>
 File: ../HiDensity018_lat0.png Graphic file (type png)
 <use ../HiDensity018_lat0.png>
 Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 59.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity036_lat90.png, id=578, 462.528pt x 346.896pt>
+<../HiDensity036_lat90.png, id=561, 462.528pt x 346.896pt>
 File: ../HiDensity036_lat90.png Graphic file (type png)
 <use ../HiDensity036_lat90.png>
 Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 66.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
- [13 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity018_la
-t0.png> <../HiDensity036_lat90.png>]
-<../mollweide_LatRunDataLoDensity000_lat-90.png, id=596, 405.1938pt x 238.2501p
+
+[13] [14 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity01
+8_lat0.png> <../HiDensity036_lat90.png>]
+<../mollweide_LatRunDataLoDensity000_lat-90.png, id=627, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity000_lat-90.png  used o
-n input line 94.
+n input line 99.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity000_lat-90.png, id=597, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity000_lat-90.png, id=628, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity000_lat-90.png  used on in
-put line 101.
+put line 106.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity000_lat-90.png, id=598, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataHiDensity000_lat-90.png, id=629, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity000_lat-90.png  used o
-n input line 109.
+n input line 114.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity000_lat-90.png, id=599, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity000_lat-90.png, id=630, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity000_lat-90.png  used on in
-put line 116.
+put line 121.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity009_lat-45.png, id=600, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataLoDensity009_lat-45.png, id=631, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity009_lat-45.png  used o
-n input line 128.
+n input line 133.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity009_lat-45.png, id=601, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity009_lat-45.png, id=632, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity009_lat-45.png  used on in
-put line 135.
+put line 140.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity009_lat-45.png, id=602, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataHiDensity009_lat-45.png, id=633, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity009_lat-45.png  used o
-n input line 143.
+n input line 148.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity009_lat-45.png, id=603, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity009_lat-45.png, id=634, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity009_lat-45.png  used on in
-put line 150.
+put line 155.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity018_lat0.png, id=604, 405.1938pt x 238.2501pt>
+<../mollweide_LatRunDataLoDensity018_lat0.png, id=635, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity018_lat0.png  used on 
-input line 162.
+input line 167.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity018_lat0.png, id=605, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity018_lat0.png, id=636, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity018_lat0.png  used on inpu
-t line 169.
+t line 174.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity018_lat0.png, id=606, 405.1938pt x 238.2501pt>
+<../mollweide_LatRunDataHiDensity018_lat0.png, id=637, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity018_lat0.png  used on 
-input line 177.
+input line 182.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity018_lat0.png, id=607, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity018_lat0.png, id=638, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity018_lat0.png  used on inpu
-t line 184.
+t line 189.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
- [14] [15 <../mollweide_LatRunDataLoDensity000_lat-90.png> <../polar_LatRunData
+ [15] [16 <../mollweide_LatRunDataLoDensity000_lat-90.png> <../polar_LatRunData
 LoDensity000_lat-90.png> <../mollweide_LatRunDataHiDensity000_lat-90.png> <../p
-olar_LatRunDataHiDensity000_lat-90.png>] [16 <../mollweide_LatRunDataLoDensity0
+olar_LatRunDataHiDensity000_lat-90.png>] [17 <../mollweide_LatRunDataLoDensity0
 09_lat-45.png> <../polar_LatRunDataLoDensity009_lat-45.png> <../mollweide_LatRu
-nDataHiDensity009_lat-45.png> <../polar_LatRunDataHiDensity009_lat-45.png>] [17
+nDataHiDensity009_lat-45.png> <../polar_LatRunDataHiDensity009_lat-45.png>] [18
  <../mollweide_LatRunDataLoDensity018_lat0.png> <../polar_LatRunDataLoDensity01
 8_lat0.png> <../mollweide_LatRunDataHiDensity018_lat0.png> <../polar_LatRunData
 HiDensity018_lat0.png>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=642, 694.84593pt x 472.76625pt>
+<MEM_UG_Fig2.5_density-distribution.PNG, id=676, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
-line 208.
+line 213.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-<Fit-to-MEM_low_dens.PNG, id=647, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=681, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 216.
+Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 221.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
-<Fit-to-MEM_high_dens.PNG, id=652, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=686, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
-Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 222.
+Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 227.
 (pdftex.def)             Requested size: 367.29895pt x 132.45798pt.
- [18
+ [19
 
- <./MEM_UG_Fig2.5_density-distribution.PNG>] [19 <./Fit-to-MEM_low_dens.PNG> <.
+ <./MEM_UG_Fig2.5_density-distribution.PNG>] [20 <./Fit-to-MEM_low_dens.PNG> <.
 /Fit-to-MEM_high_dens.PNG>]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=672, 428.35031pt x 321.45094pt
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=706, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
-nput line 239.
+nput line 244.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
-) (SecondaryFluxEnvironment.tex) (EnvironmentGeneration.tex)
-[20
+<../NEA_Brown/vmass.png, id=721, 587.5551pt x 441.5697pt>
+File: ../NEA_Brown/vmass.png Graphic file (type png)
+<use ../NEA_Brown/vmass.png>
+Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 259.
+(pdftex.def)             Requested size: 264.39735pt x 198.70453pt.
+ [21
 
- <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>] [21]
-(LunarMeteoroidEjectaEngineeringModel.bbl) [22
+ <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>] [22 <../NEA_Brown/vmass.png>]
+<../ShowerForecast/2021_forecast_showers_southpole_moon.PNG, id=748, 812.43526p
+t x 502.87875pt>
+File: ../ShowerForecast/2021_forecast_showers_southpole_moon.PNG Graphic file (
+type png)
+<use ../ShowerForecast/2021_forecast_showers_southpole_moon.PNG>
+Package pdftex.def Info: ../ShowerForecast/2021_forecast_showers_southpole_moon
+.PNG  used on input line 290.
+(pdftex.def)             Requested size: 375.0pt x 232.11737pt.
+ [23
+
+ <../ShowerForecast/2021_forecast_showers_southpole_moon.PNG>]) (SecondaryFluxE
+nvironment.tex
+Overfull \hbox (2.84679pt too wide) in paragraph at lines 37--38
+ []\OT1/phv/b/n/10 Impact An-gle & Az-imuth De-pen-dent Zenith Peak:[] \OT1/phv
+/m/n/10 An in-creased fi-delity peak zenith
+ []
+
+
+Overfull \hbox (0.13309pt too wide) in paragraph at lines 37--38
+\OT1/phv/m/n/10 an-gle also in-clude in-for-ma-tion about the im-pactor az-imut
+h an-gle, $\OML/cmm/m/it/10 [] \U/matha/m/n/10  \OML/cmm/m/it/10 []\U/matha/
+m/n/10 p\OML/cmm/m/it/10 []; []\U/matha/m/n/10 q$\OT1/phv/m/n/10 ,
+ []
+
+[24
+
+] [25]) (EnvironmentGeneration.tex) [26]
+(LunarMeteoroidEjectaEngineeringModel.bbl) [27
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
@@ -1284,46 +1318,48 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 3136138B9D7BB885E31C39C0FCEC218E;2493.
+(rerunfilecheck)             Checksum: B1917145EA70928D753E6A091D33148E;2493.
  ) 
 Here is how much of TeX's memory you used:
- 33064 strings out of 480799
- 754654 string characters out of 2905519
- 1487820 words of memory out of 3000000
- 48237 multiletter control sequences out of 15000+200000
+ 33140 strings out of 480799
+ 756601 string characters out of 2905519
+ 1481171 words of memory out of 3000000
+ 48279 multiletter control sequences out of 15000+200000
  566175 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,13n,98p,1515b,1858s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,13n,98p,1515b,2061s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/d
-pi600\matha9.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
-blic/mathabx/dpi600\matha6.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
-s/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\AMD-Y500\AppData\Local\M
-iKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha5.pk> <C:\Users\AMD-Y500\A
-ppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\mathx10.pk> <C:\U
-sers\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\ma
-tha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mat
-habx/dpi600\matha10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
-}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1
-/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/ty
-pe1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts
-/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (25 pages, 5631761 b
+pi600\mathb7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/pu
+blic/mathabx/dpi600\matha9.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\font
+s/pk/ljfour/public/mathabx/dpi600\matha6.pk> <C:\Users\AMD-Y500\AppData\Local\M
+iKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\AMD-Y500\A
+ppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\matha5.pk> <C:\Us
+ers\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi600\mat
+hx10.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mat
+habx/dpi600\matha7.pk> <C:\Users\AMD-Y500\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
+our/public/mathabx/dpi600\matha10.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/
+type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fon
+ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/
+fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (31 pages, 5774086 b
 ytes).
 PDF statistics:
- 876 PDF objects out of 1000 (max. 8388607)
- 186 named destinations out of 1000 (max. 500000)
- 410 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 998 PDF objects out of 1000 (max. 8388607)
+ 216 named destinations out of 1000 (max. 500000)
+ 420 words of extra memory for PDF output out of 10000 (max. 10000000)
 

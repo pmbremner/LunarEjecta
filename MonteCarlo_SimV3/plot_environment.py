@@ -20,7 +20,7 @@ g = np.linspace(0., np.pi, N_env_zen)
 b = np.linspace(0., 2.*np.pi, N_env_azm)
 a = np.logspace(-6, -1, N_env_size)
 
-print(np.sum(flux))
+#print(np.sum(flux))
 
 #gg, vv = np.meshgrid(g, v)
 
@@ -61,7 +61,7 @@ plt.xlabel('Ejecta particle diameter [m]')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 plt.loglog(a, flux_sum)
 #plt.loglog(a, 10.**-11.88*(m**-1.2))
-
+print("total flux = ", flux_sum[0])
 
 
 # particle size for each speed range

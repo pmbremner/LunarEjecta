@@ -1,34 +1,39 @@
 \contentsline {section}{\numberline {1}Executive Summary}{1}{section.1}%
-\contentsline {section}{\numberline {2}Lunar Regolith Properties}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Porosity}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Density}{1}{subsection.2.2}%
+\contentsline {section}{\numberline {2}Lunar Regolith Properties}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Porosity}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Density}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Strength}{4}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Particle Size Distribution}{6}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Scaling Law Parameters}{10}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.4}Particle Size Distribution}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Scaling Law Parameters}{11}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Primary Flux Environment}{11}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Space-Time Dependence of Environment}{11}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Ephemeris Definition}{11}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Ephemeris Definition}{12}{subsubsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.2}Sporadic Meteoroid Complex}{13}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Angular Distribution}{14}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Density Distribution}{18}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Mass Distribution}{20}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Near-Earth Objects}{20}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Speed Distribution}{21}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Mass Distribution}{21}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Meteoroid Showers}{21}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Secondary Flux Environment}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Ejecta Distribution}{21}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Speed Distribution}{21}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Zenith Distribution}{21}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Azimuth Distribution}{21}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Mass/Particle Size Distribution}{21}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Orbital Mechanics}{21}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Crater on Surface to Observer at Surface}{21}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Crater on Surface to Observer at or above Surface}{21}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Selenographic Distance \& Bearing}{21}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Scaling Laws}{21}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{21}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Minimum \& Maximum Ejected Speed}{21}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Maximum Ejected Particle Mass}{21}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Mass Ejected from Crater}{21}{subsection.5.4}%
-\contentsline {section}{References}{22}{section*.18}%
+\contentsline {subsubsection}{\numberline {3.2.1}Angular Distribution}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Density Distribution}{19}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Mass Distribution}{21}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Near-Earth Objects}{21}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Speed Distribution}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Mass Distribution}{22}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Meteoroid Showers}{23}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Secondary Flux Environment}{24}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ejecta Distribution}{24}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Speed Distribution}{24}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Zenith Distribution}{24}{subsubsection.4.1.2}%
+\contentsline {paragraph}{Constant Zenith Peak:}{24}{section*.20}%
+\contentsline {paragraph}{Impact Angle Dependent Zenith Peak:}{24}{section*.21}%
+\contentsline {paragraph}{Impact Angle \& Azimuth Dependent Zenith Peak:}{24}{section*.22}%
+\contentsline {paragraph}{Rival \& Mandeville (Gaussian Distribution):}{25}{section*.24}%
+\contentsline {paragraph}{Raised Cosine Distribution:}{26}{section*.25}%
+\contentsline {subsubsection}{\numberline {4.1.3}Azimuth Distribution}{26}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Mass/Particle Size Distribution}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Orbital Mechanics}{26}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Crater on Surface to Observer at Surface}{26}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Crater on Surface to Observer at or above Surface}{26}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Selenographic Distance \& Bearing}{26}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Scaling Laws}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{26}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Minimum \& Maximum Ejected Speed}{26}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Maximum Ejected Particle Mass}{26}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Mass Ejected from Crater}{26}{subsection.5.4}%
+\contentsline {section}{References}{27}{section*.26}%

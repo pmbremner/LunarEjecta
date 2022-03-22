@@ -13,7 +13,8 @@ NEO_mass_min# 10.
 # 
 NEO_mass_max# 5524. 
 readNEO_files# 0
-saveNEO_files# 1
+# not used
+saveNEO_files# 0
 # units of m/s converted to units of escape speed
 vel_min# 100.
 vel_max# 5000.
@@ -25,14 +26,14 @@ asset_radius# 4.5
 dg_max# 0.01
 dv_max# 0.005
 #
-N_azm_lat_lon# 100
-N_zenith_speed# 100
+N_azm_lat_lon# 10
+N_zenith_speed# 10
 N_primary_sample# 1000000
 #
 N_env_v# 100
 N_env_zen# 100
 N_env_azm# 3
-N_env_size# 30
+N_env_size# 3
 #
 asset_lat# 0.
 asset_lon# 0.

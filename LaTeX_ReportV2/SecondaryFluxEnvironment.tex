@@ -3,27 +3,95 @@
 \usepackage{graphicx}
 
 \begin{document}
-\section{Secondary Flux Environment}
+\section{Secondary Flux Environment}\label{sec:Secondary Flux Environment}
 
+The ejected mass from an impact is distributed at different speeds (Section \ref{sssec:Ejecta:Speed Distribution}), angles (Sections  \ref{sssec:Ejecta:Zenith Distribution} and \ref{sssec:Ejecta:Azimuth Distribution}), and sizes (Section \ref{ssec:Mass/Particle Size Distribution}). The speed and size of the ejecta is assumed to be dependent on each other -- the larger the ejected particle the slower, on average, the particle that is ejected. The impactor impact angle and azimuth determines the zenith and azimuth distribution of the ejecta. For more oblique impacts, the ejecta is projected less from normal and more towards the horizon, in addition to having a stronger component downstream with respect to the impactor azimuth in terms of the ejecta azimuth distribution. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ejecta Distribution}\label{ssec:Ejecta Distribution}
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ejecta Distribution}
+\subsubsection{Speed Distribution}\label{sssec:Ejecta:Speed Distribution}
+
+The speed distribution of the ejecta is determined by the scaling laws \citep{housen2011ejecta} that are assumed in this model (see Section \ref{sec:Scaling Laws}). As an approximation, the speed distribution can be described by a power-law distribution with an index that depends on the target material. However, a more complete speed distribution is used that not only includes a power-law regime, but includes proper cut-offs for the slowest speeds and fastest speeds, discussed in Section \ref{ssec:Min Max Ejecta Speed}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Speed Distribution}
+\subsubsection{Zenith Distribution}\label{sssec:Ejecta:Zenith Distribution}
+
+The ejecta zenith distribution is typically peaked at some zenith angle $\alpha_{max}$ that falls off at other angles. The peak zenith angle $\alpha_{max}$ can have different dependencies on the impactor properties.
 
 
+\paragraph{Constant Zenith Peak:}
+The simplest case is a constant, $\alpha_{max} = \alpha_0$, typically taken as $\alpha_0 = \pi/4$. For relatively close impact distances, an ejected angle of $45^\circ$ gives the most efficient ejecta -- the ejecta travels further for a given speed.
+
+\paragraph{Impact Angle Dependent Zenith Peak:}
+To include more information into the ejecta blanket from the impactor is to have the zenith peak as a function of the impact angle, $\alpha_{max} = \alpha_{max}(\alpha_i)$, where $\alpha_i$ is the impact angle of the impactor. For simplicity, the peak zenith angle can be taken as the downstream for all azimuth, given in Equation~\eqref{eq:peak zenith downstream}.
+
+\paragraph{Impact Angle \& Azimuth Dependent Zenith Peak:}
+An increased fidelity peak zenith angle also include information about the impactor azimuth angle, $\alpha_{max} = \alpha_{max}(\alpha_i, \beta_i)$, where $\beta_i$ is the impact azimuth.
+
+The peak zenith angle can be modeled after experiments of oblique impacts following Figure~18 of \cite{gault1978experimental} as a proxy to the model of $\alpha_{max}$. Using a third-order polynomial for both fits to the downstream and upstream angles given in Table \ref{tab:upstream_downstream_angles}, the peak zenith angles downstream and upstream are given by
+\begin{align}\label{eq:peak zenith downstream}
+\alpha_{max}(\beta - \beta_i = 0) &= 0.0003\alpha_i^3 - 0.036\alpha_i^2 + 1.5206\alpha_i + 20, \text{ downstream}\\
+\alpha_{max}(\beta - \beta_i = \pi) &= -0.00042\alpha_i^3 + 0.0236\alpha_i^2 + 0.129\alpha_i + 20, \text{ upstream}
+\end{align}
+in units of degrees, where $\beta$ is the ejecta azimuth. When both the impact and ejecta azimuth angles are in the same direction (i.e., $\beta-\beta_i = 0$), this is downstream.
+
+\begin{table}[h]\centering
+	\caption{Cone angles of upstream and downstream of impact derived from Figure 18 of \cite{gault1978experimental}.}\label{tab:upstream_downstream_angles}
+	\begin{tabular}{|c | c | c |}\hline
+		Impact Zenith Angle & Upstream Zenith Angle & Downstream Zenith Angle\\\hline
+		0	&20	&20\\\hline
+		15	&24	&35\\\hline
+		30	&35	&45\\\hline
+		45	&28	&40\\\hline
+		60	&13	&54\\\hline
+		75	&-35	&66\\\hline		
+	\end{tabular}
+\end{table}
+
+
+\paragraph{Rival \& Mandeville (Gaussian Distribution):}
+One example of a peaked distribution is given in \cite{rival1999modeling}, shown below for reference:
+\begin{equation}\label{eq:Rival_zenith-dist}
+F(\alpha) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{(\alpha-\alpha_{max})^2}{2\sigma^2}\right],
+\end{equation}
+where $\alpha_{max}$ is defined as
+\begin{equation}
+\alpha_{max} = 
+\begin{cases}
+\frac{\alpha_{max60}-\alpha_{max0}}{\pi/3}\alpha_i + \alpha_{max0}\text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\alpha_{max60}\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+for $\alpha_i$ the impact zenith angle, and \citep[see][]{ESABASE2_DebrisRelease10.0}
+\begin{align}
+\alpha_{max0} &= \frac{\pi}{6} = 30^\circ,\\
+\alpha_{max60} &= \frac{4\pi}{9} = 80^\circ,\\
+\sigma &= \frac{\pi}{60} = 3^\circ,
+\end{align}
+where the peak ejecta angle is shifted from $30^\circ$ of zenith for a normal impact to $80^\circ$ of zenith for oblique impacts ($>60^\circ$).
+
+One difficulty with this zenith distribution is the normalization, assuming ejecta is only created from $0 < \alpha < \pi/2 $. A Gaussian distribution is usually integrated from $-\infty$ to $+\infty$, so a finite integration introduces error functions.
+
+\paragraph{Raised Cosine Distribution:}
+A more focused zenith distribution that is easier to normalize can be described by a raised cosine distribution, given as
+\begin{equation}\label{eq:zenith-rasied cosine dist}
+F(\alpha) = \begin{cases}
+\frac{1}{2s}\left[1 + \cos\left(\frac{\alpha-\mu}{s}\pi\right)\right] \text{, for $\mu-s \le \alpha \le \mu+s$}\\
+0 \text{, otherwise}
+\end{cases},
+\end{equation}
+This distribution is symmetric about the peak $\mu$, with a spread $s$. It is assumed that $\mu-s \ge 0$ and $\mu+s \le \pi/2$, otherwise the normalization term would be dependent on the peak, in addition to the spread.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Zenith Distribution}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Azimuth Distribution}
+\subsubsection{Azimuth Distribution}\label{sssec:Ejecta:Azimuth Distribution}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,16 +99,20 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Orbital Mechanics}
+\subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Crater on Surface to Observer at Surface}
+\subsubsection{Crater on Surface to Observer at Surface}\label{sssec:Crater on Surface to Observer at Surface}
+% include final speed and zenith
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Crater on Surface to Observer at or above Surface}
+\subsubsection{Crater on Surface to Observer at or above Surface}\label{sssec:Crater on Surface to Observer at or above Surface}
+% include final speed and zenith
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Selenographic Distance \& Bearing}
+\subsection{Selenographic Distance \& Bearing}\label{ssec:Selenographic Distance/Bearing}
+
+
 
 
 \end{document}
