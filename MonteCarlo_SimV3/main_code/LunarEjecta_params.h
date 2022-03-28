@@ -131,6 +131,9 @@ double MEM_mass_grun(double m); // m in grams
 double NEO_integral_flux(double m); // m in grams
 double H_calcH11_C4(input* p);
 
+int get_latlon_size(int i_proc, int idx);
+void get_latlon_arrays(int i_proc, int idx, int N, vector<double>& lat, vector<double>& lon);
+
 // https://www.cplusplus.com/doc/oldtutorial/templates/
 template <class paramType>
 void getParam(string param_fn, string paramLabel, paramType& param, bool defaultExists) {

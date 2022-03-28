@@ -21,6 +21,9 @@ int main(int argc, char const *argv[])
 {
 	// timers
 	// see https://www.cplusplus.com/reference/chrono/steady_clock/
+	chrono::steady_clock::time_point read_igloo_time_0;
+	chrono::steady_clock::time_point read_igloo_time_1;
+
 	chrono::steady_clock::time_point gen_secondaries_time_0;
 	chrono::steady_clock::time_point gen_secondaries_time_1;
 
@@ -34,7 +37,7 @@ int main(int argc, char const *argv[])
 	vector<int> p_sample_type;
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
 	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
-	double lat_center, lon_center, dlat, dlon, d, N_all_weight;
+	double lat_center, lon_center, dlat, dlon, d;//, N_all_weight;
 
 	vector<double> ejecta_env_speed, ejecta_env_zenith, ejecta_env_azimuth, ejecta_env_size, ejecta_env_flux;
 
@@ -62,6 +65,9 @@ int main(int argc, char const *argv[])
 	// HiDensMEM, LoDensMEM, NEO
 	// Read the MEM igloo files
 	////////////////////////////////////////////
+
+	read_igloo_time_0 = chrono::steady_clock::now();
+
 	iglooSet *MEM_hi_fluxes = read_igloo(params, HiDensMEM); // size p->N_loc
 	iglooSet *MEM_lo_fluxes = read_igloo(params, LoDensMEM); // size p->N_loc
 	iglooSet *NEO_fluxes;
@@ -88,6 +94,11 @@ int main(int argc, char const *argv[])
 	primaryFluxes.push_back(MEM_lo_fluxes);
 	primaryFluxes.push_back(NEO_fluxes); // need to push AFTER init of the NEO fluxes
 
+	read_igloo_time_1 = chrono::steady_clock::now();
+	chrono::duration<double> read_igloo_time_elapse = chrono::duration_cast<chrono::duration<double>>(read_igloo_time_1 - read_igloo_time_0);
+	cout << endl << "Total time to read igloo files = " << read_igloo_time_elapse.count() << "s\n\n";
+
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +109,7 @@ int main(int argc, char const *argv[])
 	{
 		cout << "\n\n    Process #: " << params->i_proc << " | Location #: " << params->latlon_idx_proc+1 << '/' << params->N_loc << endl;
 		params->latlon_idx_cur = params->latlon_idx_proc + params->latlon_idx_min;
+		cout << "    Current idx: " << params->latlon_idx_cur << endl;
 
 
 		lat_center = (primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmin + primaryFluxes[HiDensMEM][params->latlon_idx_proc].latmax) / 2.;
@@ -109,7 +121,10 @@ int main(int argc, char const *argv[])
 
 		d = lat_lon_dist(lat_center, lon_center, params->asset_lat, params->asset_lon, 0);
 
-		N_all_weight = 1.;//pow(0.05 + d/4., -(3./2.*params->HH11_mu + 1));
+		// get size and arrays of lat-lon locations
+		params->N_azm_lat_lon = get_latlon_size(0, params->latlon_idx_cur); // replace 0 with process number
+
+		//N_all_weight = 1.;//pow(0.05 + d/4., -(3./2.*params->HH11_mu + 1));
 
 		gen_secondaries_time_0 = chrono::steady_clock::now();
 
@@ -136,7 +151,7 @@ int main(int argc, char const *argv[])
 		                              sample_zenith_f,
 		                              sample_speed_f,    // [vesc]
 		                              sample_weight,
-		                              (params->N_azm_lat_lon * N_all_weight),   // number of pulls in azimuth-lat-lon sets
+		                              params->N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
 		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
 
 		gen_secondaries_time_1 = chrono::steady_clock::now();

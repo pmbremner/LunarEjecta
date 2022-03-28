@@ -475,28 +475,47 @@ void get_samples_with_azm_lat_lon(input* p,
     sample_speed_f.clear();
     sample_weight.clear();
 
+    // open lat-lon location file and get the size
+    vector<double> lat_impact, lon_impact;
+    get_latlon_arrays(0, p->latlon_idx_cur, N_azm_lat_lon, lat_impact, lon_impact);
+
+  //   for (int i = 0; i < N_azm_lat_lon; ++i)
+  //   {
+  //   	latp_i = lat_impact[i];
+		// lonp_i = lon_impact[i];
+		// cout << latp_i << ' ' << lonp_i << endl;
+  //   }
+
     cout << "Azm-lat-lon sample size = " << N_azm_lat_lon << endl;
 
 	for (i_zll = 0; i_zll < N_azm_lat_lon; ++i_zll)
 	{
-		do
-		{ // make sure primary impact point is not underneath asset
-			// randomly sample azimuth, latitude, and longitude
-			/// Note, the full range of latitude should be within +/- pi/2, and should be sampled uniformly on a sphere
-			u_min = (cos(latp + dlatp/2. + PI/2.) + 1.) / 2.;
-			u_max = (cos(latp - dlatp/2. + PI/2.) + 1.) / 2.;
+		// do
+		// { // make sure primary impact point is not underneath asset
+			/////////////////////////////////////////////////////////
+			/////// old code ////////////////////////////////////////
+			// // randomly sample azimuth, latitude, and longitude
+			// /// Note, the full range of latitude should be within +/- pi/2, and should be sampled uniformly on a sphere
+			// u_min = (cos(latp + dlatp/2. + PI/2.) + 1.) / 2.;
+			// u_max = (cos(latp - dlatp/2. + PI/2.) + 1.) / 2.;
 
-			//cout << u_min << ' ' << u_max << endl;
+			// //cout << u_min << ' ' << u_max << endl;
 
-			latp_i = acos( 2.*uniform(rng, u_min, u_max) - 1. ) - PI/2.;
-			//latp_i = uniform(rng, latp - dlatp/2., latp + dlatp/2.);
-			lonp_i = uniform(rng, lonp - dlonp/2., lonp + dlonp/2.);
+			// latp_i = acos( 2.*uniform(rng, u_min, u_max) - 1. ) - PI/2.;
+			// //latp_i = uniform(rng, latp - dlatp/2., latp + dlatp/2.);
+			// lonp_i = uniform(rng, lonp - dlonp/2., lonp + dlonp/2.);
+
+			/////////////////////////////////////////////////////////
+
+		latp_i = lat_impact[i_zll];
+		lonp_i = lon_impact[i_zll];
+		//cout << latp_i << ' ' << lonp_i << endl;
 
 			//cout << latp - dlatp/2. << ' ' << latp + dlatp/2. << ' ' << latp_i << ' ' << lonp_i << endl;
 
 			// compute distance between primary and asset (units of rm), to center of asset
-			d = lat_lon_dist(latp_i, lonp_i, lats, lons, 0);
-		} while(d <= r);
+		d = lat_lon_dist(latp_i, lonp_i, lats, lons, 0);
+		//} while(d <= r);
 
 		d -= r; // shift d to be distance to edge, not center of asset
 
@@ -537,8 +556,8 @@ void get_samples_with_azm_lat_lon(input* p,
 
 			/// Next, the samples need to be checked against the actual asset to see if there is a hit or not
 
-			cout << "d = " << d << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
-			cout << " | grid size = " << zenith.size() << "                     \r";
+			cout << " d = " << d << " | " << 100.*(i_zll+1.)/double(N_azm_lat_lon) << "% finished | sum = " << vSum(sample_weight_i);
+			cout << " | grid size = " << zenith.size() << "                       \r";
 		
 
 			// transfer i-th sample set to the main array

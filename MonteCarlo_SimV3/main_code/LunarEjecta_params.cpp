@@ -1,6 +1,6 @@
 #include "LunarEjecta_params.h"
 
-
+#include <sstream>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -297,3 +297,64 @@ input* init_input(string param_fn, int N_proc, int i_proc)
 	return p;
 }
 
+string get_latlon_fn(int i_proc, int idx)
+{
+	string s_proc = to_string(i_proc);
+	string s_idx = to_string(idx);
+	string fn = "latlon_loc_" + string(3 - min(3, s_proc.length()), '0') + s_proc + '_' + string(5 - min(5, s_idx.length()), '0') + s_idx + ".txt";
+
+	return fn;
+}
+
+// https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
+// https://stackoverflow.com/questions/6143824/add-leading-zeros-to-string-without-sprintf
+int get_latlon_size(int i_proc, int idx)
+{
+	int N = 0;
+	string line;
+	string fn = get_latlon_fn(i_proc, idx);
+	ifstream latlon_file(fn);
+
+	while(getline(latlon_file, line))
+		N++;
+
+	latlon_file.close();
+
+	cout << "Number of lat-lon samples: " << N << " in file: " << fn << endl;
+
+	return N;
+}
+
+void get_latlon_arrays(int i_proc, int idx, int N, vector<double>& lat, vector<double>& lon)
+{
+	string fn = get_latlon_fn(i_proc, idx);
+	ifstream latlon_file(fn);
+	string line, col;
+
+	lat.clear();
+	lon.clear();
+
+	lat.resize(N);
+	lon.resize(N);
+
+	int i = 0;
+
+	while(getline(latlon_file, line))
+	{
+		//cout << line << endl;
+
+		istringstream iss_line(line);
+
+		// get lat
+		getline(iss_line, col, ' ');
+		lat[i] = stof(col);
+
+
+		// get lon
+		getline(iss_line, col, '\n');
+		lon[i] = stof(col);
+
+		i++;
+		//cout << lat[i] << ' ' << lon[i] << endl;
+	}
+}

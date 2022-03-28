@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 # https://stackoverflow.com/questions/2507808/how-to-check-whether-a-file-is-empty-or-not
 import os
+# https://www.delftstack.com/howto/numpy/python-numpy-deep-copy/
+import copy
+
+r2d = 180./np.pi
 
 def dist_pdf(a, h, Rm, mu, d, c):
 	if d <= c*h:
@@ -29,6 +33,11 @@ N = int(sys.argv[3])   # number of samples to take
 
 asset_lat = float(sys.argv[4]) / 180.*np.pi
 asset_lon = float(sys.argv[5]) / 180.*np.pi
+
+Nlat = int(sys.argv[6])
+Nlon = int(sys.argv[7])
+Ntot = Nlat * Nlon
+proc = int(sys.argv[8])
 
 
 Rm = 1737.E3 # m
@@ -88,29 +97,86 @@ y_bins = np.linspace(-np.pi/2., np.pi/2., 38)
 
 h, xedges, yedges, image = plt.hist2d(lon_sample, lat_sample, bins =[x_bins, y_bins],  norm=mpl.colors.LogNorm(), cmap = plt.cm.gist_ncar)#, cmap = plt.cm.nipy_spectral)
 
-print(np.shape(h))
 
 plt.colorbar()
 plt.tight_layout() 
-plt.figure()
+# plt.figure()
 
-lat_sample = lat_sample[lon_sample>0]
-lon_sample = lon_sample[lon_sample>0]
+lat_r = 0.
+lat_l = 0.
+lon_r = 0.
+lon_l = 0.
 
-lat_sample = lat_sample[lon_sample<np.pi/2]
-lon_sample = lon_sample[lon_sample<np.pi/2]
+dlat = np.pi / float(Nlat-1.)
+dlon = 2.*np.pi / float(Nlon)
+
+for j in range(Nlon):
+	for i in range(Nlat):
+		idx = i + j * Nlat
+
+		lat_center = -np.pi/2 + i * dlat
+
+		lon_center = j * dlon
+
+		lon_l = lon_center - dlon/2.
+		lon_r = lon_center + dlon/2.
+
+		if i == 0:
+			lat_l = -np.pi/2.
+			lat_r = lat_l + dlat/2.
+
+		elif i == Nlat-1:
+			lat_r = np.pi/2.
+			lat_l = lat_r - dlat/2.
+		else:
+			lat_l = lat_center - dlat/2.
+			lat_r = lat_center + dlat/2.
+
+		lat_sample_n = copy.deepcopy(lat_sample)
+		lon_sample_n = copy.deepcopy(np.fmod(lon_sample + 2.*np.pi, 2.*np.pi))
+
+		lat_sample_n = lat_sample_n[lon_sample_n > lon_l]
+		lon_sample_n = lon_sample_n[lon_sample_n > lon_l]
+
+		lat_sample_n = lat_sample_n[lon_sample_n <= lon_r]
+		lon_sample_n = lon_sample_n[lon_sample_n <= lon_r]
 
 
-lon_sample = lon_sample[lat_sample>0]
-lat_sample = lat_sample[lat_sample>0]
+		lon_sample_n = lon_sample_n[lat_sample_n > lat_l]
+		lat_sample_n = lat_sample_n[lat_sample_n > lat_l]
 
-lon_sample = lon_sample[lat_sample<5./180.*np.pi]
-lat_sample = lat_sample[lat_sample<5./180.*np.pi]
+		lon_sample_n = lon_sample_n[lat_sample_n <= lat_r]
+		lat_sample_n = lat_sample_n[lat_sample_n <= lat_r]
 
-print(lon_sample, lat_sample)
+		# https://stackoverflow.com/questions/15192847/saving-arrays-as-columns-with-np-savetxt
+		proc_str = str(proc).zfill(3)
 
-plt.scatter(lon_sample, lat_sample)
-plt.ylim(-np.pi/2., np.pi/2.)
-plt.xlim(-np.pi, np.pi)
+		idx_str = str(idx).zfill(5)
+
+		np.savetxt('latlon_loc_' + proc_str + '_' + idx_str + '.txt', np.c_[lat_sample_n, lon_sample_n])
+
+
+		print(np.shape(lat_sample_n)[0], " | ", np.round(lon_l*r2d, 5) , np.round(lon_center*r2d, 5), np.round(lon_r*r2d, 5), np.round(lat_l*r2d, 5), np.round(lat_center*r2d, 5), np.round(lat_r*r2d, 5))
+		
+
+
+# lat_sample = lat_sample[lon_sample>0]
+# lon_sample = lon_sample[lon_sample>0]
+
+# lat_sample = lat_sample[lon_sample<np.pi/2]
+# lon_sample = lon_sample[lon_sample<np.pi/2]
+
+
+# lon_sample = lon_sample[lat_sample>0]
+# lat_sample = lat_sample[lat_sample>0]
+
+# lon_sample = lon_sample[lat_sample<5./180.*np.pi]
+# lat_sample = lat_sample[lat_sample<5./180.*np.pi]
+
+# print(lon_sample, lat_sample)
+
+# plt.scatter(lon_sample, lat_sample)
+# plt.ylim(-np.pi/2., np.pi/2.)
+# plt.xlim(-np.pi, np.pi)
 
 plt.show()
