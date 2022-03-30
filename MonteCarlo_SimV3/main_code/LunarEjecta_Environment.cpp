@@ -160,6 +160,79 @@ double number_weighted_regolith_CDF(input* p,
 	     * exp(-3.*p->reg_size_mu + 9.*sqr(p->reg_size_sigma)/2.);
 }
 
+// based on Gault & Wedekind 1978, Figure 18 downstream angles (in degrees, but converted to rad at the end)
+double H_get_zenith_max(double impactor_zen)
+{
+	double zen_deg = impactor_zen * 180. / PI;
+
+	return (20. + zen_deg * (1.5206 + zen_deg * (-0.036 + zen_deg * 0.0003))) / 180. * PI;
+}
+
+
+double H_ejecta_zenith_dist(double ejecta_zen, double impactor_zen)
+{
+	const double s0 = 15./180.*PI; // assuming a full spread of 30 degrees about the peak, rad
+	double s, l_bound, r_bound;    // rad
+
+	double mu = H_get_zenith_max(impactor_zen); // peak of distribution, in rad
+
+	l_bound = mu - s0;
+	r_bound = mu + s0;
+
+	// find an s such that the normalization we expect still holds
+	if (l_bound >= 0. && r_bound <= PI/2.) // can use s0 as is
+	{
+		s = s0;
+	}
+	else if (l_bound < 0) // very close to zenith, need to limit s
+	{
+		s = mu;
+	}
+	else // if r_bound > PI/2., very close to horizon, need to limit s
+	{
+		s = PI/2. - mu;
+	}
+
+	// update the left and right bounds with the new s
+	l_bound = mu - s;
+	r_bound = mu + s;
+
+	// check if ejceta is in the distribution
+	if (ejecta_zen > l_bound && ejecta_zen < r_bound)
+	{
+		return (1. + cos((ejecta_zen - mu) * PI / s)) / (2. * s);
+	}
+	else // outside of distribution
+	{
+		return 0.;
+	}
+
+}
+
+double H_ejecta_azimuth_dist(double ejecta_azm, double impactor_azm, double impactor_zen)
+{
+	double azm_stream_frame = ejecta_azm - (impactor_azm + PI); // impactor_azm is like wind, it report the direction it's coming from, not going
+
+	if (impactor_zen < PI/3.) // if impactor zenith is less than 60 degrees (PI/3)
+	{
+		return (1. + (3. * impactor_zen / (2.*PI - 3.*impactor_zen)) * cos(azm_stream_frame)) / (2.*PI);
+	}
+	else // impactor zenith greater than 60 degrees (PI/3)
+	{
+		return (1. + cos(azm_stream_frame)) / (2.*PI);
+	}
+}
+
+// input all in units of rads
+double get_fraction_of_ejecta(double ejecta_zen,
+	                          double ejecta_azm,
+	                          double impactor_zen,
+	                          double impactor_azm)
+{
+	return H_ejecta_zenith_dist(ejecta_zen, impactor_zen) * H_ejecta_azimuth_dist(ejecta_azm, impactor_azm, impactor_zen);
+}
+
+
 
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
@@ -220,6 +293,7 @@ void get_ejecta_environment(input*  params,
 	double crater_r, impactor_r; // [m]
 	double v_crater_max, p_norm_speed; // maximum speed the crater ejects [m/s]
 	double m_crater_max, ejected_mass, sum_mass; // maximum mass the crater ejects [kg]
+	double ejecta_frac; // unitless, percent of total ejecta (if all ejecta is counted, equals 1, i.e. normalized to 1)
 
 	// init ejecta vectors (ejecta_env_flux is 4d flattened to 1d, {speed, zenith, azimuth, particle size: #/m^2/yr > particle size i})
     ejecta_env_flux.clear();
@@ -329,36 +403,48 @@ void get_ejecta_environment(input*  params,
 	    			//if(ejected_mass > 0)
 	    			sum_mass += ejected_mass * sample_weight[i_s];
 	    			//cout << ejected_mass << endl;
-	    			// bin ejecta, looping over cumulative sizes
-	    			for (j_s_size = 0; j_s_size < params->N_env_size; ++j_s_size)
+
+	    			// compute fraction of ejecta (dependent on both ejecta and impact parameters)
+	    			// If the fraction is zero, then skip the loop over sizes
+	    			ejecta_frac = get_fraction_of_ejecta(sample_zenith_f[i_s],
+	    				                                 sample_azimuth_f[i_s],
+	    				                                 p_sample_zenith[i_p],
+	    				                                 p_sample_azimuth[i_p]);
+
+	    			if (ejecta_frac > 0.)
 	    			{
-	    				// compute cumulative # of particles > j_s_size-th size
-	    				// if ejecta size is greater than impactor size, reject it (no ejecta)
-	    				///if (ejecta_env_size[j_s_size]/2. < impactor_r)
-	    				///{
-	    				
-	    					// overall units = #-ejecta/yr
-	    					ejecta_env_flux[idx_f[i_s*params->N_env_size + j_s_size]]
-	    					                        += ejected_mass // kg-ejecta / #-impactor
-	    					                          * sample_weight[i_s]  // fraction of total ejecta --- still need to include ejecta distribution
-	    					                          * p_sample_flux_weight[i_p] // #-impactor/m^2/yr
-	    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], params->regolith_dens) // #-ejecta/kg-ejecta, we care about the particle density here, not bulk density
-	    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
-	    				
-	    					// cout << ejecta_env_flux[idx_f] << endl;
-	    				///}
+	    			
+		    			// bin ejecta, looping over cumulative sizes
+		    			for (j_s_size = 0; j_s_size < params->N_env_size; ++j_s_size)
+		    			{
+		    				// compute cumulative # of particles > j_s_size-th size
+		    				// if ejecta size is greater than impactor size, reject it (no ejecta)
+		    				///if (ejecta_env_size[j_s_size]/2. < impactor_r)
+		    				///{
+		    				
+		    					// overall units = #-ejecta/yr
+		    					ejecta_env_flux[idx_f[i_s*params->N_env_size + j_s_size]]
+		    					                        += ejected_mass // kg-ejecta / #-impactor
+		    					                          * sample_weight[i_s]  // fraction of total ejecta
+		    					                          * ejecta_frac // weighted fraction of ejecta by angular distribution (zenith * azmimuth)
+		    					                          * p_sample_flux_weight[i_p] // #-impactor/m^2/yr
+		    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], params->regolith_dens) // #-ejecta/kg-ejecta, we care about the particle density here, not bulk density
+		    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
+		    				
+		    					// cout << ejecta_env_flux[idx_f] << endl;
+		    				///}
 
-	    			}
-
+		    			} // END loop over ejecta particle size
+		    		} // END if ejecta_frac > 0.
 
     			} // no else, if the ejecta speed is greater than the max ejected speed, there is no ejecta
     		
-    		}
+    		} // END loop over ejecta
 
     		file << impactor_r << ' ' << p_sample_mass[i_p] / 1000. << " " << crater_r/impactor_r << " " << v_crater_max << " " << m_crater_max/(p_sample_mass[i_p] / 1000.) << ' ' << p_sample_type[i_p] << ' ' << sum_mass * p_sample_flux_weight[i_p] << endl;
     	
 
-    	}
+    	} // END if there is a crater
     	// else // no ejecta created by impact
     	// {
 
@@ -371,7 +457,7 @@ void get_ejecta_environment(input*  params,
 			cout << "Generating Environment... " << 100.*(i_p+1.)/double(N_p_sample) << "% finished | time remaining = " << etime * (double(N_p_sample)/(i_p+1.) - 1.)/60. << " min\r";
 		}
 
-    }
+    } // END loop over primary impactors
 
     ofstream ej_env_file;
     ej_env_file.open("ejecta_environment_flux.txt");

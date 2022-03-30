@@ -27,8 +27,8 @@ dg_max# 0.01
 dv_max# 0.005
 #
 N_azm_lat_lon# 10
-N_zenith_speed# 10
-N_primary_sample# 1000000
+N_zenith_speed# 100
+N_primary_sample# 100000
 #
 N_env_v# 100
 N_env_zen# 100
