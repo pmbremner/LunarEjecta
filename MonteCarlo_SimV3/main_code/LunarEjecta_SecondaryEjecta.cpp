@@ -506,7 +506,7 @@ void get_samples_with_azm_lat_lon(input* p,
 			// lonp_i = uniform(rng, lonp - dlonp/2., lonp + dlonp/2.);
 
 			/////////////////////////////////////////////////////////
-
+		// generated from a out to the antipode - a
 		latp_i = lat_impact[i_zll];
 		lonp_i = lon_impact[i_zll];
 		//cout << latp_i << ' ' << lonp_i << endl;

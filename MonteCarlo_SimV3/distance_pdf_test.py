@@ -45,7 +45,7 @@ mu = 0.4
 c = 1. / np.tan(1./180.*np.pi)
 
 
-d = np.logspace(-1, np.log10(Rm*np.pi - a), 10000)
+d = np.logspace(np.log10(a), np.log10(Rm*np.pi - a), 10000)
 
 pdf = vdist_pdf(a, h, Rm, mu, d, c)
 

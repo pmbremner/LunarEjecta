@@ -1,15 +1,28 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
+\bibitem[{\textit{Bierhaus et~al.}(2018)\textit{Bierhaus, McEwen, Robbins,
+  Singer, Dones, Kirchoff, and Williams}}]{bierhaus2018secondary}
+Bierhaus, E., A.~S. McEwen, S.~Robbins, K.~Singer, L.~Dones, M.~Kirchoff, and
+  J.-P. Williams, Secondary craters and ejecta across the solar system:
+  Populations and effects on impact-crater--based chronologies,
+  \textit{Meteoritics \& Planetary Science}, \textit{53}(4), 638--671, 2018.
+
 \bibitem[{\textit{Brown et~al.}(2002)\textit{Brown, Spalding, ReVelle,
   Tagliaferri, and Worden}}]{brown2002flux}
 Brown, P., R.~Spalding, D.~O. ReVelle, E.~Tagliaferri, and S.~Worden, The flux
   of small near-earth objects colliding with the earth, \textit{Nature},
   \textit{420}(6913), 294, 2002.
+
+\bibitem[{\textit{Buhl et~al.}(2014)\textit{Buhl, Sommer, Poelchau, Dresen, and
+  Kenkmann}}]{buhl2014ejecta}
+Buhl, E., F.~Sommer, M.~H. Poelchau, G.~Dresen, and T.~Kenkmann, Ejecta from
+  experimental impact craters: Particle size distribution and fragmentation
+  energy, \textit{Icarus}, \textit{237}, 131--142, 2014.
 
 \bibitem[{\textit{Carrier}(1973)}]{carrier1973lunar}
 Carrier, W.~D., Lunar soil grain size distribution, \textit{The moon},
@@ -19,6 +32,11 @@ Carrier, W.~D., Lunar soil grain size distribution, \textit{The moon},
 Carrier~III, W.~D., Particle size distribution of lunar soil, \textit{Journal
   of Geotechnical and Geoenvironmental Engineering}, \textit{129}(10),
   956--959, 2003.
+
+\bibitem[{\textit{Cour-Palais}(1969)}]{cour1969meteoroid}
+Cour-Palais, B.~G., Meteoroid environment model 1969 (near earth to lunar
+  surface), nasa sp-8013, \textit{National Aeronautics and Space
+  Administration, Washington, DC}, 1969.
 
 \bibitem[{\textit{Gault and Wedekind}(1978)}]{gault1978experimental}
 Gault, D.~E., and J.~A. Wedekind, Experimental studies of oblique impact, in
@@ -70,6 +88,11 @@ Pierazzo, E., and H.~Melosh, Understanding oblique impacts from experiments,
 Rival, M., and J.~Mandeville, Modeling of ejecta produced upon hypervelocity
   impacts, \textit{Space debris}, \textit{1}(1), 45--57, 1999.
 
+\bibitem[{\textit{Shuvalov}(2011)}]{shuvalov2011ejecta}
+Shuvalov, V., Ejecta deposition after oblique impacts: An influence of impact
+  scale, \textit{Meteoritics \& Planetary Science}, \textit{46}(11),
+  1713--1718, 2011.
+
 \bibitem[{\textit{Singer et~al.}(2020)\textit{Singer, Jolliff, and
   McKinnon}}]{singer2020lunar}
 Singer, K.~N., B.~L. Jolliff, and W.~B. McKinnon, Lunar secondary craters and
@@ -80,5 +103,10 @@ Singer, K.~N., B.~L. Jolliff, and W.~B. McKinnon, Lunar secondary craters and
 \bibitem[{\textit{Slyuta}(2014)}]{slyuta2014physical}
 Slyuta, E., Physical and mechanical properties of the lunar soil (a review),
   \textit{Solar System Research}, \textit{48}(5), 330--353, 2014.
+
+\bibitem[{\textit{Zook}(1967)}]{zook1967problem}
+Zook, H.~A., The problem of secondary ejecta near the lunar surface., in
+  \textit{Transactions of the 1967 National Symposium on Saturn V/Apollo and
+  Beyond}, vol.~I, pp. EN--8, 1967.
 
 \end{thebibliography}

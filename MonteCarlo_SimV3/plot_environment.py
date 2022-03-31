@@ -32,7 +32,7 @@ flux_sum = np.sum(flux1, axis=2)
 flux_sum = np.sum(flux_sum, axis=2)
 
 
-plt.imshow(flux_sum, cmap = plt.cm.nipy_spectral, origin='lower')#, norm=mpl.colors.LogNorm())#, norm=mpl.colors.LogNorm()) # norm=mpl.colors.LogNorm()
+plt.imshow(flux_sum, cmap = plt.cm.nipy_spectral, origin='lower', norm=mpl.colors.LogNorm())#, norm=mpl.colors.LogNorm())#, norm=mpl.colors.LogNorm()) # norm=mpl.colors.LogNorm()
 
 # azimuth
 flux1 = flux.reshape(N_env_v, N_env_zen, N_env_azm, N_env_size)

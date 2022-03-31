@@ -27,21 +27,21 @@ dg_max# 0.01
 dv_max# 0.005
 #
 N_azm_lat_lon# 10
-N_zenith_speed# 100
-N_primary_sample# 100000
+N_zenith_speed# 1000
+N_primary_sample# 100
 #
 N_env_v# 100
 N_env_zen# 100
 N_env_azm# 3
 N_env_size# 3
 #
-asset_lat# 0.
-asset_lon# 0.
+asset_lat# 7.
+asset_lon# 50.
 # units of kg/m^3
 regolith_dens# 3100.
 regolith_porosity# 0.4
-# units in Pa
-regolith_tensile_strength# 3.3E6
+# units in Pa 3.3E6
+regolith_tensile_strength# 4.E3
 regolith_type# sandFlyAsh
 # units of m, diameter
 reg_min_size# 1.0E-6

@@ -93,9 +93,96 @@ This distribution is symmetric about the peak $\mu$, with a spread $s$. It is as
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Azimuth Distribution}\label{sssec:Ejecta:Azimuth Distribution}
 
+The azimuth distribution is often dependent on the impactor azimuth such that there are more ejecta downstream for oblique impacts. Normal impacts are expected to produce a symmetric azimuth distribution. For highly oblique impacts ($\alpha_i > \pi/3$) there is often seen a \textit{butterfly pattern} \citep{shuvalov2011ejecta}. However, over a large number of oblique impacts of various sizes, it is plausible to assume that the direct downstream direction dominates the azimuth distribution.
+
+\paragraph{Rival \& Mandeville:}
+An example azimuth distribution can be found in \cite{rival1999modeling}, given by
+\begin{equation}\label{eq:azm_rival_mandeville}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[1+\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1}{\sigma'\sqrt{2\pi}}\exp\left[-\frac{(\beta-\beta_i)^2}{2\sigma'^2}\right]
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases},
+\end{equation}
+where
+\begin{equation}
+\sigma' = \frac{\pi}{36} = 5^\circ, 
+\end{equation}
+for $\beta_i$ the impact azimuth angle + $\pi$.
+
+\paragraph{Variation on Rival \& Mandeville:} In order to have a periodic and easy-to-normalize function, the oblique regime is modified from Equation \eqref{eq:azm_rival_mandeville} to give
+\begin{equation}\label{eq:azm_mod_rival_mandeville}
+G(\beta) =
+\begin{cases}
+\frac{1}{2\pi}\left[1+\frac{3\alpha_i}{2\pi - 3\alpha_i}\cos(\beta-\beta_i)\right] \text{  for $\alpha_i\le \pi/3 = 60^\circ$}\\
+\frac{1 + \cos(\beta-\beta_i)}{2\pi}
+\text{  for $\alpha_i > \pi/3 = 60^\circ$}
+\end{cases}.
+\end{equation}
+
+An alteration of Equation \eqref{eq:azm_mod_rival_mandeville} on the oblique case could be to use a raised cosine distribution with a spread of $ s = 3\sigma'$.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mass/Particle Size Distribution}\label{ssec:Mass/Particle Size Distribution}
+
+The mass or particle size distribution of ejecta can be approximated in a few different ways. For the purpose of comparing to various sources, there are four possible ways to describe the particle size distribution, give by \citep{koschny2001impacts_mass}
+\begin{align}
+m_{cum}(\le d) &= k_1 d^\alpha,\label{eq:KG01 m_cum d}\\
+N_{cum}(\ge m) &= k_2 m^{-\beta},\label{eq:KG01 N_cum m}\\
+N_{cum}(\ge d) &= k_3 d^\gamma,\label{eq:KG01 N_cum d}\\
+m_{cum}(\le m) &= k_4 m^\delta,\label{eq:KG01 m_cum m}
+\end{align}
+with $N_{cum}$ the cumulative number, $m_{cum}$ the cumulative mass, $d$ the particle diameter, and $m$ the particle mass.
+
+The various transformations between the four possible descriptions are:
+\begin{align}
+\beta &= -\gamma/3,\\
+\alpha &= 3(1-\beta),\\
+\alpha &= \gamma + 3,\\
+\delta &= \alpha/3.
+\end{align}
+
+Table IV of \citep{koschny2001impacts_mass} gives examples of the exponent $\alpha$, summarized here in Table \ref{tab:mass-diameter_index_examples}.
+
+\begin{table}[!htb]
+	\begin{center}
+	\caption{A compilation of indices of the various particle size distribution descriptions. Values that are in bold are the index that was originally used in the corresponding source.}\label{tab:mass-diameter_index_examples}
+	\begin{tabular}{|c | c | c | c | c|}\hline
+		\textbf{Target Material} & \textbf{Source} & $\alpha$ & $\beta$ & $-\gamma$ \\\hline
+		Basalt	& \cite{koschny2001impacts_mass}	& \textbf{0.56, 0.96} & 0.81, 0.68 & 2.44, 2.04\\\hline
+		Granite	& ''	&\textbf{ 0.44} & 0.85 & 2.56\\\hline
+		Gabbro	& ''	& \textbf{1.41} & 0.53 & 1.59\\\hline
+		Alumina	& ''	& \textbf{1.08} & 0.64 & 1.92\\\hline
+		Water ice	& ''	& \textbf{1.3} & 0.57 & 1.7\\\hline
+		Porous ice-silicate	& ''	& \textbf{1.8} & 0.4 & 1.2\\\hline
+		Compact ice-silicate	& ''	& \textbf{1.4$\pm$0.3} & 0.53$\pm$0.1 & 1.6$\pm$0.3\\\hline
+		Basalt & \cite{cour1969meteoroid} & -0.6 & \textbf{1.2} & 3.6\\\hline
+		Sandstone & \cite{buhl2014ejecta} & 0.26-0.46 & 0.85-0.91 & \textbf{2.54-2.74} \\\hline
+		Apollo Samples & \cite{carrier2003particle} & -0.55 & 1.18 & \textbf{3.55}$^a$ \\\hline
+		\multicolumn{5}{l}{\footnotesize $^a$ valid for diameters from $10^{-6}$ m to $10^{-1}$ m.}
+	\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsubsection{NASA SP-8013}
+The Meteoroid Environment Model - 1969 Near Earth to Lunar Surface \citep{cour1969meteoroid}, or NASA SP-8013, contains both the primary meteoroid environment as well as the lunar ejecta environment. The latter is given in terms of cumulative number flux of secondary ejecta greater than mass $m$ (i.e., in the form of Equation \eqref{eq:KG01 N_cum m}), shown in Figure \ref{fig:NASA-SP-8013-Fig10-flux-mass-distribution} (Figure 10 of \cite{cour1969meteoroid}).
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.0\linewidth]{NASA-SP-8013-Fig10-flux-mass-distribution.PNG}
+	\caption{Average cumulative lunar ejecta flux-mass distribution for each of three ejecta velocity intervals \citep{cour1969meteoroid}.}\label{fig:NASA-SP-8013-Fig10-flux-mass-distribution}
+\end{figure}
+
+Each of the three velocity intervals have a power-law index of $-\beta = -1.2$, corresponding to $\alpha=-0.6$ (see Table \ref{tab:mass-diameter_index_examples}). Qualitatively, the larger the power-law index $\alpha$ is, the greater number of larger particles are present in the size distribution \citep[e.g.,][]{koschny2001impacts_mass,bierhaus2018secondary}. For a negative $\alpha$, this implies an absence of larger sized particles in the SP-8013 model compared to what is shown in \cite{koschny2001impacts_mass}.
+
+The power-law index of $-\beta = -1.2$ is a simplification of \cite{zook1967problem}, which is what the SP-8013 is based on for lunar ejecta. Figure 5 of \cite{zook1967problem} displays three different velocity ranges with $\beta = 1$ for $0 \le v \le 100$ m/s, $\beta = 1$ for $100 \le v \le 250$ m/s, and $\beta = 1.16$ for $250 \le v \le 1000$ m/s.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
