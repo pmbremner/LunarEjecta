@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 
 \begin{document}
-\section{Secondary Flux Environment}\label{sec:Secondary Flux Environment}
+\section{Ejecta Flux from Impact Point}\label{sec:Secondary Flux Environment}
 
 The ejected mass from an impact is distributed at different speeds (Section \ref{sssec:Ejecta:Speed Distribution}), angles (Sections  \ref{sssec:Ejecta:Zenith Distribution} and \ref{sssec:Ejecta:Azimuth Distribution}), and sizes (Section \ref{ssec:Mass/Particle Size Distribution}). The speed and size of the ejecta is assumed to be dependent on each other -- the larger the ejected particle the slower, on average, the particle that is ejected. The impactor impact angle and azimuth determines the zenith and azimuth distribution of the ejecta. For more oblique impacts, the ejecta is projected less from normal and more towards the horizon, in addition to having a stronger component downstream with respect to the impactor azimuth in terms of the ejecta azimuth distribution. 
 
@@ -163,6 +163,7 @@ Table IV of \citep{koschny2001impacts_mass} gives examples of the exponent $\alp
 		Basalt & \cite{cour1969meteoroid} & -0.6 & \textbf{1.2} & 3.6\\\hline
 		Sandstone & \cite{buhl2014ejecta} & 0.26-0.46 & 0.85-0.91 & \textbf{2.54-2.74} \\\hline
 		Apollo Samples & \cite{carrier2003particle} & -0.55 & 1.18 & \textbf{3.55}$^a$ \\\hline
+		Basalt + others & \cite{oKeefe1985impact} & \textbf{0.42-0.53} & 0.82-0.86 & 2.47-2.58 \\\hline
 		\multicolumn{5}{l}{\footnotesize $^a$ valid for diameters from $10^{-6}$ m to $10^{-1}$ m.}
 	\end{tabular}
 \end{center}
@@ -183,7 +184,38 @@ Each of the three velocity intervals have a power-law index of $-\beta = -1.2$, 
 
 The power-law index of $-\beta = -1.2$ is a simplification of \cite{zook1967problem}, which is what the SP-8013 is based on for lunar ejecta. Figure 5 of \cite{zook1967problem} displays three different velocity ranges with $\beta = 1$ for $0 \le v \le 100$ m/s, $\beta = 1$ for $100 \le v \le 250$ m/s, and $\beta = 1.16$ for $250 \le v \le 1000$ m/s.
 
+It is interesting to point out that the particle size distribution shown in Figure \ref{fig:NASA-SP-8013-Fig10-flux-mass-distribution} has a similar power-law index with the regolith particle size distribution of diameters from $10^{-6}$ m to $10^{-1}$ m of \cite{carrier2003particle}, see Table \ref{tab:mass-diameter_index_examples}. Since the regolith particle size distribution is a log-normal distribution, the power-law index for larger diameters will be even more steep, and therefore a more negative $\alpha$, meaning there is an absence of larger stones or boulders in the top layers of regolith sampled from Apollo.
 
+\subsubsection{O'Keefe \& Ahrens 1985}
+A conclusion from \cite{sachse2015correlation} states that \textit{the assumption that the size of the fragments and the speed at the moment of ejection are uncorrelated} should be dropped. In practice, larger ejected particles typically have slower speeds while smaller ejected particles have faster speeds. This observation is not seen in the previous size distribution model of NASA SP-8013\footnote{It is important to note that \cite{zook1967problem} did include a speed dependent size distribution in their model (they looked at three variations, ultimately using a piece-wise power-law model), however, \cite{cour1969meteoroid} in SP-8013 simplified the size distribution to be constant for each of the speed ranges.}, so another model is sought after.
+
+The particle size distribution discussed in \cite{oKeefe1985impact} gives a way to introduce a speed-dependent particle size distribution. The cumulative amount of mass of ejecta fragments of mass greater than $m$ is given by (Equation (11) of \cite{oKeefe1985impact}), note $\beta_{OK85} \equiv \alpha$ as in Table \ref{tab:mass-diameter_index_examples},
+\begin{equation}
+f(m, m_{bv}(v)) = 1 - \left(\frac{m}{m_{bv}}\right)^{\frac{\beta_{OK85}}{3}},
+\end{equation}
+where the mass of the largest fragment ejected at a given ejected velocity $v$ is
+\begin{equation}
+\frac{m_{bv}(v)}{m_b} = \left(\frac{v}{v_{min}}\right)^{-\delta_{OK85}}.
+\end{equation}
+The speed index $\delta_{OK85}$ is related to the power-law index of the CDF of mass exceeding a certain speed of ejecta (e.g., $3\mu$ from \cite{housen2011ejecta}) and the CDF of mass not exceeding a certain diameter, i.e.\ $\alpha$, given by
+\begin{equation}
+\delta_{OK85} = \frac{9\mu}{\alpha}.
+\end{equation}
+
+The minimum velocity $v_{min}$ is defined as the minimum speed at which an ejected particle can reach the rim of a crater from the bottom of the crater,
+\begin{equation}
+v_{min} = 2\sqrt{\frac{gR}{K}},
+\end{equation}
+where $g$ is the lunar gravitational constant, $R$ is the crater radius (see Section \ref{ssec:Crater Size}), and $K$ is the crater diameter-to-depth ration which typically varies between $5$ and $20$. 
+
+The maximum fragmentation mass is given in \cite{oKeefe1985impact} as
+\begin{equation}
+m_b = 0.2 M_{tot}^{0.8},
+\end{equation}
+where $M_{tot}$ is the total mass ejected from the crater by an impactor. On the other hand, \cite{koschny2001impacts_mass} have a more conservative estimate on the maximum fragmentation mass with
+\begin{equation}
+m_b = 0.01 M_{tot}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
@@ -199,7 +231,56 @@ The power-law index of $-\beta = -1.2$ is a simplification of \cite{zook1967prob
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Selenographic Distance \& Bearing}\label{ssec:Selenographic Distance/Bearing}
 
+% see https://www.movable-type.co.uk/scripts/latlong.html
 
+Given two latitude-longitude points on a sphere, $(\phi_1, \lambda_1)$ and $(\phi_2, \lambda_2)$, the distance and bearing can be computed following Chris Veness's webpage\footnote{\url{https://www.movable-type.co.uk/scripts/latlong.html}}.
+
+The distance $D$ is given by the equation
+\begin{equation}\label{eq:shortdistance-between-latlon-points}
+\tan\left(\frac{D}{2r_m}\right) = \sqrt{\frac{a}{1-a}},
+\end{equation}
+where $a$ is given by
+\begin{equation}
+a = \sin^2(\Delta\phi/2) + \cos\phi_1\cos\phi_2\sin^2(\Delta\lambda/2),
+\end{equation}
+for $\Delta\phi = \phi_1-\phi_2$ and $\Delta\lambda = \lambda_1-\lambda_2$. Solving for the distance and simplifying,
+\begin{equation}
+D = 2r_m\arcsin(\sqrt{a}),
+\end{equation}
+or
+\begin{equation}
+D = 2r_m\arccos(\sqrt{1-a}).
+\end{equation}
+
+Other useful expressions involving trigonometric functions of $D/r_m$ are
+\begin{align}
+\sin(D/r_m) &= 2\sqrt{a(1-a)},\\
+\cos(D/r_m) &= 1-2a,\\
+\tan(D/r_m) &= \frac{2\sqrt{a(1-a)}}{1-2a}.
+\end{align}
+
+Equation \eqref{eq:shortdistance-between-latlon-points} is the shortest distance between two coordinate points. For the long-distance, use
+\begin{equation}
+\tan\left(\pi-\frac{D}{2r_m}\right) = -\tan\left(\frac{D}{2r_m}\right) = -\sqrt{\frac{a}{1-a}}.
+\end{equation}
+
+The initial bearing $\theta$ %(from due East)
+(from due north) is given by the following equation (assuming the short-distance):
+\begin{equation}\label{eq:initial-bearing-shortdist}
+\tan\theta_{i(1,2)} = \frac{\sin\Delta\lambda\cos\phi_2}{\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda}.
+\end{equation}
+To find the final bearing (assuming the short-distance), swap $\phi_1\longleftrightarrow\phi_2$ and $\lambda_1\longleftrightarrow\lambda_2$ and reverse the angle such that
+\begin{equation}\label{eq:final-bearing-shortdist}
+\theta_{f(1,2)} = (\theta_{i(2,1)} + \pi)\mod 2\pi.
+\end{equation}
+
+In order to compute the initial and final bearing for the long-distance trajectory, add $\pi$ and then mod by $2\pi$ to Equations \eqref{eq:initial-bearing-shortdist} and \eqref{eq:final-bearing-shortdist}. In other words, swap initial and final bearings $\theta_{i(1,2)}\longleftrightarrow\theta_{f(1,2)}$.\\
+
+The final latitude and longitude can also be obtained if the distance $D$ and bearing $\theta$ from the starting location are given. The latitude and longitude are given by
+\begin{align}
+\phi_2 &= \arcsin\left[\sin\phi_1\cos(D/r_m) + \cos\phi_1\sin(D/r_m)\cos\theta\right], \\
+\lambda_2 &= \lambda_1 + \arctan\left[\frac{\sin\theta\sin(D/r_m)\cos\phi_1}{\cos(D/r_m) - \sin\phi_1\sin\phi_2}\right].
+\end{align}
 
 
 \end{document}

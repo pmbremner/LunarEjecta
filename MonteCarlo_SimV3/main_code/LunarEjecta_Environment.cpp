@@ -422,14 +422,15 @@ void get_ejecta_environment(input*  params,
 		    				///if (ejecta_env_size[j_s_size]/2. < impactor_r)
 		    				///{
 		    				
-		    					// overall units = #-ejecta/yr
+		    					// overall units = #-ejecta/m^2/yr
 		    					ejecta_env_flux[idx_f[i_s*params->N_env_size + j_s_size]]
 		    					                        += ejected_mass // kg-ejecta / #-impactor
-		    					                          * sample_weight[i_s]  // fraction of total ejecta
+		    					                          * sample_weight[i_s]  // fraction of total ejecta, due to impact
 		    					                          * ejecta_frac // weighted fraction of ejecta by angular distribution (zenith * azmimuth)
 		    					                          * p_sample_flux_weight[i_p] // #-impactor/m^2/yr
 		    					                          * number_weighted_regolith_CDF(params, ejecta_env_size[j_s_size], params->regolith_dens) // #-ejecta/kg-ejecta, we care about the particle density here, not bulk density
-		    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA * sqr(params->lunar_radius); // m^2
+		    					                          * primaryFluxes[HiDensMEM][params->latlon_idx_proc].SA //* sqr(params->lunar_radius); // (Rm)^2
+		    					                          / (2.*PI*params->asset_radius * (params->asset_radius + params->asset_height)); // surface area of asset (cylinder) 1/(Rm)^2
 		    				
 		    					// cout << ejecta_env_flux[idx_f] << endl;
 		    				///}
