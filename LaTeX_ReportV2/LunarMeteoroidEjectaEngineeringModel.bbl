@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -113,6 +113,10 @@ Singer, K.~N., B.~L. Jolliff, and W.~B. McKinnon, Lunar secondary craters and
 \bibitem[{\textit{Slyuta}(2014)}]{slyuta2014physical}
 Slyuta, E., Physical and mechanical properties of the lunar soil (a review),
   \textit{Solar System Research}, \textit{48}(5), 330--353, 2014.
+
+\bibitem[{\textit{Vickery}(1986)}]{vickery1986size}
+Vickery, A., Size-velocity distribution of large ejecta fragments,
+  \textit{Icarus}, \textit{67}(2), 224--236, 1986.
 
 \bibitem[{\textit{Zook}(1967)}]{zook1967problem}
 Zook, H.~A., The problem of secondary ejecta near the lunar surface., in

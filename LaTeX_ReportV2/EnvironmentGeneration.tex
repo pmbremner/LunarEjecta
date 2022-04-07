@@ -5,18 +5,52 @@
 \begin{document}
 
 \section{Scaling Laws}\label{sec:Scaling Laws}
+The scaling laws used in this model are from \cite{housen2011ejecta}, which assume point-source crater evolution that applies to the final crater size, the growth of the transient crater and the majority of the observable ejecta field.
+
+Depending on the size of the impact event, there are two separate cases: the strength regime and the gravity regime, discussed in Section \ref{ssec:Crater Size}. For smaller impacts, the strength regime dominates while for larger impacts, the gravity regime dominates. For materials that do not have a well defined strength (such as dry sand), the gravity regime dominates for all sizes of impacts.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Crater Size -- Strength \& Gravity Regime}\label{ssec:Crater Size}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Minimum \& Maximum Ejected Speed}\label{ssec:Min Max Ejecta Speed}
+The crater radius as determined by the \cite{housen2011ejecta} scaling laws is computed for both the strength and the gravity regime as the following:
+\begin{equation}
+R\left(\frac{\rho}{m}\right)^{1/3} = H_2\left(\frac{\rho}{\delta}\right)^{\frac{1-3\nu}{3}}\left[\frac{Y}{\rho U^2}\right]^{-\frac{\mu}{2}},
+\end{equation}
+for the strength regime with $R$ the crater radius, $\rho$ the target bulk density, $m$ the impactor mass, $\delta$ the impactor bulk density, $Y$ the material strength (shear for granular targets and tensile for solid targets), and $U$ the normal component\footnote{See Section 5.2 of \cite{housen2011ejecta}.} of the impactor speed. See Table \ref{tab:scaling law parameters} for various scaling law parameters, and
+\begin{equation}
+R\left(\frac{\rho}{m}\right)^{1/3} = H_1\left(\frac{\rho}{\delta}\right)^{\frac{2+\mu-6\nu}{3(2+\mu)}}\left[\frac{ga}{U^2}\right]^{-\frac{\mu}{2+\mu}},
+\end{equation}
+for the gravity regime with $g = GM/r_m^2 = 1.625$ m s$^{-2}$ the lunar surface gravity, and $a$ the impactor radius.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Minimum \& Maximum Ejected Speed}\label{ssec:Min Max Ejecta Speed}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Maximum Ejected Particle Mass}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Maximum Ejected Particle Mass}
+\subsection{Mass Ejected from Crater}\label{ssec:Mass Ejected from Crater}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Mass Ejected from Crater}
+The mass ejected from a crater by an impact can be summarized into two equations parameterized by the position from the crater center $x$ as
+\begin{align}
+\frac{v}{U} &= C_1\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{x}{n_2 R}\right)^p,\\
+\frac{M}{m} &= \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{x}{a}\right)^3-n_1^3\right],
+\end{align}
+for $n_1 a \le x \le n_2 R$, where $v$ is the ejecta speed, and $M$ is the mass ejected at speeds equal to or greater than $v$.
+
+The maximum speed occurs when $x = n_1 a$, or very close to ground zero, and is given by
+\begin{equation}
+\frac{v_{max}}{U} = C_1\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{n_1 a}{n_2 R}\right)^p.
+\end{equation}
+If $v_{max} \le 0$, then it is assumed no ejecta was created by the impact.
+
+The total mass ejected is given when $x = n_2 R$,
+\begin{equation}
+\frac{M_{tot}}{m} = \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{n_2 R}{a}\right)^3-n_1^3\right].
+\end{equation}
+It is equivalent to say that if $M_{tot} \le 0$, then no ejecta was created by the impact.
+
+
 
 \end{document}

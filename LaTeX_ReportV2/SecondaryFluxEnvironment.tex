@@ -18,7 +18,7 @@ The ejected mass from an impact is distributed at different speeds (Section \ref
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Speed Distribution}\label{sssec:Ejecta:Speed Distribution}
 
-The speed distribution of the ejecta is determined by the scaling laws \citep{housen2011ejecta} that are assumed in this model (see Section \ref{sec:Scaling Laws}). As an approximation, the speed distribution can be described by a power-law distribution with an index that depends on the target material. However, a more complete speed distribution is used that not only includes a power-law regime, but includes proper cut-offs for the slowest speeds and fastest speeds, discussed in Section \ref{ssec:Min Max Ejecta Speed}.
+The speed distribution of the ejecta is determined by the scaling laws \citep{housen2011ejecta} that are assumed in this model (see Section \ref{sec:Scaling Laws}). As an approximation, the speed distribution can be described by a power-law distribution with an index that depends on the target material. However, a more complete speed distribution is used that not only includes a power-law regime, but includes proper cut-offs for the slowest speeds and fastest speeds.%, discussed in Section \ref{ssec:Min Max Ejecta Speed}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -212,7 +212,7 @@ The maximum fragmentation mass is given in \cite{oKeefe1985impact} as
 \begin{equation}
 m_b = 0.2 M_{tot}^{0.8},
 \end{equation}
-where $M_{tot}$ is the total mass ejected from the crater by an impactor. On the other hand, \cite{koschny2001impacts_mass} have a more conservative estimate on the maximum fragmentation mass with
+where $M_{tot}$ is the total mass ejected from the crater by an impactor, see Section \ref{ssec:Mass Ejected from Crater}. On the other hand, \cite{koschny2001impacts_mass} have a more conservative estimate on the maximum fragmentation mass with
 \begin{equation}
 m_b = 0.01 M_{tot}.
 \end{equation}
@@ -220,13 +220,124 @@ m_b = 0.01 M_{tot}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Crater on Surface to Observer at Surface}\label{sssec:Crater on Surface to Observer at Surface}
-% include final speed and zenith
+Particles that are ejected from the crater are assumed to follow projectile motion in a monopolar gravitational field with no external forces. The equations of motion\footnote{E.g., see \href{http://www.braeunig.us/space/orbmech.htm}{http://www.braeunig.us/space/orbmech.htm}.} the ejecta particles trace are defined by the semi-major axis $a$ and eccentricity $e$ given by
+\begin{align}
+a &= \frac{1}{\frac{2}{r} - \frac{v^2}{GM}},\label{eq:a_GM}\\
+e^2 &= \left(\frac{rv^2}{GM} - 1\right)^2\sin^2\gamma + \cos^2\gamma,\label{eq:e_GM}
+\end{align}
+for $r$ the orbit position from the gravitating body's center, $v$ the orbit speed, $\gamma$ the local zenith angle with respect to the local horizon, $G = 6.67408\times 10^{-11}$ m$^3$kg$^{-1}$s$^{-2}$ the gravitational constant, and $M = 7.34767\times 10^{22}$ kg the mass of the Moon.
+
+The escape speed of the Moon is defined as
+\begin{equation}\label{eq:vesc}
+v_{esc} = \sqrt{\frac{2GM}{r_m}},
+\end{equation}
+where $r_m = 1.7374\times 10^{6}$ m is the radius of the Moon, so that $v_{esc} = 2.376$ km s$^{-1}$. Inserting Equation \eqref{eq:vesc} into Equations \eqref{eq:a_GM} and \eqref{eq:e_GM} gives
+\begin{align}
+a &= \frac{r_m/2}{\frac{r_m}{r} - \frac{v^2}{v_{esc}^2}},\label{eq:a_vgen}\\
+e^2 &= \left(\frac{2rv^2}{r_m v_{esc}^2} - 1\right)^2\sin^2\gamma + \cos^2\gamma.\label{eq:e_vgen}
+\end{align}
+
+If the definitions of $a$ and $e$ are at a point on the surface of the Moon, $r = r_m$, then Equations \eqref{eq:a_vgen} and \eqref{eq:e_vgen} become
+\begin{align}
+a &= \frac{r_m/2}{1 - \frac{v_p^2}{v_{esc}^2}},\label{eq:a_vrm}\\
+e^2 &= \left(\frac{2v_p^2}{v_{esc}^2} - 1\right)^2\sin^2\gamma_p + \cos^2\gamma_p.\label{eq:e_vrm}
+\end{align}
+
+The position $r$ of the ejected particle in its orbit is given by
+\begin{equation}\label{eq:r_orbit}
+r = \frac{a(1-e^2)}{1+e\cos\beta},
+\end{equation}
+where $\beta$ is the true anomaly or angle from the periapsis point. An angle of $\beta=0$ would be a particle at the periapsis and an angle of $\beta=\pi$ would be a particle at the apoapsis point.
+
+In terms of the true anomaly $\beta$, the local zenith angle of the particle is given by
+\begin{equation}\label{eq:tan_gamma}
+\tan\gamma = \frac{1+e\cos\beta}{e\sin\beta}.
+\end{equation}
+
+In the following two sections, the initial/final speeds $v_p$ and $v_s$, the final zenith angle $\gamma_s$, and the final position in the orbit at the asset $r_s$ will be computed. Section \ref{sssec:Crater on Surface to Observer at Surface} will be a special case where the final impact point at the asset is at the surface of the Moon and Section \ref{sssec:Crater on Surface to Observer at or above Surface} will assume a more general case of an arbitrary position on or above the Moon for the asset.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Crater on Surface to Observer at or above Surface}\label{sssec:Crater on Surface to Observer at or above Surface}
+\subsubsection{Crater on Surface to Asset at Surface}\label{sssec:Crater on Surface to Observer at Surface}
 % include final speed and zenith
+The position in the orbit from the crater is the same radius is that of the asset at the surface, which says that the angle of periapsis at the crater impact is $\beta_p$ and at the asset is $\beta_s=-\beta_p$. Therefore, the selenographic distance between the two points is
+\begin{align}
+\frac{D}{r_m} &= \beta_s - \beta_p,\\
+&= 2(\pi - \beta_p),
+\end{align}
+and solving for $\beta_p$,
+\begin{equation}\label{eq:betap_specialcase}
+\beta_p = \pi - \frac{D}{2r_m}.
+\end{equation}
+
+Solving Equation \eqref{eq:r_orbit} for $\cos\beta_p$ and also $\sin\beta_p$, making use of $a$ and $e$ defined at the crater point (Equations \eqref{eq:a_vrm} and \eqref{eq:e_vrm}):
+\begin{align}\label{eq:ecosbetap}
+e\cos\beta_p &= 2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p - 1,\\
+e\sin\beta_p &= 2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p.\label{eq:esinbetap}
+\end{align}
+Therefore, taking the tangent\footnote{Note, $\tan(\pi-\eta) = -\tan\eta$.} and plugging in Equation \eqref{eq:betap_specialcase}, (c.f., Equation (1) of \cite{vickery1986size})
+\begin{equation}\label{eq:D_special_case}
+\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p}{1 - 2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}.
+\end{equation}
+
+The initial speed $v_p$ can be solved for, giving
+\begin{equation}\label{eq:vp_special_case}
+\frac{v_p}{v_{esc}} = \frac{1}{\sqrt{1-\cos(2\gamma_p) + \sin(2\gamma_p)\cot\left(\frac{D}{2r_m}\right)}}.
+\end{equation}
+
+Due to the symmetry of the orbit points, the final speed and zenith angle are given by
+\begin{align}
+v_s &= v_p,\\
+\gamma_s &= \gamma_p.
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Crater on Surface to Asset at or above Surface}\label{sssec:Crater on Surface to Observer at or above Surface}
+% include final speed and zenith
+
+In general, it is assumed that the final position at the asset can be either at the surface or above the surface of the Moon. The selenographic distance between the initial and final points are the same as before, given as
+\begin{equation}\label{eq:D_beta_gen}
+\frac{D}{r_m} = \beta_s - \beta_p,
+\end{equation}
+however, $\beta_s$ is kept ambiguous.
+
+First, an equation for $e\cos\beta_s$ is solved for using Equation \eqref{eq:r_orbit}, giving
+\begin{equation}\label{eq:ecosbetas}
+e\cos\beta_s = 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p - 1.
+\end{equation}
+
+Next, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
+\begin{align}
+e\cos\beta_s &= e\cos\left(\frac{D}{r_m}+\beta_p\right),\nonumber\\
+&= e\cos\beta_p\cos\left(\frac{D}{r_m}\right) - e\sin\beta_p\sin\left(\frac{D}{r_m}\right),\nonumber
+\end{align}
+and insert Equations \eqref{eq:ecosbetap}, \eqref{eq:esinbetap}, and \eqref{eq:ecosbetas}. After some algebra, the initial speed $v_p$ is given by
+\begin{equation}\label{eq:vp_gen_case}
+\frac{v_p}{v_{esc}} = \frac{1}{\sqrt{\left[\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right]\left[1-\cos(2\gamma_p)\right] + \sin(2\gamma_p)\cot\left(\frac{D}{2r_m}\right)}}.
+\end{equation}
+It is clear that if $r_s=r_m$, Equation \eqref{eq:vp_special_case} is recovered.
+
+To find an equation for the final speed $v_s$, take $r=r_s$ in Equation \eqref{eq:a_vgen} and substitute Equation \eqref{eq:a_vrm} for $a$, giving
+\begin{equation}
+\frac{v_s}{v_{esc}} = \sqrt{\frac{r_m}{r_s} + \frac{v_p^2}{v_{esc}^2} - 1}.
+\end{equation}
+If $r_s=r_m$, $v_s=v_p$ is recovered.
+
+To solve for the final zenith angle $\gamma_s$, start with Equation \eqref{eq:tan_gamma} and use $\beta_s = \frac{D}{r_m} + \beta_p$ and expand, giving
+\begin{equation}
+\tan\gamma_s = \frac{1 + e\cos\beta_p\cos\left(\frac{D}{r_m}\right) - e\sin\beta_p\sin\left(\frac{D}{r_m}\right)}{e\cos\beta_p\sin\left(\frac{D}{r_m}\right) + e\sin\beta_p\cos\left(\frac{D}{r_m}\right)}.
+\end{equation}
+Substituting\footnote{Instead of $\gamma_s$, $\pi-\gamma_s$ is used -- for the incoming angle vs.\ the outgoing angle -- which introduces an overall minus sign.} in Equations \eqref{eq:ecosbetap} and \eqref{eq:esinbetap} and also Equation \eqref{eq:vp_gen_case} for $v_p$ and simplifying, the final zenith angle $\gamma_s$ is given by
+\begin{equation}
+\cot\gamma_s = \frac{r_s}{r_m}\cot\gamma_p - \left(\frac{r_s}{r_m}-1\right)\cot\left(\frac{D}{2r_m}\right).
+\end{equation}
+If $r_s=r_m$, then $\gamma_s=\gamma_p$ as before.
+
+The final position $r_s$ can also be solved for using Equation \eqref{eq:vp_gen_case},
+\begin{equation}
+\frac{r_s}{r_m} = \frac{2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}{1 + \left(\frac{v_p^2}{v_{esc}^2}-1\right)\cos\left(\frac{D}{r_m}\right) - \frac{v_p^2}{v_{esc}^2}\cos\left(\frac{D}{r_m} - 2\gamma_p\right)}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Selenographic Distance \& Bearing}\label{ssec:Selenographic Distance/Bearing}
