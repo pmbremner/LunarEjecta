@@ -79,24 +79,25 @@ int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vect
 
 // Using Stratified Importance Sampling
 // For a given azimuth and lat-lon location
-void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_weight, int N_sample);
+// not used outside of helper
+//void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_weight, int N_sample);
 
 // For a given lat-lon, compute samples both in close and far directions in azimuth, assuming a wedge
 //void get_samples_with_azm(double latp, double lonp, double lats, double lons, double a, double h, double r);
 void get_samples_with_azm_lat_lon(input* p,
-                                  double latp,   // primary latitude center
-	                              double lonp,   // primary longitude center
-	                              double dlatp,  // primary latitude range
-	                              double dlonp,  // primary longitude range
-	                              double lats,   // satellite (asset) latitude center
-	                              double lons,   // satellite (asset) longitude center
-	                              double a,      // satellite (asset) altitude
-	                              double h,      // satellite (asset) height
-	                              double r,      // satellite (asset) radius
-	                              double vmin,   // minimum ejecta speed
-	                              double vmax,   // maximum ejecta speed
-	                              double dg,     // maximum zenith grid width
-	                              double dv,     // maximum speed grid width
+                                  double latp,   // primary latitude center [radians]
+	                              double lonp,   // primary longitude center [radians]
+	                              double dlatp,  // primary latitude range [radians]
+	                              double dlonp,  // primary longitude range [radians]
+	                              double lats,   // satellite (asset) latitude center [radians]
+	                              double lons,   // satellite (asset) longitude center [radians]
+	                              double a,      // satellite (asset) altitude [rm]
+	                              double h,      // satellite (asset) height [rm]
+	                              double r,      // satellite (asset) radius [rm]
+	                              double vmin,   // minimum ejecta speed [vesc]
+	                              double vmax,   // maximum ejecta speed [vesc]
+	                              double dg,     // maximum zenith grid width [radians]
+	                              double dv,     // maximum speed grid width [vesc]
 	                              vector<double>& sample_latp,       // primary latitude center
 	                              vector<double>& sample_lonp,       // primary longitude center
 	                              vector<double>& sample_azimuth_0,  // initial azimuth, zenith, and speed of secondary, at primary impact
@@ -105,6 +106,8 @@ void get_samples_with_azm_lat_lon(input* p,
 	                              vector<double>& sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
 	                              vector<double>& sample_zenith_f,
 	                              vector<double>& sample_speed_f,
+	                              vector<double>& sample_altitude_f, // final altitude from center of Moon [rm]
+	                              vector<double>& sample_distance_f, // final distance from crater to impact at asset [rm]
 	                              vector<double>& sample_weight,
 	                              int N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
 	                              int N_zenith_speed); // number of pulls in zenith-speed sets

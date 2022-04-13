@@ -121,6 +121,16 @@ double final_zenith(double d, double vp, double g)
 }
 
 
+// final altitude at asset
+/// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
+// return final altitude at asset in units of rm
+double final_altitude(double d, double vp, double g)
+{
+	return 2.*sqr(vp * sin(g)) / (1. + (sqr(vp) - 1.)*cos(d) - sqr(vp)*cos(d + 2.*g));
+}
+
+
+
 // the smallest zenith angle to reach asset at ~ escape speed
 /// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
 /// return ejecta zenith, at ejecta point, in radians
@@ -369,8 +379,9 @@ int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vect
 }
 
 
+
 // Using Stratified Importance Sampling
-void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_weight, int N_sample)
+void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, double d, double a, double h, double r, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_zenith_f, vector<double>& sample_speed_f, vector<double>& sample_altitude_f, vector<double>& sample_distance_f, vector<double>& sample_weight, int N_sample)
 {
 	//init the random generator
 	// https://stackoverflow.com/questions/24334012/best-way-to-seed-mt19937-64-for-monte-carlo-simulations
@@ -382,11 +393,20 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 	sample_zenith.clear();
 	sample_speed.clear();
+	sample_zenith_f.clear();
+	sample_speed_f.clear();
+	sample_altitude_f.clear();
+	sample_distance_f.clear();
 	sample_weight.clear();
 
 	sample_zenith.resize(N_sample);
 	sample_speed.resize(N_sample);
+	sample_zenith_f.resize(N_sample);
+	sample_speed_f.resize(N_sample);
+	sample_altitude_f.resize(N_sample);
+	sample_distance_f.resize(N_sample);
 	sample_weight.resize(N_sample);
+
 
 	//init sample_idx, don't need it outside of get_samples function
 	vector<int> sample_idx(N_sample, 0);
@@ -397,7 +417,26 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 	for (int i = 0; i < N_sample; ++i)
 	{
 		// pull sample from pdf
-		sample_idx[i] = pdf_sample(rng, zenith, vminv, vmaxv, cdf, sample_zenith[i], sample_speed[i], sample_weight[i]);
+		do{
+			sample_idx[i] = pdf_sample(rng, zenith, vminv, vmaxv, cdf, sample_zenith[i], sample_speed[i], sample_weight[i]);
+
+			// check altitude of impact at asset at the front face
+			// d is the distance from crater to front face of asset (not center of asset)
+			sample_altitude_f[i] = final_altitude(d, sample_speed[i], sample_zenith[i]);
+
+			// Hit the front face (side of "cylinder")
+			if (sample_altitude_f[i] >= a && sample_altitude_f[i] <= a + h)
+			{
+				/* code */
+			}
+			
+
+
+			// If not at the front face, check top face
+			// If not at the top face, check bottom face
+			// If no face found, then redo the sample
+
+		} while();
 
 		stratified_count[sample_idx[i]]++;
 	}
@@ -444,6 +483,8 @@ void get_samples_with_azm_lat_lon(input* p,
 	                              vector<double>& sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
 	                              vector<double>& sample_zenith_f,
 	                              vector<double>& sample_speed_f,
+	                              vector<double>& sample_altitude_f, // final altitude from center of Moon [rm]
+	                              vector<double>& sample_distance_f, // final distance from crater to impact at asset [rm]
 	                              vector<double>& sample_weight,
 	                              int N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
 	                              int N_zenith_speed) // number of pulls in zenith-speed sets
@@ -461,6 +502,7 @@ void get_samples_with_azm_lat_lon(input* p,
 
 	vector<double> zenith, vminv, vmaxv;
 	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
+	vector<double> sample_zenith_f_i, sample_speed_f_i;
 	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i, u_min, u_max;
 	int i, j, i_zll, zll_count = 0;//, cur_i;
 
@@ -473,6 +515,8 @@ void get_samples_with_azm_lat_lon(input* p,
     sample_azimuth_f.clear();  
     sample_zenith_f.clear();
     sample_speed_f.clear();
+    sample_altitude_f.clear();
+    sample_distance_f.clear();
     sample_weight.clear();
 
     // open lat-lon location file and get the size
@@ -548,7 +592,24 @@ void get_samples_with_azm_lat_lon(input* p,
 			get_CDF_PDF_from_trapdens(zenith, vminv, vmaxv, cdf, pdf);
 
 			// Next, we need to take samples from the CDF
-			get_samples(zenith, vminv, vmaxv, vmin, vmax, cdf, sample_zenith_0_i, sample_speed_0_i, sample_weight_i, N_zenith_speed);
+			get_samples(zenith, // [rad]
+				        vminv,  // [vesc]
+				        vmaxv,  // [vesc]
+				        vmin,   // [vesc]
+				        vmax,   // [vesc]
+				        cdf,
+				        d, // [rm]
+				        a, // [rm]
+				        h, // [rm]
+				        r, // [rm]
+				        sample_zenith_0_i, // [rad]
+				        sample_speed_0_i,  // [vesc]
+				        sample_zenith_f_i, // [rad]
+				        sample_speed_f_i,  // [vesc]
+				        sample_altitude_f, // [rm]
+				        sample_distance_f, // [rm]
+				        sample_weight_i,
+				        N_zenith_speed);
 
 			
 

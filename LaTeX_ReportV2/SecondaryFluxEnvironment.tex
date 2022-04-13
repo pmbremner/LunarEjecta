@@ -302,9 +302,14 @@ In general, it is assumed that the final position at the asset can be either at 
 \end{equation}
 however, $\beta_s$ is kept ambiguous.
 
-First, an equation for $e\cos\beta_s$ is solved for using Equation \eqref{eq:r_orbit}, giving
-\begin{equation}\label{eq:ecosbetas}
-e\cos\beta_s = 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p - 1.
+First, equations for $e\cos\beta_s$ and $e\sin\beta_s$ are solved for using Equations \eqref{eq:r_orbit} and \eqref{eq:e_vrm}, giving
+\begin{align}\label{eq:ecosbetas}
+e\cos\beta_s &= 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p - 1,\\
+e\sin\beta_s &= 2\frac{r_m}{r_s}\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p F(v_p,\gamma_p,r_s), \label{eq:esinbetas}
+\end{align}
+where
+\begin{equation}
+F(v_p,\gamma_p,r_s) = \pm\sqrt{1 + \frac{\frac{r_s}{r_m}-1}{\cos^2\gamma_p}\left(\frac{r_s}{r_m}+1-\frac{r_s/r_m}{v_p^2/v_{esc}^2}\right)}.
 \end{equation}
 
 Next, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
@@ -328,7 +333,11 @@ To solve for the final zenith angle $\gamma_s$, start with Equation \eqref{eq:ta
 \begin{equation}
 \tan\gamma_s = \frac{1 + e\cos\beta_p\cos\left(\frac{D}{r_m}\right) - e\sin\beta_p\sin\left(\frac{D}{r_m}\right)}{e\cos\beta_p\sin\left(\frac{D}{r_m}\right) + e\sin\beta_p\cos\left(\frac{D}{r_m}\right)}.
 \end{equation}
-Substituting\footnote{Instead of $\gamma_s$, $\pi-\gamma_s$ is used -- for the incoming angle vs.\ the outgoing angle -- which introduces an overall minus sign.} in Equations \eqref{eq:ecosbetap} and \eqref{eq:esinbetap} and also Equation \eqref{eq:vp_gen_case} for $v_p$ and simplifying, the final zenith angle $\gamma_s$ is given by
+Substituting\footnote{Instead of $\gamma_s$, $\pi-\gamma_s$ is used -- for the incoming angle vs.\ the outgoing angle -- which introduces an overall minus sign.} in Equations \eqref{eq:ecosbetap} and \eqref{eq:esinbetap},
+\begin{equation}
+\tan\gamma_s = -\frac{\frac{v_p^2}{v_{esc}^2}\left[\cos\left(\frac{D}{r_m}-2\gamma_p\right)-\cos\left(\frac{D}{r_m}\right)\right] + \cos\left(\frac{D}{r_m}\right)-1}{\frac{v_p^2}{v_{esc}^2}\left[\sin\left(\frac{D}{r_m}-2\gamma_p\right)-\sin\left(\frac{D}{r_m}\right)\right] + \sin\left(\frac{D}{r_m}\right)},
+\end{equation}
+and also inserting Equation \eqref{eq:vp_gen_case} for $v_p$ and simplifying, the final zenith angle $\gamma_s$ is given by
 \begin{equation}
 \cot\gamma_s = \frac{r_s}{r_m}\cot\gamma_p - \left(\frac{r_s}{r_m}-1\right)\cot\left(\frac{D}{2r_m}\right).
 \end{equation}
