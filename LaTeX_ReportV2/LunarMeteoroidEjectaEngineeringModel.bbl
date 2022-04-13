@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -42,6 +42,12 @@ Cour-Palais, B.~G., Meteoroid environment model 1969 (near earth to lunar
 Gault, D.~E., and J.~A. Wedekind, Experimental studies of oblique impact, in
   \textit{Lunar and Planetary Science Conference Proceedings}, vol.~9, pp.
   3843--3875, 1978.
+
+\bibitem[{\textit{Gault et~al.}(1963)\textit{Gault, Shoemaker, and
+  Moore}}]{gault1963spray}
+Gault, D.~E., E.~M. Shoemaker, and H.~J. Moore, \textit{NASA TN D-1767 Spray
+  ejected from the lunar surface by meteoroid impact}, National Aeronautics and
+  Space Administration, 1963.
 
 \bibitem[{\textit{Gr{\"u}n et~al.}(1985)\textit{Gr{\"u}n, Zook, Fechtig, and
   Giese}}]{grun1985collisional}
