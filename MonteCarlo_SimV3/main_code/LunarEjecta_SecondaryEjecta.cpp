@@ -129,6 +129,14 @@ double final_altitude(double d, double vp, double g)
 	return 2.*sqr(vp * sin(g)) / (1. + (sqr(vp) - 1.)*cos(d) - sqr(vp)*cos(d + 2.*g));
 }
 
+// this is half the distance from crater to reimpacting the Moon
+// vp is in units of vesc, g is zenith at ejected point in rads
+// returns distance in units of rm
+double apoapsis_distance(double vp, double g)
+{
+	return atan2( sqr(vp) * sin(2.*g), 1. - 2.*sqr(vp * sin(g)) );
+}
+
 
 
 // the smallest zenith angle to reach asset at ~ escape speed
@@ -407,6 +415,8 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 	sample_distance_f.resize(N_sample);
 	sample_weight.resize(N_sample);
 
+	double r_s, d_s; // final altitute and distance
+
 
 	//init sample_idx, don't need it outside of get_samples function
 	vector<int> sample_idx(N_sample, 0);
@@ -422,14 +432,32 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 			// check altitude of impact at asset at the front face
 			// d is the distance from crater to front face of asset (not center of asset)
-			sample_altitude_f[i] = final_altitude(d, sample_speed[i], sample_zenith[i]);
+			r_s = final_altitude(d, sample_speed[i], sample_zenith[i]);
+
 
 			// Hit the front face (side of "cylinder")
-			if (sample_altitude_f[i] >= a && sample_altitude_f[i] <= a + h)
+			if (r_s >= a && sample_altitude_f[i] <= a + h)
 			{
-				/* code */
+				sample_altitude_f[i] = r_s;
 			}
-			
+			else // top or bottom side
+			{
+				d_half = apoapsis_distance(sample_speed[i], sample_zenith[i]);
+
+				// if d_s < d_half, then we take the "+" solution (gamma_s > pi/2)
+				// otherwise, if d_s > d_half, then we take the "-" solution (gamma_s < pi/s)
+
+				else if(r_s > a + h) // top face
+				{
+				
+
+				}
+				else // bottom face
+				{
+
+				}
+			}
+
 
 
 			// If not at the front face, check top face
