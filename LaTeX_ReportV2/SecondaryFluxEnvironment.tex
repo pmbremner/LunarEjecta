@@ -284,6 +284,36 @@ The initial speed $v_p$ can be solved for, giving
 \frac{v_p}{v_{esc}} = \frac{1}{\sqrt{1-\cos(2\gamma_p) + \sin(2\gamma_p)\cot\left(\frac{D}{2r_m}\right)}}.
 \end{equation}
 
+The initial zenith angle $\gamma_p$ can also be solved for by expanding $\cos(2\gamma_p)$ and $\sin(2\gamma_p)$ in terms of $\cot\gamma_p$,
+\begin{align}\label{eq:1-cos 2g to cot g}
+1-\cos(2\gamma_p) &= \frac{2}{1+\cot^2\gamma_p},\\\label{eq:sin 2g to cot g}
+\sin(2\gamma_p) &= \frac{2\cot\gamma_p}{1+\cot^2\gamma_p},
+\end{align}
+such that
+\begin{equation}\label{eq:specialcase gammap}
+\cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}-1}.
+\end{equation}
+
+The maximum distance $D_{max}$ a particle can travel at a given speed is found by taking the discriminant in Equation \eqref{eq:specialcase gammap} and setting it equal to zero such that
+\begin{equation}\label{eq:Dmax}
+\frac{D_{max}}{2r_m} =
+\begin{cases}
+\arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, direct path ($D \le \pi r_m$)}\\
+\pi - \arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, indirect path ($D \ge \pi r_m$)}
+\end{cases}, 
+\end{equation}
+The minimum speed $v_{p,min}$ at which to travel a certain distance is found by solving for $v_p$ in Equation \eqref{eq:Dmax}, giving
+\begin{equation}
+\frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right),
+\end{equation}
+for $D \le \pi r_m$. For further distances, the limiting minimum speed is $v_{p,min}/v_{esc} = \sqrt{2}/2$.
+
+The optimal initial zenith angle $\gamma_{p,opt}$ follows as\footnote{Note that $\arctan(\cot(\theta)) = \pi/2 - \theta$ for $0 \le \theta \le \pi$.}
+\begin{equation}
+\gamma_{p,opt} = \frac{\pi}{4} + \frac{D}{4r_m},
+\end{equation}
+for $D \le \pi r_m$. For further distances, the limiting optimal angle is $\gamma_{p,opt} = \pi/2$. At very small distances $D \ll r_m$, the optimal angle is $\sim 45^\circ$ as expected.
+
 Due to the symmetry of the orbit points, the final speed and zenith angle\footnote{The final zenith angle is taken as the observed incoming angle, not the angle at which the ejecta is going. This introduces a different of $\pi$ radians.} are given by
 \begin{align}
 v_s &= v_p,\\
@@ -340,6 +370,19 @@ multiplying by $e^2/e^2$ and inserting Equations \eqref{eq:ecosbetap}, \eqref{eq
 \end{equation}
 where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution. The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis. At the maximum radius $r_s=r_{max}$, then $F=0$ and $\gamma_s=\pi/2$. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
 
+The initial zenith angle can be found similar to Section \ref{sssec:Crater on Surface to Observer at Surface},
+\begin{equation}
+\label{eq:generalcase gammap}
+\cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}\left(\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right)-1}.
+\end{equation}
+
+The maximum distance $D_{max}$ can be solved similar as before, giving
+\begin{equation}
+\tan\left(\frac{D_{max}}{2r_m}\right) = \pm\sqrt{\frac{\frac{v_p^2}{v_{esc}^2}\left[1-\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)\right]}{\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)-\frac{v_p^2}{v_{esc}^2}}}.
+\end{equation}
+
+
+
 To find an equation for the final speed $v_s$, take $r=r_s$ in Equation \eqref{eq:a_vgen} and substitute Equation \eqref{eq:a_vrm} for $a$, giving
 \begin{equation}
 \frac{v_s}{v_{esc}} = \sqrt{\frac{r_m}{r_s} + \frac{v_p^2}{v_{esc}^2} - 1}.
@@ -360,7 +403,7 @@ If $r_s=r_m$, $v_s=v_p$ is recovered.
 %\end{equation}
 %If $r_s=r_m$, then $\gamma_s=\gamma_p$ as before.
 
-To solve for the final zenith angle $\gamma_s$, start with Equation \eqref{eq:tan_gamma} and insert Equations~\eqref{eq:ecosbetas} and \eqref{eq:esinbetas} such that (Note the phase shift of $\pi$ that introduces the extra minus sign for the incoming angle at the asset)
+To solve for the final zenith angle $\gamma_s$, start with Equation \eqref{eq:tan_gamma} and insert Equations~\eqref{eq:ecosbetas} and \eqref{eq:esinbetas} such that (Note the phase shift of $\pi$ that introduces the extra minus sign\footnote{The minus sign must be in the denominator for the $\arctan$ function to numerically map the quadrants properly.} for the incoming angle at the asset)
 \begin{equation}
 \tan\gamma_s = \frac{1}{-F}\tan\gamma_p,
 \end{equation}
