@@ -296,14 +296,19 @@ such that
 
 The maximum distance $D_{max}$ a particle can travel at a given speed is found by taking the discriminant in Equation \eqref{eq:specialcase gammap} and setting it equal to zero such that
 \begin{equation}\label{eq:Dmax}
-\frac{D_{max}}{2r_m} =
-\begin{cases}
-\arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, direct path ($D \le \pi r_m$)}\\
-\pi - \arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, indirect path ($D \ge \pi r_m$)}
-\end{cases}, 
+\tan\left(\frac{D_{max}}{2r_m}\right) = \pm\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}
 \end{equation}
+where the direct path is the positive case, and the indirect path is the negative case with modding the tangent argument by $\pi$.
+%\begin{equation}\label{eq:Dmax}
+%\frac{D_{max}}{2r_m} =
+%\begin{cases}
+%\arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, direct path ($D \le \pi r_m$)}\\
+%\pi - \arctan\left(\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}\right) \text{, indirect path ($D \ge \pi r_m$)}
+%\end{cases}, 
+%\end{equation}
+
 The minimum speed $v_{p,min}$ at which to travel a certain distance is found by solving for $v_p$ in Equation \eqref{eq:Dmax}, giving
-\begin{equation}
+\begin{equation}\label{eq:vpmin_special}
 \frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right),
 \end{equation}
 for $D \le \pi r_m$. For further distances, the limiting minimum speed is $v_{p,min}/v_{esc} = \sqrt{2}/2$.
@@ -376,12 +381,25 @@ The initial zenith angle can be found similar to Section \ref{sssec:Crater on Su
 \cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}\left(\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right)-1}.
 \end{equation}
 
-The maximum distance $D_{max}$ can be solved similar as before, giving
+The maximum distance $D_{max}$ can be solved similar as before, giving (positive case: direct path, negative case and modding the tangent argument by $\pi$: indirect path)
 \begin{equation}
 \tan\left(\frac{D_{max}}{2r_m}\right) = \pm\sqrt{\frac{\frac{v_p^2}{v_{esc}^2}\left[1-\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)\right]}{\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)-\frac{v_p^2}{v_{esc}^2}}}.
 \end{equation}
 
+Looking at the discriminant of Equation \eqref{eq:generalcase gammap} and setting to zero, the minimum initial speed to reach the asset is given by
+\begin{equation}\label{eq:vpmin_general}
+\frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right) + \frac{\sec^2\left(\frac{D}{2r_m}\right)}{2} G(r_s, D),
+\end{equation}
+where the perturbation from Equation \eqref{eq:vp_special_case} is
+\begin{equation}
+G(r_s, D) = 1-\frac{r_m}{r_s} + 2\sin\left(\frac{D}{2r_m}\right)\left[\sqrt{1 - \left(1-\frac{r_m}{r_s}\right)\left[1 - \frac{1-\frac{r_m}{r_s}}{4\sin^2\left(\frac{D}{2r_m}\right)}\right]} - 1\right].
+\end{equation}
+If $r_s=r_m$, then $G(r_s,D) = 0$ and Equation \eqref{eq:vpmin_special} is obtained.
 
+The optimal initial angle $\gamma_{p,opt}$ is derived by inserting Equation \eqref{eq:vpmin_general} into Equation~\eqref{eq:generalcase gammap}, giving
+\begin{equation}
+\cot\gamma_{p,opt} = \tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right) + \csc\left(\frac{D}{r_m}\right)G(r_s,D).
+\end{equation}
 
 To find an equation for the final speed $v_s$, take $r=r_s$ in Equation \eqref{eq:a_vgen} and substitute Equation \eqref{eq:a_vrm} for $a$, giving
 \begin{equation}

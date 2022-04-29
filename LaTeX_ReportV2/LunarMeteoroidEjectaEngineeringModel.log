@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  27 APR 2022 16:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  28 APR 2022 14:29
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1324,14 +1324,14 @@ LaTeX Warning: Text page 28 contains only floats.
 
 [28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [29] [30] [31] [32]
 [33] [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
-[36]) (EnvironmentGeneration.tex [37]) (SecondaryEnvironment.tex) [38]
-(LunarMeteoroidEjectaEngineeringModel.bbl [39
+[36]) (EnvironmentGeneration.tex [37]) (SecondaryEnvironment.tex) [38] [39]
+(LunarMeteoroidEjectaEngineeringModel.bbl [40
 
-]) [40]
+]) [41]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
 
@@ -1343,10 +1343,10 @@ s not changed.
 (rerunfilecheck)             Checksum: 2D1375A9CBF99D0BA1E191AA8D6CEADD;2904.
  ) 
 Here is how much of TeX's memory you used:
- 33342 strings out of 480799
- 760176 string characters out of 2905519
- 1484857 words of memory out of 3000000
- 48361 multiletter control sequences out of 15000+200000
+ 33348 strings out of 480799
+ 760258 string characters out of 2905519
+ 1485002 words of memory out of 3000000
+ 48363 multiletter control sequences out of 15000+200000
  566175 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,98p,1515b,2061s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1378,10 +1378,10 @@ blic/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/
 type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fon
 ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/
 fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (44 pages, 6111075 b
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (45 pages, 6115407 b
 ytes).
 PDF statistics:
- 1383 PDF objects out of 1440 (max. 8388607)
- 332 named destinations out of 1000 (max. 500000)
+ 1398 PDF objects out of 1440 (max. 8388607)
+ 336 named destinations out of 1000 (max. 500000)
  473 words of extra memory for PDF output out of 10000 (max. 10000000)
 
