@@ -357,7 +357,17 @@ Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to 
 \frac{v_{p,min}^2}{v_{esc}^2} = \frac{2\frac{r_s}{r_m}\left(\frac{r_s}{r_m}-1\right)}{2\frac{r_s^2}{r_m^2}+\cos(2\gamma_p)-1}
 \end{equation}
 
-Next, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
+The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radius $r_s$ is given by
+\begin{equation}\label{eq:gamma p ap 1}
+\cos\gamma_{p,ap} = \sqrt{\left(\frac{r_s}{r_m}-1\right)\left[\frac{r_s/r_m}{v_p^2/v_{esc}^2}-\left(\frac{r_s}{r_m}+1\right)\right]}.
+\end{equation}
+Setting Equation \eqref{eq:gamma p ap 1} equal to Equation \eqref{eq:vp_gen_case}, replacing all the double angles with halved tangent angles, and solving for $\gamma_{p,ap}$, the equation reads
+\begin{equation}
+\tan\gamma_{p,ap} = \frac{\frac{r_s}{r_m}\tan\left(\frac{D}{2r_m}\right)}{\frac{r_s}{r_m}-1}.
+\end{equation}
+
+
+To arrive at the initial speed $v_p$, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
 \begin{align}
 e\cos\beta_s &= e\cos\left(\frac{D}{r_m}+\beta_p\right),\nonumber\\
 &= e\cos\beta_p\cos\left(\frac{D}{r_m}\right) - e\sin\beta_p\sin\left(\frac{D}{r_m}\right),\nonumber
