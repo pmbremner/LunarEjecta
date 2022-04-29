@@ -352,6 +352,11 @@ Note that the maximum radius by definition occurs at the apoapsis, or $\beta_s=\
 \end{equation}
 which is also the solution to $F(v_p,\gamma_p,r_s) = 0$ and solving for $r_s$, i.e.\ $F(v_p,\gamma_p,r_{max}) = 0$. When $v_p \ge v_{esc}$, the maximum radius is out at infinity and only the positive solution of $F$ is used.
 
+Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to zero, the minimum speed needed to hit the asset at a height $r_s$ at an initial angle $\gamma_p$ is given by\footnote{More useful than the $v_{p,min}$ equation defined later, at least in terms of the speed-zenith graph.}
+\begin{equation}
+\frac{v_{p,min}^2}{v_{esc}^2} = \frac{2\frac{r_s}{r_m}\left(\frac{r_s}{r_m}-1\right)}{2\frac{r_s^2}{r_m^2}+\cos(2\gamma_p)-1}
+\end{equation}
+
 Next, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
 \begin{align}
 e\cos\beta_s &= e\cos\left(\frac{D}{r_m}+\beta_p\right),\nonumber\\
