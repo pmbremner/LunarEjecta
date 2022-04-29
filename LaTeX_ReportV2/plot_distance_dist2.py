@@ -39,8 +39,8 @@ def v_min(g, rs):
 rs = float(sys.argv[1])
 dd  = float(sys.argv[2])
 
-g = np.linspace(0.0001, np.pi/2*0.9999, 300)
-v = np.linspace(0.0001, 1., 300)
+g = np.linspace(0.0001, np.pi/2*0.9999, 500)
+v = np.linspace(0.0001, 1., 500)
 G, V = np.meshgrid(g, v)
 
 
@@ -52,9 +52,9 @@ plt.pcolormesh(G, V, D, cmap='prism')#,shading='gouraud') #gist_ncar, nipy_spect
 
 plt.plot(g, v_min(g, rs), color='black', linewidth=4, linestyle='--')
 
-plt.plot(g, v_speed(dd, g, rs), color='black', linewidth=3)
-#plt.plot(g, v_speed(dd+0.01, g, rs), color='black', linewidth=3)
-#plt.plot(g, v_speed(dd, g, 1.), color='black', linewidth=3)
+plt.plot(g, v_speed(dd, g, rs), color='black', linewidth=1)
+plt.plot(g, v_speed(dd+0.0001, g, rs), color='black', linewidth=1)
+plt.plot(g, v_speed(dd, g, rs+0.0001), color='black', linewidth=1)
 
 plt.ylim(0,1)
 plt.xlabel('Initial Zenith Angle (rad)')
