@@ -57,6 +57,10 @@ def g_final(v, g, rs, d0):
 g_finalvec = vectorize(g_final)
 
 
+def v_final(v, rs):
+	return np.sqrt(1./rs + v**2 - 1.)
+
+
 rs = float(sys.argv[1])
 dd  = float(sys.argv[2])
 
@@ -77,25 +81,27 @@ axs = plt.axes()
 plt.pcolormesh(G/np.pi*180., V, D/np.pi, cmap='prism')#,shading='gouraud') #gist_ncar, nipy_spectral, gist_rainbow, plasma
 
 
-
-
-# set up color of line
 vi = v_speed(dd, g, rs)
 
 #print(vi)
 
 gfinal_i = g_finalvec(vi[~np.isnan(vi)], g[~np.isnan(vi)], rs, dd)
 
-plt.plot(g/np.pi*180., vi, color='black', linewidth=7, label=f'Impact at height {rs-1.:.3e}' + r' $r_m$' + f' | distance {dd/np.pi:.3f}' + r' $\pi r_m$', zorder=4)
+vfinal_i = v_final(vi[~np.isnan(vi)], rs)
+
+plt.plot(g/np.pi*180., vi, color='black', linewidth=10, label=f'Impact at height {rs-1.:.3e}' + r' $r_m$' + f' | distance {dd/np.pi:.3f}' + r' $\pi r_m$', zorder=4)
 
 
 # https://matplotlib.org/3.5.0/gallery/lines_bars_and_markers/multicolored_line.html
+# https://stackoverflow.com/questions/19390895/matplotlib-plot-with-variable-line-width
 #########################################################
 
 x = g[~np.isnan(vi)]/np.pi*180.
 y = vi[~np.isnan(vi)]
 
 yc = gfinal_i/np.pi*180.
+
+lw = vfinal_i / y * 10
 #yc = np.cos(0.5 * (x[:-1] + x[1:]))  # first derivative
 
 # Create a set of line segments so that we can color them individually
@@ -110,12 +116,12 @@ segments = np.concatenate([points[:-1], points[1:]], axis=1)
 # Create a continuous norm to map from data points to colors
 #norm = plt.Normalize(yc.min(), yc.max())
 norm = plt.Normalize(0., 180.)
-lc = LineCollection(segments, cmap='Set1', norm=norm, zorder=5) #seismic, bwr, brg
+lc = LineCollection(segments, linewidths=lw, cmap='Set1', norm=norm, zorder=5) #seismic, bwr, brg
 # Set the values used for colormapping
 lc.set_array(yc)
-lc.set_linewidth(3)
+#lc.set_linewidth(3)
 line = axs.add_collection(lc)
-fig.colorbar(line, ax=axs, orientation="vertical").set_label(label=r'Final Incoming Zenith Angle $\gamma_s$ (deg)', size=15)
+fig.colorbar(line, ax=axs, orientation="vertical").set_label(label=r'Final Incoming Zenith Angle $\gamma_s$ (deg)' + '\n' + r'Line Thickness = Final/Initial Speeds ($v_s/v_p$)', size=15)
 
 
 
