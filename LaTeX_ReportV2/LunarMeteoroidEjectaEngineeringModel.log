@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  29 APR 2022 08:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.19)  4 MAY 2022 10:20
 entering extended mode
 **./LunarMeteoroidEjectaEngineeringModel.tex
 (LunarMeteoroidEjectaEngineeringModel.tex
@@ -1324,7 +1324,7 @@ LaTeX Warning: Text page 28 contains only floats.
 
 [28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [29] [30] [31] [32]
 [33] [34] [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
@@ -1343,10 +1343,10 @@ s not changed.
 (rerunfilecheck)             Checksum: 2D1375A9CBF99D0BA1E191AA8D6CEADD;2904.
  ) 
 Here is how much of TeX's memory you used:
- 33353 strings out of 480799
- 760326 string characters out of 2905519
- 1485079 words of memory out of 3000000
- 48364 multiletter control sequences out of 15000+200000
+ 33355 strings out of 480799
+ 760349 string characters out of 2905519
+ 1485156 words of memory out of 3000000
+ 48365 multiletter control sequences out of 15000+200000
  566175 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,13n,98p,1515b,2061s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1378,10 +1378,10 @@ blic/amsfonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/
 type1/urw/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fon
 ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/
 fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (45 pages, 6119283 b
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (45 pages, 6120153 b
 ytes).
 PDF statistics:
- 1407 PDF objects out of 1440 (max. 8388607)
- 340 named destinations out of 1000 (max. 500000)
+ 1409 PDF objects out of 1440 (max. 8388607)
+ 341 named destinations out of 1000 (max. 500000)
  473 words of extra memory for PDF output out of 10000 (max. 10000000)
 
