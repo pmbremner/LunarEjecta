@@ -79,7 +79,7 @@ D = d_distvec(V, G, rs, dd)
 fig = plt.figure(figsize=(12, 8))
 axs = plt.axes()
 
-plt.pcolormesh(G/np.pi*180., V, D/np.pi, cmap='prism')#,shading='gouraud') #gist_ncar, nipy_spectral, gist_rainbow, plasma
+plt.pcolormesh(G/np.pi*180., V, D/np.pi, cmap='tab20')#,shading='gouraud') #gist_ncar, nipy_spectral, gist_rainbow, plasma, prism
 
 
 vi = v_speed(dd, g, rs)
