@@ -61,8 +61,9 @@ def v_final(v, rs):
 	return np.sqrt(1./rs + v**2 - 1.)
 
 
-rs = float(sys.argv[1])
+rs  = float(sys.argv[1])
 dd  = float(sys.argv[2])
+ii  = int(sys.argv[3])
 
 N = 700
 
@@ -149,10 +150,10 @@ plt.clim(0,2) #https://stackoverflow.com/questions/3373256/set-colorbar-range-in
 
 
 
-plt.savefig(f'dist_speed_zenith_plot_{rs-1.:.3e}_{dd:.3f}.png', bbox_inches='tight', dpi=600)
+plt.savefig(f'dist_speed_zenith_plot_{ii:03}_{rs-1.:.3e}_{dd:.3f}.png', bbox_inches='tight', dpi=600)
 
 # plt.figure()
 # plt.plot(g[~np.isnan(vi)]/np.pi*180., gfinal_i/np.pi*180.)
 
 
-plt.show()
+#plt.show()
