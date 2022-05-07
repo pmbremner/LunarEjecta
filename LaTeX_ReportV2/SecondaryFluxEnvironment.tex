@@ -346,16 +346,26 @@ where
 \begin{equation}\label{eq:F}
 F(v_p,\gamma_p,r_s) = \pm\sqrt{1 + \frac{\frac{r_s}{r_m}-1}{\cos^2\gamma_p}\left(\frac{r_s}{r_m}+1-\frac{r_s/r_m}{v_p^2/v_{esc}^2}\right)}.
 \end{equation}
+The sign of $F$ is summarized by
+\begin{equation}\label{eq:sign of F}
+sign(F) = \begin{cases}
+- \text{, $\gamma_p > \gamma_{p,ap}$ and $D < \pi r_m$ (incoming below local horizon)}\\
++ \text{, otherwise (incoming above local horizon)}
+\end{cases}.
+\end{equation}
+
 Note that the maximum radius by definition occurs at the apoapsis, or $\beta_s=\pi$, such that Equation \eqref{eq:r_orbit} becomes (fixing the typo in Equation 16 of \cite{gault1963spray})
 \begin{equation}\label{eq:rmax}
 \frac{r_{max}}{r_m} = \frac{1 + \sqrt{\left(\frac{2v_p^2}{v_{esc}^2}-1\right)^2\sin^2\gamma_p+\cos^2\gamma_p}}{2\left(1-\frac{v_p^2}{v_{esc}^2}\right)},
 \end{equation}
 which is also the solution to $F(v_p,\gamma_p,r_s) = 0$ and solving for $r_s$, i.e.\ $F(v_p,\gamma_p,r_{max}) = 0$. When $v_p \ge v_{esc}$, the maximum radius is out at infinity and only the positive solution of $F$ is used.
 
-Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to zero, the minimum speed needed to hit the asset at a height $r_s$ at an initial angle $\gamma_p$ is given by\footnote{More useful than the $v_{p,min}$ equation defined later, at least in terms of the speed-zenith graph.}
+Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to zero, the minimum speed needed to hit the asset at a height $r_s$ at an initial angle $\gamma_p$ is given by
+%\footnote{More useful than the $v_{p,min}$ equation defined later, at least in terms of the speed-zenith graph.}
 \begin{equation}\label{eq:vpmin}
-\frac{v_{p,min}^2}{v_{esc}^2} = \frac{2\frac{r_s}{r_m}\left(\frac{r_s}{r_m}-1\right)}{2\frac{r_s^2}{r_m^2}+\cos(2\gamma_p)-1}
+\frac{v_{p,min}^2}{v_{esc}^2} = \frac{2\frac{r_s}{r_m}\left(\frac{r_s}{r_m}-1\right)}{2\frac{r_s^2}{r_m^2}+\cos(2\gamma_p)-1},
 \end{equation}
+which describes a \textit{keep out zone} -- if $v_p < v_{p,min}$ for a given zenith angle $\gamma_p$, the ejecta will not reach the asset for all distances.
 
 The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radius $r_s$ is given by
 \begin{equation}\label{eq:gamma p ap 1}
@@ -388,7 +398,7 @@ multiplying by $e^2/e^2$ and inserting Equations \eqref{eq:ecosbetap}, \eqref{eq
 \begin{equation}\label{eq:D_general_case}
 \tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p + \left(\frac{\frac{r_s}{r_m}-1}{1-F}\right)\left(2\frac{v_p^2}{v_{esc}^2}-1\right)\tan\gamma_p}{\left(\frac{\frac{r_s}{r_m}-F}{1-F}\right)-2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p},
 \end{equation}
-where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution. The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis, all for when the distance is $D < \pi rm$. Otherwise, the sign cases flip when the distance is $D > \pi r_m$ as well as adding $\pi$ and modding by $2\pi$, for speeds greater than the minimum speed at the limit the angle is at the horizon for $\gamma_p = \pi/2$ in Equation \eqref{eq:vpmin}, i.e.
+where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution (refer back to Equation \eqref{eq:sign of F}). The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis, all for when the distance is $D < \pi rm$. Otherwise, the sign cases flip when the distance is $D > \pi r_m$ as well as adding $\pi$ and modding by $2\pi$, for speeds greater than the minimum speed at the limit the angle is at the horizon for $\gamma_p = \pi/2$ in Equation \eqref{eq:vpmin}, i.e.
 \begin{equation}
 \frac{v_{p,min,horz}^2}{v_{esc}^2} = \frac{1}{1+\frac{r_m}{r_s}},
 \end{equation}
@@ -405,7 +415,7 @@ The maximum distance $D_{max}$ can be solved similar as before, giving (positive
 \tan\left(\frac{D_{max}}{2r_m}\right) = \pm\sqrt{\frac{\frac{v_p^2}{v_{esc}^2}\left[1-\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)\right]}{\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)-\frac{v_p^2}{v_{esc}^2}}}.
 \end{equation}
 
-Looking at the discriminant of Equation \eqref{eq:generalcase gammap} and setting to zero, the minimum initial speed to reach the asset is given by
+Looking at the discriminant of Equation \eqref{eq:generalcase gammap} and setting to zero, the minimum initial speed to reach the asset is given by (different from Equation \eqref{eq:vpmin})
 \begin{equation}\label{eq:vpmin_general}
 \frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right) + \frac{\sec^2\left(\frac{D}{2r_m}\right)}{2} G(r_s, D),
 \end{equation}

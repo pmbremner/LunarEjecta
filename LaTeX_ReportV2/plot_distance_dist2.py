@@ -149,7 +149,7 @@ plt.colorbar(orientation="vertical").set_label(label=r'Distance $D$ ($\pi r_m$)'
 plt.clim(0,2) #https://stackoverflow.com/questions/3373256/set-colorbar-range-in-matplotlib
 
 
-
+# https://stackoverflow.com/questions/339007/how-to-pad-zeroes-to-a-string
 plt.savefig(f'dist_speed_zenith_plot_{ii:03}_{rs-1.:.3e}_{dd:.3f}.png', bbox_inches='tight', dpi=600)
 
 # plt.figure()
