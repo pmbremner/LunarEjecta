@@ -462,6 +462,96 @@ The final position $r_s$ can also be solved for using Equation \eqref{eq:vp_gen_
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Azimuthal Field-of-View}\label{ssec:Azimuthal Field of View}
+
+The field-of-view (FOV) of the asset from the crater, in terms of the azimuth, must be understood by spherical geometry. If the asset is assumed to be a cylinder with the base parallel to the local horizon, then the effective radius of the cylinder $a_i$ and the effective distance from the crater to the asset $D_i$ is modified from the line-of-sight radius and distance $a$ and $D$, respectively (see Figure \ref{fig:FOV}).  
+
+% https://mirrors.mit.edu/CTAN/macros/latex/contrib/tkz/tkz-euclide/doc/tkz-euclide.pdf
+\begin{figure}[!htb]
+	\centering
+
+\begin{tikzpicture}[scale=2.6]
+\tkzDefPoint(-1,0){A}
+\tkzDefPoint(1,0){A2}
+\tkzLabelPoint[below right](A2){$\mathcal{D}$}
+\tkzDefPoint(0,0){B}
+\tkzLabelPoint[below](B){$\mathcal{O}$}
+\tkzLabelSegment[below](B,A2){$a$}
+
+\tkzDefPoint(4,0){C}
+\tkzLabelPoint[right](C){$\mathcal{C}$}
+%\tkzLabelSegment[below](C,A2){$D$}
+
+\tkzDrawSegment[dim={\(D\),-1cm,below=2mm},
+dim style/.append style={black,
+	dash pattern={on 2pt off 2pt}}](A2,C)
+
+\tkzDefPoint(0.25, 0.9682){D}
+\tkzLabelPoint[above left](D){$\mathcal{E}$}
+
+
+\tkzDrawSegment[dim={\(D_{max}\),0.5cm,above=2mm},
+dim style/.append style={black,
+	dash pattern={on 2pt off 2pt}}](D,C)
+
+\tkzDrawSegment(A,C)
+\tkzDrawSegment[dashed](D,C)
+\tkzDrawSegment[dashed](D,B)
+\tkzMarkRightAngle(B,D,C)
+%\tkzDrawSegment[dim={\(l_0\),1cm,right=2mm},
+%dim style/.append style={red,
+%	dash pattern={on 2pt off 2pt}}](A,C)
+\tkzDrawCircles(B,A)
+
+
+\tkzDefPoint(-1,0.5){A3}
+\tkzDrawSegment(A3,C)
+
+\tkzDefPoint(0.9524,0.304757){E1}
+\tkzDefPoint(-0.87322,0.4873){E2}
+\tkzLabelPoint[below](E2){$\mathcal{A}$}
+\tkzLabelPoint[left](E1){$\mathcal{B}$}
+%\tkzLabelPoints(E1, E2)
+
+\tkzMarkAngle[gray,size=0.15](B,E1,C)
+\tkzFindAngle(B,E1,C)
+\tkzLabelAngle[pos=0.2](B,E1,C){$\alpha_i$}
+\tkzFillAngle[fill=blue!20, opacity=0.5,size=0.15](B,E1,C)
+
+\tkzDefPoint(0,1){E3}
+\tkzDrawSegment(B,E3)
+\tkzMarkRightAngle(A2,B,E3)
+
+\tkzDrawSegment[dim={\(c_{i}\),-0.25cm,above=2mm},
+dim style/.append style={black,
+	dash pattern={on 2pt off 2pt}}](E1,E2)
+
+
+\tkzDrawSegment[dim={\(D_{i}\),0.25cm,above=2mm},
+dim style/.append style={black,
+	dash pattern={on 2pt off 2pt}}](E1,C)
+
+\tkzMarkAngle[gray,size=1.3](E2,C,B)
+\tkzFindAngle(E2,C,B)
+\tkzLabelAngle[pos=1.4](E2,C,B){$\beta_i$}
+\tkzFillAngle[fill=blue!20, opacity=0.5,size=1.3](E2,C,B)
+
+\tkzMarkAngle[gray,size=0.8](D,C,B)
+\tkzFindAngle(E2,C,B)
+\tkzLabelAngle[pos=1](D,C,B){$\beta_{max}$}
+\tkzFillAngle[fill=red!20, opacity=0.5,size=0.8](D,C,B)
+
+\tkzDrawSegment(B,E1)
+\tkzDrawSegment(B,E2)
+\tkzLabelSegment[below](B,E1){$a$}
+\tkzLabelSegment[below](B,E2){$a$}
+
+\tkzDrawPoints(E1,E2,C,A2,D)
+\end{tikzpicture}
+\caption{A caption.}\label{fig:FOV}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Selenographic Distance \& Bearing}\label{ssec:Selenographic Distance/Bearing}
 
 % see https://www.movable-type.co.uk/scripts/latlong.html
