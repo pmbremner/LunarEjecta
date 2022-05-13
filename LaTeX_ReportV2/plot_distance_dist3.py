@@ -13,7 +13,7 @@ v_domain_min = 100. / 2376.
 
 mu = 0.4
 
-Nazm = 2
+Nazm = 5
 
 
 def vp_disc(d, g, rs):
@@ -39,11 +39,13 @@ def vmax(d, g, rs, h, a):
 
 
 def vmin(d, g, rs, h, a):
-	return np.min(np.array([vp(d,        g, rs),
+	return np.maximum(
+		   np.min(np.array([vp(d,        g, rs),
 		                    vp(d + 2.*a, g, rs),
 		                    vp(d,        g, rs + h),
 		                    vp(d + 2.*a, g, rs + h),
-		                    v_domain_max]))
+		                    v_domain_max])),
+		   v_domain_min)
 
 vmaxvec = vectorize(vmax)
 vminvec = vectorize(vmin)
@@ -64,13 +66,24 @@ def bmax(d, rs):
 bmaxvec = vectorize(bmax)
 
 def cosa(d, rs, b):
-	return -np.sqrt(1. - ((np.sin(d+rs) * np.sin(b))/(np.sin(rs)))**2)
+	sign = 1.
+	# if d+rs > np.pi:
+	# 	sign = -1.
+	return -sign * np.sqrt(1. - ((np.sin(d+rs) * np.sin(b))/(np.sin(rs)))**2)
 
 def ai(d, rs, b):
 	return rs*np.abs(cosa(d, rs, b))
 
 def dazm(d, rs, b):
-	return np.arctan2(2.*np.sin(d)*np.sin(d+2.*rs), np.sin(2.*(d+rs))*np.cos(b) - np.sin(2.*rs)*cosa(d, rs, b))
+	if d+2.*rs < np.pi:
+		return np.arctan2(2.*np.sin(d)*np.sin(d+2.*rs), np.sin(2.*(d+rs))*np.cos(b) - np.sin(2.*rs)*cosa(d, rs, b))
+	else:
+		return np.pi + np.arctan2(2.*np.sin(d)*np.sin(d+2.*rs), np.sin(2.*(d+rs))*np.cos(b) - np.sin(2.*rs)*cosa(d, rs, b))
+
+# def dazm(d, rs, b):
+# 	return np.arctan2(2.*np.sin(d)*np.abs(np.sin(d+2.*rs)), np.abs(np.sin(2.*(d+rs)))*np.cos(b) - np.sin(2.*rs)*cosa(d, rs, b))
+
+dazmvec = vectorize(dazm)
 
 
 def dM(d, g, rs, h, a):
@@ -82,8 +95,16 @@ def int_dM(d, g, rs, h, a):
 	int_dM_i = np.zeros(len(d))
 
 	for i in range(len(d)):
-		dM_i = dM(d[i], g, rs, h, a) * bmax(d[i], rs) / np.pi 
-		int_dM_i[i] = np.sum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
+		dM_i = dM(d[i], g, rs, h, a) * bmax(d[i], rs) / np.pi * a
+		int_dM_i[i] = np.nansum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
+
+		dM_i = dM(d[i]+np.pi, g, rs, h, a) * bmax(d[i]+np.pi, rs) / np.pi * a
+		int_dM_i[i] += np.nansum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
+
+
+		# plt.figure()
+		# plt.plot(g, dM_i)
+		# plt.show()
 
 	return int_dM_i 
 
@@ -96,11 +117,17 @@ def int_dM_azm(d, g, rs, h, a):
 		azm = np.linspace(0., bmax(d[i], rs), Nazm)
 
 		for azmi in azm[:-1]:
+			#print(azm/bmax(d[i], rs), ai(d[i], rs, azmi)/rs, dazm(d[i], rs, azmi)/d[i])
+			dM_i = dM(dazm(d[i], rs, azmi), g, rs, h, ai(d[i], rs, azmi)) * azm[1] / np.pi * a
+			#dM_i = dM(d[i], g, rs, h, a) * bmax(d[i], rs) / np.pi * a
+			int_dM_i[i] += np.nansum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
 
-			dM_i = dM(dazm(d[i], rs, azmi), g, rs, h, ai(d[i], rs, azmi)) * azm[1] / np.pi
-			int_dM_i[i] += np.sum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
+			dM_i = dM(dazm(d[i]+np.pi, rs, azmi), g, rs, h, ai(d[i]+np.pi, rs, azmi)) * azm[1] / np.pi * a
+			#dM_i = dM(d[i]+np.pi, g, rs, h, a) * bmax(d[i]+np.pi, rs) / np.pi * a
+			int_dM_i[i] += np.nansum( (g[1:] - g[:-1]) * (dM_i[:-1] + dM_i[1:]) / 2.)
 
-	return int_dM_i
+
+	return int_dM_i / float(Nazm-1)
 
 
 def iint_dM_h(d, g, rs, h, a):
@@ -140,15 +167,17 @@ af = float(sys.argv[2])
 hh = float(sys.argv[3])
 #dd = float(sys.argv[4])
 
-Ng = 100
+Ng = 300
 Nd = 100
 Nh = 20
 Na = 10
+Nv = 10
 
 
 gp = np.linspace(EPS, np.pi/2.-EPS, Ng)
 
-dd = np.logspace(-4., np.log10(2.*np.pi - 2.*af), Nd)
+dd = np.logspace(-4., np.log10(np.pi - 10.*af), Nd)
+#dd = np.linspace(0., np.pi - af*10, Nd)
 
 rv = np.linspace(0., 1., 10) + rr
 #aa = np.linspace(0., af, Na)
@@ -157,14 +186,29 @@ rv = np.linspace(0., 1., 10) + rr
 
 # plt.plot(gp, vmaxvec(dd, gp, rr, hh, aa))
 # plt.plot(gp, vminvec(dd, gp, rr, hh, aa))
+##########################################################3
+# F0 = int_dM(dd, gp, rr, hh, af)
+
+# plt.loglog(dd, F0, label=r'$v\in $' + f'({v_domain_min:.2f}, {v_domain_max:.2f})')
+
+# v = np.linspace(v_domain_min, v_domain_max, Nv)
+# for i in range(Nv-1):
+# 	v_domain_max = v[i+1]
+# 	v_domain_min = v[i]
+# 	F0 = int_dM(dd, gp, rr, hh, af)
+# 	plt.loglog(dd, F0, label=r'$v\in $' + f'({v_domain_min:.2f}, {v_domain_max:.2f})')
+##########################################################3
 
 plt.loglog(dd, int_dM(dd, gp, rr, hh, af))
 plt.loglog(dd, int_dM_azm(dd, gp, rr, hh, af))
 
+#print(np.nansum((dd[1:]-dd[:-1])*(F0[:-1]+F0[1:])/2.) / np.nansum((dd[1:]-dd[:-1])*(F1[:-1]+F1[1:])/2.))
+
+
 ############
 # for ri in rv:
 # 	plt.loglog(dd/np.pi, int_dM(dd, gp, ri, hh, af))
-
+plt.legend()
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 # plt.figure()
@@ -172,10 +216,10 @@ plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how
 
 
 # plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
-plt.figure()
+# plt.figure()
 
 
-plt.plot(dd, dazm(dd, rr, bmaxvec(dd, rr)))
+# plt.plot(dd, dazmvec(dd, rr, bmaxvec(dd, rr)))
 
 plt.show()
 
