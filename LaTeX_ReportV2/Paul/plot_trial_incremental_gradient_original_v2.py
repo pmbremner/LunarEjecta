@@ -5,7 +5,7 @@ a gradient within each discrete color increment.
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import rc
+#from matplotlib import rc
 from matplotlib import cm
 import matplotlib.ticker as ticker
 import matplotlib.colors as colors
@@ -64,8 +64,8 @@ purplefade = colors.LinearSegmentedColormap.from_list('purplefade', colorFader2(
 #====================================================================
 
 # Set the figure fonts
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica-Bold']})
-rc('text', usetex=True)
+# rc('font',**{'family':'sans-serif','sans-serif':['Helvetica-Bold']})
+# rc('text', usetex=True)
 
 # Create a list of color maps
 #cmap_names = ['winter', 'cool','Wistia']
