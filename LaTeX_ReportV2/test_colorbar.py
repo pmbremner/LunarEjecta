@@ -23,11 +23,11 @@ def cm_varsat(cm_name, Nc, Ns, s0=0.5, s1=1.):
 	cur_cmap = cm.get_cmap(cm_name, Nc) # rgba, effectively down-samples to Nc from cmap.N
 
 	cur_cm = cur_cmap(np.arange(0, cur_cmap.N))
-	print(np.shape(rgb_to_hsv_vec(cur_cm[:,0], cur_cm[:,1], cur_cm[:,2])))
+	#print(np.shape(rgb_to_hsv_vec(cur_cm[:,0], cur_cm[:,1], cur_cm[:,2])))
 	# convert the rgba space to hsva space
 	# https://docs.python.org/3/library/colorsys.html#module-colorsys
 	cur_cm[:,0:3] = np.transpose(rgb_to_hsv_vec(cur_cm[:,0], cur_cm[:,1], cur_cm[:,2]))
-	print(cur_cm)
+	#print(cur_cm)
 	# 
 	#
 	newcolormap = []
@@ -44,7 +44,7 @@ def cm_varsat(cm_name, Nc, Ns, s0=0.5, s1=1.):
 	return ListedColormap(newcolormap, name = cm_name + '_varsat')
 
 
-new_cm = cm_varsat('viridis', 18, 4)
+new_cm = cm_varsat('plasma', 18, 4) # 'viridis'
 
 
 X, Y = np.meshgrid(np.linspace(0,100.,100), np.linspace(0,100.,100))
