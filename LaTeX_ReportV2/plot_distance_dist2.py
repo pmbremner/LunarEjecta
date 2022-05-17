@@ -7,7 +7,46 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 
 from matplotlib.collections import LineCollection
-from matplotlib.colors import ListedColormap, BoundaryNorm
+from matplotlib.colors import ListedColormap, BoundaryNorm, LinearSegmentedColormap
+import colorsys
+
+rgb_to_hsv_vec = vectorize(colorsys.rgb_to_hsv)
+
+###################################################################
+
+def colorFader3(h, s, Nv, v0, v1):
+	cgrad = [colorsys.hsv_to_rgb(h, s, v) for v in np.linspace(v0, v1, num=Nv, endpoint=True, dtype=np.float)]
+
+    # https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html
+	cgrad = np.column_stack((cgrad, np.ones(Nv))) # for alpha column
+	return cgrad
+
+def cm_varval(cm_name, Nc, Nv, v0=0.35, v1=1.):
+	# get an array of Nc number of rbga colors from the cm_name built-in colormap
+	cur_cmap = cm.get_cmap(cm_name, Nc) # rgba, effectively down-samples to Nc from cmap.N
+
+	cur_cm = cur_cmap(np.arange(0, cur_cmap.N))
+
+	# convert the rgba space to hsva space
+	# https://docs.python.org/3/library/colorsys.html#module-colorsys
+	cur_cm[:,0:3] = np.transpose(rgb_to_hsv_vec(cur_cm[:,0], cur_cm[:,1], cur_cm[:,2]))
+
+	newcolormap = []
+	for i, cur_cmi in enumerate(cur_cm):
+		if i == 0:
+			newcolormap = colorFader3(cur_cmi[0], cur_cmi[1], Nv, v0*cur_cmi[2], v1*cur_cmi[2])
+		else:
+			# https://towardsdatascience.com/creating-colormaps-in-matplotlib-4d4de78a04b8
+			newcolormap = np.vstack((newcolormap, colorFader3(cur_cmi[0], cur_cmi[1], Nv, v0*cur_cmi[2], v1*cur_cmi[2]) ))
+
+	return ListedColormap(newcolormap, name = cm_name + '_varval')
+
+## Example ##
+#new_cm = cm_varval('tab20', 20, 50) # 'viridis' plasma
+
+###################################################################
+
+
 
 def v_speed(d, g, rs):
 	return (((1./rs - np.cos(d))/(1. - np.cos(d)))*(1. - np.cos(2.*g)) + np.sin(2.*g)/np.tan(d/2.))**-(1/2)
@@ -79,7 +118,10 @@ D = d_distvec(V, G, rs, dd)
 fig = plt.figure(figsize=(12, 8))
 axs = plt.axes()
 
-plt.pcolormesh(G/np.pi*180., V, D/np.pi, cmap='tab20')#,shading='gouraud') #gist_ncar, nipy_spectral, gist_rainbow, plasma, prism
+
+cm_val1 = cm_varval('tab20', 20, 128)
+
+plt.pcolormesh(G/np.pi*180., V, D/np.pi, cmap=cm_val1)#,shading='gouraud') #gist_ncar, nipy_spectral, gist_rainbow, plasma, prism
 
 
 vi = v_speed(dd, g, rs)
@@ -115,9 +157,10 @@ segments = np.concatenate([points[:-1], points[1:]], axis=1)
 #fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
 
 # Create a continuous norm to map from data points to colors
-#norm = plt.Normalize(yc.min(), yc.max())
+cm_val2 = cm_varval('Set1', 9, 4)
+
 norm = plt.Normalize(0., 180.)
-lc = LineCollection(segments, linewidths=lw, cmap='Set1', norm=norm, zorder=5) #seismic, bwr, brg
+lc = LineCollection(segments, linewidths=lw, cmap=cm_val2, norm=norm, zorder=5) #seismic, bwr, brg
 # Set the values used for colormapping
 lc.set_array(yc)
 #lc.set_linewidth(3)
@@ -144,7 +187,7 @@ plt.xlim(0, 90.) #np.pi/2.
 plt.xlabel(r'Initial Zenith Angle $\gamma_p$ (deg)', size=15)
 plt.ylabel(r'Initial Speed $v_p$ ($V_{esc}$)', size=15)
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
-plt.legend()
+plt.legend(handlelength=4, loc='upper left') # https://stackoverflow.com/questions/39824599/python-matplotlib-legend-linestyle
 plt.colorbar(orientation="vertical").set_label(label=r'Distance $D$ ($\pi r_m$)', size=15)
 plt.clim(0,2) #https://stackoverflow.com/questions/3373256/set-colorbar-range-in-matplotlib
 
