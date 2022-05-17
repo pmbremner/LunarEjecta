@@ -68,7 +68,7 @@ def cm_varval(cm_name, Nc, Nv, v0=0.35, v1=1.):
 	return ListedColormap(newcolormap, name = cm_name + '_varval')
 
 
-new_cm = cm_varval('tab20', 20, 50) # 'viridis' plasma
+new_cm = cm_varsat('viridis', 20, 3) # 'viridis' plasma
 
 
 X, Y = np.meshgrid(np.linspace(0,1000.,1000), np.linspace(0,1000.,1000))

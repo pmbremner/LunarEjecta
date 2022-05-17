@@ -187,7 +187,7 @@ plt.xlim(0, 90.) #np.pi/2.
 plt.xlabel(r'Initial Zenith Angle $\gamma_p$ (deg)', size=15)
 plt.ylabel(r'Initial Speed $v_p$ ($V_{esc}$)', size=15)
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
-plt.legend(handlelength=4, loc='upper left') # https://stackoverflow.com/questions/39824599/python-matplotlib-legend-linestyle
+plt.legend(handlelength=4, loc='upper left', bbox_to_anchor=(0., 1.13), borderaxespad=0.0) # https://stackoverflow.com/questions/39824599/python-matplotlib-legend-linestyle
 plt.colorbar(orientation="vertical").set_label(label=r'Distance $D$ ($\pi r_m$)', size=15)
 plt.clim(0,2) #https://stackoverflow.com/questions/3373256/set-colorbar-range-in-matplotlib
 
@@ -199,4 +199,4 @@ plt.savefig(f'dist_speed_zenith_plot_{ii:03}_{rs-1.:.3e}_{dd:.3f}.png', bbox_inc
 # plt.plot(g[~np.isnan(vi)]/np.pi*180., gfinal_i/np.pi*180.)
 
 
-#plt.show()
+plt.show()
