@@ -126,7 +126,7 @@ double final_zenith(double d, double vp, double g)
 // return final altitude at asset in units of rm
 double final_altitude(double d, double vp, double g)
 {
-	return 2.*sqr(vp * sin(g)) / (1. + (sqr(vp) - 1.)*cos(d) - sqr(vp)*cos(d + 2.*g));
+	return 2.*sqr(vp * sin(g)) / (1. + (sqr(vp) - 1.)*cos(d) - sqr(vp)*cos(d - 2.*g));
 }
 
 // this is half the distance from crater to reimpacting the Moon
@@ -144,12 +144,7 @@ double apoapsis_distance(double vp, double g)
 /// return ejecta zenith, at ejecta point, in radians
 double min_zenith_at_escape(double a, double d_rm)
 {
-	double x = (1./a - cos(d_rm)) / (1. - cos(d_rm));
-
-	double sqrt_discr = sqrt( 2.*(x-1.) + sqr( 1./cos(d_rm/2.) ) );
-
-	//return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + fabs(1./tan(d_rm/2.))*sqrt_discr) / 2.;
-	return atan2((1.-x) / tan(d_rm/2.) + fabs(x)*sqrt_discr, x*(x-1.) + (1./tan(d_rm/2.))*sqrt_discr) / 2.;
+	return atan2( sin(d_rm/2.), cos(d_rm/2.) + sqrt(1./a));
 }
 
 
@@ -279,8 +274,8 @@ void get_zenith_speed_grid(vector<double>& zenith, vector<double>& vmin, vector<
 
 	// Note: need to go slightly higher than the bound in order to not get stuck
 	//double g_min = 1.01*(d-r)/4.;//findX(0., Fspeed_g, 0.000001, PI/2., vars);
-	double g_min =  d/4.; // works, need to do better ?
-	//double g_min = min_zenith_at_escape(a, d);
+	//double g_min =  d/4.; // works, need to do better ?
+	double g_min = min_zenith_at_escape(a, d);
 
 
 	//cout << "g_min = " << g_min << endl;
@@ -436,7 +431,7 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 
 
 			// Hit the front face (side of "cylinder")
-			if (r_s >= a && sample_altitude_f[i] <= a + h)
+			if (r_s >= a && r_s <= a + h)
 			{
 				sample_altitude_f[i] = r_s;
 			}

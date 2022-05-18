@@ -199,4 +199,4 @@ plt.savefig(f'dist_speed_zenith_plot_{ii:03}_{rs-1.:.3e}_{dd:.3f}.png', bbox_inc
 # plt.plot(g[~np.isnan(vi)]/np.pi*180., gfinal_i/np.pi*180.)
 
 
-plt.show()
+#plt.show()

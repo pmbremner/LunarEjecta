@@ -24,6 +24,7 @@ The speed distribution of the ejecta is determined by the scaling laws \citep{ho
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Zenith Distribution}\label{sssec:Ejecta:Zenith Distribution}
 
+\subsubsubsection{Peak Zenith Angle $\alpha_{max}$}
 The ejecta zenith distribution is typically peaked at some zenith angle $\alpha_{max}$ that falls off at other angles. The peak zenith angle $\alpha_{max}$ can have different dependencies on the impactor properties.
 
 
@@ -57,7 +58,7 @@ in units of degrees, where $\beta$ is the ejecta azimuth. When both the impact a
 \end{table}
 
 
-\paragraph{Rival \& Mandeville (Gaussian Distribution):}
+\subsubsubsection{Rival \& Mandeville (Gaussian Distribution)}
 One example of a peaked distribution is given in \cite{rival1999modeling}, shown below for reference:
 \begin{equation}\label{eq:Rival_zenith-dist}
 F(\alpha) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{(\alpha-\alpha_{max})^2}{2\sigma^2}\right],
@@ -80,7 +81,7 @@ where the peak ejecta angle is shifted from $30^\circ$ of zenith for a normal im
 
 One difficulty with this zenith distribution is the normalization, assuming ejecta is only created from $0 < \alpha < \pi/2 $. A Gaussian distribution is usually integrated from $-\infty$ to $+\infty$, so a finite integration introduces error functions.
 
-\paragraph{Raised Cosine Distribution:}
+\subsubsubsection{Raised Cosine Distribution}
 A more focused zenith distribution that is easier to normalize can be described by a raised cosine distribution, given as
 \begin{equation}\label{eq:zenith-rasied cosine dist}
 F(\alpha) = \begin{cases}
@@ -95,7 +96,7 @@ This distribution is symmetric about the peak $\mu$, with a spread $s$. It is as
 
 The azimuth distribution is often dependent on the impactor azimuth such that there are more ejecta downstream for oblique impacts. Normal impacts are expected to produce a symmetric azimuth distribution. For highly oblique impacts ($\alpha_i > \pi/3$) there is often seen a \textit{butterfly pattern} \citep{shuvalov2011ejecta}. However, over a large number of oblique impacts of various sizes, it is plausible to assume that the direct downstream direction dominates the azimuth distribution.
 
-\paragraph{Rival \& Mandeville:}
+\subsubsubsection{Rival \& Mandeville}
 An example azimuth distribution can be found in \cite{rival1999modeling}, given by
 \begin{equation}\label{eq:azm_rival_mandeville}
 G(\beta) =
@@ -111,7 +112,7 @@ where
 \end{equation}
 for $\beta_i$ the impact azimuth angle + $\pi$.
 
-\paragraph{Variation on Rival \& Mandeville:} In order to have a periodic and easy-to-normalize function, the oblique regime is modified from Equation \eqref{eq:azm_rival_mandeville} to give
+\subsubsubsection{Variation on Rival \& Mandeville} In order to have a periodic and easy-to-normalize function, the oblique regime is modified from Equation \eqref{eq:azm_rival_mandeville} to give
 \begin{equation}\label{eq:azm_mod_rival_mandeville}
 G(\beta) =
 \begin{cases}
@@ -269,6 +270,7 @@ and solving for $\beta_p$,
 \beta_p = \pi - \frac{D}{2r_m}.
 \end{equation}
 
+\subsubsubsection{Distance $D$ vs.\ $v_p$ and $\gamma_p$}
 Solving Equation \eqref{eq:r_orbit} for $\cos\beta_p$ and also $\sin\beta_p$, making use of $a$ and $e$ defined at the crater point (Equations \eqref{eq:a_vrm} and \eqref{eq:e_vrm}):
 \begin{align}\label{eq:ecosbetap}
 e\cos\beta_p &= 2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p - 1,\\
@@ -278,12 +280,15 @@ Therefore, taking the tangent\footnote{Note, $\tan(\pi-\eta) = -\tan\eta$.} and 
 \begin{equation}\label{eq:D_special_case}
 \tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p}{1 - 2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}.
 \end{equation}
+The distance at which the ejecta reaches apoapsis can be found by substituting $D = 2D_{ap}$ into Equation \eqref{eq:D_special_case}.
 
+\subsubsubsection{Initial Speed $v_p$ vs.\ $D$ and $\gamma_p$}
 The initial speed $v_p$ can be solved for, giving
 \begin{equation}\label{eq:vp_special_case}
 \frac{v_p}{v_{esc}} = \frac{1}{\sqrt{1-\cos(2\gamma_p) + \sin(2\gamma_p)\cot\left(\frac{D}{2r_m}\right)}}.
 \end{equation}
 
+\subsubsubsection{Initial Zenith Angle $\gamma_p$ vs.\ $D$ and $v_p$}
 The initial zenith angle $\gamma_p$ can also be solved for by expanding $\cos(2\gamma_p)$ and $\sin(2\gamma_p)$ in terms of $\cot\gamma_p$,
 \begin{align}\label{eq:1-cos 2g to cot g}
 1-\cos(2\gamma_p) &= \frac{2}{1+\cot^2\gamma_p},\\\label{eq:sin 2g to cot g}
@@ -293,8 +298,17 @@ such that
 \begin{equation}\label{eq:specialcase gammap}
 \cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}-1}.
 \end{equation}
+The plus case gives $\gamma_p \le \gamma_{p,opt}$ and the minus case gives  $\gamma_p \ge \gamma_{p,opt}$.
 
-The maximum distance $D_{max}$ a particle can travel at a given speed is found by taking the discriminant in Equation \eqref{eq:specialcase gammap} and setting it equal to zero such that
+\subsubsubsection{Minimum Initial Zenith Angle $\gamma_{p,min}$ vs.\ $D$}
+To find the minimum initial zenith angle $\gamma_{p,min}$, the initial speed approaches the escape speed $v_p\to v_{esc}$ in Equation \eqref{eq:specialcase gammap} and simplifying (taking the positive case),
+\begin{equation}\label{eq:gpmin_special}
+\gamma_{p,min} = \frac{D}{4r_m}.
+\end{equation}
+
+
+\subsubsubsection{Maximum Distance $D_{max}$ vs.\ $v_p$}
+The maximum distance $D_{max}$ a particle can travel at a given speed and optimal zenith angle is found by taking the discriminant in Equation \eqref{eq:specialcase gammap} and setting it equal to zero such that
 \begin{equation}\label{eq:Dmax}
 \tan\left(\frac{D_{max}}{2r_m}\right) = \pm\frac{v_p^2/v_{esc}^2}{\sqrt{1-2v_p^2/v_{esc}^2}}
 \end{equation}
@@ -307,18 +321,21 @@ where the direct path is the positive case, and the indirect path is the negativ
 %\end{cases}, 
 %\end{equation}
 
+\subsubsubsection{Minimum Initial Speed $v_{p,min}$ vs.\ $D$}
 The minimum speed $v_{p,min}$ at which to travel a certain distance is found by solving for $v_p$ in Equation \eqref{eq:Dmax}, giving
 \begin{equation}\label{eq:vpmin_special}
 \frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right),
 \end{equation}
 for $D \le \pi r_m$. For further distances, the limiting minimum speed is $v_{p,min}/v_{esc} = \sqrt{2}/2$.
 
+\subsubsubsection{Optimal Initial Zenith Angle $\gamma_{p,opt}$ vs.\ $D$}
 The optimal initial zenith angle $\gamma_{p,opt}$ follows as\footnote{Note that $\arctan(\cot(\theta)) = \pi/2 - \theta$ for $0 \le \theta \le \pi$.}
 \begin{equation}
 \gamma_{p,opt} = \frac{\pi}{4} + \frac{D}{4r_m},
 \end{equation}
 for $D \le \pi r_m$. For further distances, the limiting optimal angle is $\gamma_{p,opt} = \pi/2$. At very small distances $D \ll r_m$, the optimal angle is $\sim 45^\circ$ as expected.
 
+\subsubsubsection{Final Speed $v_s$ and Zenith Angle $\gamma_s$}
 Due to the symmetry of the orbit points, the final speed and zenith angle\footnote{The final zenith angle is taken as the observed incoming angle, not the angle at which the ejecta is going. This introduces a different of $\pi$ radians.} are given by
 \begin{align}
 v_s &= v_p,\\
@@ -354,29 +371,34 @@ sign(F) = \begin{cases}
 \end{cases}.
 \end{equation}
 
+\subsubsubsection{Maximum Radial Distance $r_{max}$ vs.\ $v_p$ and $\gamma_p$}
 Note that the maximum radius by definition occurs at the apoapsis, or $\beta_s=\pi$, such that Equation \eqref{eq:r_orbit} becomes (fixing the typo in Equation 16 of \cite{gault1963spray})
 \begin{equation}\label{eq:rmax}
 \frac{r_{max}}{r_m} = \frac{1 + \sqrt{\left(\frac{2v_p^2}{v_{esc}^2}-1\right)^2\sin^2\gamma_p+\cos^2\gamma_p}}{2\left(1-\frac{v_p^2}{v_{esc}^2}\right)},
 \end{equation}
 which is also the solution to $F(v_p,\gamma_p,r_s) = 0$ and solving for $r_s$, i.e.\ $F(v_p,\gamma_p,r_{max}) = 0$. When $v_p \ge v_{esc}$, the maximum radius is out at infinity and only the positive solution of $F$ is used.
 
-Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to zero, the minimum speed needed to hit the asset at a height $r_s$ at an initial angle $\gamma_p$ is given by
+\subsubsubsection{Minimum Initial Speed $v_{p,min}$ vs.\ $\gamma_p$ and $r_s$}
+Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to zero, the minimum speed needed to hit the asset at a final radial distance $r_s$ at an initial angle $\gamma_p$ is given by
 %\footnote{More useful than the $v_{p,min}$ equation defined later, at least in terms of the speed-zenith graph.}
 \begin{equation}\label{eq:vpmin}
 \frac{v_{p,min}^2}{v_{esc}^2} = \frac{2\frac{r_s}{r_m}\left(\frac{r_s}{r_m}-1\right)}{2\frac{r_s^2}{r_m^2}+\cos(2\gamma_p)-1},
 \end{equation}
 which describes a \textit{keep out zone} -- if $v_p < v_{p,min}$ for a given zenith angle $\gamma_p$, the ejecta will not reach the asset for all distances.
 
-The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radius $r_s$ is given by
+\subsubsubsection{Initial Zenith Angle to reach Apoapsis $\gamma_{p,ap}$ vs.\ $v_p$ and $r_s$}
+The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radial distance $r_s$ is given by
 \begin{equation}\label{eq:gamma p ap 1}
 \cos\gamma_{p,ap} = \sqrt{\left(\frac{r_s}{r_m}-1\right)\left[\frac{r_s/r_m}{v_p^2/v_{esc}^2}-\left(\frac{r_s}{r_m}+1\right)\right]}.
 \end{equation}
+
+\subsubsubsection{Initial Zenith Angle to reach Apoapsis $\gamma_{p,ap}$ vs.\ $D$ and $r_s$}
 Setting Equation \eqref{eq:gamma p ap 1} equal to Equation \eqref{eq:vp_gen_case}, replacing all the double angles with halved tangent angles, and solving for $\gamma_{p,ap}$, the equation reads
 \begin{equation}
 \tan\gamma_{p,ap} = \frac{\frac{r_s}{r_m}\tan\left(\frac{D}{2r_m}\right)}{\frac{r_s}{r_m}-1}.
 \end{equation}
 
-
+\subsubsubsection{Initial Speed $v_p$ vs.\ $D$, $\gamma_p$, and $r_s$}
 To arrive at the initial speed $v_p$, solve Equation \eqref{eq:D_beta_gen} for $\beta_s$ and take the cosine of both sides and multiply be $e$,
 \begin{align}
 e\cos\beta_s &= e\cos\left(\frac{D}{r_m}+\beta_p\right),\nonumber\\
@@ -388,6 +410,7 @@ and insert Equations \eqref{eq:ecosbetap}, \eqref{eq:esinbetap}, and \eqref{eq:e
 \end{equation}
 It is clear that if $r_s=r_m$, Equation \eqref{eq:vp_special_case} is recovered.
 
+\subsubsubsection{Distance $D$ vs.\ $v_p$, $\gamma_p$, and $r_s$}
 The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be derived starting from Equation \eqref{eq:D_beta_gen}, dividing by $2$, and taking the tangent of both sides
 \begin{align}
 \tan\left(\frac{D}{2r_m}\right) &= \tan\left(\frac{\beta_s-\beta_p}{2}\right),\nonumber\\\nonumber
@@ -404,17 +427,33 @@ where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken o
 \end{equation}
 in order to place the distance in the correct region. At the maximum radius $r_s=r_{max}$, then $F=0$ and $\gamma_s=\pi/2$. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
 
+\subsubsubsection{Initial Zenith Angle $\gamma_p$ vs.\ $D$, $v_p$, and $r_s$}
 The initial zenith angle can be found similar to Section \ref{sssec:Crater on Surface to Observer at Surface},
 \begin{equation}
 \label{eq:generalcase gammap}
 \cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}\left(\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right)-1}.
 \end{equation}
 
+
+\subsubsubsection{Minimum Initial Zenith Angle $\gamma_{p,min}$ vs.\ $D$ and $r_s$}
+Similar to the previous section, in order to find the minimum initial zenith angle $\gamma_{p,min}$, the initial speed approaches the escape speed $v_p\to v_{esc}$ in Equation \eqref{eq:generalcase gammap} and simplifying (taking the positive case),
+\begin{equation}
+\tan\gamma_{p,min} = \frac{\sin\left(\frac{D}{2r_m}\right)}{\cos\left(\frac{D}{2r_m}\right)+\sqrt{\frac{r_m}{r_s}}}.
+\end{equation}
+When the distance is small $D\ll r_m$, the minimum angle becomes
+\begin{equation}
+\gamma_p \sim \frac{D}{4r_m}\left(\frac{2}{1+\sqrt{\frac{r_m}{r_s}}}\right),
+\end{equation}
+which equals Equation \eqref{eq:gpmin_special}, and is exact, when $r_s = r_m$.
+
+
+\subsubsubsection{Maximum Distance $D_{max}$ vs.\ $v_p$ and $r_s$}
 The maximum distance $D_{max}$ can be solved similar as before, giving (positive case: direct path, negative case and modding the tangent argument by $\pi$: indirect path)
 \begin{equation}
 \tan\left(\frac{D_{max}}{2r_m}\right) = \pm\sqrt{\frac{\frac{v_p^2}{v_{esc}^2}\left[1-\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)\right]}{\frac{r_s}{r_m}\left(1-\frac{v_p^2}{v_{esc}^2}\right)-\frac{v_p^2}{v_{esc}^2}}}.
 \end{equation}
 
+\subsubsubsection{Minimum Initial Speed $v_{p,min}$ vs.\ $D$ and $r_s$}
 Looking at the discriminant of Equation \eqref{eq:generalcase gammap} and setting to zero, the minimum initial speed to reach the asset is given by (different from Equation \eqref{eq:vpmin})
 \begin{equation}\label{eq:vpmin_general}
 \frac{v_{p,min}^2}{v_{esc}^2} = +\tan\left(\frac{D}{2r_m}\right)\tan\left(\frac{\pi}{4}- \frac{D}{4r_m}\right) + \frac{\sec^2\left(\frac{D}{2r_m}\right)}{2} G(r_s, D),
@@ -425,11 +464,13 @@ G(r_s, D) = 1-\frac{r_m}{r_s} + 2\sin\left(\frac{D}{2r_m}\right)\left[\sqrt{1 - 
 \end{equation}
 If $r_s=r_m$, then $G(r_s,D) = 0$ and Equation \eqref{eq:vpmin_special} is obtained.
 
+\subsubsubsection{Optimal Initial Zenith Angle $\gamma_{p,opt}$ vs.\ $D$ and $r_s$}
 The optimal initial angle $\gamma_{p,opt}$ is derived by inserting Equation \eqref{eq:vpmin_general} into Equation~\eqref{eq:generalcase gammap}, giving
 \begin{equation}
 \cot\gamma_{p,opt} = \tan\left(\frac{\pi}{4}-\frac{D}{4r_m}\right) + \csc\left(\frac{D}{r_m}\right)G(r_s,D).
 \end{equation}
 
+\subsubsubsection{Final Speed $v_s$ vs.\ $v_p$ and $r_s$}
 To find an equation for the final speed $v_s$, take $r=r_s$ in Equation \eqref{eq:a_vgen} and substitute Equation \eqref{eq:a_vrm} for $a$, giving
 \begin{equation}
 \frac{v_s}{v_{esc}} = \sqrt{\frac{r_m}{r_s} + \frac{v_p^2}{v_{esc}^2} - 1}.
@@ -450,13 +491,15 @@ If $r_s=r_m$, $v_s=v_p$ is recovered.
 %\end{equation}
 %If $r_s=r_m$, then $\gamma_s=\gamma_p$ as before.
 
+\subsubsubsection{Final Zenith Angle $\gamma_s$ vs.\ $v_p$, $\gamma_p$, and $r_s$}
 To solve for the final zenith angle $\gamma_s$, start with Equation \eqref{eq:tan_gamma} and insert Equations~\eqref{eq:ecosbetas} and \eqref{eq:esinbetas} such that (Note the phase shift of $\pi$ that introduces the extra minus sign\footnote{The minus sign must be in the denominator for the $\arctan$ function to numerically map the quadrants properly.} for the incoming angle at the asset)
 \begin{equation}
 \tan\gamma_s = \frac{1}{-F}\tan\gamma_p,
 \end{equation}
 where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. If $r_s = r_m$, then\footnote{The $F=1$ case degenerates to the crater location and is a trivial case when $r_s=r_m$.} $F=-1$ and $\gamma_s = \gamma_p$ as expected.
 
-The final position $r_s$ can also be solved for using Equation \eqref{eq:vp_gen_case},
+\subsubsubsection{Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma_p$}
+The final radial distance $r_s$ can also be solved for using Equation \eqref{eq:vp_gen_case},
 \begin{equation}
 \frac{r_s}{r_m} = \frac{2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}{1 + \left(\frac{v_p^2}{v_{esc}^2}-1\right)\cos\left(\frac{D}{r_m}\right) - \frac{v_p^2}{v_{esc}^2}\cos\left(\frac{D}{r_m} - 2\gamma_p\right)}.
 \end{equation}
@@ -547,7 +590,8 @@ dim style/.append style={black,
 \tkzLabelSegment[below](B,E2){$a$}
 
 \tkzDrawPoints(E1,E2,C,A2,D)
-\end{tikzpicture}
+\end{tikzpicture}
+
 \caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The FOV the asset encompasses from the point of view of the crater is $2\beta_{max}$}\label{fig:FOV}
 \end{figure}
 
