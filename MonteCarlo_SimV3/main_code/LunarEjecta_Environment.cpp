@@ -249,6 +249,8 @@ void get_ejecta_environment(input*  params,
 	                        vector<double>&  sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
 	                        vector<double>&  sample_zenith_f,   // [rad]
 	                        vector<double>&  sample_speed_f,    // [vesc]
+	                        vector<double>&  sample_altitude_f, // [rm]
+		                    vector<double>&  sample_distance_f, // [rm]
 	                        vector<double>&  sample_weight,
 	                        int              N_s_sample, 
 

@@ -38,8 +38,15 @@ double final_speed(double a, double vp);
 // final zenith at asset (as seen from the asset)
 /// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
 /// return ejecta zenith at asset in units of radians
-double final_zenith(double d, double vp, double g);
+double final_zenith(double d, double vp, double g, double rs);
 
+
+// final altitude at asset
+/// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
+// return final altitude at asset in units of rm
+double final_altitude(double d, double vp, double g);
+
+double distance(double vp, double g, double rs);
 
 // the smallest zenith angle to reach asset at ~ escape speed
 /// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm

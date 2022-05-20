@@ -6,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <iomanip> // setprecision
 #include <cmath>
 #include <sstream>
 #include <chrono>
@@ -102,12 +103,31 @@ double destination_lon(double lat1, double lon1, double lat2, double d, double a
 }
 
 
-// final speed at asset
-/// a is the asset altitude in units of rm, vp is the ejecta speed at primary impact in units of escape speed
-/// returns ejecta speed at asset in units of escape speed
-double final_speed(double a, double vp)
+double gp_ap(double vp, double rs)
 {
-	return sqrt(1./a + sqr(vp) - 1.);
+	return acos(sqrt((rs - 1.) * (rs/sqr(vp) - (rs + 1.))));
+}
+
+
+double F(double d, double vp, double g, double rs)
+{
+	double sign;
+
+	if (d < PI && g > gp_ap(vp, rs)){
+		sign = -1.;
+	} else {
+		sign = 1.;
+	}
+
+	return sign * sqrt( 1. + ((rs-1.)/sqr(cos(g))) * (rs + 1. - rs/sqr(vp)) );
+}
+
+// final speed at asset
+/// rs is the asset altitude in units of rm, vp is the ejecta speed at primary impact in units of escape speed
+/// returns ejecta speed at asset in units of escape speed
+double final_speed(double rs, double vp)
+{
+	return sqrt(1./rs + sqr(vp) - 1.);
 }
 
 
@@ -115,9 +135,10 @@ double final_speed(double a, double vp)
 // final zenith at asset (as seen from the asset)
 /// d is in units of rm, vp is in units of vesc, g is zenith at ejected point in rads
 /// return ejecta zenith at asset in units of radians
-double final_zenith(double d, double vp, double g)
+double final_zenith(double d, double vp, double g, double rs)
 {
-	return -atan2((sqr(vp) * (cos(d-2.*g) - cos(d)) + cos(d) - 1.), (sqr(vp) * (sin(d-2.*g) - sin(d)) + sin(d)));
+	return atan2(tan(g), -F(d, vp, g, rs));
+	//return -atan2((sqr(vp) * (cos(d-2.*g) - cos(d)) + cos(d) - 1.), (sqr(vp) * (sin(d-2.*g) - sin(d)) + sin(d))); wrong
 }
 
 
@@ -129,22 +150,32 @@ double final_altitude(double d, double vp, double g)
 	return 2.*sqr(vp * sin(g)) / (1. + (sqr(vp) - 1.)*cos(d) - sqr(vp)*cos(d - 2.*g));
 }
 
+
+
+double distance(double vp, double g, double rs, double d_side)
+{
+	double Fi = F(d_side, vp, g, rs);
+	return fmod(2.*PI + 2. * atan2( sqr(vp) * sin(2.*g) + ((rs - 1.) / (1. - Fi)) * (2.*sqr(vp) - 1.) * tan(g),
+		               ((rs - Fi) / (1. - Fi)) - 2.*sqr(vp * sin(g)) ), 2.*PI);
+}
+
 // this is half the distance from crater to reimpacting the Moon
 // vp is in units of vesc, g is zenith at ejected point in rads
 // returns distance in units of rm
-double apoapsis_distance(double vp, double g)
+double apoapsis_distance(double vp, double g, double rs)
 {
-	return atan2( sqr(vp) * sin(2.*g), 1. - 2.*sqr(vp * sin(g)) );
+
+	return atan2( sqr(vp) * sin(2.*g), 1. - 2.*sqr(vp * sin(g)) ); 
 }
 
 
 
 // the smallest zenith angle to reach asset at ~ escape speed
-/// a is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
+/// rs is the asset altitude in units of rm, d_rm is the projected distance from the impact point to asset in units of rm
 /// return ejecta zenith, at ejecta point, in radians
-double min_zenith_at_escape(double a, double d_rm)
+double min_zenith_at_escape(double rs, double d_rm)
 {
-	return atan2( sin(d_rm/2.), cos(d_rm/2.) + sqrt(1./a));
+	return atan2( sin(d_rm/2.), cos(d_rm/2.) + sqrt(1./rs));
 }
 
 
@@ -384,7 +415,24 @@ int pdf_sample(mt19937& rng, vector<double>& zenith, vector<double>& vminv, vect
 
 
 // Using Stratified Importance Sampling
-void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& vmaxv, double vlow, double vmax, vector<double>& cdf, double d, double a, double h, double r, vector<double>& sample_zenith, vector<double>& sample_speed, vector<double>& sample_zenith_f, vector<double>& sample_speed_f, vector<double>& sample_altitude_f, vector<double>& sample_distance_f, vector<double>& sample_weight, int N_sample)
+void get_samples(vector<double>& zenith,
+	             vector<double>& vminv,
+	             vector<double>& vmaxv,
+	             double vlow,
+	             double vmax,
+	             vector<double>& cdf,
+	             double d,
+	             double a,
+	             double h,
+	             double r,
+	             vector<double>& sample_zenith,
+	             vector<double>& sample_speed,
+	             vector<double>& sample_zenith_f,
+	             vector<double>& sample_speed_f,
+	             vector<double>& sample_altitude_f,
+	             vector<double>& sample_distance_f,
+	             vector<double>& sample_weight,
+	             int N_sample)
 {
 	//init the random generator
 	// https://stackoverflow.com/questions/24334012/best-way-to-seed-mt19937-64-for-monte-carlo-simulations
@@ -410,7 +458,7 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 	sample_distance_f.resize(N_sample);
 	sample_weight.resize(N_sample);
 
-	double r_s, d_s; // final altitute and distance
+	double r_s;//, d_s; // final altitute and distance
 
 
 	//init sample_idx, don't need it outside of get_samples function
@@ -434,22 +482,21 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 			if (r_s >= a && r_s <= a + h)
 			{
 				sample_altitude_f[i] = r_s;
+				sample_distance_f[i] = d;
 			}
 			else // top or bottom side
 			{
-				d_half = apoapsis_distance(sample_speed[i], sample_zenith[i]);
 
-				// if d_s < d_half, then we take the "+" solution (gamma_s > pi/2)
-				// otherwise, if d_s > d_half, then we take the "-" solution (gamma_s < pi/s)
-
-				else if(r_s > a + h) // top face
+				if(r_s > a + h) // top face
 				{
-				
+					sample_altitude_f[i] = a + h;
+					sample_distance_f[i] = distance(sample_speed[i], sample_zenith[i], a + h, d);
 
 				}
-				else // bottom face
+				else // bottom face, r_s < a
 				{
-
+					sample_altitude_f[i] = a;
+					sample_distance_f[i] = distance(sample_speed[i], sample_zenith[i], a, d);
 				}
 			}
 
@@ -459,7 +506,7 @@ void get_samples(vector<double>& zenith, vector<double>& vminv, vector<double>& 
 			// If not at the top face, check bottom face
 			// If no face found, then redo the sample
 
-		} while();
+		} while(!( (sample_distance_f[i] >= d && sample_distance_f[i] <= d + 2.*r) && (sample_altitude_f[i] >= a && sample_altitude_f[i] <= a + h) ));
 
 		stratified_count[sample_idx[i]]++;
 	}
@@ -525,7 +572,7 @@ void get_samples_with_azm_lat_lon(input* p,
 
 	vector<double> zenith, vminv, vmaxv;
 	vector<double> sample_zenith_0_i, sample_speed_0_i, sample_weight_i;
-	vector<double> sample_zenith_f_i, sample_speed_f_i;
+	vector<double> sample_zenith_f_i, sample_speed_f_i, sample_altitude_f_i, sample_distance_f_i;
 	double dazm, d, latp_i, lonp_i, azm_i, azm_center, lats_i, lons_i, u_min, u_max;
 	int i, j, i_zll, zll_count = 0;//, cur_i;
 
@@ -629,8 +676,8 @@ void get_samples_with_azm_lat_lon(input* p,
 				        sample_speed_0_i,  // [vesc]
 				        sample_zenith_f_i, // [rad]
 				        sample_speed_f_i,  // [vesc]
-				        sample_altitude_f, // [rm]
-				        sample_distance_f, // [rm]
+				        sample_altitude_f_i, // [rm]
+				        sample_distance_f_i, // [rm]
 				        sample_weight_i,
 				        N_zenith_speed);
 
@@ -657,22 +704,23 @@ void get_samples_with_azm_lat_lon(input* p,
 				// copy from get_samples() output
 		    	sample_zenith_0.emplace_back(sample_zenith_0_i[j]);
 		    	sample_speed_0.emplace_back(sample_speed_0_i[j]);
+		    	sample_altitude_f.emplace_back(sample_altitude_f_i[j]);
+		    	sample_distance_f.emplace_back(sample_distance_f_i[j]);
 		    	sample_weight.emplace_back(sample_weight_i[j]);
 
 		    	// compute final azimuth (bearing), zenith angle, and speed of secondary as seen from asset
 		    	/// For azm, need to compute the exact lat-lon impact given the azm_i sample
-		    	lats_i = destination_lat(latp_i, d, azm_i);
-		    	lons_i = destination_lon(latp_i, lonp_i, lats_i, d, azm_i);
+		    	lats_i = destination_lat(latp_i, sample_distance_f_i[j], azm_i);
+		    	lons_i = destination_lon(latp_i, lonp_i, lats_i, sample_distance_f_i[j], azm_i);
 
 		    	// final bearing (from asset to primary impact location), force to be from 0 to 2PI
 				sample_azimuth_f.emplace_back( fmod(azm_bearing(lats_i, lons_i, latp_i, lonp_i, 0) + 2.*PI, 2.*PI) );
 
 				// final zenith (as seen from asset, similar to wind direction), should be from 0 to PI (PI/2 to PI is pointing below the horizon)
-				sample_zenith_f.emplace_back( final_zenith(d, sample_speed_0_i[j], sample_zenith_0_i[j]) );
+				sample_zenith_f.emplace_back( final_zenith(sample_distance_f_i[j], sample_speed_0_i[j], sample_zenith_0_i[j], sample_altitude_f_i[j]) );
 
-				// final speed at asset, approximate as hitting mid-height of asset
-				/// later, when we do the actual trajectory, we can know the exact height
-				sample_speed_f.emplace_back( final_speed(a + h/2., sample_speed_0_i[j]) );
+				// final speed at asset
+				sample_speed_f.emplace_back( final_speed(sample_altitude_f_i[j], sample_speed_0_i[j]) );
 
 				//cur_i = sample_latp.size()-1;
 
@@ -685,10 +733,12 @@ void get_samples_with_azm_lat_lon(input* p,
 		sample_weight[i] /= double(zll_count); // ~Stratified Sampling
 		sample_weight[i] *= p->lunar_escape_speed; // since vmin and vmax were in units of vesc
 
+		speed_angle_dist_file << setprecision(10);
 
 		speed_angle_dist_file << sample_latp[i] << ' ' << sample_lonp[i] << ' ' << sample_azimuth_0[i] << ' '; 
 		speed_angle_dist_file << sample_zenith_0[i] << ' ' << sample_speed_0[i] << ' ' << sample_weight[i] << ' '; 
-		speed_angle_dist_file << sample_azimuth_f[i] << ' ' << sample_zenith_f[i] << ' ' << sample_speed_f[i] << endl; 
+		speed_angle_dist_file << sample_azimuth_f[i] << ' ' << sample_zenith_f[i] << ' ' << sample_speed_f[i] << ' ';
+		speed_angle_dist_file << sample_altitude_f[i] - 1. << ' ' << sample_distance_f[i]  << ' ' <<  lat_lon_dist(sample_latp[i], sample_lonp[i], lats, lons, 0) << endl; 
 	}
 
 	speed_angle_dist_file.close();

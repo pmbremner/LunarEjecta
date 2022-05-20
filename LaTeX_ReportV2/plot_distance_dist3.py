@@ -165,7 +165,7 @@ def iint_dM_a(d, g, rs, h, a):
 rr = float(sys.argv[1])
 af = float(sys.argv[2])
 hh = float(sys.argv[3])
-#dd = float(sys.argv[4])
+df = float(sys.argv[4])
 
 Ng = 300
 Nd = 100
@@ -183,9 +183,29 @@ rv = np.linspace(0., 1., 10) + rr
 #aa = np.linspace(0., af, Na)
 
 #print(rv-1)
+#cdf = np.zeros(Ng+1)
+cdf = np.cumsum(vmaxvec(df, gp, rr, hh, af) - vminvec(df, gp, rr, hh, af))
+cdf /= cdf[-1]
 
-# plt.plot(gp, vmaxvec(dd, gp, rr, hh, aa))
-# plt.plot(gp, vminvec(dd, gp, rr, hh, aa))
+#print(cdf)
+
+N = 10000
+
+g_sample = np.zeros(N)
+v_sample = np.zeros(N)
+
+x = np.random.uniform(size=N)
+
+for i in range(N):
+	idx = np.argmax(cdf >= np.random.uniform(0, 1)) - 1
+	g_sample[i] = np.random.uniform(gp[idx], gp[idx+1])
+	v_sample[i] = np.random.uniform(vminvec(df, g_sample[i], rr, hh, af), vmaxvec(df, g_sample[i], rr, hh, af))
+
+
+plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
+plt.plot(gp, vminvec(df, gp, rr, hh, af))
+plt.plot(gp, cdf)
+plt.scatter(g_sample, v_sample, s=1.5)
 ##########################################################3
 # F0 = int_dM(dd, gp, rr, hh, af)
 
@@ -199,8 +219,8 @@ rv = np.linspace(0., 1., 10) + rr
 # 	plt.loglog(dd, F0, label=r'$v\in $' + f'({v_domain_min:.2f}, {v_domain_max:.2f})')
 ##########################################################3
 
-plt.loglog(dd, int_dM(dd, gp, rr, hh, af))
-plt.loglog(dd, int_dM_azm(dd, gp, rr, hh, af))
+# plt.loglog(dd, int_dM(dd, gp, rr, hh, af))
+# plt.loglog(dd, int_dM_azm(dd, gp, rr, hh, af))
 
 #print(np.nansum((dd[1:]-dd[:-1])*(F0[:-1]+F0[1:])/2.) / np.nansum((dd[1:]-dd[:-1])*(F1[:-1]+F1[1:])/2.))
 

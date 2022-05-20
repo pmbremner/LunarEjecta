@@ -10,7 +10,7 @@
 // note, -march=native is to allow for vectorization, if possible
 // -Wno-narrowing is to ignore warning about convering a double to a long long int
 
-//  g++ -O2 -std=c++17 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
+//  g++ -O2 -std=c++11 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\AMD-Y500\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 //  g++ -O2 -std=c++11 -march=native -Wno-narrowing primary_and_secondaries_test.cpp ./main_code/LunarEjecta_MainUtils.cpp ./main_code/LunarEjecta_SecondaryEjecta.cpp ./main_code/LunarEjecta_params.cpp ./main_code/LunarEjecta_igloo.cpp ./main_code/LunarEjecta_PrimaryImpactor.cpp ./main_code/LunarEjecta_Environment.cpp -IC:\Users\adestefa\Documents\GitHub\LunarEjecta\MonteCarlo_SimV3\main_code -o ejecta.exe
 
 using namespace std;
@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
 	vector<double> p_sample_azimuth, p_sample_zenith, p_sample_speed, p_sample_flux_weight, p_sample_density, p_sample_mass;
 	vector<int> p_sample_type;
 	vector<double> sample_latp, sample_lonp, sample_azimuth_0, sample_zenith_0, sample_speed_0;
-	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_weight;
+	vector<double> sample_azimuth_f, sample_zenith_f, sample_speed_f, sample_altitude_f, sample_distance_f, sample_weight;
 	double lat_center, lon_center, dlat, dlon, d;//, N_all_weight;
 
 	vector<double> ejecta_env_speed, ejecta_env_zenith, ejecta_env_azimuth, ejecta_env_size, ejecta_env_flux;
@@ -150,6 +150,8 @@ int main(int argc, char const *argv[])
 		                              sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
 		                              sample_zenith_f,
 		                              sample_speed_f,    // [vesc]
+		                              sample_altitude_f, // [rm]
+		                              sample_distance_f, // [rm]
 		                              sample_weight,
 		                              params->N_azm_lat_lon,   // number of pulls in azimuth-lat-lon sets
 		                              params->N_zenith_speed); // number of pulls in zenith-speed sets
@@ -196,6 +198,8 @@ int main(int argc, char const *argv[])
                                sample_azimuth_f,  // final azimuth, zenith, and speed of secondary, at asset impact
                                sample_zenith_f,
                                sample_speed_f,    // [vesc]
+                               sample_altitude_f, // [rm]
+		                       sample_distance_f, // [rm]
                                sample_weight,    
                                params->N_azm_lat_lon * params->N_zenith_speed, // N_s_sample
 
