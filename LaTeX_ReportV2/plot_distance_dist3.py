@@ -15,6 +15,9 @@ mu = 0.4
 
 Nazm = 5
 
+def r_final(d, v, g):
+	return (2. * (v * np.sin(g))**2) / (1. + (v**2 - 1.) * np.cos(d) - v**2 * np.cos(d - 2.*g))
+
 
 def vp_disc(d, g, rs):
 	return ((1./rs - np.cos(d))/(1. - np.cos(d)))*(1. - np.cos(2.*g)) + np.sin(2.*g)/np.tan(d/2.)
@@ -167,7 +170,7 @@ af = float(sys.argv[2])
 hh = float(sys.argv[3])
 df = float(sys.argv[4])
 
-Ng = 300
+Ng = 10000
 Nd = 100
 Nh = 20
 Na = 10
@@ -176,10 +179,10 @@ Nv = 10
 
 gp = np.linspace(EPS, np.pi/2.-EPS, Ng)
 
-dd = np.logspace(-4., np.log10(np.pi - 10.*af), Nd)
+#dd = np.logspace(-4., np.log10(np.pi - 10.*af), Nd)
 #dd = np.linspace(0., np.pi - af*10, Nd)
 
-rv = np.linspace(0., 1., 10) + rr
+#rv = np.linspace(0., 1., 10) + rr
 #aa = np.linspace(0., af, Na)
 
 #print(rv-1)
@@ -202,10 +205,24 @@ for i in range(N):
 	v_sample[i] = np.random.uniform(vminvec(df, g_sample[i], rr, hh, af), vmaxvec(df, g_sample[i], rr, hh, af))
 
 
+r_si = r_final(df, v_sample, g_sample)
+
 plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
 plt.plot(gp, vminvec(df, gp, rr, hh, af))
 plt.plot(gp, cdf)
-plt.scatter(g_sample, v_sample, s=1.5)
+
+plt.scatter(g_sample, v_sample, s=1.5, color='b')
+plt.scatter(g_sample[r_si < rr], v_sample[r_si < rr], s=1.5, color='r')
+plt.scatter(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], s=1.5, color='g')
+
+
+plt.figure()
+plt.scatter(g_sample, r_si, s=1.5, color='b')
+plt.scatter(g_sample[r_si < rr], r_si[r_si < rr], s=1.5, color='r')
+plt.scatter(g_sample[r_si > rr + hh], r_si[r_si > rr + hh], s=1.5, color='g')
+plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
+plt.axhline(y = rr + hh, color='g', linestyle='-') 
+
 ##########################################################3
 # F0 = int_dM(dd, gp, rr, hh, af)
 
