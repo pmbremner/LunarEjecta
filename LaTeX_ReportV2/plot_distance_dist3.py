@@ -192,7 +192,7 @@ cdf /= cdf[-1]
 
 #print(cdf)
 
-N = 10000
+N = 100000
 
 g_sample = np.zeros(N)
 v_sample = np.zeros(N)
@@ -209,11 +209,12 @@ r_si = r_final(df, v_sample, g_sample)
 
 plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
 plt.plot(gp, vminvec(df, gp, rr, hh, af))
-plt.plot(gp, cdf)
+#plt.plot(gp, cdf)
 
-plt.scatter(g_sample, v_sample, s=1.5, color='b')
-plt.scatter(g_sample[r_si < rr], v_sample[r_si < rr], s=1.5, color='r')
-plt.scatter(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], s=1.5, color='g')
+plt.scatter(g_sample, v_sample, s=3, color='b')
+plt.scatter(g_sample[r_si < rr], v_sample[r_si < rr], s=3, color='r')
+plt.scatter(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], s=3, color='g')
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 
 plt.figure()
