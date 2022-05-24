@@ -15,6 +15,27 @@ mu = 0.4
 
 Nazm = 5
 
+
+def g_p_ap(v, rs):
+	return np.arccos(np.sqrt((rs - 1.) * (rs / v**2 - (rs - 1.))))
+
+def F(v, g, rs):
+	sign = 1.
+	if g > g_p_ap(v, rs):
+		sign = -1.
+
+	return sign * np.sqrt(1. + (rs - 1.) * (rs + 1. - rs / v**2) / np.cos(g)**2)
+
+Fvec = vectorize(F, otypes=[float])
+
+def dist(v, g, rs):
+	Fi = Fvec(v, g, rs)
+	if rs == 1.:
+		return 2. * np.arctan2(v**2 * np.sin(2.*g), 1. - 2.* (v * np.sin(g))**2 )
+	else:
+		return 2. * np.arctan2(v**2 * np.sin(2.*g) * (1. - Fi) + (rs - 1.) * (2.*v**2 - 1.) * np.tan(g), (rs - Fi) - 2.* (v * np.sin(g))**2 * (1. - Fi))
+
+
 def r_final(d, v, g):
 	return (2. * (v * np.sin(g))**2) / (1. + (v**2 - 1.) * np.cos(d) - v**2 * np.cos(d - 2.*g))
 
@@ -192,7 +213,7 @@ cdf /= cdf[-1]
 
 #print(cdf)
 
-N = 100000
+N = 10000
 
 g_sample = np.zeros(N)
 v_sample = np.zeros(N)
@@ -217,12 +238,14 @@ plt.scatter(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], s=3, color='g')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 
+print(dist(v_sample, g_sample, rr))
+
 plt.figure()
-plt.scatter(g_sample, r_si, s=1.5, color='b')
-plt.scatter(g_sample[r_si < rr], r_si[r_si < rr], s=1.5, color='r')
-plt.scatter(g_sample[r_si > rr + hh], r_si[r_si > rr + hh], s=1.5, color='g')
-plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
-plt.axhline(y = rr + hh, color='g', linestyle='-') 
+plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
+plt.scatter(dist(g_sample[r_si < rr], v_sample[r_si < rr], rr), (np.ones(N) * rr)[r_si < rr], s=1.5, color='r')
+plt.scatter(dist(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], rr + hh), (np.ones(N) * (rr + hh))[r_si > rr + hh], s=1.5, color='g')
+# plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
+# plt.axhline(y = rr + hh, color='g', linestyle='-') 
 
 ##########################################################3
 # F0 = int_dM(dd, gp, rr, hh, af)
