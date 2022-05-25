@@ -15,7 +15,6 @@ mu = 0.4
 
 Nazm = 5
 
-
 def g_p_ap(v, rs):
 	return np.arccos(np.sqrt((rs - 1.) * (rs / v**2 - (rs - 1.))))
 
@@ -190,6 +189,15 @@ rr = float(sys.argv[1])
 af = float(sys.argv[2])
 hh = float(sys.argv[3])
 df = float(sys.argv[4])
+gg = float(sys.argv[5])
+
+
+vv = vp(df, gg, rr + af)
+
+print('v = ', vv)
+print('r = ', r_final(df, vv, gg))
+print('d = ', dist(vv, gg, rr - af))
+
 
 Ng = 10000
 Nd = 100
