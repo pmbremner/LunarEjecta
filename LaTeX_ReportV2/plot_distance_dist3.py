@@ -19,20 +19,26 @@ def g_p_ap(v, rs):
 	return np.arccos(np.sqrt((rs - 1.) * (rs / v**2 - (rs - 1.))))
 
 def F(v, g, rs):
-	sign = 1.
+	sign = -1.
 	if g > g_p_ap(v, rs):
-		sign = -1.
+		sign = 1.
 
 	return sign * np.sqrt(1. + (rs - 1.) * (rs + 1. - rs / v**2) / np.cos(g)**2)
 
 Fvec = vectorize(F, otypes=[float])
 
-def dist(v, g, rs):
+def dist(v, g, rs, s=0):
 	Fi = Fvec(v, g, rs)
+	if s == -1:
+		Fi = -np.abs(Fi)
+	elif s == 1:
+		Fi = np.abs(Fi)
+
 	if rs == 1.:
 		return 2. * np.arctan2(v**2 * np.sin(2.*g), 1. - 2.* (v * np.sin(g))**2 )
 	else:
-		return 2. * np.arctan2(v**2 * np.sin(2.*g) * (1. - Fi) + (rs - 1.) * (2.*v**2 - 1.) * np.tan(g), (rs - Fi) - 2.* (v * np.sin(g))**2 * (1. - Fi))
+		#return 2. * np.arctan2(v**2 * np.sin(2.*g) * (1. - Fi) + (rs - 1.) * (2.*v**2 - 1.) * np.tan(g), (rs - Fi) - 2.* (v * np.sin(g))**2 * (1. - Fi))
+		return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
 
 
 def r_final(d, v, g):
@@ -250,8 +256,8 @@ print(dist(v_sample, g_sample, rr))
 
 plt.figure()
 plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
-plt.scatter(dist(g_sample[r_si < rr], v_sample[r_si < rr], rr), (np.ones(N) * rr)[r_si < rr], s=1.5, color='r')
-plt.scatter(dist(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], rr + hh), (np.ones(N) * (rr + hh))[r_si > rr + hh], s=1.5, color='g')
+plt.scatter(dist(g_sample[r_si < rr], v_sample[r_si < rr], rr, 1), (np.ones(N) * rr)[r_si < rr], s=1.5, color='r')
+plt.scatter(dist(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], rr + hh, -1), (np.ones(N) * (rr + hh))[r_si > rr + hh], s=1.5, color='g')
 # plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
 # plt.axhline(y = rr + hh, color='g', linestyle='-') 
 
