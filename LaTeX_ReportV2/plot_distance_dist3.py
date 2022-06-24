@@ -19,9 +19,9 @@ def g_p_ap(v, rs):
 	return np.arccos(np.sqrt((rs - 1.) * (rs / v**2 - (rs - 1.))))
 
 def F(v, g, rs):
-	sign = -1.
+	sign = 1.
 	if g > g_p_ap(v, rs):
-		sign = 1.
+		sign = -1.
 
 	return sign * np.sqrt(1. + (rs - 1.) * (rs + 1. - rs / v**2) / np.cos(g)**2)
 
@@ -38,7 +38,19 @@ def dist(v, g, rs, s=0):
 		return 2. * np.arctan2(v**2 * np.sin(2.*g), 1. - 2.* (v * np.sin(g))**2 )
 	else:
 		#return 2. * np.arctan2(v**2 * np.sin(2.*g) * (1. - Fi) + (rs - 1.) * (2.*v**2 - 1.) * np.tan(g), (rs - Fi) - 2.* (v * np.sin(g))**2 * (1. - Fi))
-		return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
+		return np.mod(2.*np.pi + 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) , 2.*np.pi)
+		#return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
+
+	# Fi = F(v, g, rs)
+	# if g > g_ap(d0, rs) and d0 < np.pi:
+	# 	Fi *= -1
+	# 	if v**2 > 1./(1. + 1./rs):
+	# 		return 2.*np.mod(np.pi + np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) , 2.*np.pi)
+	# 	else:
+	# 		return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
+	# return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
+
+
 
 
 def r_final(d, v, g):
@@ -54,6 +66,8 @@ def vp(d, g, rs):
 		return v_domain_max
 	else:
 		return vp_disc_i**-(1/2)
+
+vp_vec = vectorize(vp)
 
 
 def vmax(d, g, rs, h, a):
@@ -198,14 +212,14 @@ df = float(sys.argv[4])
 gg = float(sys.argv[5])
 
 
-vv = vp(df, gg, rr + af)
+vv = vp(df, gg, rr)
 
 print('v = ', vv)
-print('r = ', r_final(df, vv, gg))
-print('d = ', dist(vv, gg, rr - af))
+print('r = ', r_final(df, vv, 0.51951786))
+print('d = ', dist(vv, gg, rr, -1))
 
 
-Ng = 10000
+Ng = 100
 Nd = 100
 Nh = 20
 Na = 10
@@ -227,7 +241,7 @@ cdf /= cdf[-1]
 
 #print(cdf)
 
-N = 10000
+N = 1000
 
 g_sample = np.zeros(N)
 v_sample = np.zeros(N)
@@ -239,25 +253,51 @@ for i in range(N):
 	g_sample[i] = np.random.uniform(gp[idx], gp[idx+1])
 	v_sample[i] = np.random.uniform(vminvec(df, g_sample[i], rr, hh, af), vmaxvec(df, g_sample[i], rr, hh, af))
 
-
+# height at the side of the asset
 r_si = r_final(df, v_sample, g_sample)
 
 plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
 plt.plot(gp, vminvec(df, gp, rr, hh, af))
+plt.xlim([0., np.pi/2.])
+plt.ylim([0., 1.])
 #plt.plot(gp, cdf)
 
-plt.scatter(g_sample, v_sample, s=3, color='b')
-plt.scatter(g_sample[r_si < rr], v_sample[r_si < rr], s=3, color='r')
-plt.scatter(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], s=3, color='g')
+# side hits
+g_side = g_sample[(r_si >= rr) & (r_si <= rr + hh)]
+v_side = v_sample[(r_si >= rr) & (r_si <= rr + hh)]
+
+# top hits
+g_top = g_sample[r_si > rr + hh]
+v_top = v_sample[r_si > rr + hh]
+
+# bottom hits
+g_bottom = g_sample[r_si < rr]
+v_bottom = v_sample[r_si < rr]
+
+
+plt.scatter(g_side, v_side, s=3, color='b')
+plt.scatter(g_bottom, v_bottom, s=3, color='r')
+plt.scatter(g_top, v_top, s=3, color='g')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
+plt.figure()
+for di in np.linspace(df, df + 2.*af, 10):
+	plt.plot(gp, vp_vec(di, gp, rr+hh), color='g')
+	print(di, dist(gp, vp_vec(di, gp, rr+hh), rr+hh))
+for di in np.linspace(df, df + 2.*af, 10):
+	plt.plot(gp, vp_vec(di, gp, rr), color='r')
+for ri in np.linspace(rr, rr+hh, 10):
+	plt.plot(gp, vp_vec(df, gp, ri), color='b')
+plt.xlim([0., np.pi/2.])
+plt.ylim([0., 1.])
 
-print(dist(v_sample, g_sample, rr))
+
+print(g_bottom[0], v_bottom[0], dist(g_bottom[0], v_bottom[0], rr), F(v_bottom[0], g_bottom[0], rr))
 
 plt.figure()
 plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
-plt.scatter(dist(g_sample[r_si < rr], v_sample[r_si < rr], rr, 1), (np.ones(N) * rr)[r_si < rr], s=1.5, color='r')
-plt.scatter(dist(g_sample[r_si > rr + hh], v_sample[r_si > rr + hh], rr + hh, -1), (np.ones(N) * (rr + hh))[r_si > rr + hh], s=1.5, color='g')
+plt.scatter(dist(g_bottom, v_bottom, rr, 1), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
+plt.scatter(dist(g_top, v_top, rr + hh, -1), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
 # plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
 # plt.axhline(y = rr + hh, color='g', linestyle='-') 
 

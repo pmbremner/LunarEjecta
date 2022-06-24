@@ -64,25 +64,25 @@ def F(v, g, rs):
 def g_ap(d, rs):
 	return np.arctan2(rs*np.tan(d/2.), rs - 1.)
 
-# def d_dist(v, g, rs, d0):
-# 	Fi = F(v, g, rs)
-# 	if g > g_ap(d0, rs) and d0 < np.pi:
-# 		Fi *= -1
-# 		if v**2 > 1./(1. + 1./rs):
-# 			return 2.*np.mod(np.pi + np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) , 2.*np.pi)
-# 		else:
-# 			return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
-# 	return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
-
-
 def d_dist(v, g, rs, d0):
 	Fi = F(v, g, rs)
-	if g > g_ap(d0, rs):
+	if g > g_ap(d0, rs) and d0 < np.pi:
 		Fi *= -1
-	# if d0 > np.pi:
-	# 	return 2.*np.mod(2.*np.pi + np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
-	# else:
-	return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
+		if v**2 > 1./(1. + 1./rs):
+			return 2.*np.mod(np.pi + np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) , 2.*np.pi)
+		else:
+			return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
+	return 2.*np.arctan2(2.*v**2 * np.sin(g)*np.cos(g) + ((rs-1.)/(1.-Fi))*(2.*v**2-1.)*np.tan(g), ((rs-Fi)/(1.-Fi))-2.*(v*np.sin(g))**2 ) 
+
+
+# def d_dist(v, g, rs, d0):
+# 	Fi = F(v, g, rs)
+# 	if g > g_ap(d0, rs):
+# 		Fi *= -1
+# 	# if d0 > np.pi:
+# 	# 	return 2.*np.mod(2.*np.pi + np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
+# 	# else:
+# 	return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g)*np.cos(g) * (1. - Fi/rs), 1. - (v*np.sin(g))**2*(1.+1./rs)), 2.*np.pi)
 
 
 
