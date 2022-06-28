@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  24 JUN 2022 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  28 JUN 2022 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2004,7 +2004,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 459.
 
-[35]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 467.
@@ -2041,6 +2040,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 467.
 
+[35]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 479.
@@ -2109,7 +2109,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 485.
 
-[36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 496.
@@ -2146,6 +2145,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 496.
 
+[36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 502.
@@ -2286,12 +2286,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 530.
 
-[37]
+
 Overfull \hbox (8.04497pt too wide) in paragraph at lines 622--623
  [][] 
  []
 
-[38]
+[37] [38]
 Underfull \hbox (badness 10000) in paragraph at lines 673--674
 
  []
@@ -2311,8 +2311,8 @@ s not changed.
 (rerunfilecheck)             Checksum: 6E6B1C00F9110988231713EF37C48967;14177.
  ) 
 Here is how much of TeX's memory you used:
- 41691 strings out of 478619
- 957531 string characters out of 2851115
+ 41693 strings out of 478619
+ 957557 string characters out of 2851115
  1895084 words of memory out of 3000000
  58647 multiletter control sequences out of 15000+600000
  503096 words of font info for 92 fonts, out of 8000000 for 9000
@@ -2347,10 +2347,10 @@ fonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/ur
 w/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1
 /urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/ty
 pe1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (49 pages, 6184361 b
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (49 pages, 6182982 b
 ytes).
 PDF statistics:
- 1595 PDF objects out of 1728 (max. 8388607)
- 374 named destinations out of 1000 (max. 500000)
+ 1593 PDF objects out of 1728 (max. 8388607)
+ 376 named destinations out of 1000 (max. 500000)
  689 words of extra memory for PDF output out of 10000 (max. 10000000)
 

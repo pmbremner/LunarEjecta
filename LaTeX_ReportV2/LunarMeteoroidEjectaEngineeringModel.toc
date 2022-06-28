@@ -47,7 +47,7 @@
 \contentsline {subsubsubsection}{\numberline {4.3.2.3}Initial Zenith Angle to reach Apoapsis $\gamma _{p,ap}$ vs.\ $D$ and $r_s$}{34}{subsubsubsection.4.3.2.3}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.4}Initial Speed $v_p$ vs.\ $D$, $\gamma _p$, and $r_s$}{34}{subsubsubsection.4.3.2.4}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.5}Distance $D$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{35}{subsubsubsection.4.3.2.5}%
-\contentsline {subsubsubsection}{\numberline {4.3.2.6}Initial Zenith Angle $\gamma _p$ vs.\ $D$, $v_p$, and $r_s$}{36}{subsubsubsection.4.3.2.6}%
+\contentsline {subsubsubsection}{\numberline {4.3.2.6}Initial Zenith Angle $\gamma _p$ vs.\ $D$, $v_p$, and $r_s$}{35}{subsubsubsection.4.3.2.6}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.7}Minimum Initial Zenith Angle $\gamma _{p,min}$ vs.\ $D$ and $r_s$}{36}{subsubsubsection.4.3.2.7}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.8}Maximum Distance $D_{max}$ vs.\ $v_p$ and $r_s$}{36}{subsubsubsection.4.3.2.8}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.9}Minimum Initial Speed $v_{p,min}$ vs.\ $D$ and $r_s$}{36}{subsubsubsection.4.3.2.9}%
@@ -55,7 +55,7 @@
 \contentsline {subsubsubsection}{\numberline {4.3.2.11}Final Speed $v_s$ vs.\ $v_p$ and $r_s$}{37}{subsubsubsection.4.3.2.11}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.12}Final Zenith Angle $\gamma _s$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{37}{subsubsubsection.4.3.2.12}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.13}Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma _p$}{37}{subsubsubsection.4.3.2.13}%
-\contentsline {subsection}{\numberline {4.4}Azimuthal Field-of-View}{38}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Azimuthal Field-of-View}{37}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Selenographic Distance \& Bearing}{38}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Coriolis Force}{39}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Scaling Laws}{40}{section.5}%

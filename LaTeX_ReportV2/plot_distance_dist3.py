@@ -27,6 +27,42 @@ def F(v, g, rs):
 
 Fvec = vectorize(F, otypes=[float])
 
+
+def r_final(d, v, g):
+	return (2. * (v * np.sin(g))**2) / (1. + (v**2 - 1.) * np.cos(d) - v**2 * np.cos(d - 2.*g))
+
+
+def F_and_r(v, g, rs, h, d0): 
+	sign = 1.
+	r_cur = rs
+	r_at_d = r_final(d0, v, g)
+
+	if r_at_d > rs + h: # hit top
+		sign = -1. 
+		r_cur = rs + h
+	elif r_at_d < rs: # hit bottom
+		sign = 1.
+		r_cur = rs
+	else: # hit side
+		if g > g_p_ap(v, r_at_d): # above local horizon
+		 	sign = -1.
+		 	r_cur = r_at_d
+		else: # below local horizon
+		 	sign = 1. 
+		 	r_cur = r_at_d
+
+	return sign * np.sqrt(1. + (rs - 1.) * (rs + 1. - rs / v**2) / np.cos(g)**2), r_cur
+
+F_and_rvec = vectorize(F_and_r)
+
+
+def dist_new(v, g, rs, h, d0):
+	Fi, r_cur = F_and_rvec(v, g, rs, h, d0)
+
+	return np.mod(2.*np.pi + 2.*np.arctan2(v**2 * np.sin(g) * np.cos(g) * (1. - Fi/r_cur),  (1. - (v * np.sin(g))**2 * (1. + 1./r_cur) )), 2.*np.pi)
+
+
+
 def dist(v, g, rs, s=0):
 	Fi = Fvec(v, g, rs)
 	if s == -1:
@@ -53,8 +89,6 @@ def dist(v, g, rs, s=0):
 
 
 
-def r_final(d, v, g):
-	return (2. * (v * np.sin(g))**2) / (1. + (v**2 - 1.) * np.cos(d) - v**2 * np.cos(d - 2.*g))
 
 
 def vp_disc(d, g, rs):
@@ -241,7 +275,7 @@ cdf /= cdf[-1]
 
 #print(cdf)
 
-N = 1000
+N = 3000
 
 g_sample = np.zeros(N)
 v_sample = np.zeros(N)
@@ -283,7 +317,7 @@ plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how
 plt.figure()
 for di in np.linspace(df, df + 2.*af, 10):
 	plt.plot(gp, vp_vec(di, gp, rr+hh), color='g')
-	print(di, dist(gp, vp_vec(di, gp, rr+hh), rr+hh))
+	print(di, dist_new(vp_vec(di, gp, rr+hh), gp, rr, hh, df))
 for di in np.linspace(df, df + 2.*af, 10):
 	plt.plot(gp, vp_vec(di, gp, rr), color='r')
 for ri in np.linspace(rr, rr+hh, 10):
@@ -294,10 +328,12 @@ plt.ylim([0., 1.])
 
 print(g_bottom[0], v_bottom[0], dist(g_bottom[0], v_bottom[0], rr), F(v_bottom[0], g_bottom[0], rr))
 
+
+
 plt.figure()
 plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
-plt.scatter(dist(g_bottom, v_bottom, rr, 1), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
-plt.scatter(dist(g_top, v_top, rr + hh, -1), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
+plt.scatter(dist_new(v_bottom, g_bottom, rr, hh, df), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
+plt.scatter(dist_new(v_top, g_top, rr, hh, df), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
 # plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
 # plt.axhline(y = rr + hh, color='g', linestyle='-') 
 

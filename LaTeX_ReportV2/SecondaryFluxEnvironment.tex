@@ -415,36 +415,36 @@ and insert Equations \eqref{eq:ecosbetap}, \eqref{eq:esinbetap}, and \eqref{eq:e
 It is clear that if $r_s=r_m$, Equation \eqref{eq:vp_special_case} is recovered.
 
 \subsubsubsection{Distance $D$ vs.\ $v_p$, $\gamma_p$, and $r_s$}
-The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be derived starting from Equation \eqref{eq:D_beta_gen}, dividing by $2$, and taking the tangent of both sides
-\begin{align}
-\tan\left(\frac{D}{2r_m}\right) &= \tan\left(\frac{\beta_s-\beta_p}{2}\right),\nonumber\\\nonumber
-&= \frac{1 - \cos(\beta_s-\beta_p)}{\sin(\beta_s-\beta_p)},\\\nonumber
-&= \frac{1 - \cos\beta_s\cos\beta_p - \sin\beta_s\sin\beta_p}{\sin\beta_s\cos\beta_p - \cos\beta_s\sin\beta_p},
-\end{align}
-multiplying by $e^2/e^2$ and inserting Equations \eqref{eq:ecosbetap}, \eqref{eq:esinbetap}, \eqref{eq:ecosbetas}, and \eqref{eq:esinbetas} with simplifications, such that
-\begin{equation}\label{eq:D_general_case}
-\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p + \left(\frac{\frac{r_s}{r_m}-1}{1-F}\right)\left(2\frac{v_p^2}{v_{esc}^2}-1\right)\tan\gamma_p}{\left(\frac{\frac{r_s}{r_m}-F}{1-F}\right)-2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p},
-\end{equation}
-where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution (refer back to Equation \eqref{eq:sign of F}). The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis, all for when the distance is $D < \pi rm$. Otherwise, the sign cases flip when the distance is $D > \pi r_m$ as well as adding $\pi$ and modding by $2\pi$, for speeds greater than the minimum speed at the limit the angle is at the horizon for $\gamma_p = \pi/2$ in Equation \eqref{eq:vpmin}, i.e.
-\begin{equation}
-\frac{v_{p,min,horz}^2}{v_{esc}^2} = \frac{1}{1+\frac{r_m}{r_s}},
-\end{equation}
-in order to place the distance in the correct region. At the maximum radius $r_s=r_{max}$, then $F=0$ and $\gamma_s=\pi/2$. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be derived starting from Equation \eqref{eq:speed der ecosbs} and expanding the distance terms as
+%The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be derived starting from Equation \eqref{eq:D_beta_gen}, dividing by $2$, and taking the tangent of both sides
 %\begin{align}
-%\cos\left(\frac{D}{r_m}\right) &= \frac{1-\tan^2\left(\frac{D}{2r_m}\right)}{1+\tan^2\left(\frac{D}{2r_m}\right)},\\
-%\sin\left(\frac{D}{r_m}\right) &= \frac{2\tan\left(\frac{D}{2r_m}\right)}{1+\tan^2\left(\frac{D}{2r_m}\right)}
+%\tan\left(\frac{D}{2r_m}\right) &= \tan\left(\frac{\beta_s-\beta_p}{2}\right),\nonumber\\\nonumber
+%&= \frac{1 - \cos(\beta_s-\beta_p)}{\sin(\beta_s-\beta_p)},\\\nonumber
+%&= \frac{1 - \cos\beta_s\cos\beta_p - \sin\beta_s\sin\beta_p}{\sin\beta_s\cos\beta_p - \cos\beta_s\sin\beta_p},
 %\end{align}
-%such that
-%\begin{equation}
-%e\cos\beta_s\left(1+\tan^2\left(\frac{D}{2r_m}\right)\right) = e\cos\beta_p\left(1-\tan^2\left(\frac{D}{2r_m}\right)\right) - e\sin\beta_p\left(2\tan\left(\frac{D}{2r_m}\right)\right),
-%\end{equation}
-%solving for $\tan\left(\frac{D}{2r_m}\right)$ and simplifying,
+%multiplying by $e^2/e^2$ and inserting Equations \eqref{eq:ecosbetap}, \eqref{eq:esinbetap}, \eqref{eq:ecosbetas}, and \eqref{eq:esinbetas} with simplifications, such that
 %\begin{equation}\label{eq:D_general_case}
-%\tan\left(\frac{D}{2r_m}\right) = \frac{\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p\left(1-\frac{r_m}{r_s}F\right)}{1-\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)},
+%\tan\left(\frac{D}{2r_m}\right) = \frac{2\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p + \left(\frac{\frac{r_s}{r_m}-1}{1-F}\right)\left(2\frac{v_p^2}{v_{esc}^2}-1\right)\tan\gamma_p}{\left(\frac{\frac{r_s}{r_m}-F}{1-F}\right)-2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p},
 %\end{equation}
-%where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution (refer back to Equation \eqref{eq:sign of F}). The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
+%where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution (refer back to Equation \eqref{eq:sign of F}). The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis, all for when the distance is $D < \pi rm$. Otherwise, the sign cases flip when the distance is $D > \pi r_m$ as well as adding $\pi$ and modding by $2\pi$, for speeds greater than the minimum speed at the limit the angle is at the horizon for $\gamma_p = \pi/2$ in Equation \eqref{eq:vpmin}, i.e.
+%\begin{equation}
+%\frac{v_{p,min,horz}^2}{v_{esc}^2} = \frac{1}{1+\frac{r_m}{r_s}},
+%\end{equation}
+%in order to place the distance in the correct region. At the maximum radius $r_s=r_{max}$, then $F=0$ and $\gamma_s=\pi/2$. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be derived starting from Equation \eqref{eq:speed der ecosbs} and expanding the distance terms as
+\begin{align}
+\cos\left(\frac{D}{r_m}\right) &= \frac{1-\tan^2\left(\frac{D}{2r_m}\right)}{1+\tan^2\left(\frac{D}{2r_m}\right)},\\
+\sin\left(\frac{D}{r_m}\right) &= \frac{2\tan\left(\frac{D}{2r_m}\right)}{1+\tan^2\left(\frac{D}{2r_m}\right)}
+\end{align}
+such that
+\begin{equation}
+e\cos\beta_s\left(1+\tan^2\left(\frac{D}{2r_m}\right)\right) = e\cos\beta_p\left(1-\tan^2\left(\frac{D}{2r_m}\right)\right) - e\sin\beta_p\left(2\tan\left(\frac{D}{2r_m}\right)\right),
+\end{equation}
+solving for $\tan\left(\frac{D}{2r_m}\right)$ and simplifying (equivalent to solving Equation \eqref{eq:vp_gen_case} ),
+\begin{equation}\label{eq:D_general_case}
+\tan\left(\frac{D}{2r_m}\right) = \frac{\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p\left(1-\frac{r_m}{r_s}F\right)}{1-\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)},
+\end{equation}
+where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. Care must be taken on which sign to take in $F$ for a closing solution (refer back to Equation \eqref{eq:sign of F}). The positive solution occurs when the ejecta is on its way up ($\gamma_s > \pi/2$), before reaching the apoapsis, and the negative solution occurs on the way down ($\gamma_s < \pi/2$), after passing the apoapsis. For $r_s=r_m$ and using the negative sign of $F$, then $F=-1$ and Equation~\eqref{eq:D_special_case} is retrieved.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
