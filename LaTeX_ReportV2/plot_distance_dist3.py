@@ -51,7 +51,7 @@ def F_and_r(v, g, rs, h, d0):
 		 	sign = 1. 
 		 	r_cur = r_at_d
 
-	return sign * np.sqrt(1. + (rs - 1.) * (rs + 1. - rs / v**2) / np.cos(g)**2), r_cur
+	return sign * np.sqrt(1. + (r_cur - 1.) * (r_cur + 1. - r_cur / v**2) / np.cos(g)**2), r_cur
 
 F_and_rvec = vectorize(F_and_r)
 
@@ -114,6 +114,18 @@ def vmax(d, g, rs, h, a):
 		       v_domain_max)
 
 
+def vmaxN(d, g, rs, h, a, N):
+
+	ar = np.concatenate([vp_vec(np.linspace(d, d + 2.*a, N+2, endpoint=True), g, rs),    # bottom
+			                    vp_vec(d, g, np.linspace(rs, rs + h, N+2, endpoint=True)),      # side
+			                    vp_vec(np.linspace(d, d + 2.*a, N+2, endpoint=True), g, rs + h)# top
+			                    ]).ravel()
+	ar = np.append(ar, v_domain_min)
+
+	#print(np.minimum( np.max(ar), v_domain_max))
+
+	return np.minimum( np.max(ar), v_domain_max)
+
 
 def vmin(d, g, rs, h, a):
 	return np.maximum(
@@ -124,8 +136,24 @@ def vmin(d, g, rs, h, a):
 		                    v_domain_max])),
 		   v_domain_min)
 
+def vminN(d, g, rs, h, a, N):
+
+	ar = np.concatenate([vp_vec(np.linspace(d, d + 2.*a, N+2, endpoint=True), g, rs),    # bottom
+			                    vp_vec(d, g, np.linspace(rs, rs + h, N+2, endpoint=True)),      # side
+			                    vp_vec(np.linspace(d, d + 2.*a, N+2, endpoint=True), g, rs + h)# top
+			                    ]).ravel()
+	ar = np.append(ar, v_domain_max)
+
+	#print(np.minimum( np.max(ar), v_domain_max))
+
+	return np.maximum( np.min(ar), v_domain_min)
+
+
 vmaxvec = vectorize(vmax)
 vminvec = vectorize(vmin)
+
+vmaxNvec = vectorize(vmaxN)
+vminNvec = vectorize(vminN)
 
 
 def bmax(d, rs):
@@ -243,21 +271,23 @@ rr = float(sys.argv[1])
 af = float(sys.argv[2])
 hh = float(sys.argv[3])
 df = float(sys.argv[4])
-gg = float(sys.argv[5])
+#gg = float(sys.argv[5])
 
 
-vv = vp(df, gg, rr)
+#vv = vp(df, gg, rr)
 
-print('v = ', vv)
-print('r = ', r_final(df, vv, 0.51951786))
-print('d = ', dist(vv, gg, rr, -1))
+# print('v = ', vv)
+# print('r = ', r_final(df, vv, 0.51951786))
+# print('d = ', dist(vv, gg, rr, -1))
 
 
-Ng = 100
+Ng = 10000
 Nd = 100
 Nh = 20
 Na = 10
 Nv = 10
+
+Np = 10
 
 
 gp = np.linspace(EPS, np.pi/2.-EPS, Ng)
@@ -275,7 +305,7 @@ cdf /= cdf[-1]
 
 #print(cdf)
 
-N = 3000
+N = 100000
 
 g_sample = np.zeros(N)
 v_sample = np.zeros(N)
@@ -290,8 +320,18 @@ for i in range(N):
 # height at the side of the asset
 r_si = r_final(df, v_sample, g_sample)
 
+plt.plot(gp, vmaxNvec(df, gp, rr, hh, af, Np))
+plt.plot(gp, vminNvec(df, gp, rr, hh, af, Np))
 plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
 plt.plot(gp, vminvec(df, gp, rr, hh, af))
+plt.xlim([0., np.pi/2.])
+plt.ylim([0., 1.])
+
+
+
+plt.figure()
+plt.plot(gp, vmaxvec(df, gp, rr, hh, af), color='k')
+plt.plot(gp, vminvec(df, gp, rr, hh, af), color='k')
 plt.xlim([0., np.pi/2.])
 plt.ylim([0., 1.])
 #plt.plot(gp, cdf)
@@ -312,27 +352,31 @@ v_bottom = v_sample[r_si < rr]
 plt.scatter(g_side, v_side, s=3, color='b')
 plt.scatter(g_bottom, v_bottom, s=3, color='r')
 plt.scatter(g_top, v_top, s=3, color='g')
+plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) < df], v_top[dist_new(v_top, g_top, rr, hh, df) < df], s=1, color='r')
+plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af], v_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af], s=1, color='y')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 plt.figure()
-for di in np.linspace(df, df + 2.*af, 10):
+for di in np.linspace(df, df + 2.*af, 100):
 	plt.plot(gp, vp_vec(di, gp, rr+hh), color='g')
-	print(di, dist_new(vp_vec(di, gp, rr+hh), gp, rr, hh, df))
-for di in np.linspace(df, df + 2.*af, 10):
+	#print(di, dist_new(vp_vec(di, gp, rr+hh), gp, rr, hh, df))
+for di in np.linspace(df, df + 2.*af, 100):
 	plt.plot(gp, vp_vec(di, gp, rr), color='r')
-for ri in np.linspace(rr, rr+hh, 10):
+for ri in np.linspace(rr, rr+hh, 100):
 	plt.plot(gp, vp_vec(df, gp, ri), color='b')
 plt.xlim([0., np.pi/2.])
 plt.ylim([0., 1.])
+plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
 
-print(g_bottom[0], v_bottom[0], dist(g_bottom[0], v_bottom[0], rr), F(v_bottom[0], g_bottom[0], rr))
+#print(g_bottom[0], v_bottom[0], dist(g_bottom[0], v_bottom[0], rr), F(v_bottom[0], g_bottom[0], rr))
 
 
 
 plt.figure()
 plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
-plt.scatter(dist_new(v_bottom, g_bottom, rr, hh, df), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
+if rr > 1.:
+	plt.scatter(dist_new(v_bottom, g_bottom, rr, hh, df), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
 plt.scatter(dist_new(v_top, g_top, rr, hh, df), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
 # plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
 # plt.axhline(y = rr + hh, color='g', linestyle='-') 

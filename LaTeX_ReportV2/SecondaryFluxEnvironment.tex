@@ -390,11 +390,11 @@ Solving for the speed when setting the discriminant of Equation \eqref{eq:F} to 
 \end{equation}
 which describes a \textit{keep out zone} -- if $v_p < v_{p,min}$ for a given zenith angle $\gamma_p$, the ejecta will not reach the asset for all distances.
 
-%\subsubsubsection{Initial Zenith Angle to reach Apoapsis $\gamma_{p,ap}$ vs.\ $v_p$ and $r_s$}
-%The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radial distance $r_s$ is given by
-%\begin{equation}\label{eq:gamma p ap 1}
-%\cos\gamma_{p,ap} = \sqrt{\left(\frac{r_s}{r_m}-1\right)\left[\frac{r_s/r_m}{v_p^2/v_{esc}^2}-\left(\frac{r_s}{r_m}+1\right)\right]}.
-%\end{equation}
+\subsubsubsection{Initial Zenith Angle to reach Apoapsis $\gamma_{p,ap}$ vs.\ $v_p$ and $r_s$}
+The initial zenith angle $\gamma_{p,ap}$ required to reach an apoapsis at a radial distance $r_s$ is given by (setting $F=0$ and solving for $\gamma_{p,ap}$)
+\begin{equation}\label{eq:gamma p ap 1}
+\cos\gamma_{p,ap} = \sqrt{\left(\frac{r_s}{r_m}-1\right)\left[\frac{r_s/r_m}{v_p^2/v_{esc}^2}-\left(\frac{r_s}{r_m}+1\right)\right]}.
+\end{equation}
 
 \subsubsubsection{Initial Zenith Angle to reach Apoapsis $\gamma_{p,ap}$ vs.\ $D$ and $r_s$}
 Setting Equation \eqref{eq:vpmin} equal to Equation \eqref{eq:vp_gen_case}, replacing all the double angles with halved tangent angles, and solving for $\gamma_{p,ap}$, the equation reads
@@ -438,9 +438,9 @@ The distance equation, analogous to Equation \eqref{eq:D_special_case}, can be d
 \end{align}
 such that
 \begin{equation}
-e\cos\beta_s\left(1+\tan^2\left(\frac{D}{2r_m}\right)\right) = e\cos\beta_p\left(1-\tan^2\left(\frac{D}{2r_m}\right)\right) - e\sin\beta_p\left(2\tan\left(\frac{D}{2r_m}\right)\right),
+e\cos\beta_s\left[1+\tan^2\left(\frac{D}{2r_m}\right)\right] = e\cos\beta_p\left[1-\tan^2\left(\frac{D}{2r_m}\right)\right] - e\sin\beta_p\left[2\tan\left(\frac{D}{2r_m}\right)\right],
 \end{equation}
-solving for $\tan\left(\frac{D}{2r_m}\right)$ and simplifying (equivalent to solving Equation \eqref{eq:vp_gen_case} ),
+solving for $\tan\left(\frac{D}{2r_m}\right)$ and simplifying (equivalent to solving Equation \eqref{eq:vp_gen_case}),
 \begin{equation}\label{eq:D_general_case}
 \tan\left(\frac{D}{2r_m}\right) = \frac{\frac{v_p^2}{v_{esc}^2}\sin\gamma_p\cos\gamma_p\left(1-\frac{r_m}{r_s}F\right)}{1-\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p\left(1+\frac{r_m}{r_s}\right)},
 \end{equation}
@@ -529,9 +529,37 @@ where $F = F(v_p,\gamma_p,r_s)$ from Equation \eqref{eq:F}. If $r_s = r_m$, then
 
 \subsubsubsection{Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma_p$}
 The final radial distance $r_s$ can also be solved for using Equation \eqref{eq:vp_gen_case},
-\begin{equation}
+\begin{equation}\label{eq:rs}
 \frac{r_s}{r_m} = \frac{2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}{1 + \left(\frac{v_p^2}{v_{esc}^2}-1\right)\cos\left(\frac{D}{r_m}\right) - \frac{v_p^2}{v_{esc}^2}\cos\left(\frac{D}{r_m} - 2\gamma_p\right)}.
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asset Collision Algorithm}\label{ssec:Asset Collision Algorithm}
+
+In this model, the asset is assumed to be cylindrical in shape with the cylinder's symmetry axis normal to the lunar surface. The asset can sit on the surface of the Moon or have any height above the surface, $h_{sb}$ such that
+\begin{equation}
+h_{sb} = r_s - r_m.
+\end{equation}
+The height (or length) of the asset itself is defined to be $l_s$, so that the height of the top of the asset from the lunar surface is given by
+\begin{equation}
+h_{st} = h_{sb} + l_s.
+\end{equation}
+The radius of the cylinder is defined to be $a_s$.
+
+In order to uniformly\footnote{A constant probability density in the speed-zenith-azimuth phase space.} generate ejecta that originates from a crater and will hit the asset, there are bounding points that define the extent of the minimum and maximum ejecta speed ($v_{min,\gamma_p}$ and $v_{max,\gamma_p}$) for a given ejecta zenith and azimuth angle. It is assumed that for speeds $v_p$ such that $v_{min,\gamma_p} \le v_p \le v_{max,\gamma_p}$, the $(v_p, \gamma_p)$ pair gives ejecta that will hit the asset. The question then becomes, where?
+
+Given the ejecta speed $v_p$, zenith angle $\gamma_p$, selenographic distance to the near side of the asset $D$, in addition to the asset height above the lunar surface and the size, the height $r_s$ and distance $D_s$ at which the ejecta hits the asset is needed. To know which surface the ejecta hits (top, side, bottom), the state of the ejecta at the distance $D$ is needed, specifically the height $r_s(D)$ using Equation \eqref{eq:rs}. To decide which surface of the asset is hit by the ejecta, the following logic can be used:
+\begin{itemize}
+	\item If $r_s(D) > h_{st}$, then $sign(F) = -1$ and $r_s = h_{st}$ (hitting the top),
+	\item Else if $r_s(D) < h_{sb}$, then $sign(F) = +1$ and $r_s = h_{sb}$ (hitting the bottom),
+	\item Else
+	\begin{itemize}
+		\item If $\gamma_p > \gamma_{p,ap}(r_s(D))$ (Equation \eqref{eq:gamma p ap 1}), then $sign(F) = -1$ and $r_s = r_s(D)$ (hitting the side above the local horizon),
+		\item Else $sign(F) = +1$ and $r_s = r_s(D)$ (hitting the side below the local horizon).
+	\end{itemize}
+\end{itemize}
+For computing both $F$ and $D$, the conditionally defined height $r_s$ and sign of $F$ should be used.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Azimuthal Field-of-View}\label{ssec:Azimuthal Field of View}
