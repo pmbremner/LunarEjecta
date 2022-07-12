@@ -57,19 +57,19 @@
 \contentsline {subsubsubsection}{\numberline {4.3.2.13}Final Zenith Angle $\gamma _s$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{37}{subsubsubsection.4.3.2.13}%
 \contentsline {subsubsubsection}{\numberline {4.3.2.14}Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma _p$}{37}{subsubsubsection.4.3.2.14}%
 \contentsline {subsection}{\numberline {4.4}Asset Collision Algorithm}{37}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Azimuthal Field-of-View}{38}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Selenographic Distance \& Bearing}{38}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Coriolis Force}{40}{subsection.4.7}%
-\contentsline {section}{\numberline {5}Scaling Laws}{41}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{41}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Mass Ejected from Crater}{41}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Scaling Law Parameters}{42}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Secondary Environment at Asset}{43}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Numerical Results}{43}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Latitude-Longitude Dependence}{43}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Speed Distribution}{43}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Angular Distribution}{43}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Ejecta Size Distribution}{43}{subsubsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.2}Analytical Results}{43}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Benchmark Verification}{43}{subsection.6.3}%
-\contentsline {section}{References}{44}{section*.27}%
+\contentsline {subsection}{\numberline {4.5}Azimuthal Field-of-View}{41}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Selenographic Distance \& Bearing}{41}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Coriolis Force}{42}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Scaling Laws}{43}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{43}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mass Ejected from Crater}{44}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Scaling Law Parameters}{44}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Secondary Environment at Asset}{45}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Numerical Results}{45}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Latitude-Longitude Dependence}{45}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Speed Distribution}{45}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Angular Distribution}{45}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Ejecta Size Distribution}{45}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Analytical Results}{45}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Benchmark Verification}{45}{subsection.6.3}%
+\contentsline {section}{References}{46}{section*.29}%

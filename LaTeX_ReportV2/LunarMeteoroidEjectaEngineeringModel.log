@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  6 JUL 2022 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  12 JUL 2022 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,10 +1091,10 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count345
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 41.
+Package hyperref Info: Option `colorlinks' set `true' on input line 44.
 \c@subsubsubsection=\count346
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 8
-0.
+3.
 
 (C:\Users\AMD-Y500\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -1102,24 +1102,24 @@ File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 (LunarMeteoroidEjectaEngineeringModel.aux)
 \openout1 = `LunarMeteoroidEjectaEngineeringModel.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 (C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1152,7 +1152,7 @@ Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count353
-Package hyperref Info: Link coloring ON on input line 80.
+Package hyperref Info: Link coloring ON on input line 83.
  (C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1165,9 +1165,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count354
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
  (LunarMeteoroidEjectaEngineeringModel.out)
 (LunarMeteoroidEjectaEngineeringModel.out)
 \@outlinefile=\write5
@@ -1178,7 +1178,7 @@ LaTeX Info: Redefining \nameref on input line 80.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 80.
+ on input line 83.
 
 \docmute@nestinglevel=\count355
 (LunarMeteoroidEjectaEngineeringModel.toc [1
@@ -1225,7 +1225,7 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
  [2
 
 ]
-<regolith_density_vs_depth.png, id=563, 412.78215pt x 314.01315pt>
+<regolith_density_vs_depth.png, id=567, 412.78215pt x 314.01315pt>
 File: regolith_density_vs_depth.png Graphic file (type png)
 <use regolith_density_vs_depth.png>
 Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
@@ -1236,19 +1236,19 @@ Overfull \hbox (9.72598pt too wide) detected at line 73
  []
 
 [3 <./regolith_density_vs_depth.png>]
-<ratio_of_avg_bulk_density.png, id=594, 412.78215pt x 327.26265pt>
+<ratio_of_avg_bulk_density.png, id=598, 412.78215pt x 327.26265pt>
 File: ratio_of_avg_bulk_density.png Graphic file (type png)
 <use ratio_of_avg_bulk_density.png>
 Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 92.
 (pdftex.def)             Requested size: 375.0pt x 297.33008pt.
  [4]
-<shear_strength_vs_depth.png, id=612, 426.03165pt x 312.56775pt>
+<shear_strength_vs_depth.png, id=616, 426.03165pt x 312.56775pt>
 File: shear_strength_vs_depth.png Graphic file (type png)
 <use shear_strength_vs_depth.png>
 Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 123.
 (pdftex.def)             Requested size: 375.0pt x 275.1463pt.
  [5 <./ratio_of_avg_bulk_density.png>]
-<Carrier2003_Fig1_particle-size-distribution.PNG, id=626, 889.07156pt x 624.081
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=630, 889.07156pt x 624.081
 56pt>
 File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
 <use Carrier2003_Fig1_particle-size-distribution.PNG>
@@ -1256,7 +1256,7 @@ Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used
 on input line 155.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
 [6 <./shear_strength_vs_depth.png>]
-<Carrier2003_CDFs_PDFs.png, id=650, 1149.8157pt x 840.5001pt>
+<Carrier2003_CDFs_PDFs.png, id=654, 1149.8157pt x 840.5001pt>
 File: Carrier2003_CDFs_PDFs.png Graphic file (type png)
 <use Carrier2003_CDFs_PDFs.png>
 Package pdftex.def Info: Carrier2003_CDFs_PDFs.png  used on input line 168.
@@ -1307,101 +1307,101 @@ LaTeX Font Info:    Font shape `OML/phv/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 25.
 )
 [12]
-<../LoDensity018_lat0.png, id=793, 462.528pt x 346.896pt>
+<../LoDensity018_lat0.png, id=797, 462.528pt x 346.896pt>
 File: ../LoDensity018_lat0.png Graphic file (type png)
 <use ../LoDensity018_lat0.png>
 Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 44.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../LoDensity036_lat90.png, id=794, 462.528pt x 346.896pt>
+<../LoDensity036_lat90.png, id=798, 462.528pt x 346.896pt>
 File: ../LoDensity036_lat90.png Graphic file (type png)
 <use ../LoDensity036_lat90.png>
 Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 51.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity018_lat0.png, id=795, 462.528pt x 346.896pt>
+<../HiDensity018_lat0.png, id=799, 462.528pt x 346.896pt>
 File: ../HiDensity018_lat0.png Graphic file (type png)
 <use ../HiDensity018_lat0.png>
 Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 59.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity036_lat90.png, id=796, 462.528pt x 346.896pt>
+<../HiDensity036_lat90.png, id=800, 462.528pt x 346.896pt>
 File: ../HiDensity036_lat90.png Graphic file (type png)
 <use ../HiDensity036_lat90.png>
 Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 66.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
  [13 <../LoDensity018_lat0.png> <../LoDensity036_lat90.png> <../HiDensity018_la
 t0.png> <../HiDensity036_lat90.png>]
-<../mollweide_LatRunDataLoDensity000_lat-90.png, id=816, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataLoDensity000_lat-90.png, id=820, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity000_lat-90.png  used o
 n input line 99.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity000_lat-90.png, id=817, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity000_lat-90.png, id=821, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity000_lat-90.png  used on in
 put line 106.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity000_lat-90.png, id=818, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataHiDensity000_lat-90.png, id=822, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity000_lat-90.png  used o
 n input line 114.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity000_lat-90.png, id=819, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity000_lat-90.png, id=823, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity000_lat-90.png  used on in
 put line 121.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity009_lat-45.png, id=820, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataLoDensity009_lat-45.png, id=824, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity009_lat-45.png  used o
 n input line 133.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity009_lat-45.png, id=821, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity009_lat-45.png, id=825, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity009_lat-45.png  used on in
 put line 140.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity009_lat-45.png, id=822, 405.1938pt x 238.2501p
+<../mollweide_LatRunDataHiDensity009_lat-45.png, id=826, 405.1938pt x 238.2501p
 t>
 File: ../mollweide_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity009_lat-45.png  used o
 n input line 148.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity009_lat-45.png, id=823, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity009_lat-45.png, id=827, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity009_lat-45.png  used on in
 put line 155.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity018_lat0.png, id=824, 405.1938pt x 238.2501pt>
+<../mollweide_LatRunDataLoDensity018_lat0.png, id=828, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity018_lat0.png  used on 
 input line 167.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity018_lat0.png, id=825, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity018_lat0.png, id=829, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity018_lat0.png  used on inpu
 t line 174.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity018_lat0.png, id=826, 405.1938pt x 238.2501pt>
+<../mollweide_LatRunDataHiDensity018_lat0.png, id=830, 405.1938pt x 238.2501pt>
 
 File: ../mollweide_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity018_lat0.png  used on 
 input line 182.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity018_lat0.png, id=827, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity018_lat0.png, id=831, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity018_lat0.png  used on inpu
@@ -1415,18 +1415,18 @@ nDataHiDensity009_lat-45.png> <../polar_LatRunDataHiDensity009_lat-45.png>] [17
  <../mollweide_LatRunDataLoDensity018_lat0.png> <../polar_LatRunDataLoDensity01
 8_lat0.png> <../mollweide_LatRunDataHiDensity018_lat0.png> <../polar_LatRunData
 HiDensity018_lat0.png>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=865, 694.84593pt x 472.76625pt>
+<MEM_UG_Fig2.5_density-distribution.PNG, id=869, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
 line 213.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-<Fit-to-MEM_low_dens.PNG, id=870, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=874, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 221.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
-<Fit-to-MEM_high_dens.PNG, id=875, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=879, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 227.
@@ -1435,14 +1435,14 @@ Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 227.
 
  <./MEM_UG_Fig2.5_density-distribution.PNG>] [19 <./Fit-to-MEM_low_dens.PNG> <.
 /Fit-to-MEM_high_dens.PNG>]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=895, 428.35031pt x 321.45094pt
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=899, 428.35031pt x 321.45094pt
 >
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
 nput line 244.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
-<../NEA_Brown/vmass.png, id=910, 587.5551pt x 441.5697pt>
+<../NEA_Brown/vmass.png, id=914, 587.5551pt x 441.5697pt>
 File: ../NEA_Brown/vmass.png Graphic file (type png)
 <use ../NEA_Brown/vmass.png>
 Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 259.
@@ -1450,7 +1450,7 @@ Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 259.
  [20
 
  <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>] [21 <../NEA_Brown/vmass.png>]
-<../ShowerForecast/2021_forecast_showers_southpole_moon.PNG, id=937, 812.43526p
+<../ShowerForecast/2021_forecast_showers_southpole_moon.PNG, id=941, 812.43526p
 t x 502.87875pt>
 File: ../ShowerForecast/2021_forecast_showers_southpole_moon.PNG Graphic file (
 type png)
@@ -1499,7 +1499,7 @@ Overfull \hbox (28.11494pt too wide) in paragraph at lines 155--170
  []
 
 [26]
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=1040, 658.71094pt x 851.4309
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=1044, 658.71094pt x 851.4309
 4pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
@@ -2327,34 +2327,329 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 530.
 
 [37]
-Overfull \hbox (8.04497pt too wide) in paragraph at lines 650--651
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png, id=1266, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.
+png  used on input line 568.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 569--569
+[]\OT1/phv/m/n/9 (a) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png, id=1267, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.
+png  used on input line 575.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 576--576
+[]\OT1/phv/m/n/9 (b) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png, id=1268, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.
+png  used on input line 582.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5592) in paragraph at lines 583--583
+[]\OT1/phv/m/n/9 (c) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png, id=1269, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.
+png  used on input line 592.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 593--593
+[]\OT1/phv/m/n/9 (d) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png, id=1270, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.
+png  used on input line 599.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 600--600
+[]\OT1/phv/m/n/9 (e) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png, id=1271, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.
+png  used on input line 606.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png, id=1272, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.
+png  used on input line 615.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 616--616
+[]\OT1/phv/m/n/9 (g) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png, id=1273, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.
+png  used on input line 622.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 623--623
+[]\OT1/phv/m/n/9 (h) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png, id=1274, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.
+png  used on input line 629.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png, id=1275, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.
+png  used on input line 637.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png, id=1276, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.
+png  used on input line 644.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5592) in paragraph at lines 645--645
+[]\OT1/phv/m/n/9 (k) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png, id=1277, 417.60014p
+t x 328.8285pt>
+File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png Graphic file (t
+ype png)
+<use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.
+png  used on input line 651.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1278, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
+2.000e-03.png  used on input line 672.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 673--673
+[]\OT1/phv/m/n/9 (a) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1279, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
+2.000e-03.png  used on input line 679.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 680--680
+[]\OT1/phv/m/n/9 (b) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1280, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
+2.000e-03.png  used on input line 686.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5592) in paragraph at lines 687--687
+[]\OT1/phv/m/n/9 (c) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1281, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
+2.000e-02.png  used on input line 696.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 697--697
+[]\OT1/phv/m/n/9 (d) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1282, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
+2.000e-02.png  used on input line 703.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 704--704
+[]\OT1/phv/m/n/9 (e) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1283, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
+2.000e-02.png  used on input line 710.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1284, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
+2.000e-01.png  used on input line 719.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 720--720
+[]\OT1/phv/m/n/9 (g) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1285, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
+2.000e-01.png  used on input line 726.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5105) in paragraph at lines 727--727
+[]\OT1/phv/m/n/9 (h) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1286, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
+2.000e-01.png  used on input line 733.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1287, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
+2.000e+00.png  used on input line 741.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png, id=1288, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
+2.000e+00.png  used on input line 748.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+
+Underfull \hbox (badness 5592) in paragraph at lines 749--749
+[]\OT1/phv/m/n/9 (k) |Put your sub-caption
+ []
+
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png, id=1289, 
+417.60014pt x 328.8285pt>
+File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png Graph
+ic file (type png)
+<use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png>
+Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
+2.000e+00.png  used on input line 755.
+(pdftex.def)             Requested size: 106.87573pt x 84.15372pt.
+[38] [39 <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png> <./asset
+_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plo
+t_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plot_1.000e-02_2.000
+e-01_2.000e-02.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.pn
+g> <./asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png> <./asset_speed
+_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png> <./asset_speed_zenith_plot_1.00
+0e-02_2.000e-02_2.000e-01.png> <./asset_speed_zenith_plot_1.000e-01_2.000e-02_2
+.000e-01.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png> <./
+asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png> <./asset_speed_zenit
+h_plot_1.000e-01_2.000e-02_2.000e+00.png>] [40 <./asset_speed_zenith_plot_1.010
+e+00_1.000e-02_2.000e-01_2.000e-03.png> <./asset_speed_zenith_plot_1.010e+00_1.
+000e-02_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-01
+_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e
+-01_2.000e-02.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.0
+00e-02.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.
+png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png> <.
+/asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png> <./asset_
+speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png> <./asset_speed_z
+enith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png> <./asset_speed_zenith_p
+lot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png> <./asset_speed_zenith_plot_1.0
+10e+00_1.000e-01_2.000e-02_2.000e+00.png>]
+Overfull \hbox (8.04497pt too wide) in paragraph at lines 853--854
  [][] 
  []
 
-[38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 701--702
+[41
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
-) (EnvironmentGeneration.tex [40] [41]
+[42]) (EnvironmentGeneration.tex [43]
 Overfull \hbox (22.29764pt too wide) in paragraph at lines 65--85
  [] 
  []
 
-) (SecondaryEnvironment.tex) [42] [43]
-(LunarMeteoroidEjectaEngineeringModel.bbl [44
+) (SecondaryEnvironment.tex [44]) [45]
+(LunarMeteoroidEjectaEngineeringModel.bbl [46
 
-]) [45]
+]) [47]
 (LunarMeteoroidEjectaEngineeringModel.aux)
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 93EBAE068631E101312AC00BF6C7C7F6;15268.
+(rerunfilecheck)             Checksum: 884B21423D6B43246E4E84DEAD7B44FA;15268.
  ) 
 Here is how much of TeX's memory you used:
- 41717 strings out of 478619
- 958016 string characters out of 2851115
- 1896505 words of memory out of 3000000
- 58661 multiletter control sequences out of 15000+600000
+ 41939 strings out of 478619
+ 970917 string characters out of 2851115
+ 1899457 words of memory out of 3000000
+ 58855 multiletter control sequences out of 15000+600000
  503409 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,13n,98p,1515b,1874s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -2387,10 +2682,10 @@ fonts/cm/cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/ur
 w/helvetic/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1
 /urw/helvetic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/ty
 pe1/urw/helvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (50 pages, 6192449 b
-ytes).
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (52 pages, 12971158 
+bytes).
 PDF statistics:
- 1631 PDF objects out of 1728 (max. 8388607)
- 386 named destinations out of 1000 (max. 500000)
- 729 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1691 PDF objects out of 1728 (max. 8388607)
+ 390 named destinations out of 1000 (max. 500000)
+ 849 words of extra memory for PDF output out of 10000 (max. 10000000)
 

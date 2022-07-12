@@ -550,16 +550,219 @@ In order to uniformly\footnote{A constant probability density in the speed-zenit
 
 Given the ejecta speed $v_p$, zenith angle $\gamma_p$, selenographic distance to the near side of the asset $D$, in addition to the asset height above the lunar surface and the size, the height $r_s$ and distance $D_s$ at which the ejecta hits the asset is needed. To know which surface the ejecta hits (top, side, bottom), the state of the ejecta at the distance $D$ is needed, specifically the height $r_s(D)$ using Equation \eqref{eq:rs}. To decide which surface of the asset is hit by the ejecta, the following logic can be used:
 \begin{itemize}
-	\item If $r_s(D) > h_{st}$, then $sign(F) = -1$ and $r_s = h_{st}$ (hitting the top),
-	\item Else if $r_s(D) < h_{sb}$, then $sign(F) = +1$ and $r_s = h_{sb}$ (hitting the bottom),
+	\item If $r_s(D) > h_{st}$, then $sign(F) = -1$, $r_s = h_{st}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the top),
+	\item Else if $r_s(D) < h_{sb}$, then $sign(F) = +1$, $r_s = h_{sb}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the bottom),
 	\item Else
 	\begin{itemize}
-		\item If $\gamma_p > \gamma_{p,ap}(r_s(D))$ (Equation \eqref{eq:gamma p ap 1}), then $sign(F) = -1$ and $r_s = r_s(D)$ (hitting the side above the local horizon),
-		\item Else $sign(F) = +1$ and $r_s = r_s(D)$ (hitting the side below the local horizon).
+		\item If $\gamma_p > \gamma_{p,ap}(r_s(D))$ (Equation \eqref{eq:gamma p ap 1}), then $sign(F) = -1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side above the local horizon),
+		\item Else $sign(F) = +1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side below the local horizon).
 	\end{itemize}
 \end{itemize}
 For computing both $F$ and $D$, the conditionally defined height $r_s$ and sign of $F$ should be used.
 
+% https://tex.stackexchange.com/questions/102251/figures-in-subfigure-not-aligned
+\begin{figure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_3}
+	\end{subfigure}
+	
+	%\newline
+	
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_4}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_6}
+	\end{subfigure}
+
+
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_7}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_8}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_9}
+	\end{subfigure}
+
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_10}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_11}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_12}
+	\end{subfigure}
+
+	\caption{Put your caption here}
+	\label{fig:asset_speed_zenith_comparison}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\begin{figure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_3}
+	\end{subfigure}
+	
+	%\newline
+	
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_4}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_6}
+	\end{subfigure}
+	
+	
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_7}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_8}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_9}
+	\end{subfigure}
+	
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_10}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_11}
+	\end{subfigure}
+	\begin{subfigure}[t]{.3\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png}  
+		\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_12}
+	\end{subfigure}
+	
+	\caption{Put your caption here}
+	\label{fig:asset_speed_zenith_comparison_h1}
+\end{figure}
+
+
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Azimuthal Field-of-View}\label{ssec:Azimuthal Field of View}

@@ -281,7 +281,7 @@ df = float(sys.argv[4])
 # print('d = ', dist(vv, gg, rr, -1))
 
 
-Ng = 10000
+Ng = 2000
 Nd = 100
 Nh = 20
 Na = 10
@@ -300,7 +300,7 @@ gp = np.linspace(EPS, np.pi/2.-EPS, Ng)
 
 #print(rv-1)
 #cdf = np.zeros(Ng+1)
-cdf = np.cumsum(vmaxvec(df, gp, rr, hh, af) - vminvec(df, gp, rr, hh, af))
+cdf = np.cumsum(vmaxvec(df, gp, rr, hh, af) - vminNvec(df, gp, rr, hh, af, Np))
 cdf /= cdf[-1]
 
 #print(cdf)
@@ -315,25 +315,28 @@ x = np.random.uniform(size=N)
 for i in range(N):
 	idx = np.argmax(cdf >= np.random.uniform(0, 1)) - 1
 	g_sample[i] = np.random.uniform(gp[idx], gp[idx+1])
-	v_sample[i] = np.random.uniform(vminvec(df, g_sample[i], rr, hh, af), vmaxvec(df, g_sample[i], rr, hh, af))
+	v_sample[i] = np.random.uniform(vminNvec(df, g_sample[i], rr, hh, af, Np), vmaxvec(df, g_sample[i], rr, hh, af))
 
 # height at the side of the asset
 r_si = r_final(df, v_sample, g_sample)
 
-plt.plot(gp, vmaxNvec(df, gp, rr, hh, af, Np))
-plt.plot(gp, vminNvec(df, gp, rr, hh, af, Np))
-plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
-plt.plot(gp, vminvec(df, gp, rr, hh, af))
-plt.xlim([0., np.pi/2.])
-plt.ylim([0., 1.])
+# plt.plot(gp, vmaxNvec(df, gp, rr, hh, af, Np))
+# plt.plot(gp, vminNvec(df, gp, rr, hh, af, Np))
+# plt.plot(gp, vmaxvec(df, gp, rr, hh, af))
+# plt.plot(gp, vminvec(df, gp, rr, hh, af))
+# plt.xlim([0., np.pi/2.])
+# plt.ylim([0., 1.])
 
 
 
 plt.figure()
-plt.plot(gp, vmaxvec(df, gp, rr, hh, af), color='k')
-plt.plot(gp, vminvec(df, gp, rr, hh, af), color='k')
-plt.xlim([0., np.pi/2.])
+plt.plot(gp*180./np.pi, vmaxvec(df, gp, rr, hh, af), color='k')
+plt.plot(gp*180./np.pi, vminNvec(df, gp, rr, hh, af, Np), color='k')
+plt.xlim([0., 90.])
 plt.ylim([0., 1.])
+plt.xlabel(r'Ejecta Zenith Angle $\gamma_p$ (deg)')
+plt.ylabel(r'Ejecta Speed $v_p$ ($v_{esc}$)')
+plt.title(r'Asset Size Parameters: a = ' + str(af) + ', h = ' + str(hh) + ', D = ' + str(df))
 #plt.plot(gp, cdf)
 
 # side hits
@@ -349,12 +352,17 @@ g_bottom = g_sample[r_si < rr]
 v_bottom = v_sample[r_si < rr]
 
 
-plt.scatter(g_side, v_side, s=3, color='b')
-plt.scatter(g_bottom, v_bottom, s=3, color='r')
-plt.scatter(g_top, v_top, s=3, color='g')
-plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) < df], v_top[dist_new(v_top, g_top, rr, hh, df) < df], s=1, color='r')
-plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af], v_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af], s=1, color='y')
+plt.scatter(g_side*180./np.pi, v_side, s=3, color='b', label='Side')
+plt.scatter(g_bottom*180./np.pi, v_bottom, s=3, color='r', label='Bottom')
+plt.scatter(g_top*180./np.pi, v_top, s=3, color='g', label='Top')
+plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) < df]*180./np.pi, v_top[dist_new(v_top, g_top, rr, hh, df) < df], s=1, color='r')
+plt.scatter(g_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af]*180./np.pi, v_top[dist_new(v_top, g_top, rr, hh, df) > df + 2.*af], s=1, color='y')
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+plt.legend()
+
+# https://stackoverflow.com/questions/339007/how-to-pad-zeroes-to-a-string
+plt.savefig(f'asset_speed_zenith_plot_{rr:.3e}_{af:.3e}_{hh:.3e}_{df:.3e}.png', bbox_inches='tight', dpi=600)
+
 
 plt.figure()
 for di in np.linspace(df, df + 2.*af, 100):
@@ -372,12 +380,15 @@ plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how
 #print(g_bottom[0], v_bottom[0], dist(g_bottom[0], v_bottom[0], rr), F(v_bottom[0], g_bottom[0], rr))
 
 
+############
+# plt.figure()
+# plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
+# if rr > 1.:
+# 	plt.scatter(dist_new(v_bottom, g_bottom, rr, hh, df), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
+# plt.scatter(dist_new(v_top, g_top, rr, hh, df), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
+###########
 
-plt.figure()
-plt.scatter((np.ones(N) * df)[(r_si >= rr) & (r_si <= rr + hh)], r_si[(r_si >= rr) & (r_si <= rr + hh)], s=1.5, color='b')
-if rr > 1.:
-	plt.scatter(dist_new(v_bottom, g_bottom, rr, hh, df), (np.ones(np.size(g_bottom)) * rr), s=1.5, color='r')
-plt.scatter(dist_new(v_top, g_top, rr, hh, df), (np.ones(np.size(g_top)) * (rr + hh)), s=1.5, color='g')
+
 # plt.axhline(y = rr, color='r', linestyle='-') # https://stackoverflow.com/questions/33382619/plot-a-horizontal-line-using-matplotlib
 # plt.axhline(y = rr + hh, color='g', linestyle='-') 
 
