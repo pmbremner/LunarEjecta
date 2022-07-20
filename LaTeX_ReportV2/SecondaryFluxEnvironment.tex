@@ -460,8 +460,9 @@ where $F = F(v_p,\gamma_p,r_s)$ as before. Note that if $r_s = r_m$, the equatio
 The initial zenith angle can be found similar to Section \ref{sssec:Crater on Surface to Observer at Surface},
 \begin{equation}
 \label{eq:generalcase gammap}
-\cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}\left(\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right)-1}.
+\cot\gamma_p = \frac{v_p^2}{v_{esc}^2}\cot\left(\frac{D}{2r_m}\right) \pm \sqrt{\frac{v_p^4}{v_{esc}^4}\cot^2\left(\frac{D}{2r_m}\right) + 2\frac{v_p^2}{v_{esc}^2}\left(\frac{\frac{r_m}{r_s}-\cos\left(\frac{D}{r_m}\right)}{1-\cos\left(\frac{D}{r_m}\right)}\right)-1},
 \end{equation}
+where the positive solution is for $\gamma_p < \gamma_{p,ap}$ and the negative solution is for $\gamma_p > \gamma_{p,ap}$.
 
 
 \subsubsubsection{Minimum Initial Zenith Angle $\gamma_{p,min}$ vs.\ $D$ and $r_s$}
@@ -533,236 +534,6 @@ The final radial distance $r_s$ can also be solved for using Equation \eqref{eq:
 \frac{r_s}{r_m} = \frac{2\frac{v_p^2}{v_{esc}^2}\sin^2\gamma_p}{1 + \left(\frac{v_p^2}{v_{esc}^2}-1\right)\cos\left(\frac{D}{r_m}\right) - \frac{v_p^2}{v_{esc}^2}\cos\left(\frac{D}{r_m} - 2\gamma_p\right)}.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Asset Collision Algorithm}\label{ssec:Asset Collision Algorithm}
-
-In this model, the asset is assumed to be cylindrical in shape with the cylinder's symmetry axis normal to the lunar surface. The asset can sit on the surface of the Moon or have any height above the surface, $h_{sb}$ such that
-\begin{equation}
-h_{sb} = r_s - r_m.
-\end{equation}
-The height (or length) of the asset itself is defined to be $l_s$, so that the height of the top of the asset from the lunar surface is given by
-\begin{equation}
-h_{st} = h_{sb} + l_s.
-\end{equation}
-The radius of the cylinder is defined to be $a_s$.
-
-In order to uniformly\footnote{A constant probability density in the speed-zenith-azimuth phase space.} generate ejecta that originates from a crater and will hit the asset, there are bounding points that define the extent of the minimum and maximum ejecta speed ($v_{min,\gamma_p}$ and $v_{max,\gamma_p}$) for a given ejecta zenith and azimuth angle. It is assumed that for speeds $v_p$ such that $v_{min,\gamma_p} \le v_p \le v_{max,\gamma_p}$, the $(v_p, \gamma_p)$ pair gives ejecta that will hit the asset. The question then becomes, where?
-
-Given the ejecta speed $v_p$, zenith angle $\gamma_p$, selenographic distance to the near side of the asset $D$, in addition to the asset height above the lunar surface and the size, the height $r_s$ and distance $D_s$ at which the ejecta hits the asset is needed. To know which surface the ejecta hits (top, side, bottom), the state of the ejecta at the distance $D$ is needed, specifically the height $r_s(D)$ using Equation \eqref{eq:rs}. To decide which surface of the asset is hit by the ejecta, the following logic can be used:
-\begin{itemize}
-	\item If $r_s(D) > h_{st}$, then $sign(F) = -1$, $r_s = h_{st}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the top),
-	\item Else if $r_s(D) < h_{sb}$, then $sign(F) = +1$, $r_s = h_{sb}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the bottom),
-	\item Else
-	\begin{itemize}
-		\item If $\gamma_p > \gamma_{p,ap}(r_s(D))$ (Equation \eqref{eq:gamma p ap 1}), then $sign(F) = -1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side above the local horizon),
-		\item Else $sign(F) = +1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side below the local horizon).
-	\end{itemize}
-\end{itemize}
-For computing both $F$ and $D$, the conditionally defined height $r_s$ and sign of $F$ should be used.
-
-% https://tex.stackexchange.com/questions/102251/figures-in-subfigure-not-aligned
-\begin{figure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include first image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_1}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include second image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_2}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include second image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_3}
-	\end{subfigure}
-	
-	%\newline
-	
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_4}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_5}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_6}
-	\end{subfigure}
-
-
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_7}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_8}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_9}
-	\end{subfigure}
-
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_10}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_11}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_12}
-	\end{subfigure}
-
-	\caption{Put your caption here}
-	\label{fig:asset_speed_zenith_comparison}
-\end{figure}
-
-
-
-
-
-
-
-
-
-\begin{figure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include first image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_1}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include second image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_2}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include second image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_3}
-	\end{subfigure}
-	
-	%\newline
-	
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_4}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_5}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_6}
-	\end{subfigure}
-	
-	
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_7}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_8}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_9}
-	\end{subfigure}
-	
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include third image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_10}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_11}
-	\end{subfigure}
-	\begin{subfigure}[t]{.3\textwidth}
-		\centering
-		% include fourth image
-		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png}  
-		\caption{Put your sub-caption here}
-		\label{fig:sub-asset_speed_zenith_h1_12}
-	\end{subfigure}
-	
-	\caption{Put your caption here}
-	\label{fig:asset_speed_zenith_comparison_h1}
-\end{figure}
-
-
-\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Azimuthal Field-of-View}\label{ssec:Azimuthal Field of View}
@@ -772,88 +543,138 @@ The field-of-view (FOV) of the asset from the crater, in terms of the azimuth, m
 % https://mirrors.mit.edu/CTAN/macros/latex/contrib/tkz/tkz-euclide/doc/tkz-euclide.pdf
 \begin{figure}[!htb]
 	\centering
-
-\begin{tikzpicture}[scale=2.6]
-\tkzDefPoint(-1,0){A}
-\tkzDefPoint(1,0){A2}
-\tkzLabelPoint[below right](A2){$\mathcal{D}$}
-\tkzDefPoint(0,0){B}
-\tkzLabelPoint[below](B){$\mathcal{O}$}
-\tkzLabelSegment[below](B,A2){$a$}
-
-\tkzDefPoint(4,0){C}
-\tkzLabelPoint[right](C){$\mathcal{C}$}
-%\tkzLabelSegment[below](C,A2){$D$}
-
-\tkzDrawSegment[dim={\(D\),-1cm,below=2mm},
-dim style/.append style={black,
-	dash pattern={on 2pt off 2pt}}](A2,C)
-
-\tkzDefPoint(0.25, 0.9682){D}
-\tkzLabelPoint[above left](D){$\mathcal{E}$}
-
-
-\tkzDrawSegment[dim={\(D_{max}\),0.5cm,above=2mm},
-dim style/.append style={black,
-	dash pattern={on 2pt off 2pt}}](D,C)
-
-\tkzDrawSegment(A,C)
-\tkzDrawSegment[dashed](D,C)
-\tkzDrawSegment[dashed](D,B)
-\tkzMarkRightAngle(B,D,C)
-%\tkzDrawSegment[dim={\(l_0\),1cm,right=2mm},
-%dim style/.append style={red,
-%	dash pattern={on 2pt off 2pt}}](A,C)
-\tkzDrawCircles(B,A)
-
-
-\tkzDefPoint(-1,0.5){A3}
-\tkzDrawSegment(A3,C)
-
-\tkzDefPoint(0.9524,0.304757){E1}
-\tkzDefPoint(-0.87322,0.4873){E2}
-\tkzLabelPoint[below](E2){$\mathcal{A}$}
-\tkzLabelPoint[left](E1){$\mathcal{B}$}
-%\tkzLabelPoints(E1, E2)
-
-\tkzMarkAngle[gray,size=0.15](B,E1,C)
-\tkzFindAngle(B,E1,C)
-\tkzLabelAngle[pos=0.2](B,E1,C){$\alpha_i$}
-\tkzFillAngle[fill=blue!20, opacity=0.5,size=0.15](B,E1,C)
-
-\tkzDefPoint(0,1){E3}
-\tkzDrawSegment(B,E3)
-\tkzMarkRightAngle(A2,B,E3)
-
-\tkzDrawSegment[dim={\(c_{i}\),-0.25cm,above=1mm},
-dim style/.append style={black,
-	dash pattern={on 2pt off 2pt}}](E1,E2)
-
-
-\tkzDrawSegment[dim={\(D_{i}\),0.25cm,above=1mm},
-dim style/.append style={black,
-	dash pattern={on 2pt off 2pt}}](E1,C)
-
-\tkzMarkAngle[gray,size=1.3](E2,C,B)
-\tkzFindAngle(E2,C,B)
-\tkzLabelAngle[pos=1.4](E2,C,B){$\beta_i$}
-\tkzFillAngle[fill=blue!20, opacity=0.5,size=1.3](E2,C,B)
-
-\tkzMarkAngle[gray,size=0.8](D,C,B)
-\tkzFindAngle(E2,C,B)
-\tkzLabelAngle[pos=1](D,C,B){$\beta_{max}$}
-\tkzFillAngle[fill=red!20, opacity=0.5,size=0.8](D,C,B)
-
-\tkzDrawSegment(B,E1)
-\tkzDrawSegment(B,E2)
-\tkzLabelSegment[below](B,E1){$a$}
-\tkzLabelSegment[below](B,E2){$a$}
-
-\tkzDrawPoints(E1,E2,C,A2,D)
-\end{tikzpicture}
-
-\caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The FOV the asset encompasses from the point of view of the crater is $2\beta_{max}$}\label{fig:FOV}
+	
+	\begin{tikzpicture}[scale=2.6]
+	\tkzDefPoint(-1,0){A}
+	\tkzDefPoint(1,0){A2}
+	\tkzLabelPoint[below right](A2){$\mathcal{D}$}
+	\tkzDefPoint(0,0){B}
+	\tkzLabelPoint[below](B){$\mathcal{O}$}
+	\tkzLabelSegment[below](B,A2){$a$}
+	
+	\tkzDefPoint(4,0){C}
+	\tkzLabelPoint[right](C){$\mathcal{C}$}
+	%\tkzLabelSegment[below](C,A2){$D$}
+	
+	\tkzDrawSegment[dim={\(D\),-1cm,below=2mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](A2,C)
+	
+	\tkzDefPoint(0.25, 0.9682){D}
+	\tkzLabelPoint[above left](D){$\mathcal{E}$}
+	
+	
+	\tkzDrawSegment[dim={\(D_{max}\),0.5cm,above=2mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](D,C)
+	
+	\tkzDrawSegment(A,C)
+	\tkzDrawSegment[dashed](D,C)
+	\tkzDrawSegment[dashed](D,B)
+	\tkzMarkRightAngle(B,D,C)
+	%\tkzDrawSegment[dim={\(l_0\),1cm,right=2mm},
+	%dim style/.append style={red,
+	%	dash pattern={on 2pt off 2pt}}](A,C)
+	\tkzDrawCircles(B,A)
+	
+	
+	\tkzDefPoint(-1,0.5){A3}
+	\tkzDrawSegment(A3,C)
+	
+	\tkzDefPoint(0.9524,0.304757){E1}
+	\tkzDefPoint(-0.87322,0.4873){E2}
+	\tkzLabelPoint[below](E2){$\mathcal{A}$}
+	\tkzLabelPoint[left](E1){$\mathcal{B}$}
+	%\tkzLabelPoints(E1, E2)
+	
+	\tkzMarkAngle[gray,size=0.15](B,E1,C)
+	\tkzFindAngle(B,E1,C)
+	\tkzLabelAngle[pos=0.2](B,E1,C){$\alpha_i$}
+	\tkzFillAngle[fill=blue!20, opacity=0.5,size=0.15](B,E1,C)
+	
+	\tkzDefPoint(0,1){E3}
+	\tkzDrawSegment(B,E3)
+	\tkzMarkRightAngle(A2,B,E3)
+	
+	\tkzDrawSegment[dim={\(c_{i}\),-0.25cm,above=1mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](E1,E2)
+	
+	
+	\tkzDrawSegment[dim={\(D_{i}\),0.25cm,above=1mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](E1,C)
+	
+	\tkzMarkAngle[gray,size=1.3](E2,C,B)
+	\tkzFindAngle(E2,C,B)
+	\tkzLabelAngle[pos=1.4](E2,C,B){$\beta_i$}
+	\tkzFillAngle[fill=blue!20, opacity=0.5,size=1.3](E2,C,B)
+	
+	\tkzMarkAngle[gray,size=0.8](D,C,B)
+	\tkzFindAngle(E2,C,B)
+	\tkzLabelAngle[pos=1](D,C,B){$\beta_{max}$}
+	\tkzFillAngle[fill=red!20, opacity=0.5,size=0.8](D,C,B)
+	
+	\tkzDrawSegment(B,E1)
+	\tkzDrawSegment(B,E2)
+	\tkzLabelSegment[below](B,E1){$a$}
+	\tkzLabelSegment[below](B,E2){$a$}
+	
+	\tkzDrawPoints(E1,E2,C,A2,D)
+	\end{tikzpicture}
+	
+	\caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The FOV the asset encompasses from the point of view of the crater is $2\beta_{max}$}\label{fig:FOV}
 \end{figure}
+
+
+\subsubsection{Maximum Azimuthal FOV}
+The FOV of the asset from the crater $2\beta_{max}$ is given by
+\begin{equation}
+\sin\beta_{max} =\begin{cases}
+\frac{\sin a}{\sin(D+a)} \text{, for $\sin(D+a) \ge \sin a$}\\
+1 \text{, for $\sin(D+a) < \sin a$}
+\end{cases}.
+\end{equation}
+
+\subsubsection{Effective Cylindrical Diameter}
+The effective cylindrical diameter $c_i$ decreases as $\beta_i$ increases, which is given by (using planar law of cosines, assuming $a \ll r_m$)
+\begin{equation}
+c_i = 2a|\cos\alpha_i|,
+\end{equation}
+where the angle $\alpha_i$ is given by (using the spherical law of sines)
+\begin{equation}
+\cos\alpha_i = -\sqrt{1 - \left(\frac{\sin\beta_i}{\sin\beta_{max}}\right)^2}.
+\end{equation}
+
+\subsubsection{Effective Crater-to-Asset Distance}
+The effective crater-to-asset distance can be derived by starting with using the spherical law of cosines for the angles $\beta_i$ and $\alpha_i$,
+\begin{align}
+\cos a &= \cos(D+a)\cos D_i + \sin(D+a)\sin D_i\cos\beta_i,\label{eq:Di_der1}\\
+\cos(D+a) &= \cos a\cos D_i + \sin a\sin D_i\cos\alpha_i.\label{eq:Di_der2}
+\end{align}
+
+First, eliminate $\cos\beta_i$ by multiplying Equation \eqref{eq:Di_der1} by $\cos a$ and Equation \eqref{eq:Di_der2} by $-\cos(D+a)$ and adding, giving
+\begin{align}\label{eq:Di_der3}
+\cos^2a - \cos^2(D+a) = \\\nonumber
+\left[\cos a\sin(D+a)\cos\beta_i - \sin a\cos(D+a)\cos\alpha_i\right]\sin D_i.
+\end{align}
+
+Next, start with Equations \eqref{eq:Di_der1} and \eqref{eq:Di_der2} again and eliminate $\sin D_i$ by multiplying Equation \eqref{eq:Di_der1} by $\sin a\cos\alpha_i$ and Equation \eqref{eq:Di_der2} by $-\sin(D+a)\cos\beta_i$ and adding, giving
+\begin{align}\label{eq:Di_der4}
+\sin a\cos a\cos\alpha_i - \sin(D+a)\cos(D+a)\cos\beta_i =\\\nonumber
+-\left[\cos a\sin(D+a)\cos\beta_i - \sin a\cos(D+a)\cos\alpha_i\right]\cos D_i.
+\end{align}
+
+Finally, take Equation \eqref{eq:Di_der3} and divide by Equation \eqref{eq:Di_der4}, giving
+\begin{equation}
+\tan D_i = \frac{\cos^2a - \cos^2(D+a)}{\sin(D+a)\cos(D+a)\cos\beta_i - \sin a\cos a\cos\alpha_i}.
+\end{equation}
+
+
+\clearpage
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Selenographic Distance \& Bearing}\label{ssec:Selenographic Distance/Bearing}

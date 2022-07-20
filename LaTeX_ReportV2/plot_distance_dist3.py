@@ -287,7 +287,7 @@ Nh = 20
 Na = 10
 Nv = 10
 
-Np = 10
+Np = 20
 
 
 gp = np.linspace(EPS, np.pi/2.-EPS, Ng)

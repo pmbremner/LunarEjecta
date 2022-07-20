@@ -1,0 +1,379 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Numerical Methods}\label{sec:Numerical Methods}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asset Collision Algorithm}\label{ssec:Asset Collision Algorithm}
+
+In this lunar ejecta model, the asset is assumed to be cylindrical in shape with the cylinder's symmetry axis normal to the lunar surface. The asset can sit on the surface of the Moon or have any height above the surface, $h_{sb}$ such that
+\begin{equation}
+h_{sb} = r_s - r_m.
+\end{equation}
+The height (or length) of the asset itself is defined to be $l_s$, so that the height of the top of the asset from the lunar surface is given by
+\begin{equation}
+h_{st} = h_{sb} + l_s.
+\end{equation}
+The radius of the cylinder is defined to be $a_s$.
+
+In order to uniformly\footnote{A constant probability density in the speed-zenith-azimuth phase space.} generate ejecta that originates from a crater and will hit the asset, there are bounding points that define the extent of the minimum and maximum ejecta speed ($v_{min,\gamma_p}$ and $v_{max,\gamma_p}$) for a given ejecta zenith and azimuth angle. It is assumed that for speeds $v_p$ such that $v_{min,\gamma_p} \le v_p \le v_{max,\gamma_p}$, the $(v_p, \gamma_p)$ pair gives ejecta that will hit the asset. The question then becomes, where?
+
+Given the ejecta speed $v_p$, zenith angle $\gamma_p$, selenographic distance to the near side of the asset $D$, in addition to the asset height above the lunar surface and the size, the height $r_s$ and distance $D_s$ at which the ejecta hits the asset is needed. To know which surface the ejecta hits (top, side, bottom), the state of the ejecta at the distance $D$ is needed, specifically the height $r_s(D)$ using Equation \eqref{eq:rs}. To decide which surface of the asset is hit by the ejecta, the following logic can be used:
+\begin{itemize}
+	\item If $r_s(D) > h_{st}$, then $sign(F) = -1$, $r_s = h_{st}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the top),
+	\item Else if $r_s(D) < h_{sb}$, then $sign(F) = +1$, $r_s = h_{sb}$, and $D_s = D(v_p, \gamma_p, r_s)$ (hitting the bottom),
+	\item Else
+	\begin{itemize}
+		\item If $\gamma_p > \gamma_{p,ap}(r_s(D))$ (Equation \eqref{eq:gamma p ap 1}), then $sign(F) = -1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side above the local horizon),
+		\item Else $sign(F) = +1$, $r_s = r_s(D)$, and $D_s = D$ (hitting the side below the local horizon).
+	\end{itemize}
+\end{itemize}
+For computing both $F$ and $D$, the conditionally defined height $r_s$ and sign of $F$ should be used.
+
+% https://tex.stackexchange.com/questions/102251/figures-in-subfigure-not-aligned
+\begin{figure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.95\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_3}
+	\end{subfigure}
+	
+	%\newline
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_4}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_6}
+	\end{subfigure}
+	
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_7}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_8}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_9}
+	\end{subfigure}
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_10}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_11}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_12}
+	\end{subfigure}
+	
+	\caption{A matrix of plots showing the ejecta hitting a cylindrical asset (in a plane intersecting the cylinder's symmetry axis) on the surface for various asset sizes and crater-to-asset distances. Each plot gives three colors for the ejecta hitting the side (blue), bottom (red), and the top (green) as a function of initial ejecta speed $v_p$ vs.\ initial ejecta zenith angle $\gamma_p$.}
+	\label{fig:asset_speed_zenith_comparison}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\begin{figure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_3}
+	\end{subfigure}
+	
+	%\newline
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_4}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_6}
+	\end{subfigure}
+	
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_7}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_8}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_9}
+	\end{subfigure}
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_10}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_11}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h1_12}
+	\end{subfigure}
+	
+	\caption{A matrix of plots showing the ejecta hitting a cylindrical asset (in a plane intersecting the cylinder's symmetry axis) with a height above the surface of $0.01 r_m$ for various asset sizes and crater-to-asset distances. Each plot gives three colors for the ejecta hitting the side (blue), bottom (red), and the top (green) as a function of initial ejecta speed $v_p$ vs.\ initial ejecta zenith angle $\gamma_p$.}
+	\label{fig:asset_speed_zenith_comparison_h1}
+\end{figure}
+
+
+
+
+
+
+
+
+\begin{figure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_2}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_3}
+	\end{subfigure}
+	
+	%\newline
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_4}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_6}
+	\end{subfigure}
+	
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_7}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_8}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_9}
+	\end{subfigure}
+	
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_10}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_11}
+	\end{subfigure}
+	\begin{subfigure}[t]{.32\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:sub-asset_speed_zenith_h2_12}
+	\end{subfigure}
+	
+	\caption{A matrix of plots showing the ejecta hitting a cylindrical asset (in a plane intersecting the cylinder's symmetry axis) with a height above the surface of $0.1 r_m$ for various asset sizes and crater-to-asset distances. Each plot gives three colors for the ejecta hitting the side (blue), bottom (red), and the top (green) as a function of initial ejecta speed $v_p$ vs.\ initial ejecta zenith angle $\gamma_p$.}
+	\label{fig:asset_speed_zenith_comparison_h2}
+\end{figure}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ejecta Speed-Zenith-Azimuth Sampling Algorithm}\label{ssec:Ejecta Speed-Zenith-Azimuth Sampling Algorithm}
+There are two integration techniques that will combined in order to sample the ejecta speed-zenith phase space, importance sampling \citep[e.g., Section 9.7 of][]{kroese2013handbook} and stratified sampling \citep[e.g., Section 9.5 of][]{kroese2013handbook}.
+
+In general, let $I$ be the integral given by
+\begin{equation}
+I = \int g(x)dx.
+\end{equation}
+
+Using importance sampling, the integral $I$ can be approximated as
+\begin{equation}
+I \sim \frac{1}{n}\sum_{i=1}^{n}\frac{g(x_i)}{f_{\hat{x}}(x_i)},
+\end{equation}
+where $f_{\hat{x}}(x_i)$ is a probability distribution function close to $g(x)$.
+
+The integral $I$ can also be approximated using stratified sampling as
+\begin{equation}
+I \sim \sum_{j=1}^{k}\frac{vol(M_j)}{n_j}\sum_{i=1}^{n_j}g(x_{ij}),
+\end{equation}
+where each subdomain $M_j$ has a volume $vol(M_j)$.
+
+Combining the two integration techniques, the integral $I$ can be written as
+\begin{equation}
+I \sim \sum_{j=1}^{k}\frac{Vol(M_j)}{n_j}\sum_{i=1}^{n}\frac{g(x_{ij})}{f_{\hat{x}(x_{ij})}}.
+\end{equation}
+
+
+In the case of computing the fraction of total ejecta $M$ that hits the asset from a particular crater $\mathcal{C}$, the integral $I$ will be assigned as $M$ such that
+\begin{equation}
+M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p, \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv}
+\end{equation}
+
+
+
+
+
+\end{document}
