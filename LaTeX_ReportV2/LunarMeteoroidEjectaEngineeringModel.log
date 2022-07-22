@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  19 JUL 2022 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  22 JUL 2022 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2338,296 +2338,301 @@ Underfull \hbox (badness 10000) in paragraph at lines 725--726
 
 [40
 
-]) (NumericalMethods.tex [41]
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png, id=1364, 417.60014p
+]) (EnvironmentGeneration.tex [41] [42]
+Overfull \hbox (22.29764pt too wide) in paragraph at lines 65--85
+ [] 
+ []
+
+) (NumericalMethods.tex [43]
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png, id=1404, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.
-png  used on input line 42.
+png  used on input line 48.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png, id=1365, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png, id=1405, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.
-png  used on input line 49.
+png  used on input line 55.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png, id=1366, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png, id=1406, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.
-png  used on input line 56.
+png  used on input line 62.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png, id=1367, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png, id=1407, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.
-png  used on input line 66.
+png  used on input line 72.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png, id=1368, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png, id=1408, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.
-png  used on input line 73.
+png  used on input line 79.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png, id=1369, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png, id=1409, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.
-png  used on input line 80.
+png  used on input line 86.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png, id=1370, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png, id=1410, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.
-png  used on input line 89.
+png  used on input line 95.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png, id=1371, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png, id=1411, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.
-png  used on input line 96.
+png  used on input line 102.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png, id=1372, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png, id=1412, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.
-png  used on input line 103.
+png  used on input line 109.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png, id=1373, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png, id=1413, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.
-png  used on input line 111.
+png  used on input line 117.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png, id=1374, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png, id=1414, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.
-png  used on input line 118.
+png  used on input line 124.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png, id=1375, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png, id=1415, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png Graphic file (t
 ype png)
 <use asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.
-png  used on input line 125.
+png  used on input line 131.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1376, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1416, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
-2.000e-03.png  used on input line 146.
+2.000e-03.png  used on input line 152.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1377, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1417, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
-2.000e-03.png  used on input line 153.
+2.000e-03.png  used on input line 159.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1378, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1418, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
-2.000e-03.png  used on input line 160.
+2.000e-03.png  used on input line 166.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1379, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1419, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
-2.000e-02.png  used on input line 170.
+2.000e-02.png  used on input line 176.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1380, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1420, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
-2.000e-02.png  used on input line 177.
+2.000e-02.png  used on input line 183.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1381, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1421, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
-2.000e-02.png  used on input line 184.
+2.000e-02.png  used on input line 190.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1382, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1422, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
-2.000e-01.png  used on input line 193.
+2.000e-01.png  used on input line 199.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1383, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1423, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
-2.000e-01.png  used on input line 200.
+2.000e-01.png  used on input line 206.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1384, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1424, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
-2.000e-01.png  used on input line 207.
+2.000e-01.png  used on input line 213.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1385, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1425, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
-2.000e+00.png  used on input line 215.
+2.000e+00.png  used on input line 221.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png, id=1386, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png, id=1426, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
-2.000e+00.png  used on input line 222.
+2.000e+00.png  used on input line 228.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png, id=1387, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png, id=1427, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
-2.000e+00.png  used on input line 229.
+2.000e+00.png  used on input line 235.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1388, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1428, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
-2.000e-03.png  used on input line 249.
+2.000e-03.png  used on input line 255.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1389, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1429, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
-2.000e-03.png  used on input line 256.
+2.000e-03.png  used on input line 262.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1390, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1430, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
-2.000e-03.png  used on input line 263.
+2.000e-03.png  used on input line 269.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1391, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1431, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
-2.000e-02.png  used on input line 273.
+2.000e-02.png  used on input line 279.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1392, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1432, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
-2.000e-02.png  used on input line 280.
+2.000e-02.png  used on input line 286.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1393, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1433, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
-2.000e-02.png  used on input line 287.
+2.000e-02.png  used on input line 293.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1394, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1434, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
-2.000e-01.png  used on input line 296.
+2.000e-01.png  used on input line 302.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1395, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1435, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
-2.000e-01.png  used on input line 303.
+2.000e-01.png  used on input line 309.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1396, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1436, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
-2.000e-01.png  used on input line 310.
+2.000e-01.png  used on input line 316.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1397, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1437, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
-2.000e+00.png  used on input line 318.
+2.000e+00.png  used on input line 324.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png, id=1398, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png, id=1438, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
-2.000e+00.png  used on input line 325.
+2.000e+00.png  used on input line 331.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png, id=1399, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png, id=1439, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png Graph
 ic file (type png)
 <use asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png>
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
-2.000e+00.png  used on input line 332.
+2.000e+00.png  used on input line 338.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
- [42] [43 <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png> <./asse
+ [44] [45 <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png> <./asse
 t_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png> <./asset_speed_zenith_pl
 ot_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plot_1.000e-02_2.00
 0e-01_2.000e-02.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.p
@@ -2637,7 +2642,7 @@ d_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png> <./asset_speed_zenith_plot_1.0
 2.000e-01.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png> <.
 /asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png> <./asset_speed_zeni
 th_plot_1.000e-01_2.000e-02_2.000e+00.png>]
-[44 <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
+[46 <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
 asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png> <./asset_s
 peed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_ze
 nith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png> <./asset_speed_zenith_pl
@@ -2648,7 +2653,7 @@ ot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png> <./asset_speed_zenith_plot_1.01
 e-02_2.000e-01.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.
 000e+00.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00
 .png> <./asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png>]
-[45 <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
+[47 <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
 asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png> <./asset_s
 peed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_ze
 nith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png> <./asset_speed_zenith_pl
@@ -2659,26 +2664,21 @@ ot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png> <./asset_speed_zenith_plot_1.10
 e-02_2.000e-01.png> <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.
 000e+00.png> <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00
 .png> <./asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png>])
-(EnvironmentGeneration.tex [46
+(SecondaryEnvironment.tex) [48
 
-] [47]
-Overfull \hbox (22.29764pt too wide) in paragraph at lines 65--85
- [] 
- []
+] [49] (LunarMeteoroidEjectaEngineeringModel.bbl
+[50
 
-) (SecondaryEnvironment.tex) [48] (LunarMeteoroidEjectaEngineeringModel.bbl
-[49
-
-]) [50] (LunarMeteoroidEjectaEngineeringModel.aux)
+]) [51] (LunarMeteoroidEjectaEngineeringModel.aux)
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 8C8F3116561FA44B6C4F204F761CF77F;16344.
+(rerunfilecheck)             Checksum: 1BFD75C43D884C177B7D623CCD71ECF6;16344.
  ) 
 Here is how much of TeX's memory you used:
- 42090 strings out of 478619
- 978567 string characters out of 2851115
- 1906203 words of memory out of 3000000
- 58968 multiletter control sequences out of 15000+600000
+ 42092 strings out of 478619
+ 978585 string characters out of 2851115
+ 1906257 words of memory out of 3000000
+ 58969 multiletter control sequences out of 15000+600000
  503409 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,13n,98p,1515b,1874s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -2712,10 +2712,10 @@ cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helveti
 c/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helv
 etic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/h
 elvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (55 pages, 16159482 
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (56 pages, 16164265 
 bytes).
 PDF statistics:
- 1808 PDF objects out of 2073 (max. 8388607)
- 413 named destinations out of 1000 (max. 500000)
+ 1823 PDF objects out of 2073 (max. 8388607)
+ 414 named destinations out of 1000 (max. 500000)
  949 words of extra memory for PDF output out of 10000 (max. 10000000)
 

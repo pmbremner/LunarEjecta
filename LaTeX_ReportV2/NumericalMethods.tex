@@ -34,6 +34,12 @@ Given the ejecta speed $v_p$, zenith angle $\gamma_p$, selenographic distance to
 \end{itemize}
 For computing both $F$ and $D$, the conditionally defined height $r_s$ and sign of $F$ should be used.
 
+Examples of valid ejecta from a crater that hits various asset sizes are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h1} for asset altitudes of $0r_m$, $0.01r_m$, and $0.1r_m$, respectively. For each figure, the asset properties are ($a=0.01r_m$, $h=0.2r_m$) for the left column, ($a=0.01r_m$, $h=0.02r_m$) for the center column, and ($a=0.1r_m$, $h=0.02r_m$) for the right column. The crater-to-asset distance varies for the rows, where row 1 is $D=0.002r_m$, row 2 is $D=0.02r_m$, row 3 is $D=0.2r_m$, and row 4 is $D=2.0r_m$.
+
+For an asset on the surface of the Moon (Figure \ref{fig:asset_speed_zenith_comparison}), there are no ejecta that hit the bottom of the asset -- which is to be expected. When a crater is close to the asset (rows 1 and 2 of Figure \ref{fig:asset_speed_zenith_comparison}), most of the ejecta hits the asset at the side and occurs for all speeds line-of-site ejecta that are able to reach the bottom edge of the asset.
+
+In general, the further away the crater is from the asset, the more ejecta will hit the top of the asset. For close craters and the higher the asset altitude, the more ejecta will hit the bottom of the asset.
+
 % https://tex.stackexchange.com/questions/102251/figures-in-subfigure-not-aligned
 \begin{figure}
 	\begin{subfigure}[t]{.32\textwidth}
@@ -369,8 +375,9 @@ I \sim \sum_{j=1}^{k}\frac{Vol(M_j)}{n_j}\sum_{i=1}^{n}\frac{g(x_{ij})}{f_{\hat{
 
 In the case of computing the fraction of total ejecta $M$ that hits the asset from a particular crater $\mathcal{C}$, the integral $I$ will be assigned as $M$ such that
 \begin{equation}
-M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p, \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv}
+M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p, \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
 \end{equation}
+where examples of the region $\mathcal{R}(v_p,\gamma_p, \beta_i)$ are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h2}, $\frac{dM(v_p,\gamma_p)}{dv}$ is the differential of the total ejecta mass (i.e., the differential of Equation~\eqref{eq:M_HH11}), $F(\gamma_p)$ is the ejecta zenith distribution (see Section \ref{sssec:Ejecta:Zenith Distribution}), and $G(\beta_i-\beta_{imp})$ is the ejecta azimuth distribution (see Section \ref{sssec:Ejecta:Azimuth Distribution}) with $\beta_{imp}$ as the impactor azimuth.
 
 
 
