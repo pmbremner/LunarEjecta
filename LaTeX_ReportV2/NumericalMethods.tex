@@ -363,13 +363,13 @@ where $f_{\hat{x}}(x_i)$ is a probability distribution function close to $g(x)$.
 
 The integral $I$ can also be approximated using stratified sampling as
 \begin{equation}
-I \sim \sum_{j=1}^{k}\frac{vol(M_j)}{n_j}\sum_{i=1}^{n_j}g(x_{ij}),
+I \sim \sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}g(x_{ij}),
 \end{equation}
 where each subdomain $M_j$ has a volume $vol(M_j)$.
 
 Combining the two integration techniques, the integral $I$ can be written as
 \begin{equation}
-I \sim \sum_{j=1}^{k}\frac{vol(M_j)}{n_j}\sum_{i=1}^{n}\frac{g(x_{ij})}{f_{\hat{x}(x_{ij})}}.
+I \sim \sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}\frac{g(x_{ij})}{f_{\hat{x}(x_{ij})}}.
 \end{equation}
 
 
@@ -377,10 +377,18 @@ In the case of computing the fraction of total ejecta $M$ that hits the asset fr
 \begin{equation}
 M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p, \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
 \end{equation}
-where examples of the region $\mathcal{R}(v_p,\gamma_p, \beta_i)$ are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h2}, $\frac{dM(v_p,\gamma_p)}{dv}$ is the differential of the total ejecta mass (i.e., the differential of Equation~\eqref{eq:M_HH11}), $F(\gamma_p)$ is the ejecta zenith distribution (see Section \ref{sssec:Ejecta:Zenith Distribution}), and $G(\beta_i-\beta_{imp})$ is the ejecta azimuth distribution (see Section \ref{sssec:Ejecta:Azimuth Distribution}) with $\beta_{imp}$ as the impactor azimuth.
+where examples of the region $\mathcal{R}(v_p,\gamma_p, \beta_i)$ are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h2}, $\frac{dM(v_p,\gamma_p)}{dv}$ is the differential of the total ejecta mass (i.e., Equation~\eqref{eq:dM/dv final}), $F(\gamma_p)$ is the ejecta zenith distribution (see Section \ref{sssec:Ejecta:Zenith Distribution}), and $G(\beta_i-\beta_{imp})$ is the ejecta azimuth distribution (see Section \ref{sssec:Ejecta:Azimuth Distribution}) with $\beta_{imp}$ as the impactor azimuth.
 
-
-
+The speed-zenith subdomain $M_j$ is broken up into $d\gamma_{p,j}$ segments, such that the corresponding $dv_{p,j}$ segments are within a maximum delta sizes, i.e.\
+\begin{align}
+d\gamma_{p,j} = \gamma_{p,j+1} - \gamma_{p,j} &\le d\gamma{p,max},\\
+dv_{p,j} = v_{p,j,max} - v_{p,j,min} &\le dv_{p,max}.
+\end{align}
+Two consecutive segments define a trapezoidal area given by four points, $(\gamma_{p,j}, v_{p,j,min})$, $(\gamma_{p,j}, v_{p,j,max})$,  $(\gamma_{p,j+1}, v_{p,j+1,min})$, and $(\gamma_{p,j+1}, v_{p,j+1,max})$, such that the area is given by
+\begin{equation}
+Area(M_j) = \frac{1}{2}(dv_{p,j} + dv_{p,j+1})d\gamma_{p,j}.
+\end{equation}
+The area $Area(M_j)$ also defines where the speed-zenith points will be sampled for the $j$-th region. A separate check must be done to make sure that speed-zenith point is valid since there is a linear interpolation done from the $i$-th segment to the $i+1$-th segment.
 
 
 \end{document}

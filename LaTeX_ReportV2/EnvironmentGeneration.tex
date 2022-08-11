@@ -33,7 +33,7 @@ for the gravity regime with $g = GM/r_m^2 = 1.625$ m s$^{-2}$ the lunar surface 
 \subsection{Mass Ejected from Crater}\label{ssec:Mass Ejected from Crater}
 
 The mass ejected from a crater by an impact can be summarized into two equations parameterized by the position from the crater center $x$ as
-\begin{align}
+\begin{align}\label{eq:v/U}
 \frac{v}{U} &= C_1\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{x}{n_2 R}\right)^p,\\
 \frac{M}{m} &= \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{x}{a}\right)^3-n_1^3\right],\label{eq:M_HH11}
 \end{align}
@@ -50,6 +50,26 @@ The total mass ejected is given when $x = n_2 R$,
 \frac{M_{tot}}{m} = \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{n_2 R}{a}\right)^3-n_1^3\right].
 \end{equation}
 It is equivalent to say that if $M_{tot} \le 0$, then no ejecta was created by the impact.
+
+The differential mass in terms of the speed can be computed using the chain rule as follows:
+\begin{equation}
+\frac{dM}{dv} = \frac{dM}{dx}\frac{dx}{dv} = \frac{dM}{dx}\left(\frac{dv}{dx}\right)^{-1}.
+\end{equation}
+The first term can be calculated from Equation \eqref{eq:M_HH11} such that
+\begin{equation}\label{eq:dM/dx}
+\frac{dM}{dx} = \frac{9k}{4\pi}\frac{\rho}{\delta}\left(\frac{x}{a}\right)^2\frac{m}{a},
+\end{equation}
+and the second term from Equation \eqref{eq:v/U}, giving
+\begin{equation}\label{eq:dv/dx}
+\frac{dv}{dx} = -C_1\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{x}{n_2 R}\right)^p
+\frac{1+(\mu p -1)\frac{x}{n_2 R}}{\mu\left(1-\frac{x}{n_2 R}\right)}\frac{U}{x}.
+\end{equation}
+Therefore, the differential mass is found by taking Equation \eqref{eq:dM/dx} divided by Equation~\eqref{eq:dv/dx} giving
+\begin{equation}\label{eq:dM/dv final}
+\frac{dM}{dv} = -\frac{9k}{4\pi}\frac{\rho}{\delta}\left(\frac{x}{a}\right)^3\frac{\mu\left(1-\frac{x}{n_2 R}\right)}{1+(\mu p-1)\frac{x}{n_2 R}}\frac{m}{v}.
+\end{equation}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Scaling Law Parameters}\label{ssec:Scaling Law Parameters}
