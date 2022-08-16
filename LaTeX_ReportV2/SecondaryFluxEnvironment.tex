@@ -633,7 +633,9 @@ The final radial distance $r_s$ can also be solved for using Equation \eqref{eq:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Azimuthal Field-of-View}\label{ssec:Azimuthal Field of View}
 
-The field-of-view (FOV) of the asset from the crater, in terms of the azimuth, must be understood by spherical geometry. If the asset is assumed to be a cylinder with the base parallel to the local horizon, then the effective radius of the cylinder $a_i$ and the effective distance from the crater to the asset $D_i$ is modified from the line-of-sight radius and distance $a$ and $D$, respectively (see Figure \ref{fig:FOV}).  
+The field-of-view (FOV) of the asset from the crater, in terms of the azimuth, must be understood by spherical geometry. If the asset is assumed to be a cylinder with the base parallel to the local horizon, then the effective radius of the cylinder $a_i = c_i/1$ and the effective distance from the crater to the asset $D_i$ is modified from the line-of-sight radius and distance $a$ and $D$, respectively (see Figure \ref{fig:FOV}). The center of the asset is at point $\mathcal{O}$.
+
+There is a special case when the crater is within the asset's antipode projection (Figure \ref{fig:FOV_antipode}). The effective radius $a_i$ becomes $a_i = (a_{0,i} + a_{1,i})/2$ with the effective distance $D_i$, not shown in the figure. Both the asset and asset antipode are superimposed on each other, also showing the crater $\mathcal{C}$ and crater antipode $\mathcal{C}_{antipode}$ points. 
 
 % https://mirrors.mit.edu/CTAN/macros/latex/contrib/tkz/tkz-euclide/doc/tkz-euclide.pdf
 \begin{figure}[!htb]
@@ -718,13 +720,76 @@ The field-of-view (FOV) of the asset from the crater, in terms of the azimuth, m
 	\tkzDrawPoints(E1,E2,C,A2,D)
 	\end{tikzpicture}
 	
-	\caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The FOV the asset encompasses from the point of view of the crater is $2\beta_{max}$}\label{fig:FOV}
+	\caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The FOV the asset encompasses from the point of view of the crater is $2\beta_{max}$.}\label{fig:FOV}
+\end{figure}
+
+
+\begin{figure}[!htb]
+	\centering
+	
+	\begin{tikzpicture}[scale=2.6]
+	\tkzDefPoint(-1,0){A1}
+	\tkzDefPoint(1,0){A2}
+	\tkzDefPoint(0,0){B}
+	\tkzDefPoint(0,1){B1}
+	\tkzDefPoint(0,-1){B2}
+	\tkzDrawCircles(B,A)
+	\tkzLabelPoint[above left](B){$\mathcal{O}$}
+	
+	\tkzDrawSegment(A1,A2)
+	\tkzDrawSegment(B1,B2)
+	
+	\tkzDefPoint(0,-0.8){C1}
+	\tkzLabelPoint[above right](C1){$\mathcal{C}$}
+	\tkzDefPoint(0,0.8){C2}
+	\tkzLabelPoint[below right](C2){$\mathcal{C}_{antipode}$}
+	
+	\tkzDrawPoints(C1, C2, B)
+	
+	\tkzDefPoint(-0.1118, -0.9937){C1A}
+	\tkzDefPoint(0.8047, 0.5937){C1B}
+	
+	\tkzDefPoint(0.1118, 0.9937){C2B}
+	\tkzDefPoint(-0.8047, -0.5937){C2A}
+	\tkzDrawSegment(C1A,C1B)
+	\tkzDrawSegment(C2B,C2A)
+	\tkzDrawSegment(C1A,B)
+	\tkzDrawSegment(C1B,B)
+	
+	\tkzMarkAngle[gray,size=0.2](C1B,C1,B)
+	\tkzFindAngle(C1B,C1,B)
+	\tkzLabelAngle[pos=0.3](C1B,C1,B){$\beta_i$}
+	\tkzFillAngle[fill=blue!20, opacity=0.5,size=0.2](C1B,C1,B)
+	
+	\tkzLabelSegment[left](B,C1A){$a$}
+	\tkzLabelSegment[left](B,C1B){$a$}
+	
+	\tkzDrawSegment[dim={\(a_0\),-0.25cm,right=1mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](B2,C1)
+	
+	%\tkzLabelSegment[right](B2,C1){$a_0$}
+	\tkzLabelSegment[below right](C1,C1B){$a_{1,i}$}
+	
+	\tkzDrawSegment[dim={\(a_{0,i}\),0.25cm,left=1mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](C1A,C1)
+	
+	\tkzDrawSegment[dim={\(a_{1,i}\),0.25cm,left=1mm},
+	dim style/.append style={black,
+		dash pattern={on 2pt off 2pt}}](C2A,C2)
+	\tkzLabelSegment[right](C2,C2B){$a_{0,i}$}
+	\tkzLabelSegment[left](B1,C2){$a_{0}$}
+	
+	\end{tikzpicture}
+	
+	\caption{A bird's eye view of the asset (circle of radius $a$) and the crater location (point $\mathcal{C}$) projected on the surface of the Moon. The special case shown occurs when the antipode of the crater is inside the asset and there is no restriction on the FOV angle $\beta_i$.}\label{fig:FOV_antipode}
 \end{figure}
 
 
 \subsubsection{Maximum Azimuthal FOV}
 The FOV of the asset from the crater $2\beta_{max}$ is given by
-\begin{equation}
+\begin{equation}\label{eq:beta max}
 \sin\beta_{max} =\begin{cases}
 \frac{\sin a}{\sin(D+a)} \text{, for $\sin(D+a) \ge \sin a$}\\
 1 \text{, for $\sin(D+a) < \sin a$}
@@ -737,12 +802,18 @@ The effective cylindrical diameter $c_i$ decreases as $\beta_i$ increases, which
 c_i = 2a|\cos\alpha_i|,
 \end{equation}
 where the angle $\alpha_i$ is given by (using the spherical law of sines)
-\begin{equation}
-\cos\alpha_i = -\sqrt{1 - \left(\frac{\sin\beta_i}{\sin\beta_{max}}\right)^2}.
+\begin{equation}\label{eq:cos alpha_i}
+\cos\alpha_i = -\sqrt{1 - \left(\frac{\sin\beta_i}{\sin a / \sin(D+a)}\right)^2}.
 \end{equation}
 
+Using the special case shown in Figure \ref{fig:FOV_antipode}, Equation \eqref{eq:cos alpha_i} stays the same. Using the planar law of cosines, the effective diameter becomes
+\begin{equation}
+c_i = a_{0,i} + a_{1,i} = 2\sqrt{a^2 - (a-a_0)^2\sin^2\beta_i}.
+\end{equation}
+and can be rewritten in the form shown in Equation \eqref{eq:cos alpha_i}. Note, that $a-a_0 = D + a - \pi$ (all distances in units of $r_m$).
+
 \subsubsection{Effective Crater-to-Asset Distance}
-The effective crater-to-asset distance can be derived by starting with using the spherical law of cosines for the angles $\beta_i$ and $\alpha_i$,
+In general (Figure \ref{fig:FOV}), the effective crater-to-asset distance can be derived by starting with using the spherical law of cosines for the angles $\beta_i$ and $\alpha_i$,
 \begin{align}
 \cos a &= \cos(D+a)\cos D_i + \sin(D+a)\sin D_i\cos\beta_i,\label{eq:Di_der1}\\
 \cos(D+a) &= \cos a\cos D_i + \sin a\sin D_i\cos\alpha_i.\label{eq:Di_der2}
@@ -764,6 +835,13 @@ Finally, take Equation \eqref{eq:Di_der3} and divide by Equation \eqref{eq:Di_de
 \begin{equation}
 \tan D_i = \frac{\cos^2a - \cos^2(D+a)}{\sin(D+a)\cos(D+a)\cos\beta_i - \sin a\cos a\cos\alpha_i}.
 \end{equation}
+
+However, for the special case (Figure \ref{fig:FOV_antipode}), the effective distance is simply
+\begin{align}
+D_i &= \pi - a_{0,i}\nonumber\\
+&= \pi +(D+a-\pi)\cos\beta_i - \frac{c_i}{2}.
+\end{align}
+
 
 
 \clearpage

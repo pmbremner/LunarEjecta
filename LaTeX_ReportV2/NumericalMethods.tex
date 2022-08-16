@@ -38,7 +38,7 @@ Examples of valid ejecta from a crater that hits various asset sizes are shown i
 
 For an asset on the surface of the Moon (Figure \ref{fig:asset_speed_zenith_comparison}), there are no ejecta that hit the bottom of the asset -- which is to be expected. When a crater is close to the asset (rows 1 and 2 of Figure \ref{fig:asset_speed_zenith_comparison}), most of the ejecta hits the asset at the side and occurs for all speeds line-of-site ejecta that are able to reach the bottom edge of the asset.
 
-In general, the further away the crater is from the asset, the more ejecta will hit the top of the asset. For close craters and the higher the asset altitude, the more ejecta will hit the bottom of the asset.
+In general, the further away the crater is from the asset, the more ejecta will hit the top of the asset. For close craters and the higher the asset altitude\footnote{Also, for an asset above the surface of the Moon, several sample points need to be chosen at the bottom surface. The higher the asset, the more points that are needed.}, the more ejecta will hit the bottom of the asset.
 
 % https://tex.stackexchange.com/questions/102251/figures-in-subfigure-not-aligned
 \begin{figure}
@@ -375,7 +375,7 @@ I \sim \sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}\frac{g(x_{ij
 
 In the case of computing the fraction of total ejecta $M$ that hits the asset from a particular crater $\mathcal{C}$, the integral $I$ will be assigned as $M$ such that
 \begin{equation}
-M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p, \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
+M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p; \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
 \end{equation}
 where examples of the region $\mathcal{R}(v_p,\gamma_p, \beta_i)$ are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h2}, $\frac{dM(v_p,\gamma_p)}{dv}$ is the differential of the total ejecta mass (i.e., Equation~\eqref{eq:dM/dv final}), $F(\gamma_p)$ is the ejecta zenith distribution (see Section \ref{sssec:Ejecta:Zenith Distribution}), and $G(\beta_i-\beta_{imp})$ is the ejecta azimuth distribution (see Section \ref{sssec:Ejecta:Azimuth Distribution}) with $\beta_{imp}$ as the impactor azimuth.
 
@@ -389,6 +389,8 @@ Two consecutive segments define a trapezoidal area given by four points, $(\gamm
 Area(M_j) = \frac{1}{2}(dv_{p,j} + dv_{p,j+1})d\gamma_{p,j}.
 \end{equation}
 The area $Area(M_j)$ also defines where the speed-zenith points will be sampled for the $j$-th region. A separate check must be done to make sure that speed-zenith point is valid since there is a linear interpolation done from the $i$-th segment to the $i+1$-th segment.
+
+The azimuthal region $\Phi(\beta_i)$ is defined by $\beta_{max}$ given in Equation \eqref{eq:beta max}. The effective height of the cylindrical asset does not change as a function of azimuth. However, the effective radius does, so a sampling weight is introduced to prefer the larger effective radii. 
 
 
 \end{document}
