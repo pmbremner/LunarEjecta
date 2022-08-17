@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  16 AUG 2022 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  16 AUG 2022 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2770,8 +2770,8 @@ s not changed.
 (rerunfilecheck)             Checksum: 9287B5008A835FF9DCAF98CC4B113FF6;16855.
  ) 
 Here is how much of TeX's memory you used:
- 42326 strings out of 478619
- 985378 string characters out of 2851115
+ 42327 strings out of 478619
+ 985391 string characters out of 2851115
  1946567 words of memory out of 3000000
  59147 multiletter control sequences out of 15000+600000
  503409 words of font info for 93 fonts, out of 8000000 for 9000
@@ -2807,10 +2807,10 @@ cmtt8.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helveti
 c/uhvb8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helv
 etic/uhvr8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/h
 elvetic/uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (74 pages, 33299593 
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (74 pages, 33301498 
 bytes).
 PDF statistics:
- 2216 PDF objects out of 2487 (max. 8388607)
- 458 named destinations out of 1000 (max. 500000)
+ 2218 PDF objects out of 2487 (max. 8388607)
+ 459 named destinations out of 1000 (max. 500000)
  1025 words of extra memory for PDF output out of 10000 (max. 10000000)
 
