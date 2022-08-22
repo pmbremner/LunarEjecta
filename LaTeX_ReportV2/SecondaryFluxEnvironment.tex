@@ -219,6 +219,36 @@ m_b = 0.01 M_{tot}.
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Total Kinetic Energy}\label{ssec:Total Kinetic Energy}
+
+The kinetic energy of the impactor gets converted into many forms during the cratering process; heat, light, compression, phase changing, and kinetic energy to the ejecta. In this section, the total energy imparted to the ejecta is computed.
+
+The total kinetic energy of the ejecta $E_{tot,ej}$ can be calculated by taking the second moment of the ejecta mass distribution as
+\begin{equation}
+E_{tot,ej} = \frac{1}{2}\int_{0}^{v_{max}}dv \left(-\frac{dM}{dv}\right)v^2,
+\end{equation}
+where the ejecta mass distribution $dM/dv$ is defined as Equation \eqref{eq:dM/dv chain rule} and explicitly given in Equation \eqref{eq:dM/dv final}, and the ejecta speed $v$ in terms of the crater parameters (Equation~\eqref{eq:v/U}).
+
+Changing variables from ejecta speed $v$ to location in the crater $x$, the total ejecta kinetic energy is\footnote{Note, $\beta(1-x; b, a) \beta(1; a, b) - \beta(x; a, b)$.}
+\begin{align}
+E_{tot,ej} &= \frac{1}{2}\int_{0}^{v_{max}}dx \left(-\frac{dM}{dx}\right)v(x)^2,\\\nonumber
+&= -\frac{3}{2}\frac{M_{tot}v_{max}^2}{n_2 R}\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}\int_{0}^{v_{max}}
+dx\left(\frac{x}{n_1 a}\right)^{-\frac{2}{\mu}}\left(\frac{x}{n_2 R}\right)^2\left(1-\frac{x}{n_2 R}\right)^{2p},\\\nonumber
+& = -\frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}\left(\frac{n_1 a}{n_2 R}\right)^{\frac{2}{\mu}}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
+\beta\left(\frac{x}{n_2 R}; -\frac{2}{\mu}+3, 2p+1\right)\bigg\rvert_{x=n_2 R}^{x=n_1 a},\\
+&=\frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}\left(\frac{n_1 a}{n_2 R}\right)^{\frac{2}{\mu}}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
+\beta\left(1-\frac{n_1 a}{n_2 R}; 2p+1, -\frac{2}{\mu}+3\right),
+\end{align}
+where $M_{tot}$ is the total mass ejected from the crater (Equation \eqref{eq:Mtot}), $v_{max}$ is the maximum ejecta speed for the particular crater (Equation \eqref{eq:vmax}), $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}.
+The total ejecta energy can also be written in terms of the impactor mass $m$ and normal speed $U$ as
+\begin{equation}
+E_{tot,ej} = \frac{9kC_1^2}{8\pi}\left(\frac{\rho}{\delta}\right)^{-\frac{2\nu}{\mu}+1}\left(\frac{a}{n_2 R}\right)^{\frac{2}{\mu}-3}
+\beta\left(1-\frac{n_1 a}{n_2 R}; 2p+1, -\frac{2}{\mu}+3\right)
+mU^2,
+\end{equation}
+where $\rho$ is the target density and $\delta$ is the impactor density.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
 
 Particles that are ejected from the crater are assumed to follow projectile motion in a monopolar gravitational field with no external forces. The equations of motion\footnote{E.g., see \href{http://www.braeunig.us/space/orbmech.htm}{http://www.braeunig.us/space/orbmech.htm}.} the ejecta particles trace are defined by the semi-major axis $a$ and eccentricity $e$ given by
