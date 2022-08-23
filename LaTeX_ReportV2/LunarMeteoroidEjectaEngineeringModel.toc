@@ -32,53 +32,53 @@
 \contentsline {subsubsection}{\numberline {4.2.1}NASA SP-8013}{26}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}O'Keefe \& Ahrens 1985}{27}{subsubsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.3}Total Kinetic Energy}{29}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Orbital Mechanics}{30}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Crater on Surface to Asset at Surface}{31}{subsubsection.4.4.1}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.1}Distance $D$ vs.\ $v_p$ and $\gamma _p$}{31}{subsubsubsection.4.4.1.1}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.2}Initial Speed $v_p$ vs.\ $D$ and $\gamma _p$}{32}{subsubsubsection.4.4.1.2}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.3}Initial Zenith Angle $\gamma _p$ vs.\ $D$ and $v_p$}{32}{subsubsubsection.4.4.1.3}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.4}Minimum Initial Zenith Angle $\gamma _{p,min}$ vs.\ $D$}{32}{subsubsubsection.4.4.1.4}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.5}Maximum Distance $D_{max}$ vs.\ $v_p$}{32}{subsubsubsection.4.4.1.5}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.6}Minimum Initial Speed $v_{p,min}$ vs.\ $D$}{33}{subsubsubsection.4.4.1.6}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.7}Optimal Initial Zenith Angle $\gamma _{p,opt}$ vs.\ $D$}{33}{subsubsubsection.4.4.1.7}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.8}Final Speed $v_s$ and Zenith Angle $\gamma _s$}{33}{subsubsubsection.4.4.1.8}%
-\contentsline {subsubsubsection}{\numberline {4.4.1.9}Visualizing Ejecta in Phase Space}{34}{subsubsubsection.4.4.1.9}%
-\contentsline {subsubsection}{\numberline {4.4.2}Crater on Surface to Asset at or above Surface}{38}{subsubsection.4.4.2}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.1}Maximum Radial Distance $r_{max}$ vs.\ $v_p$ and $\gamma _p$}{38}{subsubsubsection.4.4.2.1}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.2}Minimum Initial Speed $v_{p,min}$ vs.\ $\gamma _p$ and $r_s$}{39}{subsubsubsection.4.4.2.2}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.3}Initial Zenith Angle to reach Apoapsis $\gamma _{p,ap}$ vs.\ $v_p$ and $r_s$}{39}{subsubsubsection.4.4.2.3}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.4}Initial Zenith Angle to reach Apoapsis $\gamma _{p,ap}$ vs.\ $D$ and $r_s$}{39}{subsubsubsection.4.4.2.4}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.5}Initial Speed $v_p$ vs.\ $D$, $\gamma _p$, and $r_s$}{39}{subsubsubsection.4.4.2.5}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.6}Distance $D$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{40}{subsubsubsection.4.4.2.6}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.7}Initial Zenith Angle $\gamma _p$ vs.\ $D$, $v_p$, and $r_s$}{40}{subsubsubsection.4.4.2.7}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.8}Minimum Initial Zenith Angle $\gamma _{p,min}$ vs.\ $D$ and $r_s$}{41}{subsubsubsection.4.4.2.8}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.9}Maximum Distance $D_{max}$ vs.\ $v_p$ and $r_s$}{41}{subsubsubsection.4.4.2.9}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.10}Minimum Initial Speed $v_{p,min}$ vs.\ $D$ and $r_s$}{41}{subsubsubsection.4.4.2.10}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.11}Optimal Initial Zenith Angle $\gamma _{p,opt}$ vs.\ $D$ and $r_s$}{42}{subsubsubsection.4.4.2.11}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.12}Final Speed $v_s$ vs.\ $v_p$ and $r_s$}{42}{subsubsubsection.4.4.2.12}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.13}Final Zenith Angle $\gamma _s$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{42}{subsubsubsection.4.4.2.13}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.14}Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma _p$}{42}{subsubsubsection.4.4.2.14}%
-\contentsline {subsubsubsection}{\numberline {4.4.2.15}Visualizing Ejecta in Phase Space}{43}{subsubsubsection.4.4.2.15}%
-\contentsline {subsection}{\numberline {4.5}Azimuthal Field-of-View}{51}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Maximum Azimuthal FOV}{51}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Effective Cylindrical Diameter}{51}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Effective Crater-to-Asset Distance}{52}{subsubsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.6}Selenographic Distance \& Bearing}{54}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Coriolis Force}{55}{subsection.4.7}%
-\contentsline {section}{\numberline {5}Scaling Laws}{55}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{56}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Mass Ejected from Crater}{56}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Scaling Law Parameters}{57}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Numerical Methods}{58}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Asset Collision Algorithm}{58}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Ejecta Speed-Zenith-Azimuth Sampling Algorithm}{63}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Approximating Ejected Mass Fraction}{63}{subsubsection.6.2.1}%
-\contentsline {section}{\numberline {7}Secondary Environment at Asset}{64}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Numerical Results}{64}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Latitude-Longitude Dependence}{64}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Speed Distribution}{64}{subsubsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.3}Angular Distribution}{64}{subsubsection.7.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.4}Ejecta Size Distribution}{64}{subsubsection.7.1.4}%
-\contentsline {subsection}{\numberline {7.2}Analytical Results}{64}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Benchmark Verification}{64}{subsection.7.3}%
-\contentsline {section}{References}{65}{section*.43}%
+\contentsline {subsection}{\numberline {4.4}Orbital Mechanics}{31}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Crater on Surface to Asset at Surface}{32}{subsubsection.4.4.1}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.1}Distance $D$ vs.\ $v_p$ and $\gamma _p$}{32}{subsubsubsection.4.4.1.1}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.2}Initial Speed $v_p$ vs.\ $D$ and $\gamma _p$}{33}{subsubsubsection.4.4.1.2}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.3}Initial Zenith Angle $\gamma _p$ vs.\ $D$ and $v_p$}{33}{subsubsubsection.4.4.1.3}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.4}Minimum Initial Zenith Angle $\gamma _{p,min}$ vs.\ $D$}{33}{subsubsubsection.4.4.1.4}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.5}Maximum Distance $D_{max}$ vs.\ $v_p$}{33}{subsubsubsection.4.4.1.5}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.6}Minimum Initial Speed $v_{p,min}$ vs.\ $D$}{34}{subsubsubsection.4.4.1.6}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.7}Optimal Initial Zenith Angle $\gamma _{p,opt}$ vs.\ $D$}{34}{subsubsubsection.4.4.1.7}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.8}Final Speed $v_s$ and Zenith Angle $\gamma _s$}{34}{subsubsubsection.4.4.1.8}%
+\contentsline {subsubsubsection}{\numberline {4.4.1.9}Visualizing Ejecta in Phase Space}{35}{subsubsubsection.4.4.1.9}%
+\contentsline {subsubsection}{\numberline {4.4.2}Crater on Surface to Asset at or above Surface}{39}{subsubsection.4.4.2}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.1}Maximum Radial Distance $r_{max}$ vs.\ $v_p$ and $\gamma _p$}{39}{subsubsubsection.4.4.2.1}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.2}Minimum Initial Speed $v_{p,min}$ vs.\ $\gamma _p$ and $r_s$}{40}{subsubsubsection.4.4.2.2}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.3}Initial Zenith Angle to reach Apoapsis $\gamma _{p,ap}$ vs.\ $v_p$ and $r_s$}{40}{subsubsubsection.4.4.2.3}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.4}Initial Zenith Angle to reach Apoapsis $\gamma _{p,ap}$ vs.\ $D$ and $r_s$}{40}{subsubsubsection.4.4.2.4}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.5}Initial Speed $v_p$ vs.\ $D$, $\gamma _p$, and $r_s$}{40}{subsubsubsection.4.4.2.5}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.6}Distance $D$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{41}{subsubsubsection.4.4.2.6}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.7}Initial Zenith Angle $\gamma _p$ vs.\ $D$, $v_p$, and $r_s$}{41}{subsubsubsection.4.4.2.7}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.8}Minimum Initial Zenith Angle $\gamma _{p,min}$ vs.\ $D$ and $r_s$}{42}{subsubsubsection.4.4.2.8}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.9}Maximum Distance $D_{max}$ vs.\ $v_p$ and $r_s$}{42}{subsubsubsection.4.4.2.9}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.10}Minimum Initial Speed $v_{p,min}$ vs.\ $D$ and $r_s$}{42}{subsubsubsection.4.4.2.10}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.11}Optimal Initial Zenith Angle $\gamma _{p,opt}$ vs.\ $D$ and $r_s$}{43}{subsubsubsection.4.4.2.11}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.12}Final Speed $v_s$ vs.\ $v_p$ and $r_s$}{43}{subsubsubsection.4.4.2.12}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.13}Final Zenith Angle $\gamma _s$ vs.\ $v_p$, $\gamma _p$, and $r_s$}{43}{subsubsubsection.4.4.2.13}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.14}Final Radial Distance $r_s$ vs.\ $D$, $v_p$, and $\gamma _p$}{43}{subsubsubsection.4.4.2.14}%
+\contentsline {subsubsubsection}{\numberline {4.4.2.15}Visualizing Ejecta in Phase Space}{44}{subsubsubsection.4.4.2.15}%
+\contentsline {subsection}{\numberline {4.5}Azimuthal Field-of-View}{52}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Maximum Azimuthal FOV}{52}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Effective Cylindrical Diameter}{52}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Effective Crater-to-Asset Distance}{53}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.6}Selenographic Distance \& Bearing}{55}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Coriolis Force}{56}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Scaling Laws}{56}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Crater Size -- Strength \& Gravity Regime}{57}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mass Ejected from Crater}{57}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Scaling Law Parameters}{58}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Numerical Methods}{59}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Asset Collision Algorithm}{59}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ejecta Speed-Zenith-Azimuth Sampling Algorithm}{64}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Approximating Ejected Mass Fraction}{64}{subsubsection.6.2.1}%
+\contentsline {section}{\numberline {7}Secondary Environment at Asset}{65}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Numerical Results}{65}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Latitude-Longitude Dependence}{65}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Speed Distribution}{65}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Angular Distribution}{65}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Ejecta Size Distribution}{65}{subsubsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.2}Analytical Results}{65}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Benchmark Verification}{65}{subsection.7.3}%
+\contentsline {section}{References}{66}{section*.44}%

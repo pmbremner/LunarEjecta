@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -53,6 +53,11 @@ Gault, D.~E., E.~M. Shoemaker, and H.~J. Moore, \textit{NASA TN D-1767 Spray
   Giese}}]{grun1985collisional}
 Gr{\"u}n, E., H.~Zook, H.~Fechtig, and R.~Giese, Collisional balance of the
   meteoritic complex, \textit{Icarus}, \textit{62}(2), 244--272, 1985.
+
+\bibitem[{\textit{Hartmann}(1985)}]{hartmann1985impact}
+Hartmann, W.~K., Impact experiments: 1. ejecta velocity distributions and
+  related results from regolith targets, \textit{Icarus}, \textit{63}(1),
+  69--98, 1985.
 
 \bibitem[{\textit{Heiken et~al.}(1991)\textit{Heiken, Vaniman, and
   French}}]{heiken1991lunar}

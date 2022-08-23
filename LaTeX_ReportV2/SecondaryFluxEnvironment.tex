@@ -229,24 +229,34 @@ E_{tot,ej} = \frac{1}{2}\int_{0}^{v_{max}}dv \left(-\frac{dM}{dv}\right)v^2,
 \end{equation}
 where the ejecta mass distribution $dM/dv$ is defined as Equation \eqref{eq:dM/dv chain rule} and explicitly given in Equation \eqref{eq:dM/dv final}, and the ejecta speed $v$ in terms of the crater parameters (Equation~\eqref{eq:v/U}).
 
-Changing variables from ejecta speed $v$ to location in the crater $x$, the total ejecta kinetic energy is\footnote{Note, $\beta(1-x; b, a) \beta(1; a, b) - \beta(x; a, b)$.}
+Changing variables from ejecta speed $v$ to location in the crater $x$, the total ejecta kinetic energy is\footnote{Note, $\beta(1-x; b, a) = \beta(1; a, b) - \beta(x; a, b)$.}
 \begin{align}
 E_{tot,ej} &= \frac{1}{2}\int_{0}^{v_{max}}dx \left(-\frac{dM}{dx}\right)v(x)^2,\\\nonumber
-&= -\frac{3}{2}\frac{M_{tot}v_{max}^2}{n_2 R}\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}\int_{0}^{v_{max}}
-dx\left(\frac{x}{n_1 a}\right)^{-\frac{2}{\mu}}\left(\frac{x}{n_2 R}\right)^2\left(1-\frac{x}{n_2 R}\right)^{2p},\\\nonumber
-& = -\frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}\left(\frac{n_1 a}{n_2 R}\right)^{\frac{2}{\mu}}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
-\beta\left(\frac{x}{n_2 R}; -\frac{2}{\mu}+3, 2p+1\right)\bigg\rvert_{x=n_2 R}^{x=n_1 a},\\
+&= \frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
+\int_{n_1 a}^{n_2 R}
+\frac{dx}{n_2 R}\left(\frac{x}{n_1 a}\right)^{-\frac{2}{\mu}}\left(\frac{x}{n_2 R}\right)^2\left(1-\frac{x}{n_2 R}\right)^{2p},\\\nonumber
+& = \frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}\left(\frac{n_1 a}{n_2 R}\right)^{\frac{2}{\mu}}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
+\beta\left(\frac{x}{n_2 R}; -\frac{2}{\mu}+3, 2p+1\right)\bigg\rvert^{x=n_2 R}_{x=n_1 a},\\
 &=\frac{3}{2}M_{tot}v_{max}^2\frac{\left(1-\frac{n_1 a}{n_2 R}\right)^{-2p}\left(\frac{n_1 a}{n_2 R}\right)^{\frac{2}{\mu}}}{1-\left(\frac{n_1 a}{n_2 R}\right)^3}
 \beta\left(1-\frac{n_1 a}{n_2 R}; 2p+1, -\frac{2}{\mu}+3\right),
 \end{align}
-where $M_{tot}$ is the total mass ejected from the crater (Equation \eqref{eq:Mtot}), $v_{max}$ is the maximum ejecta speed for the particular crater (Equation \eqref{eq:vmax}), $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}.
-The total ejecta energy can also be written in terms of the impactor mass $m$ and normal speed $U$ as
-\begin{equation}
+where $M_{tot}$ is the total mass ejected from the crater (Equation \eqref{eq:Mtot}), $v_{max}$ is the maximum ejecta speed for the particular crater (Equation \eqref{eq:vmax}), $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}. Also note, $\beta(z; a, b)$ is the incomplete beta function\footnote{\href{https://functions.wolfram.com/GammaBetaErf/Beta3/}{https://functions.wolfram.com/GammaBetaErf/Beta3/}}\textsuperscript{,}\footnote{Do not use the regularized incomplete beta function implementations. Use the Gauss hypergeometric function $_2F_1$ representation instead to avoid issues when the second parameter is a negative integer.}.
+The total ejecta energy can also be written in terms of the impactor mass $m$ and normal component of the impactor speed $U$ 
+\begin{equation}\label{eq:Etotej}
 E_{tot,ej} = \frac{9kC_1^2}{8\pi}\left(\frac{\rho}{\delta}\right)^{-\frac{2\nu}{\mu}+1}\left(\frac{a}{n_2 R}\right)^{\frac{2}{\mu}-3}
 \beta\left(1-\frac{n_1 a}{n_2 R}; 2p+1, -\frac{2}{\mu}+3\right)
 mU^2,
 \end{equation}
-where $\rho$ is the target density and $\delta$ is the impactor density.
+where $\rho$ is the target bulk density and $\delta$ is the impactor density. An example of Equation \eqref{eq:Etotej} is shown in Figure \ref{fig:TotalEjectaKE_vs_EffectiveCraterSize}). The work of \cite{hartmann1985impact} (Table II) provides experimental estimates of the estimated fraction of impact energy in ejecta.
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{TotalEjectaKE_vs_EffectiveCraterSize.png}
+	\caption{The total ejecta kinetic energy $E_{tot,ej}$ (Equation \eqref{eq:Etotej}) over impactor energy $E_{imp} = \frac{1}{2}mU^2$ vs.\ effective impactor to crater radius $\frac{n_1 a}{n_2 R}$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc and varying impactor densities. }\label{fig:TotalEjectaKE_vs_EffectiveCraterSize}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
