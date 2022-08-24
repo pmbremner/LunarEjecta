@@ -187,11 +187,11 @@ The power-law index of $-\beta = -1.2$ is a simplification of \cite{zook1967prob
 
 It is interesting to point out that the particle size distribution shown in Figure \ref{fig:NASA-SP-8013-Fig10-flux-mass-distribution} has a similar power-law index with the regolith particle size distribution of diameters from $10^{-6}$ m to $10^{-1}$ m of \cite{carrier2003particle}, see Table \ref{tab:mass-diameter_index_examples}. Since the regolith particle size distribution is a log-normal distribution, the power-law index for larger diameters will be even more steep, and therefore a more negative $\alpha$, meaning there is an absence of larger stones or boulders in the top layers of regolith sampled from Apollo.
 
-\subsubsection{O'Keefe \& Ahrens 1985}
+\subsubsection{O'Keefe \& Ahrens 1985}\label{sssec:OKeefe Ahrens 1985}
 A conclusion from \cite{sachse2015correlation} states that \textit{the assumption that the size of the fragments and the speed at the moment of ejection are uncorrelated} should be dropped. In practice, larger ejected particles typically have slower speeds while smaller ejected particles have faster speeds. This observation is not seen in the previous size distribution model of NASA SP-8013\footnote{It is important to note that \cite{zook1967problem} did include a speed dependent size distribution in their model (they looked at three variations, ultimately using a piece-wise power-law model), however, \cite{cour1969meteoroid} in SP-8013 simplified the size distribution to be constant for each of the speed ranges.}, so another model is sought after.
 
 The particle size distribution discussed in \cite{oKeefe1985impact} gives a way to introduce a speed-dependent particle size distribution. The cumulative amount of mass of ejecta fragments of mass greater than $m$ is given by (Equation (11) of \cite{oKeefe1985impact}), note $\beta_{OK85} \equiv \alpha$ as in Table \ref{tab:mass-diameter_index_examples},
-\begin{equation}
+\begin{equation}\label{eq:f(m,mbv)}
 f(m, m_{bv}(v)) = 1 - \left(\frac{m}{m_{bv}}\right)^{\frac{\beta_{OK85}}{3}},
 \end{equation}
 where the mass of the largest fragment ejected at a given ejected velocity $v$ is
@@ -213,10 +213,51 @@ The maximum fragmentation mass is given in \cite{oKeefe1985impact} as
 \begin{equation}
 m_b = 0.2 M_{tot}^{0.8},
 \end{equation}
-where $M_{tot}$ is the total mass ejected from the crater by an impactor, see Section \ref{ssec:Mass Ejected from Crater}. On the other hand, \cite{koschny2001impacts_mass} have a more conservative estimate on the maximum fragmentation mass with
+where $M_{tot}$ is the total mass ejected from the crater by an impactor in grams, see Section \ref{ssec:Mass Ejected from Crater}. On the other hand, \cite{koschny2001impacts_mass} have a more conservative estimate on the maximum fragmentation mass with
 \begin{equation}
 m_b = 0.01 M_{tot}.
 \end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mass Distribution with Speed Distribution Weighting}\label{sssec:Mass Distribution with Speed Distribution Weighting}
+Starting with the definition described by \cite{oKeefe1985impact} of the cumulative ejecta mass distribution as a function of the ejecta speed $f(m, m_{bv}(v))$ (Equation~\eqref{eq:f(m,mbv)}), the ejecta mass distribution is found by taking the derivative with respect to the mass,
+\begin{equation}\label{eq:df(m,mbv)}
+-\frac{df(m, m_{bv}(v))}{dm} = \frac{\beta}{3m_{bv}}\left(\frac{m}{m_{bv}}\right)^{\frac{\beta}{3}-1}.
+\end{equation}
+The complete ejecta mass distribution for a given impact is computed by taking the ejecta mass distribution for a given ejecta speed (Equation~\eqref{eq:df(m,mbv)}) and convoluting it with the ejected mass per speed (i.e., the speed distribution, Equation~\eqref{eq:v/U}),
+\begin{equation}
+f_{\mathcal{C}}(m_{ej}) = -\int_{v_{min}}^{v_{max}(m_{ej})}
+dv\frac{df}{dm}\frac{dM}{dv},
+\end{equation}
+where the upper limit is (specifying $m_{ej}$ as the ejecta mass as opposed to the impactor mass $m_{imp}$)
+\begin{equation}
+v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right],
+\end{equation}
+and making the change of variables to the location from the center of the crater $x$ from the speed $v$, (note, $x = n_2 R y$)
+\begin{align} % https://www.physicsread.com/latex-big-brackets/
+f_{\mathcal{C}}(m) &= \int^{x(v_{min})}_{x(v_{max}(m))}
+dx\frac{df}{dm}\frac{dM}{dx},\\\nonumber
+&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
+\int^{\frac{x(v_{min})}{n_2 R}}_{\frac{x(v_{max}(m))}{n_2 R}}
+dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\
+&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
+\Biggl\{
+\beta\left[\frac{x(v_{min})}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]\\\nonumber
+& - \beta\left[\frac{x(v_{max}(m_{ej}))}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]
+\Biggr\},
+\end{align}
+where the constants with respect to $m_{ej}$ are
+\begin{equation}
+A_\mathcal{C} = \frac{3k\beta}{4\pi}\frac{m_{imp}}{m_b}
+\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{\mu}+1}
+\left(\frac{C_1 U}{v_{min}}\right)^{\frac{\beta\delta}{3}}
+\left(\frac{a}{n_2 R}\right)^{\frac{\beta\delta}{3\mu}-3},
+\end{equation}
+with $\beta(z; a, b)$ as the incomplete beta function, $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}. Additional constants $\beta$ and $\delta$ can be found in Section \ref{sssec:OKeefe Ahrens 1985}.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Total Kinetic Energy}\label{ssec:Total Kinetic Energy}
@@ -247,7 +288,7 @@ E_{tot,ej} = \frac{9kC_1^2}{8\pi}\left(\frac{\rho}{\delta}\right)^{-\frac{2\nu}{
 \beta\left(1-\frac{n_1 a}{n_2 R}; 2p+1, -\frac{2}{\mu}+3\right)
 mU^2,
 \end{equation}
-where $\rho$ is the target bulk density and $\delta$ is the impactor density. An example of Equation \eqref{eq:Etotej} is shown in Figure \ref{fig:TotalEjectaKE_vs_EffectiveCraterSize}). The work of \cite{hartmann1985impact} (Table II) provides experimental estimates of the estimated fraction of impact energy in ejecta.
+where $\rho$ is the target bulk density and $\delta$ is the impactor density. An example of Equation \eqref{eq:Etotej} is shown in Figure \ref{fig:TotalEjectaKE_vs_EffectiveCraterSize}. The work of \cite{hartmann1985impact} (Table II) provides experimental estimates of the estimated fraction of impact energy in ejecta.
 
 
 \begin{figure}[!htb]
@@ -256,7 +297,7 @@ where $\rho$ is the target bulk density and $\delta$ is the impactor density. An
 	\caption{The total ejecta kinetic energy $E_{tot,ej}$ (Equation \eqref{eq:Etotej}) over impactor energy $E_{imp} = \frac{1}{2}mU^2$ vs.\ effective impactor to crater radius $\frac{n_1 a}{n_2 R}$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc and varying impactor densities. }\label{fig:TotalEjectaKE_vs_EffectiveCraterSize}
 \end{figure}
 
-
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Orbital Mechanics}\label{ssec:Orbital Mechanics}
