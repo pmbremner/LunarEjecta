@@ -8,15 +8,26 @@ import matplotlib.pyplot as plt
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.betainc.html
 import scipy.special as sc
 
-# define constants (for SFA)
+# # define constants (for SFA)
+# k     = 0.3
+# C1    = 0.55
+# rho   = 1.3    # target density
+# delta_i = 4.     # impactor density
+# n1    = 1.2
+# n2    = 1.
+# p     = 0.3
+# mu    = 0.4
+# nu    = 0.4
+
+# define constants (for WCB, Weakly Cemented Basalt)
 k     = 0.3
-C1    = 0.55
+C1    = 0.18
 rho   = 1.3    # target density
 delta_i = 4.     # impactor density
 n1    = 1.2
 n2    = 1.
 p     = 0.3
-mu    = 0.4
+mu    = 0.46
 nu    = 0.4
 
 def Etotej(x, delta):
@@ -33,9 +44,9 @@ for d_i in delta_i:
 	plt.plot(x, Etotej(x, d_i), label=r"$\delta =$ " + f"{d_i:.1f}")
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
 
-plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +r" g/cc, Impactor Density $\delta$")
+plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +r" g/cc, Impactor Density $\delta$")
 plt.xlabel(r"Effective Impactor to Crater Radius $\frac{n_1 a}{n_2 R}$", fontsize=14)
 plt.ylabel(r"Total Ejecta Kinetic Energy $E_{tot,ej} / E_{imp}$", fontsize=14)
 plt.legend()
-plt.savefig('TotalEjectaKE_vs_EffectiveCraterSize.png', bbox_inches='tight', dpi=600)
+plt.savefig('TotalEjectaKE_vs_EffectiveCraterSize_3.png', bbox_inches='tight', dpi=600)
 plt.show()

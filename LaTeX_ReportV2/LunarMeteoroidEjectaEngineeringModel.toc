@@ -83,4 +83,4 @@
 \contentsline {subsubsection}{\numberline {7.1.4}Ejecta Size Distribution}{67}{subsubsection.7.1.4}%
 \contentsline {subsection}{\numberline {7.2}Analytical Results}{67}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Benchmark Verification}{67}{subsection.7.3}%
-\contentsline {section}{References}{68}{section*.44}%
+\contentsline {section}{References}{68}{section*.45}%
