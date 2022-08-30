@@ -37,13 +37,37 @@ The mass ejected from a crater by an impact can be summarized into two equations
 \frac{v}{U} &= C_1\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{x}{n_2 R}\right)^p,\\
 \frac{M}{m} &= \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{x}{a}\right)^3-n_1^3\right],\label{eq:M_HH11}
 \end{align}
-for $n_1 a \le x \le n_2 R$, where $v$ is the ejecta speed, and $M$ is the mass ejected at speeds equal to or greater than $v$.
+for $n_1 a \le x \le n_2 R$, where $v$ is the ejecta speed (see Figures \ref{fig:v_vs_x_hidens} and \ref{fig:v_vs_x_lodens}), and $M$ is the mass ejected at speeds equal to or greater than $v$.
 
-The maximum speed occurs when $x = n_1 a$, or very close to ground zero, and is given by
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.65\linewidth]{v_vs_x_hidens.png}
+	\caption{The ejecta speed $v/U$ (Equation \eqref{eq:v/U}) vs.\ location in the crater $x/a$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc and an impactor density of $4.0$ g/cc (e.g., MEM high density population). Each curve has a set effective impactor to crater radius $\frac{n_1 a}{n_2 R}$.}\label{fig:v_vs_x_hidens}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.65\linewidth]{v_vs_x_lodens.png}
+	\caption{The ejecta speed $v/U$ (Equation \eqref{eq:v/U}) vs.\ location in the crater $x/a$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc and an impactor density of $1.0$ g/cc (e.g., MEM low density population). Each curve has a set effective impactor to crater radius $\frac{n_1 a}{n_2 R}$.}\label{fig:v_vs_x_lodens}
+\end{figure}
+
+
+The maximum speed occurs when $x = n_1 a$, or very close to ground zero, and is given by (see Figure \ref{fig:vmax_vs_x})
 \begin{equation}\label{eq:vmax}
 \frac{v_{max}}{U} = C_1\left[n_1\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{1}{\mu}}\left(1 - \frac{n_1 a}{n_2 R}\right)^p.
 \end{equation}
 If $v_{max} \le 0$, then it is assumed no ejecta was created by the impact.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.65\linewidth]{vmax_vs_x.png}
+	\caption{The ejecta speed $v/U$ (Equation \eqref{eq:v/U}) vs.\ effective impactor to crater radius $\frac{n_1 a}{n_2 R}$ for a lunar regolith target (using SFA and WCB in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc and an impactor density of $1.0$ and $4.0$ g/cc (e.g., MEM low and high density populations).}\label{fig:vmax_vs_x}
+\end{figure}
+
+
+
 
 The total mass ejected is given when $x = n_2 R$,
 \begin{equation}\label{eq:Mtot}
@@ -59,7 +83,7 @@ and
 \begin{equation}\label{M/M_tot}
 \frac{M}{M_{tot}} = \frac{\left(\frac{x}{n_2 R}\right)^3 - \left(\frac{n_1 a}{n_2 R}\right)^3}{1 - \left(\frac{n_1 a}{n_2 R}\right)^3}.
 \end{equation}
-
+%\clearpage
 \subsubsection{Ejected Mass Distribution}
 
 The differential mass, or ejecta mass distribution, in terms of the speed can be computed using the chain rule as follows:
