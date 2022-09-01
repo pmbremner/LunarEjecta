@@ -236,11 +236,11 @@ v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right],
 \end{equation}
 and making the change of variables to the location from the center of the crater $x$ from the speed $v$, (note, $x = n_2 R y$)
 \begin{align} % https://www.physicsread.com/latex-big-brackets/
-f_{\mathcal{C}}(m) &= \int^{x(v_{min})}_{x(v_{max}(m))}
+f_{\mathcal{C}}(m_{ej}) &= \int^{x(v_{min})}_{x(v_{max}(m))}
 dx\frac{df}{dm}\frac{dM}{dx},\\\nonumber
 &= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
 \int^{\frac{x(v_{min})}{n_2 R}}_{\frac{x(v_{max}(m))}{n_2 R}}
-dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\
+dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\\label{eq:fC(m)}
 &= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
 \Biggl\{
 \beta\left[\frac{x(v_{min})}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]\\\nonumber
@@ -256,9 +256,28 @@ A_\mathcal{C} = \frac{3k\beta}{4\pi}\frac{m_{imp}}{m_b}
 \end{equation}
 with $\beta(z; a, b)$ as the incomplete beta function, $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}. Additional constants $\beta$ and $\delta$ can be found in Section \ref{sssec:OKeefe Ahrens 1985}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Ejecta Yield}
+
+The integral yield as a function of ejecta particle mass can be computed by taking the integral of Equation \eqref{eq:fC(m)} and dividing by the impactor mass $m_{imp}$ 
+\begin{equation}\label{eq:YC(m)}
+Y_{\mathcal{C}}(>m_{ej,i}) = \frac{1}{m_{imp}}\int_{m_{ej,i}}^{m_b}dm_{ej}f_{\mathcal{C}}(m_{ej}).
+\end{equation}
+Because of the complicated bounds in Equation \ref{fig:IntegralEjectedMass_vs_ParticleMass}, a closed form solution of $Y_{\mathcal{C}}(>m_{ej,i})$ is not possible, in general. The example shown in Figure \ref{fig:IntegralEjectedMass_vs_ParticleMass} is done numerically, taking advantage of the identity
+\begin{equation}
+\beta(z; a, b) = \beta(a,b) - \frac{(1-z)^b z^a}{b} {}_2F_1(1, a+b; b+1; 1-z).
+\end{equation}
+The hypergeometric representation of the incomplete beta function is taking advantage of $z\to 1$, such that the argument is near $0$ and is easier to evaluate than at arguments near $1$.
 
 
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.\linewidth]{IntegralEjectedMass_vs_ParticleMass.png}
+	\caption{The ejecta yield for particle mass $>\bar{m}_{ej}$ (Equation \eqref{eq:YC(m)}) vs.\ ejecta particle mass $\bar{m}_{ej} = m_{ej}/m_b$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc, impactor density of $4.0$ g/cc, and impactor speed of $20$ km/s.}\label{fig:IntegralEjectedMass_vs_ParticleMass}
+\end{figure}
+
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Total Kinetic Energy}\label{ssec:Total Kinetic Energy}
 
