@@ -228,7 +228,7 @@ m_max_exp = 0.
 
 m_bar_ej = np.logspace(m_min_exp, m_max_exp, N)
 
-m_ej_user = 1E-6 # g
+m_ej_user = 1.E1 # g
 
 
 m_imp_v = np.logspace(-6., 6., Nm)
