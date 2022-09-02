@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  1 SEP 2022 23:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  1 SEP 2022 23:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2867,11 +2867,11 @@ by four points, $\U/matha/m/n/10 p\OML/cmm/m/it/10 ^^M[]; v[]\U/matha/m/n/10 q$
 ]) [74] (LunarMeteoroidEjectaEngineeringModel.aux)
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: CF8F434F723C6712E6A1C8A7047FC0D2;17939.
+(rerunfilecheck)             Checksum: B38FA0B0DA1C3B1B22DE8B0D7FFA64A5;17929.
  ) 
 Here is how much of TeX's memory you used:
  42494 strings out of 478619
- 991000 string characters out of 2851115
+ 990990 string characters out of 2851115
  1955903 words of memory out of 3000000
  59261 multiletter control sequences out of 15000+600000
  503409 words of font info for 93 fonts, out of 8000000 for 9000
@@ -2908,7 +2908,7 @@ b><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhv
 r8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (84 pages, 38700593 
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (84 pages, 38700572 
 bytes).
 PDF statistics:
  2449 PDF objects out of 2487 (max. 8388607)
