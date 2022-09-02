@@ -222,9 +222,10 @@ m_b = 0.01 M_{tot}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mass Distribution with Speed Distribution Weighting}\label{sssec:Mass Distribution with Speed Distribution Weighting}
 Starting with the definition described by \cite{oKeefe1985impact} of the cumulative ejecta mass distribution as a function of the ejecta speed $f(m, m_{bv}(v))$ (Equation~\eqref{eq:f(m,mbv)}), the ejecta mass distribution is found by taking the derivative with respect to the mass,
-\begin{equation}\label{eq:df(m,mbv)}
--\frac{df(m, m_{bv}(v))}{dm} = \frac{\beta}{3m_{bv}}\left(\frac{m}{m_{bv}}\right)^{\frac{\beta}{3}-1}.
-\end{equation}
+\begin{align}\label{eq:df(m,mbv)}
+-\frac{df(m, m_{bv}(v))}{dm} &= \frac{\beta}{3m_{bv}}\left(\frac{m}{m_{bv}}\right)^{\frac{\beta}{3}-1},\\
+&= \frac{\beta}{3m_b}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}\left(\frac{C_1 U}{v_{min}}\right)^\frac{\beta\delta}{3}\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{\beta\delta}{3\mu}}\left(1-\frac{x}{n_2 R}\right)^{\frac{\beta\delta p}{3}}.
+\end{align}
 The complete ejecta mass distribution for a given impact is computed by taking the ejecta mass distribution for a given ejecta speed (Equation~\eqref{eq:df(m,mbv)}) and convoluting it with the ejected mass per speed (i.e., the speed distribution, Equation~\eqref{eq:v/U}),
 \begin{equation}
 f_{\mathcal{C}}(m_{ej}) = -\int_{v_{min}}^{v_{max}(m_{ej})}
@@ -236,8 +237,8 @@ v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right],
 \end{equation}
 and making the change of variables to the location from the center of the crater $x$ from the speed $v$, (note, $x = n_2 R y$)
 \begin{align} % https://www.physicsread.com/latex-big-brackets/
-f_{\mathcal{C}}(m_{ej}) &= \int^{x(v_{min})}_{x(v_{max}(m))}
-dx\frac{df}{dm}\frac{dM}{dx},\\\nonumber
+f_{\mathcal{C}}(m_{ej}) &= \int^{x(v_{min})}_{x(v_{max}(m_{ej}))}
+dx\frac{df}{dm_{ej}}\frac{dM}{dx},\\\nonumber
 &= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
 \int^{\frac{x(v_{min})}{n_2 R}}_{\frac{x(v_{max}(m))}{n_2 R}}
 dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\\label{eq:fC(m)}
@@ -250,7 +251,7 @@ dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\\label{eq:f
 where the constants with respect to $m_{ej}$ are
 \begin{equation}
 A_\mathcal{C} = \frac{3k\beta}{4\pi}\frac{m_{imp}}{m_b}
-\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{\mu}+1}
+\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{3\mu}+1}
 \left(\frac{C_1 U}{v_{min}}\right)^{\frac{\beta\delta}{3}}
 \left(\frac{a}{n_2 R}\right)^{\frac{\beta\delta}{3\mu}-3},
 \end{equation}
@@ -263,7 +264,7 @@ The integral yield as a function of ejecta particle mass can be computed by taki
 \begin{equation}\label{eq:YC(m)}
 Y_{\mathcal{C}}(>m_{ej,i}) = \frac{1}{m_{imp}}\int_{m_{ej,i}}^{m_b}dm_{ej}f_{\mathcal{C}}(m_{ej}).
 \end{equation}
-Because of the complicated bounds in Equation \ref{fig:IntegralEjectedMass_vs_ParticleMass}, a closed form solution of $Y_{\mathcal{C}}(>m_{ej,i})$ is not possible, in general. The example shown in Figure \ref{fig:IntegralEjectedMass_vs_ParticleMass} is done numerically, taking advantage of the identity
+Because of the complicated bounds in Equation \eqref{eq:fC(m)}, a closed form solution of $Y_{\mathcal{C}}(>m_{ej,i})$ is not possible, in general. The example shown in Figure \ref{fig:IntegralEjectedMass_vs_ParticleMass} is done numerically, taking advantage of the identity
 \begin{equation}
 \beta(z; a, b) = \beta(a,b) - \frac{(1-z)^b z^a}{b} {}_2F_1(1, a+b; b+1; 1-z).
 \end{equation}
@@ -273,9 +274,75 @@ The hypergeometric representation of the incomplete beta function is taking adva
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1.\linewidth]{IntegralEjectedMass_vs_ParticleMass.png}
+	\includegraphics[width=1.\linewidth]{IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png}
 	\caption{The ejecta yield for particle mass $>\bar{m}_{ej}$ (Equation \eqref{eq:YC(m)}) vs.\ ejecta particle mass $\bar{m}_{ej} = m_{ej}/m_b$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc, impactor density of $4.0$ g/cc, and impactor speed of $20$ km/s.}\label{fig:IntegralEjectedMass_vs_ParticleMass}
 \end{figure}
+
+
+
+
+
+\begin{figure}
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_1}
+	\end{subfigure}
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_2}
+	\end{subfigure}
+	
+	%\newline%%%%%%%%%%%%%%%%%
+	
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_3}
+	\end{subfigure}
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_4}
+	\end{subfigure}
+	
+	%%%%%%%%%%%%%
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include third image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_5}
+	\end{subfigure}
+	\begin{subfigure}[t]{.48\textwidth}
+		\centering
+		% include fourth image
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png}  
+		%\caption{Put your sub-caption here}
+		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_6}
+	\end{subfigure}
+
+	\caption{The ejecta yield is shown for SFA (first column) and WCB (second column) as a function of impactor speed $U$ and impactor mass $m_{imp}$ for impactor densities $1$~g/cm$^{-3}$ (row 1), $2$~g/cm$^{-3}$ (row 2), and $4$~g/cm$^{-3}$ (row 3).}
+	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass}
+\end{figure}
+
+The plots in Figure \ref{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass} show the ejecta yield as a function of impactor speed $U$ and mass $m_{imp}$ for a regolith target using SFA in the first column and WCB in the second column. Each row is a different impactor density from $1$ g/cm$^3$ to $4$ g/cm$^3$. For each impactor speed, there is a certain impactor mass that gives the best yield. This relationship roughly follows a power-law.
+
+%The plots show a dependence of the density ratio of the impactor to target to be roughly a power of $7.6$. By approximating the incomplete beta function near $1$, and assuming the speed-crater position relationship is strictly power-law, the density ratio $\delta/\rho$ power comes out to
+%\begin{equation}
+%\frac{\beta\delta\nu}{3\mu}-1 + \left[\nu-\frac{\mu}{2}\left(\nu-\frac{1}{2}\right)\right]\left(-\frac{\beta\delta}{3\mu}+3\right),
+%\end{equation}
+%which is $8.88$ for SFA and $7.75$ for WCB. Therefore, a strong dependence is predicted by an analytic approximation, as seen in the numerical test results of Figure \ref{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass}.
+
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

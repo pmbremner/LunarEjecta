@@ -15,7 +15,7 @@ g = 1.625 # m/s^-2, lunar gravity
 Y = 4.E3 # Pa (Si units), from SFA, use for all
 K = 5 # crater depth-to-diameter ratio
 
-# define constants (for SFA)
+# # define constants (for SFA)
 k     = 0.3
 C1    = 0.55
 rho   = 1.3    #g/cm^3, target density
@@ -29,7 +29,7 @@ H1    = 0.59
 H2    = 0.4
 
 
-# # define constants (for WCB, Weakly Cemented Basalt)
+# define constants (for WCB, Weakly Cemented Basalt)
 # k     = 0.3
 # C1    = 0.18
 # rho   = 1.3    #g/cm^3, target density
@@ -111,7 +111,7 @@ def v_bar_0(x_bar, v_bar, delta_imp, R_bar):
 # [x_bar]     = a
 def get_x_bar(v_bar, delta_imp, R_bar):
 	v_bar_max_i = v_bar_max(delta_imp, R_bar)
-	if v_bar > v_bar_max_i:
+	if np.iscomplex(v_bar_max_i) or v_bar > v_bar_max_i:
 		return np.nan
 	else:
 		x_min = n1
@@ -139,7 +139,7 @@ def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U, inc_beta_flag):
 	mb_i = mb(delta_imp, R_bar, m_imp) # g
 
 	if inc_beta_flag == 0:
-		return x_bar_min_i, x_bar_max_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/mu + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu))
+		return x_bar_min_i, x_bar_max_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu))
 	else:
 		af = -beta*delta_ind/(3.*mu)+3
 		bf = beta*delta_ind*p/3. + 1.
@@ -154,7 +154,7 @@ def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U, inc_beta_flag):
 		FB = (1.-x0)**bf * x0**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x0) / bf
 		FA = (1.-x1)**bf * x1**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x1) / bf
 
-		return x1, x0, FA, FB, mb_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/mu + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)) * (FA - FB) 
+		return x1, x0, FA, FB, mb_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)) * (FA - FB) 
 
 
 
@@ -191,8 +191,8 @@ plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how
 major_ticks_topx = np.logspace(m_min_exp, m_max_exp, 11)
 minor_ticks_topx = np.logspace(m_min_exp, m_max_exp, 21)
 
-major_ticks_topy = np.logspace(-19, 3, 23)
-minor_ticks_topy = np.logspace(-19, 3, 23)
+major_ticks_topy = np.logspace(-23, -1, 23)
+minor_ticks_topy = np.logspace(-23, -1, 23)
 
 ax.set_xticks(major_ticks_topx)
 ax.set_yticks(major_ticks_topy)
@@ -203,6 +203,7 @@ ax.grid(which="major",alpha=0.6)
 ax.grid(which="minor",alpha=0.3)
 
 plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc, Impactor Speed {U:.0f} km/s")
+#plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc, Impactor Speed {U:.0f} km/s")
 plt.xlabel(r'Ejecta Particle Mass $\bar{m}_{ej} = m_{ej}/m_b$', fontsize=14)
 plt.ylabel(r'Ejecta Yield for Particle Mass $>\bar{m}_{ej}$', fontsize=14)
 
@@ -210,7 +211,7 @@ plt.ylabel(r'Ejecta Yield for Particle Mass $>\bar{m}_{ej}$', fontsize=14)
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-#plt.savefig('IntegralEjectedMass_vs_ParticleMass.png', bbox_inches='tight', dpi=600)
+plt.savefig('IntegralEjectedMass_vs_ParticleMass.png', bbox_inches='tight', dpi=600)
 plt.show()
 
 ########################################################################################################
@@ -228,7 +229,7 @@ m_max_exp = 0.
 
 m_bar_ej = np.logspace(m_min_exp, m_max_exp, N)
 
-m_ej_user = 1.E1 # g
+m_ej_user = 1.E-6 # g
 
 
 m_imp_v = np.logspace(-6., 6., Nm)
@@ -263,7 +264,8 @@ plt.figure()
 plt.pcolor(np.log10(Xi), np.log10(Yj), Zij, cmap=plt.cm.nipy_spectral)
 
 plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
-plt.xlabel(r'Impactor Mass [g] $\log(m_{imp})$', fontsize=14)
+plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+#plt.xlabel(r'Impactor Mass [g] $\log(m_{imp})$', fontsize=14)
 plt.ylabel(r'Impactor Speed [km/s] $\log(U)$', fontsize=14)
 cbar = plt.colorbar(label='Ejecta Yield for Ejecta Particle Mass > ' + f'{m_ej_user:.1e} g')
 cbar.ax.tick_params(labelsize=12)
