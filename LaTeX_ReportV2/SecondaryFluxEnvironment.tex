@@ -220,51 +220,73 @@ m_b = 0.01 M_{tot}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Mass Distribution with Speed Distribution Weighting}\label{sssec:Mass Distribution with Speed Distribution Weighting}
-Starting with the definition described by \cite{oKeefe1985impact} of the cumulative ejecta mass distribution as a function of the ejecta speed $f(m, m_{bv}(v))$ (Equation~\eqref{eq:f(m,mbv)}), the ejecta mass distribution is found by taking the derivative with respect to the mass,
-\begin{align}\label{eq:df(m,mbv)}
--\frac{df(m, m_{bv}(v))}{dm} &= \frac{\beta}{3m_{bv}}\left(\frac{m}{m_{bv}}\right)^{\frac{\beta}{3}-1},\\
-&= \frac{\beta}{3m_b}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}\left(\frac{C_1 U}{v_{min}}\right)^\frac{\beta\delta}{3}\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{\beta\delta}{3\mu}}\left(1-\frac{x}{n_2 R}\right)^{\frac{\beta\delta p}{3}}.
-\end{align}
-The complete ejecta mass distribution for a given impact is computed by taking the ejecta mass distribution for a given ejecta speed (Equation~\eqref{eq:df(m,mbv)}) and convoluting it with the ejected mass per speed (i.e., the speed distribution, Equation~\eqref{eq:v/U}),
-\begin{equation}
-f_{\mathcal{C}}(m_{ej}) = -\int_{v_{min}}^{v_{max}(m_{ej})}
-dv\frac{df}{dm}\frac{dM}{dv},
-\end{equation}
-where the upper limit is (specifying $m_{ej}$ as the ejecta mass as opposed to the impactor mass $m_{imp}$)
-\begin{equation}
-v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right],
-\end{equation}
-and making the change of variables to the location from the center of the crater $x$ from the speed $v$, (note, $x = n_2 R y$)
-\begin{align} % https://www.physicsread.com/latex-big-brackets/
-f_{\mathcal{C}}(m_{ej}) &= \int^{x(v_{min})}_{x(v_{max}(m_{ej}))}
-dx\frac{df}{dm_{ej}}\frac{dM}{dx},\\\nonumber
-&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
-\int^{\frac{x(v_{min})}{n_2 R}}_{\frac{x(v_{max}(m))}{n_2 R}}
-dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\\label{eq:fC(m)}
-&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
-\Biggl\{
-\beta\left[\frac{x(v_{min})}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]\\\nonumber
-& - \beta\left[\frac{x(v_{max}(m_{ej}))}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]
-\Biggr\},
-\end{align}
-where the constants with respect to $m_{ej}$ are
-\begin{equation}
-A_\mathcal{C} = \frac{3k\beta}{4\pi}\frac{m_{imp}}{m_b}
-\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{3\mu}+1}
-\left(\frac{C_1 U}{v_{min}}\right)^{\frac{\beta\delta}{3}}
-\left(\frac{a}{n_2 R}\right)^{\frac{\beta\delta}{3\mu}-3},
-\end{equation}
-with $\beta(z; a, b)$ as the incomplete beta function, $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}. Additional constants $\beta$ and $\delta$ can be found in Section \ref{sssec:OKeefe Ahrens 1985}.
+%\subsubsection{Mass Distribution with Speed Distribution Weighting}\label{sssec:Mass Distribution with Speed Distribution Weighting}
+%Starting with the definition described by \cite{oKeefe1985impact} of the cumulative ejecta mass distribution as a function of the ejecta speed $f(m, m_{bv}(v))$ (Equation~\eqref{eq:f(m,mbv)}), the ejecta mass distribution is found by taking the derivative with respect to the mass,
+%\begin{align}\label{eq:df(m,mbv)}
+%-\frac{df(m, m_{bv}(v))}{dm} &= \frac{\beta}{3m_{bv}}\left(\frac{m}{m_{bv}}\right)^{\frac{\beta}{3}-1},\\
+%&= \frac{\beta}{3m_b}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}\left(\frac{C_1 U}{v_{min}}\right)^\frac{\beta\delta}{3}\left[\frac{x}{a}\left(\frac{\rho}{\delta}\right)^\nu\right]^{-\frac{\beta\delta}{3\mu}}\left(1-\frac{x}{n_2 R}\right)^{\frac{\beta\delta p}{3}}.
+%\end{align}
+%The complete ejecta mass distribution for a given impact is computed by taking the ejecta mass distribution for a given ejecta speed (Equation~\eqref{eq:df(m,mbv)}) and convoluting it with the ejected mass per speed (i.e., the speed distribution, Equation~\eqref{eq:v/U}),
+%\begin{equation}
+%f_{\mathcal{C}}(m_{ej}) = -\int_{v_{min}}^{v_{max}(m_{ej})}
+%dv\frac{df}{dm}\frac{dM}{dv},
+%\end{equation}
+%where the upper limit is (specifying $m_{ej}$ as the ejecta mass as opposed to the impactor mass $m_{imp}$)
+%\begin{equation}
+%v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right],
+%\end{equation}
+%and making the change of variables to the location from the center of the crater $x$ from the speed $v$, (note, $x = n_2 R y$)
+%\begin{align} % https://www.physicsread.com/latex-big-brackets/
+%f_{\mathcal{C}}(m_{ej}) &= \int^{x(v_{min})}_{x(v_{max}(m_{ej}))}
+%dx\frac{df}{dm_{ej}}\frac{dM}{dx},\\\nonumber
+%&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
+%\int^{\frac{x(v_{min})}{n_2 R}}_{\frac{x(v_{max}(m))}{n_2 R}}
+%dy y ^{-\frac{\beta\delta}{3\mu}+2}(1-y)^{\frac{\beta\delta p}{3}},\\\label{eq:fC(m)}
+%&= A_\mathcal{C}\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}-1}
+%\Biggl\{
+%\beta\left[\frac{x(v_{min})}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]\\\nonumber
+%& - \beta\left[\frac{x(v_{max}(m_{ej}))}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3} + 1\right]
+%\Biggr\},
+%\end{align}
+%where the constants with respect to $m_{ej}$ are
+%\begin{equation}
+%A_\mathcal{C} = \frac{3k\beta}{4\pi}\frac{m_{imp}}{m_b}
+%\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{3\mu}+1}
+%\left(\frac{C_1 U}{v_{min}}\right)^{\frac{\beta\delta}{3}}
+%\left(\frac{a}{n_2 R}\right)^{\frac{\beta\delta}{3\mu}-3},
+%\end{equation}
+%with $\beta(z; a, b)$ as the incomplete beta function, $a$ is the projectile radius, $R$ is the crater radius (Equation \eqref{eq:R gravity} or \eqref{eq:R strength}), and the scaling law parameters $n_1$, $n_2$, $p$, $\mu$, $\nu$, $k$, and $C_1$ are found in Table \ref{tab:scaling law parameters}. Additional constants $\beta$ and $\delta$ can be found in Section \ref{sssec:OKeefe Ahrens 1985}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Ejecta Yield}
 
-The integral yield as a function of ejecta particle mass can be computed by taking the integral of Equation \eqref{eq:fC(m)} and dividing by the impactor mass $m_{imp}$ 
-\begin{equation}\label{eq:YC(m)}
-Y_{\mathcal{C}}(>m_{ej,i}) = \frac{1}{m_{imp}}\int_{m_{ej,i}}^{m_b}dm_{ej}f_{\mathcal{C}}(m_{ej}).
+The integral yield as a function of ejecta particle mass $Y_{\mathcal{C}}$ is computed by dividing the cumulative amount of mass $M_{\mathcal{C}}$ of fragments of mass greater than $m_{ej}$ by the impactor mass $m_{imp}$
+\begin{align}\label{eq:YC(m)def}
+Y_{\mathcal{C}}(>m_{ej}) &= \frac{1}{m_{imp}}M_{\mathcal{C}}\\\nonumber
+&= \frac{1}{m_{imp}}\int_{v_{min}}^{v_{max(m_{ej})}}dv \frac{dM}{dv}f(m_{ej},v),
+\end{align}
+where $dM/dv$ is the amount of mass ejected at ejecta speed $v$ (Equation \eqref{eq:dM/dv final}) and $f(m_{ej},v)$ is the distribution of fragments ejected at speed $v$ (Equation \eqref{eq:f(m,mbv)}). The upper limit is (specifying $m_{ej}$ as the ejecta mass as opposed to the impactor mass $m_{imp}$)
+\begin{equation}
+v_{max}(m_{ej}) = \min\left[v_{min}(m_{ej}/m_b)^{-1/\delta}, v_{max}\right].
 \end{equation}
-Because of the complicated bounds in Equation \eqref{eq:fC(m)}, a closed form solution of $Y_{\mathcal{C}}(>m_{ej,i})$ is not possible, in general. The example shown in Figure \ref{fig:IntegralEjectedMass_vs_ParticleMass} is done numerically, taking advantage of the identity
+Expanding Equation \eqref{eq:YC(m)def} and changing variables to a normalized crater position $y = x / (n_2 R)$,
+\begin{align}\label{eq:YC(m)final}
+&Y_{\mathcal{C}}(>m_{ej}) = \frac{3k}{4\pi}\frac{\rho}{\delta}\left[\left(\frac{x(v_{min})}{a}\right)^3 - \left(\frac{x(v_{max}(m_ej))}{a}\right)^3\right]\\\nonumber
+&- A_{\mathcal{C}}
+\left(\frac{m_{ej}}{m_b}\right)^{\frac{\beta}{3}}
+\left[\beta\left(\frac{x(v_{min})}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3}+1\right)
+- \beta\left(\frac{x(v_{max}(m_{ej}))}{n_2 R}; -\frac{\beta\delta}{3\mu}+3, \frac{\beta\delta p}{3}+1\right)\right],
+\end{align}
+where the constants with respect to $m_{ej}$ are
+\begin{equation}
+A_\mathcal{C} = \frac{9k}{4\pi}\left(\frac{\rho}{\delta}\right)^{-\frac{\beta\delta\nu}{3\mu}+1}
+\left(\frac{C_1 U}{v_{min}}\right)^{\frac{\beta\delta}{3}}
+\left(\frac{a}{n_2 R}\right)^{\frac{\beta\delta}{3\mu}-3}.
+\end{equation}
+The ejecta yield for ejecta fragments greater than $m_{ej}$, $Y_{\mathcal{C}}(>m_{ej})$, approaches the total ejecta yield $M_{tot}/{m_{imp}}$ (see Equation \eqref{eq:Mtot}) as $m_{ej}\to 0$ and letting $v_{min}\to 0$, which is to be expected.
+
+
+The example shown in Figure \ref{fig:IntegralEjectedMass_vs_ParticleMass} is done numerically, taking advantage of the identity
 \begin{equation}
 \beta(z; a, b) = \beta(a,b) - \frac{(1-z)^b z^a}{b} {}_2F_1(1, a+b; b+1; 1-z).
 \end{equation}
@@ -282,35 +304,35 @@ The hypergeometric representation of the incomplete beta function is taking adva
 
 
 
-\begin{figure}
-	\begin{subfigure}[t]{.48\textwidth}
-		\centering
-		% include first image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png}  
-		%\caption{Put your sub-caption here}
-		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_1}
-	\end{subfigure}
-	\begin{subfigure}[t]{.48\textwidth}
-		\centering
-		% include second image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png}  
-		%\caption{Put your sub-caption here}
-		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_2}
-	\end{subfigure}
+\begin{figure}	
+%	\begin{subfigure}[t]{.48\textwidth}
+%		\centering
+%		% include first image
+%		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-9_4gcc.png}  
+%		%\caption{Put your sub-caption here}
+%		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_1}
+%	\end{subfigure}
+%	\begin{subfigure}[t]{.48\textwidth}
+%		\centering
+%		% include second image
+%		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-9_4gcc.png}  
+%		%\caption{Put your sub-caption here}
+%		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_2}
+%	\end{subfigure}
 	
 	%\newline%%%%%%%%%%%%%%%%%
 	
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
 		% include third image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png}  
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png}  
 		%\caption{Put your sub-caption here}
 		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_3}
 	\end{subfigure}
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
 		% include fourth image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png}  
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png}  
 		%\caption{Put your sub-caption here}
 		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_4}
 	\end{subfigure}
@@ -319,23 +341,39 @@ The hypergeometric representation of the incomplete beta function is taking adva
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
 		% include third image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png}  
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png}  
 		%\caption{Put your sub-caption here}
 		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_5}
 	\end{subfigure}
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
 		% include fourth image
-		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png}  
+		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png}  
 		%\caption{Put your sub-caption here}
 		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_6}
 	\end{subfigure}
 
-	\caption{The ejecta yield is shown for SFA (first column) and WCB (second column) as a function of impactor speed $U$ and impactor mass $m_{imp}$ for impactor densities $1$~g/cm$^{-3}$ (row 1), $2$~g/cm$^{-3}$ (row 2), and $4$~g/cm$^{-3}$ (row 3).}
+	%%%%%%%%%%%%%
+\begin{subfigure}[t]{.48\textwidth}
+	\centering
+	% include third image
+	\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-0_4gcc.png}  
+	%\caption{Put your sub-caption here}
+	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_7}
+\end{subfigure}
+\begin{subfigure}[t]{.48\textwidth}
+	\centering
+	% include fourth image
+	\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-0_4gcc.png}  
+	%\caption{Put your sub-caption here}
+	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_8}
+\end{subfigure}
+
+	\caption{The ejecta yield is shown for SFA (first column) and WCB (second column) as a function of impactor speed $U$ and impactor mass $m_{imp}$ for ejecta fragments masses greater than $1\times 10^{-9}$~g (row 1), $1\times 10^{-6}$~g (row 2), $1\times 10^{-3}$~g (row 3), and $1\times 10^{0}$~g (row 4).}
 	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass}
 \end{figure}
 
-The plots in Figure \ref{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass} show the ejecta yield as a function of impactor speed $U$ and mass $m_{imp}$ for a regolith target using SFA in the first column and WCB in the second column. Each row is a different impactor density from $1$ g/cm$^3$ to $4$ g/cm$^3$. For each impactor speed, there is a certain impactor mass that gives the best yield. This relationship roughly follows a power-law.
+%The plots in Figure \ref{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass} show the ejecta yield as a function of impactor speed $U$ and mass $m_{imp}$ for a regolith target using SFA in the first column and WCB in the second column. Each row is a different impactor density from $1$ g/cm$^3$ to $4$ g/cm$^3$. For each impactor speed, there is a certain impactor mass that gives the best yield. This relationship roughly follows a power-law.
 
 %The plots show a dependence of the density ratio of the impactor to target to be roughly a power of $7.6$. By approximating the incomplete beta function near $1$, and assuming the speed-crater position relationship is strictly power-law, the density ratio $\delta/\rho$ power comes out to
 %\begin{equation}

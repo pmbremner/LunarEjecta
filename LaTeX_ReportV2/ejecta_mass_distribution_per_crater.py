@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from numpy import vectorize # https://stackoverflow.com/questions/8036878/function-of-numpy-array-with-if-statement
 import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm
 
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.betainc.html
 import scipy.special as sc
@@ -15,21 +16,21 @@ g = 1.625 # m/s^-2, lunar gravity
 Y = 4.E3 # Pa (Si units), from SFA, use for all
 K = 5 # crater depth-to-diameter ratio
 
-# # define constants (for SFA)
-k     = 0.3
-C1    = 0.55
-rho   = 1.3    #g/cm^3, target density
-delta_i = 4.   #g/cm^3, impactor density
-n1    = 1.2
-n2    = 1.
-p     = 0.3
-mu    = 0.4
-nu    = 0.4
-H1    = 0.59
-H2    = 0.4
+# # # define constants (for SFA)
+# k     = 0.3
+# C1    = 0.55
+# rho   = 1.3    #g/cm^3, target density
+# delta_i = 4.   #g/cm^3, impactor density
+# n1    = 1.2
+# n2    = 1.
+# p     = 0.3
+# mu    = 0.4
+# nu    = 0.4
+# H1    = 0.59
+# H2    = 0.4
 
 
-# define constants (for WCB, Weakly Cemented Basalt)
+# #define constants (for WCB, Weakly Cemented Basalt)
 # k     = 0.3
 # C1    = 0.18
 # rho   = 1.3    #g/cm^3, target density
@@ -42,22 +43,52 @@ H2    = 0.4
 # H1    = 0.5
 # H2    = 0.38
 
+#define constants (for SP, Perlite/Sand mixture)
+k     = 0.32
+C1    = 0.6
+rho   = 1.3    #g/cm^3, target density
+delta_i = 4.   #g/cm^3, impactor density
+n1    = 1.2
+n2    = 1.
+p     = 0.2
+mu    = 0.35
+nu    = 0.4
+H1    = 0.59
+H2    = 0.81
+
 # define power-law constants
-alpha = 0.56 # basalt
-beta = 2.
+alpha     = 0.56 # basalt
+beta      = 2.
 delta_ind = 9. * mu / alpha
 
 # [m_imp]     = g
 # [delta_imp] = g/cm^3
 # [radius_a]  = cm
 def radius_a(m_imp, delta_imp):
-	return (3.*m_imp / (3.*np.pi*delta_imp))*(1./3.)
+	return (3.*m_imp / (4.*np.pi*delta_imp))*(1./3.)
 
+# [Y]          = kg/m/s^2
 # [delta_imp]  = g/cm^3
 # [U]          = km/s
 # [R_bar_str]  = n2*R / (n1*a)
 def R_bar_str(delta_imp, U):
-	return n2*H2/n1 *(rho/delta_imp)**(-nu) * (1.E-9 * Y/(rho*U**2))**(-mu/2.)
+	return n2*H2/n1 * (4.*np.pi/3.)**(1./3.) *(rho/delta_imp)**(-nu) * (1.E-9 * Y/(rho*U**2))**(-mu/2.)
+
+# [g]          = m/s^2
+# [a]          = cm
+# [delta_imp]  = g/cm^3
+# [U]          = km/s
+# [R_bar_str]  = n2*R / (n1*a)
+def R_bar_grav(delta_imp, U, a):
+	return n2*H1/n1 * (4.*np.pi/3.)**(1./3.) *(rho/delta_imp)**(-2.*nu/(mu+2.)) * (1.E-8 * g*a/U**2)**(-mu/(mu+2.))
+
+# [a]         = cm
+# [delta_imp] = g/cm^3
+# [U]         = km/s
+# [R_bar]     = n2*R / (n1*a)
+def R_bar_f(delta_imp, U, a):
+	return np.minimum(R_bar_str(delta_imp, U), R_bar_grav(delta_imp, U, a))
+
 
 # [x_bar]     = a
 # [delta_imp] = g/cm^3
@@ -124,10 +155,10 @@ get_x_barvec = vectorize(get_x_bar)
 # [m_bar_ej]  = mb
 # [delta_imp] = g/cm^3
 # [U]         = km/s
-def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U, inc_beta_flag):
+def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U):#, inc_beta_flag):
 
-	R_bar = R_bar_str(delta_imp, U)    # n2*R / (n1*a)
 	a     = radius_a(m_imp, delta_imp) # [cm]
+	R_bar = R_bar_f(delta_imp, U, a)    # n2*R / (n1*a)
 
 	v_bar_min_i = v_bar_min(R_bar, U, a) # [U]
 	v_bar_max_i = np.minimum(v_bar_min_i * m_bar_ej**(-1./delta_ind), v_bar_max(delta_imp, R_bar)) # [U]
@@ -138,23 +169,24 @@ def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U, inc_beta_flag):
 
 	mb_i = mb(delta_imp, R_bar, m_imp) # g
 
-	if inc_beta_flag == 0:
-		return x_bar_min_i, x_bar_max_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu))
-	else:
-		af = -beta*delta_ind/(3.*mu)+3
-		bf = beta*delta_ind*p/3. + 1.
+	# if inc_beta_flag == 0:
+	# 	return x_bar_min_i, x_bar_max_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu))
+	# else:
+	af = -beta*delta_ind/(3.*mu)+3
+	bf = beta*delta_ind*p/3. + 1.
 
-		x0 = x_bar_max_i/(n1*R_bar)
-		x1 = x_bar_min_i/(n1*R_bar)
+	x0 = x_bar_max_i/(n1*R_bar)
+	x1 = x_bar_min_i/(n1*R_bar)
 
-		# https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hyp2f1.html
-		# FA = (x_bar_max_i/(n1*R_bar))**(af) * sc.hyp2f1(af, 1.-bf, af+1., x_bar_max_i/(n1*R_bar)) / (af)
-		# FB = (x_bar_min_i/(n1*R_bar))**(af) * sc.hyp2f1(af, 1.-bf, af+1., x_bar_min_i/(n1*R_bar)) / (af)
+	# https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hyp2f1.html
+	# FA = (x_bar_max_i/(n1*R_bar))**(af) * sc.hyp2f1(af, 1.-bf, af+1., x_bar_max_i/(n1*R_bar)) / (af)
+	# FB = (x_bar_min_i/(n1*R_bar))**(af) * sc.hyp2f1(af, 1.-bf, af+1., x_bar_min_i/(n1*R_bar)) / (af)
 
-		FB = (1.-x0)**bf * x0**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x0) / bf
-		FA = (1.-x1)**bf * x1**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x1) / bf
+	FB = (1.-x0)**bf * x0**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x0) / bf
+	FA = (1.-x1)**bf * x1**af * sc.hyp2f1(1, af+bf, bf+1, 1.-x1) / bf
 
-		return x1, x0, FA, FB, mb_i, 3.*k*beta / (4.*np.pi)  * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)) * (FA - FB) 
+	#return x1, x0, FA, FB, mb_i,  3.*k*beta / (4.*np.pi) * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)) * (FA - FB) 
+	return x1, x0, FA, FB, mb_i,  3.*k * m_imp / (4.*np.pi)* (rho/delta_imp) * ((x_bar_max_i)**3 - (x_bar_min_i)**3) - 9.*k*m_imp / (4.*np.pi) * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_bar_ej)**(beta/3.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)+3.) * (FA - FB) 
 
 
 
@@ -177,12 +209,14 @@ ax = plt.subplot(111)
 
 for m_imp_i in np.logspace(-6., 6., 13):
 	#plt.figure()
-	xmin, xmax, FA, FB, mb_i, ej_dist = ejecta_mass_distribution(m_imp_i, m_bar_ej, delta_dens_i, U, 1)
+	xmin, xmax, FA, FB, mb_i, ej_cum = ejecta_mass_distribution(m_imp_i, m_bar_ej, delta_dens_i, U)
 
-	ej_cum = ej_dist[:-1] * (m_bar_ej[1:] - m_bar_ej[:-1]) * mb_i / m_imp_i
-	ej_cum = np.cumsum(ej_cum)
+	# ej_cum = ej_dist[:-1] * (m_bar_ej[1:] - m_bar_ej[:-1]) * mb_i / m_imp_i
+	# ej_cum = np.cumsum(ej_cum)
+	ej_cum /=m_imp_i
 
-	plt.loglog(m_bar_ej[:-1], ej_cum[-1] - ej_cum, label=r'$m_{imp} = $'+f'{m_imp_i:.1e}' + r', $m_b = $' + f'{mb_i:.2e}'+' g')
+	#plt.loglog(m_bar_ej[:-1], ej_cum[-1] - ej_cum, label=r'$m_{imp} = $'+f'{m_imp_i:.1e}' + r', $m_b = $' + f'{mb_i:.2e}'+' g')
+	plt.loglog(m_bar_ej, ej_cum, label=r'$m_{imp} = $'+f'{m_imp_i:.1e}' + r', $m_b = $' + f'{mb_i:.2e}'+' g')
 
 
 plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
@@ -191,8 +225,8 @@ plt.grid(b=True, which='both') # https://stackoverflow.com/questions/9127434/how
 major_ticks_topx = np.logspace(m_min_exp, m_max_exp, 11)
 minor_ticks_topx = np.logspace(m_min_exp, m_max_exp, 21)
 
-major_ticks_topy = np.logspace(-23, -1, 23)
-minor_ticks_topy = np.logspace(-23, -1, 23)
+major_ticks_topy = np.logspace(-15, 4, 20)
+minor_ticks_topy = np.logspace(-15, 4, 20)
 
 ax.set_xticks(major_ticks_topx)
 ax.set_yticks(major_ticks_topy)
@@ -211,7 +245,7 @@ plt.ylabel(r'Ejecta Yield for Particle Mass $>\bar{m}_{ej}$', fontsize=14)
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.savefig('IntegralEjectedMass_vs_ParticleMass.png', bbox_inches='tight', dpi=600)
+#plt.savefig('IntegralEjectedMass_vs_ParticleMass.png', bbox_inches='tight', dpi=600)
 plt.show()
 
 ########################################################################################################
@@ -219,8 +253,8 @@ plt.show()
 ########################################################################################################
 ########################################################################################################
 
-Nm = 100
-NU = 100
+Nm = 30
+NU = 30
 
 N = 1000
 
@@ -229,7 +263,9 @@ m_max_exp = 0.
 
 m_bar_ej = np.logspace(m_min_exp, m_max_exp, N)
 
-m_ej_user = 1.E-6 # g
+m_ej_user = float(sys.argv[4]) # g
+#Y_flag    = int(sys.argv[5]) # 0 Mbar, 1 ej_dist
+#m_ej_user = 1.E-40 # g
 
 
 m_imp_v = np.logspace(-6., 6., Nm)
@@ -241,17 +277,24 @@ Zij = np.zeros(np.shape(Xi))
 for i, m_imp_i in enumerate(m_imp_v): # g
 	for j, U_j in enumerate(U_v): # km/s
 	
-		#print(m_imp_i, m_bar_ej, delta_dens_i, U_j)
+		# if Y_flag == 0:
+		# 	R_bar = R_bar_str(delta_dens_i, U_j)
+		# 	Y_ij = M_bar_tot(delta_dens_i, R_bar)
+		# 	Zij[j][i] = Y_ij
 
-		#plt.figure()
-		xmin, xmax, FA, FB, mb_i, ej_dist = ejecta_mass_distribution(m_imp_i, m_bar_ej, delta_dens_i, U_j, 1)
+		# #print(m_imp_i, m_bar_ej, delta_dens_i, U_j)
 
-		ej_cum = ej_dist[:-1] * (m_bar_ej[1:] - m_bar_ej[:-1]) * mb_i / m_imp_i
-		ej_cum = np.cumsum(ej_cum)
+		# #plt.figure()
+		# if Y_flag == 1:
+		xmin, xmax, FA, FB, mb_i, ej_cum = ejecta_mass_distribution(m_imp_i, m_bar_ej, delta_dens_i, U_j)
+
+		#ej_cum = ej_dist[:-1] * (m_bar_ej[1:] - m_bar_ej[:-1]) * mb_i / m_imp_i
+		#ej_cum = np.cumsum(ej_cum)
 
 
-		Y_ij = ej_cum[-1] - ej_cum
-		x_mask = m_bar_ej[:-1][m_ej_user/mb_i >= m_bar_ej[:-1]]
+		#Y_ij = ej_cum[-1] - ej_cum
+		Y_ij = ej_cum / m_imp_i
+		x_mask = m_bar_ej[m_ej_user/mb_i >= m_bar_ej]
 
 		if x_mask.size > 0:
 			Zij[j][i] = Y_ij[np.argmax(x_mask)]
@@ -260,12 +303,15 @@ for i, m_imp_i in enumerate(m_imp_v): # g
 
 
 plt.figure()
+# https://matplotlib.org/2.0.2/examples/pylab_examples/pcolor_log.html
+plt.pcolor(Xi, Yj, Zij, norm=LogNorm(vmin=1.E-12, vmax=1.E4), cmap=plt.cm.nipy_spectral)#, cmap=plt.cm.nipy_spectral)viridis
 
-plt.pcolor(np.log10(Xi), np.log10(Yj), Zij, cmap=plt.cm.nipy_spectral)
-
-plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
-plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
-#plt.xlabel(r'Impactor Mass [g] $\log(m_{imp})$', fontsize=14)
+#plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+#plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+plt.title("Lunar Regolith Target (perlite/sand mixture)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+plt.yscale('log')
+plt.xscale('log')
+plt.xlabel(r'Impactor Mass [g] $\log(m_{imp})$', fontsize=14)
 plt.ylabel(r'Impactor Speed [km/s] $\log(U)$', fontsize=14)
 cbar = plt.colorbar(label='Ejecta Yield for Ejecta Particle Mass > ' + f'{m_ej_user:.1e} g')
 cbar.ax.tick_params(labelsize=12)

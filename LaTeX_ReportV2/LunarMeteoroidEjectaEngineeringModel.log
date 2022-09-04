@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  1 SEP 2022 23:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.9)  4 SEP 2022 18:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,11 +1197,15 @@ Overfull \hbox (14.57042pt too wide) in paragraph at lines 1--1
 lume-averaged 
  []
 
-[3] [4] [5] [6] [7] [8] [9])
+[3]
+
+LaTeX Warning: Reference `eq:YC(m)' on page iv undefined on input line 17.
+
+[4] [5] [6] [7] [8])
 \tf@lof=\write7
 \openout7 = `LunarMeteoroidEjectaEngineeringModel.lof'.
 
- (LunarMeteoroidEjectaEngineeringModel.lot)
+ (LunarMeteoroidEjectaEngineeringModel.lot [9])
 \tf@lot=\write8
 \openout8 = `LunarMeteoroidEjectaEngineeringModel.lot'.
 
@@ -1219,32 +1223,32 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
  [2
 
 ]
-<regolith_density_vs_depth.png, id=918, 412.78215pt x 314.01315pt>
+<regolith_density_vs_depth.png, id=911, 412.78215pt x 314.01315pt>
 File: regolith_density_vs_depth.png Graphic file (type png)
 <use regolith_density_vs_depth.png>
 Package pdftex.def Info: regolith_density_vs_depth.png  used on input line 60.
 (pdftex.def)             Requested size: 375.0pt x 285.29242pt.
  [3 <./regolith_density_vs_depth.png>]
-<ratio_of_avg_bulk_density.png, id=947, 412.78215pt x 327.26265pt>
+<ratio_of_avg_bulk_density.png, id=940, 412.78215pt x 327.26265pt>
 File: ratio_of_avg_bulk_density.png Graphic file (type png)
 <use ratio_of_avg_bulk_density.png>
 Package pdftex.def Info: ratio_of_avg_bulk_density.png  used on input line 94.
 (pdftex.def)             Requested size: 375.0pt x 297.33008pt.
  [4]
-<shear_strength_vs_depth.png, id=967, 426.03165pt x 312.56775pt>
+<shear_strength_vs_depth.png, id=960, 426.03165pt x 312.56775pt>
 File: shear_strength_vs_depth.png Graphic file (type png)
 <use shear_strength_vs_depth.png>
 Package pdftex.def Info: shear_strength_vs_depth.png  used on input line 125.
 (pdftex.def)             Requested size: 375.0pt x 275.1463pt.
  [5 <./ratio_of_avg_bulk_density.png>] [6 <./shear_strength_vs_depth.png>]
-<Carrier2003_Fig1_particle-size-distribution.PNG, id=989, 889.07156pt x 624.081
+<Carrier2003_Fig1_particle-size-distribution.PNG, id=982, 889.07156pt x 624.081
 56pt>
 File: Carrier2003_Fig1_particle-size-distribution.PNG Graphic file (type png)
 <use Carrier2003_Fig1_particle-size-distribution.PNG>
 Package pdftex.def Info: Carrier2003_Fig1_particle-size-distribution.PNG  used 
 on input line 158.
 (pdftex.def)             Requested size: 355.62233pt x 249.62819pt.
-<Carrier2003_CDFs_PDFs.png, id=1006, 1149.8157pt x 840.5001pt>
+<Carrier2003_CDFs_PDFs.png, id=999, 1149.8157pt x 840.5001pt>
 File: Carrier2003_CDFs_PDFs.png Graphic file (type png)
 <use Carrier2003_CDFs_PDFs.png>
 Package pdftex.def Info: Carrier2003_CDFs_PDFs.png  used on input line 171.
@@ -1295,100 +1299,100 @@ LaTeX Font Info:    Font shape `OML/phv/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 25.
 
 [12])
-<../LoDensity018_lat0.png, id=1147, 462.528pt x 346.896pt>
+<../LoDensity018_lat0.png, id=1140, 462.528pt x 346.896pt>
 File: ../LoDensity018_lat0.png Graphic file (type png)
 <use ../LoDensity018_lat0.png>
 Package pdftex.def Info: ../LoDensity018_lat0.png  used on input line 44.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../LoDensity036_lat90.png, id=1148, 462.528pt x 346.896pt>
+<../LoDensity036_lat90.png, id=1141, 462.528pt x 346.896pt>
 File: ../LoDensity036_lat90.png Graphic file (type png)
 <use ../LoDensity036_lat90.png>
 Package pdftex.def Info: ../LoDensity036_lat90.png  used on input line 51.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity018_lat0.png, id=1149, 462.528pt x 346.896pt>
+<../HiDensity018_lat0.png, id=1142, 462.528pt x 346.896pt>
 File: ../HiDensity018_lat0.png Graphic file (type png)
 <use ../HiDensity018_lat0.png>
 Package pdftex.def Info: ../HiDensity018_lat0.png  used on input line 59.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
-<../HiDensity036_lat90.png, id=1150, 462.528pt x 346.896pt>
+<../HiDensity036_lat90.png, id=1143, 462.528pt x 346.896pt>
 File: ../HiDensity036_lat90.png Graphic file (type png)
 <use ../HiDensity036_lat90.png>
 Package pdftex.def Info: ../HiDensity036_lat90.png  used on input line 66.
 (pdftex.def)             Requested size: 154.59505pt x 115.94754pt.
  [13]
-<../mollweide_LatRunDataLoDensity000_lat-90.png, id=1176, 405.1938pt x 238.2501
+<../mollweide_LatRunDataLoDensity000_lat-90.png, id=1169, 405.1938pt x 238.2501
 pt>
 File: ../mollweide_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity000_lat-90.png  used o
 n input line 99.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity000_lat-90.png, id=1177, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity000_lat-90.png, id=1170, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity000_lat-90.png  used on in
 put line 106.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity000_lat-90.png, id=1178, 405.1938pt x 238.2501
+<../mollweide_LatRunDataHiDensity000_lat-90.png, id=1171, 405.1938pt x 238.2501
 pt>
 File: ../mollweide_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity000_lat-90.png  used o
 n input line 114.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity000_lat-90.png, id=1179, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity000_lat-90.png, id=1172, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity000_lat-90.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity000_lat-90.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity000_lat-90.png  used on in
 put line 121.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity009_lat-45.png, id=1180, 405.1938pt x 238.2501
+<../mollweide_LatRunDataLoDensity009_lat-45.png, id=1173, 405.1938pt x 238.2501
 pt>
 File: ../mollweide_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity009_lat-45.png  used o
 n input line 133.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity009_lat-45.png, id=1181, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity009_lat-45.png, id=1174, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity009_lat-45.png  used on in
 put line 140.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity009_lat-45.png, id=1182, 405.1938pt x 238.2501
+<../mollweide_LatRunDataHiDensity009_lat-45.png, id=1175, 405.1938pt x 238.2501
 pt>
 File: ../mollweide_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity009_lat-45.png  used o
 n input line 148.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity009_lat-45.png, id=1183, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity009_lat-45.png, id=1176, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity009_lat-45.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity009_lat-45.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity009_lat-45.png  used on in
 put line 155.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataLoDensity018_lat0.png, id=1184, 405.1938pt x 238.2501pt
+<../mollweide_LatRunDataLoDensity018_lat0.png, id=1177, 405.1938pt x 238.2501pt
 >
 File: ../mollweide_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataLoDensity018_lat0.png  used on 
 input line 167.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataLoDensity018_lat0.png, id=1185, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataLoDensity018_lat0.png, id=1178, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataLoDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataLoDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataLoDensity018_lat0.png  used on inpu
 t line 174.
 (pdftex.def)             Requested size: 154.59505pt x 169.26894pt.
-<../mollweide_LatRunDataHiDensity018_lat0.png, id=1186, 405.1938pt x 238.2501pt
+<../mollweide_LatRunDataHiDensity018_lat0.png, id=1179, 405.1938pt x 238.2501pt
 >
 File: ../mollweide_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../mollweide_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../mollweide_LatRunDataHiDensity018_lat0.png  used on 
 input line 182.
 (pdftex.def)             Requested size: 154.59505pt x 90.8995pt.
-<../polar_LatRunDataHiDensity018_lat0.png, id=1187, 327.3831pt x 358.4592pt>
+<../polar_LatRunDataHiDensity018_lat0.png, id=1180, 327.3831pt x 358.4592pt>
 File: ../polar_LatRunDataHiDensity018_lat0.png Graphic file (type png)
 <use ../polar_LatRunDataHiDensity018_lat0.png>
 Package pdftex.def Info: ../polar_LatRunDataHiDensity018_lat0.png  used on inpu
@@ -1403,18 +1407,18 @@ lat-45.png> <../mollweide_LatRunDataHiDensity009_lat-45.png> <../polar_LatRunDa
 taHiDensity009_lat-45.png>] [17 <../mollweide_LatRunDataLoDensity018_lat0.png> 
 <../polar_LatRunDataLoDensity018_lat0.png> <../mollweide_LatRunDataHiDensity018
 _lat0.png> <../polar_LatRunDataHiDensity018_lat0.png>]
-<MEM_UG_Fig2.5_density-distribution.PNG, id=1231, 694.84593pt x 472.76625pt>
+<MEM_UG_Fig2.5_density-distribution.PNG, id=1224, 694.84593pt x 472.76625pt>
 File: MEM_UG_Fig2.5_density-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.5_density-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.5_density-distribution.PNG  used on input 
 line 213.
 (pdftex.def)             Requested size: 347.4221pt x 236.38254pt.
-<Fit-to-MEM_low_dens.PNG, id=1236, 432.86719pt x 157.33781pt>
+<Fit-to-MEM_low_dens.PNG, id=1229, 432.86719pt x 157.33781pt>
 File: Fit-to-MEM_low_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_low_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_low_dens.PNG  used on input line 221.
 (pdftex.def)             Requested size: 367.93884pt x 133.73776pt.
-<Fit-to-MEM_high_dens.PNG, id=1241, 432.11438pt x 155.83218pt>
+<Fit-to-MEM_high_dens.PNG, id=1234, 432.11438pt x 155.83218pt>
 File: Fit-to-MEM_high_dens.PNG Graphic file (type png)
 <use Fit-to-MEM_high_dens.PNG>
 Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 227.
@@ -1423,14 +1427,14 @@ Package pdftex.def Info: Fit-to-MEM_high_dens.PNG  used on input line 227.
 
  <./MEM_UG_Fig2.5_density-distribution.PNG>] [19 <./Fit-to-MEM_low_dens.PNG> <.
 /Fit-to-MEM_high_dens.PNG>]
-<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=1261, 428.35031pt x 321.45094p
+<MEM_UG_Fig2.1_partile-mass-distribution.PNG, id=1254, 428.35031pt x 321.45094p
 t>
 File: MEM_UG_Fig2.1_partile-mass-distribution.PNG Graphic file (type png)
 <use MEM_UG_Fig2.1_partile-mass-distribution.PNG>
 Package pdftex.def Info: MEM_UG_Fig2.1_partile-mass-distribution.PNG  used on i
 nput line 244.
 (pdftex.def)             Requested size: 278.4244pt x 208.94063pt.
-<../NEA_Brown/vmass.png, id=1276, 587.5551pt x 441.5697pt>
+<../NEA_Brown/vmass.png, id=1269, 587.5551pt x 441.5697pt>
 File: ../NEA_Brown/vmass.png Graphic file (type png)
 <use ../NEA_Brown/vmass.png>
 Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 259.
@@ -1438,7 +1442,7 @@ Package pdftex.def Info: ../NEA_Brown/vmass.png  used on input line 259.
  [20
 
  <./MEM_UG_Fig2.1_partile-mass-distribution.PNG>] [21 <../NEA_Brown/vmass.png>]
-<../ShowerForecast/2021_forecast_showers_southpole_moon.PNG, id=1303, 812.43526
+<../ShowerForecast/2021_forecast_showers_southpole_moon.PNG, id=1296, 812.43526
 pt x 502.87875pt>
 File: ../ShowerForecast/2021_forecast_showers_southpole_moon.PNG Graphic file (
 type png)
@@ -1487,7 +1491,7 @@ Overfull \hbox (28.11494pt too wide) in paragraph at lines 155--170
  []
 
 [26]
-<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=1405, 658.71094pt x 851.4309
+<NASA-SP-8013-Fig10-flux-mass-distribution.PNG, id=1398, 658.71094pt x 851.4309
 4pt>
 File: NASA-SP-8013-Fig10-flux-mass-distribution.PNG Graphic file (type png)
 <use NASA-SP-8013-Fig10-flux-mass-distribution.PNG>
@@ -1498,760 +1502,619 @@ Package pdftex.def Info: NASA-SP-8013-Fig10-flux-mass-distribution.PNG  used on
 
 LaTeX Warning: Text page 28 contains only floats.
 
-[28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>] [29]
-<IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png, id=1487, 630.55576pt x 346
+[28 <./NASA-SP-8013-Fig10-flux-mass-distribution.PNG>]
+Overfull \hbox (30.76563pt too wide) detected at line 279
+[]
+ []
+
+[29]
+<IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png, id=1474, 630.55576pt x 346
 .77554pt>
 File: IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png Graphic file (type png
 )
 <use IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png>
 Package pdftex.def Info: IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png  us
-ed on input line 277.
+ed on input line 299.
 (pdftex.def)             Requested size: 375.0pt x 206.2361pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png, id=1492, 429.40425pt x 
-346.6551pt>
-File: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png Graphic file (type 
-png)
-<use EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png>
-Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png 
- used on input line 289.
-(pdftex.def)             Requested size: 176.39766pt x 142.40456pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png, id=1493, 429.40425pt x 
-327.26265pt>
-File: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png Graphic file (type 
-png)
-<use EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png>
-Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_1gcc.png 
- used on input line 296.
-(pdftex.def)             Requested size: 176.39766pt x 134.43822pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png, id=1494, 437.11305pt x 
-346.6551pt>
-File: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png Graphic file (type 
-png)
-<use EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png>
-Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gcc.png 
- used on input line 306.
-(pdftex.def)             Requested size: 176.39766pt x 139.89203pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png, id=1495, 437.11305pt x 
-327.26265pt>
-File: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png Graphic file (type 
-png)
-<use EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png>
-Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png 
- used on input line 313.
-(pdftex.def)             Requested size: 176.39766pt x 132.06624pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png, id=1496, 444.82185pt x 
-346.6551pt>
+
+
+LaTeX Warning: Reference `eq:YC(m)' on page 30 undefined on input line 300.
+
+
+LaTeX Warning: Reference `eq:YC(m)' on page 30 undefined on input line 300.
+
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png, id=1477, 433.98135pt x 
+346.77554pt>
 File: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png Graphic file (type 
 png)
 <use EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png>
 Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png 
- used on input line 322.
-(pdftex.def)             Requested size: 176.39766pt x 137.46944pt.
-<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png, id=1497, 444.82185pt x 
-327.26265pt>
+ used on input line 328.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png, id=1478, 433.98135pt x 
+346.77554pt>
 File: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png Graphic file (type 
 png)
 <use EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png>
 Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_4gcc.png 
- used on input line 329.
-(pdftex.def)             Requested size: 176.39766pt x 129.77916pt.
- [30] [31 <./IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png>] [32 <./Ejecta
-Yield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_1gcc.png> <./EjectaYield_vs_ImpactorSpee
-d_vs_Mass_WCB1e-6_1gcc.png> <./EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-6_2gc
-c.png> <./EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-6_2gcc.png> <./EjectaYield
-_vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png> <./EjectaYield_vs_ImpactorSpeed_vs_
-Mass_WCB1e-6_4gcc.png>] [33
+ used on input line 335.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png, id=1479, 433.98135pt x 
+346.77554pt>
+File: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png Graphic file (type 
+png)
+<use EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png>
+Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png 
+ used on input line 344.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png, id=1480, 433.98135pt x 
+346.77554pt>
+File: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png Graphic file (type 
+png)
+<use EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png>
+Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png 
+ used on input line 351.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-0_4gcc.png, id=1481, 433.98135pt x 
+346.77554pt>
+File: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-0_4gcc.png Graphic file (type 
+png)
+<use EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-0_4gcc.png>
+Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-0_4gcc.png 
+ used on input line 360.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+<EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-0_4gcc.png, id=1482, 433.98135pt x 
+346.77554pt>
+File: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-0_4gcc.png Graphic file (type 
+png)
+<use EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-0_4gcc.png>
+Package pdftex.def Info: EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-0_4gcc.png 
+ used on input line 367.
+(pdftex.def)             Requested size: 176.39766pt x 140.95128pt.
+[30 <./IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png>] [31 <./EjectaYield_
+vs_ImpactorSpeed_vs_Mass_SFA1e-6_4gcc.png> <./EjectaYield_vs_ImpactorSpeed_vs_M
+ass_WCB1e-6_4gcc.png> <./EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-3_4gcc.png>
+ <./EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-3_4gcc.png> <./EjectaYield_vs_Im
+pactorSpeed_vs_Mass_SFA1e-0_4gcc.png> <./EjectaYield_vs_ImpactorSpeed_vs_Mass_W
+CB1e-0_4gcc.png>] [32
 
 ]
-<TotalEjectaKE_vs_EffectiveCraterSize.png, id=1559, 421.69545pt x 351.9549pt>
+<TotalEjectaKE_vs_EffectiveCraterSize.png, id=1534, 421.69545pt x 351.9549pt>
 File: TotalEjectaKE_vs_EffectiveCraterSize.png Graphic file (type png)
 <use TotalEjectaKE_vs_EffectiveCraterSize.png>
 Package pdftex.def Info: TotalEjectaKE_vs_EffectiveCraterSize.png  used on inpu
-t line 384.
+t line 422.
 (pdftex.def)             Requested size: 243.74771pt x 203.43584pt.
-<TotalEjectaKE_vs_EffectiveCraterSize_2.png, id=1564, 428.0793pt x 351.9549pt>
+<TotalEjectaKE_vs_EffectiveCraterSize_2.png, id=1539, 428.0793pt x 351.9549pt>
 File: TotalEjectaKE_vs_EffectiveCraterSize_2.png Graphic file (type png)
 <use TotalEjectaKE_vs_EffectiveCraterSize_2.png>
 Package pdftex.def Info: TotalEjectaKE_vs_EffectiveCraterSize_2.png  used on in
-put line 390.
+put line 428.
 (pdftex.def)             Requested size: 243.74771pt x 200.40155pt.
- [34 <./TotalEjectaKE_vs_EffectiveCraterSize.png>] [35 <./TotalEjectaKE_vs_Effe
-ctiveCraterSize_2.png>] [36
+ [33 <./TotalEjectaKE_vs_EffectiveCraterSize.png>]
+[34 <./TotalEjectaKE_vs_EffectiveCraterSize_2.png>] [35
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 448.
+(hyperref)                removing `subscript' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 448.
+(hyperref)                removing `\gamma' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 448.
+(hyperref)                removing `subscript' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 448.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 460.
+(hyperref)                removing `subscript' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 460.
+(hyperref)                removing `\gamma' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 460.
+(hyperref)                removing `subscript' on input line 498.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
+(hyperref)                removing `math shift' on input line 498.
+
+[36]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 504.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 537.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 537.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 537.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 537.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 537.
 
 [37]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 466.
+(hyperref)                removing `\gamma' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 466.
+(hyperref)                removing `subscript' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 544.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 466.
+(hyperref)                removing `subscript' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 466.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 478.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 478.
+(hyperref)                removing `\gamma' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 478.
+(hyperref)                removing `subscript' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 478.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 478.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 478.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 485.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 499.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 499.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 499.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 499.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 499.
+(hyperref)                removing `math shift' on input line 551.
 
 [38]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 506.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 513.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 513.
-
-[39]
-<dist_speed_zenith_plot_000_0.000e+00_0.010.png, id=1649, 715.59344pt x 554.792
+<dist_speed_zenith_plot_000_0.000e+00_0.010.png, id=1624, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_000_0.000e+00_0.010.png Graphic file (type png)
 <use dist_speed_zenith_plot_000_0.000e+00_0.010.png>
 Package pdftex.def Info: dist_speed_zenith_plot_000_0.000e+00_0.010.png  used o
-n input line 525.
+n input line 563.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_001_0.000e+00_0.100.png, id=1652, 715.59344pt x 554.792
+<dist_speed_zenith_plot_001_0.000e+00_0.100.png, id=1627, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_001_0.000e+00_0.100.png Graphic file (type png)
 <use dist_speed_zenith_plot_001_0.000e+00_0.100.png>
 Package pdftex.def Info: dist_speed_zenith_plot_001_0.000e+00_0.100.png  used o
-n input line 532.
+n input line 570.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_002_0.000e+00_1.000.png, id=1655, 715.59344pt x 554.792
+<dist_speed_zenith_plot_002_0.000e+00_1.000.png, id=1630, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_002_0.000e+00_1.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_002_0.000e+00_1.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_002_0.000e+00_1.000.png  used o
-n input line 538.
+n input line 576.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_003_0.000e+00_5.000.png, id=1658, 715.59344pt x 554.792
+<dist_speed_zenith_plot_003_0.000e+00_5.000.png, id=1633, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_003_0.000e+00_5.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_003_0.000e+00_5.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_003_0.000e+00_5.000.png  used o
-n input line 544.
+n input line 582.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
- [40
+ [39
 
- <./dist_speed_zenith_plot_000_0.000e+00_0.010.png>] [41 <./dist_speed_zenith_p
-lot_001_0.000e+00_0.100.png>] [42 <./dist_speed_zenith_plot_002_0.000e+00_1.000
-.png>] [43 <./dist_speed_zenith_plot_003_0.000e+00_5.000.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
-
+ <./dist_speed_zenith_plot_000_0.000e+00_0.010.png>] [40 <./dist_speed_zenith_p
+lot_001_0.000e+00_0.100.png>] [41 <./dist_speed_zenith_plot_002_0.000e+00_1.000
+.png>] [42 <./dist_speed_zenith_plot_003_0.000e+00_5.000.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 584.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `subscript' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 584.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `subscript' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 584.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 584.
+(hyperref)                removing `\gamma' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 584.
+(hyperref)                removing `subscript' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 591.
+(hyperref)                removing `math shift' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `subscript' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `math shift' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 591.
+(hyperref)                removing `math shift' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 591.
+(hyperref)                removing `\gamma' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `subscript' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `math shift' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 591.
+(hyperref)                removing `math shift' on input line 629.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 591.
+(hyperref)                removing `subscript' on input line 629.
 
-[44
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 629.
+
+[43
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 599.
+(hyperref)                removing `\gamma' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 599.
+(hyperref)                removing `subscript' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 599.
+(hyperref)                removing `subscript' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 599.
+(hyperref)                removing `subscript' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 599.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 605.
+(hyperref)                removing `\gamma' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 605.
+(hyperref)                removing `subscript' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 605.
+(hyperref)                removing `subscript' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 611.
+(hyperref)                removing `subscript' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 611.
+(hyperref)                removing `\gamma' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 611.
+(hyperref)                removing `subscript' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 611.
+(hyperref)                removing `subscript' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 611.
+(hyperref)                removing `math shift' on input line 649.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 623.
+(hyperref)                removing `subscript' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 623.
+(hyperref)                removing `\gamma' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 623.
+(hyperref)                removing `subscript' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 623.
+(hyperref)                removing `subscript' on input line 661.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 661.
 
-[45]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 674.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 674.
-
-[46]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 686.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 692.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 692.
-
+[44]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 703.
@@ -2288,252 +2151,405 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 703.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 703.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 703.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 703.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 712.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 712.
+
+[45]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 724.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 730.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 741.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 741.
+
+[46]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 747.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 768.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\gamma' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 775.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 775.
+
 [47]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 709.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 730.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 737.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 737.
-
-[48]
-<dist_speed_zenith_plot_010_1.000e-02_0.010.png, id=1769, 715.59344pt x 554.792
+<dist_speed_zenith_plot_010_1.000e-02_0.010.png, id=1745, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_010_1.000e-02_0.010.png Graphic file (type png)
 <use dist_speed_zenith_plot_010_1.000e-02_0.010.png>
 Package pdftex.def Info: dist_speed_zenith_plot_010_1.000e-02_0.010.png  used o
-n input line 748.
+n input line 786.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_011_1.000e-02_0.100.png, id=1774, 715.59344pt x 554.792
+<dist_speed_zenith_plot_011_1.000e-02_0.100.png, id=1750, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_011_1.000e-02_0.100.png Graphic file (type png)
 <use dist_speed_zenith_plot_011_1.000e-02_0.100.png>
 Package pdftex.def Info: dist_speed_zenith_plot_011_1.000e-02_0.100.png  used o
-n input line 755.
+n input line 793.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_012_1.000e-02_1.000.png, id=1779, 715.59344pt x 554.792
+<dist_speed_zenith_plot_012_1.000e-02_1.000.png, id=1755, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_012_1.000e-02_1.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_012_1.000e-02_1.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_012_1.000e-02_1.000.png  used o
-n input line 762.
+n input line 800.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_013_1.000e-02_5.000.png, id=1784, 715.59344pt x 554.792
+<dist_speed_zenith_plot_013_1.000e-02_5.000.png, id=1760, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_013_1.000e-02_5.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_013_1.000e-02_5.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_013_1.000e-02_5.000.png  used o
-n input line 769.
+n input line 807.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_020_1.000e-01_0.010.png, id=1789, 715.59344pt x 554.792
+<dist_speed_zenith_plot_020_1.000e-01_0.010.png, id=1765, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_020_1.000e-01_0.010.png Graphic file (type png)
 <use dist_speed_zenith_plot_020_1.000e-01_0.010.png>
 Package pdftex.def Info: dist_speed_zenith_plot_020_1.000e-01_0.010.png  used o
-n input line 779.
+n input line 817.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_021_1.000e-01_0.100.png, id=1794, 715.59344pt x 554.792
+<dist_speed_zenith_plot_021_1.000e-01_0.100.png, id=1770, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_021_1.000e-01_0.100.png Graphic file (type png)
 <use dist_speed_zenith_plot_021_1.000e-01_0.100.png>
 Package pdftex.def Info: dist_speed_zenith_plot_021_1.000e-01_0.100.png  used o
-n input line 786.
+n input line 824.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_022_1.000e-01_1.000.png, id=1799, 715.59344pt x 554.792
+<dist_speed_zenith_plot_022_1.000e-01_1.000.png, id=1775, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_022_1.000e-01_1.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_022_1.000e-01_1.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_022_1.000e-01_1.000.png  used o
-n input line 793.
+n input line 831.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
-<dist_speed_zenith_plot_023_1.000e-01_5.000.png, id=1804, 715.59344pt x 554.792
+<dist_speed_zenith_plot_023_1.000e-01_5.000.png, id=1780, 715.59344pt x 554.792
 7pt>
 File: dist_speed_zenith_plot_023_1.000e-01_5.000.png Graphic file (type png)
 <use dist_speed_zenith_plot_023_1.000e-01_5.000.png>
 Package pdftex.def Info: dist_speed_zenith_plot_023_1.000e-01_5.000.png  used o
-n input line 800.
+n input line 838.
 (pdftex.def)             Requested size: 375.0pt x 290.74567pt.
- [49
+ [48
 
- <./dist_speed_zenith_plot_010_1.000e-02_0.010.png>] [50 <./dist_speed_zenith_p
-lot_011_1.000e-02_0.100.png>] [51 <./dist_speed_zenith_plot_012_1.000e-02_1.000
-.png>] [52 <./dist_speed_zenith_plot_013_1.000e-02_5.000.png>] [53 <./dist_spee
-d_zenith_plot_020_1.000e-01_0.010.png>] [54 <./dist_speed_zenith_plot_021_1.000
-e-01_0.100.png>] [55 <./dist_speed_zenith_plot_022_1.000e-01_1.000.png>] [56 <.
+ <./dist_speed_zenith_plot_010_1.000e-02_0.010.png>] [49 <./dist_speed_zenith_p
+lot_011_1.000e-02_0.100.png>] [50 <./dist_speed_zenith_plot_012_1.000e-02_1.000
+.png>] [51 <./dist_speed_zenith_plot_013_1.000e-02_5.000.png>] [52 <./dist_spee
+d_zenith_plot_020_1.000e-01_0.010.png>] [53 <./dist_speed_zenith_plot_021_1.000
+e-01_0.100.png>] [54 <./dist_speed_zenith_plot_022_1.000e-01_1.000.png>] [55 <.
 /dist_speed_zenith_plot_023_1.000e-01_5.000.png>]
-Overfull \hbox (8.04497pt too wide) in paragraph at lines 896--897
+Overfull \hbox (8.04497pt too wide) in paragraph at lines 934--935
  [][] 
  []
 
-[57
+[56
 
-] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1074
+] [57] [58]
+Underfull \hbox (badness 10000) in paragraph at lines 1111--1112
 
  []
 
-[60
+[59
 
-]) (EnvironmentGeneration.tex [61]
-<v_vs_x_hidens.png, id=1931, 421.0932pt x 341.1144pt>
+]) (EnvironmentGeneration.tex [60]
+<v_vs_x_hidens.png, id=1907, 421.0932pt x 341.1144pt>
 File: v_vs_x_hidens.png Graphic file (type png)
 <use v_vs_x_hidens.png>
 Package pdftex.def Info: v_vs_x_hidens.png  used on input line 46.
 (pdftex.def)             Requested size: 243.74771pt x 197.4561pt.
-<v_vs_x_lodens.png, id=1936, 421.0932pt x 341.1144pt>
+<v_vs_x_lodens.png, id=1912, 421.0932pt x 341.1144pt>
 File: v_vs_x_lodens.png Graphic file (type png)
 <use v_vs_x_lodens.png>
 Package pdftex.def Info: v_vs_x_lodens.png  used on input line 52.
 (pdftex.def)             Requested size: 243.74771pt x 197.4561pt.
-<vmax_vs_x.png, id=1942, 413.8662pt x 322.92645pt>
+<vmax_vs_x.png, id=1918, 413.8662pt x 322.92645pt>
 File: vmax_vs_x.png Graphic file (type png)
 <use vmax_vs_x.png>
 Package pdftex.def Info: vmax_vs_x.png  used on input line 65.
 (pdftex.def)             Requested size: 243.74771pt x 190.18988pt.
- [62]
+ [61]
 
-LaTeX Warning: Text page 63 contains only floats.
+LaTeX Warning: Text page 62 contains only floats.
 
-[63 <./v_vs_x_hidens.png> <./v_vs_x_lodens.png>] [64 <./vmax_vs_x.png>]
+[62 <./v_vs_x_hidens.png> <./v_vs_x_lodens.png>] [63 <./vmax_vs_x.png>]
 Overfull \hbox (22.29764pt too wide) in paragraph at lines 120--140
  [] 
  []
 
-) (NumericalMethods.tex [65] [66]
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png, id=2002, 417.60014p
+) (NumericalMethods.tex [64] [65]
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png, id=1978, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png Graphic file (t
 ype png)
@@ -2541,7 +2557,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.
 png  used on input line 48.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png, id=2003, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png, id=1979, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png Graphic file (t
 ype png)
@@ -2549,7 +2565,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.
 png  used on input line 55.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png, id=2004, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png, id=1980, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.png Graphic file (t
 ype png)
@@ -2557,7 +2573,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-03.
 png  used on input line 62.
 (pdftex.def)             Requested size: 114.00223pt x 89.76831pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png, id=2005, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png, id=1981, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.png Graphic file (t
 ype png)
@@ -2565,7 +2581,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-02.
 png  used on input line 72.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png, id=2006, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png, id=1982, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.png Graphic file (t
 ype png)
@@ -2573,7 +2589,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.
 png  used on input line 79.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png, id=2007, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png, id=1983, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.png Graphic file (t
 ype png)
@@ -2581,7 +2597,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-02.
 png  used on input line 86.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png, id=2008, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png, id=1984, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png Graphic file (t
 ype png)
@@ -2589,7 +2605,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-01.
 png  used on input line 95.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png, id=2009, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png, id=1985, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.png Graphic file (t
 ype png)
@@ -2597,7 +2613,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-01.
 png  used on input line 102.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png, id=2010, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png, id=1986, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.png Graphic file (t
 ype png)
@@ -2605,7 +2621,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e-01.
 png  used on input line 109.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png, id=2011, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png, id=1987, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png Graphic file (t
 ype png)
@@ -2613,7 +2629,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.
 png  used on input line 117.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png, id=2012, 417.60014p
+<asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png, id=1988, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png Graphic file (t
 ype png)
@@ -2621,7 +2637,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.
 png  used on input line 124.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png, id=2013, 417.60014p
+<asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png, id=1989, 417.60014p
 t x 328.8285pt>
 File: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.png Graphic file (t
 ype png)
@@ -2629,7 +2645,7 @@ ype png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.000e-01_2.000e-02_2.000e+00.
 png  used on input line 131.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png, id=2014, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png, id=1990, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png Graph
 ic file (type png)
@@ -2637,7 +2653,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
 2.000e-03.png  used on input line 152.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png, id=2015, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png, id=1991, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png Graph
 ic file (type png)
@@ -2645,7 +2661,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
 2.000e-03.png  used on input line 159.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png, id=2016, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png, id=1992, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png Graph
 ic file (type png)
@@ -2653,7 +2669,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
 2.000e-03.png  used on input line 166.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png, id=2017, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png, id=1993, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png Graph
 ic file (type png)
@@ -2661,7 +2677,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
 2.000e-02.png  used on input line 176.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png, id=2018, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png, id=1994, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png Graph
 ic file (type png)
@@ -2669,7 +2685,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
 2.000e-02.png  used on input line 183.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png, id=2019, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png, id=1995, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-02.png Graph
 ic file (type png)
@@ -2677,7 +2693,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
 2.000e-02.png  used on input line 190.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png, id=2020, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png, id=1996, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-01.png Graph
 ic file (type png)
@@ -2685,7 +2701,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
 2.000e-01.png  used on input line 199.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png, id=2021, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png, id=1997, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-01.png Graph
 ic file (type png)
@@ -2693,7 +2709,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
 2.000e-01.png  used on input line 206.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png, id=2022, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png, id=1998, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-01.png Graph
 ic file (type png)
@@ -2701,7 +2717,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
 2.000e-01.png  used on input line 213.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png, id=2023, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png, id=1999, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e+00.png Graph
 ic file (type png)
@@ -2709,7 +2725,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_
 2.000e+00.png  used on input line 221.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png, id=2024, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png, id=2000, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00.png Graph
 ic file (type png)
@@ -2717,7 +2733,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_
 2.000e+00.png  used on input line 228.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png, id=2025, 
+<asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png, id=2001, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png Graph
 ic file (type png)
@@ -2725,7 +2741,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_
 2.000e+00.png  used on input line 235.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png, id=2026, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png, id=2002, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png Graph
 ic file (type png)
@@ -2733,7 +2749,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
 2.000e-03.png  used on input line 255.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png, id=2027, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png, id=2003, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png Graph
 ic file (type png)
@@ -2741,7 +2757,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
 2.000e-03.png  used on input line 262.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png, id=2028, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png, id=2004, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png Graph
 ic file (type png)
@@ -2749,7 +2765,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
 2.000e-03.png  used on input line 269.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png, id=2029, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png, id=2005, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png Graph
 ic file (type png)
@@ -2757,7 +2773,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
 2.000e-02.png  used on input line 279.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png, id=2030, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png, id=2006, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-02.png Graph
 ic file (type png)
@@ -2765,7 +2781,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
 2.000e-02.png  used on input line 286.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png, id=2031, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png, id=2007, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-02.png Graph
 ic file (type png)
@@ -2773,7 +2789,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
 2.000e-02.png  used on input line 293.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png, id=2032, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png, id=2008, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-01.png Graph
 ic file (type png)
@@ -2781,7 +2797,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
 2.000e-01.png  used on input line 302.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png, id=2033, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png, id=2009, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-01.png Graph
 ic file (type png)
@@ -2789,7 +2805,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
 2.000e-01.png  used on input line 309.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png, id=2034, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png, id=2010, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-01.png Graph
 ic file (type png)
@@ -2797,7 +2813,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
 2.000e-01.png  used on input line 316.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png, id=2035, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png, id=2011, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e+00.png Graph
 ic file (type png)
@@ -2805,7 +2821,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_
 2.000e+00.png  used on input line 324.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png, id=2036, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png, id=2012, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e+00.png Graph
 ic file (type png)
@@ -2813,7 +2829,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_
 2.000e+00.png  used on input line 331.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
-<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png, id=2037, 
+<asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png, id=2013, 
 417.60014pt x 328.8285pt>
 File: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e+00.png Graph
 ic file (type png)
@@ -2821,7 +2837,7 @@ ic file (type png)
 Package pdftex.def Info: asset_speed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_
 2.000e+00.png  used on input line 338.
 (pdftex.def)             Requested size: 117.60217pt x 92.6032pt.
- [67] [68 <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png> <./asse
+ [66] [67 <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e-03.png> <./asse
 t_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-03.png> <./asset_speed_zenith_pl
 ot_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_zenith_plot_1.000e-02_2.00
 0e-01_2.000e-02.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e-02.p
@@ -2831,7 +2847,7 @@ d_zenith_plot_1.000e-02_2.000e-01_2.000e-01.png> <./asset_speed_zenith_plot_1.0
 2.000e-01.png> <./asset_speed_zenith_plot_1.000e-02_2.000e-01_2.000e+00.png> <.
 /asset_speed_zenith_plot_1.000e-02_2.000e-02_2.000e+00.png> <./asset_speed_zeni
 th_plot_1.000e-01_2.000e-02_2.000e+00.png>]
-[69 <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
+[68 <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
 asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e-03.png> <./asset_s
 peed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_ze
 nith_plot_1.010e+00_1.000e-02_2.000e-01_2.000e-02.png> <./asset_speed_zenith_pl
@@ -2842,7 +2858,7 @@ ot_1.010e+00_1.000e-02_2.000e-02_2.000e-02.png> <./asset_speed_zenith_plot_1.01
 e-02_2.000e-01.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-01_2.
 000e+00.png> <./asset_speed_zenith_plot_1.010e+00_1.000e-02_2.000e-02_2.000e+00
 .png> <./asset_speed_zenith_plot_1.010e+00_1.000e-01_2.000e-02_2.000e+00.png>]
-[70 <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
+[69 <./asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-03.png> <./
 asset_speed_zenith_plot_1.100e+00_1.000e-02_2.000e-02_2.000e-03.png> <./asset_s
 peed_zenith_plot_1.100e+00_1.000e-01_2.000e-02_2.000e-03.png> <./asset_speed_ze
 nith_plot_1.100e+00_1.000e-02_2.000e-01_2.000e-02.png> <./asset_speed_zenith_pl
@@ -2859,21 +2875,24 @@ by four points, $\U/matha/m/n/10 p\OML/cmm/m/it/10 ^^M[]; v[]\U/matha/m/n/10 q$
 \OT1/phv/m/n/10 ,
  []
 
-[71
+[70
 
-]) (SecondaryEnvironment.tex) [72] (LunarMeteoroidEjectaEngineeringModel.bbl [7
-3
+]) (SecondaryEnvironment.tex) [71] (LunarMeteoroidEjectaEngineeringModel.bbl [7
+2
 
-]) [74] (LunarMeteoroidEjectaEngineeringModel.aux)
+]) [73] (LunarMeteoroidEjectaEngineeringModel.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `LunarMeteoroidEjectaEngineeringModel.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: B38FA0B0DA1C3B1B22DE8B0D7FFA64A5;17929.
+(rerunfilecheck)             Checksum: FDB19DF4167C20D6EA814E8A00D3C02C;17591.
  ) 
 Here is how much of TeX's memory you used:
- 42494 strings out of 478619
- 990990 string characters out of 2851115
- 1955903 words of memory out of 3000000
- 59261 multiletter control sequences out of 15000+600000
+ 42490 strings out of 478619
+ 991016 string characters out of 2851115
+ 1956028 words of memory out of 3000000
+ 59263 multiletter control sequences out of 15000+600000
  503409 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,13n,98p,1606b,2093s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -2908,10 +2927,10 @@ b><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8a
 .pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhv
 r8a.pfb><C:/Users/AMD-Y500/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/helvetic/
 uhvro8a.pfb>
-Output written on LunarMeteoroidEjectaEngineeringModel.pdf (84 pages, 38700572 
+Output written on LunarMeteoroidEjectaEngineeringModel.pdf (83 pages, 38632404 
 bytes).
 PDF statistics:
- 2449 PDF objects out of 2487 (max. 8388607)
- 500 named destinations out of 1000 (max. 500000)
- 1125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2423 PDF objects out of 2487 (max. 8388607)
+ 494 named destinations out of 1000 (max. 500000)
+ 1117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
