@@ -14,9 +14,12 @@ public:
 	~stateDirector();
 
 	void buildStateDefinitions(string );
+	void getNextState();
+	void getCurrentState(vector<double>&);
+	//vector<double>* transferCurrentState();
 
 private:
-	vector<stateMap*> stateCollection;
+	vector<stateMap*> stateMapCollection;
 	stateMap*         trajectoryState;
 	stateMap*         targetState;
 	stateMap*         primaryEnvironmentState;

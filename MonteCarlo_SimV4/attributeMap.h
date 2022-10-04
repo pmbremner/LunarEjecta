@@ -16,8 +16,8 @@ public:
 
 	// pure virtual function, derived class must implement this function
 	virtual void define() = 0;
-	void getNextState(); // wrapper to dimenstionCollection's getNextState calls
-	void getCurrentState(vector<double>&); // returns stateStack
+	void getNextState(); // wrapper to dimenstionCollection's getNextState calls, stores in stateStack
+	void getCurrentState(vector<double>&); // returns copy of stateStack
 
 protected:
 	vector<dimension*> dimensionCollection;
