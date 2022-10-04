@@ -17,7 +17,7 @@ public:
 	// pure virtual function, derived class must implement this function
 	virtual void define() = 0;
 	void getNextState(); // wrapper to attributeMap's getNextState calls, stores in stateStackCollection
-	void getCurrentState(vector<double>&); // returns copy of stateStackCollection
+	void getCurrentState(vector<double>& currentState); // returns copy of stateStackCollection
 
 protected:
 	string         name;

@@ -13,9 +13,9 @@ public:
 	stateDirector();
 	~stateDirector();
 
-	void buildStateDefinitions(string );
+	void buildStateDefinitions(string filenameSetup);
 	void getNextState();
-	void getCurrentState(vector<double>&);
+	void getCurrentState(vector<double>& currentState);
 	//vector<double>* transferCurrentState();
 
 private:

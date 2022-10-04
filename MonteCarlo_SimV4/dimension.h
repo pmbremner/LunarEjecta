@@ -18,7 +18,7 @@ public:
 	// pure virtual function, derived class must implement this function
 	virtual void define() = 0;
 	virtual void getNextState() = 0; 
-	void getCurrentState(vector<double>&); // returns dimensionStack as a copy
+	void getCurrentState(vector<double>& currentState); // returns dimensionStack as a copy
 
 protected:
 	string name;
