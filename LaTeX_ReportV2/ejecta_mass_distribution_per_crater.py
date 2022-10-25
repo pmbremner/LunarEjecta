@@ -17,17 +17,17 @@ Y = 4.E3 # Pa (Si units), from SFA, use for all
 K = 5 # crater depth-to-diameter ratio
 
 # # # define constants (for SFA)
-# k     = 0.3
-# C1    = 0.55
-# rho   = 1.3    #g/cm^3, target density
-# delta_i = 4.   #g/cm^3, impactor density
-# n1    = 1.2
-# n2    = 1.
-# p     = 0.3
-# mu    = 0.4
-# nu    = 0.4
-# H1    = 0.59
-# H2    = 0.4
+k     = 0.3
+C1    = 0.55
+rho   = 1.3    #g/cm^3, target density
+delta_i = 4.   #g/cm^3, impactor density
+n1    = 1.2
+n2    = 1.
+p     = 0.3
+mu    = 0.4
+nu    = 0.4
+H1    = 0.59
+H2    = 0.4
 
 
 # #define constants (for WCB, Weakly Cemented Basalt)
@@ -44,17 +44,17 @@ K = 5 # crater depth-to-diameter ratio
 # H2    = 0.38
 
 #define constants (for SP, Perlite/Sand mixture)
-k     = 0.32
-C1    = 0.6
-rho   = 1.3    #g/cm^3, target density
-delta_i = 4.   #g/cm^3, impactor density
-n1    = 1.2
-n2    = 1.
-p     = 0.2
-mu    = 0.35
-nu    = 0.4
-H1    = 0.59
-H2    = 0.81
+# k     = 0.32
+# C1    = 0.6
+# rho   = 1.3    #g/cm^3, target density
+# delta_i = 4.   #g/cm^3, impactor density
+# n1    = 1.2
+# n2    = 1.
+# p     = 0.2
+# mu    = 0.35
+# nu    = 0.4
+# H1    = 0.59
+# H2    = 0.81
 
 # define power-law constants
 alpha     = 0.56 # basalt
@@ -188,8 +188,24 @@ def ejecta_mass_distribution(m_imp, m_bar_ej, delta_imp, U):#, inc_beta_flag):
 	#return x1, x0, FA, FB, mb_i,  3.*k*beta / (4.*np.pi) * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_imp/mb_i) * (m_bar_ej)**(beta/3. - 1.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)) * (FA - FB) 
 	return x1, x0, FA, FB, mb_i,  3.*k * m_imp / (4.*np.pi)* (rho/delta_imp) * ((x_bar_max_i)**3 - (x_bar_min_i)**3) - 9.*k*m_imp / (4.*np.pi) * (rho/delta_imp)**(-beta*delta_ind*nu/(3.*mu) + 1.) * (m_bar_ej)**(beta/3.) * (v_bar_min_i/C1)**(-beta*delta_ind/3.) * (n1*R_bar)**(-beta*delta_ind/(3.*mu)+3.) * (FA - FB) 
 
-
-
+# m_imp in g
+# output in #/m^2/yr
+def grun(m_imp):
+	c4 = 2.2E3
+	c5 = 15.
+	c6 = 1.3E-9
+	c7 = 1.E11
+	c8 = 1.E27
+	c9 = 1.3E-16
+	c10 = 1.E6
+	g4 = 0.306
+	g5 = -4.38
+	g6 = 2.
+	g7 = 4.
+	g8 = -0.36
+	g9 = 2.
+	g10 = -0.85
+	return (c4*m_imp**g4 + c5)**g5 + c6*(m_imp + c7*m_imp**g6 + c8*m_imp**g7)**g8 + c9*(m_imp + c10*m_imp**g9)**g10
 
 
 N = 1000
@@ -268,11 +284,13 @@ m_ej_user = float(sys.argv[4]) # g
 #m_ej_user = 1.E-40 # g
 
 
-m_imp_v = np.logspace(-6., 6., Nm)
-U_v     = np.logspace(-2, 2, NU)
+m_imp_v = np.logspace(-6., 1., Nm)
+U_v     = np.logspace(0., 2., NU)
 
 Xi, Yj = np.meshgrid(m_imp_v, U_v)
 Zij = np.zeros(np.shape(Xi))
+
+g_microgram = grun(1.E-6)
 
 for i, m_imp_i in enumerate(m_imp_v): # g
 	for j, U_j in enumerate(U_v): # km/s
@@ -297,24 +315,26 @@ for i, m_imp_i in enumerate(m_imp_v): # g
 		x_mask = m_bar_ej[m_ej_user/mb_i >= m_bar_ej]
 
 		if x_mask.size > 0:
-			Zij[j][i] = Y_ij[np.argmax(x_mask)]
+			Zij[j][i] = Y_ij[np.argmax(x_mask)] * grun(m_imp_i) / g_microgram
 		else:
 			Zij[j][i] = np.nan
 
 
 plt.figure()
 # https://matplotlib.org/2.0.2/examples/pylab_examples/pcolor_log.html
-plt.pcolor(Xi, Yj, Zij, norm=LogNorm(vmin=1.E-12, vmax=1.E4), cmap=plt.cm.nipy_spectral)#, cmap=plt.cm.nipy_spectral)viridis
+plt.pcolor(Xi, Yj, Zij, norm=LogNorm(vmin=1.E-12, vmax=1.E-2), cmap=plt.cm.nipy_spectral)#vmax=1.E4, cmap=plt.cm.nipy_spectral)viridis
 
-#plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+plt.title("Lunar Regolith Target (sand fly ash)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
 #plt.title("Lunar Regolith Target (weakly cemented basalt)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
-plt.title("Lunar Regolith Target (perlite/sand mixture)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
+#plt.title("Lunar Regolith Target (perlite/sand mixture)\n" r"Regolith Bulk Density $\rho = $" + f"{rho:.1f}" +f" g/cc, Impactor Density {delta_dens_i:.1f} g/cc")
 plt.yscale('log')
 plt.xscale('log')
 plt.xlabel(r'Impactor Mass [g] $\log(m_{imp})$', fontsize=14)
 plt.ylabel(r'Impactor Speed [km/s] $\log(U)$', fontsize=14)
-cbar = plt.colorbar(label='Ejecta Yield for Ejecta Particle Mass > ' + f'{m_ej_user:.1e} g')
+#cbar = plt.colorbar(label='Ejecta Yield for Ejecta Particle Mass > ' + f'{m_ej_user:.1e} g')
+cbar = plt.colorbar(label='Ejecta Yield with Interplaneary Flux\n for Ejecta Particle Mass > ' + f'{m_ej_user:.1e} g')
 cbar.ax.tick_params(labelsize=12)
-plt.grid(b=True, which='both', color='grey', linewidth=1.5) # https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
-plt.savefig('EjectaYield_vs_ImpactorSpeed_vs_Mass.png', bbox_inches='tight', dpi=600)
+plt.grid(b=True, which='both', color='grey', linewidth=.5) # 1.5 https://stackoverflow.com/questions/9127434/how-to-create-major-and-minor-gridlines-with-different-linestyles-in-python
+plt.savefig('EjectaYieldImpactorMassCDF_vs_ImpactorSpeed_vs_Mass.png', bbox_inches='tight', dpi=600)
+#plt.savefig('EjectaYield_vs_ImpactorSpeed_vs_Mass.png', bbox_inches='tight', dpi=600)
 plt.show()
