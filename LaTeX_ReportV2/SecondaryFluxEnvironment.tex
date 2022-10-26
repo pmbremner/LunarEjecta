@@ -297,30 +297,14 @@ The hypergeometric representation of the incomplete beta function is taking adva
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=1.\linewidth]{IntegralEjectedMass_vs_ParticleMass_4gcc_20kms.png}
-	\caption{The ejecta yield for particle mass $>\bar{m}_{ej}$ (Equation \eqref{eq:YC(m)}) vs.\ ejecta particle mass $\bar{m}_{ej} = m_{ej}/m_b$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc, impactor density of $4.0$ g/cc, and impactor speed of $20$ km/s.}\label{fig:IntegralEjectedMass_vs_ParticleMass}
+	\caption{The ejecta yield for particle mass $>\bar{m}_{ej}$ (Equation \eqref{eq:YC(m)final}) vs.\ ejecta particle mass $\bar{m}_{ej} = m_{ej}/m_b$ for a lunar regolith target (using SFA in Table~\ref{tab:scaling law parameters}) with regolith surface bulk density $\rho = 1.3$ g/cc, impactor density of $4.0$ g/cc, and impactor speed of $20$ km/s.}\label{fig:IntegralEjectedMass_vs_ParticleMass}
 \end{figure}
 
 
-
+The impactor mass distribution can also be included with the ejecta yield to give a better picture of how the realistic yield might look like, see Figure \ref{fig:EjectaYieldImpactorMassCDF_vs_ImpactorSpeed_vs_Mass_PS1e-6_4gcc}. Typical sporadic meteoroid speeds range from just under $10$ km/s to about $70$ km/s for impactor mass sizes of $10^{-6}$ g to $10$ g. 
 
 
 \begin{figure}	
-%	\begin{subfigure}[t]{.48\textwidth}
-%		\centering
-%		% include first image
-%		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_SFA1e-9_4gcc.png}  
-%		%\caption{Put your sub-caption here}
-%		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_1}
-%	\end{subfigure}
-%	\begin{subfigure}[t]{.48\textwidth}
-%		\centering
-%		% include second image
-%		\includegraphics[width=.98\linewidth]{EjectaYield_vs_ImpactorSpeed_vs_Mass_WCB1e-9_4gcc.png}  
-%		%\caption{Put your sub-caption here}
-%		\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_2}
-%	\end{subfigure}
-	
-	%\newline%%%%%%%%%%%%%%%%%
 	
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
@@ -369,8 +353,18 @@ The hypergeometric representation of the incomplete beta function is taking adva
 	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass_8}
 \end{subfigure}
 
-	\caption{The ejecta yield is shown for SFA (first column) and WCB (second column) as a function of impactor speed $U$ and impactor mass $m_{imp}$ for ejecta fragments masses greater than $1\times 10^{-9}$~g (row 1), $1\times 10^{-6}$~g (row 2), $1\times 10^{-3}$~g (row 3), and $1\times 10^{0}$~g (row 4).}
+	\caption{The ejecta yield is shown for SFA (first column) and WCB (second column) as a function of impactor speed $U$ and impactor mass $m_{imp}$ for ejecta fragments masses greater than $1\times 10^{-6}$~g (row 1), $1\times 10^{-3}$~g (row 2), and $1\times 10^{0}$~g (row 3).}
 	\label{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass}
+\end{figure}
+
+
+
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.\linewidth]{EjectaYieldImpactorMassCDF_vs_ImpactorSpeed_vs_Mass_PS1e-6_4gcc.png}
+	\caption{The ejecta yield convoluted with the impactor mass distribution (i.e., the Gr{\"u}n interplanetary flux) is shown as a function of impactor speed $U$ and impactor mass $m_{imp}$ for ejecta fragments greater than $10^{-6}$ g. The impactor mass distribution is normalized by the interplanetary flux at $10^{-6}$ g.}\label{fig:EjectaYieldImpactorMassCDF_vs_ImpactorSpeed_vs_Mass_PS1e-6_4gcc}
 \end{figure}
 
 %The plots in Figure \ref{fig:EjectaYield_vs_ImpactorSpeed_vs_Mass} show the ejecta yield as a function of impactor speed $U$ and mass $m_{imp}$ for a regolith target using SFA in the first column and WCB in the second column. Each row is a different impactor density from $1$ g/cm$^3$ to $4$ g/cm$^3$. For each impactor speed, there is a certain impactor mass that gives the best yield. This relationship roughly follows a power-law.
