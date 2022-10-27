@@ -376,7 +376,7 @@ I \sim \sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}\frac{g(x_{ij
 
 In the case of computing the fraction of total ejecta $M$ that hits the asset from a particular crater $\mathcal{C}$, the integral $I$ will be assigned as $M$ such that
 \begin{equation}
-M(\mathcal{C}) = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p; \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
+M_{\mathcal{C}} = \frac{1}{2\pi}\int_{\mathcal{R}(v_p,\gamma_p; \beta_i), \Phi(\beta_i)} d\beta_i d\gamma_p dv \frac{dM(v_p,\gamma_p)}{dv} F(\gamma_p) G(\beta_i-\beta_{imp}),
 \end{equation}
 where examples of the region $\mathcal{R}(v_p,\gamma_p; \beta_i)$ are shown in Figures \ref{fig:asset_speed_zenith_comparison}, \ref{fig:asset_speed_zenith_comparison_h1}, and \ref{fig:asset_speed_zenith_comparison_h2}, $\frac{dM(v_p,\gamma_p)}{dv}$ is the differential of the total ejecta mass (i.e., Equation~\eqref{eq:dM/dv final}), $F(\gamma_p)$ is the ejecta zenith distribution (see Section \ref{sssec:Ejecta:Zenith Distribution}), and $G(\beta_i-\beta_{imp})$ is the ejecta azimuth distribution (see Section \ref{sssec:Ejecta:Azimuth Distribution}) with $\beta_{imp}$ as the impactor azimuth.
 
@@ -395,7 +395,7 @@ The azimuthal region $\Phi(\beta_i)$ is defined by $\beta_{max}$ given in Equati
 
 Therefore, the fraction of total ejecta $M$ can be approximated as
 \begin{equation}
-M(\mathcal{C}) \sim \frac{1}{2\pi N_2}\sum_{k=1}^{N_2}\frac{G(\beta_k-\beta_{imp})}{f_{\hat{\Phi}}(x_k)}\sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}\frac{\frac{dM(v_{p,ij},\gamma_{p,ij})}{dv} F(\gamma_{p,ij}) }{f_{\hat{\mathcal{R}}}(x_{ij})}.
+M_{\mathcal{C}} \sim \frac{1}{2\pi N_2}\sum_{k=1}^{N_2}\frac{G(\beta_k-\beta_{imp})}{f_{\hat{\Phi}}(x_k)}\sum_{j=1}^{N_1}\frac{vol(M_j)}{N_{0,j}}\sum_{i=1}^{N_{0,j}}\frac{\frac{dM(v_{p,ij},\gamma_{p,ij})}{dv} F(\gamma_{p,ij}) }{f_{\hat{\mathcal{R}}}(x_{ij})}.
 \end{equation}
 The sum over $i$ handles the samples for a given subdomain of the speed-zenith grid (uniform in $\mathcal{R}$), the sum over $j$ is for each subdomain of the speed-zenith grid for a given azimuth, and the sum over $k$ is for each sampled azimuth with a weight of $f_{\hat{\Phi}}(x_k)$ in $\Phi(\beta_k)$. Note that $x_{ij}$ means a particular sample of the initial speed $v_{p,i}$ and zenith $\gamma_{p,j}$, and $x_k$ is a particular sample of the initial azimuth $\beta_k$.
 
