@@ -51,6 +51,9 @@ private:
 	impactor* currentImpactor;
 	target*   currentTarget;
 
+	abstractFunction* ejectedSpeed;
+	abstractFunction* ejectedMass;
+
 	regimeType regime; // strengthRegime or gravityRegime
 	double radius_R; // [m]
 	double diameterToDepthRatio_K;
@@ -63,6 +66,90 @@ private:
 	//const double lunarGravity = 1.625; // [m/s^2]
 };
 
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+// pure virtual, need to use derived class
+class abstractFunction
+{
+public:
+	abstractFunction();
+	~abstractFunction();
+
+	virtual double getYfromX(double x) = 0;
+	double getXfromY(double y);
+
+protected:
+	double rootSolver(double x);
+
+	double xmin;
+	double xmax;
+	double ymin;
+	double ymax;
+};
+
+
+
+class VvsX: public abstractFunction
+{
+public:
+	abstractFunction(crater* ctr);
+	~abstractFunction();
+
+	void initializeAbstractFunction(crater* ctr);
+	
+	double getYfromX(double x);
+	//double getXfromY(double y);
+
+private:
+	double n2;
+	double n1;
+	double k;
+	double C1;
+	double mu;
+	double nu;
+	double p;
+	double rho;
+	double a;
+	double m;
+	double delta;
+	double Unorm;
+	double R;
+
+};
+
+
+class MvsX: public abstractFunction
+{
+public:
+	abstractFunction(crater* ctr);
+	~abstractFunction();
+
+	void initializeAbstractFunction(crater* ctr);
+	
+	double getYfromX(double x);
+	//double getXfromY(double y);
+
+
+private:
+	double n2;
+	double n1;
+	double k;
+	double C1;
+	double mu;
+	double nu;
+	double p;
+	double rho;
+	double a;
+	double m;
+	double delta;
+	double Unorm;
+	double R;
+
+};
 
 
 #endif 
