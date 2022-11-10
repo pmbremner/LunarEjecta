@@ -1,22 +1,27 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 
 using namespace std;
 
 const int i_iter_max = 100;
-const int eps = 3.E-8;
-int tol = 1.E-3;
+const double eps = 3.E-8;
+double tol = 1.E-10;
 
 
 double fx(double x){
-	return sin(x) - 0.5;
-	//return x*x*x*x - 16.;
+	return sin(x) - 0.5; // [0,2pi]
+	//return x*x*x*x - 16.; // [0,1]
 }
 
-
+// from Section 9.3 of Numerical Recipes in C 2nd ed by Press et al 1992
+//  see also Chapter 4 of Algorithms for Minimization without Derivatives by Brent 1973
 double zbrent(double xmin, double xmax){
+	typedef std::numeric_limits< double > dbl;
+	std::cout.precision(dbl::max_digits10);
+
 	int i_iter;
 	double a = xmin, b = xmax, c = b, d, e, min1, min2;
 	double fa = fx(a), fb = fx(b), fc = fb, p, q, r, s, tol1, xm;
@@ -89,7 +94,8 @@ double zbrent(double xmin, double xmax){
 			b += (xm > 0. ? fabs(tol1) : -fabs(tol1));
 		}
 		fb = fx(b);
-		cout << setprecision(20) << i_iter << ' ' << b << endl;
+		//cout << setprecision(17) << i_iter << ' ' << b << endl;
+		cout << i_iter << ' ' << b << endl;
 	}
 	cout << "Max iterations reached!\n";
 	return b;
@@ -98,6 +104,8 @@ double zbrent(double xmin, double xmax){
 
 int main(int argc, char const *argv[])
 {
-	 cout << zbrent(0., 6.28) << endl;
+
+
+	cout << zbrent(0., 6.2) << endl;
 	return 0;
 }
