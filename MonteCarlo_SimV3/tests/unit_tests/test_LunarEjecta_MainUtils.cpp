@@ -6,98 +6,180 @@
  * Vector operations were check via numpy equivalents
  */
 
-
-#include "LunarEjecta_MainUtils.cpp"
+#include <string>
+#include <limits>
+#include <vector>
+#include "../../main_code/LunarEjecta_MainUtils.cpp"
 
 
 using namespace std;
 
+typedef std::numeric_limits< double > dbl;
+
+
+struct test_container
+{
+	// Files
+	string floatingpoint_in;
+	string integer_in;
+	string floatingpoint_er;
+	string integer_er;
+	
+	// Create test vectors
+	vector<double> fp_vec;
+	vector<int> int_vec;
+
+	// Parse the expected results
+	double expected_vMax;
+	double expected_vMin;
+	double expected_vSum;
+};
+
+
+
 int main()
 {
+	std::cout.precision(dbl::max_digits10);
 
 	// Informational Message
-	std::string intro_msg = "Testing LunarEjecta_MainUtils...";
-	std::cout << intro_msg << std::endl;
+	string intro_msg = "Testing LunarEjecta_MainUtils...";
+	cout << intro_msg << endl;
+	
 
-	
-	// Create a test vector
-	std::vector<double> vec1 = {0.86444889, 6.95552811, 6.29415396, 2.6682875 , 8.56611571,
-       							5.95176902, 5.59234136, 2.31523005, 3.28053135, 0.60200107};
-	
 	// Setup a tolerance for aritmitic operations
 	double tolerance = 1e-10;
 
 
-	// Test vMax
-	/*
-	double vMax(vector<double>& v){
-		double max = v[0];
-		for (int i = 1; i < v.size(); ++i)
-			if (v[i] > max)
-				max = v[i];
+	// Include the test data directory and files
+	// ---------------------------------------------------------
+	
+	// Define the data directory
+	string test_data_dir = "../test_data";
+	string test_er_dir = "../test_expected_results";
 
-		return max;
-	}
-	*/
-	double Expected = 8.56611571;
-	double vec1_max = vMax(vec1);
-	double diff = Expected - vec1_max;
-	if (diff<=tolerance)
+	// Name the data files
+	string integer_in_1 = (test_data_dir + "/random_integer_values_1.txt");
+	string integer_in_2 = (test_data_dir + "/random_integer_values_2.txt");
+	string integer_in_3 = (test_data_dir + "/random_integer_values_3.txt");
+	string integer_in_4 = (test_data_dir + "/random_integer_values_4.txt");
+	string floatingpoint_in_1 = (test_data_dir + "/random_floating_point_values_1.txt");
+	string floatingpoint_in_2 = (test_data_dir + "/random_floating_point_values_2.txt");
+	string floatingpoint_in_3 = (test_data_dir + "/random_floating_point_values_3.txt");
+	string floatingpoint_in_4 = (test_data_dir + "/random_floating_point_values_4.txt");
+
+	// Name the expected results files
+	string integer_er_1 = (test_er_dir + "/random_integer_expectedresults_1.txt");
+	string integer_er_2 = (test_er_dir + "/random_integer_expectedresults_2.txt");
+	string integer_er_3 = (test_er_dir + "/random_integer_expectedresults_3.txt");
+	string integer_er_4 = (test_er_dir + "/random_integer_expectedresults_4.txt");
+	string floatingpoint_er_1 = (test_er_dir + "/random_floating_point_expectedresults_1.txt");
+	string floatingpoint_er_2 = (test_er_dir + "/random_floating_point_expectedresults_2.txt");
+	string floatingpoint_er_3 = (test_er_dir + "/random_floating_point_expectedresults_3.txt");
+	string floatingpoint_er_4 = (test_er_dir + "/random_floating_point_expectedresults_4.txt");
+
+	vector<string> test_files, expected_results_files;
+
+	test_files.push_back (floatingpoint_in_1);
+	test_files.push_back (floatingpoint_in_2);
+	test_files.push_back (floatingpoint_in_3);
+	test_files.push_back (floatingpoint_in_4);
+
+	expected_results_files.push_back (floatingpoint_er_1);
+	expected_results_files.push_back (floatingpoint_er_2);
+	expected_results_files.push_back (floatingpoint_er_3);
+	expected_results_files.push_back (floatingpoint_er_4);
+	// ---------------------------------------------------------
+	
+
+	// Create test result vectors
+	//vector<test_container> test_results;
+	
+
+	// Read in the test data and the expected values
+	// ---------------------------------------------------------
+	for (unsigned int i=0; i<test_files.size(); ++i)
 	{
-		std::cout << "vMax\t\tPASSED" << std::endl;
-	}
-	else
-	{
-		std::cout << "vMax\t\tFAILED\tDifference = " << diff << std::endl;
-	}
 
+		test_container test_bundle;
 
-	// Test vMin
-	/*
-	double vMin(vector<double>& v){
-		double min = v[0];
-		for (int i = 1; i < v.size(); ++i)
-			if (v[i] < min)
-				min = v[i];
+		ifstream testf_in, testf_er;
+		testf_in.open(test_files[i]);
+		testf_er.open(expected_results_files[i]);
 
-		return min;
-	}
-	*/
-	Expected = 0.60200107;
-	double vec1_min = vMin(vec1);
-	diff = Expected - vec1_min;
-	if (diff<=tolerance)
-	{
-		std::cout << "vMin\t\tPASSED" << std::endl;
-	}
-	else
-	{
-		std::cout << "vMin\t\tFAILED\tDifference = " << diff << std::endl;
-	}
+		
+		string temp;
+		while (getline(testf_in, temp))
+		{
+			istringstream line(temp);
+			double val;
 
-
-	// Test vSum
-	/*
-	double vSum(vector<double>& v)
-	{
-		double sum = 0.;
-		for (int i = 0; i < v.size(); ++i){
-			sum += v[i];
+			line >> val;
+			test_bundle.fp_vec.push_back (val);
 		}
-		return sum;
+		while (getline(testf_er, temp))
+		{
+			istringstream line(temp);
+			string descriptor;
+			double val;
+			
+			line >> descriptor >> val;
+
+			if (descriptor.compare("vMax") == 0)
+			{
+				test_bundle.expected_vMax = val;
+			}
+			else if (descriptor.compare("vMin") == 0)
+			{
+				test_bundle.expected_vMin = val;
+			}
+			else if (descriptor.compare("vSum") == 0)
+			{
+				test_bundle.expected_vSum = val;
+			}
+		}
+		testf_in.close();
+		testf_er.close();
+		// ---------------------------------------------------------
+
+		cout << "\n\tTEST " << i+1 << "\n" << endl;
+
+		// Test vMax
+		double diff = vMax(test_bundle.fp_vec) - test_bundle.expected_vMax;
+		if (diff<=tolerance)
+		{
+			cout << "vMax\t\tPASSED" << endl;
+		}
+		else
+		{
+			cout << "vMax\t\tFAILED\tDifference = " << diff << endl;
+		}
+
+
+		// Test vMin
+		diff = vMin(test_bundle.fp_vec) - test_bundle.expected_vMin;
+		if (diff<=tolerance)
+		{
+			cout << "vMin\t\tPASSED" << endl;
+		}
+		else
+		{
+			cout << "vMin\t\tFAILED\tDifference = " << diff << endl;
+		}
+
+
+		// Test vSum
+		diff = vSum(test_bundle.fp_vec) - test_bundle.expected_vSum;
+		if (diff<=tolerance)
+		{
+			cout << "vSum\t\tPASSED" << endl;
+		}
+		else
+		{
+			cout << "vSum\t\tFAILED\tDifference = " << diff << endl;
+		}
 	}
-	*/
-	Expected = 43.09040703753601;
-	double vec1_sum = vSum(vec1);
-	diff = Expected - vec1_sum;
-	if (diff<=tolerance)
-	{
-		std::cout << "vSum\t\tPASSED" << std::endl;
-	}
-	else
-	{
-		std::cout << "vSum\t\tFAILED\tDifference = " << diff << std::endl;
-	}
+	
+	
 
 	// Test linspace
 	/*
