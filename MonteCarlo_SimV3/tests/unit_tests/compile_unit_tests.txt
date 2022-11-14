@@ -1,0 +1,1 @@
+g++ -g test_LunarEjecta_MainUtils.cpp -o test_LunarEjecta_MainUtils.exe
