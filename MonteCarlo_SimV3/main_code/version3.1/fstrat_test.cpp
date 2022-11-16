@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	//  v(number of values, the value)
-	vector<double> v(1., 0.);
+	vector<double> v(1, 0.);
 
 	functionStrategy* myTestFunc  = new myFunc(v);
 	functionStrategy* myTestFunc2 = new myFunc2(v);
