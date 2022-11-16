@@ -1,19 +1,24 @@
 #include "functionStrategy.h"
 
+#include <cmath>
+
 using namespace std;
 
-
-double testFunc::execute(double input){
-	return params->a * input*input + params->b;
+functionStrategy::functionStrategy(vector<double>& functionParams){
+	initParams(functionParams);
 }
 
-testFunc::testFunc(dataSet* testData){
-	//cout << "init in testFunc" << endl;
-	params = testData;
+void functionStrategy::initParams(vector<double>& functionParams){
+	params = functionParams;
 }
 
 
-myData::myData(double ai, double bi){
-	a = ai;
-	b = bi;
+double myFunc::execute(double x){
+	return sin(x) + params[c0];
 }
+
+double myFunc2::execute(double x){
+	return cos(x) + params[c0];
+}
+
+
