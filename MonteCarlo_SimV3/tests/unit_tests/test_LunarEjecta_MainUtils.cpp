@@ -41,13 +41,14 @@ int main()
 {
 	std::cout.precision(dbl::max_digits10);
 
-	// Informational Message
-	string intro_msg = "Testing LunarEjecta_MainUtils...";
-	cout << intro_msg << endl;
-	
-
 	// Setup a tolerance for aritmitic operations
 	double tolerance = 1e-10;
+
+
+	// Informational Message
+	string intro_msg = "\nTesting LunarEjecta_MainUtils...";
+	cout << intro_msg << "\n\ntest tolerance = " << tolerance << endl;
+	
 
 
 	// Include the test data directory and files
@@ -145,7 +146,7 @@ int main()
 
 		// Test vMax
 		double diff = vMax(test_bundle.fp_vec) - test_bundle.expected_vMax;
-		if (diff<=tolerance)
+		if (abs(diff)<=tolerance)
 		{
 			cout << "vMax\t\tPASSED" << endl;
 		}
@@ -157,7 +158,7 @@ int main()
 
 		// Test vMin
 		diff = vMin(test_bundle.fp_vec) - test_bundle.expected_vMin;
-		if (diff<=tolerance)
+		if (abs(diff)<=tolerance)
 		{
 			cout << "vMin\t\tPASSED" << endl;
 		}
@@ -169,7 +170,7 @@ int main()
 
 		// Test vSum
 		diff = vSum(test_bundle.fp_vec) - test_bundle.expected_vSum;
-		if (diff<=tolerance)
+		if (abs(diff)<=tolerance)
 		{
 			cout << "vSum\t\tPASSED" << endl;
 		}
@@ -182,34 +183,72 @@ int main()
 	
 
 	// Test linspace
-	/*
-	void linspace(vector<double>& v, double vmin, double vmax, int Nv)
+	vector<double> v;
+	linspace(v, 0.2, 20.0, 50);
+
+	vector<double> v_expected = {0.2,  0.60408163,  1.00816327,  1.4122449 ,  1.81632653,
+        2.22040816,  2.6244898 ,  3.02857143,  3.43265306,  3.83673469,
+        4.24081633,  4.64489796,  5.04897959,  5.45306122,  5.85714286,
+        6.26122449,  6.66530612,  7.06938776,  7.47346939,  7.87755102,
+        8.28163265,  8.68571429,  9.08979592,  9.49387755,  9.89795918,
+       10.30204082, 10.70612245, 11.11020408, 11.51428571, 11.91836735,
+       12.32244898, 12.72653061, 13.13061224, 13.53469388, 13.93877551,
+       14.34285714, 14.74693878, 15.15102041, 15.55510204, 15.95918367,
+       16.36326531, 16.76734694, 17.17142857, 17.5755102 , 17.97959184,
+       18.38367347, 18.7877551 , 19.19183673, 19.59591837, 20.};
+
+	//for (const auto i_v : v) cout << i_v << " "; cout << endl;
+	double max_diff = 0;
+	unsigned int fail_count = 0;
+	for (unsigned int i=0; i < v.size(); ++i)
 	{
-		v.clear();
-		v.resize(Nv);
-		//cout << endl <<  vmin << ' ' << vmax << endl;
-		for (int i = 0; i < Nv; ++i){
-			v[i] = vmin + (vmax - vmin) * i / double(Nv-1.);
-			//cout << v[i] << endl;
-		}
+		double diff = abs(v[i] - v_expected[i]);
+		if (diff>max_diff) max_diff = diff;
+		if (diff>tolerance) ++fail_count;
 	}
-	*/
+	if (max_diff<=tolerance)
+	{
+		cout << "\n\nlinspace\t\tPASSED" << endl;
+	}
+	else
+	{
+		cout << "\n\nlinspace\t\tFAILED\t"<< fail_count << "/" << v.size() << " failed elements\tMax Abs Difference = " << max_diff << endl;
+	}
 
 
 	// Test logspace
-	/*
-	void logspace(vector<double>& v, double pmin, double pmax, int Nv)
+	vector<double> v1;
+	logspace(v1, 0.1, 5.1, 50);
+	v_expected = {1.25892541e+00, 1.59235837e+00, 2.01410280e+00, 2.54754843e+00,
+       3.22227992e+00, 4.07571757e+00, 5.15519263e+00, 6.52057229e+00,
+       8.24757988e+00, 1.04319944e+01, 1.31949626e+01, 1.66897173e+01,
+       2.11100760e+01, 2.67011897e+01, 3.37731391e+01, 4.27181312e+01,
+       5.40322511e+01, 6.83429746e+01, 8.64439680e+01, 1.09339104e+02,
+       1.38298136e+02, 1.74927119e+02, 2.21257479e+02, 2.79858676e+02,
+       3.53980707e+02, 4.47734343e+02, 5.66319120e+02, 7.16311693e+02,
+       9.06030582e+02, 1.14599751e+03, 1.44952093e+03, 1.83343411e+03,
+       2.31902869e+03, 2.93323554e+03, 3.71011828e+03, 4.69276246e+03,
+       5.93566508e+03, 7.50775694e+03, 9.49622553e+03, 1.20113504e+04,
+       1.51926192e+04, 1.92164637e+04, 2.43060443e+04, 3.07436270e+04,
+       3.88862370e+04, 4.91854597e+04, 6.22124853e+04, 7.86897866e+04,
+       9.95311870e+04, 1.25892541e+05};
+	
+	max_diff = 0;
+	fail_count = 0;
+	for (unsigned int i=0; i < v1.size(); ++i)
 	{
-		v.clear();
-		v.resize(Nv);
-		//cout << endl <<  pmin << ' ' << pmax << endl;
-		for (int i = 0; i < Nv; ++i){
-			v[i] = pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) ;
-			//cout << v[i] << endl;
-		}
+		double diff = abs(v1[i] - v_expected[i]);
+		if (diff>max_diff) max_diff = diff;
+		if (diff>tolerance) ++fail_count;
 	}
-	*/
-
+	if (max_diff<=tolerance)
+	{
+		cout << "\n\nlogspace\t\tPASSED" << endl;
+	}
+	else
+	{
+		cout << "\n\nlogspace\t\tFAILED\t"<< fail_count << "/" << v.size() << " failed elements\tMax Abs Difference = " << max_diff << endl;
+	}
 
 	// Test rlogspace
 	/*
