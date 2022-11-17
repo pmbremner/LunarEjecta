@@ -1,5 +1,6 @@
 #include "functionStrategy.h"
 #include "rootSolverStrategy.h"
+#include "solverContext.h"
 #include <iostream>
 
 using namespace std;
@@ -27,5 +28,11 @@ int main(int argc, char const *argv[])
 
 	cout << mySolver->solve(0.5, 0., 6.28) << endl;
 
+
+	vector<double> v2(15, 0.);
+	solverContext* mySolverTest = new MvsV_Context(v2);
+
+
+	delete mySolverTest;
 	return 0;
 }

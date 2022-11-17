@@ -13,6 +13,7 @@ rootSolverStrategy::rootSolverStrategy(functionStrategy* specificFunction){
 }
 
 void rootSolverStrategy::initFunction(functionStrategy* specificFunction){
+	cout << "rootSolverStrategy::initFunction\n";
 	function = specificFunction;
 }
 
@@ -105,3 +106,5 @@ double zbrent::solve(double x_lhs, double xmin, double xmax){
 	cout << "Max iterations reached!\n";
 	return b;
 }
+
+

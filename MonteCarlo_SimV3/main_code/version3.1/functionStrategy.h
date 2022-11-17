@@ -13,6 +13,7 @@ public:
 	virtual ~functionStrategy() = default;
 	
 	void initParams(vector<double>& functionParams, int Nparams_i);
+	int getNparams();
 	virtual double execute(double x) = 0;
 
 protected:
@@ -46,11 +47,12 @@ public:
 class VvsX : public functionStrategy
 {
 public:
-	VvsX(vector<double>& functionParams) : functionStrategy(functionParams, 11) {}
+	static const int paramSize = 11;
 
-	double execute(double v_over_U);
+	VvsX(vector<double>& functionParams) : functionStrategy(functionParams, paramSize) {}
 
-	//enum vars{C1, k, p, n1, n2, mu, nu, rho, a, m, Unorm, delta, R};
+	double execute(double x);
+
 	enum vars{C1, p, n1, n2, mu, nu, rho, a, Unorm, delta, R};
 
 };
@@ -58,12 +60,12 @@ public:
 class MvsX : public functionStrategy
 {
 public:
-	MvsX(vector<double>& functionParams) : functionStrategy(functionParams, 8) {}
+	static const int paramSize = 8; 
 
-	double execute(double v_over_U);
+	MvsX(vector<double>& functionParams) : functionStrategy(functionParams, paramSize) {}
 
+	double execute(double x);
 
-	//enum vars{C1, k, p, n1, n2, mu, nu, rho, a, m, Unorm, delta, R};
 	enum vars{k, n1, n2, rho, a, m, delta, R};
 
 };
