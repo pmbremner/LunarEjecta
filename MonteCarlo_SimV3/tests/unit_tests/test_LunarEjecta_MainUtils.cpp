@@ -67,6 +67,9 @@ int main()
 	string floatingpoint_in_2 = (test_data_dir + "/random_floating_point_values_2.txt");
 	string floatingpoint_in_3 = (test_data_dir + "/random_floating_point_values_3.txt");
 	string floatingpoint_in_4 = (test_data_dir + "/random_floating_point_values_4.txt");
+	string cdf1 = (test_data_dir + "/cdf_1.txt");
+	string cdf2 = (test_data_dir + "/cdf_2.txt");
+	string cdf3 = (test_data_dir + "/cdf_3.txt");
 
 	// Name the expected results files
 	string integer_er_1 = (test_er_dir + "/random_integer_expectedresults_1.txt");
@@ -217,8 +220,8 @@ int main()
 
 
 	// Test logspace
-	vector<double> v1;
-	logspace(v1, 0.1, 5.1, 50);
+	v.clear(), v_expected.clear();
+	logspace(v, 0.1, 5.1, 50);
 	v_expected = {1.25892541e+00, 1.59235837e+00, 2.01410280e+00, 2.54754843e+00,
        3.22227992e+00, 4.07571757e+00, 5.15519263e+00, 6.52057229e+00,
        8.24757988e+00, 1.04319944e+01, 1.31949626e+01, 1.66897173e+01,
@@ -235,9 +238,9 @@ int main()
 	
 	max_diff = 0;
 	fail_count = 0;
-	for (unsigned int i=0; i < v1.size(); ++i)
+	for (unsigned int i=0; i < v.size(); ++i)
 	{
-		double diff = abs(v1[i] - v_expected[i]);
+		double diff = abs(v[i] - v_expected[i]);
 		if (diff>max_diff) max_diff = diff;
 		if (diff>tolerance) ++fail_count;
 	}
@@ -251,16 +254,38 @@ int main()
 	}
 
 	// Test rlogspace
-	/*
-	void rlogspace(vector<double>& v, double pmin, double pmax, int Nv)
+	v.clear(), v_expected.clear();
+	rlogspace(v, 0.1, 5.1, 50);
+	v_expected = {1.25892541e+05, 9.95311870e+04, 7.86897866e+04, 6.22124853e+04,
+       4.91854597e+04, 3.88862370e+04, 3.07436270e+04, 2.43060443e+04,
+       1.92164637e+04, 1.51926192e+04, 1.20113504e+04, 9.49622553e+03,
+       7.50775694e+03, 5.93566508e+03, 4.69276246e+03, 3.71011828e+03,
+       2.93323554e+03, 2.31902869e+03, 1.83343411e+03, 1.44952093e+03,
+       1.14599751e+03, 9.06030582e+02, 7.16311693e+02, 5.66319120e+02,
+       4.47734343e+02, 3.53980707e+02, 2.79858676e+02, 2.21257479e+02,
+       1.74927119e+02, 1.38298136e+02, 1.09339104e+02, 8.64439680e+01,
+       6.83429746e+01, 5.40322511e+01, 4.27181312e+01, 3.37731391e+01,
+       2.67011897e+01, 2.11100760e+01, 1.66897173e+01, 1.31949626e+01,
+       1.04319944e+01, 8.24757988e+00, 6.52057229e+00, 5.15519263e+00,
+       4.07571757e+00, 3.22227992e+00, 2.54754843e+00, 2.01410280e+00,
+       1.59235837e+00, 1.25892541e+00};
+	
+	max_diff = 0;
+	fail_count = 0;
+	for (unsigned int i=0; i < v.size(); ++i)
 	{
-		v.clear();
-		v.resize(Nv);
-		for (int i = Nv-1; i >= 0; i--){
-			v[i] =  pow(10., pmin + (pmax - pmin) * i / double(Nv-1.)) ;
-		}
+		double diff = abs(v[i] - v_expected[i]);
+		if (diff>max_diff) max_diff = diff;
+		if (diff>tolerance) ++fail_count;
 	}
-	*/
+	if (max_diff<=tolerance)
+	{
+		cout << "\n\nrlogspace\t\tPASSED" << endl;
+	}
+	else
+	{
+		cout << "\n\nrlogspace\t\tFAILED\t"<< fail_count << "/" << v.size() << " failed elements\tMax Abs Difference = " << max_diff << endl;
+	}
 
 
 	// Test RHS_func
@@ -311,6 +336,28 @@ int main()
 	}
 	*/
 
+	
+	// Read in the cdf test data
+	// ---------------------------------------------------------
+	ifstream cdf_in;
+	cdf_in.open(cdf1);
+
+	vector<int> idx;
+	v.clear();
+	
+	string temp;
+	while (getline(cdf_in, temp))
+	{
+		istringstream line(temp);
+		int idx_val;
+		double val;
+
+		line >> idx_val >> val;
+		idx.emplace_back (idx_val);
+		v.emplace_back (val);
+	}
+	cdf_in.close();
+	// ---------------------------------------------------------
 
 	// Test sample_pdf_idx
 	/*
@@ -328,10 +375,13 @@ int main()
 		// This guarantees that *(idx_iter-1) <= u <= *(idx_iter) for all values of u in [0,1]
 		return (u == 0. ? upper_bound(cdf.begin(), cdf.end(), u) : lower_bound(cdf.begin(), cdf.end(), u)) - cdf.begin();
 	}
+	*/
+	//int u = sample_pdf_idx(0.5,v);
 	
 	// And Overloaded function
 
 	// copy of above, but with returning u as well
+	/*
 	int sample_pdf_idx(mt19937& rng, vector<double>& cdf, double& u)
 	{
 		// pull sample from uniform distribution
