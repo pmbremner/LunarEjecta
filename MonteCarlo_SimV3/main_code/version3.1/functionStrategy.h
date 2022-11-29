@@ -9,6 +9,8 @@ using namespace std;
 class functionStrategy
 {
 public:
+	static const int paramSize = 0;
+
 	functionStrategy(vector<double>& functionParams, int Nparams_i);
 	virtual ~functionStrategy() = default;
 	
@@ -25,7 +27,9 @@ protected:
 class myFunc : public functionStrategy
 {
 public:
-	myFunc(vector<double>& functionParams) : functionStrategy(functionParams, 1) {}
+	static const int paramSize = 1;
+
+	myFunc(vector<double>& functionParams) : functionStrategy(functionParams, paramSize) {}
 
 	double execute(double x);
 	
@@ -36,7 +40,9 @@ public:
 class myFunc2 : public functionStrategy
 {
 public:
-	myFunc2(vector<double>& functionParams) : functionStrategy(functionParams, 1) {}
+	static const int paramSize = 1;
+	
+	myFunc2(vector<double>& functionParams) : functionStrategy(functionParams, paramSize) {}
 
 	double execute(double x);
 	
